@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "SPI_Asyn_Driver", "..\SPI_Drivers\SPI_Asyn_Driver\SPI_Asyn_Driver.cproj", "{9F583316-195D-443F-AE2C-E830D6BFD847}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPI_Asyn_Class", "..\SPI_Asyn_Class\SPI_Asyn_Class.cppproj", "{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F583316-195D-443F-AE2C-E830D6BFD847} = {9F583316-195D-443F-AE2C-E830D6BFD847}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Bootable|ARM = Bootable|ARM
+		Build_Number|ARM = Build_Number|ARM
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+		Staticlibrary|ARM = Staticlibrary|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Bootable|ARM.ActiveCfg = Debug|ARM
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Bootable|ARM.Build.0 = Debug|ARM
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Build_Number|ARM.ActiveCfg = Debug|ARM
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Build_Number|ARM.Build.0 = Debug|ARM
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Debug|ARM.ActiveCfg = Debug|ARM
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Debug|ARM.Build.0 = Debug|ARM
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Release|ARM.ActiveCfg = Release|ARM
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Release|ARM.Build.0 = Release|ARM
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
+		{9F583316-195D-443F-AE2C-E830D6BFD847}.Staticlibrary|ARM.Build.0 = Debug|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Bootable|ARM.ActiveCfg = Debug|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Bootable|ARM.Build.0 = Debug|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Build_Number|ARM.ActiveCfg = Debug|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Build_Number|ARM.Build.0 = Debug|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Debug|ARM.ActiveCfg = Debug|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Debug|ARM.Build.0 = Debug|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Release|ARM.ActiveCfg = Release|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Release|ARM.Build.0 = Release|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
+		{1D63DDDE-A9B5-43EF-9146-A8490AE6CE84}.Staticlibrary|ARM.Build.0 = Debug|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SavePersitenteFile", "SavePersitenteFile\SavePersitenteFile.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D72C96C-8766-4938-AD65-DB80AA06146A} = {0D72C96C-8766-4938-AD65-DB80AA06146A}
+	EndProjectSection
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "FlashMemory", "S:\FlashMemory\FlashMemory.cproj", "{0D72C96C-8766-4938-AD65-DB80AA06146A}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SaveParameterFlash", "SaveParameterFlash\SaveParameterFlash.cppproj", "{266E8C4D-A015-495A-A8C1-A55C21F8A3E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{0D72C96C-8766-4938-AD65-DB80AA06146A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{0D72C96C-8766-4938-AD65-DB80AA06146A}.Debug|ARM.Build.0 = Debug|ARM
+		{0D72C96C-8766-4938-AD65-DB80AA06146A}.Release|ARM.ActiveCfg = Release|ARM
+		{0D72C96C-8766-4938-AD65-DB80AA06146A}.Release|ARM.Build.0 = Release|ARM
+		{266E8C4D-A015-495A-A8C1-A55C21F8A3E6}.Debug|ARM.ActiveCfg = Debug|ARM
+		{266E8C4D-A015-495A-A8C1-A55C21F8A3E6}.Debug|ARM.Build.0 = Debug|ARM
+		{266E8C4D-A015-495A-A8C1-A55C21F8A3E6}.Release|ARM.ActiveCfg = Release|ARM
+		{266E8C4D-A015-495A-A8C1-A55C21F8A3E6}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

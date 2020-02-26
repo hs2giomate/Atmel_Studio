@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "LedStatus", "LedStatus\LedStatus.cproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "LedStatusSave", "LedStatusSave\LedStatusSave.cppproj", "{FB081890-4C9F-4F64-89B9-3564A5BDB95C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D72C96C-8766-4938-AD65-DB80AA06146A} = {0D72C96C-8766-4938-AD65-DB80AA06146A}
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897} = {DCE6C7E3-EE26-4D79-826B-08594B9AD897}
+	EndProjectSection
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "FlashMemory", "..\FlashMemory\FlashMemory.cproj", "{0D72C96C-8766-4938-AD65-DB80AA06146A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{FB081890-4C9F-4F64-89B9-3564A5BDB95C}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FB081890-4C9F-4F64-89B9-3564A5BDB95C}.Debug|ARM.Build.0 = Debug|ARM
+		{FB081890-4C9F-4F64-89B9-3564A5BDB95C}.Release|ARM.ActiveCfg = Release|ARM
+		{FB081890-4C9F-4F64-89B9-3564A5BDB95C}.Release|ARM.Build.0 = Release|ARM
+		{0D72C96C-8766-4938-AD65-DB80AA06146A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{0D72C96C-8766-4938-AD65-DB80AA06146A}.Debug|ARM.Build.0 = Debug|ARM
+		{0D72C96C-8766-4938-AD65-DB80AA06146A}.Release|ARM.ActiveCfg = Release|ARM
+		{0D72C96C-8766-4938-AD65-DB80AA06146A}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

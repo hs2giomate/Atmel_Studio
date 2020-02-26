@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "DoorActuator1", "..\..\..\Bitbucket\ars_2400024_all\scr\DoorActuator1.cppproj", "{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "FlashMemoryClass", "FlashMemoryClass.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPI_Asyn_Class", "..\SPI\SPI_Asyn_Class\SPI_Asyn_Class.cppproj", "{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Bootable|ARM = Bootable|ARM
+		Build_Number|ARM = Build_Number|ARM
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+		Staticlibrary|ARM = Staticlibrary|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Bootable|ARM.ActiveCfg = Bootable|ARM
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Bootable|ARM.Build.0 = Bootable|ARM
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Build_Number|ARM.ActiveCfg = Build_Number|ARM
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Build_Number|ARM.Build.0 = Build_Number|ARM
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Debug|ARM.ActiveCfg = Debug|ARM
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Debug|ARM.Build.0 = Debug|ARM
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Release|ARM.ActiveCfg = Release|ARM
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Release|ARM.Build.0 = Release|ARM
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Staticlibrary|ARM.ActiveCfg = Staticlibrary|ARM
+		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Staticlibrary|ARM.Build.0 = Staticlibrary|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Bootable|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Bootable|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Build_Number|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Build_Number|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.Build.0 = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Bootable|ARM.ActiveCfg = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Bootable|ARM.Build.0 = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Build_Number|ARM.ActiveCfg = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Build_Number|ARM.Build.0 = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Debug|ARM.ActiveCfg = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Debug|ARM.Build.0 = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Release|ARM.ActiveCfg = Release|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Release|ARM.Build.0 = Release|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Staticlibrary|ARM.Build.0 = Debug|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

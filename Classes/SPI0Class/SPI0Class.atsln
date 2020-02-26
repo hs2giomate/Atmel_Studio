@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPI0Class", "SPI0Class\SPI0Class.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Serial_Flash_Example", "Serial_Flash_Example\Serial_Flash_Example.cproj", "{FB9D9912-EE6C-4B77-B4E0-62EAFC62BE00}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "SPI_Driver", "..\DynamicParameter\SPI_Driver\SPI_Driver.cproj", "{DD32795C-554C-4257-9909-A0AF7D996088}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+		Staticlibrary|ARM = Staticlibrary|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.ActiveCfg = Staticlibrary|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.Build.0 = Staticlibrary|ARM
+		{FB9D9912-EE6C-4B77-B4E0-62EAFC62BE00}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FB9D9912-EE6C-4B77-B4E0-62EAFC62BE00}.Debug|ARM.Build.0 = Debug|ARM
+		{FB9D9912-EE6C-4B77-B4E0-62EAFC62BE00}.Release|ARM.ActiveCfg = Release|ARM
+		{FB9D9912-EE6C-4B77-B4E0-62EAFC62BE00}.Release|ARM.Build.0 = Release|ARM
+		{FB9D9912-EE6C-4B77-B4E0-62EAFC62BE00}.Staticlibrary|ARM.ActiveCfg = Release|ARM
+		{FB9D9912-EE6C-4B77-B4E0-62EAFC62BE00}.Staticlibrary|ARM.Build.0 = Release|ARM
+		{DD32795C-554C-4257-9909-A0AF7D996088}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DD32795C-554C-4257-9909-A0AF7D996088}.Debug|ARM.Build.0 = Debug|ARM
+		{DD32795C-554C-4257-9909-A0AF7D996088}.Release|ARM.ActiveCfg = Release|ARM
+		{DD32795C-554C-4257-9909-A0AF7D996088}.Release|ARM.Build.0 = Release|ARM
+		{DD32795C-554C-4257-9909-A0AF7D996088}.Staticlibrary|ARM.ActiveCfg = Staticlibrary|ARM
+		{DD32795C-554C-4257-9909-A0AF7D996088}.Staticlibrary|ARM.Build.0 = Staticlibrary|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
