@@ -74,9 +74,9 @@ Device_Startup/system_same54.d \
 main.d \
 USB_CDC_Class.d
 
-OUTPUT_FILE_PATH +=USB_CDC_Class.elf
+OUTPUT_FILE_PATH +=libUSB_CDC_Class.a
 
-OUTPUT_FILE_PATH_AS_ARGS +=USB_CDC_Class.elf
+OUTPUT_FILE_PATH_AS_ARGS +=libUSB_CDC_Class.a
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -142,20 +142,14 @@ endif
 # All Target
 all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
-	@echo Building target: $@
-	@echo Invoking: ARM/GNU Linker : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="USB_CDC_Class.map" -Wl,--start-group -lm -lMainDriver  -Wl,--end-group -L"..\\Device_Startup" -L"S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\Debug"  -Wl,--gc-sections -mcpu=cortex-m4 -Tsame54p20a_flash.ld  
-	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "USB_CDC_Class.elf" "USB_CDC_Class.bin"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "USB_CDC_Class.elf" "USB_CDC_Class.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O binary "USB_CDC_Class.elf" "USB_CDC_Class.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objdump.exe" -h -S "USB_CDC_Class.elf" > "USB_CDC_Class.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "USB_CDC_Class.elf" "USB_CDC_Class.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-size.exe" "USB_CDC_Class.elf"
-	
-	
 
+$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
+	@echo Building target: $@
+	@echo Invoking: ARM/GNU Archiver : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
+	@echo Finished building target: $@
+	
+	
 
 
 
@@ -164,5 +158,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "USB_CDC_Class.elf" "USB_CDC_Class.a" "USB_CDC_Class.hex" "USB_CDC_Class.bin" "USB_CDC_Class.lss" "USB_CDC_Class.eep" "USB_CDC_Class.map" "USB_CDC_Class.srec"
+	rm -rf "libUSB_CDC_Class.elf" "libUSB_CDC_Class.a" "libUSB_CDC_Class.hex" "libUSB_CDC_Class.bin" "libUSB_CDC_Class.lss" "libUSB_CDC_Class.eep" "libUSB_CDC_Class.map" "libUSB_CDC_Class.srec"
 	

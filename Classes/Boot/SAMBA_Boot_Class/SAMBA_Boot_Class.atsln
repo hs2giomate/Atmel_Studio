@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SAMBA_Boot_Class", "SAMBA_Boot_Class\SAMBA_Boot_Class.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Boot_01433_0", "..\..\..\..\Bitbucket\Bootloader\hs2_01433_0\src\Boot_01433_0.cproj", "{D96F5000-6137-4C30-8898-E8F2C6229CA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Build_Number|ARM = Build_Number|ARM
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+		StaticLibrary|ARM = StaticLibrary|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Build_Number|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Build_Number|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.StaticLibrary|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.StaticLibrary|ARM.Build.0 = Debug|ARM
+		{D96F5000-6137-4C30-8898-E8F2C6229CA2}.Build_Number|ARM.ActiveCfg = Build_Number|ARM
+		{D96F5000-6137-4C30-8898-E8F2C6229CA2}.Build_Number|ARM.Build.0 = Build_Number|ARM
+		{D96F5000-6137-4C30-8898-E8F2C6229CA2}.Debug|ARM.ActiveCfg = Debug|ARM
+		{D96F5000-6137-4C30-8898-E8F2C6229CA2}.Debug|ARM.Build.0 = Debug|ARM
+		{D96F5000-6137-4C30-8898-E8F2C6229CA2}.Release|ARM.ActiveCfg = Release|ARM
+		{D96F5000-6137-4C30-8898-E8F2C6229CA2}.Release|ARM.Build.0 = Release|ARM
+		{D96F5000-6137-4C30-8898-E8F2C6229CA2}.StaticLibrary|ARM.ActiveCfg = StaticLibrary|ARM
+		{D96F5000-6137-4C30-8898-E8F2C6229CA2}.StaticLibrary|ARM.Build.0 = StaticLibrary|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

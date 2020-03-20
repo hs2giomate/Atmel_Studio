@@ -2,16 +2,16 @@ format_version: '2'
 name: My Project
 versions:
   api: '1.0'
-  backend: 1.7.298
+  backend: 1.7.301
   commit: 1e07622763d149970fd8808a8f12ff3b1e84e0d7
   content: unknown
   content_pack_name: unknown
   format: '2'
-  frontend: 1.7.298
+  frontend: 1.7.301
   packs_version_avr8: 1.0.1408
   packs_version_qtouch: unknown
   packs_version_sam: 1.0.1373
-  version_backend: 1.7.298
+  version_backend: 1.7.301
   version_frontend: ''
 board:
   identifier: SAME54XplainedPro
@@ -88,6 +88,54 @@ middlewares:
       USB Device Stack Core Instance: USB_DEVICE_STACK_CORE_INSTANCE
       USB Class CDC: USB_CLASS_CDC
 drivers:
+  ADC_0:
+    user_label: ADC_0
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::ADC0::driver_config_definition::ADC::HAL:Driver:ADC.Sync
+    functionality: ADC
+    api: HAL:Driver:ADC_Sync
+    configuration:
+      adc_advanced_settings: true
+      adc_arch_adjres: 0
+      adc_arch_corren: false
+      adc_arch_dbgrun: false
+      adc_arch_event_settings: false
+      adc_arch_flushei: false
+      adc_arch_flushinv: false
+      adc_arch_gaincorr: 0
+      adc_arch_leftadj: false
+      adc_arch_offcomp: false
+      adc_arch_offsetcorr: 0
+      adc_arch_ondemand: false
+      adc_arch_refcomp: true
+      adc_arch_resrdyeo: false
+      adc_arch_runstdby: false
+      adc_arch_samplen: 0
+      adc_arch_samplenum: 1 sample
+      adc_arch_seqen: 0
+      adc_arch_startei: false
+      adc_arch_startinv: false
+      adc_arch_winlt: 0
+      adc_arch_winmode: No window mode
+      adc_arch_winmoneo: false
+      adc_arch_winut: 0
+      adc_differential_mode: false
+      adc_freerunning_mode: false
+      adc_pinmux_negative: Internal ground
+      adc_pinmux_positive: Temperature reference (CTAT)
+      adc_prescaler: Peripheral clock divided by 4
+      adc_reference: Internal bandgap reference
+      adc_resolution: 12-bit
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: ADC
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        configuration:
+          adc_gclk_selection: Generic clock generator 0
   CMCC:
     user_label: CMCC
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::CMCC::driver_config_definition::CMCC::HAL:HPL:CMCC
@@ -1103,4 +1151,11 @@ pads:
     mode: Advanced
     user_label: PA25
     configuration: null
+  SPI0_CS:
+    name: PB28
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB28
+    mode: Digital output
+    user_label: SPI0_CS
+    configuration:
+      pad_initial_level: High
 toolchain_options: []

@@ -79,6 +79,7 @@ int32_t  USB_CDC_Class::write( uint8_t *p, uint32_t n){
 	int32_t w;
 	uint8_t *ptr;
 	ptr=p;
+	while(!isUSBEnabled());
 	w=cdcdf_acm_write(p,n);
 
 	 return w;
@@ -86,7 +87,7 @@ int32_t  USB_CDC_Class::write( uint8_t *p, uint32_t n){
 }
 int32_t  USB_CDC_Class::read(uint8_t * p, uint32_t n){
 	int32_t r;
-
+	while(!isUSBEnabled());
 	r=cdcdf_acm_read(p, n);
 
 	return  r;

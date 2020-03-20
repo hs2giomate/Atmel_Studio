@@ -59,6 +59,7 @@
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_sleep.h" IsConfig="false" Hash="KuZDwgrLdU+fuMG82ZFTqg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_spi_m_async.h" IsConfig="false" Hash="kNWiys4SwzwGn2qCqzFQlA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_usb_device.h" IsConfig="false" Hash="nvejrPlc1H5xowRDNbRXjA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_adc_dma.h" IsConfig="false" Hash="ZNWJ5APLfPqPLqI7LDqlMA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_cmcc.h" IsConfig="false" Hash="mDAHEzTxsniAe2HtqO43oA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_core.h" IsConfig="false" Hash="XeEtUlBSwXUmLA41hFYYWg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_delay.h" IsConfig="false" Hash="3tgjyGPrs0ePCewpMUQPbQ" />
@@ -153,11 +154,14 @@
           <AcmeProjectActionInfo Action="File" Source="usb/usb_protocol.c" IsConfig="false" Hash="506QsMNqKwMw3St/nEXa8Q" />
           <AcmeProjectActionInfo Action="File" Source="usb/usb_protocol.h" IsConfig="false" Hash="IjsDWsLIdSQj3pFlkAX0UA" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="Do4euqpyTsyR5S3gouC0ig" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="QcEKIFMHUwhD3yhOXZthUA" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="luH0R9Pz3dvSBhzC1zfsCg" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="KKHsWLtS9mC7jFXs2fNu2A" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="riZhIxwIfo6e6N7qt8Jx8A" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="2CSGzA655HrE24jesVJ0/A" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="40QvKFCdg8x+6RP5oFciCQ" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="wYZGkNkNdtmngvl2/ABJ1w" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="J6MYSLh3+YhU/FaUuHnCJw" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="VJLdkxACFYEgY0csVXdyUw" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hal_adc_sync.h" IsConfig="false" Hash="ez1X5T9kpYwT+1+5x4Pxqg" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_adc_async.h" IsConfig="false" Hash="kKbVmqgGDUkuWZYErBwgVA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_adc_sync.h" IsConfig="false" Hash="dCWrizZn0RtcCM73jZ/k6A" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_missing_features.h" IsConfig="false" Hash="XsAvpgfutzkw0Y5SydYFaw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_reset.h" IsConfig="false" Hash="WwLFRlBtuZ/qnD1JuDKnRQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_m_async.h" IsConfig="false" Hash="JyMw9jeJO0jGqfT03txHXQ" />
@@ -167,8 +171,11 @@
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_s_sync.h" IsConfig="false" Hash="gEGr6GqKbsOQvxQYz2fotA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_async.h" IsConfig="false" Hash="tBfmk3BN3Q1WbYVoWDbsJw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_sync.h" IsConfig="false" Hash="Yj+PoPxG2CqDOy5XoIWkwg" />
+          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_adc_sync.c" IsConfig="false" Hash="g0MT/8E9mrmMV9tMAyu/aQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_spi_m_async.c" IsConfig="false" Hash="hErEkp5CHigcW3olA6Csrg" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/include/parts.h" IsConfig="false" Hash="THMC0T2wU10PzPgIVGK93g" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/adc/hpl_adc.c" IsConfig="false" Hash="XURzOOXJFtqa20hFKi/Nlw" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/adc/hpl_adc_base.h" IsConfig="false" Hash="19A6ERNtsVVhqvnpGbR3Lg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/cmcc/hpl_cmcc.c" IsConfig="false" Hash="xrdKSj3ppVwQWgZ3zrlaRg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_core_m4.c" IsConfig="false" Hash="SpvW0RJ1Ej3k5aP6f3FHfg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_core_port.h" IsConfig="false" Hash="RXrDMMracCeflR1F9jWiGg" />
@@ -190,6 +197,7 @@
           <AcmeProjectActionInfo Action="File" Source="usb_start.h" IsConfig="false" Hash="tIiPIYvUpZZo7de2aDnOew" />
           <AcmeProjectActionInfo Action="File" Source="atmel_start.h" IsConfig="false" Hash="RMqb5tXF0KJJUa8pwHEMHQ" />
           <AcmeProjectActionInfo Action="File" Source="atmel_start.c" IsConfig="false" Hash="cPHebvG8xgdrV+XTYs6EeA" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_adc_config.h" IsConfig="true" Hash="tt6eyRfJSQZNB2c5NvXL9Q" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_cmcc_config.h" IsConfig="true" Hash="bmtxQ8rLloaRtAo2HeXZRQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_dmac_config.h" IsConfig="true" Hash="mNec32O7w53e4vDmQlvjCA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_gclk_config.h" IsConfig="true" Hash="ucWNqPZ+47slliVNjnC7eA" />
@@ -200,7 +208,7 @@
           <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="BPv1YoL/xxJQ9f7dCVGpMA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_systick_config.h" IsConfig="true" Hash="tlT3lNDKWFe82MiGWfQzcA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_usb_config.h" IsConfig="true" Hash="OTnXMB+/o/b7gPmkxUTUeQ" />
-          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="VsGbtbQxZy4ue8astJo81A" />
+          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="+a3XIDve7KV5kjg2wTFpSQ" />
           <AcmeProjectActionInfo Action="File" Source="config/usbd_config.h" IsConfig="true" Hash="D6drRowd1XvzVArZlLMbvA" />
         </AcmeActionInfos>
         <NonsecureFilesInfo />
@@ -228,6 +236,7 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/adc</Value>
       <Value>../hpl/cmcc</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/dmac</Value>
@@ -268,6 +277,7 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/adc</Value>
       <Value>../hpl/cmcc</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/dmac</Value>
@@ -297,6 +307,7 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/adc</Value>
       <Value>../hpl/cmcc</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/dmac</Value>
@@ -342,6 +353,7 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/adc</Value>
       <Value>../hpl/cmcc</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/dmac</Value>
@@ -383,6 +395,7 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/adc</Value>
       <Value>../hpl/cmcc</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/dmac</Value>
@@ -413,6 +426,7 @@
       <Value>../examples</Value>
       <Value>../hal/include</Value>
       <Value>../hal/utils/include</Value>
+      <Value>../hpl/adc</Value>
       <Value>../hpl/cmcc</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/dmac</Value>
@@ -449,6 +463,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="atmel_start_pins.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\hpl_adc_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Config\hpl_cmcc_config.h">
@@ -502,6 +519,9 @@
     <Compile Include="examples\driver_examples.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\include\hal_adc_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\include\hal_atomic.h">
       <SubType>compile</SubType>
     </Compile>
@@ -527,6 +547,15 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_usb_device.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hpl_adc_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hpl_adc_dma.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hpl_adc_sync.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hpl_cmcc.h">
@@ -622,6 +651,9 @@
     <Compile Include="hal\include\hpl_usb_host.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\src\hal_adc_sync.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\src\hal_atomic.c">
       <SubType>compile</SubType>
     </Compile>
@@ -689,6 +721,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\utils\src\utils_syscalls.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\adc\hpl_adc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\adc\hpl_adc_base.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\cmcc\hpl_cmcc.c">
@@ -915,6 +953,7 @@
     <Folder Include="hal\utils\include\" />
     <Folder Include="hal\utils\src\" />
     <Folder Include="hpl\" />
+    <Folder Include="hpl\adc\" />
     <Folder Include="hpl\cmcc\" />
     <Folder Include="hpl\core\" />
     <Folder Include="hpl\dmac\" />
@@ -946,6 +985,9 @@
       <SubType>compile</SubType>
     </None>
     <None Include="documentation\usb_protocol_core.rst">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="hal\documentation\adc_sync.rst">
       <SubType>compile</SubType>
     </None>
     <None Include="hal\documentation\spi_master_async.rst">

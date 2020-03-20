@@ -12,6 +12,8 @@
 extern "C" {
 #endif
 
+void ADC_0_example(void);
+
 void SPI_0_example(void);
 
 void delay_example(void);

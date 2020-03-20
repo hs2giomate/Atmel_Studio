@@ -175,6 +175,9 @@ main.d main.o: .././main.cpp \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_init.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_io.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_sleep.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_adc_sync.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_adc_sync.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_missing_features.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_spi_m_async.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi_m_async.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi.h \
@@ -207,8 +210,8 @@ main.d main.o: .././main.cpp \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\Config/usbd_config.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc/usb_protocol_cdc.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc\device/cdcdf_acm_desc.h \
- S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/usb_start.h \
- .././USB_CDC_Class.h
+ .././USB_CDC_Class.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/usb_start.h
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/atmel_start.h:
 
@@ -562,6 +565,12 @@ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/h
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_sleep.h:
 
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_adc_sync.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_adc_sync.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_missing_features.h:
+
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_spi_m_async.h:
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi_m_async.h:
@@ -626,6 +635,6 @@ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc\device/cdcdf_acm_desc.h:
 
-S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/usb_start.h:
-
 .././USB_CDC_Class.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/usb_start.h:

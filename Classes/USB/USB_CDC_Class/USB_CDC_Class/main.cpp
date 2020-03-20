@@ -5,10 +5,10 @@
  * Author : GMateusDP
  */ 
 #include <atmel_start.h>
-#include "usb_start.h"
 #include "USB_CDC_Class.h"
 
-static uint8_t p[]="Usb port Test\n\r";
+
+static uint8_t p[]="   Usb port Test\n\r";
 
 int main(void)
 {
@@ -16,11 +16,15 @@ int main(void)
 	USB_CDC_Class	usb0;
 	usb0.init();
 	uint8_t *ptr=p;
+
+
+	
     /* Replace with your application code */
     while (1) 
     {
-		while(!usb0.isUSBEnabled());
+	
+		//usb0.write((uint8_t *)t,10);
 		usb0.write(ptr,sizeof(p));
-		delay_ms(500);
+		delay_ms(1000);
     }
 }

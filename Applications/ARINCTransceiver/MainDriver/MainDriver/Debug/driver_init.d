@@ -140,11 +140,15 @@ driver_init.d driver_init.o: .././driver_init.c .././driver_init.h \
  ../hal/include/hpl_reset.h ../hal/include/hpl_sleep.h \
  ../hal/include/hal_init.h ../hal/include/hpl_init.h \
  ../hal/include/hal_io.h ../hal/include/hal_sleep.h \
- ../hal/include/hal_spi_m_async.h ../hal/include/hpl_spi_m_async.h \
- ../hal/include/hpl_spi.h ../hal/utils/include/utils.h \
- ../hal/include/hpl_spi_async.h ../hal/include/hal_usb_device.h \
- ../hal/include/hpl_usb_device.h ../hal/include/hpl_usb.h \
- ../Config/hpl_usb_config.h ../Config/peripheral_clk_config.h
+ ../hal/include/hal_adc_sync.h ../hal/include/hpl_adc_sync.h \
+ ../hal/include/hpl_missing_features.h ../hal/include/hal_spi_m_async.h \
+ ../hal/include/hpl_spi_m_async.h ../hal/include/hpl_spi.h \
+ ../hal/utils/include/utils.h ../hal/include/hpl_spi_async.h \
+ ../hal/include/hal_usb_device.h ../hal/include/hpl_usb_device.h \
+ ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h \
+ ../Config/peripheral_clk_config.h ../hpl/adc/hpl_adc_base.h \
+ ../hal/include/hpl_adc_async.h ../hal/include/hpl_adc_sync.h \
+ ../hal/include/hpl_irq.h
 
 .././driver_init.h:
 
@@ -496,6 +500,12 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../hal/include/hal_sleep.h:
 
+../hal/include/hal_adc_sync.h:
+
+../hal/include/hpl_adc_sync.h:
+
+../hal/include/hpl_missing_features.h:
+
 ../hal/include/hal_spi_m_async.h:
 
 ../hal/include/hpl_spi_m_async.h:
@@ -515,3 +525,11 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../Config/hpl_usb_config.h:
 
 ../Config/peripheral_clk_config.h:
+
+../hpl/adc/hpl_adc_base.h:
+
+../hal/include/hpl_adc_async.h:
+
+../hal/include/hpl_adc_sync.h:
+
+../hal/include/hpl_irq.h:

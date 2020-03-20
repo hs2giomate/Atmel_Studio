@@ -11,7 +11,28 @@
 #include <utils.h>
 #include <hal_init.h>
 
+#include <hpl_adc_base.h>
+
+struct adc_sync_descriptor ADC_0;
+
 struct spi_m_async_descriptor SPI_0;
+
+void ADC_0_PORT_init(void)
+{
+}
+
+void ADC_0_CLOCK_init(void)
+{
+	hri_mclk_set_APBDMASK_ADC0_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, ADC0_GCLK_ID, CONF_GCLK_ADC0_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+}
+
+void ADC_0_init(void)
+{
+	ADC_0_CLOCK_init();
+	ADC_0_PORT_init();
+	adc_sync_init(&ADC_0, ADC0, (void *)NULL);
+}
 
 void SPI_0_PORT_init(void)
 {
@@ -192,6 +213,22 @@ void USB_0_init(void)
 void system_init(void)
 {
 	init_mcu();
+
+	// GPIO on PB28
+
+	gpio_set_pin_level(SPI0_CS,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   true);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(SPI0_CS, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(SPI0_CS, GPIO_PIN_FUNCTION_OFF);
+
+	ADC_0_init();
 
 	SPI_0_init();
 

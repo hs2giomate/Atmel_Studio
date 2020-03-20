@@ -8,6 +8,8 @@ driver_init.c
 
 examples\driver_examples.c
 
+hal\src\hal_adc_sync.c
+
 hal\src\hal_atomic.c
 
 hal\src\hal_cache.c
@@ -33,6 +35,8 @@ hal\utils\src\utils_event.c
 hal\utils\src\utils_list.c
 
 hal\utils\src\utils_syscalls.c
+
+hpl\adc\hpl_adc.c
 
 hpl\cmcc\hpl_cmcc.c
 

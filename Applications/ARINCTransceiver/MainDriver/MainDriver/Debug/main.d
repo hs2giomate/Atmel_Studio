@@ -140,11 +140,12 @@ main.d main.o: .././main.c ../atmel_start.h ../driver_init.h \
  ../hal/include/hpl_reset.h ../hal/include/hpl_sleep.h \
  ../hal/include/hal_init.h ../hal/include/hpl_init.h \
  ../hal/include/hal_io.h ../hal/include/hal_sleep.h \
- ../hal/include/hal_spi_m_async.h ../hal/include/hpl_spi_m_async.h \
- ../hal/include/hpl_spi.h ../hal/utils/include/utils.h \
- ../hal/include/hpl_spi_async.h ../hal/include/hal_usb_device.h \
- ../hal/include/hpl_usb_device.h ../hal/include/hpl_usb.h \
- ../Config/hpl_usb_config.h ../usb_start.h \
+ ../hal/include/hal_adc_sync.h ../hal/include/hpl_adc_sync.h \
+ ../hal/include/hpl_missing_features.h ../hal/include/hal_spi_m_async.h \
+ ../hal/include/hpl_spi_m_async.h ../hal/include/hpl_spi.h \
+ ../hal/utils/include/utils.h ../hal/include/hpl_spi_async.h \
+ ../hal/include/hal_usb_device.h ../hal/include/hpl_usb_device.h \
+ ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h ../usb_start.h \
  ../usb/class/cdc/device/cdcdf_acm.h ../usb/device/usbdc.h \
  ../usb/usb_includes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
@@ -516,6 +517,12 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../hal/include/hal_io.h:
 
 ../hal/include/hal_sleep.h:
+
+../hal/include/hal_adc_sync.h:
+
+../hal/include/hpl_adc_sync.h:
+
+../hal/include/hpl_missing_features.h:
 
 ../hal/include/hal_spi_m_async.h:
 
