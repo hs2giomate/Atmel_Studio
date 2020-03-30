@@ -7,7 +7,7 @@
 // <e> PORT Input Event 0 configuration
 // <id> enable_port_input_event_0
 #ifndef CONF_PORT_EVCTRL_PORT_0
-#define CONF_PORT_EVCTRL_PORT_0 0
+#define CONF_PORT_EVCTRL_PORT_0 1
 #endif
 
 // <h> PORT Input Event 0 configuration on PORT A
@@ -72,14 +72,14 @@
 // <i> The event action will be triggered on any incoming event if PORT C Input Event 0 configuration is enabled
 // <id> portc_input_event_enable_0
 #ifndef CONF_PORTC_EVCTRL_PORTEI_0
-#define CONF_PORTC_EVCTRL_PORTEI_0 0x0
+#define CONF_PORTC_EVCTRL_PORTEI_0 0x1
 #endif
 
 // <o> PORTC Event 0 Pin Identifier <0x00-0x1F>
 // <i> These bits define the I/O pin from port C on which the event action will be performed
 // <id> portc_event_pin_identifier_0
 #ifndef CONF_PORTC_EVCTRL_PID_0
-#define CONF_PORTC_EVCTRL_PID_0 0x0
+#define CONF_PORTC_EVCTRL_PID_0 0xf
 #endif
 
 // <o> PORTC Event 0 Action
@@ -90,7 +90,7 @@
 // <i> These bits define the event action the PORT C will perform on event input 0
 // <id> portc_event_action_0
 #ifndef CONF_PORTC_EVCTRL_EVACT_0
-#define CONF_PORTC_EVCTRL_EVACT_0 0
+#define CONF_PORTC_EVCTRL_EVACT_0 3
 #endif
 
 // </h>

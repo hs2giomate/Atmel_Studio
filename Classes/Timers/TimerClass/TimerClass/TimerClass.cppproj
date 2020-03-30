@@ -5,7 +5,7 @@
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.ARMGCC.CPP</ToolchainName>
     <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
-    <avrdevice>ATSAMD21J18A</avrdevice>
+    <avrdevice>ATSAME54P20A</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
     <Language>CPP</Language>
@@ -20,26 +20,27 @@
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
     <ResetRule>0</ResetRule>
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <EraseKey />
     <AsfFrameworkConfig>
       <framework-data xmlns="">
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.47.0" />
-  </dependencies>
-</framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.47.0" />
+        </dependencies>
+      </framework-data>
     </AsfFrameworkConfig>
+    <avrtool />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -57,7 +58,7 @@
   <armgcc.compiler.directories.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -71,7 +72,7 @@
   <armgcccpp.compiler.directories.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
   <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
@@ -88,17 +89,17 @@
     </ListValues>
   </armgcccpp.linker.libraries.LibrarySearchPaths>
   <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
-  <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsamd21j18a_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
+  <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsame54p20a_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
   <armgcccpp.assembler.general.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcccpp.assembler.general.IncludePaths>
   <armgcccpp.preprocessingassembler.general.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcccpp.preprocessingassembler.general.IncludePaths>
 </ArmGccCpp>
@@ -120,10 +121,9 @@
   <armgcc.compiler.directories.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
   <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
   <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
@@ -134,11 +134,36 @@
   </armgcccpp.compiler.symbols.DefSymbols>
   <armgcccpp.compiler.directories.IncludePaths>
     <ListValues>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/Config</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/examples</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/adc</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/cmcc</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/core</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/dmac</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/evsys</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/gclk</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/mclk</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/osc32kctrl</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/oscctrl</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/pm</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/port</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/ramecc</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/rtc</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/sercom</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/systick</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/usb</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hri</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb/class/cdc</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb/class/cdc/device</Value>
+      <Value>../../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb/device</Value>
       <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
-  <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>
   <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
   <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
   <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
@@ -153,18 +178,19 @@
     </ListValues>
   </armgcccpp.linker.libraries.LibrarySearchPaths>
   <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
-  <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsamd21j18a_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
+  <armgcccpp.linker.memorysettings.ExternalRAM />
+  <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsame54p20a_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
   <armgcccpp.assembler.general.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcccpp.assembler.general.IncludePaths>
   <armgcccpp.assembler.debugging.DebugLevel>Default (-g)</armgcccpp.assembler.debugging.DebugLevel>
   <armgcccpp.preprocessingassembler.general.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcccpp.preprocessingassembler.general.IncludePaths>
   <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
@@ -172,10 +198,10 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Device_Startup\startup_samd21.c">
+    <Compile Include="Device_Startup\startup_same54.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Device_Startup\system_samd21.c">
+    <Compile Include="Device_Startup\system_same54.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.cpp">
@@ -192,10 +218,17 @@
     <Folder Include="Device_Startup\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Device_Startup\samd21j18a_flash.ld">
+    <ProjectReference Include="..\..\..\..\Applications\ARINCTransceiver\MainDriver\MainDriver\MainDriver.cproj">
+      <Name>MainDriver</Name>
+      <Project>{58ffc102-8d0f-4e9c-8119-20b58ad661b1}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Device_Startup\same54p20a_flash.ld">
       <SubType>compile</SubType>
     </None>
-    <None Include="Device_Startup\samd21j18a_sram.ld">
+    <None Include="Device_Startup\same54p20a_sram.ld">
       <SubType>compile</SubType>
     </None>
   </ItemGroup>

@@ -7,7 +7,7 @@
 
 
 #include "SPI_Asyn_Class.h"
-#include "driver_init.h"
+
  SPI_Asyn_Class* ptrSPIClass;
 static void complete_cb_SPI_0(const struct spi_m_async_descriptor *const io_descr)
 {

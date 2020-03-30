@@ -21,6 +21,10 @@ ARINC_Interface::~ARINC_Interface()
 void	ARINC_Interface::Init(void){
 	usb0.init();
 	BITRATE0=false;
+	BITRATE1=false;
+	BITRATE2=false;
+	OPT1=true;
+	OPT2=false;
 	PARITY=false;
 }
 
@@ -121,7 +125,7 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 	
 	
 	Arate &= 1;           // mask off everything else except the speed bit before using it here
-	if(PORTA & OPT2)      // enable labels if SW OTP2 is open
+	if(OPT2)      // enable labels if SW OTP2 is open
 	{
 		W_CommandValue(REC1CR,RFLIP | PLON | LABREC | Arate | Rec1Parity);  // enable PL1 in the Receiver Control Reg
 		W_CommandValue(REC2CR,RFLIP | PLON | LABREC | Arate | Rec2Parity);  // enable PL2 in the Receiver Control Reg
@@ -158,9 +162,8 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 	xprint("  SW-3 to Display Label Memory");
 	ConsoleCommandsHelp();
 	xprint("\n\r>");
-	while(SW1);                      // wait for key press
-	while(!SW1);
-	Delay100us(K_1SEC);              // blink for 1 sec
+	
+	delay_ms(1000);              // blink for 1 sec
 	g_ledFlashBool=OFF;
 	LED_CTL(LED_7,OFF);     // Turn off LED-7. Will use for PL-3 indication
 	
@@ -313,4 +316,17 @@ void ARINC_Interface::CE_High_Holt(void)
 	// <false"> Low
 	// <true"> High
 	true);
+}
+void ARINC_Interface::ConsoleCommandsHelp(void)
+{
+	xprint("\n\r\n--- Console Commands Help ---");
+	xprint("\n\r  P = Parity Toggle on/off");
+	xprint("\n\r  T = TFLIP  Toggle on/off");
+	xprint("\n\r  R = RFLIP  Toggle on/off");
+	xprint("\n\r  S = SDON, SD9, SD10 Toggle on/off");
+	xprint("\n\r  H = This Help Page");
+	xprint("\n\r  Space Bar = Display Status and Control regs");
+	xprint("\n\r  I = Increment Message and Transmit. Explorer Mode  - ONLY!");
+	xprint("\n\r  M = Enter Custom Message. Explorer Mode  - ONLY!");
+	xprint("\n\r  ENTER= Transmit next message. Explorer Mode  - ONLY!\n\r");
 }

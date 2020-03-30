@@ -8,6 +8,10 @@
 
 #ifndef __TIMER_CLASS_H__
 #define __TIMER_CLASS_H__
+#include "driver_init.h"
+#include "utils.h"
+#include "hal_timer.h"
+#include <hpl_rtc_base.h>
 
 
 class Timer_Class
@@ -15,30 +19,40 @@ class Timer_Class
 //variables
 public:
 	bool	enabled;
+	bool	timeout;
+	timer_descriptor    TIMER0;
+	timer_task			task;
+	
 protected:
 private:
-	int8	timerNumber;
-	Tc* timerRegister;
+	
+	//Tc* timerRegister;
+	Timer_Class	*    prtTimer;
+	uint32_t	 clockCycles;
 //functions
 public:
 	Timer_Class();
-	Timer_Class(Tc*);
+	
 	~Timer_Class();
-	void  startTimer(time_t timeoutsec);
-	void stopTimer(void);
-	bool timerTimeout(void);
-	friend	void TC7_Handler(void);
-	friend	void TC6_Handler(void);
+	void  startTimer(uint32_t timeoutsec);
+	
+	void Init();
+	void deinit();
+	int32_t start(uint32_t);
+	int32_t stop();
+	void	setTimeout();
+	int32_t set_clock_cycles_per_tick(uint32_t clock_cycles);
+	void setOneShotTimer(uint32_t interval);
+
 
 	
-	void setUpTimer(void);
+
 protected:
 private:
 	Timer_Class( const Timer_Class &c );
 	Timer_Class& operator=( const Timer_Class &c );
 
 }; //Timer_Class
-void TC7_Handler(void);
-void TC6_Handler(void);
+
 
 #endif //__TIMER_CLASS_H__

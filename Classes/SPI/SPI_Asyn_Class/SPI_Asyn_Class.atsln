@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Atmel Studio Solution File, Format Version 11.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPI_Asyn_Class", "SPI_Asyn_Class.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPI_Asyn_Class", "SPI_Asyn_Class.cppproj", "{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}"
 EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Main_Driver", "..\..\..\Applications\ParametersSaver\Main_Driver\Main_Driver\Main_Driver.cproj", "{5229CA5B-785B-4638-A12D-BB2AD2853758}"
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Main_Driver", "..\..\..\Applications\ParametersSaver\Main_Driver\Main_Driver\Main_Driver.cproj", "{29299760-B101-46BD-96F8-97EDDB780C1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|ARM = Release|ARM
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
-		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
-		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
-		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
-		{5229CA5B-785B-4638-A12D-BB2AD2853758}.Debug|ARM.ActiveCfg = Debug|ARM
-		{5229CA5B-785B-4638-A12D-BB2AD2853758}.Debug|ARM.Build.0 = Debug|ARM
-		{5229CA5B-785B-4638-A12D-BB2AD2853758}.Release|ARM.ActiveCfg = Release|ARM
-		{5229CA5B-785B-4638-A12D-BB2AD2853758}.Release|ARM.Build.0 = Release|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Debug|ARM.ActiveCfg = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Debug|ARM.Build.0 = Debug|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Release|ARM.ActiveCfg = Release|ARM
+		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Release|ARM.Build.0 = Release|ARM
+		{29299760-B101-46BD-96F8-97EDDB780C1F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{29299760-B101-46BD-96F8-97EDDB780C1F}.Debug|ARM.Build.0 = Debug|ARM
+		{29299760-B101-46BD-96F8-97EDDB780C1F}.Release|ARM.ActiveCfg = Release|ARM
+		{29299760-B101-46BD-96F8-97EDDB780C1F}.Release|ARM.Build.0 = Release|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

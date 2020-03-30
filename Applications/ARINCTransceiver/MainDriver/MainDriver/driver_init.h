@@ -23,6 +23,10 @@ extern "C" {
 
 #include <hal_adc_sync.h>
 
+#include <hal_evsys.h>
+
+#include <hal_timer.h>
+
 #include <hal_spi_m_async.h>
 
 #include <hal_delay.h>
@@ -30,6 +34,7 @@ extern "C" {
 #include "hal_usb_device.h"
 
 extern struct adc_sync_descriptor ADC_0;
+extern struct timer_descriptor    TIMER_0;
 
 extern struct spi_m_async_descriptor SPI_0;
 

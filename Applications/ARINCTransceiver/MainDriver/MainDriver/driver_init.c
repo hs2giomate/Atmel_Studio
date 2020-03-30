@@ -12,6 +12,9 @@
 #include <hal_init.h>
 
 #include <hpl_adc_base.h>
+#include <hpl_rtc_base.h>
+
+struct timer_descriptor TIMER_0;
 
 struct adc_sync_descriptor ADC_0;
 
@@ -32,6 +35,27 @@ void ADC_0_init(void)
 	ADC_0_CLOCK_init();
 	ADC_0_PORT_init();
 	adc_sync_init(&ADC_0, ADC0, (void *)NULL);
+}
+
+void EVENT_SYSTEM_0_init(void)
+{
+	hri_gclk_write_PCHCTRL_reg(GCLK, EVSYS_GCLK_ID_0, CONF_GCLK_EVSYS_CHANNEL_0_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_gclk_write_PCHCTRL_reg(GCLK, EVSYS_GCLK_ID_1, CONF_GCLK_EVSYS_CHANNEL_1_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+
+	hri_mclk_set_APBBMASK_EVSYS_bit(MCLK);
+
+	event_system_init();
+}
+
+/**
+ * \brief Timer initialization function
+ *
+ * Enables Timer peripheral, clocks and initializes Timer driver
+ */
+static void TIMER_0_init(void)
+{
+	hri_mclk_set_APBAMASK_RTC_bit(MCLK);
+	timer_init(&TIMER_0, RTC, _rtc_get_timer());
 }
 
 void SPI_0_PORT_init(void)
@@ -228,7 +252,54 @@ void system_init(void)
 
 	gpio_set_pin_function(SPI0_CS, GPIO_PIN_FUNCTION_OFF);
 
+	// GPIO on PB30
+
+	// Set pin direction to input
+	gpio_set_pin_direction(SW0, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(SW0,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_UP);
+
+	gpio_set_pin_function(SW0, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PC15
+
+	gpio_set_pin_level(tick_RTC,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(tick_RTC, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(tick_RTC, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PC18
+
+	gpio_set_pin_level(LED0,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(LED0, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(LED0, GPIO_PIN_FUNCTION_OFF);
+
 	ADC_0_init();
+
+	EVENT_SYSTEM_0_init();
+
+	TIMER_0_init();
 
 	SPI_0_init();
 

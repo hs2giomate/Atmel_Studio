@@ -5,9 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "TimerClass", "TimerClass\TimerClass.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
 EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "DoorActuator1", "..\..\..\..\Bitbucket\ars_2400024_all\scr\DoorActuator1.cppproj", "{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}"
-EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Driver_Timers", "Driver_Timers\Driver_Timers.cproj", "{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}"
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "MainDriver", "..\..\..\Applications\ARINCTransceiver\MainDriver\MainDriver\MainDriver.cproj", "{58FFC102-8D0F-4E9C-8119-20B58AD661B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,26 +26,16 @@ Global
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.Build.0 = Debug|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Bootable|ARM.ActiveCfg = Bootable|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Bootable|ARM.Build.0 = Bootable|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Build_Number|ARM.ActiveCfg = Build_Number|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Build_Number|ARM.Build.0 = Build_Number|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Debug|ARM.ActiveCfg = Debug|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Debug|ARM.Build.0 = Debug|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Release|ARM.ActiveCfg = Release|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Release|ARM.Build.0 = Release|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Staticlibrary|ARM.ActiveCfg = Staticlibrary|ARM
-		{3D94A6FB-C4E5-46C3-9C40-21BF044029D3}.Staticlibrary|ARM.Build.0 = Staticlibrary|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Bootable|ARM.ActiveCfg = Debug|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Bootable|ARM.Build.0 = Debug|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Build_Number|ARM.ActiveCfg = Debug|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Build_Number|ARM.Build.0 = Debug|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Debug|ARM.ActiveCfg = Debug|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Debug|ARM.Build.0 = Debug|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Release|ARM.ActiveCfg = Release|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Release|ARM.Build.0 = Release|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
-		{392C3E6A-FF00-4B09-B465-6D9FEDE8572D}.Staticlibrary|ARM.Build.0 = Debug|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Bootable|ARM.ActiveCfg = Debug|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Bootable|ARM.Build.0 = Debug|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Build_Number|ARM.ActiveCfg = Debug|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Build_Number|ARM.Build.0 = Debug|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Debug|ARM.ActiveCfg = Debug|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Debug|ARM.Build.0 = Debug|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Release|ARM.ActiveCfg = Release|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Release|ARM.Build.0 = Release|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Staticlibrary|ARM.Build.0 = Debug|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

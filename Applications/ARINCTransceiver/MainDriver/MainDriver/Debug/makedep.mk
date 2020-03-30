@@ -16,6 +16,8 @@ hal\src\hal_cache.c
 
 hal\src\hal_delay.c
 
+hal\src\hal_evsys.c
+
 hal\src\hal_gpio.c
 
 hal\src\hal_init.c
@@ -25,6 +27,8 @@ hal\src\hal_io.c
 hal\src\hal_sleep.c
 
 hal\src\hal_spi_m_async.c
+
+hal\src\hal_timer.c
 
 hal\src\hal_usb_device.c
 
@@ -46,6 +50,8 @@ hpl\core\hpl_init.c
 
 hpl\dmac\hpl_dmac.c
 
+hpl\evsys\hpl_evsys.c
+
 hpl\gclk\hpl_gclk.c
 
 hpl\mclk\hpl_mclk.c
@@ -57,6 +63,8 @@ hpl\oscctrl\hpl_oscctrl.c
 hpl\pm\hpl_pm.c
 
 hpl\ramecc\hpl_ramecc.c
+
+hpl\rtc\hpl_rtc.c
 
 hpl\sercom\hpl_sercom.c
 

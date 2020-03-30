@@ -20,6 +20,8 @@
 #define TMODE 1
 #define TFLIP 1
 #define RFLIP 0x80
+#define ON 1
+#define OFF 0
 
 class ARINC_Interface
 {
@@ -30,7 +32,17 @@ public:
 	Holt_3593_Class	HI3893;
 	unsigned char MessageCount;
 	bool	BITRATE0;
+	bool	BITRATE1;
+	bool	BITRATE2;
+	bool	OPT1;
+	bool	OPT2;
 	bool	PARITY;
+	unsigned char TXBuffer [16];                 // Transmit Buffer
+	const char WelcomeMesg[] = {"Holt HI-3593 Demonstration."};
+	volatile unsigned int g_count100us;          // Global timer tick for delays.
+	volatile int g_tick100us;                    // Timer function
+	volatile char g_ledFlashBool;                // Global LED8 flash enable, YES or NO.
+	unsigned char MODES,OPTION;
 
 protected:
 private:

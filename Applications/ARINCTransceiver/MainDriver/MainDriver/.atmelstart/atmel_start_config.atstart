@@ -688,6 +688,429 @@ drivers:
     variant: null
     clocks:
       domain_group: null
+  EVENT_SYSTEM_0:
+    user_label: EVENT_SYSTEM_0
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::EVSYS::driver_config_definition::Event.System::HAL:Driver:Event.system
+    functionality: Event_System
+    api: HAL:Driver:Event_system
+    configuration:
+      evsys_channel_0: No channel output selected
+      evsys_channel_1: Channel 0
+      evsys_channel_10: No channel output selected
+      evsys_channel_11: No channel output selected
+      evsys_channel_12: No channel output selected
+      evsys_channel_17: No channel output selected
+      evsys_channel_18: No channel output selected
+      evsys_channel_19: No channel output selected
+      evsys_channel_2: No channel output selected
+      evsys_channel_20: No channel output selected
+      evsys_channel_21: No channel output selected
+      evsys_channel_22: No channel output selected
+      evsys_channel_23: No channel output selected
+      evsys_channel_24: No channel output selected
+      evsys_channel_25: No channel output selected
+      evsys_channel_26: No channel output selected
+      evsys_channel_27: No channel output selected
+      evsys_channel_28: No channel output selected
+      evsys_channel_29: No channel output selected
+      evsys_channel_3: No channel output selected
+      evsys_channel_30: No channel output selected
+      evsys_channel_31: No channel output selected
+      evsys_channel_32: No channel output selected
+      evsys_channel_33: No channel output selected
+      evsys_channel_34: No channel output selected
+      evsys_channel_35: No channel output selected
+      evsys_channel_36: No channel output selected
+      evsys_channel_37: No channel output selected
+      evsys_channel_38: No channel output selected
+      evsys_channel_39: No channel output selected
+      evsys_channel_4: No channel output selected
+      evsys_channel_40: No channel output selected
+      evsys_channel_41: No channel output selected
+      evsys_channel_42: No channel output selected
+      evsys_channel_43: No channel output selected
+      evsys_channel_44: No channel output selected
+      evsys_channel_45: No channel output selected
+      evsys_channel_46: No channel output selected
+      evsys_channel_47: No channel output selected
+      evsys_channel_48: No channel output selected
+      evsys_channel_49: No channel output selected
+      evsys_channel_5: No channel output selected
+      evsys_channel_50: No channel output selected
+      evsys_channel_51: No channel output selected
+      evsys_channel_52: No channel output selected
+      evsys_channel_53: No channel output selected
+      evsys_channel_54: No channel output selected
+      evsys_channel_55: No channel output selected
+      evsys_channel_56: No channel output selected
+      evsys_channel_57: No channel output selected
+      evsys_channel_58: No channel output selected
+      evsys_channel_59: No channel output selected
+      evsys_channel_6: No channel output selected
+      evsys_channel_60: No channel output selected
+      evsys_channel_61: No channel output selected
+      evsys_channel_62: No channel output selected
+      evsys_channel_63: No channel output selected
+      evsys_channel_64: No channel output selected
+      evsys_channel_65: No channel output selected
+      evsys_channel_66: No channel output selected
+      evsys_channel_7: No channel output selected
+      evsys_channel_8: No channel output selected
+      evsys_channel_9: No channel output selected
+      evsys_channel_setting_0: true
+      evsys_channel_setting_1: false
+      evsys_channel_setting_10: false
+      evsys_channel_setting_11: false
+      evsys_channel_setting_12: false
+      evsys_channel_setting_13: false
+      evsys_channel_setting_14: false
+      evsys_channel_setting_15: false
+      evsys_channel_setting_16: false
+      evsys_channel_setting_17: false
+      evsys_channel_setting_18: false
+      evsys_channel_setting_19: false
+      evsys_channel_setting_2: false
+      evsys_channel_setting_20: false
+      evsys_channel_setting_21: false
+      evsys_channel_setting_22: false
+      evsys_channel_setting_23: false
+      evsys_channel_setting_24: false
+      evsys_channel_setting_25: false
+      evsys_channel_setting_26: false
+      evsys_channel_setting_27: false
+      evsys_channel_setting_28: false
+      evsys_channel_setting_29: false
+      evsys_channel_setting_3: false
+      evsys_channel_setting_30: false
+      evsys_channel_setting_31: false
+      evsys_channel_setting_4: false
+      evsys_channel_setting_5: false
+      evsys_channel_setting_6: false
+      evsys_channel_setting_7: false
+      evsys_channel_setting_8: false
+      evsys_channel_setting_9: false
+      evsys_edgsel_0: Event is detected on the rising edge of the signal from event
+        generator
+      evsys_edgsel_1: Event is detected on the rising edge of the signal from event
+        generator
+      evsys_edgsel_10: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_11: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_12: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_13: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_14: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_15: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_16: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_17: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_18: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_19: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_2: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_20: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_21: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_22: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_23: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_24: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_25: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_26: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_27: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_28: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_29: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_3: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_30: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_31: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_4: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_5: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_6: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_7: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_8: No event output when using the resynchronized or synchronous
+        path
+      evsys_edgsel_9: No event output when using the resynchronized or synchronous
+        path
+      evsys_evd_0: false
+      evsys_evd_1: false
+      evsys_evd_10: false
+      evsys_evd_11: false
+      evsys_evd_12: false
+      evsys_evd_13: false
+      evsys_evd_14: false
+      evsys_evd_15: false
+      evsys_evd_16: false
+      evsys_evd_17: false
+      evsys_evd_18: false
+      evsys_evd_19: false
+      evsys_evd_2: false
+      evsys_evd_20: false
+      evsys_evd_21: false
+      evsys_evd_22: false
+      evsys_evd_23: false
+      evsys_evd_24: false
+      evsys_evd_25: false
+      evsys_evd_26: false
+      evsys_evd_27: false
+      evsys_evd_28: false
+      evsys_evd_29: false
+      evsys_evd_3: false
+      evsys_evd_30: false
+      evsys_evd_31: false
+      evsys_evd_4: false
+      evsys_evd_5: false
+      evsys_evd_6: false
+      evsys_evd_7: false
+      evsys_evd_8: false
+      evsys_evd_9: false
+      evsys_evgen_0: RTC compare 0
+      evsys_evgen_1: RTC compare 0
+      evsys_evgen_10: No event generator
+      evsys_evgen_11: No event generator
+      evsys_evgen_12: No event generator
+      evsys_evgen_13: No event generator
+      evsys_evgen_14: No event generator
+      evsys_evgen_15: No event generator
+      evsys_evgen_16: No event generator
+      evsys_evgen_17: No event generator
+      evsys_evgen_18: No event generator
+      evsys_evgen_19: No event generator
+      evsys_evgen_2: No event generator
+      evsys_evgen_20: No event generator
+      evsys_evgen_21: No event generator
+      evsys_evgen_22: No event generator
+      evsys_evgen_23: No event generator
+      evsys_evgen_24: No event generator
+      evsys_evgen_25: No event generator
+      evsys_evgen_26: No event generator
+      evsys_evgen_27: No event generator
+      evsys_evgen_28: No event generator
+      evsys_evgen_29: No event generator
+      evsys_evgen_3: No event generator
+      evsys_evgen_30: No event generator
+      evsys_evgen_31: No event generator
+      evsys_evgen_4: No event generator
+      evsys_evgen_5: No event generator
+      evsys_evgen_6: No event generator
+      evsys_evgen_7: No event generator
+      evsys_evgen_8: No event generator
+      evsys_evgen_9: No event generator
+      evsys_ondemand_0: false
+      evsys_ondemand_1: false
+      evsys_ondemand_10: false
+      evsys_ondemand_11: false
+      evsys_ondemand_12: false
+      evsys_ondemand_13: false
+      evsys_ondemand_14: false
+      evsys_ondemand_15: false
+      evsys_ondemand_16: false
+      evsys_ondemand_17: false
+      evsys_ondemand_18: false
+      evsys_ondemand_19: false
+      evsys_ondemand_2: false
+      evsys_ondemand_20: false
+      evsys_ondemand_21: false
+      evsys_ondemand_22: false
+      evsys_ondemand_23: false
+      evsys_ondemand_24: false
+      evsys_ondemand_25: false
+      evsys_ondemand_26: false
+      evsys_ondemand_27: false
+      evsys_ondemand_28: false
+      evsys_ondemand_29: false
+      evsys_ondemand_3: false
+      evsys_ondemand_30: false
+      evsys_ondemand_31: false
+      evsys_ondemand_4: false
+      evsys_ondemand_5: false
+      evsys_ondemand_6: false
+      evsys_ondemand_7: false
+      evsys_ondemand_8: false
+      evsys_ondemand_9: false
+      evsys_ovr_0: false
+      evsys_ovr_1: false
+      evsys_ovr_10: false
+      evsys_ovr_11: false
+      evsys_ovr_12: false
+      evsys_ovr_13: false
+      evsys_ovr_14: false
+      evsys_ovr_15: false
+      evsys_ovr_16: false
+      evsys_ovr_17: false
+      evsys_ovr_18: false
+      evsys_ovr_19: false
+      evsys_ovr_2: false
+      evsys_ovr_20: false
+      evsys_ovr_21: false
+      evsys_ovr_22: false
+      evsys_ovr_23: false
+      evsys_ovr_24: false
+      evsys_ovr_25: false
+      evsys_ovr_26: false
+      evsys_ovr_27: false
+      evsys_ovr_28: false
+      evsys_ovr_29: false
+      evsys_ovr_3: false
+      evsys_ovr_30: false
+      evsys_ovr_31: false
+      evsys_ovr_4: false
+      evsys_ovr_5: false
+      evsys_ovr_6: false
+      evsys_ovr_7: false
+      evsys_ovr_8: false
+      evsys_ovr_9: false
+      evsys_path_0: Asynchronous path
+      evsys_path_1: Asynchronous path
+      evsys_path_10: Synchronous path
+      evsys_path_11: Synchronous path
+      evsys_path_12: Synchronous path
+      evsys_path_13: Synchronous path
+      evsys_path_14: Synchronous path
+      evsys_path_15: Synchronous path
+      evsys_path_16: Synchronous path
+      evsys_path_17: Synchronous path
+      evsys_path_18: Synchronous path
+      evsys_path_19: Synchronous path
+      evsys_path_2: Synchronous path
+      evsys_path_20: Synchronous path
+      evsys_path_21: Synchronous path
+      evsys_path_22: Synchronous path
+      evsys_path_23: Synchronous path
+      evsys_path_24: Synchronous path
+      evsys_path_25: Synchronous path
+      evsys_path_26: Synchronous path
+      evsys_path_27: Synchronous path
+      evsys_path_28: Synchronous path
+      evsys_path_29: Synchronous path
+      evsys_path_3: Synchronous path
+      evsys_path_30: Synchronous path
+      evsys_path_31: Synchronous path
+      evsys_path_4: Synchronous path
+      evsys_path_5: Synchronous path
+      evsys_path_6: Synchronous path
+      evsys_path_7: Synchronous path
+      evsys_path_8: Synchronous path
+      evsys_path_9: Synchronous path
+      evsys_runstdby_0: false
+      evsys_runstdby_1: false
+      evsys_runstdby_10: false
+      evsys_runstdby_11: false
+      evsys_runstdby_12: false
+      evsys_runstdby_13: false
+      evsys_runstdby_14: false
+      evsys_runstdby_15: false
+      evsys_runstdby_16: false
+      evsys_runstdby_17: false
+      evsys_runstdby_18: false
+      evsys_runstdby_19: false
+      evsys_runstdby_2: false
+      evsys_runstdby_20: false
+      evsys_runstdby_21: false
+      evsys_runstdby_22: false
+      evsys_runstdby_23: false
+      evsys_runstdby_24: false
+      evsys_runstdby_25: false
+      evsys_runstdby_26: false
+      evsys_runstdby_27: false
+      evsys_runstdby_28: false
+      evsys_runstdby_29: false
+      evsys_runstdby_3: false
+      evsys_runstdby_30: false
+      evsys_runstdby_31: false
+      evsys_runstdby_4: false
+      evsys_runstdby_5: false
+      evsys_runstdby_6: false
+      evsys_runstdby_7: false
+      evsys_runstdby_8: false
+      evsys_runstdby_9: false
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: Channel 0
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 1
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 2
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 3
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 4
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 5
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 6
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 7
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 8
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 9
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 10
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Channel 11
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        configuration:
+          evsys_clk_selection_0: Generic clock generator 0
+          evsys_clk_selection_1: Generic clock generator 0
+          evsys_clk_selection_10: Generic clock generator 0
+          evsys_clk_selection_11: Generic clock generator 0
+          evsys_clk_selection_2: Generic clock generator 0
+          evsys_clk_selection_3: Generic clock generator 0
+          evsys_clk_selection_4: Generic clock generator 0
+          evsys_clk_selection_5: Generic clock generator 0
+          evsys_clk_selection_6: Generic clock generator 0
+          evsys_clk_selection_7: Generic clock generator 0
+          evsys_clk_selection_8: Generic clock generator 0
+          evsys_clk_selection_9: Generic clock generator 0
   GCLK:
     user_label: GCLK
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::GCLK::driver_config_definition::GCLK::HAL:HPL:GCLK
@@ -852,7 +1275,7 @@ drivers:
       enable_xosc32k: true
       osculp32k_calib: 0
       osculp32k_calib_enable: false
-      rtc_1khz_selection: false
+      rtc_1khz_selection: true
       rtc_source_oscillator: 32kHz Ultra Low Power Internal Oscillator (OSCULP32K)
       xosc32k_arch_cfden: false
       xosc32k_arch_cfdeo: false
@@ -956,7 +1379,7 @@ drivers:
     functionality: System
     api: HAL:HPL:PORT
     configuration:
-      enable_port_input_event_0: false
+      enable_port_input_event_0: true
       enable_port_input_event_1: false
       enable_port_input_event_2: false
       enable_port_input_event_3: false
@@ -984,15 +1407,15 @@ drivers:
       portb_input_event_enable_1: false
       portb_input_event_enable_2: false
       portb_input_event_enable_3: false
-      portc_event_action_0: Output register of pin will be set to level of event
+      portc_event_action_0: Toggle output register of pin on event
       portc_event_action_1: Output register of pin will be set to level of event
       portc_event_action_2: Output register of pin will be set to level of event
       portc_event_action_3: Output register of pin will be set to level of event
-      portc_event_pin_identifier_0: 0
+      portc_event_pin_identifier_0: 15
       portc_event_pin_identifier_1: 0
       portc_event_pin_identifier_2: 0
       portc_event_pin_identifier_3: 0
-      portc_input_event_enable_0: false
+      portc_input_event_enable_0: true
       portc_input_event_enable_1: false
       portc_input_event_enable_2: false
       portc_input_event_enable_3: false
@@ -1022,6 +1445,62 @@ drivers:
     variant: null
     clocks:
       domain_group: null
+  TIMER_0:
+    user_label: TIMER_0
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::RTC::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      rtc_arch_comp_val: 1024
+      rtc_arch_init_reset: true
+      rtc_arch_prescaler: Peripheral clock divided by 1
+      rtc_cmpeo0: true
+      rtc_cmpeo1: false
+      rtc_event_control: true
+      rtc_ovfeo: false
+      rtc_pereo0: false
+      rtc_pereo1: false
+      rtc_pereo2: false
+      rtc_pereo3: false
+      rtc_pereo4: false
+      rtc_pereo5: false
+      rtc_pereo6: false
+      rtc_pereo7: false
+      rtc_tamper_active_layer_frequency_prescalar: DIV2 CLK_RTC_OUT is CLK_RTC /2
+      rtc_tamper_debounce_frequency_prescalar: DIV2 CLK_RTC_DEB is CLK_RTC /2
+      rtc_tamper_input_action_0: OFF(Disabled)
+      rtc_tamper_input_action_1: OFF(Disabled)
+      rtc_tamper_input_action_2: OFF(Disabled)
+      rtc_tamper_input_action_3: OFF(Disabled)
+      rtc_tamper_input_action_4: OFF(Disabled)
+      rtc_tampereo: false
+      rtc_tampevei: false
+      tamper_debounce_enable_0: false
+      tamper_debounce_enable_1: false
+      tamper_debounce_enable_2: false
+      tamper_debounce_enable_3: false
+      tamper_debounce_enable_4: false
+      tamper_input_0_settings: false
+      tamper_input_1_settings: false
+      tamper_input_2_settings: false
+      tamper_input_3_settings: false
+      tamper_input_4_settings: false
+      tamper_level_0: false
+      tamper_level_1: false
+      tamper_level_2: false
+      tamper_level_3: false
+      tamper_level_4: false
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: RTC
+          input: RTC source
+          external: false
+          external_frequency: 0
+        configuration:
+          rtc_clk_selection: RTC source
   SPI_0:
     user_label: SPI_0
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM0::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Async
@@ -1139,6 +1618,19 @@ pads:
     mode: Digital input
     user_label: PA06
     configuration: null
+  tick_RTC:
+    name: PC15
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC15
+    mode: Digital output
+    user_label: tick_RTC
+    configuration: null
+  LED0:
+    name: PC18
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC18
+    mode: Digital output
+    user_label: LED0
+    configuration:
+      pad_initial_level: Low
   PA24:
     name: PA24
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA24
@@ -1158,4 +1650,11 @@ pads:
     user_label: SPI0_CS
     configuration:
       pad_initial_level: High
+  SW0:
+    name: PB30
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB30
+    mode: Digital input
+    user_label: SW0
+    configuration:
+      pad_pull_config: Pull-up
 toolchain_options: []
