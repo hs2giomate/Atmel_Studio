@@ -159,6 +159,7 @@
       <Value>S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc</Value>
       <Value>S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc\device</Value>
       <Value>S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\device</Value>
+      <Value>../../../../Classes/SPI/SPI_Asyn_Class</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
   <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>

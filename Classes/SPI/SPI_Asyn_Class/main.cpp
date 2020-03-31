@@ -6,7 +6,6 @@
  */ 
 
 
-#include "sam.h"
 #include <atmel_start.h>
 
 #include "SPI_Asyn_Class.h"

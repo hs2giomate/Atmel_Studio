@@ -1,6 +1,11 @@
 main.d main.o: .././main.cpp \
- C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/sam.h \
- C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/same54p20a.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/atmel_start.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/driver_init.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/atmel_start_pins.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hal_gpio.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_gpio.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/compiler.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_default_types.h \
@@ -8,6 +13,10 @@ main.d main.o: .././main.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_newlib_version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_intsup.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdbool.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/parts.h \
+ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/same54.h \
+ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/same54p20a.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include/core_cm4.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include/cmsis_version.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include/cmsis_compiler.h \
@@ -113,17 +122,8 @@ main.d main.o: .././main.cpp \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/instance/usb.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/instance/wdt.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/pio/same54p20a.h \
- ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/atmel_start.h \
- ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/driver_init.h \
- ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/atmel_start_pins.h \
- ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hal_gpio.h \
- ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_gpio.h \
- ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/compiler.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdbool.h \
- ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/parts.h \
- C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/same54.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hri/hri_e54.h \
+ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/sam.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hri/hri_ac_e54.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hal_atomic.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hri/hri_adc_e54.h \
@@ -217,9 +217,19 @@ main.d main.o: .././main.cpp \
  .././SPI_Asyn_Class.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/driver_init.h
 
-C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/sam.h:
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/atmel_start.h:
 
-C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/same54p20a.h:
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/driver_init.h:
+
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/atmel_start_pins.h:
+
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hal_gpio.h:
+
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_gpio.h:
+
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/compiler.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h:
 
@@ -234,6 +244,14 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_intsup.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdbool.h:
+
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/parts.h:
+
+C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/same54.h:
+
+C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/same54p20a.h:
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include/core_cm4.h:
 
@@ -445,27 +463,9 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/pio/same54p20a.h:
 
-../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/atmel_start.h:
-
-../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/driver_init.h:
-
-../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/atmel_start_pins.h:
-
-../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hal_gpio.h:
-
-../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_gpio.h:
-
-../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/compiler.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdbool.h:
-
-../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/parts.h:
-
-C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/same54.h:
-
 ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hri/hri_e54.h:
+
+C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include/sam.h:
 
 ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hri/hri_ac_e54.h:
 

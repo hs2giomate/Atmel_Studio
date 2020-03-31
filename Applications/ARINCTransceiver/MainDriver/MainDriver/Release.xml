@@ -39,6 +39,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -82,6 +83,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.IncludePaths>
@@ -114,6 +116,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>

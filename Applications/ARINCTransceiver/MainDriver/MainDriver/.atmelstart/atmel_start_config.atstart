@@ -1600,6 +1600,20 @@ drivers:
         configuration:
           usb_gclk_selection: Generic clock generator 4
 pads:
+  OLED_BUTTON2:
+    name: PC02
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC02
+    mode: Digital input
+    user_label: OLED_BUTTON2
+    configuration:
+      pad_pull_config: Pull-up
+  OLED_BUTTON3:
+    name: PC03
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC03
+    mode: Digital input
+    user_label: OLED_BUTTON3
+    configuration:
+      pad_pull_config: Pull-up
   PA04:
     name: PA04
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA04
@@ -1617,6 +1631,12 @@ pads:
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA06
     mode: Digital input
     user_label: PA06
+    configuration: null
+  OLED_LED1:
+    name: PD10
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD10
+    mode: Digital output
+    user_label: OLED_LED1
     configuration: null
   tick_RTC:
     name: PC15
@@ -1655,6 +1675,13 @@ pads:
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB30
     mode: Digital input
     user_label: SW0
+    configuration:
+      pad_pull_config: Pull-up
+  OLED_BUTTON1:
+    name: PC30
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC30
+    mode: Digital input
+    user_label: OLED_BUTTON1
     configuration:
       pad_pull_config: Pull-up
 toolchain_options: []

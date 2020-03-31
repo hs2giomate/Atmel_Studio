@@ -178,6 +178,11 @@ main.d main.o: .././main.cpp \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_adc_sync.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_adc_sync.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_missing_features.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_evsys.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_evsys.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_timer.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\utils\include/utils_list.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_timer.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_spi_m_async.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi_m_async.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi.h \
@@ -204,7 +209,6 @@ main.d main.o: .././main.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
- S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\utils\include/utils_list.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb/usb_protocol.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb/usb_includes.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\Config/usbd_config.h \
@@ -212,7 +216,10 @@ main.d main.o: .././main.cpp \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc\device/cdcdf_acm_desc.h \
  .././ARINC_Interface.h \
  ../../../../Classes/USB/USB_CDC_Class/USB_CDC_Class/USB_CDC_Class.h \
- S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/usb_start.h
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/usb_start.h \
+ .././Holt_3593_Class.h \
+ ../../../../Classes/SPI/SPI_Asyn_Class/SPI_Asyn_Class.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/driver_init.h
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/atmel_start.h:
 
@@ -572,6 +579,16 @@ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/h
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_missing_features.h:
 
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_evsys.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_evsys.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_timer.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\utils\include/utils_list.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_timer.h:
+
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_spi_m_async.h:
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi_m_async.h:
@@ -624,8 +641,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
 
-S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\utils\include/utils_list.h:
-
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb/usb_protocol.h:
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb/usb_includes.h:
@@ -641,3 +656,9 @@ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc
 ../../../../Classes/USB/USB_CDC_Class/USB_CDC_Class/USB_CDC_Class.h:
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/usb_start.h:
+
+.././Holt_3593_Class.h:
+
+../../../../Classes/SPI/SPI_Asyn_Class/SPI_Asyn_Class.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/driver_init.h:

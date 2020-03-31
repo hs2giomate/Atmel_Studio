@@ -189,7 +189,34 @@ ARINC_Interface.d ARINC_Interface.o: .././ARINC_Interface.cpp \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\Config/hpl_usb_config.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\Config/usbd_config.h \
  S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc/usb_protocol_cdc.h \
- S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc\device/cdcdf_acm_desc.h
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc\device/cdcdf_acm_desc.h \
+ .././Holt_3593_Class.h \
+ ../../../../Classes/SPI/SPI_Asyn_Class/SPI_Asyn_Class.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/driver_init.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/atmel_start_pins.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_gpio.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_gpio.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hpl\port/hpl_gpio_base.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\Config/hpl_port_config.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_delay.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_irq.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_reset.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_sleep.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_init.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_init.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_io.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_sleep.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_adc_sync.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_adc_sync.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_missing_features.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_evsys.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_evsys.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_timer.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_timer.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_spi_m_async.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi_m_async.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi.h \
+ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi_async.h
 
 .././ARINC_Interface.h:
 
@@ -572,3 +599,57 @@ S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\Config/usbd_c
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc/usb_protocol_cdc.h:
 
 S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc\device/cdcdf_acm_desc.h:
+
+.././Holt_3593_Class.h:
+
+../../../../Classes/SPI/SPI_Asyn_Class/SPI_Asyn_Class.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/driver_init.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver/atmel_start_pins.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_gpio.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_gpio.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hpl\port/hpl_gpio_base.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\Config/hpl_port_config.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_delay.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_irq.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_reset.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_sleep.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_init.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_init.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_io.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_sleep.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_adc_sync.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_adc_sync.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_missing_features.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_evsys.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_evsys.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_timer.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_timer.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hal_spi_m_async.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi_m_async.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi.h:
+
+S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\hal\include/hpl_spi_async.h:

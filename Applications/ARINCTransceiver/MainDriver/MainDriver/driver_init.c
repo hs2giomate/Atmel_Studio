@@ -267,6 +267,36 @@ void system_init(void)
 
 	gpio_set_pin_function(SW0, GPIO_PIN_FUNCTION_OFF);
 
+	// GPIO on PC02
+
+	// Set pin direction to input
+	gpio_set_pin_direction(OLED_BUTTON2, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(OLED_BUTTON2,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_UP);
+
+	gpio_set_pin_function(OLED_BUTTON2, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PC03
+
+	// Set pin direction to input
+	gpio_set_pin_direction(OLED_BUTTON3, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(OLED_BUTTON3,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_UP);
+
+	gpio_set_pin_function(OLED_BUTTON3, GPIO_PIN_FUNCTION_OFF);
+
 	// GPIO on PC15
 
 	gpio_set_pin_level(tick_RTC,
@@ -294,6 +324,35 @@ void system_init(void)
 	gpio_set_pin_direction(LED0, GPIO_DIRECTION_OUT);
 
 	gpio_set_pin_function(LED0, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PC30
+
+	// Set pin direction to input
+	gpio_set_pin_direction(OLED_BUTTON1, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(OLED_BUTTON1,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_UP);
+
+	gpio_set_pin_function(OLED_BUTTON1, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PD10
+
+	gpio_set_pin_level(OLED_LED1,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(OLED_LED1, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(OLED_LED1, GPIO_PIN_FUNCTION_OFF);
 
 	ADC_0_init();
 

@@ -10,8 +10,9 @@ EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "USB_CDC_Class", "..\..\Classes\USB\USB_CDC_Class\USB_CDC_Class\USB_CDC_Class.cppproj", "{B17A45BD-2316-4354-8365-4A91A4A5B6B8}"
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPI_Asyn_Class", "..\..\Classes\SPI\SPI_Asyn_Class\SPI_Asyn_Class.cppproj", "{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}"
-EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "FRAM_Memory_Class", "..\..\Classes\FRAM_Memory_Class\FRAM_Memory_Class\FRAM_Memory_Class.cppproj", "{F4A68C8A-89CA-40E4-B635-DB41088F46B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{58FFC102-8D0F-4E9C-8119-20B58AD661B1} = {58FFC102-8D0F-4E9C-8119-20B58AD661B1}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +36,6 @@ Global
 		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Debug|ARM.Build.0 = Debug|ARM
 		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Release|ARM.ActiveCfg = Release|ARM
 		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Release|ARM.Build.0 = Release|ARM
-		{F4A68C8A-89CA-40E4-B635-DB41088F46B1}.Debug|ARM.ActiveCfg = Debug|ARM
-		{F4A68C8A-89CA-40E4-B635-DB41088F46B1}.Debug|ARM.Build.0 = Debug|ARM
-		{F4A68C8A-89CA-40E4-B635-DB41088F46B1}.Release|ARM.ActiveCfg = Release|ARM
-		{F4A68C8A-89CA-40E4-B635-DB41088F46B1}.Release|ARM.Build.0 = Release|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

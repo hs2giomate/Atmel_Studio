@@ -159,9 +159,9 @@
           <AcmeProjectActionInfo Action="File" Source="usb/usb_protocol.c" IsConfig="false" Hash="506QsMNqKwMw3St/nEXa8Q" />
           <AcmeProjectActionInfo Action="File" Source="usb/usb_protocol.h" IsConfig="false" Hash="IjsDWsLIdSQj3pFlkAX0UA" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="OMEZuVrefiU8ikwTxKgpMA" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="2+u3YOZSkY7kkbFXIUp/WA" />
           <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="zpBLwMrOg0m2RmOrCSM0zA" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="4oMnrmxg5c6Cgx3eLHsLbA" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="nkGNKdxaaiy7xScf3z6LRg" />
           <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="uRh+fSrOb+o9SHu4I8I4Jw" />
           <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="sp4wHzZ2DQfw6JvCGoEW1A" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_adc_sync.h" IsConfig="false" Hash="ez1X5T9kpYwT+1+5x4Pxqg" />
@@ -272,6 +272,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -315,6 +316,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.IncludePaths>
@@ -347,6 +349,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -395,6 +398,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -439,6 +443,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -472,6 +477,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>

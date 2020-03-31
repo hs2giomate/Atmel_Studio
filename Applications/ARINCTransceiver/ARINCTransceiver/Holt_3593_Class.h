@@ -8,6 +8,8 @@
 
 #ifndef __HOLT_3593_CLASS_H__
 #define __HOLT_3593_CLASS_H__
+#include "SPI_Asyn_Class.h"
+typedef unsigned char uint8;
 #define RESETCMD 0x04
 
 #define DivReg  0x38
@@ -89,7 +91,7 @@ class Holt_3593_Class
 {
 //variables
 public:
-	
+	SPI_Asyn_Class	spi0;
 protected:
 private:
 
@@ -98,14 +100,17 @@ public:
 	Holt_3593_Class();
 	~Holt_3593_Class();
 	
+	
+	
 	void W_Command (char cmd);
+	void Init(void);
 	uint8_t Init3593(uint8_t AclkDiv, uint8_t tmode, uint8_t selftest, uint8_t arate, uint8_t tflip );
 	void ArincRead(uint8_t source, unsigned char *passedArray);
-	unsigned char txrx8bits (unsigned char , unsigned char );
 	void CS_HL (void);
-	unsigned char txrx8bits (unsigned char, unsigned char );
-	unsigned char fetch8bits (unsigned char txbyte, unsigned char return_when_done);
-	unsigned char R_Register (char Reg);
+	unsigned char txrx8bits(unsigned char, unsigned char );
+	unsigned char txrx8bits_8(unsigned char, unsigned char );
+	unsigned char fetch8bits(unsigned char txbyte, unsigned char return_when_done);
+	unsigned char R_Register(char Reg);
 	void W_CommandValue (uint8_t cmd, uint8_t value);
 	void MultiByteRead(uint8_t,uint8_t count, unsigned char *passedArray);
 	void TransmitCommandAndData(uint8_t cmd, uint8_t *TXBuffer);
@@ -113,6 +118,14 @@ public:
 	void initReceiver2Labels(void);
 	void	SS_Low(void);
 	void	SS_High(void);
+	void	open(void);
+	void	close(void);
+	uint8_t Get_Byte(void);
+	uint8_t Send_Byte(uint8_t byte);
+	
+	
+
+	
 	friend class	 ARINC_Interface;
 protected:
 private:

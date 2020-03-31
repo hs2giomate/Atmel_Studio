@@ -12,10 +12,14 @@ int main(void)
 {
 		atmel_start_init();
 		ARINC_Interface		ECSBox;
+		ECSBox.Init();
     /* Replace with your application code */
     while (1) 
     {
 		ECSBox.SayHello();
-			delay_ms(1000);
+		delay_ms(1000);
+		ECSBox.TransmitReceiveWithLabels_Mode(SELFTEST_ON);
+			
     }
 }
+

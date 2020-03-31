@@ -82,17 +82,38 @@ unsigned char LabelPriority2 [3] = {
      0x03,   0x04,   0X05, 
 }; 
   
+ void	Holt_3593_Class::Init(void){
+	 uint8_t	status=	Init3593(ACLKDIV,  // ARINC clock divisor
+	 TMODE,    // Transmit mode. Set for "send as soon as possible"
+	 SELFTEST_OFF, // Selftest defined by Mode switches
+	 1,    // Arinc speed and if Parity is enabled by the switch
+	 TFLIP );
+	 spi0.init();
+	 
+ } 
+ void Holt_3593_Class::open(){
+	 	spi0.enable();
+		 SS_Low();
+ }
+  void Holt_3593_Class::close(){
+	    SS_High();
+	  spi0.disable();
+	
+  }
+ 
 // ------------------------------------------------------------------
 //  SPI function to load 8 bits of label data
 // ------------------------------------------------------------------   
-unsigned char Holt_3593_Class::txrx8bits_8 (unsigned char txbyte, unsigned char return_when_done) {
+unsigned char Holt_3593_Class::txrx8bits_8(unsigned char txbyte, unsigned char return_when_done) {
   unsigned char rxbyte;    
-  rxbyte = SPI0SR;         // clear SPI status register    
-  SPI0DR = txbyte;         // write Data Register to begin transfer    
+  rxbyte = Get_Byte();         // clear SPI status register
+  uint8_t	p(txbyte);
+  Send_Byte(p)    ;   // write Data Register to begin transfer  
+	  
   if (return_when_done) {  // optional wait for SPIF flag
-    while (!SPI0SR_SPIF);     
+    while (!spi0.isSPIReady());     
   }
-  return rxbyte = SPI0DR;
+  return rxbyte = Get_Byte();
   
 }
 
@@ -105,10 +126,8 @@ void Holt_3593_Class::initReceiver1Labels(void)
   unsigned char dummy;
   signed char i; 
  	
-  SPI0CR1 = SPI0CR1 & ~SPI0CR1_SSOE_MASK; 
-  SPI0CR2 = SPI0CR2 & ~SPI0CR2_MODFEN_MASK;
-  SPI0_nSS = 0; 	
-  // send op code (ignore returned data byte)
+  open();
+
   dummy = txrx8bits_8(0x14,1);  
   // send 32 bytes of ARINC label data
   for (i=31; i>=0; i--) {
@@ -116,10 +135,21 @@ void Holt_3593_Class::initReceiver1Labels(void)
     dummy = txrx8bits_8(LabelArray_1[i],1);       
   }    
  	  
-  SPI0_nSS = 1;
-  SPI0CR1 = SPI0CR1 | SPI0CR1_SSOE_MASK; 
-  SPI0CR2 = SPI0CR2 | SPI0CR2_MODFEN_MASK;
+	close();
 }
+
+uint8_t Holt_3593_Class::Send_Byte(uint8_t byte)
+{
+	spi0.write(&byte,1);
+	return byte;
+}
+uint8_t Holt_3593_Class::Get_Byte(void)
+{
+	uint8_t byte;
+	spi0.read(&byte,1);
+	
+	return byte;
+}	
  
 // ------------------------------------------------------------------
 // Initilize Receiver 2 labels with contents of array
@@ -130,9 +160,7 @@ void Holt_3593_Class::initReceiver2Labels(void)
   unsigned char dummy;
   signed char i; 
  	
-  SPI0CR1 = SPI0CR1 & ~SPI0CR1_SSOE_MASK; 
-  SPI0CR2 = SPI0CR2 & ~SPI0CR2_MODFEN_MASK;
-  SPI0_nSS = 0; 	
+	open();	
   // send op code (ignore returned data byte)
   dummy = txrx8bits_8(0x28,1);  
   // send 32 bytes of ARINC label data
@@ -141,9 +169,7 @@ void Holt_3593_Class::initReceiver2Labels(void)
     dummy = txrx8bits_8(LabelArray_2[i],1);       
   }    
  	  
-  SPI0_nSS = 1;
-  SPI0CR1 = SPI0CR1 | SPI0CR1_SSOE_MASK; 
-  SPI0CR2 = SPI0CR2 | SPI0CR2_MODFEN_MASK;
+	close();
 }
 // ------------------------------------------------------------------
 // Initialize the HI-3593
@@ -180,18 +206,17 @@ void Holt_3593_Class::MultiByteRead(uint8_t ReadCommand, uint8_t count, unsigned
    uint8_t dummy, ByteCount;
    
    CS_HL();  
-   dummy = SPI0SR;                  // clear SPI status register    
-   SPI0DR = ReadCommand;            // SPI read command
-   while (!SPI0SR_SPIF);            // wait for SPIF flag assertion    
-   dummy = SPI0DR;                  // read/ignore Rx data in Data Reg, resets SPIF                    
+   dummy = Get_Byte();                  // clear SPI status register    
+   Send_Byte(ReadCommand);
+     
+   while (!spi0.isSPIReady());            // wait for SPIF flag assertion    
+   dummy = Get_Byte();                  // read/ignore Rx data in Data Reg, resets SPIF                    
    for (ByteCount=0; ByteCount < count; ByteCount++) {
       dummy = txrx8bits(0x00,1); 
       passedArray[ByteCount] = dummy; 
      }
 
-   SPI0_nSS = 1;                                   // negate the SPI0 /SS strobe
-   SPI0CR1 = SPI0CR1 | SPI0CR1_SSOE_MASK;          // enable auto /SS output, set /SS Output Enable 	
-   SPI0CR2 = SPI0CR2 | SPI0CR2_MODFEN_MASK;        // enable auto /SS output, set SPI0 Mode Fault
+  close();
   
 }
 
@@ -207,18 +232,16 @@ void Holt_3593_Class::ArincRead(uint8_t source, unsigned char *passedArray)
    if(source==0xA0 || source == 0xC0)  // is it a normal Word?
        count++;                        // then it has 4 bytes.   
    CS_HL();  
-   dummy = SPI0SR;                   // clear SPI status register    
-   SPI0DR = source;                  // source command to read FIFO data
-   while (!SPI0SR_SPIF);            // wait for SPIF flag assertion    
-   dummy = SPI0DR;                  // read/ignore Rx data in Data Reg, resets SPIF                    
+   dummy = Get_Byte();                   // clear SPI status register    
+   Send_Byte(source) ;                  // source command to read FIFO data
+   while (!spi0.isSPIReady());            // wait for SPIF flag assertion    
+   dummy = Get_Byte();                  // read/ignore Rx data in Data Reg, resets SPIF                    
    for (ByteCount=0; ByteCount < count; ByteCount++) {
       dummy = txrx8bits(0x00,1); 
       passedArray[ByteCount] = dummy; 
      }
 
-   SPI0_nSS = 1;                                   // negate the SPI0 /SS strobe
-   SPI0CR1 = SPI0CR1 | SPI0CR1_SSOE_MASK;          // enable auto /SS output, set /SS Output Enable 	
-   SPI0CR2 = SPI0CR2 | SPI0CR2_MODFEN_MASK;        // enable auto /SS output, set SPI0 Mode Fault
+  close();
   
 }
 
@@ -249,14 +272,14 @@ Example Call: rcv_byte = txrx8bits(0xFF,1) // sends data 0xFF then returns
                                            // data when xfer is done  */
 unsigned char Holt_3593_Class::txrx8bits (unsigned char txbyte, unsigned char return_when_done) {
   unsigned char rxbyte;  
-  
-  rxbyte = SPI0SR;         // clear SPI status register  
-  SPI0DR = txbyte;         // write Data Register to begin transfer    
-  if (return_when_done) {  // optional wait for SPIF flag
-    while (!SPI0SR_SPIF);     
+    uint8_t	p(txbyte);
+    rxbyte = Get_Byte();         // clear SPI status register  
+	Send_Byte(p);        // write Data Register to begin transfer    
+	if (return_when_done) {  // optional wait for SPIF flag
+		while (!spi0.isSPIReady());      
     }
 
-  return rxbyte = SPI0DR;  // get received data byte from Data Register
+  return rxbyte = Get_Byte();  // get received data byte from Data Register
   
  }
  
@@ -269,9 +292,7 @@ unsigned char Holt_3593_Class::txrx8bits (unsigned char txbyte, unsigned char re
  {              
  uint8_t static ByteCount,dummy,transmitCount;
  
-   SPI0CR1 = SPI0CR1 & ~SPI0CR1_SSOE_MASK;         // disable auto /SS output, reset /SS Output Enable  
-   SPI0CR2 = SPI0CR2 & ~SPI0CR2_MODFEN_MASK;       // disable auto /SS output, reset SPI0 Mode Fault 
-   SPI0_nSS = 0;                                   // assert the SPI0 /SS strobe
+	open();
    
    transmitCount=4;                                // Standard messages are 4 bytes
    if(cmd==W_PL1Match || cmd==W_PL2Match)          // if writing PL Match registers send only 3 bytes
@@ -283,10 +304,7 @@ unsigned char Holt_3593_Class::txrx8bits (unsigned char txbyte, unsigned char re
       {              
          dummy = txrx8bits(TXBuffer[ByteCount], 1);      // Transmit the whole message, ignore return values 
       }   
-   SPI0_nSS = 1;                                         // negate the SPI0 /SS strobe        
-   SPI0CR1 |= SPI0CR1_SPE_MASK|SPI0CR1_SSOE_MASK; 
-   SPI0CR2 |= SPI0CR2_MODFEN_MASK;
-         
+ close();
 }
 
 // Primitive SPI Commands below
@@ -297,16 +315,13 @@ unsigned char Holt_3593_Class::txrx8bits (unsigned char txbyte, unsigned char re
 void Holt_3593_Class::W_Command (char cmd) {
   static unsigned char dummy;
  	
-  SPI0CR1 = SPI0CR1 & ~SPI0CR1_SSOE_MASK;   // disable auto /SS output, reset /SS Output Enable 
-  SPI0CR2 = SPI0CR2 & ~SPI0CR2_MODFEN_MASK;  // disable auto /SS output, reset SPI0 Mode Fault
-  SPI0_nSS = 0;                  // assert the SPI0 /SS strobe
-  dummy = SPI0SR;               // clear SPI status register    
-  SPI0DR = cmd;                // Test Mode SPI Instruction - MASTER RESET CMD 
-  while (!SPI0SR_SPIF) {;}      // Wait for data to come back in.
-  dummy = SPI0DR;               // read Rx data in Data Reg to reset SPIF 
-  SPI0_nSS = 1;                  // negate the SPI0 /SS strobe 	
-  SPI0CR1 = SPI0CR1 | SPI0CR1_SSOE_MASK;   // enable auto /SS output, set /SS Output Enable
-  SPI0CR2 = SPI0CR2 | SPI0CR2_MODFEN_MASK;  // enable auto /SS output, set SPI0 Mode Fault
+  open();
+  dummy = Get_Byte();               // clear SPI status register    
+  uint8_t p(cmd);  
+  Send_Byte(p);             // Test Mode SPI Instruction - MASTER RESET CMD 
+  while (!spi0.isSPIReady()) {;}      // Wait for data to come back in.
+  dummy = char(Get_Byte());               // read Rx data in Data Reg to reset SPIF 
+  close();
 }
 
 // ------------------------------------------------------------------
@@ -315,21 +330,17 @@ void Holt_3593_Class::W_Command (char cmd) {
 void Holt_3593_Class::W_CommandValue (uint8_t cmd, uint8_t value){
   uint8_t dummy; 
   	
-  SPI0CR1 = SPI0CR1 & ~SPI0CR1_SSOE_MASK;   // disable auto /SS output, reset /SS Output Enable  
-  SPI0CR2 = SPI0CR2 & ~SPI0CR2_MODFEN_MASK; // disable auto /SS output, reset SPI0 Mode Fault 
-  SPI0_nSS = 0;                             // assert the SPI0 /SS strobe
-  dummy = SPI0SR;                           // clear SPI status register    
-  SPI0DR = cmd;                             // SPI  command 
-  while (!SPI0SR_SPIF);    
-  dummy = SPI0DR;                           // read Rx data in Data Reg to reset SPIF
-  dummy = SPI0SR;                           // clear SPI status register    
-  SPI0DR = value;                           // Reset values     
-  while (!SPI0SR_SPIF);    
-  dummy = SPI0DR;                           // read Rx data in Data Reg to reset SPIF
+  open();                             // assert the SPI0 /SS strobe
+  dummy = Get_Byte();                           // clear SPI status register    
+  Send_Byte(cmd);                             // SPI  command 
+  while (!spi0.isSPIReady());    
+  dummy = Get_Byte();                           // read Rx data in Data Reg to reset SPIF
+                         // clear SPI status register    
+  Send_Byte(value);                           // Reset values     
+  while (!spi0.isSPIReady());    
+  dummy = Get_Byte();                           // read Rx data in Data Reg to reset SPIF
 
-  SPI0_nSS = 1;                             // negate the SPI0 /SS strobe	
-  SPI0CR1 = SPI0CR1 | SPI0CR1_SSOE_MASK;    // enable auto /SS output, set /SS Output Enable 
-  SPI0CR2 = SPI0CR2 | SPI0CR2_MODFEN_MASK;  // enable auto /SS output, set SPI0 Mode DeFault
+  close();
 }
 
 
@@ -342,31 +353,22 @@ Argument(s):  Register to read
      Return:  8-bit Register Value 
 */
 
-unsigned char Holt_3593_Class::R_Register (char Reg) {                     
+unsigned char Holt_3593_Class::R_Register(char Reg){                     
   unsigned char R_Reg;
 	
-  SPI0CR1 = SPI0CR1 & ~SPI0CR1_SSOE_MASK;     // disable auto /SS output, reset /SS Output Enable  
-  SPI0CR2 = SPI0CR2 & ~SPI0CR2_MODFEN_MASK;    // disable auto /SS output, reset SPI0 Mode Fault
-  SPI0_nSS = 0;                                 // assert the SPI0 /SS strobe
+  open();
   R_Reg  = txrx8bits(Reg,1);                   // send op code (ignore returned data byte)
   R_Reg  = txrx8bits(0x00,1);                   // send dummy data / receive Status Reg byte           
-   SPI0_nSS = 1;                                // negate the SPI0 /SS strobe
-  SPI0CR1 = SPI0CR1 | SPI0CR1_SSOE_MASK;   // enable auto /SS output, set /SS Output Enable 	
-  SPI0CR2 = SPI0CR2 | SPI0CR2_MODFEN_MASK;    // enable auto /SS output, set SPI0 Mode Fault
+  close();
   return R_Reg;
 }
 // ------------------------------------------------------
 // Set the SPI nCS high then low
 // ------------------------------------------------------
-void CS_HL (void) {
-  SPI0_nSS = 1;                           // negate the SPI0 /SS strobe
-  SPI0CR1 = SPI0CR1 | SPI0CR1_SSOE_MASK;  // enable auto /SS output, set /SS Output Enable
-  SPI0CR2 = SPI0CR2 | SPI0CR2_MODFEN_MASK;  // enable auto /SS output, set SPI0 Mode Fault
+void Holt_3593_Class::CS_HL (void) {
+	close();
   //--------------------------------------------    
-	
-  SPI0CR1 = SPI0CR1 & ~SPI0CR1_SSOE_MASK;    // disable auto /SS output, reset /SS Output Enable 
-  SPI0CR2 = SPI0CR2 & ~SPI0CR2_MODFEN_MASK;  // disable auto /SS output, reset SPI0 Mode Fault
-  SPI0_nSS = 0;                              // assert the SPI0 /SS strobe
+	open();                             // assert the SPI0 /SS strobe
   } 
 
 void Holt_3593_Class::SS_Low(void)

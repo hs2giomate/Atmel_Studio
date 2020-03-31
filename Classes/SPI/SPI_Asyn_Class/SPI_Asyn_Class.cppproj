@@ -40,175 +40,186 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
-    <avrtool />
+    <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
+    <avrtoolserialnumber>ATML2748051800004976</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x61840300</avrdeviceexpectedsignature>
+    <avrtoolinterface>SWD</avrtoolinterface>
+    <com_atmel_avrdbg_tool_edbg>
+      <ToolOptions>
+        <InterfaceProperties>
+          <SwdClock>2000000</SwdClock>
+        </InterfaceProperties>
+        <InterfaceName>SWD</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.edbg</ToolType>
+      <ToolNumber>ATML2748051800004976</ToolNumber>
+      <ToolName>EDBG</ToolName>
+    </com_atmel_avrdbg_tool_edbg>
+    <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <ArmGccCpp>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-  <armgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-    </ListValues>
-  </armgcccpp.compiler.symbols.DefSymbols>
-  <armgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.compiler.directories.IncludePaths>
-  <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
-  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
-  <armgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.Libraries>
-  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
-  <armgcccpp.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.assembler.general.IncludePaths>
-  <armgcccpp.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.preprocessingassembler.general.IncludePaths>
-</ArmGccCpp>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </armgcccpp.compiler.symbols.DefSymbols>
+        <armgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcccpp.compiler.directories.IncludePaths>
+        <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
+        <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+        <armgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.Libraries>
+        <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+        <armgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcccpp.assembler.general.IncludePaths>
+        <armgcccpp.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcccpp.preprocessingassembler.general.IncludePaths>
+      </ArmGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <ArmGccCpp>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
-  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-  <armgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-    </ListValues>
-  </armgcccpp.compiler.symbols.DefSymbols>
-  <armgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\Config</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\examples</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hal\include</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hal\utils\include</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hpl\core</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hpl\dmac</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hpl\gclk</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hpl\pm</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hpl\port</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hpl\sercom</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hpl\sysctrl</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hpl\systick</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\hri</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\usb</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\usb\class\cdc</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\usb\class\cdc\device</Value>
-      <Value>S:\AtmelStudio\Applications\ParametersSaver\Main_Driver\Main_Driver\usb\device</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/Config</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/examples</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/adc</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/cmcc</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/core</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/dmac</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/evsys</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/gclk</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/mclk</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/osc32kctrl</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/oscctrl</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/pm</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/port</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/ramecc</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/rtc</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/sercom</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/systick</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/usb</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hri</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb/class/cdc</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb/class/cdc/device</Value>
-      <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb/device</Value>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.compiler.directories.IncludePaths>
-  <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>
-  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
-  <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
-  <armgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.Libraries>
-  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
-  <armgcccpp.linker.memorysettings.ExternalRAM />
-  <armgcccpp.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.assembler.general.IncludePaths>
-  <armgcccpp.assembler.debugging.DebugLevel>Default (-g)</armgcccpp.assembler.debugging.DebugLevel>
-  <armgcccpp.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.preprocessingassembler.general.IncludePaths>
-  <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
-</ArmGccCpp>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </armgcccpp.compiler.symbols.DefSymbols>
+        <armgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/Config</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/examples</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/adc</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/cmcc</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/core</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/dmac</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/evsys</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/gclk</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/mclk</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/osc32kctrl</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/oscctrl</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/pm</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/port</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/ramecc</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/rtc</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/sercom</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/systick</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hpl/usb</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hri</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb/class/cdc</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb/class/cdc/device</Value>
+            <Value>../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/usb/device</Value>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>..</Value>
+            <Value>../Device_Startup</Value>
+          </ListValues>
+        </armgcccpp.compiler.directories.IncludePaths>
+        <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>
+        <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
+        <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+        <armgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.Libraries>
+        <armgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>%24(ProjectDir)\Device_Startup</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.LibrarySearchPaths>
+        <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+        <armgcccpp.linker.memorysettings.ExternalRAM />
+        <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsame54p20a_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
+        <armgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcccpp.assembler.general.IncludePaths>
+        <armgcccpp.assembler.debugging.DebugLevel>Default (-g)</armgcccpp.assembler.debugging.DebugLevel>
+        <armgcccpp.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcccpp.preprocessingassembler.general.IncludePaths>
+        <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
+      </ArmGccCpp>
     </ToolchainSettings>
     <OutputFileName>libSPI_Asyn_Class</OutputFileName>
     <OutputFileExtension>.a</OutputFileExtension>
     <OutputType>StaticLibrary</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Device_Startup\startup_same54.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Device_Startup\system_same54.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -220,12 +231,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Device_Startup\" />
+    <Folder Include="Device_Startup" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Applications\ParametersSaver\Main_Driver\Main_Driver\Main_Driver.cproj">
-      <Name>Main_Driver</Name>
-      <Project>{5229ca5b-785b-4638-a12d-bb2ad2853758}</Project>
+    <None Include="Device_Startup\same54p20a_flash.ld">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Device_Startup\same54p20a_sram.ld">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Applications\ARINCTransceiver\MainDriver\MainDriver\MainDriver.cproj">
+      <Name>MainDriver</Name>
+      <Project>{58ffc102-8d0f-4e9c-8119-20b58ad661b1}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
