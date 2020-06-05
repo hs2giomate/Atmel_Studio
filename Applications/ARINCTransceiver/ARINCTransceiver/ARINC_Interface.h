@@ -13,6 +13,11 @@ typedef signed char int8;
 #include "USB_CDC_Class.h"
 //#include "SPI_Asyn_Class.h"
 #include "Holt_3593_Class.h"
+#include "Timer_Class.h"
+#include "atmel_start_pins.h"
+#include "ARINC_Conversions.h"
+#include "stdlib.h"
+#include "stdio.h"
 #define g_RXBuffSize 4
 #define OFFF OFF
 #define K_1MS  1
@@ -47,6 +52,19 @@ typedef signed char int8;
 #define REC2_L2_HEADER 7
 #define REC2_L3_HEADER 8
 
+#define ERROR_OK    1
+#define ERROR_ERROR 0
+#define START_CYCLE 1
+#define WAIT_CYCLE  0
+#define TAB 9
+#define SPACE 0x20         // space
+#define CR 0x0D            // carrage return
+#define LF 0x0A            // line feed
+#define NEWPAGE 0x0C       // new page (clears the full screen)
+//#define EOF -1             // ** This may need to be commend out for some codewarrior installs if duplicate declared**
+#define XON 0x11           // Flow control ON
+#define XOFF 0x13          // Flow control OFF
+
 //const char MyMesg[] = {"Hello World from Holt IC. "};
 //const char Mesg1[] ;
 //const char Mesg2[] ;
@@ -57,13 +75,18 @@ typedef signed char int8;
 //const char Mesg3717[];
 //const char HistoryMesg[];
 //const char DebugArrayStrings[][25];              // Status register dump message headers
+union Buffer32 {
+	long Word32;
+	unsigned char PayLoad[4];        // We will ignore the MSB byte [0]
+};
 
 
 class ARINC_Interface
 {
 //variables
 public:
-	USB_CDC_Class	usb0;
+	static USB_CDC_Class	usb0;
+	Timer_Class		timer1;
 
 	Holt_3593_Class	HI3893;
 
@@ -73,6 +96,7 @@ public:
 	bool	OPT1;
 	bool	OPT2;
 	bool	PARITY;
+	mutable	bool newMessage;
 	unsigned char TXBuffer [16];                 // Transmit Buffer
 	//const char WelcomeMesg[] = "Holt HI-3593 Demonstration.";
 	volatile unsigned int g_count100us;          // Global timer tick for delays.
@@ -82,19 +106,30 @@ public:
 	unsigned char MODES,OPTION;
 	uint8 DebugArray[16];                        // Global array for 3110 status registers
 	unsigned char g_RXBuffer[64][4];             // [# of buffers][16 bytes]
+	
 
+	union Buffer32 BigCounter;
+
+	FUNC_PTR			handler;
+	 ARINC_Conversions	converter;
 protected:
 private:
-
+	uint8_t	receiverArray[4];
+	mutable	unsigned char RXBuffer[g_RXBuffSize];       // Temp buffer to hold messages data
+	mutable	unsigned char RXBufferPL[g_RXBuffSize];     // Temp buffer to hold PL messages data
+		unsigned char LabelsAr1[32];                // All Rec1 256 labels
+		unsigned char LabelsAr2[32];                // All Rec2 256 labels
+		unsigned char statusRegister;                // All Rec2 256 labels
 //functions
 public:
 	ARINC_Interface();
+	//ARINC_Interface(USB_CDC_Class*);
 	~ARINC_Interface();
 	
 	void	Init(void);
 	void	SayHello(void);
 	void	TransmitReceiveWithLabels_Mode(const uint8_t);
-	void	xprint(char *string);
+	void	xprint(const char*);
 	void	CE_Low_Holt(void);
 	void	CE_High_Holt(void);
 	void	getRegStatus(void);
@@ -108,13 +143,23 @@ public:
 	void	FetchAllMessagesAndDisplay(unsigned char *RXBuffer16,unsigned char *RXBufferPL16);
 	void	CheckMessageCountMax(void);
 	void	printARINCTXData(unsigned char *array);
-	unsigned char ConsoleCommands(unsigned char ch);
+	bool ConsoleCommands(char ch);
 	void	ConsoleCommandsHelp(void);
 	void	cpu_irq_enable(void);
 	void	cpu_irq_disable(void);
-	char	xgetchar(void);
+	void	xgetchar(char *);
+	char	xgetchar(char *,bool);
 	void	crlf(void);
 	void	PrintHexByte(uint8);
+	void    HW_RESET(void);
+	void	blink_LED0(void);
+	void	PrintOctalLabelsOnConsole(unsigned char *);
+	void	PrintOctals(uint8 );
+	void	CustomMessage(const uint8);
+	void	space(void);
+	void	xputc(char);
+	void	ReadArincBuffer(void);
+
 protected:
 private:
 	ARINC_Interface( const ARINC_Interface &c );

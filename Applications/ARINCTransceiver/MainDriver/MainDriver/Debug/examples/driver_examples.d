@@ -142,12 +142,16 @@ examples/driver_examples.d examples/driver_examples.o: \
  ../hal/include/hal_init.h ../hal/include/hpl_init.h \
  ../hal/include/hal_io.h ../hal/include/hal_sleep.h \
  ../hal/include/hal_adc_sync.h ../hal/include/hpl_adc_sync.h \
- ../hal/include/hpl_missing_features.h ../hal/include/hal_evsys.h \
+ ../hal/include/hpl_missing_features.h ../hal/include/hal_ext_irq.h \
+ ../hal/include/hpl_ext_irq.h ../hal/include/hal_evsys.h \
  ../hal/include/hpl_evsys.h ../hal/include/hal_timer.h \
  ../hal/utils/include/utils_list.h ../hal/include/hpl_timer.h \
  ../hal/include/hal_spi_m_async.h ../hal/include/hpl_spi_m_async.h \
  ../hal/include/hpl_spi.h ../hal/utils/include/utils.h \
- ../hal/include/hpl_spi_async.h ../hal/include/hal_usb_device.h \
+ ../hal/include/hpl_spi_async.h ../hal/include/hal_spi_m_sync.h \
+ ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi_sync.h \
+ ../hpl/tc/hpl_tc_base.h ../hal/include/hpl_pwm.h \
+ ../hal/include/hpl_irq.h ../hal/include/hal_usb_device.h \
  ../hal/include/hpl_usb_device.h ../hal/include/hpl_usb.h \
  ../Config/hpl_usb_config.h
 
@@ -509,6 +513,10 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 
 ../hal/include/hpl_missing_features.h:
 
+../hal/include/hal_ext_irq.h:
+
+../hal/include/hpl_ext_irq.h:
+
 ../hal/include/hal_evsys.h:
 
 ../hal/include/hpl_evsys.h:
@@ -528,6 +536,18 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 ../hal/utils/include/utils.h:
 
 ../hal/include/hpl_spi_async.h:
+
+../hal/include/hal_spi_m_sync.h:
+
+../hal/include/hpl_spi_m_sync.h:
+
+../hal/include/hpl_spi_sync.h:
+
+../hpl/tc/hpl_tc_base.h:
+
+../hal/include/hpl_pwm.h:
+
+../hal/include/hpl_irq.h:
 
 ../hal/include/hal_usb_device.h:
 

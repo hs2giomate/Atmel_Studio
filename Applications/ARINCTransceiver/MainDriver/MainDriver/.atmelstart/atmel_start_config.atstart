@@ -2,16 +2,16 @@ format_version: '2'
 name: My Project
 versions:
   api: '1.0'
-  backend: 1.7.301
+  backend: 1.7.303
   commit: 1e07622763d149970fd8808a8f12ff3b1e84e0d7
   content: unknown
   content_pack_name: unknown
   format: '2'
-  frontend: 1.7.301
-  packs_version_avr8: 1.0.1408
+  frontend: 1.7.303
+  packs_version_avr8: 1.0.1410
   packs_version_qtouch: unknown
-  packs_version_sam: 1.0.1373
-  version_backend: 1.7.301
+  packs_version_sam: 1.0.1554
+  version_backend: 1.7.303
   version_frontend: ''
 board:
   identifier: SAME54XplainedPro
@@ -19,6 +19,56 @@ board:
 details: null
 application: null
 middlewares:
+  CONTROLLER_INSTANCE_0:
+    user_label: CONTROLLER_INSTANCE_0
+    configuration: {}
+    definition: Atmel:GFX_Mono:0.0.1::SSD1306_display_controller
+    functionality: Monochrome_Display_Controller
+    api: GFX-Mono:Display-Controller:SSD1306
+    dependencies:
+      SPI instance: SPI_Display
+      DC pin: DC_PIN
+      RES pin: RES_PIN
+      CS pin: CS_PIN_0
+  DISPLAY_INSTANCE:
+    user_label: DISPLAY_INSTANCE
+    configuration:
+      ug2832hsweg04_framebuffer: true
+    definition: Atmel:GFX_Mono:0.0.1::UG2832HSWEG04_display
+    functionality: Monochrome_Display
+    api: GFX-Mono:Display:Core
+    dependencies:
+      Controller instance: CONTROLLER_INSTANCE_0
+  MONOCHROME_GRAPHICS_0:
+    user_label: MONOCHROME_GRAPHICS_0
+    configuration: {}
+    definition: Atmel:GFX_Mono:0.0.1::GFX_mono_core
+    functionality: Monochrome_Graphics
+    api: GFX-Mono:Primitives:Core
+    dependencies:
+      Display instance: DISPLAY_INSTANCE
+  TEXT_INSTANCE:
+    user_label: TEXT_INSTANCE
+    configuration: {}
+    definition: Atmel:GFX_Mono:0.0.1::GFX_mono_text
+    functionality: Monochrome_Text
+    api: GFX-Mono:Text:Core
+    dependencies:
+      Primitives instance: MONOCHROME_GRAPHICS_0
+  MONOCHROME_FONT_0:
+    user_label: MONOCHROME_FONT_0
+    configuration: {}
+    definition: Atmel:GFX_Mono:0.0.1::Basix_6x7_font
+    functionality: Monochrome_Font
+    api: GFX-Mono:Font:Core
+    dependencies: {}
+  MONOCHROME_FONT_1:
+    user_label: MONOCHROME_FONT_1
+    configuration: {}
+    definition: Atmel:GFX_Mono:0.0.1::BPmono_10x14_font
+    functionality: Monochrome_Font
+    api: GFX-Mono:Font:Core
+    dependencies: {}
   USB_CHAPTER_9:
     user_label: USB_CHAPTER_9
     configuration: {}
@@ -688,6 +738,136 @@ drivers:
     variant: null
     clocks:
       domain_group: null
+  EXTERNAL_IRQ_0:
+    user_label: EXTERNAL_IRQ_0
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::EIC::driver_config_definition::Default::HAL:Driver:Ext.IRQ
+    functionality: External_IRQ
+    api: HAL:Driver:Ext_IRQ
+    configuration:
+      eic_arch_asynch0: true
+      eic_arch_asynch1: false
+      eic_arch_asynch10: false
+      eic_arch_asynch11: false
+      eic_arch_asynch12: false
+      eic_arch_asynch13: false
+      eic_arch_asynch14: false
+      eic_arch_asynch15: false
+      eic_arch_asynch2: false
+      eic_arch_asynch3: false
+      eic_arch_asynch4: false
+      eic_arch_asynch5: false
+      eic_arch_asynch6: false
+      eic_arch_asynch7: false
+      eic_arch_asynch8: false
+      eic_arch_asynch9: false
+      eic_arch_cksel: Clocked by GCLK
+      eic_arch_debounce_enable0: true
+      eic_arch_debounce_enable1: false
+      eic_arch_debounce_enable10: false
+      eic_arch_debounce_enable11: false
+      eic_arch_debounce_enable12: false
+      eic_arch_debounce_enable13: false
+      eic_arch_debounce_enable14: false
+      eic_arch_debounce_enable15: false
+      eic_arch_debounce_enable2: false
+      eic_arch_debounce_enable3: false
+      eic_arch_debounce_enable4: false
+      eic_arch_debounce_enable5: false
+      eic_arch_debounce_enable6: false
+      eic_arch_debounce_enable7: false
+      eic_arch_debounce_enable8: false
+      eic_arch_debounce_enable9: false
+      eic_arch_enable_irq_setting0: true
+      eic_arch_enable_irq_setting1: false
+      eic_arch_enable_irq_setting10: false
+      eic_arch_enable_irq_setting11: false
+      eic_arch_enable_irq_setting12: false
+      eic_arch_enable_irq_setting13: false
+      eic_arch_enable_irq_setting14: false
+      eic_arch_enable_irq_setting15: false
+      eic_arch_enable_irq_setting2: false
+      eic_arch_enable_irq_setting3: false
+      eic_arch_enable_irq_setting4: false
+      eic_arch_enable_irq_setting5: false
+      eic_arch_enable_irq_setting6: false
+      eic_arch_enable_irq_setting7: false
+      eic_arch_enable_irq_setting8: false
+      eic_arch_enable_irq_setting9: false
+      eic_arch_extinteo0: false
+      eic_arch_extinteo1: false
+      eic_arch_extinteo10: false
+      eic_arch_extinteo11: false
+      eic_arch_extinteo12: false
+      eic_arch_extinteo13: false
+      eic_arch_extinteo14: false
+      eic_arch_extinteo15: false
+      eic_arch_extinteo2: false
+      eic_arch_extinteo3: false
+      eic_arch_extinteo4: false
+      eic_arch_extinteo5: false
+      eic_arch_extinteo6: false
+      eic_arch_extinteo7: false
+      eic_arch_extinteo8: false
+      eic_arch_extinteo9: false
+      eic_arch_filten0: true
+      eic_arch_filten1: false
+      eic_arch_filten10: false
+      eic_arch_filten11: false
+      eic_arch_filten12: false
+      eic_arch_filten13: false
+      eic_arch_filten14: false
+      eic_arch_filten15: false
+      eic_arch_filten2: false
+      eic_arch_filten3: false
+      eic_arch_filten4: false
+      eic_arch_filten5: false
+      eic_arch_filten6: false
+      eic_arch_filten7: false
+      eic_arch_filten8: false
+      eic_arch_filten9: false
+      eic_arch_nmi_ctrl: false
+      eic_arch_nmiasynch: false
+      eic_arch_nmifilten: false
+      eic_arch_nmisense: No detection
+      eic_arch_prescaler0: Divided by 2
+      eic_arch_prescaler1: Divided by 2
+      eic_arch_sense0: Rising-edge detection
+      eic_arch_sense1: No detection
+      eic_arch_sense10: No detection
+      eic_arch_sense11: No detection
+      eic_arch_sense12: No detection
+      eic_arch_sense13: No detection
+      eic_arch_sense14: No detection
+      eic_arch_sense15: No detection
+      eic_arch_sense2: No detection
+      eic_arch_sense3: No detection
+      eic_arch_sense4: No detection
+      eic_arch_sense5: No detection
+      eic_arch_sense6: No detection
+      eic_arch_sense7: No detection
+      eic_arch_sense8: No detection
+      eic_arch_sense9: No detection
+      eic_arch_states0: '3'
+      eic_arch_states1: '3'
+      eic_arch_tickon: The sampling rate is EIC clock
+    optional_signals:
+    - identifier: EXTERNAL_IRQ_0:EXTINT/0
+      pad: PB00
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.0
+      name: EIC/EXTINT/0
+      label: EXTINT/0
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: EIC
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        configuration:
+          eic_gclk_selection: Generic clock generator 0
   EVENT_SYSTEM_0:
     user_label: EVENT_SYSTEM_0
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::EVSYS::driver_config_definition::Event.System::HAL:Driver:Event.system
@@ -1119,13 +1299,13 @@ drivers:
     configuration:
       enable_gclk_gen_0: true
       enable_gclk_gen_0__externalclock: 1000000
-      enable_gclk_gen_1: false
+      enable_gclk_gen_1: true
       enable_gclk_gen_10: false
       enable_gclk_gen_10__externalclock: 1000000
       enable_gclk_gen_11: false
       enable_gclk_gen_11__externalclock: 1000000
       enable_gclk_gen_1__externalclock: 1000000
-      enable_gclk_gen_2: false
+      enable_gclk_gen_2: true
       enable_gclk_gen_2__externalclock: 1000000
       enable_gclk_gen_3: true
       enable_gclk_gen_3__externalclock: 1000000
@@ -1156,12 +1336,12 @@ drivers:
       gclk_arch_gen_11_oe: false
       gclk_arch_gen_11_oov: false
       gclk_arch_gen_11_runstdby: false
-      gclk_arch_gen_1_enable: false
+      gclk_arch_gen_1_enable: true
       gclk_arch_gen_1_idc: false
       gclk_arch_gen_1_oe: false
       gclk_arch_gen_1_oov: false
       gclk_arch_gen_1_runstdby: false
-      gclk_arch_gen_2_enable: false
+      gclk_arch_gen_2_enable: true
       gclk_arch_gen_2_idc: false
       gclk_arch_gen_2_oe: false
       gclk_arch_gen_2_oov: false
@@ -1210,11 +1390,11 @@ drivers:
       gclk_gen_11_div: 1
       gclk_gen_11_div_sel: false
       gclk_gen_11_oscillator: External Crystal Oscillator 8-48MHz (XOSC1)
-      gclk_gen_1_div: 1
+      gclk_gen_1_div: 4
       gclk_gen_1_div_sel: false
-      gclk_gen_1_oscillator: Digital Frequency Locked Loop (DFLL48M)
-      gclk_gen_2_div: 1
-      gclk_gen_2_div_sel: true
+      gclk_gen_1_oscillator: External Crystal Oscillator 8-48MHz (XOSC1)
+      gclk_gen_2_div: 12
+      gclk_gen_2_div_sel: false
       gclk_gen_2_oscillator: External Crystal Oscillator 8-48MHz (XOSC1)
       gclk_gen_3_div: 1
       gclk_gen_3_div_sel: false
@@ -1454,7 +1634,7 @@ drivers:
       rtc_arch_comp_val: 1024
       rtc_arch_init_reset: true
       rtc_arch_prescaler: Peripheral clock divided by 1
-      rtc_cmpeo0: true
+      rtc_cmpeo0: false
       rtc_cmpeo1: false
       rtc_event_control: true
       rtc_ovfeo: false
@@ -1465,7 +1645,7 @@ drivers:
       rtc_pereo4: false
       rtc_pereo5: false
       rtc_pereo6: false
-      rtc_pereo7: false
+      rtc_pereo7: true
       rtc_tamper_active_layer_frequency_prescalar: DIV2 CLK_RTC_OUT is CLK_RTC /2
       rtc_tamper_debounce_frequency_prescalar: DIV2 CLK_RTC_DEB is CLK_RTC /2
       rtc_tamper_input_action_0: OFF(Disabled)
@@ -1514,7 +1694,7 @@ drivers:
       spi_master_arch_dord: MSB first
       spi_master_arch_ibon: In data stream
       spi_master_arch_runstdby: false
-      spi_master_baud_rate: 50000
+      spi_master_baud_rate: 5000
       spi_master_character_size: 8 bits
       spi_master_dummybyte: 511
       spi_master_rx_enable: true
@@ -1535,6 +1715,50 @@ drivers:
       domain_group:
         nodes:
         - name: Core
+          input: Generic clock generator 1
+          external: false
+          external_frequency: 0
+        - name: Slow
+          input: Generic clock generator 3
+          external: false
+          external_frequency: 0
+        configuration:
+          core_gclk_selection: Generic clock generator 1
+          slow_gclk_selection: Generic clock generator 3
+  SPI_1:
+    user_label: SPI_1
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM4::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
+    functionality: SPI
+    api: HAL:Driver:SPI_Master_Sync
+    configuration:
+      spi_master_advanced: true
+      spi_master_arch_cpha: Sample input on leading edge
+      spi_master_arch_cpol: SCK is low when idle
+      spi_master_arch_dbgstop: Keep running
+      spi_master_arch_dord: MSB first
+      spi_master_arch_ibon: In data stream
+      spi_master_arch_runstdby: false
+      spi_master_baud_rate: 50000
+      spi_master_character_size: 8 bits
+      spi_master_dummybyte: 511
+      spi_master_rx_enable: true
+    optional_signals: []
+    variant:
+      specification: TXPO=0, RXPO=2
+      required_signals:
+      - name: SERCOM4/PAD/0
+        pad: PB08
+        label: MOSI
+      - name: SERCOM4/PAD/1
+        pad: PB09
+        label: SCK
+      - name: SERCOM4/PAD/2
+        pad: PB14
+        label: MISO
+    clocks:
+      domain_group:
+        nodes:
+        - name: Core
           input: Generic clock generator 0
           external: false
           external_frequency: 0
@@ -1545,6 +1769,50 @@ drivers:
         configuration:
           core_gclk_selection: Generic clock generator 0
           slow_gclk_selection: Generic clock generator 3
+  SPI_Display:
+    user_label: SPI_Display
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM6::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
+    functionality: SPI
+    api: HAL:Driver:SPI_Master_Sync
+    configuration:
+      spi_master_advanced: false
+      spi_master_arch_cpha: Sample input on leading edge
+      spi_master_arch_cpol: SCK is low when idle
+      spi_master_arch_dbgstop: Keep running
+      spi_master_arch_dord: MSB first
+      spi_master_arch_ibon: In data stream
+      spi_master_arch_runstdby: false
+      spi_master_baud_rate: 50000
+      spi_master_character_size: 8 bits
+      spi_master_dummybyte: 511
+      spi_master_rx_enable: true
+    optional_signals: []
+    variant:
+      specification: TXPO=0, RXPO=3
+      required_signals:
+      - name: SERCOM6/PAD/0
+        pad: PC04
+        label: MOSI
+      - name: SERCOM6/PAD/1
+        pad: PC05
+        label: SCK
+      - name: SERCOM6/PAD/3
+        pad: PC07
+        label: MISO
+    clocks:
+      domain_group:
+        nodes:
+        - name: Core
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Slow
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        configuration:
+          core_gclk_selection: Generic clock generator 0
+          slow_gclk_selection: Generic clock generator 0
   DELAY_0:
     user_label: DELAY_0
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SysTick::driver_config_definition::Delay::HAL:Driver:Delay
@@ -1556,6 +1824,37 @@ drivers:
     variant: null
     clocks:
       domain_group: null
+  TIMER_1:
+    user_label: TIMER_1
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TC0::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      tc_arch_dbgrun: false
+      tc_arch_evact: Event action disabled
+      tc_arch_mceo0: false
+      tc_arch_mceo1: false
+      tc_arch_ondemand: false
+      tc_arch_ovfeo: false
+      tc_arch_presync: Reload or reset counter on next GCLK
+      tc_arch_runstdby: true
+      tc_arch_tcei: false
+      tc_arch_tcinv: false
+      timer_advanced_configuration: true
+      timer_event_control: false
+      timer_prescaler: Divide by 2
+      timer_tick: 8
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC
+          input: Generic clock generator 2
+          external: false
+          external_frequency: 0
+        configuration:
+          tc_gclk_selection: Generic clock generator 2
   USB_0:
     user_label: USB_0
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::USB::driver_config_definition::USB.Device::HAL:Driver:USB.Device
@@ -1600,6 +1899,12 @@ drivers:
         configuration:
           usb_gclk_selection: Generic clock generator 4
 pads:
+  DC_PIN:
+    name: PC01
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC01
+    mode: Digital output
+    user_label: DC_PIN
+    configuration: {}
   OLED_BUTTON2:
     name: PC02
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC02
@@ -1614,6 +1919,18 @@ pads:
     user_label: OLED_BUTTON3
     configuration:
       pad_pull_config: Pull-up
+  PB08:
+    name: PB08
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB08
+    mode: Digital output
+    user_label: PB08
+    configuration: null
+  PB09:
+    name: PB09
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB09
+    mode: Digital output
+    user_label: PB09
+    configuration: null
   PA04:
     name: PA04
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA04
@@ -1632,12 +1949,50 @@ pads:
     mode: Digital input
     user_label: PA06
     configuration: null
+  PC04:
+    name: PC04
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC04
+    mode: Digital output
+    user_label: PC04
+    configuration: null
+  PC05:
+    name: PC05
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC05
+    mode: Digital output
+    user_label: PC05
+    configuration: null
+  PC07:
+    name: PC07
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC07
+    mode: Digital input
+    user_label: PC07
+    configuration: null
+  PB14:
+    name: PB14
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB14
+    mode: Digital input
+    user_label: PB14
+    configuration: null
   OLED_LED1:
     name: PD10
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD10
     mode: Digital output
     user_label: OLED_LED1
-    configuration: null
+    configuration:
+      pad_initial_level: High
+  OLED_LED3:
+    name: PD11
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD11
+    mode: Digital output
+    user_label: OLED_LED3
+    configuration:
+      pad_initial_level: High
+  CS_PIN_0:
+    name: PC14
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC14
+    mode: Digital output
+    user_label: CS_PIN_0
+    configuration: {}
   tick_RTC:
     name: PC15
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC15
@@ -1670,6 +2025,12 @@ pads:
     user_label: SPI0_CS
     configuration:
       pad_initial_level: High
+  MR:
+    name: PB29
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB29
+    mode: Digital output
+    user_label: MR
+    configuration: null
   SW0:
     name: PB30
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB30
@@ -1684,4 +2045,16 @@ pads:
     user_label: OLED_BUTTON1
     configuration:
       pad_pull_config: Pull-up
+  RES_PIN:
+    name: PC31
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC31
+    mode: Digital output
+    user_label: RES_PIN
+    configuration: {}
+  PB00:
+    name: PB00
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB00
+    mode: Digital input
+    user_label: PB00
+    configuration: null
 toolchain_options: []

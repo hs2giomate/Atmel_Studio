@@ -7,27 +7,33 @@
 
 
 #include <atmel_start.h>
-#include "Timer_Class.h"
 
+#include "Timer_Class.h"
+#include "CDC_Class.h"
+void blink_LED0(void){
+	gpio_toggle_pin_level(LED0);
+}
 
 int main(void)
 {
     /* Initialize the SAM system */
     atmel_start_init();
-	Timer_Class			timer0;
-	timer0.Init();
-	timer0.start(1);
+	timer_start(&TIMER_0);
+	CDC_Class	usb0;
+	Timer_Class			timer1(&TIMER_1);
+	timer1.Init();
+	timer1.add_task((FUNC_PTR)blink_LED0,1000);
+	
     /* Replace with your application code */
     while (1) 
     {
-		bool to=timer0.timeout;
-		if (to)
-		{
-			timer0.stop();
-			
-			gpio_toggle_pin_level(LED0);
-			timer0.start(10);
-		}
+		while (gpio_get_pin_level(SW0_Button));
+		while (!gpio_get_pin_level(SW0_Button));
 		
+		timer1.start();
+		while (gpio_get_pin_level(SW0_Button));
+		while (!gpio_get_pin_level(SW0_Button));
+		timer1.stop();
     }
 }
+

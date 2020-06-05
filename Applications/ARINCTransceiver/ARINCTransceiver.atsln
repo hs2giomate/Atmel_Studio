@@ -5,14 +5,13 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ARINCTransceiver", "ARINCTransceiver\ARINCTransceiver.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
 EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "MainDriver", "MainDriver\MainDriver\MainDriver.cproj", "{58FFC102-8D0F-4E9C-8119-20B58AD661B1}"
-EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "USB_CDC_Class", "..\..\Classes\USB\USB_CDC_Class\USB_CDC_Class\USB_CDC_Class.cppproj", "{B17A45BD-2316-4354-8365-4A91A4A5B6B8}"
 EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPI_Asyn_Class", "..\..\Classes\SPI\SPI_Asyn_Class\SPI_Asyn_Class.cppproj", "{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}"
-	ProjectSection(ProjectDependencies) = postProject
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1} = {58FFC102-8D0F-4E9C-8119-20B58AD661B1}
-	EndProjectSection
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPI_Syn_Class", "..\..\Classes\SPI\SPI_Syn_Class\SPI_Syn_Class\SPI_Syn_Class.cppproj", "{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "TimerClass", "..\..\Classes\Timers\TimerClass\TimerClass\TimerClass.cppproj", "{B3C8BC1C-B8F1-4CCF-9A77-DE7CC29CA8F0}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ARINC_Interface_Driver", "ARINC_Interface_Driver\ARINC_Interface_Driver\ARINC_Interface_Driver.cproj", "{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,18 +23,22 @@ Global
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Debug|ARM.ActiveCfg = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Debug|ARM.Build.0 = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Release|ARM.ActiveCfg = Release|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Release|ARM.Build.0 = Release|ARM
 		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Debug|ARM.ActiveCfg = Debug|ARM
 		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Debug|ARM.Build.0 = Debug|ARM
 		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Release|ARM.ActiveCfg = Release|ARM
 		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Release|ARM.Build.0 = Release|ARM
-		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Debug|ARM.ActiveCfg = Debug|ARM
-		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Debug|ARM.Build.0 = Debug|ARM
-		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Release|ARM.ActiveCfg = Release|ARM
-		{3299E022-2A38-4C4F-A1C9-ED502D34FFA8}.Release|ARM.Build.0 = Release|ARM
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Debug|ARM.ActiveCfg = Debug|ARM
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Debug|ARM.Build.0 = Debug|ARM
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Release|ARM.ActiveCfg = Release|ARM
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Release|ARM.Build.0 = Release|ARM
+		{B3C8BC1C-B8F1-4CCF-9A77-DE7CC29CA8F0}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B3C8BC1C-B8F1-4CCF-9A77-DE7CC29CA8F0}.Debug|ARM.Build.0 = Debug|ARM
+		{B3C8BC1C-B8F1-4CCF-9A77-DE7CC29CA8F0}.Release|ARM.ActiveCfg = Release|ARM
+		{B3C8BC1C-B8F1-4CCF-9A77-DE7CC29CA8F0}.Release|ARM.Build.0 = Release|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Debug|ARM.Build.0 = Debug|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Release|ARM.ActiveCfg = Release|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Release|ARM.Build.0 = Release|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

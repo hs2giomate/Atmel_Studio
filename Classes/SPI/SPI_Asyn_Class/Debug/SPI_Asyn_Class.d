@@ -188,6 +188,9 @@ SPI_Asyn_Class.d SPI_Asyn_Class.o: .././SPI_Asyn_Class.cpp \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_spi.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/utils.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_spi_async.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hal_spi_m_sync.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_spi_m_sync.h \
+ ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_spi_sync.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hal_usb_device.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_usb_device.h \
  ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_usb.h \
@@ -570,6 +573,12 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/utils/include/utils.h:
 
 ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_spi_async.h:
+
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hal_spi_m_sync.h:
+
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_spi_m_sync.h:
+
+../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hpl_spi_sync.h:
 
 ../../../../Applications/ARINCTransceiver/MainDriver/MainDriver/hal/include/hal_usb_device.h:
 

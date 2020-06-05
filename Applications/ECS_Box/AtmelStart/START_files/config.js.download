@@ -1,0 +1,103 @@
+/*
+ * DO NOT EDIT .JS FILE DIRECTLY
+ * This file is automatically updated by the build scripts
+ * based on tpl/start.js.tpl
+ */
+
+// Initialize ACME object (normally not created yet)
+ACME = window.ACME || {};
+
+(function initConfig() {
+    ACME.config = ACME.config || {};
+
+    ACME.config.General = {
+        productName             : 'Atmel START',
+
+        copyrightSummary        : '\u00A9 2019 Microchip Technology Inc.',
+        copyrightFull           : '\u00A9 2019 Microchip Technology Inc. All rights reserved.',
+
+        minPageWidth            : 800,
+        basePageWidth           : 1170,
+
+        configFileName          : 'atmel_start_config.json',
+        sessionFormatVersion    : '2.0',
+        defaultProjectName      : 'My Project',
+        timeout                 : 45000
+    };
+
+    ACME.config.Server = {
+        backend                 : '',
+        documentation           : 'https://alexandria.atmel.com',
+
+        timeout                 : Number('65000'),
+        longTimeout             : (2*Number('65000')) + 45000,
+        veryLongTimeout         : 10*Number('65000')
+    };
+
+    ACME.config.Documentation = {
+        start                   : 'https://alexandria.atmel.com/keyword/ATMELSTART.INTRODUCTION/redirect',
+        gettingStarted          : 'https://alexandria.atmel.com/keyword/ATMELSTART.GETTINGSTARTED/redirect',
+        restoreSession          : 'https://alexandria.atmel.com/keyword/ATMELSTART.SAVEANDRESTORE/redirect',
+        deviceVisualizer        : 'https://alexandria.atmel.com/keyword/ATMELSTART.PINMUXCONFIGURATOR/redirect',
+        peripheralConfiguration : 'https://alexandria.atmel.com/keyword/ATMELSTART.CONFIGURESOFTWARECOMPONENTS/redirect',
+        clockConfiguration      : 'https://alexandria.atmel.com/keyword/ATMELSTART.CLOCKCONFIGURATOR/redirect',
+        qtouchConfiguration     : 'https://alexandria.atmel.com/keyword/ATMELSTART.QTOUCHCONFIGURATOR/redirect',
+        eventSystemConfiguration: 'https://alexandria.atmel.com/keyword/ATMELSTART.EVENTSYSTEMCONFIGURATOR/redirect',
+        cclConfiguration        : 'https://alexandria.atmel.com/keyword/ATMELSTART.CCLCONFIGURATOR/redirect',
+        knownIssues             : 'https://alexandria.atmel.com/keyword/ATMELSTART.KNOWNISSUES/redirect',
+        changeLog               : 'https://alexandria.atmel.com/keyword/ATMELSTART.CHANGELOG/redirect',
+        migrationNotes          : 'https://alexandria.atmel.com/keyword/ATMELSTART.CHANGELOG/redirect',
+        ideNotes                : 'https://alexandria.atmel.com/keyword/ATMELSTART.USINGOUTPUTINEXTERNALTOOLS/redirect',
+        atmelstudio             : 'https://alexandria.atmel.com/keyword/ATMELSTART.USINGATMELSTUDIO/redirect',
+        iar                     : 'https://alexandria.atmel.com/keyword/ATMELSTART.EXPORTTOIAR/redirect',
+        keil                    : 'https://alexandria.atmel.com/keyword/ATMELSTART.EXPORTTOKEIL/redirect',
+        make                    : 'https://alexandria.atmel.com/keyword/ATMELSTART.EXPORTTOMAKE/redirect',
+        ideIarWarning           : 'https://alexandria.atmel.com/keyword/ATMELSTART.EXPORTTOIAR/redirect',
+        asf4apimanual           : 'https://alexandria.atmel.com/keyword/ASF4.INTRODUCTION/redirect',
+        migrationguide          : 'https://alexandria.atmel.com/keyword/ATMELSTART.MIGRATIONGUIDE/redirect',
+        tZSupportIarSecure      : 'https://alexandria.atmel.com/keyword/ATMELSTART.TZSUPPORTIARSECURE/redirect',
+        tZSupportIarNonSecure   : 'https://alexandria.atmel.com/keyword/ATMELSTART.TZSUPPORTIARNONSECURE/redirect',
+        tZMakefileSecure        : 'https://alexandria.atmel.com/keyword/ATMELSTART.TZSUPPORTMAKEFILESECURE/redirect',
+        tZMakefileNonSecure     : 'https://alexandria.atmel.com/keyword/ATMELSTART.TZSUPPORTMAKEFILENONSECURE/redirect',
+        tZSupportKeilSecure     : 'https://alexandria.atmel.com/keyword/ATMELSTART.TZSUPPORTKEILSECURE/redirect',
+        tZSupportKeilNonSecure  : 'https://alexandria.atmel.com/keyword/ATMELSTART.TZSUPPORTKEILNONSECURE/redirect',
+        tZAtmelStudioSecure     : 'https://alexandria.atmel.com/keyword/ATMELSTART.TZSUPPORTATMELSTUDIOSECURE/redirect',
+        tZAtmelStudioNonSecure  : 'https://alexandria.atmel.com/keyword/ATMELSTART.TZSUPPORTATMELSTUDIONONSECURE/redirect',
+    };
+
+    ACME.config.ExternalLinks = {
+        supportPage             : 'http://www.microchip.com/support/hottopics.aspx',
+        advancedSoftwareFramework3: 'https://www.microchip.com/avr-support/advanced-software-framework-(asf)',
+        atmelStudioMicrosite    : 'http://www.microchip.com/avr-support/atmel-studio-7',
+        videoTutorials          : 'https://www.youtube.com/watch?v=9W7tPUkaUZ0&list=PL9B4edd-p2ajRbjkjMuTt8lz_VeE8IKva',
+        introductionVideo       : 'https://www.youtube.com/watch?v=9W7tPUkaUZ0&list=PL9B4edd-p2ajRbjkjMuTt8lz_VeE8IKva',
+
+        getSamplesLink: function(deviceName) {
+            return 'http://www.microchip.com/samples/default.aspx';
+        },
+
+        getDataSheetLink: function(deviceName) {
+            return 'http://www.microchip.com/wwwproducts/en/' + deviceName;
+        },
+
+        getBuyLink: function(deviceName) {
+            return 'https://www.microchipdirect.com/product/search/all/' + deviceName;
+        },
+
+        getRegisterLookupUrl: function(device, module, register, bitfield) {
+            var url = ACME.config.Server.documentation + '/device-lookup/' + device;
+
+            if(module) {
+                url += '/component/' + module;
+            }
+
+            url += '/register/' + register;
+
+            if(bitfield) {
+                url += '/bitfield/' + bitfield;
+            }
+
+            return url;
+        }
+    };
+}());

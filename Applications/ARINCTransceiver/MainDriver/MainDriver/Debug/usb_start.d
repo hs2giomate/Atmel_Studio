@@ -141,14 +141,26 @@ usb_start.d usb_start.o: .././usb_start.c .././atmel_start.h \
  ../hal/include/hal_init.h ../hal/include/hpl_init.h \
  ../hal/include/hal_io.h ../hal/include/hal_sleep.h \
  ../hal/include/hal_adc_sync.h ../hal/include/hpl_adc_sync.h \
- ../hal/include/hpl_missing_features.h ../hal/include/hal_evsys.h \
+ ../hal/include/hpl_missing_features.h ../hal/include/hal_ext_irq.h \
+ ../hal/include/hpl_ext_irq.h ../hal/include/hal_evsys.h \
  ../hal/include/hpl_evsys.h ../hal/include/hal_timer.h \
  ../hal/utils/include/utils_list.h ../hal/include/hpl_timer.h \
  ../hal/include/hal_spi_m_async.h ../hal/include/hpl_spi_m_async.h \
  ../hal/include/hpl_spi.h ../hal/utils/include/utils.h \
- ../hal/include/hpl_spi_async.h ../hal/include/hal_usb_device.h \
+ ../hal/include/hpl_spi_async.h ../hal/include/hal_spi_m_sync.h \
+ ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi_sync.h \
+ ../hpl/tc/hpl_tc_base.h ../hal/include/hpl_pwm.h \
+ ../hal/include/hpl_irq.h ../hal/include/hal_usb_device.h \
  ../hal/include/hpl_usb_device.h ../hal/include/hpl_usb.h \
- ../Config/hpl_usb_config.h .././usb_start.h \
+ ../Config/hpl_usb_config.h .././gfx_mono_main.h \
+ ../gfx_mono/display/ug2832hsweg04/ug2832hsweg04.h \
+ ../Config/ug2832hsweg04_config.h ../gfx_mono/display/display_mono.h \
+ ../gfx_mono/display_controller/display_ctrl_mono.h \
+ ../gfx_mono/display_controller/ssd1306/ssd1306.h \
+ ../gfx_mono/display/framebuffer.h ../gfx_mono/gfx_mono.h \
+ ../gfx_mono/gfx_mono_text.h ../gfx_mono/gfx_mono_font.h \
+ ../gfx_mono/fonts/gfx_mono_font_basic_6x7.h \
+ ../gfx_mono/fonts/gfx_mono_font_bpmono_10x14.h .././usb_start.h \
  ../usb/class/cdc/device/cdcdf_acm.h ../usb/device/usbdc.h \
  ../usb/usb_includes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
@@ -526,6 +538,10 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 
 ../hal/include/hpl_missing_features.h:
 
+../hal/include/hal_ext_irq.h:
+
+../hal/include/hpl_ext_irq.h:
+
 ../hal/include/hal_evsys.h:
 
 ../hal/include/hpl_evsys.h:
@@ -546,6 +562,18 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 
 ../hal/include/hpl_spi_async.h:
 
+../hal/include/hal_spi_m_sync.h:
+
+../hal/include/hpl_spi_m_sync.h:
+
+../hal/include/hpl_spi_sync.h:
+
+../hpl/tc/hpl_tc_base.h:
+
+../hal/include/hpl_pwm.h:
+
+../hal/include/hpl_irq.h:
+
 ../hal/include/hal_usb_device.h:
 
 ../hal/include/hpl_usb_device.h:
@@ -553,6 +581,30 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 ../hal/include/hpl_usb.h:
 
 ../Config/hpl_usb_config.h:
+
+.././gfx_mono_main.h:
+
+../gfx_mono/display/ug2832hsweg04/ug2832hsweg04.h:
+
+../Config/ug2832hsweg04_config.h:
+
+../gfx_mono/display/display_mono.h:
+
+../gfx_mono/display_controller/display_ctrl_mono.h:
+
+../gfx_mono/display_controller/ssd1306/ssd1306.h:
+
+../gfx_mono/display/framebuffer.h:
+
+../gfx_mono/gfx_mono.h:
+
+../gfx_mono/gfx_mono_text.h:
+
+../gfx_mono/gfx_mono_font.h:
+
+../gfx_mono/fonts/gfx_mono_font_basic_6x7.h:
+
+../gfx_mono/fonts/gfx_mono_font_bpmono_10x14.h:
 
 .././usb_start.h:
 

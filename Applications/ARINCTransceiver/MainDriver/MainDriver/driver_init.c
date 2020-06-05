@@ -14,7 +14,10 @@
 #include <hpl_adc_base.h>
 #include <hpl_rtc_base.h>
 
-struct timer_descriptor TIMER_0;
+struct timer_descriptor      TIMER_0;
+struct spi_m_sync_descriptor SPI_1;
+struct spi_m_sync_descriptor SPI_Display;
+struct timer_descriptor      TIMER_1;
 
 struct adc_sync_descriptor ADC_0;
 
@@ -35,6 +38,27 @@ void ADC_0_init(void)
 	ADC_0_CLOCK_init();
 	ADC_0_PORT_init();
 	adc_sync_init(&ADC_0, ADC0, (void *)NULL);
+}
+
+void EXTERNAL_IRQ_0_init(void)
+{
+	hri_gclk_write_PCHCTRL_reg(GCLK, EIC_GCLK_ID, CONF_GCLK_EIC_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_mclk_set_APBAMASK_EIC_bit(MCLK);
+
+	// Set pin direction to input
+	gpio_set_pin_direction(PB00, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(PB00,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(PB00, PINMUX_PB00A_EIC_EXTINT0);
+
+	ext_irq_init();
 }
 
 void EVENT_SYSTEM_0_init(void)
@@ -114,9 +138,134 @@ void SPI_0_init(void)
 	SPI_0_PORT_init();
 }
 
+void SPI_1_PORT_init(void)
+{
+
+	gpio_set_pin_level(PB08,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(PB08, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(PB08, PINMUX_PB08D_SERCOM4_PAD0);
+
+	gpio_set_pin_level(PB09,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(PB09, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(PB09, PINMUX_PB09D_SERCOM4_PAD1);
+
+	// Set pin direction to input
+	gpio_set_pin_direction(PB14, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(PB14,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(PB14, PINMUX_PB14C_SERCOM4_PAD2);
+}
+
+void SPI_1_CLOCK_init(void)
+{
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM4_GCLK_ID_CORE, CONF_GCLK_SERCOM4_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM4_GCLK_ID_SLOW, CONF_GCLK_SERCOM4_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+
+	hri_mclk_set_APBDMASK_SERCOM4_bit(MCLK);
+}
+
+void SPI_1_init(void)
+{
+	SPI_1_CLOCK_init();
+	spi_m_sync_init(&SPI_1, SERCOM4);
+	SPI_1_PORT_init();
+}
+
+void SPI_Display_PORT_init(void)
+{
+
+	gpio_set_pin_level(PC04,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(PC04, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(PC04, PINMUX_PC04C_SERCOM6_PAD0);
+
+	gpio_set_pin_level(PC05,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(PC05, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(PC05, PINMUX_PC05C_SERCOM6_PAD1);
+
+	// Set pin direction to input
+	gpio_set_pin_direction(PC07, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(PC07,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(PC07, PINMUX_PC07C_SERCOM6_PAD3);
+}
+
+void SPI_Display_CLOCK_init(void)
+{
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM6_GCLK_ID_CORE, CONF_GCLK_SERCOM6_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM6_GCLK_ID_SLOW, CONF_GCLK_SERCOM6_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+
+	hri_mclk_set_APBDMASK_SERCOM6_bit(MCLK);
+}
+
+void SPI_Display_init(void)
+{
+	SPI_Display_CLOCK_init();
+	spi_m_sync_init(&SPI_Display, SERCOM6);
+	SPI_Display_PORT_init();
+}
+
 void delay_driver_init(void)
 {
 	delay_init(SysTick);
+}
+
+/**
+ * \brief Timer initialization function
+ *
+ * Enables Timer peripheral, clocks and initializes Timer driver
+ */
+static void TIMER_1_init(void)
+{
+	hri_mclk_set_APBAMASK_TC0_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TC0_GCLK_ID, CONF_GCLK_TC0_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+
+	timer_init(&TIMER_1, TC0, _tc_get_timer());
 }
 
 void USB_0_PORT_init(void)
@@ -252,6 +401,20 @@ void system_init(void)
 
 	gpio_set_pin_function(SPI0_CS, GPIO_PIN_FUNCTION_OFF);
 
+	// GPIO on PB29
+
+	gpio_set_pin_level(MR,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(MR, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(MR, GPIO_PIN_FUNCTION_OFF);
+
 	// GPIO on PB30
 
 	// Set pin direction to input
@@ -266,6 +429,20 @@ void system_init(void)
 	                       GPIO_PULL_UP);
 
 	gpio_set_pin_function(SW0, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PC01
+
+	gpio_set_pin_level(DC_PIN,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(DC_PIN, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(DC_PIN, GPIO_PIN_FUNCTION_OFF);
 
 	// GPIO on PC02
 
@@ -296,6 +473,20 @@ void system_init(void)
 	                       GPIO_PULL_UP);
 
 	gpio_set_pin_function(OLED_BUTTON3, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PC14
+
+	gpio_set_pin_level(CS_PIN_0,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(CS_PIN_0, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(CS_PIN_0, GPIO_PIN_FUNCTION_OFF);
 
 	// GPIO on PC15
 
@@ -340,9 +531,9 @@ void system_init(void)
 
 	gpio_set_pin_function(OLED_BUTTON1, GPIO_PIN_FUNCTION_OFF);
 
-	// GPIO on PD10
+	// GPIO on PC31
 
-	gpio_set_pin_level(OLED_LED1,
+	gpio_set_pin_level(RES_PIN,
 	                   // <y> Initial level
 	                   // <id> pad_initial_level
 	                   // <false"> Low
@@ -350,11 +541,41 @@ void system_init(void)
 	                   false);
 
 	// Set pin direction to output
+	gpio_set_pin_direction(RES_PIN, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(RES_PIN, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PD10
+
+	gpio_set_pin_level(OLED_LED1,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   true);
+
+	// Set pin direction to output
 	gpio_set_pin_direction(OLED_LED1, GPIO_DIRECTION_OUT);
 
 	gpio_set_pin_function(OLED_LED1, GPIO_PIN_FUNCTION_OFF);
 
+	// GPIO on PD11
+
+	gpio_set_pin_level(OLED_LED3,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   true);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(OLED_LED3, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(OLED_LED3, GPIO_PIN_FUNCTION_OFF);
+
 	ADC_0_init();
+
+	EXTERNAL_IRQ_0_init();
 
 	EVENT_SYSTEM_0_init();
 
@@ -362,7 +583,12 @@ void system_init(void)
 
 	SPI_0_init();
 
+	SPI_1_init();
+
+	SPI_Display_init();
+
 	delay_driver_init();
 
+	TIMER_1_init();
 	USB_0_init();
 }

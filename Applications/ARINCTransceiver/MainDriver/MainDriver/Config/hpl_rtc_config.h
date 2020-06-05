@@ -296,14 +296,14 @@
 // <i> This bit indicates whether Periodic interval 7 event is enabled and will be generated
 // <id> rtc_pereo7
 #ifndef CONF_RTC_PEREO7
-#define CONF_RTC_PEREO7 0
+#define CONF_RTC_PEREO7 1
 #endif
 
 // <q> Compare 0 Event Output
 // <i> This bit indicates whether Compare O event is enabled and will be generated
 // <id> rtc_cmpeo0
 #ifndef CONF_RTC_COMPE0
-#define CONF_RTC_COMPE0 1
+#define CONF_RTC_COMPE0 0
 #endif
 
 // <q> Compare 1 Event Output

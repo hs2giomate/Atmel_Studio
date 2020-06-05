@@ -32,19 +32,22 @@ class SPI_Asyn_Class
 //friend  void complete_cb_SPI_0(const struct spi_m_async_descriptor *const io_descr);
 //variables
 public:
-	 volatile bool  ready;
-	struct io_descriptor *spio;
-	struct spi_m_async_descriptor SPI0;
+	volatile bool  xferDone;
+	
 protected:
 private:
 	uint8_t portNumber;
 	void (*SPICallBackHandler)(void);
 	 SPI_Asyn_Class* pSPIClass;
+	 int	callbackCounter;
+	 io_descriptor *spio;
+	 spi_m_async_descriptor *SPI0;
 		
 //functions
 public:
 	SPI_Asyn_Class();
 	SPI_Asyn_Class(uint8_t p);
+	SPI_Asyn_Class::SPI_Asyn_Class(spi_m_async_descriptor *spi)
 	~SPI_Asyn_Class();
 
 	void init(void);
@@ -53,8 +56,11 @@ public:
 	int32_t write( const uint8_t *  p, int32_t n);
 	int32_t  read(uint8_t * p, int32_t n);
 	void  setSPIReady(void);
-	
+	void	set_descriptor(spi_m_async_descriptor *spi)
 	bool	isSPIReady(void);
+	bool	isTXDone(void);
+	bool	isRXDone(void);
+	bool	isBusy(void);
 	//static void ISRFunc(){pSPIClass->setSPIReady();}
 	// void classInterruptHandler(void);
 	//void setCallback(void (*userDefinedCallback)(void)){ SPICallBackHandler= userDefinedCallback; }

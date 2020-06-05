@@ -54,11 +54,13 @@
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_cache.h" IsConfig="false" Hash="QZIIDRbUdkb2aDtNopQSOA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_delay.h" IsConfig="false" Hash="snalDV+S1QGquCV38zAdoA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_evsys.h" IsConfig="false" Hash="jT0K+r4kwAM8NXNsajf8mA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hal_ext_irq.h" IsConfig="false" Hash="sm9cN3GPkLctaX5iRw7wzw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_gpio.h" IsConfig="false" Hash="3mBEQ9Ix28YOArddDes83Q" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_init.h" IsConfig="false" Hash="OrYSVpF3YA5XrOBImWpdSg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_io.h" IsConfig="false" Hash="XZRSabc39WU/0MFBLYGLvQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_sleep.h" IsConfig="false" Hash="KuZDwgrLdU+fuMG82ZFTqg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_spi_m_async.h" IsConfig="false" Hash="kNWiys4SwzwGn2qCqzFQlA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hal_spi_m_sync.h" IsConfig="false" Hash="2oma6hRMCcowUy2wVveqMg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_usb_device.h" IsConfig="false" Hash="nvejrPlc1H5xowRDNbRXjA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_adc_dma.h" IsConfig="false" Hash="ZNWJ5APLfPqPLqI7LDqlMA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_cmcc.h" IsConfig="false" Hash="mDAHEzTxsniAe2HtqO43oA" />
@@ -66,6 +68,7 @@
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_delay.h" IsConfig="false" Hash="3tgjyGPrs0ePCewpMUQPbQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_dma.h" IsConfig="false" Hash="C3XG0wWxKLSRQVHSNMCgIQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_evsys.h" IsConfig="false" Hash="J1SJ5Vr+eNue0yNmAXuVMg" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_ext_irq.h" IsConfig="false" Hash="IEyup/01CSWudIu8vklYPQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_gpio.h" IsConfig="false" Hash="kGeglKjrgbcKZDOsM+XTrw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_i2c_m_async.h" IsConfig="false" Hash="2YKSxDd++st93P4wS0x3sw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_i2c_m_sync.h" IsConfig="false" Hash="9PBv4UnwhtkmG2PaLCX74Q" />
@@ -147,6 +150,27 @@
           <AcmeProjectActionInfo Action="File" Source="hri/hri_trng_e54.h" IsConfig="false" Hash="R3m9qAqgpkl9Ay6TqH3M2A" />
           <AcmeProjectActionInfo Action="File" Source="hri/hri_usb_e54.h" IsConfig="false" Hash="I+Mpxa40hh4o1NE68Zi5Gg" />
           <AcmeProjectActionInfo Action="File" Source="hri/hri_wdt_e54.h" IsConfig="false" Hash="CfZas1TGXPKWyHJU+xHJ7A" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display/display_mono.c" IsConfig="false" Hash="rcg5Eo0iOHlBjqVr0edqXg" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display/display_mono.h" IsConfig="false" Hash="Ra/1dz0CxKupkiYwwnGq2A" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display/framebuffer.c" IsConfig="false" Hash="RJ8KdeEDUb1KoSSGHC8Oag" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display/framebuffer.h" IsConfig="false" Hash="JtuColZag9UAmrVxeBCXuA" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display/ug2832hsweg04/ug2832hsweg04.c" IsConfig="false" Hash="wTD3Ay9n0ipFRKcKcC3ZYQ" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display/ug2832hsweg04/ug2832hsweg04.h" IsConfig="false" Hash="KukQ0Jly+U1a/1BS3R/cmA" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display_controller/display_ctrl_mono.c" IsConfig="false" Hash="Vq39ZerE/eJg5CG9sJft5A" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display_controller/display_ctrl_mono.h" IsConfig="false" Hash="O2vsIliHZFnIW5egJRqJYg" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display_controller/ssd1306/ssd1306.c" IsConfig="false" Hash="bkEljNOLvgOBDa4MsORVaQ" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display_controller/ssd1306/ssd1306.h" IsConfig="false" Hash="F5A205hgE7OO7d1n5xgjwg" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display_controller/ssd1306/ssd1306_font.c" IsConfig="false" Hash="msjEDFEZm09b7mF9sUdYJw" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/display_controller/ssd1306/ssd1306_font.h" IsConfig="false" Hash="a5JsLKcOj2bhm7eM+EHlCA" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/fonts/gfx_mono_font_basic_6x7.c" IsConfig="false" Hash="H1AcS4W8HoUvuahKgCR2Gw" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/fonts/gfx_mono_font_basic_6x7.h" IsConfig="false" Hash="i6InFqMwp95Bfc1nnYgLBA" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/fonts/gfx_mono_font_bpmono_10x14.c" IsConfig="false" Hash="xLMo0srgDVHUX4QHA1QkIQ" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/fonts/gfx_mono_font_bpmono_10x14.h" IsConfig="false" Hash="Ajtfqpaa0cEF3aZ4SmNz8g" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/gfx_mono.c" IsConfig="false" Hash="L0Ez9IAwyU8LlHLfVDqJ/A" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/gfx_mono.h" IsConfig="false" Hash="TJP4kmG3BIVtraBHuHGW4w" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/gfx_mono_font.h" IsConfig="false" Hash="ugiGO6FBcWuPqDfWyJyq2g" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/gfx_mono_text.c" IsConfig="false" Hash="jSqSiwolc2QiRd+BriQECA" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono/gfx_mono_text.h" IsConfig="false" Hash="mkTPo2Hdmcd0FEyHGsuZjg" />
           <AcmeProjectActionInfo Action="File" Source="usb/class/cdc/device/cdcdf_acm.c" IsConfig="false" Hash="eNygjCARrgKdYWBp1K2fMg" />
           <AcmeProjectActionInfo Action="File" Source="usb/class/cdc/device/cdcdf_acm.h" IsConfig="false" Hash="3UVwYCq5LIll+pYQIOOU/g" />
           <AcmeProjectActionInfo Action="File" Source="usb/class/cdc/device/cdcdf_acm_desc.h" IsConfig="false" Hash="7dZSClDfhapvvdGI4OfwxQ" />
@@ -159,29 +183,32 @@
           <AcmeProjectActionInfo Action="File" Source="usb/usb_protocol.c" IsConfig="false" Hash="506QsMNqKwMw3St/nEXa8Q" />
           <AcmeProjectActionInfo Action="File" Source="usb/usb_protocol.h" IsConfig="false" Hash="IjsDWsLIdSQj3pFlkAX0UA" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="2+u3YOZSkY7kkbFXIUp/WA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="zpBLwMrOg0m2RmOrCSM0zA" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="nkGNKdxaaiy7xScf3z6LRg" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="uRh+fSrOb+o9SHu4I8I4Jw" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="sp4wHzZ2DQfw6JvCGoEW1A" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="s06QC6Bk2g5Kt0MP/clxoA" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="t4IWEHMXBvPz1Qe6Qb6SRw" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="ymjNCYRGA3t5uHLCpTmQmw" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="slQLWadXQwhPpAYtHvUUGw" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="OA9Kv7LvS9BuquWRIf3fCg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_adc_sync.h" IsConfig="false" Hash="ez1X5T9kpYwT+1+5x4Pxqg" />
-          <AcmeProjectActionInfo Action="File" Source="hal/include/hal_timer.h" IsConfig="false" Hash="5pZVthtMl40VMvofOld2ng" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hal_timer.h" IsConfig="false" Hash="K2YzTAjvQcI6vN6u/xP3HQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_adc_async.h" IsConfig="false" Hash="kKbVmqgGDUkuWZYErBwgVA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_adc_sync.h" IsConfig="false" Hash="dCWrizZn0RtcCM73jZ/k6A" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_calendar.h" IsConfig="false" Hash="Axxal1o5u+cNnytorSIZkA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_missing_features.h" IsConfig="false" Hash="XsAvpgfutzkw0Y5SydYFaw" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_pwm.h" IsConfig="false" Hash="1wL9C0Z542rKOnnyJpZ7Yg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_reset.h" IsConfig="false" Hash="WwLFRlBtuZ/qnD1JuDKnRQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_m_async.h" IsConfig="false" Hash="JyMw9jeJO0jGqfT03txHXQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_m_dma.h" IsConfig="false" Hash="OoU5yflSLAc5VbWSzixnvg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_m_sync.h" IsConfig="false" Hash="s1GhyLjhjIsfqixooG3LFA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_s_async.h" IsConfig="false" Hash="ptPiaJ1lVqH5794NmOHDFQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_s_sync.h" IsConfig="false" Hash="gEGr6GqKbsOQvxQYz2fotA" />
-          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_timer.h" IsConfig="false" Hash="s/0PW0pyF4MQIYZJ6S0wyA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_timer.h" IsConfig="false" Hash="rPHu6dUc7EOR/gfiVhR03A" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_async.h" IsConfig="false" Hash="tBfmk3BN3Q1WbYVoWDbsJw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_sync.h" IsConfig="false" Hash="Yj+PoPxG2CqDOy5XoIWkwg" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_adc_sync.c" IsConfig="false" Hash="g0MT/8E9mrmMV9tMAyu/aQ" />
+          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_ext_irq.c" IsConfig="false" Hash="xrASRVTJh+j6G3mFcEOt+A" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_spi_m_async.c" IsConfig="false" Hash="hErEkp5CHigcW3olA6Csrg" />
-          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_timer.c" IsConfig="false" Hash="F2MrEXhHq4umI9xpONnlGg" />
+          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_spi_m_sync.c" IsConfig="false" Hash="Q0IudnTEWeoIkfQIoYIqxA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_timer.c" IsConfig="false" Hash="I69OxE1eectXiNlD5JcXBQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/include/parts.h" IsConfig="false" Hash="THMC0T2wU10PzPgIVGK93g" />
           <AcmeProjectActionInfo Action="File" Source="hpl/adc/hpl_adc.c" IsConfig="false" Hash="XURzOOXJFtqa20hFKi/Nlw" />
           <AcmeProjectActionInfo Action="File" Source="hpl/adc/hpl_adc_base.h" IsConfig="false" Hash="19A6ERNtsVVhqvnpGbR3Lg" />
@@ -189,7 +216,8 @@
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_core_m4.c" IsConfig="false" Hash="SpvW0RJ1Ej3k5aP6f3FHfg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_core_port.h" IsConfig="false" Hash="RXrDMMracCeflR1F9jWiGg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_init.c" IsConfig="false" Hash="/W7xK3rVKLxPEwN+aiJq8Q" />
-          <AcmeProjectActionInfo Action="File" Source="hpl/dmac/hpl_dmac.c" IsConfig="false" Hash="MaW5K3UPVDH7Hu7V/pKlSw" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/dmac/hpl_dmac.c" IsConfig="false" Hash="CLggiWrYcWhnHo4gjAv0FA" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/eic/hpl_eic.c" IsConfig="false" Hash="IdWaicMZ8FDZW47A5pq5iA" />
           <AcmeProjectActionInfo Action="File" Source="hpl/evsys/hpl_evsys.c" IsConfig="false" Hash="YFXyIZne7hxDvOF/5YjFTg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/gclk/hpl_gclk.c" IsConfig="false" Hash="5XO/19EedZQ0lq6yB8UTWQ" />
           <AcmeProjectActionInfo Action="File" Source="hpl/gclk/hpl_gclk_base.h" IsConfig="false" Hash="VnaHvu/VnbGvOxrehrp2mQ" />
@@ -200,29 +228,36 @@
           <AcmeProjectActionInfo Action="File" Source="hpl/pm/hpl_pm_base.h" IsConfig="false" Hash="KOec1StxUZxY/RKBDbMkpg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/port/hpl_gpio_base.h" IsConfig="false" Hash="tEjgvZ4kvfccSWnEgilG5Q" />
           <AcmeProjectActionInfo Action="File" Source="hpl/ramecc/hpl_ramecc.c" IsConfig="false" Hash="pMdmwVWBg16VG8HOwA3DPw" />
-          <AcmeProjectActionInfo Action="File" Source="hpl/rtc/hpl_rtc.c" IsConfig="false" Hash="0HnfU5UF0bwE2z+JQr2hfw" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/rtc/hpl_rtc.c" IsConfig="false" Hash="oith+BCWyt4LSaGStHhJVg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/rtc/hpl_rtc_base.h" IsConfig="false" Hash="6MZP9mg3QA6lytcm00LePQ" />
-          <AcmeProjectActionInfo Action="File" Source="hpl/sercom/hpl_sercom.c" IsConfig="false" Hash="ax8XI1sW7PXGTu3lL18XnQ" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/sercom/hpl_sercom.c" IsConfig="false" Hash="sYvA48Lu0PtD1KvMxHRGrg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/systick/hpl_systick.c" IsConfig="false" Hash="iMt5/yM6Jfaf01ZFdIodmw" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/tc/hpl_tc.c" IsConfig="false" Hash="pYG8hguIzb/eg3vNexgzNw" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/tc/hpl_tc_base.h" IsConfig="false" Hash="K+Ux2afXIm6bzn8yeh2c7A" />
           <AcmeProjectActionInfo Action="File" Source="hpl/usb/hpl_usb.c" IsConfig="false" Hash="8jKTv+a5DCKb7wyk44rsaQ" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono_main.c" IsConfig="false" Hash="zaY8SkBsh/L0CJrXgl6gfw" />
+          <AcmeProjectActionInfo Action="File" Source="gfx_mono_main.h" IsConfig="false" Hash="YZkMWBkEaaim5BwSR2MH9Q" />
           <AcmeProjectActionInfo Action="File" Source="usb_start.c" IsConfig="false" Hash="Z3VoMycwi6ePlP/FidkA8w" />
           <AcmeProjectActionInfo Action="File" Source="usb_start.h" IsConfig="false" Hash="tIiPIYvUpZZo7de2aDnOew" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start.h" IsConfig="false" Hash="RMqb5tXF0KJJUa8pwHEMHQ" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start.c" IsConfig="false" Hash="cPHebvG8xgdrV+XTYs6EeA" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start.h" IsConfig="false" Hash="BFmwRmRacu6io0EcQ6ULTQ" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start.c" IsConfig="false" Hash="+Qwd1sYJex8Kpt93Qb4SkA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_adc_config.h" IsConfig="true" Hash="tt6eyRfJSQZNB2c5NvXL9Q" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_cmcc_config.h" IsConfig="true" Hash="bmtxQ8rLloaRtAo2HeXZRQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_dmac_config.h" IsConfig="true" Hash="mNec32O7w53e4vDmQlvjCA" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_eic_config.h" IsConfig="true" Hash="lZFdsUisA2e+jjAaJPckqw" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_evsys_config.h" IsConfig="true" Hash="r61ZWOBsbo9BsQRaPfJV9Q" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_gclk_config.h" IsConfig="true" Hash="ucWNqPZ+47slliVNjnC7eA" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_gclk_config.h" IsConfig="true" Hash="FLbK0fwbkI9aGGf1bbYoVA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_mclk_config.h" IsConfig="true" Hash="pxBzoQXTG66x4dbzVzxteg" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_osc32kctrl_config.h" IsConfig="true" Hash="EetOouhk86whijj4cNoDVw" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_oscctrl_config.h" IsConfig="true" Hash="UcXz1wCkjgI7yZihjOh+tQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_port_config.h" IsConfig="true" Hash="IJMX/CdQRL87JYlxeZCBcg" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_rtc_config.h" IsConfig="true" Hash="ReiGDpT4jwzmyFnP6eRITQ" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="BPv1YoL/xxJQ9f7dCVGpMA" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_rtc_config.h" IsConfig="true" Hash="Ixu0fp7d1Hm8Vcwzcp+QcA" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="4X7CoCIDaBm+nD7KmKn0Ow" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_systick_config.h" IsConfig="true" Hash="tlT3lNDKWFe82MiGWfQzcA" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_tc_config.h" IsConfig="true" Hash="HqZj24CYIgWW6gCztKDajw" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_usb_config.h" IsConfig="true" Hash="OTnXMB+/o/b7gPmkxUTUeQ" />
-          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="k6Re2J8uR/Sk6Ro+ClqGiw" />
+          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="RBq7zUS6W0ZkWi/5//WrDw" />
+          <AcmeProjectActionInfo Action="File" Source="config/ug2832hsweg04_config.h" IsConfig="true" Hash="Bt5YMkrpGdpSVjVH1ZI3Ig" />
           <AcmeProjectActionInfo Action="File" Source="config/usbd_config.h" IsConfig="true" Hash="D6drRowd1XvzVArZlLMbvA" />
         </AcmeActionInfos>
         <NonsecureFilesInfo />
@@ -232,256 +267,298 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <ArmGcc>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-      <Value>../Config</Value>
-      <Value>../</Value>
-      <Value>../examples</Value>
-      <Value>../hal/include</Value>
-      <Value>../hal/utils/include</Value>
-      <Value>../hpl/adc</Value>
-      <Value>../hpl/cmcc</Value>
-      <Value>../hpl/core</Value>
-      <Value>../hpl/dmac</Value>
-      <Value>../hpl/evsys</Value>
-      <Value>../hpl/gclk</Value>
-      <Value>../hpl/mclk</Value>
-      <Value>../hpl/osc32kctrl</Value>
-      <Value>../hpl/oscctrl</Value>
-      <Value>../hpl/pm</Value>
-      <Value>../hpl/port</Value>
-      <Value>../hpl/ramecc</Value>
-      <Value>../hpl/rtc</Value>
-      <Value>../hpl/sercom</Value>
-      <Value>../hpl/systick</Value>
-      <Value>../hpl/usb</Value>
-      <Value>../hri</Value>
-      <Value>../usb</Value>
-      <Value>../usb/class/cdc</Value>
-      <Value>../usb/class/cdc/device</Value>
-      <Value>../usb/device</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-  <armgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16</armgcc.compiler.miscellaneous.OtherFlags>
-  <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
-  <armgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcc.linker.libraries.Libraries>
-  <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
-  <armgcc.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-      <Value>../Config</Value>
-      <Value>../</Value>
-      <Value>../examples</Value>
-      <Value>../hal/include</Value>
-      <Value>../hal/utils/include</Value>
-      <Value>../hpl/adc</Value>
-      <Value>../hpl/cmcc</Value>
-      <Value>../hpl/core</Value>
-      <Value>../hpl/dmac</Value>
-      <Value>../hpl/evsys</Value>
-      <Value>../hpl/gclk</Value>
-      <Value>../hpl/mclk</Value>
-      <Value>../hpl/osc32kctrl</Value>
-      <Value>../hpl/oscctrl</Value>
-      <Value>../hpl/pm</Value>
-      <Value>../hpl/port</Value>
-      <Value>../hpl/ramecc</Value>
-      <Value>../hpl/rtc</Value>
-      <Value>../hpl/sercom</Value>
-      <Value>../hpl/systick</Value>
-      <Value>../hpl/usb</Value>
-      <Value>../hri</Value>
-      <Value>../usb</Value>
-      <Value>../usb/class/cdc</Value>
-      <Value>../usb/class/cdc/device</Value>
-      <Value>../usb/device</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.assembler.general.IncludePaths>
-  <armgcc.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-      <Value>../Config</Value>
-      <Value>../</Value>
-      <Value>../examples</Value>
-      <Value>../hal/include</Value>
-      <Value>../hal/utils/include</Value>
-      <Value>../hpl/adc</Value>
-      <Value>../hpl/cmcc</Value>
-      <Value>../hpl/core</Value>
-      <Value>../hpl/dmac</Value>
-      <Value>../hpl/evsys</Value>
-      <Value>../hpl/gclk</Value>
-      <Value>../hpl/mclk</Value>
-      <Value>../hpl/osc32kctrl</Value>
-      <Value>../hpl/oscctrl</Value>
-      <Value>../hpl/pm</Value>
-      <Value>../hpl/port</Value>
-      <Value>../hpl/ramecc</Value>
-      <Value>../hpl/rtc</Value>
-      <Value>../hpl/sercom</Value>
-      <Value>../hpl/systick</Value>
-      <Value>../hpl/usb</Value>
-      <Value>../hri</Value>
-      <Value>../usb</Value>
-      <Value>../usb/class/cdc</Value>
-      <Value>../usb/class/cdc/device</Value>
-      <Value>../usb/device</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.preprocessingassembler.general.IncludePaths>
-</ArmGcc>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>../Config</Value>
+            <Value>../</Value>
+            <Value>../examples</Value>
+            <Value>../hal/include</Value>
+            <Value>../hal/utils/include</Value>
+            <Value>../hpl/adc</Value>
+            <Value>../hpl/cmcc</Value>
+            <Value>../hpl/core</Value>
+            <Value>../hpl/dmac</Value>
+            <Value>../hpl/eic</Value>
+            <Value>../hpl/evsys</Value>
+            <Value>../hpl/gclk</Value>
+            <Value>../hpl/mclk</Value>
+            <Value>../hpl/osc32kctrl</Value>
+            <Value>../hpl/oscctrl</Value>
+            <Value>../hpl/pm</Value>
+            <Value>../hpl/port</Value>
+            <Value>../hpl/ramecc</Value>
+            <Value>../hpl/rtc</Value>
+            <Value>../hpl/sercom</Value>
+            <Value>../hpl/systick</Value>
+            <Value>../hpl/tc</Value>
+            <Value>../hpl/usb</Value>
+            <Value>../hri</Value>
+            <Value>../gfx_mono</Value>
+            <Value>../gfx_mono/display</Value>
+            <Value>../gfx_mono/display/ug2832hsweg04</Value>
+            <Value>../gfx_mono/display_controller</Value>
+            <Value>../gfx_mono/display_controller/ssd1306</Value>
+            <Value>../gfx_mono/fonts</Value>
+            <Value>../usb</Value>
+            <Value>../usb/class/cdc</Value>
+            <Value>../usb/class/cdc/device</Value>
+            <Value>../usb/device</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16</armgcc.compiler.miscellaneous.OtherFlags>
+        <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
+        <armgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcc.linker.libraries.Libraries>
+        <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+        <armgcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>../Config</Value>
+            <Value>../</Value>
+            <Value>../examples</Value>
+            <Value>../hal/include</Value>
+            <Value>../hal/utils/include</Value>
+            <Value>../hpl/adc</Value>
+            <Value>../hpl/cmcc</Value>
+            <Value>../hpl/core</Value>
+            <Value>../hpl/dmac</Value>
+            <Value>../hpl/eic</Value>
+            <Value>../hpl/evsys</Value>
+            <Value>../hpl/gclk</Value>
+            <Value>../hpl/mclk</Value>
+            <Value>../hpl/osc32kctrl</Value>
+            <Value>../hpl/oscctrl</Value>
+            <Value>../hpl/pm</Value>
+            <Value>../hpl/port</Value>
+            <Value>../hpl/ramecc</Value>
+            <Value>../hpl/rtc</Value>
+            <Value>../hpl/sercom</Value>
+            <Value>../hpl/systick</Value>
+            <Value>../hpl/tc</Value>
+            <Value>../hpl/usb</Value>
+            <Value>../hri</Value>
+            <Value>../gfx_mono</Value>
+            <Value>../gfx_mono/display</Value>
+            <Value>../gfx_mono/display/ug2832hsweg04</Value>
+            <Value>../gfx_mono/display_controller</Value>
+            <Value>../gfx_mono/display_controller/ssd1306</Value>
+            <Value>../gfx_mono/fonts</Value>
+            <Value>../usb</Value>
+            <Value>../usb/class/cdc</Value>
+            <Value>../usb/class/cdc/device</Value>
+            <Value>../usb/device</Value>
+          </ListValues>
+        </armgcc.assembler.general.IncludePaths>
+        <armgcc.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>../Config</Value>
+            <Value>../</Value>
+            <Value>../examples</Value>
+            <Value>../hal/include</Value>
+            <Value>../hal/utils/include</Value>
+            <Value>../hpl/adc</Value>
+            <Value>../hpl/cmcc</Value>
+            <Value>../hpl/core</Value>
+            <Value>../hpl/dmac</Value>
+            <Value>../hpl/eic</Value>
+            <Value>../hpl/evsys</Value>
+            <Value>../hpl/gclk</Value>
+            <Value>../hpl/mclk</Value>
+            <Value>../hpl/osc32kctrl</Value>
+            <Value>../hpl/oscctrl</Value>
+            <Value>../hpl/pm</Value>
+            <Value>../hpl/port</Value>
+            <Value>../hpl/ramecc</Value>
+            <Value>../hpl/rtc</Value>
+            <Value>../hpl/sercom</Value>
+            <Value>../hpl/systick</Value>
+            <Value>../hpl/tc</Value>
+            <Value>../hpl/usb</Value>
+            <Value>../hri</Value>
+            <Value>../gfx_mono</Value>
+            <Value>../gfx_mono/display</Value>
+            <Value>../gfx_mono/display/ug2832hsweg04</Value>
+            <Value>../gfx_mono/display_controller</Value>
+            <Value>../gfx_mono/display_controller/ssd1306</Value>
+            <Value>../gfx_mono/fonts</Value>
+            <Value>../usb</Value>
+            <Value>../usb/class/cdc</Value>
+            <Value>../usb/class/cdc/device</Value>
+            <Value>../usb/device</Value>
+          </ListValues>
+        </armgcc.preprocessingassembler.general.IncludePaths>
+      </ArmGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <ArmGcc>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-      <Value>../Config</Value>
-      <Value>../</Value>
-      <Value>../examples</Value>
-      <Value>../hal/include</Value>
-      <Value>../hal/utils/include</Value>
-      <Value>../hpl/adc</Value>
-      <Value>../hpl/cmcc</Value>
-      <Value>../hpl/core</Value>
-      <Value>../hpl/dmac</Value>
-      <Value>../hpl/evsys</Value>
-      <Value>../hpl/gclk</Value>
-      <Value>../hpl/mclk</Value>
-      <Value>../hpl/osc32kctrl</Value>
-      <Value>../hpl/oscctrl</Value>
-      <Value>../hpl/pm</Value>
-      <Value>../hpl/port</Value>
-      <Value>../hpl/ramecc</Value>
-      <Value>../hpl/rtc</Value>
-      <Value>../hpl/sercom</Value>
-      <Value>../hpl/systick</Value>
-      <Value>../hpl/usb</Value>
-      <Value>../hri</Value>
-      <Value>../usb</Value>
-      <Value>../usb/class/cdc</Value>
-      <Value>../usb/class/cdc/device</Value>
-      <Value>../usb/device</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
-  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-  <armgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16</armgcc.compiler.miscellaneous.OtherFlags>
-  <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
-  <armgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcc.linker.libraries.Libraries>
-  <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
-  <armgcc.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-      <Value>../Config</Value>
-      <Value>../</Value>
-      <Value>../examples</Value>
-      <Value>../hal/include</Value>
-      <Value>../hal/utils/include</Value>
-      <Value>../hpl/adc</Value>
-      <Value>../hpl/cmcc</Value>
-      <Value>../hpl/core</Value>
-      <Value>../hpl/dmac</Value>
-      <Value>../hpl/evsys</Value>
-      <Value>../hpl/gclk</Value>
-      <Value>../hpl/mclk</Value>
-      <Value>../hpl/osc32kctrl</Value>
-      <Value>../hpl/oscctrl</Value>
-      <Value>../hpl/pm</Value>
-      <Value>../hpl/port</Value>
-      <Value>../hpl/ramecc</Value>
-      <Value>../hpl/rtc</Value>
-      <Value>../hpl/sercom</Value>
-      <Value>../hpl/systick</Value>
-      <Value>../hpl/usb</Value>
-      <Value>../hri</Value>
-      <Value>../usb</Value>
-      <Value>../usb/class/cdc</Value>
-      <Value>../usb/class/cdc/device</Value>
-      <Value>../usb/device</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.assembler.general.IncludePaths>
-  <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
-  <armgcc.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-      <Value>../Config</Value>
-      <Value>../</Value>
-      <Value>../examples</Value>
-      <Value>../hal/include</Value>
-      <Value>../hal/utils/include</Value>
-      <Value>../hpl/adc</Value>
-      <Value>../hpl/cmcc</Value>
-      <Value>../hpl/core</Value>
-      <Value>../hpl/dmac</Value>
-      <Value>../hpl/evsys</Value>
-      <Value>../hpl/gclk</Value>
-      <Value>../hpl/mclk</Value>
-      <Value>../hpl/osc32kctrl</Value>
-      <Value>../hpl/oscctrl</Value>
-      <Value>../hpl/pm</Value>
-      <Value>../hpl/port</Value>
-      <Value>../hpl/ramecc</Value>
-      <Value>../hpl/rtc</Value>
-      <Value>../hpl/sercom</Value>
-      <Value>../hpl/systick</Value>
-      <Value>../hpl/usb</Value>
-      <Value>../hri</Value>
-      <Value>../usb</Value>
-      <Value>../usb/class/cdc</Value>
-      <Value>../usb/class/cdc/device</Value>
-      <Value>../usb/device</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.preprocessingassembler.general.IncludePaths>
-  <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
-</ArmGcc>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>../Config</Value>
+            <Value>../</Value>
+            <Value>../examples</Value>
+            <Value>../hal/include</Value>
+            <Value>../hal/utils/include</Value>
+            <Value>../hpl/adc</Value>
+            <Value>../hpl/cmcc</Value>
+            <Value>../hpl/core</Value>
+            <Value>../hpl/dmac</Value>
+            <Value>../hpl/eic</Value>
+            <Value>../hpl/evsys</Value>
+            <Value>../hpl/gclk</Value>
+            <Value>../hpl/mclk</Value>
+            <Value>../hpl/osc32kctrl</Value>
+            <Value>../hpl/oscctrl</Value>
+            <Value>../hpl/pm</Value>
+            <Value>../hpl/port</Value>
+            <Value>../hpl/ramecc</Value>
+            <Value>../hpl/rtc</Value>
+            <Value>../hpl/sercom</Value>
+            <Value>../hpl/systick</Value>
+            <Value>../hpl/tc</Value>
+            <Value>../hpl/usb</Value>
+            <Value>../hri</Value>
+            <Value>../gfx_mono</Value>
+            <Value>../gfx_mono/display</Value>
+            <Value>../gfx_mono/display/ug2832hsweg04</Value>
+            <Value>../gfx_mono/display_controller</Value>
+            <Value>../gfx_mono/display_controller/ssd1306</Value>
+            <Value>../gfx_mono/fonts</Value>
+            <Value>../usb</Value>
+            <Value>../usb/class/cdc</Value>
+            <Value>../usb/class/cdc/device</Value>
+            <Value>../usb/device</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16</armgcc.compiler.miscellaneous.OtherFlags>
+        <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
+        <armgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcc.linker.libraries.Libraries>
+        <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+        <armgcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>../Config</Value>
+            <Value>../</Value>
+            <Value>../examples</Value>
+            <Value>../hal/include</Value>
+            <Value>../hal/utils/include</Value>
+            <Value>../hpl/adc</Value>
+            <Value>../hpl/cmcc</Value>
+            <Value>../hpl/core</Value>
+            <Value>../hpl/dmac</Value>
+            <Value>../hpl/eic</Value>
+            <Value>../hpl/evsys</Value>
+            <Value>../hpl/gclk</Value>
+            <Value>../hpl/mclk</Value>
+            <Value>../hpl/osc32kctrl</Value>
+            <Value>../hpl/oscctrl</Value>
+            <Value>../hpl/pm</Value>
+            <Value>../hpl/port</Value>
+            <Value>../hpl/ramecc</Value>
+            <Value>../hpl/rtc</Value>
+            <Value>../hpl/sercom</Value>
+            <Value>../hpl/systick</Value>
+            <Value>../hpl/tc</Value>
+            <Value>../hpl/usb</Value>
+            <Value>../hri</Value>
+            <Value>../gfx_mono</Value>
+            <Value>../gfx_mono/display</Value>
+            <Value>../gfx_mono/display/ug2832hsweg04</Value>
+            <Value>../gfx_mono/display_controller</Value>
+            <Value>../gfx_mono/display_controller/ssd1306</Value>
+            <Value>../gfx_mono/fonts</Value>
+            <Value>../usb</Value>
+            <Value>../usb/class/cdc</Value>
+            <Value>../usb/class/cdc/device</Value>
+            <Value>../usb/device</Value>
+          </ListValues>
+        </armgcc.assembler.general.IncludePaths>
+        <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
+        <armgcc.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>../Config</Value>
+            <Value>../</Value>
+            <Value>../examples</Value>
+            <Value>../hal/include</Value>
+            <Value>../hal/utils/include</Value>
+            <Value>../hpl/adc</Value>
+            <Value>../hpl/cmcc</Value>
+            <Value>../hpl/core</Value>
+            <Value>../hpl/dmac</Value>
+            <Value>../hpl/eic</Value>
+            <Value>../hpl/evsys</Value>
+            <Value>../hpl/gclk</Value>
+            <Value>../hpl/mclk</Value>
+            <Value>../hpl/osc32kctrl</Value>
+            <Value>../hpl/oscctrl</Value>
+            <Value>../hpl/pm</Value>
+            <Value>../hpl/port</Value>
+            <Value>../hpl/ramecc</Value>
+            <Value>../hpl/rtc</Value>
+            <Value>../hpl/sercom</Value>
+            <Value>../hpl/systick</Value>
+            <Value>../hpl/tc</Value>
+            <Value>../hpl/usb</Value>
+            <Value>../hri</Value>
+            <Value>../gfx_mono</Value>
+            <Value>../gfx_mono/display</Value>
+            <Value>../gfx_mono/display/ug2832hsweg04</Value>
+            <Value>../gfx_mono/display_controller</Value>
+            <Value>../gfx_mono/display_controller/ssd1306</Value>
+            <Value>../gfx_mono/fonts</Value>
+            <Value>../usb</Value>
+            <Value>../usb/class/cdc</Value>
+            <Value>../usb/class/cdc/device</Value>
+            <Value>../usb/device</Value>
+          </ListValues>
+        </armgcc.preprocessingassembler.general.IncludePaths>
+        <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
+      </ArmGcc>
     </ToolchainSettings>
     <OutputFileName>libMainDriver</OutputFileName>
     <OutputFileExtension>.a</OutputFileExtension>
@@ -504,6 +581,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Config\hpl_dmac_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\hpl_eic_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Config\hpl_evsys_config.h">
@@ -533,6 +613,9 @@
     <Compile Include="Config\hpl_systick_config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Config\hpl_tc_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Config\hpl_usb_config.h">
       <SubType>compile</SubType>
     </Compile>
@@ -540,6 +623,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Config\RTE_Components.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\ug2832hsweg04_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Config\usbd_config.h">
@@ -557,6 +643,75 @@
     <Compile Include="examples\driver_examples.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="gfx_mono\display\display_mono.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display\display_mono.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display\framebuffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display\framebuffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display\ug2832hsweg04\ug2832hsweg04.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display\ug2832hsweg04\ug2832hsweg04.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display_controller\display_ctrl_mono.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display_controller\display_ctrl_mono.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display_controller\ssd1306\ssd1306.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display_controller\ssd1306\ssd1306.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display_controller\ssd1306\ssd1306_font.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\display_controller\ssd1306\ssd1306_font.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\fonts\gfx_mono_font_basic_6x7.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\fonts\gfx_mono_font_basic_6x7.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\fonts\gfx_mono_font_bpmono_10x14.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\fonts\gfx_mono_font_bpmono_10x14.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\gfx_mono.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\gfx_mono.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\gfx_mono_font.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\gfx_mono_text.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono\gfx_mono_text.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono_main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="gfx_mono_main.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\include\hal_adc_sync.h">
       <SubType>compile</SubType>
     </Compile>
@@ -572,6 +727,9 @@
     <Compile Include="hal\include\hal_evsys.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\include\hal_ext_irq.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\include\hal_gpio.h">
       <SubType>compile</SubType>
     </Compile>
@@ -585,6 +743,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_spi_m_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hal_spi_m_sync.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hal_timer.h">
@@ -620,6 +781,9 @@
     <Compile Include="hal\include\hpl_evsys.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\include\hpl_ext_irq.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\include\hpl_gpio.h">
       <SubType>compile</SubType>
     </Compile>
@@ -642,6 +806,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hpl_missing_features.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\include\hpl_pwm.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\include\hpl_ramecc.h">
@@ -719,6 +886,9 @@
     <Compile Include="hal\src\hal_evsys.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\src\hal_ext_irq.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\src\hal_gpio.c">
       <SubType>compile</SubType>
     </Compile>
@@ -732,6 +902,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_spi_m_async.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\src\hal_spi_m_sync.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_timer.c">
@@ -809,6 +982,9 @@
     <Compile Include="hpl\dmac\hpl_dmac.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hpl\eic\hpl_eic.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hpl\evsys\hpl_evsys.c">
       <SubType>compile</SubType>
     </Compile>
@@ -849,6 +1025,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\systick\hpl_systick.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\tc\hpl_tc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hpl\tc\hpl_tc_base.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hpl\usb\hpl_usb.c">
@@ -1019,6 +1201,12 @@
     <Folder Include="Device_Startup\" />
     <Folder Include="documentation\" />
     <Folder Include="examples\" />
+    <Folder Include="gfx_mono\" />
+    <Folder Include="gfx_mono\display\" />
+    <Folder Include="gfx_mono\display\ug2832hsweg04\" />
+    <Folder Include="gfx_mono\display_controller\" />
+    <Folder Include="gfx_mono\display_controller\ssd1306\" />
+    <Folder Include="gfx_mono\fonts\" />
     <Folder Include="hal\" />
     <Folder Include="hal\documentation\" />
     <Folder Include="hal\include\" />
@@ -1031,6 +1219,7 @@
     <Folder Include="hpl\cmcc\" />
     <Folder Include="hpl\core\" />
     <Folder Include="hpl\dmac\" />
+    <Folder Include="hpl\eic\" />
     <Folder Include="hpl\evsys\" />
     <Folder Include="hpl\gclk\" />
     <Folder Include="hpl\mclk\" />
@@ -1042,6 +1231,7 @@
     <Folder Include="hpl\rtc\" />
     <Folder Include="hpl\sercom\" />
     <Folder Include="hpl\systick\" />
+    <Folder Include="hpl\tc\" />
     <Folder Include="hpl\usb\" />
     <Folder Include="hri\" />
     <Folder Include="usb\" />
@@ -1051,6 +1241,21 @@
     <Folder Include="usb\device\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="documentation\display.rst">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="documentation\display_controller.rst">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="documentation\gfx_mono.rst">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="documentation\gfx_mono_font.rst">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="documentation\gfx_mono_text.rst">
+      <SubType>compile</SubType>
+    </None>
     <None Include="documentation\usb_device_cdc.rst">
       <SubType>compile</SubType>
     </None>
@@ -1069,7 +1274,13 @@
     <None Include="hal\documentation\evsys.rst">
       <SubType>compile</SubType>
     </None>
+    <None Include="hal\documentation\ext_irq.rst">
+      <SubType>compile</SubType>
+    </None>
     <None Include="hal\documentation\spi_master_async.rst">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="hal\documentation\spi_master_sync.rst">
       <SubType>compile</SubType>
     </None>
     <None Include="hal\documentation\timer.rst">

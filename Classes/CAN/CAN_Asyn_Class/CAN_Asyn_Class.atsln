@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "USB_CDC_Class", "..\..\USB\USB_CDC_Class\USB_CDC_Class\USB_CDC_Class.cppproj", "{B17A45BD-2316-4354-8365-4A91A4A5B6B8}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CAN_Asyn_Class", "CAN_Asyn_Class\CAN_Asyn_Class.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "CAN FD Demo", "..\..\USB\USB_CDC_Class\USB_CDC_Class\CAN FD Demo\CAN FD Demo.cproj", "{9EE9A28E-9688-4DDD-9E3D-07A6F9B00AF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Debug|ARM.Build.0 = Debug|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Release|ARM.ActiveCfg = Release|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Release|ARM.Build.0 = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{9EE9A28E-9688-4DDD-9E3D-07A6F9B00AF4}.Debug|ARM.ActiveCfg = Debug|ARM
+		{9EE9A28E-9688-4DDD-9E3D-07A6F9B00AF4}.Debug|ARM.Build.0 = Debug|ARM
+		{9EE9A28E-9688-4DDD-9E3D-07A6F9B00AF4}.Release|ARM.ActiveCfg = Release|ARM
+		{9EE9A28E-9688-4DDD-9E3D-07A6F9B00AF4}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

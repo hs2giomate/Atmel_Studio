@@ -6,6 +6,7 @@ extern "C" {
 #endif
 
 #include "driver_init.h"
+#include "gfx_mono_main.h"
 #include "usb_start.h"
 
 /**

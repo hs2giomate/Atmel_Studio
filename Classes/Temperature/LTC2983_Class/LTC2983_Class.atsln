@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "LTC2983_Class", "LTC2983_Class\LTC2983_Class.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ARINC_Interface_Driver", "..\..\..\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\ARINC_Interface_Driver.cproj", "{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "LTC2983", "..\..\..\Examples\Linduino\TestBench1\TestBench1\LTC2983\LTC2983.cppproj", "{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "..\..\..\Examples\Linduino\TestBench1\TestBench1\ArduinoCore\ArduinoCore.cppproj", "{0AC2D649-529C-4D61-A6DD-D837BF601EB0}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPI_Syn_Class", "..\..\SPI\SPI_Syn_Class\SPI_Syn_Class\SPI_Syn_Class.cppproj", "{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|AVR = Debug|AVR
+		Release|ARM = Release|ARM
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Debug|ARM.Build.0 = Debug|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Debug|AVR.ActiveCfg = Debug|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Release|ARM.ActiveCfg = Release|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Release|ARM.Build.0 = Release|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Release|AVR.ActiveCfg = Release|ARM
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Debug|ARM.ActiveCfg = Debug|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Debug|AVR.ActiveCfg = Debug|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Debug|AVR.Build.0 = Debug|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Release|ARM.ActiveCfg = Release|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Release|AVR.ActiveCfg = Release|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Release|AVR.Build.0 = Release|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Debug|ARM.ActiveCfg = Debug|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Debug|AVR.ActiveCfg = Debug|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Debug|AVR.Build.0 = Debug|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Release|ARM.ActiveCfg = Release|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Release|AVR.ActiveCfg = Release|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Release|AVR.Build.0 = Release|AVR
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Debug|ARM.ActiveCfg = Debug|ARM
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Debug|ARM.Build.0 = Debug|ARM
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Debug|AVR.ActiveCfg = Debug|ARM
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Release|ARM.ActiveCfg = Release|ARM
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Release|ARM.Build.0 = Release|ARM
+		{09CFEA8D-EC25-4513-80C9-E94A4C1BF8D2}.Release|AVR.ActiveCfg = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

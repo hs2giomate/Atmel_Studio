@@ -8,7 +8,7 @@
 
 #ifndef __HOLT_3593_CLASS_H__
 #define __HOLT_3593_CLASS_H__
-#include "SPI_Asyn_Class.h"
+#include "SPI_Syn_Class.h"
 typedef unsigned char uint8;
 #define RESETCMD 0x04
 
@@ -91,10 +91,10 @@ class Holt_3593_Class
 {
 //variables
 public:
-	SPI_Asyn_Class	spi0;
+	SPI_Syn_Class	spi;
 protected:
 private:
-
+	uint8_t	receiverArray[4];
 //functions
 public:
 	Holt_3593_Class();

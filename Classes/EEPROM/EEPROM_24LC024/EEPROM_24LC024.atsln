@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "EEPROM_24LC024", "EEPROM_24LC024\EEPROM_24LC024.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ARINC_Interface_Driver", "..\..\..\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\ARINC_Interface_Driver.cproj", "{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "USB_CDC_Class", "..\..\USB\USB_CDC_Class\USB_CDC_Class\USB_CDC_Class.cppproj", "{B17A45BD-2316-4354-8365-4A91A4A5B6B8}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "I2C_Asyn_Class", "..\..\I2C\I2C_Asyn_Class\I2C_Asyn_Class\I2C_Asyn_Class.cppproj", "{993E5246-169E-4AEC-999E-C0A2D58325AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|AVR = Debug|AVR
+		Release|ARM = Release|ARM
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Debug|ARM.Build.0 = Debug|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Debug|AVR.ActiveCfg = Debug|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Release|ARM.ActiveCfg = Release|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Release|ARM.Build.0 = Release|ARM
+		{0609A9C1-721C-481F-AB41-8DF29EAA6D4B}.Release|AVR.ActiveCfg = Release|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Debug|ARM.Build.0 = Debug|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Debug|AVR.ActiveCfg = Debug|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Release|ARM.ActiveCfg = Release|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Release|ARM.Build.0 = Release|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Release|AVR.ActiveCfg = Release|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Debug|ARM.ActiveCfg = Debug|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Debug|ARM.Build.0 = Debug|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Debug|AVR.ActiveCfg = Debug|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Release|ARM.ActiveCfg = Release|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Release|ARM.Build.0 = Release|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Release|AVR.ActiveCfg = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

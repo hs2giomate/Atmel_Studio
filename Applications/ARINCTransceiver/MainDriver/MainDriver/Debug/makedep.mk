@@ -8,6 +8,28 @@ driver_init.c
 
 examples\driver_examples.c
 
+gfx_mono\display\display_mono.c
+
+gfx_mono\display\framebuffer.c
+
+gfx_mono\display\ug2832hsweg04\ug2832hsweg04.c
+
+gfx_mono\display_controller\display_ctrl_mono.c
+
+gfx_mono\display_controller\ssd1306\ssd1306.c
+
+gfx_mono\display_controller\ssd1306\ssd1306_font.c
+
+gfx_mono\fonts\gfx_mono_font_basic_6x7.c
+
+gfx_mono\fonts\gfx_mono_font_bpmono_10x14.c
+
+gfx_mono\gfx_mono.c
+
+gfx_mono\gfx_mono_text.c
+
+gfx_mono_main.c
+
 hal\src\hal_adc_sync.c
 
 hal\src\hal_atomic.c
@@ -18,6 +40,8 @@ hal\src\hal_delay.c
 
 hal\src\hal_evsys.c
 
+hal\src\hal_ext_irq.c
+
 hal\src\hal_gpio.c
 
 hal\src\hal_init.c
@@ -27,6 +51,8 @@ hal\src\hal_io.c
 hal\src\hal_sleep.c
 
 hal\src\hal_spi_m_async.c
+
+hal\src\hal_spi_m_sync.c
 
 hal\src\hal_timer.c
 
@@ -50,6 +76,8 @@ hpl\core\hpl_init.c
 
 hpl\dmac\hpl_dmac.c
 
+hpl\eic\hpl_eic.c
+
 hpl\evsys\hpl_evsys.c
 
 hpl\gclk\hpl_gclk.c
@@ -69,6 +97,8 @@ hpl\rtc\hpl_rtc.c
 hpl\sercom\hpl_sercom.c
 
 hpl\systick\hpl_systick.c
+
+hpl\tc\hpl_tc.c
 
 hpl\usb\hpl_usb.c
 

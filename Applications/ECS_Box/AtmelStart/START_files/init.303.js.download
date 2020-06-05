@@ -1,0 +1,432 @@
+/*
+ * DO NOT EDIT .JS FILE DIRECTLY
+ * This file is automatically updated by the build scripts
+ * based on tpl/start.js.tpl
+ */
+
+// Initialize ACME object (normally not created yet)
+ACME = window.ACME || {};
+
+if(typeof Object.values !== 'function') {
+    Object.values = function(obj) {
+        var values = [];
+        Object.keys(obj).forEach(function(key) {
+            values.push(obj[key]);
+        });
+
+        return values;
+    };
+}
+
+// Create integration object
+ACME.Remote = {
+    getStartContent: function() {
+        if(window.external && window.external.getStartContent) {
+            return window.external.getStartContent();
+        }
+    },
+
+    setStartContent: function(content) {
+        if(window.external && window.external.setStartContent) {
+            window.external.setStartContent(content);
+        }
+    }
+};
+
+// Create ACME.Start object
+ACME.Start = {
+    init: function() {
+        var me = this;
+
+        (function remoteProjectInjectionCheck() {
+            if(window.external && window.external.isSupportRequired) {
+                var startContent = ACME.Remote.getStartContent();
+
+                if(startContent) {
+                    me.openProject(startContent);
+                }
+            }
+        }());
+
+        var hasSavedProject = (function() {
+            var supportsLocalStorage = window && window.localStorage;
+            if(supportsLocalStorage &&
+                window.localStorage.hasOwnProperty('projects-currentProject') &&
+                (typeof window.localStorage['projects-currentProject'] === 'string')) {
+                try {
+                    if(typeof JSON.parse(window.localStorage['projects-currentProject']) === 'object') {
+                        return true;
+                    }
+                } catch(e) {
+                }
+            }
+
+            return false;
+        }());
+
+        if(hasSavedProject) {
+            var resumeProjectButton = document.getElementById('resumeProjectButton');
+            if(resumeProjectButton) {
+                resumeProjectButton.disabled = false;
+
+                resumeProjectButton.addEventListener('click', function() {
+                    var savedProjectString = window.localStorage['projects-currentProject'];
+                    try {
+                        var savedProject = JSON.parse(savedProjectString);
+
+                        me.loadConfiguration(savedProject);
+                    } catch(e) {
+                    }
+                });
+            }
+        }
+
+        var whatsNewMenuItem = document.getElementById('whatsNewMenuItem');
+        if(whatsNewMenuItem) {
+            whatsNewMenuItem.addEventListener('click', function() {
+                window.open(ACME.config.Documentation.changeLog);
+            });
+        }
+
+        var aboutMenuItem = document.getElementById('aboutMenuItem');
+        if(aboutMenuItem) {
+            // text: ACME.Strings.About,
+            // tooltip: ACME.Strings.build(['ReadUserGuide','and','getSupport'])
+
+            aboutMenuItem.addEventListener('click', function() {
+                var self = this;
+                me.withAcmeDo(function() {
+                    if(self.helpMenu) {
+                        var msSinceClose = Date.now() - self.helpMenu.lastHideTs;
+                        if(msSinceClose > 250) {
+                            self.helpMenu.show();
+                            self.helpMenu.alignTo(aboutMenuItem, 'tr-br', [0, 0]);
+                        }
+                    } else {
+                        self.helpMenu = Ext.create('Ext.menu.Menu', {
+                            width: 850,
+                            cls: 'aboutMenu',
+                            bodyPadding: 0,
+                            border: 0,
+                            floating: true,
+                            autoShow: true,
+                            alwaysOnTop: true,
+                            layout: 'fit',
+                            items: [Ext.widget('documentationCard')],
+                            listeners: {
+                                beforeHide: function() {
+                                    self.helpMenu.lastHideTs = Date.now();
+                                }
+                            }
+                        });
+                        self.helpMenu.alignTo(aboutMenuItem, 'tr-br', [0, 0]);
+                    }
+                });
+            });
+        }
+
+        var introVideoContainer = document.getElementById('introVideo');
+        if(introVideoContainer) {
+            introVideoContainer.addEventListener('click', function() {
+                introVideoContainer.innerHTML =
+                    '<iframe ' +
+                    'width="' + introVideoContainer.offsetWidth + '" ' +
+                    'height="' + introVideoContainer.offsetHeight + '" ' +
+                    'src="https://www.youtube.com/embed/videoseries?list=PL9B4edd-p2ajRbjkjMuTt8lz_VeE8IKva&autoplay=1" ' +
+                    'frameborder="0" ' +
+                    'allowfullscreen></iframe>';
+            });
+        }
+
+        var loadProjectFileButton = document.getElementById('loadProjectFileButton');
+        if(loadProjectFileButton) {
+            loadProjectFileButton.addEventListener('click', function() {
+                var openZipFileFn = function(rawZip) {
+                    me.withAcmeDo(function() {
+                        ACME.Environment
+                            .promiseClass('JSZip', 'resources/javascript/jszip.js')
+                            .then(function() {
+                                var zip = new JSZip(rawZip);
+
+                                // Check if version 2 project with configuration
+                                // stored using the project format
+                                var configFiles = zip.file(/\.atstart$/);
+                                if(configFiles.length > 0) {
+                                    var content = configFiles[0].asText();
+
+                                    ACME.LoadMask.hide('readProject');
+                                    me.openProject(content);
+
+                                    return;
+                                }
+
+                                // Check if version 1 project with configuration
+                                // stored as session object
+                                var configFile = zip.file(ACME.config.General.configFileName);
+                                if(configFile) {
+                                    var parsedConfiguration = Ext.JSON.decode(zip.file(ACME.config.General.configFileName).asText(), true);
+
+                                    ACME.LoadMask.hide('readProject');
+                                    if(parsedConfiguration) {
+                                        me.loadConfiguration(parsedConfiguration);
+                                    } else {
+                                        Ext.raise({
+                                            title: ACME.Strings.loadError,
+                                            msg: ACME.Strings.FailedToLoadProject + '<br>' + ACME.Strings.UnableToParseFileContent
+                                        });
+                                    }
+
+                                    return;
+                                }
+
+                                ACME.LoadMask.hide('readProject');
+                                Ext.raise({
+                                    title: ACME.Strings.loadError,
+                                    msg: ACME.Strings.FailedToLoadProject + '. ' +
+                                    ACME.Strings.SelectedFile + ' ' + ACME.Strings.isNotAValid + ' ' +
+                                    ACME.config.General.productName + ' project'
+                                });
+                            });
+                    });
+                };
+
+                var loadSelectedProjectFn = function(projectFile) {
+                    var supportsFileReader = window &&
+                        window.File &&
+                        window.FileReader &&
+                        window.FileList;
+
+                    if(supportsFileReader) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(readEvent) {
+                            if(projectFile.name.toLowerCase().indexOf('.atzip') > -1) {
+                                openZipFileFn(readEvent.target.result);
+                            } else {
+                                me.openProject(reader.result);
+                            }
+                        };
+
+                        reader.onerror = function() {
+                        };
+
+                        reader.aborted = function() {
+                        };
+
+                        if(projectFile) {
+                            if(projectFile.name.toLowerCase().indexOf('.atzip') > -1) {
+                                reader.readAsArrayBuffer(projectFile);
+                            } else {
+                                reader.readAsText(projectFile);
+                            }
+                        } else {
+                        }
+                    } else {
+                    }
+                };
+
+                var loadProjectFileForm = document.getElementById('loadProjectFileForm'),
+                    inputs = loadProjectFileForm ? loadProjectFileForm.getElementsByTagName('input') : null,
+                    buttons = loadProjectFileForm ? loadProjectFileForm.getElementsByTagName('button') : null;
+
+                inputs[2].addEventListener('click', function() {
+                    inputs[1].click();
+                });
+
+                inputs[1].addEventListener('change', function() {
+                    inputs[0].value = inputs[1].value;
+                    buttons[0].disabled = false;
+                });
+
+                buttons[0].addEventListener('click', function() {
+                    buttons[0].disabled = true;
+
+                    var projectFile = inputs[1].files[0];
+                    loadSelectedProjectFn(projectFile);
+                });
+
+                loadProjectFileButton.style.display = 'none';
+                loadProjectFileForm.style.display = '';
+            });
+        }
+
+        var gettingStartedGuideLink = document.getElementById('gettingStartedGuideLink');
+        if(gettingStartedGuideLink) {
+            gettingStartedGuideLink.href = ACME.config.Documentation.gettingStarted;
+        }
+
+        var videoTutorialsLink = document.getElementById('videoTutorialsLink');
+        if(videoTutorialsLink) {
+            videoTutorialsLink.href = ACME.config.ExternalLinks.videoTutorials;
+        }
+    },
+
+    openProject: function(yaml, doNotShowLoadMask) {
+        var me = this;
+
+        me.withAcmeDo(function() {
+            if(!doNotShowLoadMask) {
+                ACME.LoadMask.show('verifyProject', 'Verifying project');
+            }
+
+            ACME.server.Server.latestTransport(yaml, {
+                success: function(configuration) {
+                    ACME.LoadMask.hide('verifyProject');
+                    me.loadConfiguration(configuration);
+                },
+                failure: function(response) {
+                    ACME.LoadMask.hide('verifyProject');
+                    var errorMessage = 'Failed loading project<br>Loading file did not complete successfully';
+
+                if(response) {
+                    if(response.status === 400) {
+                        var parser = new window.DOMParser();
+                        var htmlDoc = parser.parseFromString(response.responseText, 'text/html');
+                        errorMessage = htmlDoc.getElementsByTagName('p')[0].innerHTML;
+                    }
+                }
+                    Ext.raise({
+                        title: ACME.Strings.loadError,
+                        msg: errorMessage
+                    });
+                }
+            });
+        });
+    },
+    loadConfiguration: function(configuration) {
+        var me = this;
+
+        me.withAcmeDo(function() {
+            if(ACME.Project && ACME.Project.isLoading()) {
+                return;
+            }
+
+            ACME.LoadMask.show('initProject', 'Initialize project');
+
+            ACME.ProjectSession
+                .restore(configuration)
+                .then(function() {
+                    ACME.LoadMask.hide('initProject');
+                })
+                .orFail(function(reason) {
+                    ACME.LoadMask.hide('initProject');
+                    Ext.raise({
+                        title: ACME.Strings.loadError,
+                        msg: ACME.Strings.FailedToLoadProject + '<br>' + reason
+                    });
+                });
+        });
+    },
+
+    withAcmeDo: function(callbackFn) {
+        var me = this;
+
+        // ACME && Ext is not loaded yet
+        if(ACME.app === undefined) {
+            ACME.LoadMask.show('waitForAcme', 'Loading system');
+
+            setTimeout(me.withAcmeDo.bind(me), 250, callbackFn);
+            return;
+        }
+
+        ACME.LoadMask.hide('waitForAcme');
+
+        if(Ext.isFunction(callbackFn)) {
+            callbackFn();
+        }
+    }
+};
+
+ACME.LoadMask = {
+    loadMaskMessages: {},
+    loadMask: null,
+
+    createLoadMask: function() {
+        var me = this;
+
+        var loadMaskElement = document.createElement('div'),
+            loadMaskMessageContainer = document.createElement('div'),
+            loadMaskMessageElement = document.createElement('div'),
+            loadMaskSpinnerContainer = document.createElement('div'),
+            loadMaskSpinnerElement = document.createElement('div');
+
+        loadMaskElement.className = 'loadMask';
+        loadMaskSpinnerContainer.className = 'spinner';
+        loadMaskMessageElement.innerHTML = 'Loading';
+
+        // Assemble spinner
+        loadMaskSpinnerContainer.appendChild(loadMaskSpinnerElement);
+
+        // Assemble message container (spinner + message element)
+        loadMaskMessageContainer.appendChild(loadMaskSpinnerContainer);
+        loadMaskMessageContainer.appendChild(loadMaskMessageElement);
+
+        // Assemble message element and add to page
+        loadMaskElement.appendChild(loadMaskMessageContainer);
+        document.body.appendChild(loadMaskElement);
+
+        me.loadMask = {
+            setMessage: function(message) {
+                loadMaskMessageElement.innerHTML = message;
+            },
+
+            destroy: function() {
+                document.body.removeChild(loadMaskElement);
+
+                me.loadMask = null;
+            }
+        };
+    },
+
+    /**
+     * Show load mask
+     * @param  maskId String to identify load mask (Use same id to change or hide load mask)
+     * @param  message Load mask message
+     */
+    show: function(maskId, message) {
+        var me = this;
+
+        if(maskId) {
+            me.loadMaskMessages[maskId] = message;
+        }
+
+        if(Object.keys(me.loadMaskMessages).length > 0) {
+            var loadMaskMsg = (Object.values(me.loadMaskMessages).join('...<br/>') || 'Loading') + '...';
+
+            if(!me.loadMask) {
+                me.createLoadMask();
+            }
+
+            me.loadMask.setMessage(loadMaskMsg);
+        }
+    },
+
+    /**
+     * Hide load mask
+     * @param  maskId String to identify the load mask to hide
+     */
+    hide: function(maskId) {
+        var me = this;
+
+        if(!maskId) {
+            me.loadMaskMessages = {};
+        }  else {
+            if(me.loadMaskMessages.hasOwnProperty(maskId)) {
+                delete me.loadMaskMessages[maskId];
+            }
+        }
+
+        if(Object.keys(me.loadMaskMessages).length === 0) {
+            if(me.loadMask) {
+                me.loadMask.destroy();
+            }
+
+            me.loadMaskMessages = {};
+        } else {
+            var loadMaskMsg = (Object.values(me.loadMaskMessages).join('...<br/>') || 'Loading') + '...';
+            me.loadMask.setMessage(loadMaskMsg);
+        }
+    }
+};
+
+ACME.Start.init();

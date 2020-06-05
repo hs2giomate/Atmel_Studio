@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "USART_Sync_Class", "USART_Sync_Class\USART_Sync_Class.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "USART_Driver1", "..\..\..\Examples\USART_Driver1\USART_Driver1\USART_Driver1.cproj", "{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Beta|ARM = Beta|ARM
+		Bootable|ARM = Bootable|ARM
+		Build_Number|ARM = Build_Number|ARM
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+		Staticlibrary|ARM = Staticlibrary|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Beta|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Beta|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Bootable|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Bootable|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Build_Number|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Build_Number|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.Build.0 = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Beta|ARM.ActiveCfg = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Beta|ARM.Build.0 = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Bootable|ARM.ActiveCfg = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Bootable|ARM.Build.0 = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Build_Number|ARM.ActiveCfg = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Build_Number|ARM.Build.0 = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Debug|ARM.ActiveCfg = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Debug|ARM.Build.0 = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Release|ARM.ActiveCfg = Release|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Release|ARM.Build.0 = Release|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
+		{AE541B3B-5E07-4820-B87C-E7F72A2D41D6}.Staticlibrary|ARM.Build.0 = Debug|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

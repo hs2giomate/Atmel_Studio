@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "LTC2983", "TestBench1\LTC2983\LTC2983.cppproj", "{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "TestBench1\ArduinoCore\ArduinoCore.cppproj", "{0AC2D649-529C-4D61-A6DD-D837BF601EB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|AVR = Debug|AVR
+		Release|ARM = Release|ARM
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Debug|ARM.ActiveCfg = Debug|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Debug|AVR.ActiveCfg = Debug|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Debug|AVR.Build.0 = Debug|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Release|ARM.ActiveCfg = Release|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Release|AVR.ActiveCfg = Release|AVR
+		{9DCD0B23-1C0A-4946-88CB-1D26695FEF46}.Release|AVR.Build.0 = Release|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Debug|ARM.ActiveCfg = Debug|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Debug|AVR.ActiveCfg = Debug|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Debug|AVR.Build.0 = Debug|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Release|ARM.ActiveCfg = Release|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Release|AVR.ActiveCfg = Release|AVR
+		{0AC2D649-529C-4D61-A6DD-D837BF601EB0}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

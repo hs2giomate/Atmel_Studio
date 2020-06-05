@@ -80,11 +80,14 @@
         <armgcccpp.linker.libraries.Libraries>
           <ListValues>
             <Value>libm</Value>
+            <Value>libARINC_Interface_Driver.a</Value>
           </ListValues>
         </armgcccpp.linker.libraries.Libraries>
         <armgcccpp.linker.libraries.LibrarySearchPaths>
           <ListValues>
             <Value>%24(ProjectDir)\Device_Startup</Value>
+            <Value>S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug</Value>
+            <Value>S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver</Value>
           </ListValues>
         </armgcccpp.linker.libraries.LibrarySearchPaths>
         <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
@@ -123,7 +126,6 @@
             <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
           </ListValues>
         </armgcc.compiler.directories.IncludePaths>
-        <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
         <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
         <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
         <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
@@ -134,8 +136,55 @@
         </armgcccpp.compiler.symbols.DefSymbols>
         <armgcccpp.compiler.directories.IncludePaths>
           <ListValues>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/Config</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/examples</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hal/include</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hal/utils/include</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/cmcc</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/core</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/dmac</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/evsys</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/gclk</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/mclk</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/osc32kctrl</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/oscctrl</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/pm</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/port</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/ramecc</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/rtc</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/sercom</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/systick</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hpl/usb</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/hri</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/usb</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/usb/class/cdc</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/usb/class/cdc/device</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/usb/device</Value>
             <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
             <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>../../../USB_Driver/USB_Driver/Config</Value>
+            <Value>../../../USB_Driver/USB_Driver/</Value>
+            <Value>../../../USB_Driver/USB_Driver/examples</Value>
+            <Value>../../../USB_Driver/USB_Driver/hal/include</Value>
+            <Value>../../../USB_Driver/USB_Driver/hal/utils/include</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/cmcc</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/core</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/dmac</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/gclk</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/mclk</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/osc32kctrl</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/oscctrl</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/pm</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/port</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/ramecc</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/systick</Value>
+            <Value>../../../USB_Driver/USB_Driver/hpl/usb</Value>
+            <Value>../../../USB_Driver/USB_Driver/hri</Value>
+            <Value>../../../USB_Driver/USB_Driver/usb</Value>
+            <Value>../../../USB_Driver/USB_Driver/usb/class/cdc</Value>
+            <Value>../../../USB_Driver/USB_Driver/usb/class/cdc/device</Value>
+            <Value>../../../USB_Driver/USB_Driver/usb/device</Value>
             <Value>S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\Config</Value>
             <Value>S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver</Value>
             <Value>S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\examples</Value>
@@ -158,20 +207,29 @@
             <Value>S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc</Value>
             <Value>S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\class\cdc\device</Value>
             <Value>S:\AtmelStudio\Applications\ARINCTransceiver\MainDriver\MainDriver\usb\device</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/gfx_mono</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/gfx_mono/display</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/gfx_mono/display/ug2832hsweg04</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/gfx_mono/display_controller</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/gfx_mono/display_controller/ssd1306</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/gfx_mono/fonts</Value>
+            <Value>../../../../../Applications/ARINCTransceiver/ARINC_Interface_Driver/ARINC_Interface_Driver/stdio_redirect</Value>
           </ListValues>
         </armgcccpp.compiler.directories.IncludePaths>
-        <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>
         <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
         <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
         <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
         <armgcccpp.linker.libraries.Libraries>
           <ListValues>
             <Value>libm</Value>
+            <Value>libARINC_Interface_Driver.a</Value>
           </ListValues>
         </armgcccpp.linker.libraries.Libraries>
         <armgcccpp.linker.libraries.LibrarySearchPaths>
           <ListValues>
             <Value>%24(ProjectDir)\Device_Startup</Value>
+            <Value>S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug</Value>
+            <Value>S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver</Value>
           </ListValues>
         </armgcccpp.linker.libraries.LibrarySearchPaths>
         <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
@@ -224,13 +282,6 @@
     <None Include="Device_Startup\same54p20a_sram.ld">
       <SubType>compile</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Applications\ARINCTransceiver\MainDriver\MainDriver\MainDriver.cproj">
-      <Name>MainDriver</Name>
-      <Project>{58ffc102-8d0f-4e9c-8119-20b58ad661b1}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

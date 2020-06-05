@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "TimerClass", "TimerClass\TimerClass.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
 EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "MainDriver", "..\..\..\Applications\ARINCTransceiver\MainDriver\MainDriver\MainDriver.cproj", "{58FFC102-8D0F-4E9C-8119-20B58AD661B1}"
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Timer_Driver", "Timer_Driver\Timer_Driver.cproj", "{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,16 +26,16 @@ Global
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Staticlibrary|ARM.Build.0 = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Bootable|ARM.ActiveCfg = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Bootable|ARM.Build.0 = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Build_Number|ARM.ActiveCfg = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Build_Number|ARM.Build.0 = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Debug|ARM.ActiveCfg = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Debug|ARM.Build.0 = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Release|ARM.ActiveCfg = Release|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Release|ARM.Build.0 = Release|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
-		{58FFC102-8D0F-4E9C-8119-20B58AD661B1}.Staticlibrary|ARM.Build.0 = Debug|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Bootable|ARM.ActiveCfg = Debug|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Bootable|ARM.Build.0 = Debug|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Build_Number|ARM.ActiveCfg = Debug|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Build_Number|ARM.Build.0 = Debug|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Debug|ARM.ActiveCfg = Debug|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Debug|ARM.Build.0 = Debug|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Release|ARM.ActiveCfg = Release|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Release|ARM.Build.0 = Release|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Staticlibrary|ARM.ActiveCfg = Debug|ARM
+		{EC5BFBF4-D116-48D5-B9D6-2ECC05BE75A7}.Staticlibrary|ARM.Build.0 = Debug|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

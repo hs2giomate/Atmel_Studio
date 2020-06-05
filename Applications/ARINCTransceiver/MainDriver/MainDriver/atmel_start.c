@@ -6,5 +6,6 @@
 void atmel_start_init(void)
 {
 	system_init();
+	gfx_mono_init();
 	usb_init();
 }

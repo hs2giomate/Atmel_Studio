@@ -34,11 +34,13 @@ unsigned char LabelArray_1[32] = {      // Receiver-1
 // --------------------------------------------------------------- 
 //   [0]     [1]     [2]     [3]     [4]     [5]     [6]     [7]
 // 000-007 008-015 016-023 024-031 032-039 040-047 048-055 056-063 
-     0xFF,   0xFF,   0XFF,   0XFF,   0XFF,   0XFF,   0XFF,   0XFF,
+//   270	  272	  204	302		372		367		150		151
+     0x1D,   0x5D,   0X21,   0Xc1,   0Xdd,   0XeF,   0X16,   0X96,
 // ---------------------------------------------------------------      
 //   [8]     [9]     [10]    [11]    [12]    [13]    [14]    [15]  
 // 064-071 072-079 080-087 088-095 096-103 104-111 112-119 120-127 
-     0XFF,   0XFF,   0XFF,   0XFF,   0XFF,   0XFF,   0XFF,   0XFF,
+//	 260	   371	  372	 374	375		377
+	 0X0d,   0X9f,   0X5f,   0X3F,   0XdF,   0XFF,   0X00,   0X00,
 // ---------------------------------------------------------------      
 //   [16]    [17]    [18]    [19]    [20]    [21]    [22]    [23]       
 // 128-135 136-143 144-151 152-159 160-167 168-175 176-183 184-191 
@@ -50,54 +52,54 @@ unsigned char LabelArray_1[32] = {      // Receiver-1
 // ---------------------------------------------------------------      
 };
 
-unsigned char LabelArray_2[32] = {     // Receiver-2  
-// --------------------------------------------------------------- 
-//   [0]     [1]     [2]     [3]     [4]     [5]     [6]     [7]
-// 000-007 008-015 016-023 024-031 032-039 040-047 048-055 056-063 
-     0x00,   0x00,   0x00,   0X00,   0X00,   0X00,   0X00,   0X00,
-// ---------------------------------------------------------------      
-//   [8]     [9]     [10]    [11]    [12]    [13]    [14]    [15]  
-// 064-071 072-079 080-087 088-095 096-103 104-111 112-119 120-127 
-     0X00,   0X00,   0X00,   0X00,   0X00,   0X00,   0X00,   0X00,
-// ---------------------------------------------------------------      
-//   [16]    [17]    [18]    [19]    [20]    [21]    [22]    [23]       
-// 128-135 136-143 144-151 152-159 160-167 168-175 176-183 184-191 
-     0XFF,   0XFF,   0XFF,   0XFF,   0XFF,   0XFF,   0XFF,   0XFF,
-// ---------------------------------------------------------------      
-//   [24]    [25]    [26]    [27]    [28]    [29]    [30]    [31]            
-// 192-119 200-207 208-215 216-223 224-231 232-239 240-247 248-255 
-     0XFF,   0XFF,   0XFF,   0XFF,   0XFF,   0XFF,   0xFF,   0xFF 
-// ---------------------------------------------------------------      
-};
+unsigned char LabelArray_2[32]=LabelArray_1;
 
 // Priority Label-1 Table   
 unsigned char LabelPriority1 [3] = {
 //   [0]     [1]     [2]  
-     0x00,   0x01,   0X02, 
+     0x1D,   0x9f,   0Xef, 
 };    
 
 // Priority Label-1 Table     
-unsigned char LabelPriority2 [3] = {
-//   [0]     [1]     [2]  
-     0x03,   0x04,   0X05, 
-}; 
+unsigned char LabelPriority2 [3] =LabelPriority1;
+
   
  void	Holt_3593_Class::Init(void){
+	  spi.init();
 	 uint8_t	status=	Init3593(ACLKDIV,  // ARINC clock divisor
 	 TMODE,    // Transmit mode. Set for "send as soon as possible"
 	 SELFTEST_OFF, // Selftest defined by Mode switches
 	 1,    // Arinc speed and if Parity is enabled by the switch
 	 TFLIP );
-	 spi0.init();
+	
 	 
  } 
+ 
+ // ------------------------------------------------------------------
+ // Initialize the HI-3593
+ // ------------------------------------------------------------------
+ uint8_t Holt_3593_Class::Init3593(uint8_t AclkDiv, uint8_t tmode, uint8_t selftest, uint8_t arate, uint8_t tflip )
+ {
+	 unsigned char cmd=0;
+	 
+	 W_Command(RESETCMD);                // Reset the HI-3593
+	 W_CommandValue(DivReg, AclkDiv);	   // ACLK div/4 divisor
+	 cmd =  arate;
+	 cmd |= selftest << 4;
+	 cmd |= tmode << 5;
+	 cmd |= tflip << 6;                  // TFLIP on
+	 W_CommandValue(TCR, cmd);           // Program the Transmit Control Register
+	 return R_Register (R_TSR);
+	 
+ }
+ 
  void Holt_3593_Class::open(){
-	 	spi0.enable();
+	 	spi.enable();
 		 SS_Low();
  }
   void Holt_3593_Class::close(){
 	    SS_High();
-	  spi0.disable();
+	  spi.disable();
 	
   }
  
@@ -106,14 +108,14 @@ unsigned char LabelPriority2 [3] = {
 // ------------------------------------------------------------------   
 unsigned char Holt_3593_Class::txrx8bits_8(unsigned char txbyte, unsigned char return_when_done) {
   unsigned char rxbyte;    
-  rxbyte = Get_Byte();         // clear SPI status register
+ // rxbyte = Get_Byte();         // clear SPI status register
   uint8_t	p(txbyte);
   Send_Byte(p)    ;   // write Data Register to begin transfer  
 	  
   if (return_when_done) {  // optional wait for SPIF flag
-    while (!spi0.isSPIReady());     
+    while (!spi.isSPIReady());     
   }
-  return rxbyte = Get_Byte();
+  return rxbyte = txbyte;
   
 }
 
@@ -140,13 +142,21 @@ void Holt_3593_Class::initReceiver1Labels(void)
 
 uint8_t Holt_3593_Class::Send_Byte(uint8_t byte)
 {
-	spi0.write(&byte,1);
+	while (!spi.isSPIReady()); 
+	spi.write(&byte,1);
+	while (!spi.isSPIReady());  
 	return byte;
 }
+
 uint8_t Holt_3593_Class::Get_Byte(void)
 {
 	uint8_t byte;
-	spi0.read(&byte,1);
+	
+	while (!spi.isSPIReady());
+	spi.read(&byte,1);
+	while (!spi.isSPIReady());
+
+
 	
 	return byte;
 }	
@@ -171,23 +181,7 @@ void Holt_3593_Class::initReceiver2Labels(void)
  	  
 	close();
 }
-// ------------------------------------------------------------------
-// Initialize the HI-3593
-// ------------------------------------------------------------------
-uint8_t Holt_3593_Class::Init3593(uint8_t AclkDiv, uint8_t tmode, uint8_t selftest, uint8_t arate, uint8_t tflip )
-   {
-   unsigned char cmd=0;
-      
-   W_Command(RESETCMD);                // Reset the HI-3593         
-   W_CommandValue(DivReg, AclkDiv);	   // ACLK div/4 divisor      
-   cmd =  arate;
-   cmd |= selftest << 4;
-   cmd |= tmode << 5;
-   cmd |= tflip << 6;                  // TFLIP on
-   W_CommandValue(TCR, cmd);           // Program the Transmit Control Register
-   return R_Register (R_TSR);
-   
-   }
+
 
 
 
@@ -206,13 +200,13 @@ void Holt_3593_Class::MultiByteRead(uint8_t ReadCommand, uint8_t count, unsigned
    uint8_t dummy, ByteCount;
    
    CS_HL();  
-   dummy = Get_Byte();                  // clear SPI status register    
+   //dummy = Get_Byte();                  // clear SPI status register    
    Send_Byte(ReadCommand);
      
-   while (!spi0.isSPIReady());            // wait for SPIF flag assertion    
-   dummy = Get_Byte();                  // read/ignore Rx data in Data Reg, resets SPIF                    
+   while (!spi.isSPIReady());            // wait for SPIF flag assertion    
+  // dummy = Get_Byte();                  // read/ignore Rx data in Data Reg, resets SPIF                    
    for (ByteCount=0; ByteCount < count; ByteCount++) {
-      dummy = txrx8bits(0x00,1); 
+      dummy =Get_Byte(); 
       passedArray[ByteCount] = dummy; 
      }
 
@@ -229,15 +223,16 @@ void Holt_3593_Class::ArincRead(uint8_t source, unsigned char *passedArray)
    uint8_t dummy, ByteCount, count;
    
    count = 3;                // assume it's a Priority Label Word?
-   if(source==0xA0 || source == 0xC0)  // is it a normal Word?
-       count++;                        // then it has 4 bytes.   
+   if(source==0xA0 || source == 0xC0){  // is it a normal Word?
+       count++;								 // then it has 4 bytes.
+	   }                        
    CS_HL();  
    dummy = Get_Byte();                   // clear SPI status register    
    Send_Byte(source) ;                  // source command to read FIFO data
-   while (!spi0.isSPIReady());            // wait for SPIF flag assertion    
-   dummy = Get_Byte();                  // read/ignore Rx data in Data Reg, resets SPIF                    
+   
+ //  dummy = Get_Byte();                  // read/ignore Rx data in Data Reg, resets SPIF                    
    for (ByteCount=0; ByteCount < count; ByteCount++) {
-      dummy = txrx8bits(0x00,1); 
+      dummy = Get_Byte(); 
       passedArray[ByteCount] = dummy; 
      }
 
@@ -273,13 +268,16 @@ Example Call: rcv_byte = txrx8bits(0xFF,1) // sends data 0xFF then returns
 unsigned char Holt_3593_Class::txrx8bits (unsigned char txbyte, unsigned char return_when_done) {
   unsigned char rxbyte;  
     uint8_t	p(txbyte);
-    rxbyte = Get_Byte();         // clear SPI status register  
-	Send_Byte(p);        // write Data Register to begin transfer    
+   // rxbyte = Get_Byte();         // clear SPI status register  
+	Send_Byte(p);        // write Data Register to begin transfer   
+	//rxbyte = Get_Byte(); 
 	if (return_when_done) {  // optional wait for SPIF flag
-		while (!spi0.isSPIReady());      
+		while (!spi.isSPIReady());      
     }
 
-  return rxbyte = Get_Byte();  // get received data byte from Data Register
+  rxbyte = txbyte;  // get received data byte from Data Register
+
+  return rxbyte;
   
  }
  
@@ -314,13 +312,13 @@ unsigned char Holt_3593_Class::txrx8bits (unsigned char txbyte, unsigned char re
 // ------------------------------------------------------------------
 void Holt_3593_Class::W_Command (char cmd) {
   static unsigned char dummy;
- 	
+ 	  uint8_t p(cmd); 
   open();
-  dummy = Get_Byte();               // clear SPI status register    
-  uint8_t p(cmd);  
+  //dummy = Get_Byte();               // clear SPI status register    
+ 
   Send_Byte(p);             // Test Mode SPI Instruction - MASTER RESET CMD 
-  while (!spi0.isSPIReady()) {;}      // Wait for data to come back in.
-  dummy = char(Get_Byte());               // read Rx data in Data Reg to reset SPIF 
+  while (!spi.isSPIReady()) {;}      // Wait for data to come back in.
+  //dummy = char(Get_Byte());               // read Rx data in Data Reg to reset SPIF 
   close();
 }
 
@@ -331,14 +329,14 @@ void Holt_3593_Class::W_CommandValue (uint8_t cmd, uint8_t value){
   uint8_t dummy; 
   	
   open();                             // assert the SPI0 /SS strobe
-  dummy = Get_Byte();                           // clear SPI status register    
+ // dummy = Get_Byte();                           // clear SPI status register    
   Send_Byte(cmd);                             // SPI  command 
-  while (!spi0.isSPIReady());    
-  dummy = Get_Byte();                           // read Rx data in Data Reg to reset SPIF
+  while (!spi.isSPIReady());    
+ // dummy = Get_Byte();                           // read Rx data in Data Reg to reset SPIF
                          // clear SPI status register    
   Send_Byte(value);                           // Reset values     
-  while (!spi0.isSPIReady());    
-  dummy = Get_Byte();                           // read Rx data in Data Reg to reset SPIF
+  while (!spi.isSPIReady());    
+ // dummy = Get_Byte();                           // read Rx data in Data Reg to reset SPIF
 
   close();
 }
@@ -357,8 +355,10 @@ unsigned char Holt_3593_Class::R_Register(char Reg){
   unsigned char R_Reg;
 	
   open();
-  R_Reg  = txrx8bits(Reg,1);                   // send op code (ignore returned data byte)
-  R_Reg  = txrx8bits(0x00,1);                   // send dummy data / receive Status Reg byte           
+  txrx8bits(Reg,1);        // send op code (ignore returned data byte)
+              
+  R_Reg  = Get_Byte();  
+         
   close();
   return R_Reg;
 }
@@ -375,7 +375,7 @@ void Holt_3593_Class::SS_Low(void)
 {
 
 	
-	gpio_set_pin_level(SPI0_CS,
+	gpio_set_pin_level(SPI1_CS,
 	// <y> Initial level
 	// <id> pad_initial_level
 	// <false"> Low
@@ -386,7 +386,7 @@ void Holt_3593_Class::SS_High(void)
 {
 
 	
-	gpio_set_pin_level(SPI0_CS,
+	gpio_set_pin_level(SPI1_CS,
 	// <y> Initial level
 	// <id> pad_initial_level
 	// <false"> Low

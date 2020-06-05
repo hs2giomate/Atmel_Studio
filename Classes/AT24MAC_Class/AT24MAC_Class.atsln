@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "AT24MAC_Class", "AT24MAC_Class\AT24MAC_Class.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "LTC2983_Driver", "..\..\Applications\LTC2983_Driver\LTC2983_Driver\LTC2983_Driver.cproj", "{B2F2080B-0175-4AE1-9C3E-362A700BFEF0}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "I2C_Asyn_Class", "..\I2C\I2C_Asyn_Class\I2C_Asyn_Class\I2C_Asyn_Class.cppproj", "{993E5246-169E-4AEC-999E-C0A2D58325AA}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "USB_CDC_Class", "..\USB\USB_CDC_Class\USB_CDC_Class\USB_CDC_Class.cppproj", "{B17A45BD-2316-4354-8365-4A91A4A5B6B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{B2F2080B-0175-4AE1-9C3E-362A700BFEF0}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B2F2080B-0175-4AE1-9C3E-362A700BFEF0}.Debug|ARM.Build.0 = Debug|ARM
+		{B2F2080B-0175-4AE1-9C3E-362A700BFEF0}.Release|ARM.ActiveCfg = Release|ARM
+		{B2F2080B-0175-4AE1-9C3E-362A700BFEF0}.Release|ARM.Build.0 = Release|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Debug|ARM.ActiveCfg = Debug|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Debug|ARM.Build.0 = Debug|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Release|ARM.ActiveCfg = Release|ARM
+		{993E5246-169E-4AEC-999E-C0A2D58325AA}.Release|ARM.Build.0 = Release|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Debug|ARM.Build.0 = Debug|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Release|ARM.ActiveCfg = Release|ARM
+		{B17A45BD-2316-4354-8365-4A91A4A5B6B8}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
