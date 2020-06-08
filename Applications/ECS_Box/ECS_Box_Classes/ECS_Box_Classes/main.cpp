@@ -5,14 +5,31 @@
  * Author : GMateusDP
  */ 
 
-
-#include "sam.h"
-
+#include <atmel_start.h>
+#include "CDC_Class.h"
 
 int main(void)
 {
-    /* Replace with your application code */
-    while (1) 
-    {
-    }
+	/* Initializes MCU, drivers and middleware */
+	atmel_start_init();
+	CDC_Class	usb;
+	usb.init();
+	
+
+	/* Replace with your application code */
+	while (1) {
+		if (usb.is_enabled())
+		{
+			int inByte=usb.read();
+			if (inByte>33)
+			{
+				usb.println(inByte);
+				usb.println((char)inByte);
+				usb.println((float)(inByte/2));
+				usb.println("it works");
+				usb<<"it does work";
+			}
+		}
+		delay_ms(100);
+	}
 }

@@ -126,5 +126,10 @@ class Stream : public Print
   int findMulti(struct MultiTarget *targets, int tCount);
 };
 
+template<class T>
+inline Print &operator <<(Print &stream, const T &arg)
+{ stream.print(arg); return stream; }
+	
+	
 #undef NO_IGNORE_CHAR
 #endif

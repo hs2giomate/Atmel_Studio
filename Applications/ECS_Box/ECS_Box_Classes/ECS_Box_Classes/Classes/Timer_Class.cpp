@@ -20,7 +20,7 @@ static void task_cb(const struct timer_task *const timer_task)
 // default constructor
 Timer_Class::Timer_Class()
 {
-	timer_descr=&TIMER_0;
+	timer_descr=&TIMER_RTC;
 	prtTimer=this;
 	ptrTimerClass=this;
 	clockCycles=1024;

@@ -321,6 +321,6 @@ int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {
 unsigned long Stream::millis(void){
 	uint32_t ticks;
 	
-	ticks= timer_get_clock_cycles_in_tick(&TIMER_0,&ticks);
+	ticks= timer_get_clock_cycles_in_tick(&TIMER_RTC,&ticks);
 	return (unsigned long)ticks;
 }
