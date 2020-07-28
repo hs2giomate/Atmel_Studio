@@ -105,7 +105,7 @@ __lock___atexit_recursive_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
 __lock___arc4random_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
-can1_tx_fifo        0x20              S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+can1_tx_fifo        0x10              S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
 __lock___env_recursive_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
 __lock___sinit_recursive_mutex
@@ -113,7 +113,7 @@ __lock___sinit_recursive_mutex
 __lock___malloc_recursive_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
 I2C_1               0x40              S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
-can1_rx_fifo        0x20              S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+can1_rx_fifo        0x10              S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
 _irq_table          0x224             S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
 SPI_LTC2983         0x18              S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
 __lock___at_quick_exit_mutex
@@ -1513,7 +1513,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
  .debug_macro   0x00000000       0x16 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
  .debug_macro   0x00000000      0x185 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x00000000       0xe8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x00000000       0xee S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
  .debug_macro   0x00000000       0xc9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
  .debug_macro   0x00000000       0x70 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
  .debug_macro   0x00000000       0xd1 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
@@ -1857,7 +1857,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
  .debug_macro   0x00000000       0x16 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
  .debug_macro   0x00000000      0x185 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
- .debug_macro   0x00000000       0xe8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
+ .debug_macro   0x00000000       0xee S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
  .debug_macro   0x00000000       0xc9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
  .debug_macro   0x00000000       0x70 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
  .debug_macro   0x00000000       0xd1 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
@@ -10555,7 +10555,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
  .debug_macro   0x00000000       0x16 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
  .debug_macro   0x00000000      0x185 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
- .debug_macro   0x00000000       0xe8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+ .debug_macro   0x00000000       0xee S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
  .debug_macro   0x00000000       0xc9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
  .debug_macro   0x00000000       0x70 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
  .debug_macro   0x00000000       0xd1 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
@@ -11038,7 +11038,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
                 0x00010000                STACK_SIZE = DEFINED (STACK_SIZE)?STACK_SIZE:DEFINED (__stack_size__)?__stack_size__:0x10000
 
-.text           0x00000000     0x52f4
+.text           0x00000000     0x5334
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                _sfixed = .
  *(.vectors .vectors.*)
@@ -11295,525 +11295,526 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x00000fa0       0x3c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
                 0x00000fa0                CAN_0_init
  .text.system_init
-                0x00000fdc      0x220 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
+                0x00000fdc      0x244 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
                 0x00000fdc                system_init
  .text.can_tx_done
-                0x000011fc        0xa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+                0x00001220        0xa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
  .text.can_rx_done
-                0x00001206        0xa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+                0x0000122a        0xa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
  .text.can_irq_handler
-                0x00001210        0xa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
- *fill*         0x0000121a        0x2 
+                0x00001234        0xa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+ *fill*         0x0000123e        0x2 
  .text.can_async_init
-                0x0000121c       0x50 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
-                0x0000121c                can_async_init
+                0x00001240       0x50 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+                0x00001240                can_async_init
  .text.delay_init
-                0x0000126c       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
-                0x0000126c                delay_init
+                0x00001290       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
+                0x00001290                delay_init
  .text.delay_ms
-                0x00001280       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
-                0x00001280                delay_ms
+                0x000012a4       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
+                0x000012a4                delay_ms
  .text.event_system_init
-                0x000012a0        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
-                0x000012a0                event_system_init
+                0x000012c4        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
+                0x000012c4                event_system_init
  .text.i2c_tx_complete
-                0x000012ac       0x12 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- .text.i2c_rx_complete
-                0x000012be       0x12 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- .text.i2c_error
                 0x000012d0       0x12 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- *fill*         0x000012e2        0x2 
+ .text.i2c_rx_complete
+                0x000012e2       0x12 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ .text.i2c_error
+                0x000012f4       0x12 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ *fill*         0x00001306        0x2 
  .text.i2c_m_async_write
-                0x000012e4       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+                0x00001308       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
  .text.i2c_m_async_read
-                0x00001314       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+                0x00001338       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
  .text.i2c_m_async_init
-                0x00001344       0x6c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
-                0x00001344                i2c_m_async_init
+                0x00001368       0x6c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+                0x00001368                i2c_m_async_init
  .text.spi_m_sync_init
-                0x000013b0       0x50 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
-                0x000013b0                spi_m_sync_init
+                0x000013d4       0x50 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+                0x000013d4                spi_m_sync_init
  .text.spi_m_sync_transfer
-                0x00001400       0x40 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
-                0x00001400                spi_m_sync_transfer
+                0x00001424       0x40 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+                0x00001424                spi_m_sync_transfer
  .text._spi_m_sync_io_write
-                0x00001440       0x3c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+                0x00001464       0x3c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
  .text._spi_m_sync_io_read
-                0x0000147c       0x3c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+                0x000014a0       0x3c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
  .text.timer_add_timer_task
-                0x000014b8       0x58 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+                0x000014dc       0x58 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
  .text.timer_process_counted
-                0x00001510       0x80 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+                0x00001534       0x80 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
  .text.timer_init
-                0x00001590       0x3c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
-                0x00001590                timer_init
+                0x000015b4       0x3c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+                0x000015b4                timer_init
  .text._usb_d_find_ep
-                0x000015cc       0x44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x000015f0       0x44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
  .text.usb_d_dummy_cb_false
-                0x00001610        0x4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x00001634        0x4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
  .text.usb_d_cb_trans_more
-                0x00001614       0x34 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x00001638       0x34 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
  .text._usb_d_cb_trans_done
-                0x00001648      0x150 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x0000166c      0x150 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
  .text.usb_d_cb_trans_setup
-                0x00001798       0x88 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x000017bc       0x88 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
  .text.usb_d_init
-                0x00001820       0x68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x00001820                usb_d_init
+                0x00001844       0x68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x00001844                usb_d_init
  .text.usb_d_register_callback
-                0x00001888        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x00001888                usb_d_register_callback
- .text.usb_d_enable
-                0x00001894        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x00001894                usb_d_enable
- .text.usb_d_attach
-                0x000018a0        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x000018a0                usb_d_attach
- .text.usb_d_set_address
                 0x000018ac        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x000018ac                usb_d_set_address
+                0x000018ac                usb_d_register_callback
+ .text.usb_d_enable
+                0x000018b8        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x000018b8                usb_d_enable
+ .text.usb_d_attach
+                0x000018c4        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x000018c4                usb_d_attach
+ .text.usb_d_set_address
+                0x000018d0        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x000018d0                usb_d_set_address
  .text.usb_d_ep_init
-                0x000018b8       0x54 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x000018b8                usb_d_ep_init
+                0x000018dc       0x54 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x000018dc                usb_d_ep_init
  .text.usb_d_ep0_init
-                0x0000190c       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x0000190c                usb_d_ep0_init
+                0x00001930       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x00001930                usb_d_ep0_init
  .text.usb_d_ep_deinit
-                0x00001920       0x2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x00001920                usb_d_ep_deinit
+                0x00001944       0x2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x00001944                usb_d_ep_deinit
  .text.usb_d_ep_enable
-                0x0000194c       0x4c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x0000194c                usb_d_ep_enable
+                0x00001970       0x4c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x00001970                usb_d_ep_enable
  .text.usb_d_ep_transfer
-                0x00001998      0x120 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x00001998                usb_d_ep_transfer
+                0x000019bc      0x120 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x000019bc                usb_d_ep_transfer
  .text.usb_d_ep_halt
-                0x00001ab8       0x68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x00001ab8                usb_d_ep_halt
+                0x00001adc       0x68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x00001adc                usb_d_ep_halt
  .text.usb_d_ep_register_callback
-                0x00001b20       0x4c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
-                0x00001b20                usb_d_ep_register_callback
- .text.assert   0x00001b6c        0x6 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
-                0x00001b6c                assert
+                0x00001b44       0x4c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+                0x00001b44                usb_d_ep_register_callback
+ .text.assert   0x00001b90        0x6 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
+                0x00001b90                assert
  .text.is_list_element
-                0x00001b72       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
-                0x00001b72                is_list_element
- *fill*         0x00001b92        0x2 
+                0x00001b96       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+                0x00001b96                is_list_element
+ *fill*         0x00001bb6        0x2 
  .text.list_insert_as_head
-                0x00001b94       0x2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
-                0x00001b94                list_insert_as_head
+                0x00001bb8       0x2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+                0x00001bb8                list_insert_as_head
  .text.list_insert_after
-                0x00001bc0        0x8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
-                0x00001bc0                list_insert_after
+                0x00001be4        0x8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+                0x00001be4                list_insert_after
  .text.list_insert_at_end
-                0x00001bc8       0x40 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
-                0x00001bc8                list_insert_at_end
+                0x00001bec       0x40 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+                0x00001bec                list_insert_at_end
  .text.list_remove_head
-                0x00001c08        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
-                0x00001c08                list_remove_head
+                0x00001c2c        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+                0x00001c2c                list_remove_head
  .text._can_async_init
-                0x00001c14      0x110 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
-                0x00001c14                _can_async_init
+                0x00001c38      0x118 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+                0x00001c38                _can_async_init
  .text.CAN1_Handler
-                0x00001d24       0x7c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
-                0x00001d24                CAN1_Handler
+                0x00001d50       0x7c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+                0x00001d50                CAN1_Handler
  .text._get_cycles_for_ms
-                0x00001da0        0xa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
-                0x00001da0                _get_cycles_for_ms
- *fill*         0x00001daa        0x2 
+                0x00001dcc        0xa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
+                0x00001dcc                _get_cycles_for_ms
+ *fill*         0x00001dd6        0x2 
  .text._init_chip
-                0x00001dac       0x68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
-                0x00001dac                _init_chip
+                0x00001dd8       0x68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+                0x00001dd8                _init_chip
  .text._event_system_init
-                0x00001e14       0x5c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
-                0x00001e14                _event_system_init
+                0x00001e40       0x5c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+                0x00001e40                _event_system_init
  .text._gclk_init_generators_by_fref
-                0x00001e70       0x90 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
-                0x00001e70                _gclk_init_generators_by_fref
+                0x00001e9c       0x90 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
+                0x00001e9c                _gclk_init_generators_by_fref
  .text._mclk_init
-                0x00001f00        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
-                0x00001f00                _mclk_init
+                0x00001f2c        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
+                0x00001f2c                _mclk_init
  .text._osc32kctrl_init_sources
-                0x00001f0c       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
-                0x00001f0c                _osc32kctrl_init_sources
+                0x00001f38       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
+                0x00001f38                _osc32kctrl_init_sources
  .text._oscctrl_init_sources
-                0x00001f20       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
-                0x00001f20                _oscctrl_init_sources
+                0x00001f4c       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+                0x00001f4c                _oscctrl_init_sources
  .text._oscctrl_init_referenced_generators
-                0x00001f3c      0x130 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
-                0x00001f3c                _oscctrl_init_referenced_generators
+                0x00001f68      0x130 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+                0x00001f68                _oscctrl_init_referenced_generators
  .text._timer_init
-                0x0000206c       0x74 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
-                0x0000206c                _timer_init
+                0x00002098       0x74 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+                0x00002098                _timer_init
  .text._rtc_get_timer
-                0x000020e0        0x4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
-                0x000020e0                _rtc_get_timer
+                0x0000210c        0x4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+                0x0000210c                _rtc_get_timer
  .text.RTC_Handler
-                0x000020e4       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
-                0x000020e4                RTC_Handler
+                0x00002110       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+                0x00002110                RTC_Handler
  .text._sercom_get_hardware_index
-                0x0000210c       0x44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x00002138       0x44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
  .text._sercom_init_irq_param
-                0x00002150       0x24 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x0000217c       0x24 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
  .text._sercom_get_irq_num
-                0x00002174       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x000021a0       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
  .text._get_i2cm_index
-                0x00002188       0x38 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x000021b4       0x38 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
  .text._i2c_m_sync_init_impl
-                0x000021c0       0xdc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x000021ec       0xdc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
  .text._sercom_i2c_m_irq_handler
-                0x0000229c      0x248 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x000022c8      0x248 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
  .text._i2c_m_async_init
-                0x000024e4       0x80 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x000024e4                _i2c_m_async_init
+                0x00002510       0x80 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x00002510                _i2c_m_async_init
  .text._i2c_m_async_transfer
-                0x00002564      0x130 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x00002564                _i2c_m_async_transfer
+                0x00002590      0x130 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x00002590                _i2c_m_async_transfer
  .text._i2c_m_async_register_callback
-                0x00002694       0x1a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x00002694                _i2c_m_async_register_callback
- *fill*         0x000026ae        0x2 
+                0x000026c0       0x1a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x000026c0                _i2c_m_async_register_callback
+ *fill*         0x000026da        0x2 
  .text.SERCOM1_0_Handler
-                0x000026b0       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x000026b0                SERCOM1_0_Handler
+                0x000026dc       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x000026dc                SERCOM1_0_Handler
  .text.SERCOM1_1_Handler
-                0x000026c4       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x000026c4                SERCOM1_1_Handler
+                0x000026f0       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x000026f0                SERCOM1_1_Handler
  .text.SERCOM1_2_Handler
-                0x000026d8       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x000026d8                SERCOM1_2_Handler
+                0x00002704       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x00002704                SERCOM1_2_Handler
  .text.SERCOM1_3_Handler
-                0x000026ec       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x000026ec                SERCOM1_3_Handler
+                0x00002718       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x00002718                SERCOM1_3_Handler
  .text.SERCOM5_0_Handler
-                0x00002700       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x00002700                SERCOM5_0_Handler
+                0x0000272c       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x0000272c                SERCOM5_0_Handler
  .text.SERCOM5_1_Handler
-                0x00002714       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x00002714                SERCOM5_1_Handler
+                0x00002740       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x00002740                SERCOM5_1_Handler
  .text.SERCOM5_2_Handler
-                0x00002728       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x00002728                SERCOM5_2_Handler
+                0x00002754       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x00002754                SERCOM5_2_Handler
  .text.SERCOM5_3_Handler
-                0x0000273c       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x0000273c                SERCOM5_3_Handler
+                0x00002768       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x00002768                SERCOM5_3_Handler
  .text._spi_m_sync_init
-                0x00002750      0x190 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x00002750                _spi_m_sync_init
+                0x0000277c      0x190 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x0000277c                _spi_m_sync_init
  .text._spi_m_sync_trans
-                0x000028e0       0xe0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
-                0x000028e0                _spi_m_sync_trans
+                0x0000290c       0xe0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+                0x0000290c                _spi_m_sync_trans
  .text._delay_init
-                0x000029c0       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
-                0x000029c0                _delay_init
+                0x000029ec       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+                0x000029ec                _delay_init
  .text._delay_cycles
-                0x000029d4       0x5c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
-                0x000029d4                _delay_cycles
+                0x00002a00       0x5c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+                0x00002a00                _delay_cycles
  .text._dummy_func_no_return
-                0x00002a30        0x4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00002a5c        0x4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .text._usb_d_dev_handle_setup
-                0x00002a34       0x7c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00002a60       0x7c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .text._usb_d_dev_handle_stall
-                0x00002ab0       0x2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
- .text._usb_d_dev_trans_done
                 0x00002adc       0x2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+ .text._usb_d_dev_trans_done
+                0x00002b08       0x2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .text._usb_d_dev_trans_stop
-                0x00002b08       0x6c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00002b34       0x6c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .text._usb_d_dev_handle_trfail
-                0x00002b74      0x100 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00002ba0      0x100 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .text._usb_d_dev_reset_epts
-                0x00002c74       0x44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00002ca0       0x44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .text._usb_d_dev_in_next
-                0x00002cb8      0x184 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00002ce4      0x184 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .text._usb_d_dev_out_next
-                0x00002e3c      0x1f0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00002e68      0x1f0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .text._usb_d_dev_handler
-                0x0000302c      0x278 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003058      0x278 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .text._usb_d_dev_init
-                0x000032a4       0xfc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x000032a4                _usb_d_dev_init
+                0x000032d0       0xfc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x000032d0                _usb_d_dev_init
  .text._usb_d_dev_enable
-                0x000033a0       0x6c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x000033a0                _usb_d_dev_enable
+                0x000033cc       0x6c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x000033cc                _usb_d_dev_enable
  .text._usb_d_dev_attach
-                0x0000340c       0x12 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x0000340c                _usb_d_dev_attach
+                0x00003438       0x12 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003438                _usb_d_dev_attach
  .text._usb_d_dev_set_address
-                0x0000341e        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x0000341e                _usb_d_dev_set_address
- *fill*         0x0000342a        0x2 
+                0x0000344a        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x0000344a                _usb_d_dev_set_address
+ *fill*         0x00003456        0x2 
  .text._usb_d_dev_ep_init
-                0x0000342c      0x118 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x0000342c                _usb_d_dev_ep_init
+                0x00003458      0x118 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003458                _usb_d_dev_ep_init
  .text._usb_d_dev_ep_deinit
-                0x00003544       0xc4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x00003544                _usb_d_dev_ep_deinit
+                0x00003570       0xc4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003570                _usb_d_dev_ep_deinit
  .text._usb_d_dev_ep_enable
-                0x00003608      0x2a8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x00003608                _usb_d_dev_ep_enable
+                0x00003634      0x2a8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003634                _usb_d_dev_ep_enable
  .text._usb_d_dev_ep_stall
-                0x000038b0      0x148 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x000038b0                _usb_d_dev_ep_stall
+                0x000038dc      0x148 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x000038dc                _usb_d_dev_ep_stall
  .text._usb_d_dev_ep_read_req
-                0x000039f8       0x60 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x000039f8                _usb_d_dev_ep_read_req
+                0x00003a24       0x60 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003a24                _usb_d_dev_ep_read_req
  .text._usb_d_dev_ep_trans
-                0x00003a58      0x1e0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x00003a58                _usb_d_dev_ep_trans
+                0x00003a84      0x1e0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003a84                _usb_d_dev_ep_trans
  .text._usb_d_dev_register_callback
-                0x00003c38       0x24 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x00003c38                _usb_d_dev_register_callback
+                0x00003c64       0x24 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003c64                _usb_d_dev_register_callback
  .text._usb_d_dev_register_ep_callback
-                0x00003c5c       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x00003c5c                _usb_d_dev_register_ep_callback
+                0x00003c88       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003c88                _usb_d_dev_register_ep_callback
  .text.USB_0_Handler
-                0x00003c8c        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x00003c8c                USB_0_Handler
+                0x00003cb8        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003cb8                USB_0_Handler
  .text.USB_1_Handler
-                0x00003c98        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x00003c98                USB_1_Handler
+                0x00003cc4        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003cc4                USB_1_Handler
  .text.USB_2_Handler
-                0x00003ca4        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x00003ca4                USB_2_Handler
+                0x00003cd0        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003cd0                USB_2_Handler
  .text.USB_3_Handler
-                0x00003cb0        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
-                0x00003cb0                USB_3_Handler
+                0x00003cdc        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00003cdc                USB_3_Handler
  .text.cdcdf_acm_req
-                0x00003cbc       0xf8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+                0x00003ce8       0xf8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
  .text.cdcdf_acm_ctrl
-                0x00003db4      0x168 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+                0x00003de0      0x168 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
  .text.cdcdf_acm_init
-                0x00003f1c       0x44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
-                0x00003f1c                cdcdf_acm_init
+                0x00003f48       0x44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+                0x00003f48                cdcdf_acm_init
  .text.cdcdf_acm_deinit
-                0x00003f60       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
-                0x00003f60                cdcdf_acm_deinit
+                0x00003f8c       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+                0x00003f8c                cdcdf_acm_deinit
  .text.cdcdf_acm_read
-                0x00003f7c       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
-                0x00003f7c                cdcdf_acm_read
+                0x00003fa8       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+                0x00003fa8                cdcdf_acm_read
  .text.cdcdf_acm_write
-                0x00003fa4       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
-                0x00003fa4                cdcdf_acm_write
+                0x00003fd0       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+                0x00003fd0                cdcdf_acm_write
  .text.cdcdf_acm_register_callback
-                0x00003fcc       0x4c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
-                0x00003fcc                cdcdf_acm_register_callback
+                0x00003ff8       0x4c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+                0x00003ff8                cdcdf_acm_register_callback
  .text.cdcdf_acm_is_enabled
-                0x00004018        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
-                0x00004018                cdcdf_acm_is_enabled
+                0x00004044        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+                0x00004044                cdcdf_acm_is_enabled
  .text.usbdc_unconfig
-                0x00004024       0x24 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x00004050       0x24 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
  .text.usbdc_change_notify
-                0x00004048       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x00004074       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
  .text.usbdc_request_handler
-                0x00004070       0x40 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x0000409c       0x40 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
  .text.usbd_sof_cb
-                0x000040b0       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x000040dc       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
  .text.usbdc_cb_ctl_done
-                0x000040d0       0x74 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x000040fc       0x74 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
  .text.usbdc_reset
-                0x00004144       0x58 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
-                0x00004144                usbdc_reset
+                0x00004170       0x58 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x00004170                usbdc_reset
  .text.usbd_event_cb
-                0x0000419c       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x000041c8       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
  .text.usbdc_xfer
-                0x000041bc       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
-                0x000041bc                usbdc_xfer
+                0x000041e8       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x000041e8                usbdc_xfer
  .text.usbdc_cb_ctl_req
-                0x000041dc      0x41c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x00004208      0x41c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
  .text.usbdc_register_handler
-                0x000045f8       0x38 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
-                0x000045f8                usbdc_register_handler
+                0x00004624       0x38 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x00004624                usbdc_register_handler
  .text.usbdc_init
-                0x00004630       0x5c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
-                0x00004630                usbdc_init
+                0x0000465c       0x5c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x0000465c                usbdc_init
  .text.usbdc_register_function
-                0x0000468c       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
-                0x0000468c                usbdc_register_function
+                0x000046b8       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x000046b8                usbdc_register_function
  .text.usbdc_start
-                0x000046a0       0x34 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
-                0x000046a0                usbdc_start
+                0x000046cc       0x34 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x000046cc                usbdc_start
  .text.usbdc_attach
-                0x000046d4        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
-                0x000046d4                usbdc_attach
+                0x00004700        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x00004700                usbdc_attach
  .text.usbdc_get_ctrl_buffer
-                0x000046e0        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
-                0x000046e0                usbdc_get_ctrl_buffer
+                0x0000470c        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x0000470c                usbdc_get_ctrl_buffer
  .text.usbdc_get_state
-                0x000046ec       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
-                0x000046ec                usbdc_get_state
+                0x00004718       0x14 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+                0x00004718                usbdc_get_state
  .text.usb_find_desc
-                0x00004700       0x3a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
-                0x00004700                usb_find_desc
+                0x0000472c       0x3a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+                0x0000472c                usb_find_desc
  .text.usb_find_ep_desc
-                0x0000473a       0x46 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
-                0x0000473a                usb_find_ep_desc
+                0x00004766       0x46 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+                0x00004766                usb_find_ep_desc
  .text.usb_find_cfg_desc
-                0x00004780       0x68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
-                0x00004780                usb_find_cfg_desc
+                0x000047ac       0x68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+                0x000047ac                usb_find_cfg_desc
  .text.usb_find_str_desc
-                0x000047e8       0x48 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
-                0x000047e8                usb_find_str_desc
+                0x00004814       0x48 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+                0x00004814                usb_find_str_desc
  .text.cdc_device_acm_init
-                0x00004830       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
-                0x00004830                cdc_device_acm_init
+                0x0000485c       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+                0x0000485c                cdc_device_acm_init
  .text.usb_init
-                0x00004860        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
-                0x00004860                usb_init
+                0x0000488c        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+                0x0000488c                usb_init
  .text.atomic_enter_critical
-                0x0000486c        0xe S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
-                0x0000486c                atomic_enter_critical
+                0x00004898        0xe S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
+                0x00004898                atomic_enter_critical
  .text.atomic_leave_critical
-                0x0000487a        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
-                0x0000487a                atomic_leave_critical
- *fill*         0x00004886        0x2 
+                0x000048a6        0xc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
+                0x000048a6                atomic_leave_critical
+ *fill*         0x000048b2        0x2 
  .text.__aeabi_atexit
-                0x00004888        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libstdc++.a(atexit_arm.o)
-                0x00004888                __aeabi_atexit
+                0x000048b4        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libstdc++.a(atexit_arm.o)
+                0x000048b4                __aeabi_atexit
  .text.__cxa_atexit
-                0x00004894        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-cxa_atexit.o)
-                0x00004894                __cxa_atexit
+                0x000048c0        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-cxa_atexit.o)
+                0x000048c0                __cxa_atexit
  .text.__libc_init_array
-                0x000048a0       0x50 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
-                0x000048a0                __libc_init_array
- .text          0x000048f0      0x134 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memcpy.o)
-                0x000048f0                memcpy
- .text.memset   0x00004a24       0x9c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
-                0x00004a24                memset
- .text          0x00004ac0       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strlen.o)
-                0x00004ac0                strlen
- .text.__utoa   0x00004b9c       0x80 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-utoa.o)
-                0x00004b9c                __utoa
- .text.utoa     0x00004c1c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-utoa.o)
-                0x00004c1c                utoa
+                0x000048cc       0x50 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+                0x000048cc                __libc_init_array
+ .text          0x0000491c      0x134 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memcpy.o)
+                0x0000491c                memcpy
+ .text.memset   0x00004a50       0x9c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+                0x00004a50                memset
+ *fill*         0x00004aec       0x14 
+ .text          0x00004b00       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-strlen.o)
+                0x00004b00                strlen
+ .text.__utoa   0x00004bdc       0x80 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-utoa.o)
+                0x00004bdc                __utoa
+ .text.utoa     0x00004c5c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-utoa.o)
+                0x00004c5c                utoa
  .text.__register_exitproc
-                0x00004c20       0xc4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
-                0x00004c20                __register_exitproc
+                0x00004c60       0xc4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+                0x00004c60                __register_exitproc
  .text.startup.register_fini
-                0x00004ce4       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x00004cf8        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
-                0x00004cf8                atexit
+                0x00004d24       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x00004d38        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+                0x00004d38                atexit
  .text.__libc_fini_array
-                0x00004d04       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
-                0x00004d04                __libc_fini_array
+                0x00004d44       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+                0x00004d44                __libc_fini_array
  .text.__retarget_lock_acquire_recursive
-                0x00004d38        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
-                0x00004d38                __retarget_lock_acquire_recursive
+                0x00004d78        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x00004d78                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x00004d3c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
-                0x00004d3c                __retarget_lock_release_recursive
+                0x00004d7c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x00004d7c                __retarget_lock_release_recursive
  *(.glue_7t)
- .glue_7t       0x00004d40        0x0 linker stubs
+ .glue_7t       0x00004d80        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00004d40        0x0 linker stubs
+ .glue_7        0x00004d80        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
- .rodata        0x00004d40      0x2e7 main.o
- *fill*         0x00005027        0x1 
+ .rodata        0x00004d80      0x2e7 main.o
+ *fill*         0x00005067        0x1 
  .rodata.str1.4
-                0x00005028       0x1b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
- *fill*         0x00005043        0x1 
+                0x00005068       0x1b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+ *fill*         0x00005083        0x1 
  .rodata.str1.4
-                0x00005044       0x1d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- *fill*         0x00005061        0x3 
+                0x00005084       0x1d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ *fill*         0x000050a1        0x3 
  .rodata.str1.4
-                0x00005064       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+                0x000050a4       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
  .rodata.str1.4
-                0x00005080       0x17 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
- *fill*         0x00005097        0x1 
+                0x000050c0       0x17 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+ *fill*         0x000050d7        0x1 
  .rodata.str1.4
-                0x00005098       0x1e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
- *fill*         0x000050b6        0x2 
- .rodata        0x000050b8      0x104 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+                0x000050d8       0x1e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+ *fill*         0x000050f6        0x2 
+ .rodata        0x000050f8      0x104 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
  .rodata.str1.4
-                0x000051bc       0x15 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
- *fill*         0x000051d1        0x3 
- .rodata        0x000051d4       0x72 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- *fill*         0x00005246        0x2 
+                0x000051fc       0x15 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+ *fill*         0x00005211        0x3 
+ .rodata        0x00005214       0x72 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ *fill*         0x00005286        0x2 
  .rodata.str1.4
-                0x00005248       0x1b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- *fill*         0x00005263        0x1 
- .rodata        0x00005264       0x24 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+                0x00005288       0x1b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ *fill*         0x000052a3        0x1 
+ .rodata        0x000052a4       0x24 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
  .rodata.str1.4
-                0x00005288       0x16 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
- *fill*         0x0000529e        0x2 
+                0x000052c8       0x16 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+ *fill*         0x000052de        0x2 
  .rodata._global_impure_ptr
-                0x000052a0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
-                0x000052a0                _global_impure_ptr
+                0x000052e0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-impure.o)
+                0x000052e0                _global_impure_ptr
  .rodata.__utoa.str1.4
-                0x000052a4       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-utoa.o)
+                0x000052e4       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-utoa.o)
                                  0x25 (size before relaxing)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000052cc                . = ALIGN (0x4)
+                0x0000530c                . = ALIGN (0x4)
  *(.init)
- .init          0x000052cc        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
-                0x000052cc                _init
- .init          0x000052d0        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
-                0x000052d8                . = ALIGN (0x4)
-                0x000052d8                __preinit_array_start = .
+ .init          0x0000530c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
+                0x0000530c                _init
+ .init          0x00005310        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
+                0x00005318                . = ALIGN (0x4)
+                0x00005318                __preinit_array_start = .
  *(.preinit_array)
-                0x000052d8                __preinit_array_end = .
-                0x000052d8                . = ALIGN (0x4)
-                0x000052d8                __init_array_start = .
+                0x00005318                __preinit_array_end = .
+                0x00005318                . = ALIGN (0x4)
+                0x00005318                __init_array_start = .
  *(SORT(.init_array.*))
  .init_array.00000
-                0x000052d8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+                0x00005318        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
  *(.init_array)
- .init_array    0x000052dc        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
- .init_array    0x000052e0        0x4 main.o
-                0x000052e4                __init_array_end = .
-                0x000052e4                . = ALIGN (0x4)
+ .init_array    0x0000531c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+ .init_array    0x00005320        0x4 main.o
+                0x00005324                __init_array_end = .
+                0x00005324                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x000052e4                . = ALIGN (0x4)
+                0x00005324                . = ALIGN (0x4)
  *(.fini)
- .fini          0x000052e4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
-                0x000052e4                _fini
- .fini          0x000052e8        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
-                0x000052f0                . = ALIGN (0x4)
-                0x000052f0                __fini_array_start = .
+ .fini          0x00005324        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
+                0x00005324                _fini
+ .fini          0x00005328        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
+                0x00005330                . = ALIGN (0x4)
+                0x00005330                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x000052f0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+ .fini_array    0x00005330        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x000052f4                __fini_array_end = .
+                0x00005334                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x000052f4                . = ALIGN (0x4)
-                0x000052f4                _efixed = .
+                0x00005334                . = ALIGN (0x4)
+                0x00005334                _efixed = .
                 [!provide]                PROVIDE (__exidx_start, .)
 
-.vfp11_veneer   0x000052f4        0x0
- .vfp11_veneer  0x000052f4        0x0 linker stubs
+.vfp11_veneer   0x00005334        0x0
+ .vfp11_veneer  0x00005334        0x0 linker stubs
 
-.v4_bx          0x000052f4        0x0
- .v4_bx         0x000052f4        0x0 linker stubs
+.v4_bx          0x00005334        0x0
+ .v4_bx         0x00005334        0x0 linker stubs
 
-.iplt           0x000052f4        0x0
- .iplt          0x000052f4        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.iplt           0x00005334        0x0
+ .iplt          0x00005334        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.ARM.exidx      0x000052f4        0x8
+.ARM.exidx      0x00005334        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
  .ARM.exidx.text.__aeabi_atexit
-                0x000052f4        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libstdc++.a(atexit_arm.o)
+                0x00005334        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libstdc++.a(atexit_arm.o)
                 [!provide]                PROVIDE (__exidx_end, .)
 
-.eh_frame       0x000052fc        0x0
- .eh_frame      0x000052fc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.eh_frame       0x0000533c        0x0
+ .eh_frame      0x0000533c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.rel.dyn        0x000052fc        0x0
- .rel.iplt      0x000052fc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.rel.dyn        0x0000533c        0x0
+ .rel.iplt      0x0000533c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.jcr            0x000052fc        0x0
- .jcr           0x000052fc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.jcr            0x0000533c        0x0
+ .jcr           0x0000533c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.igot.plt       0x000052fc        0x0
- .igot.plt      0x000052fc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
-                0x000052fc                . = ALIGN (0x4)
-                0x000052fc                _etext = .
+.igot.plt       0x0000533c        0x0
+ .igot.plt      0x0000533c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+                0x0000533c                . = ALIGN (0x4)
+                0x0000533c                _etext = .
 
-.relocate       0x20000000      0x53c load address 0x000052fc
+.relocate       0x20000000      0x53c load address 0x0000533c
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _srelocate = .
  *(.ramfunc .ramfunc.*)
@@ -11849,7 +11850,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x04000000                . = ALIGN (0x8)
                 0x04000000                _eqspi = .
 
-.bss            0x2000053c      0x5c8 load address 0x00005838
+.bss            0x2000053c      0x5a8 load address 0x00005878
                 0x2000053c                . = ALIGN (0x4)
                 0x2000053c                _sbss = .
                 0x2000053c                _szero = .
@@ -11876,34 +11877,34 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x20000a2c                SPI_Holt
                 0x20000a44                I2C_EEPROM
                 0x20000a84                TIMER_0
- COMMON         0x20000aa0       0x40 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+ COMMON         0x20000aa0       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
                 0x20000aa0                can1_tx_fifo
-                0x20000ac0                can1_rx_fifo
- COMMON         0x20000ae0       0x21 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
-                0x20000ae0                __lock___atexit_recursive_mutex
-                0x20000ae4                __lock___arc4random_mutex
-                0x20000ae8                __lock___env_recursive_mutex
-                0x20000aec                __lock___sinit_recursive_mutex
-                0x20000af0                __lock___malloc_recursive_mutex
-                0x20000af4                __lock___at_quick_exit_mutex
-                0x20000af8                __lock___dd_hash_mutex
-                0x20000afc                __lock___tz_mutex
-                0x20000b00                __lock___sfp_recursive_mutex
-                0x20000b04                . = ALIGN (0x4)
- *fill*         0x20000b01        0x3 
-                0x20000b04                _ebss = .
-                0x20000b04                _ezero = .
+                0x20000ab0                can1_rx_fifo
+ COMMON         0x20000ac0       0x21 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+                0x20000ac0                __lock___atexit_recursive_mutex
+                0x20000ac4                __lock___arc4random_mutex
+                0x20000ac8                __lock___env_recursive_mutex
+                0x20000acc                __lock___sinit_recursive_mutex
+                0x20000ad0                __lock___malloc_recursive_mutex
+                0x20000ad4                __lock___at_quick_exit_mutex
+                0x20000ad8                __lock___dd_hash_mutex
+                0x20000adc                __lock___tz_mutex
+                0x20000ae0                __lock___sfp_recursive_mutex
+                0x20000ae4                . = ALIGN (0x4)
+ *fill*         0x20000ae1        0x3 
+                0x20000ae4                _ebss = .
+                0x20000ae4                _ezero = .
 
-.stack          0x20000b04    0x10004 load address 0x00005e00
-                0x20000b08                . = ALIGN (0x8)
- *fill*         0x20000b04        0x4 
-                0x20000b08                _sstack = .
-                0x20010b08                . = (. + STACK_SIZE)
- *fill*         0x20000b08    0x10000 
-                0x20010b08                . = ALIGN (0x8)
-                0x20010b08                _estack = .
-                0x20010b08                . = ALIGN (0x4)
-                0x20010b08                _end = .
+.stack          0x20000ae4    0x10004 load address 0x00005e20
+                0x20000ae8                . = ALIGN (0x8)
+ *fill*         0x20000ae4        0x4 
+                0x20000ae8                _sstack = .
+                0x20010ae8                . = (. + STACK_SIZE)
+ *fill*         0x20000ae8    0x10000 
+                0x20010ae8                . = ALIGN (0x8)
+                0x20010ae8                _estack = .
+                0x20010ae8                . = ALIGN (0x4)
+                0x20010ae8                _end = .
 OUTPUT(USB_CDC_Class.elf elf32-littlearm)
 
 .ARM.attributes
@@ -12037,103 +12038,103 @@ OUTPUT(USB_CDC_Class.elf elf32-littlearm)
  .comment       0x00000059       0x5a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
  .comment       0x00000059       0x5a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
 
-.debug_info     0x00000000    0x42eb6
+.debug_info     0x00000000    0x430ab
  .debug_info    0x00000000      0xd48 Device_Startup/startup_same54.o
  .debug_info    0x00000d48     0x26da main.o
- .debug_info    0x00003422     0x183d USB_CDC_Class.o
- .debug_info    0x00004c5f     0x1067 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_info    0x00005cc6     0xd0e4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
- .debug_info    0x00012daa      0xa7e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
- .debug_info    0x00013828      0x205 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
- .debug_info    0x00013a2d      0x2af S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
- .debug_info    0x00013cdc      0xe38 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- .debug_info    0x00014b14      0xa2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
- .debug_info    0x00015540      0xbe9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
- .debug_info    0x00016129     0x1e1a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
- .debug_info    0x00017f43      0x130 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
- .debug_info    0x00018073      0x33a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
- .debug_info    0x000183ad     0x5a88 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
- .debug_info    0x0001de35      0xbea S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
- .debug_info    0x0001ea1f     0x140c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_info    0x0001fe2b     0x1083 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
- .debug_info    0x00020eae      0x878 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
- .debug_info    0x00021726      0xa55 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
- .debug_info    0x0002217b      0x714 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
- .debug_info    0x0002288f     0x1dc9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
- .debug_info    0x00024658     0x37d2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
- .debug_info    0x00027e2a     0xc27c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_info    0x000340a6      0x29f S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
- .debug_info    0x00034345     0x8a10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
- .debug_info    0x0003cd55     0x1770 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
- .debug_info    0x0003e4c5     0x246c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
- .debug_info    0x00040931      0xed2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
- .debug_info    0x00041803     0x14b9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
- .debug_info    0x00042cbc      0x1fa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
+ .debug_info    0x00003422     0x183b USB_CDC_Class.o
+ .debug_info    0x00004c5d     0x1067 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_info    0x00005cc4     0xd2db S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
+ .debug_info    0x00012f9f      0xa7e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+ .debug_info    0x00013a1d      0x205 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
+ .debug_info    0x00013c22      0x2af S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
+ .debug_info    0x00013ed1      0xe38 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ .debug_info    0x00014d09      0xa2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+ .debug_info    0x00015735      0xbe9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+ .debug_info    0x0001631e     0x1e1a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+ .debug_info    0x00018138      0x130 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
+ .debug_info    0x00018268      0x33a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+ .debug_info    0x000185a2     0x5a88 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+ .debug_info    0x0001e02a      0xbea S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
+ .debug_info    0x0001ec14     0x140c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_info    0x00020020     0x1083 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_info    0x000210a3      0x878 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
+ .debug_info    0x0002191b      0xa55 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
+ .debug_info    0x00022370      0x714 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
+ .debug_info    0x00022a84     0x1dc9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+ .debug_info    0x0002484d     0x37d2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+ .debug_info    0x0002801f     0xc27c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_info    0x0003429b      0x29f S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+ .debug_info    0x0003453a     0x8a10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+ .debug_info    0x0003cf4a     0x1770 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+ .debug_info    0x0003e6ba     0x246c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+ .debug_info    0x00040b26      0xed2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+ .debug_info    0x000419f8     0x14b9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+ .debug_info    0x00042eb1      0x1fa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
 
-.debug_abbrev   0x00000000     0x54ea
+.debug_abbrev   0x00000000     0x54db
  .debug_abbrev  0x00000000      0x153 Device_Startup/startup_same54.o
  .debug_abbrev  0x00000153      0x4d3 main.o
- .debug_abbrev  0x00000626      0x38c USB_CDC_Class.o
- .debug_abbrev  0x000009b2      0x1ce S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_abbrev  0x00000b80      0x3bc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
- .debug_abbrev  0x00000f3c      0x1a3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
- .debug_abbrev  0x000010df       0xf9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
- .debug_abbrev  0x000011d8       0xe5 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
- .debug_abbrev  0x000012bd      0x294 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- .debug_abbrev  0x00001551      0x1c9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
- .debug_abbrev  0x0000171a      0x232 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
- .debug_abbrev  0x0000194c      0x4a4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
- .debug_abbrev  0x00001df0       0x9e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
- .debug_abbrev  0x00001e8e      0x18d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
- .debug_abbrev  0x0000201b      0x4ee S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
- .debug_abbrev  0x00002509      0x2a4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
- .debug_abbrev  0x000027ad      0x222 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_abbrev  0x000029cf      0x2af S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
- .debug_abbrev  0x00002c7e      0x1c9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
- .debug_abbrev  0x00002e47      0x1bd S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
- .debug_abbrev  0x00003004      0x1fc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
- .debug_abbrev  0x00003200      0x2b9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
- .debug_abbrev  0x000034b9      0x3c8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
- .debug_abbrev  0x00003881      0x60d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_abbrev  0x00003e8e      0x196 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
- .debug_abbrev  0x00004024      0x5d9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
- .debug_abbrev  0x000045fd      0x41b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
- .debug_abbrev  0x00004a18      0x436 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
- .debug_abbrev  0x00004e4e      0x2bf S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
- .debug_abbrev  0x0000510d      0x288 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
- .debug_abbrev  0x00005395      0x155 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
+ .debug_abbrev  0x00000626      0x37d USB_CDC_Class.o
+ .debug_abbrev  0x000009a3      0x1ce S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_abbrev  0x00000b71      0x3bc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
+ .debug_abbrev  0x00000f2d      0x1a3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+ .debug_abbrev  0x000010d0       0xf9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
+ .debug_abbrev  0x000011c9       0xe5 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
+ .debug_abbrev  0x000012ae      0x294 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ .debug_abbrev  0x00001542      0x1c9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+ .debug_abbrev  0x0000170b      0x232 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+ .debug_abbrev  0x0000193d      0x4a4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+ .debug_abbrev  0x00001de1       0x9e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
+ .debug_abbrev  0x00001e7f      0x18d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+ .debug_abbrev  0x0000200c      0x4ee S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+ .debug_abbrev  0x000024fa      0x2a4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
+ .debug_abbrev  0x0000279e      0x222 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_abbrev  0x000029c0      0x2af S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_abbrev  0x00002c6f      0x1c9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
+ .debug_abbrev  0x00002e38      0x1bd S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
+ .debug_abbrev  0x00002ff5      0x1fc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
+ .debug_abbrev  0x000031f1      0x2b9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+ .debug_abbrev  0x000034aa      0x3c8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+ .debug_abbrev  0x00003872      0x60d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_abbrev  0x00003e7f      0x196 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+ .debug_abbrev  0x00004015      0x5d9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+ .debug_abbrev  0x000045ee      0x41b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+ .debug_abbrev  0x00004a09      0x436 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+ .debug_abbrev  0x00004e3f      0x2bf S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+ .debug_abbrev  0x000050fe      0x288 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+ .debug_abbrev  0x00005386      0x155 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
 
-.debug_loc      0x00000000    0x176fa
+.debug_loc      0x00000000    0x1788b
  .debug_loc     0x00000000       0x64 Device_Startup/startup_same54.o
  .debug_loc     0x00000064      0x1de main.o
  .debug_loc     0x00000242      0x72c USB_CDC_Class.o
  .debug_loc     0x0000096e       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_loc     0x0000098e     0x28a4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
- .debug_loc     0x00003232      0x607 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
- .debug_loc     0x00003839       0xc3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
- .debug_loc     0x000038fc      0x1c8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
- .debug_loc     0x00003ac4      0xa00 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- .debug_loc     0x000044c4      0x6c9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
- .debug_loc     0x00004b8d      0x691 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
- .debug_loc     0x0000521e     0x1214 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
- .debug_loc     0x00006432      0x29f S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
- .debug_loc     0x000066d1      0xd1b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
- .debug_loc     0x000073ec      0x1d7 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
- .debug_loc     0x000075c3      0x139 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_loc     0x000076fc      0x361 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
- .debug_loc     0x00007a5d      0x402 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
- .debug_loc     0x00007e5f       0x2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
- .debug_loc     0x00007e8b       0x95 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
- .debug_loc     0x00007f20      0x425 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
- .debug_loc     0x00008345      0x56a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
- .debug_loc     0x000088af     0x81d3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_loc     0x00010a82      0x160 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
- .debug_loc     0x00010be2     0x46a9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
- .debug_loc     0x0001528b      0x9c9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
- .debug_loc     0x00015c54     0x1382 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
- .debug_loc     0x00016fd6      0x567 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
- .debug_loc     0x0001753d      0x1aa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
- .debug_loc     0x000176e7       0x13 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
+ .debug_loc     0x0000098e     0x2a2d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
+ .debug_loc     0x000033bb      0x607 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+ .debug_loc     0x000039c2       0xc3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
+ .debug_loc     0x00003a85      0x1c8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
+ .debug_loc     0x00003c4d      0xa00 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ .debug_loc     0x0000464d      0x6c9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+ .debug_loc     0x00004d16      0x691 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+ .debug_loc     0x000053a7     0x1214 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+ .debug_loc     0x000065bb      0x29f S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+ .debug_loc     0x0000685a      0xd23 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+ .debug_loc     0x0000757d      0x1d7 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
+ .debug_loc     0x00007754      0x139 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_loc     0x0000788d      0x361 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_loc     0x00007bee      0x402 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
+ .debug_loc     0x00007ff0       0x2c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
+ .debug_loc     0x0000801c       0x95 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
+ .debug_loc     0x000080b1      0x425 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+ .debug_loc     0x000084d6      0x56a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+ .debug_loc     0x00008a40     0x81d3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_loc     0x00010c13      0x160 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+ .debug_loc     0x00010d73     0x46a9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+ .debug_loc     0x0001541c      0x9c9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+ .debug_loc     0x00015de5     0x1382 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+ .debug_loc     0x00017167      0x567 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+ .debug_loc     0x000176ce      0x1aa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+ .debug_loc     0x00017878       0x13 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
 
 .debug_aranges  0x00000000     0x1140
  .debug_aranges
@@ -12232,7 +12233,7 @@ OUTPUT(USB_CDC_Class.elf elf32-littlearm)
  .debug_ranges  0x00001918       0x38 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
  .debug_ranges  0x00001950       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
 
-.debug_macro    0x00000000    0x3d955
+.debug_macro    0x00000000    0x3d95b
  .debug_macro   0x00000000      0x4b2 Device_Startup/startup_same54.o
  .debug_macro   0x000004b2      0x8b0 Device_Startup/startup_same54.o
  .debug_macro   0x00000d62       0x22 Device_Startup/startup_same54.o
@@ -12398,198 +12399,198 @@ OUTPUT(USB_CDC_Class.elf elf32-littlearm)
  .debug_macro   0x0002a3f3       0x1c main.o
  .debug_macro   0x0002a40f       0x16 main.o
  .debug_macro   0x0002a425      0x185 main.o
- .debug_macro   0x0002a5aa       0xe8 main.o
- .debug_macro   0x0002a692       0xc9 main.o
- .debug_macro   0x0002a75b       0x70 main.o
- .debug_macro   0x0002a7cb       0xd1 main.o
- .debug_macro   0x0002a89c       0xee main.o
- .debug_macro   0x0002a98a       0x58 main.o
- .debug_macro   0x0002a9e2       0x35 main.o
- .debug_macro   0x0002aa17       0x9c main.o
- .debug_macro   0x0002aab3       0x58 main.o
- .debug_macro   0x0002ab0b       0x1f main.o
- .debug_macro   0x0002ab2a       0x43 main.o
- .debug_macro   0x0002ab6d       0x20 main.o
- .debug_macro   0x0002ab8d      0x187 main.o
- .debug_macro   0x0002ad14      0x34d main.o
- .debug_macro   0x0002b061       0x10 main.o
- .debug_macro   0x0002b071       0x35 main.o
- .debug_macro   0x0002b0a6       0x76 main.o
- .debug_macro   0x0002b11c      0x11b main.o
- .debug_macro   0x0002b237      0x12b main.o
- .debug_macro   0x0002b362      0x256 main.o
- .debug_macro   0x0002b5b8       0x4c main.o
- .debug_macro   0x0002b604      0x143 main.o
- .debug_macro   0x0002b747       0x10 main.o
- .debug_macro   0x0002b757      0x3ca main.o
- .debug_macro   0x0002bb21       0x10 main.o
- .debug_macro   0x0002bb31       0x16 main.o
- .debug_macro   0x0002bb47       0x16 main.o
- .debug_macro   0x0002bb5d       0x29 main.o
- .debug_macro   0x0002bb86       0xea main.o
- .debug_macro   0x0002bc70      0x801 USB_CDC_Class.o
- .debug_macro   0x0002c471      0x353 USB_CDC_Class.o
- .debug_macro   0x0002c7c4       0x54 USB_CDC_Class.o
- .debug_macro   0x0002c818       0xd9 USB_CDC_Class.o
- .debug_macro   0x0002c8f1      0x94e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x0002d23f      0x8b0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x0002daef      0x16d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x0002dc5c       0x22 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x0002dc7e       0x22 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x0002dca0       0x9c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x0002dd3c       0x43 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x0002dd7f      0x34d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x0002e0cc       0x35 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_macro   0x0002e101      0x833 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
- .debug_macro   0x0002e934      0x14d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
- .debug_macro   0x0002ea81      0x6cc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
- .debug_macro   0x0002f14d       0x10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
- .debug_macro   0x0002f15d      0x6bd S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
- .debug_macro   0x0002f81a      0x69c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
- .debug_macro   0x0002feb6      0x6dc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- .debug_macro   0x00030592       0x6a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- .debug_macro   0x000305fc      0x6e3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
- .debug_macro   0x00030cdf      0x6d2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
- .debug_macro   0x000313b1      0x780 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
- .debug_macro   0x00031b31       0xcb S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
- .debug_macro   0x00031bfc      0x690 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
- .debug_macro   0x0003228c      0x695 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
- .debug_macro   0x00032921      0x795 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
- .debug_macro   0x000330b6      0x167 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
- .debug_macro   0x0003321d       0x9e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
- .debug_macro   0x000332bb      0x6c5 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
- .debug_macro   0x00033980      0x729 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_macro   0x000340a9       0x2e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_macro   0x000340d7      0xd7b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_macro   0x00034e52       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_macro   0x00034e7a       0x34 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_macro   0x00034eae      0x72d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
- .debug_macro   0x000355db      0x8dc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
- .debug_macro   0x00035eb7      0x6cc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
- .debug_macro   0x00036583      0x6ba S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
- .debug_macro   0x00036c3d      0x69f S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
- .debug_macro   0x000372dc      0x2f0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
- .debug_macro   0x000375cc      0x69a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
- .debug_macro   0x00037c66      0x695 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
- .debug_macro   0x000382fb       0x80 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
- .debug_macro   0x0003837b      0x69f S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
- .debug_macro   0x00038a1a      0x216 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
- .debug_macro   0x00038c30      0x6c4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
- .debug_macro   0x000392f4      0x115 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
- .debug_macro   0x00039409      0x8d3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_macro   0x00039cdc      0x200 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_macro   0x00039edc       0x10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_macro   0x00039eec       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_macro   0x00039f08       0x22 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_macro   0x00039f2a       0x10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_macro   0x00039f3a      0x695 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
- .debug_macro   0x0003a5cf       0x10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
- .debug_macro   0x0003a5df      0x90b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
- .debug_macro   0x0003aeea      0x7e8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
- .debug_macro   0x0003b6d2      0x353 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
- .debug_macro   0x0003ba25      0x7c7 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
- .debug_macro   0x0003c1ec      0x790 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
- .debug_macro   0x0003c97c      0x953 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
- .debug_macro   0x0003d2cf      0x686 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
+ .debug_macro   0x0002a5aa       0xee main.o
+ .debug_macro   0x0002a698       0xc9 main.o
+ .debug_macro   0x0002a761       0x70 main.o
+ .debug_macro   0x0002a7d1       0xd1 main.o
+ .debug_macro   0x0002a8a2       0xee main.o
+ .debug_macro   0x0002a990       0x58 main.o
+ .debug_macro   0x0002a9e8       0x35 main.o
+ .debug_macro   0x0002aa1d       0x9c main.o
+ .debug_macro   0x0002aab9       0x58 main.o
+ .debug_macro   0x0002ab11       0x1f main.o
+ .debug_macro   0x0002ab30       0x43 main.o
+ .debug_macro   0x0002ab73       0x20 main.o
+ .debug_macro   0x0002ab93      0x187 main.o
+ .debug_macro   0x0002ad1a      0x34d main.o
+ .debug_macro   0x0002b067       0x10 main.o
+ .debug_macro   0x0002b077       0x35 main.o
+ .debug_macro   0x0002b0ac       0x76 main.o
+ .debug_macro   0x0002b122      0x11b main.o
+ .debug_macro   0x0002b23d      0x12b main.o
+ .debug_macro   0x0002b368      0x256 main.o
+ .debug_macro   0x0002b5be       0x4c main.o
+ .debug_macro   0x0002b60a      0x143 main.o
+ .debug_macro   0x0002b74d       0x10 main.o
+ .debug_macro   0x0002b75d      0x3ca main.o
+ .debug_macro   0x0002bb27       0x10 main.o
+ .debug_macro   0x0002bb37       0x16 main.o
+ .debug_macro   0x0002bb4d       0x16 main.o
+ .debug_macro   0x0002bb63       0x29 main.o
+ .debug_macro   0x0002bb8c       0xea main.o
+ .debug_macro   0x0002bc76      0x801 USB_CDC_Class.o
+ .debug_macro   0x0002c477      0x353 USB_CDC_Class.o
+ .debug_macro   0x0002c7ca       0x54 USB_CDC_Class.o
+ .debug_macro   0x0002c81e       0xd9 USB_CDC_Class.o
+ .debug_macro   0x0002c8f7      0x94e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x0002d245      0x8b0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x0002daf5      0x16d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x0002dc62       0x22 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x0002dc84       0x22 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x0002dca6       0x9c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x0002dd42       0x43 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x0002dd85      0x34d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x0002e0d2       0x35 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_macro   0x0002e107      0x833 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
+ .debug_macro   0x0002e93a      0x14d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
+ .debug_macro   0x0002ea87      0x6cc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+ .debug_macro   0x0002f153       0x10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+ .debug_macro   0x0002f163      0x6bd S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
+ .debug_macro   0x0002f820      0x69c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
+ .debug_macro   0x0002febc      0x6dc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ .debug_macro   0x00030598       0x6a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ .debug_macro   0x00030602      0x6e3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+ .debug_macro   0x00030ce5      0x6d2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+ .debug_macro   0x000313b7      0x780 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+ .debug_macro   0x00031b37       0xcb S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+ .debug_macro   0x00031c02      0x690 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
+ .debug_macro   0x00032292      0x695 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+ .debug_macro   0x00032927      0x795 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+ .debug_macro   0x000330bc      0x167 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+ .debug_macro   0x00033223       0x9e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+ .debug_macro   0x000332c1      0x6c5 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
+ .debug_macro   0x00033986      0x729 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_macro   0x000340af       0x2e S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_macro   0x000340dd      0xd7b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_macro   0x00034e58       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_macro   0x00034e80       0x34 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_macro   0x00034eb4      0x72d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_macro   0x000355e1      0x8dc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_macro   0x00035ebd      0x6cc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_macro   0x00036589      0x6ba S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_macro   0x00036c43      0x69f S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
+ .debug_macro   0x000372e2      0x2f0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
+ .debug_macro   0x000375d2      0x69a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
+ .debug_macro   0x00037c6c      0x695 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
+ .debug_macro   0x00038301       0x80 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
+ .debug_macro   0x00038381      0x69f S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+ .debug_macro   0x00038a20      0x216 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+ .debug_macro   0x00038c36      0x6c4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+ .debug_macro   0x000392fa      0x115 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+ .debug_macro   0x0003940f      0x8d3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_macro   0x00039ce2      0x200 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_macro   0x00039ee2       0x10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_macro   0x00039ef2       0x1c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_macro   0x00039f0e       0x22 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_macro   0x00039f30       0x10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_macro   0x00039f40      0x695 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+ .debug_macro   0x0003a5d5       0x10 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+ .debug_macro   0x0003a5e5      0x90b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+ .debug_macro   0x0003aef0      0x7e8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+ .debug_macro   0x0003b6d8      0x353 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+ .debug_macro   0x0003ba2b      0x7c7 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+ .debug_macro   0x0003c1f2      0x790 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+ .debug_macro   0x0003c982      0x953 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+ .debug_macro   0x0003d2d5      0x686 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
 
-.debug_line     0x00000000    0x1d8d1
+.debug_line     0x00000000    0x1d8e1
  .debug_line    0x00000000      0x89c Device_Startup/startup_same54.o
  .debug_line    0x0000089c     0x156e main.o
- .debug_line    0x00001e0a     0x1279 USB_CDC_Class.o
- .debug_line    0x00003083      0xf68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
- .debug_line    0x00003feb     0x120d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
- .debug_line    0x000051f8      0xd59 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
- .debug_line    0x00005f51      0xc1d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
- .debug_line    0x00006b6e      0xc2a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
- .debug_line    0x00007798      0xde1 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
- .debug_line    0x00008579      0xd64 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
- .debug_line    0x000092dd      0xd96 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
- .debug_line    0x0000a073      0xf8b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
- .debug_line    0x0000affe      0xbbe S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
- .debug_line    0x0000bbbc      0xc51 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
- .debug_line    0x0000c80d     0x108a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
- .debug_line    0x0000d897      0xd11 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
- .debug_line    0x0000e5a8      0xcd4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_line    0x0000f27c      0xcc7 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
- .debug_line    0x0000ff43      0xc6b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
- .debug_line    0x00010bae      0xbe1 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
- .debug_line    0x0001178f      0xbf6 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
- .debug_line    0x00012385      0xd6b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
- .debug_line    0x000130f0      0xdff S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
- .debug_line    0x00013eef     0x2d1d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_line    0x00016c0c      0xc51 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
- .debug_line    0x0001785d     0x17a2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
- .debug_line    0x00018fff      0xee0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
- .debug_line    0x00019edf     0x104c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
- .debug_line    0x0001af2b      0xdf9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
- .debug_line    0x0001bd24      0xfc4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
- .debug_line    0x0001cce8      0xbe9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
+ .debug_line    0x00001e0a     0x1277 USB_CDC_Class.o
+ .debug_line    0x00003081      0xf68 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+ .debug_line    0x00003fe9     0x121f S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
+ .debug_line    0x00005208      0xd59 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+ .debug_line    0x00005f61      0xc1d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
+ .debug_line    0x00006b7e      0xc2a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
+ .debug_line    0x000077a8      0xde1 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ .debug_line    0x00008589      0xd64 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+ .debug_line    0x000092ed      0xd96 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+ .debug_line    0x0000a083      0xf8b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+ .debug_line    0x0000b00e      0xbbe S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
+ .debug_line    0x0000bbcc      0xc51 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+ .debug_line    0x0000c81d     0x108a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+ .debug_line    0x0000d8a7      0xd11 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
+ .debug_line    0x0000e5b8      0xcd4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_line    0x0000f28c      0xcc7 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_line    0x0000ff53      0xc6b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
+ .debug_line    0x00010bbe      0xbe1 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
+ .debug_line    0x0001179f      0xbf6 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
+ .debug_line    0x00012395      0xd6b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+ .debug_line    0x00013100      0xdff S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+ .debug_line    0x00013eff     0x2d1d S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_line    0x00016c1c      0xc51 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+ .debug_line    0x0001786d     0x17a2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+ .debug_line    0x0001900f      0xee0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+ .debug_line    0x00019eef     0x104c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+ .debug_line    0x0001af3b      0xdf9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+ .debug_line    0x0001bd34      0xfc4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+ .debug_line    0x0001ccf8      0xbe9 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
 
-.debug_str      0x00000000   0x12c38f
+.debug_str      0x00000000   0x12c3b4
  .debug_str     0x00000000    0xf08ed Device_Startup/startup_same54.o
                               0xf0cdb (size before relaxing)
- .debug_str     0x000f08ed    0x20adf main.o
-                             0x110e95 (size before relaxing)
- .debug_str     0x001113cc      0x30c USB_CDC_Class.o
+ .debug_str     0x000f08ed    0x20afd main.o
+                             0x110eb3 (size before relaxing)
+ .debug_str     0x001113ea      0x30c USB_CDC_Class.o
                              0x10da3d (size before relaxing)
- .debug_str     0x001116d8      0x2f2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
-                             0x10ea2f (size before relaxing)
- .debug_str     0x001119ca     0x2aa2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
-                             0x10bd45 (size before relaxing)
- .debug_str     0x0011446c      0x232 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
+ .debug_str     0x001116f6      0x2f2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(atmel_start.o)
+                             0x10ea4d (size before relaxing)
+ .debug_str     0x001119e8     0x2aa2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(driver_init.o)
+                             0x10bd63 (size before relaxing)
+ .debug_str     0x0011448a      0x232 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_can_async.o)
                              0x106fd4 (size before relaxing)
- .debug_str     0x0011469e       0x92 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
+ .debug_str     0x001146bc       0x92 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_delay.o)
                              0x106754 (size before relaxing)
- .debug_str     0x00114730       0xd2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
+ .debug_str     0x0011474e       0xd2 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_evsys.o)
                              0x1067c0 (size before relaxing)
- .debug_str     0x00114802      0x2ce S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
+ .debug_str     0x00114820      0x2ce S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_i2c_m_async.o)
                              0x107286 (size before relaxing)
- .debug_str     0x00114ad0      0x2ef S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
+ .debug_str     0x00114aee      0x2ef S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_spi_m_sync.o)
                              0x107072 (size before relaxing)
- .debug_str     0x00114dbf      0x305 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
+ .debug_str     0x00114ddd      0x305 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_timer.o)
                              0x107017 (size before relaxing)
- .debug_str     0x001150c4      0x7a7 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
+ .debug_str     0x001150e2      0x7a7 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
                              0x10a8d9 (size before relaxing)
- .debug_str     0x0011586b       0x2a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
+ .debug_str     0x00115889       0x2a S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
                              0x1066fa (size before relaxing)
- .debug_str     0x00115895       0x31 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
+ .debug_str     0x001158b3       0x31 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
                              0x1067a4 (size before relaxing)
- .debug_str     0x001158c6     0x19f3 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
-                             0x10c0fb (size before relaxing)
- .debug_str     0x001172b9      0x129 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
+ .debug_str     0x001158e4     0x19fa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+                             0x10c102 (size before relaxing)
+ .debug_str     0x001172de      0x129 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
                              0x107e3b (size before relaxing)
- .debug_str     0x001173e2     0x3143 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_str     0x00117407     0x3143 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
                              0x10b3eb (size before relaxing)
- .debug_str     0x0011a525     0x7dfa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_str     0x0011a54a     0x7dfa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
                              0x10e546 (size before relaxing)
- .debug_str     0x0012231f      0xbfa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
+ .debug_str     0x00122344      0xbfa S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
                              0x10742b (size before relaxing)
- .debug_str     0x00122f19       0x47 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
+ .debug_str     0x00122f3e       0x47 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
                              0x107380 (size before relaxing)
- .debug_str     0x00122f60      0x459 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
+ .debug_str     0x00122f85      0x459 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
                              0x106b52 (size before relaxing)
- .debug_str     0x001233b9      0xe70 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+ .debug_str     0x001233de      0xe70 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
                              0x1082aa (size before relaxing)
- .debug_str     0x00124229      0x61c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+ .debug_str     0x0012424e      0x61c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
                              0x107d19 (size before relaxing)
- .debug_str     0x00124845     0x5020 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_str     0x0012486a     0x5020 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
                              0x10dc83 (size before relaxing)
- .debug_str     0x00129865       0xcd S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+ .debug_str     0x0012988a       0xcd S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
                              0x106742 (size before relaxing)
- .debug_str     0x00129932     0x1d45 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+ .debug_str     0x00129957     0x1d45 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
                              0x10cf72 (size before relaxing)
- .debug_str     0x0012b677      0x631 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+ .debug_str     0x0012b69c      0x631 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
                              0x10ccc8 (size before relaxing)
- .debug_str     0x0012bca8      0x51b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+ .debug_str     0x0012bccd      0x51b S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
                              0x10c331 (size before relaxing)
- .debug_str     0x0012c1c3       0xe4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+ .debug_str     0x0012c1e8       0xe4 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
                              0x10a8fe (size before relaxing)
- .debug_str     0x0012c2a7       0x85 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
-                             0x10ed22 (size before relaxing)
- .debug_str     0x0012c32c       0x63 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
+ .debug_str     0x0012c2cc       0x85 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+                             0x10ed40 (size before relaxing)
+ .debug_str     0x0012c351       0x63 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
                              0x1066ea (size before relaxing)
 
-.debug_frame    0x00000000     0x3128
+.debug_frame    0x00000000     0x3124
  .debug_frame   0x00000000       0x48 Device_Startup/startup_same54.o
  .debug_frame   0x00000048       0xfc main.o
  .debug_frame   0x00000144      0x340 USB_CDC_Class.o
@@ -12604,30 +12605,30 @@ OUTPUT(USB_CDC_Class.elf elf32-littlearm)
  .debug_frame   0x00000dc0      0x318 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_usb_device.o)
  .debug_frame   0x000010d8       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_assert.o)
  .debug_frame   0x000010f8       0x9c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(utils_list.o)
- .debug_frame   0x00001194      0x134 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
- .debug_frame   0x000012c8       0xcc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
- .debug_frame   0x00001394       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
- .debug_frame   0x000013bc       0x5c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
- .debug_frame   0x00001418       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
- .debug_frame   0x00001448       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
- .debug_frame   0x00001468       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
- .debug_frame   0x00001488       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
- .debug_frame   0x000014b8       0xdc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
- .debug_frame   0x00001594      0xf44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
- .debug_frame   0x000024d8       0x7c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
- .debug_frame   0x00002554      0x3d8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
- .debug_frame   0x0000292c      0x138 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
- .debug_frame   0x00002a64      0x28c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
- .debug_frame   0x00002cf0       0xd0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
- .debug_frame   0x00002dc0       0xa8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
- .debug_frame   0x00002e68       0x40 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
- .debug_frame   0x00002ea8       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libstdc++.a(atexit_arm.o)
- .debug_frame   0x00002ec8       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-cxa_atexit.o)
- .debug_frame   0x00002ee8       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
- .debug_frame   0x00002f14       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
- .debug_frame   0x00002f48       0x4c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-utoa.o)
- .debug_frame   0x00002f94       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
- .debug_frame   0x00002fc8       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x00003024       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
- .debug_frame   0x00003044       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
- .debug_frame   0x00003078       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .debug_frame   0x00001194      0x130 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_can.o)
+ .debug_frame   0x000012c4       0xcc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_core_m4.o)
+ .debug_frame   0x00001390       0x28 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_init.o)
+ .debug_frame   0x000013b8       0x5c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_evsys.o)
+ .debug_frame   0x00001414       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_gclk.o)
+ .debug_frame   0x00001444       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_mclk.o)
+ .debug_frame   0x00001464       0x20 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_osc32kctrl.o)
+ .debug_frame   0x00001484       0x30 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_oscctrl.o)
+ .debug_frame   0x000014b4       0xdc S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_rtc.o)
+ .debug_frame   0x00001590      0xf44 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_sercom.o)
+ .debug_frame   0x000024d4       0x7c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_systick.o)
+ .debug_frame   0x00002550      0x3d8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hpl_usb.o)
+ .debug_frame   0x00002928      0x138 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(cdcdf_acm.o)
+ .debug_frame   0x00002a60      0x28c S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usbdc.o)
+ .debug_frame   0x00002cec       0xd0 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_protocol.o)
+ .debug_frame   0x00002dbc       0xa8 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(usb_start.o)
+ .debug_frame   0x00002e64       0x40 S:\AtmelStudio\Applications\ARINCTransceiver\ARINC_Interface_Driver\ARINC_Interface_Driver\Debug\libARINC_Interface_Driver.a(hal_atomic.o)
+ .debug_frame   0x00002ea4       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libstdc++.a(atexit_arm.o)
+ .debug_frame   0x00002ec4       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-cxa_atexit.o)
+ .debug_frame   0x00002ee4       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+ .debug_frame   0x00002f10       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+ .debug_frame   0x00002f44       0x4c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-utoa.o)
+ .debug_frame   0x00002f90       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00002fc4       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00003020       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+ .debug_frame   0x00003040       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+ .debug_frame   0x00003074       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)

@@ -22,6 +22,7 @@
       <Value>../hpl/cmcc</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/dmac</Value>
+      <Value>../hpl/eic</Value>
       <Value>../hpl/evsys</Value>
       <Value>../hpl/gclk</Value>
       <Value>../hpl/mclk</Value>
@@ -39,6 +40,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -52,13 +54,7 @@
       <Value>libm</Value>
     </ListValues>
   </armgcc.linker.libraries.Libraries>
-  <armgcc.linker.libraries.LibrarySearchPaths>
-    <ListValues>
-      <Value>%24(ProjectDir)\Device_Startup</Value>
-    </ListValues>
-  </armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
-  <armgcc.linker.miscellaneous.LinkerFlags>-Tsame54p20a_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
   <armgcc.assembler.general.IncludePaths>
     <ListValues>
       <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
@@ -72,6 +68,7 @@
       <Value>../hpl/cmcc</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/dmac</Value>
+      <Value>../hpl/eic</Value>
       <Value>../hpl/evsys</Value>
       <Value>../hpl/gclk</Value>
       <Value>../hpl/mclk</Value>
@@ -89,6 +86,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -105,6 +103,7 @@
       <Value>../hpl/cmcc</Value>
       <Value>../hpl/core</Value>
       <Value>../hpl/dmac</Value>
+      <Value>../hpl/eic</Value>
       <Value>../hpl/evsys</Value>
       <Value>../hpl/gclk</Value>
       <Value>../hpl/mclk</Value>
@@ -122,6 +121,7 @@
       <Value>../usb/class/cdc</Value>
       <Value>../usb/class/cdc/device</Value>
       <Value>../usb/device</Value>
+      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>

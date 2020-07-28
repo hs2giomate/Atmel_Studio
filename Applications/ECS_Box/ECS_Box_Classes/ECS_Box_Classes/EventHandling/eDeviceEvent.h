@@ -1,0 +1,143 @@
+/*--------------------------------------------------------------------------
+
+eDeviceEvent.h
+
+This file is part of e.Lib
+
+Interface
+hi-level interface for events
+
+$Date: 2018-05-30 18:12:58 +0200 (Mi, 30 Mai 2018) $
+$Revision: 2298 $
+$HeadURL: https://svn.s2embedded.at/customers/hs2-engineering/trunk/Phoenix/Firmware/Libraries/Cortex/e.Lib/eDeviceEvent.h $
+
+Copyright (c) 2006,2007,2008,2009,2010 Steffen Simon.
+All rights reserved.
+
+--------------------------------------------------------------------------*/
+#ifndef E_DEVICE_EVENT_H
+#define E_DEVICE_EVENT_H
+
+#include "coreTypes.h"
+
+
+typedef uint8	contextID;
+
+
+
+
+extern const int16	sizeOfEventQueue;
+extern const tick_t	forever;
+
+enum
+	{
+	kErrorEventClass = 0x8000,
+	kCommunicationEventClass = 0x9000,
+	kAnyEventClass = 0xFFFF
+	};
+
+enum
+	{
+	kTimeoutEvent = 0x0001,
+	kSerialDataAvailableEvent,
+	kUARTDataAvailableEvent,
+	kUART0DataAvailableEvent,
+	kUART1DataAvailableEvent,
+	kUART2DataAvailableEvent,
+	kUART3DataAvailableEvent,
+	kCANMessageAvailableEvent,
+	kCAN0MessageAvailableEvent,
+	kCAN1MessageAvailableEvent,
+	kI2CDataAvailableEvent,
+	kBootingRequest,
+	kAnyEventType = 0xFFFF
+	};
+
+union eventData
+	{
+	eventData(int);
+	eventData(int32);
+	eventData(int16, int16);
+	eventData(uint32);
+	eventData(float);
+	eventData(uint16, uint16);
+	eventData(uint8, uint8, uint8, uint8);
+	
+	uint32		data;
+	float		floatData;
+	uint16		int16Data[2];
+	uint16		wordData[2];
+	uint8		byteData[4];
+	int32		integerData;
+	};
+
+typedef union eventData	eventData;
+
+inline eventData::eventData(int v)
+	{
+	integerData = v;
+	}
+
+inline eventData::eventData(int32 v)
+	{
+	integerData = v;
+	}
+
+inline eventData::eventData(int16 v1, int16 v2)
+	{
+	int16Data[0] = v1;
+	int16Data[1] = v2;
+	};
+
+inline eventData::eventData(uint32 v)
+	{
+	data = v;
+	}
+
+inline eventData::eventData(float v)
+	{
+	floatData = v;
+	}
+
+inline eventData::eventData(uint16 v1, uint16 v2)
+	{
+	wordData[0] = v1;
+	wordData[1] = v2;
+	};
+
+/** Ereignisdaten-Overlay: 4mal Byte ohne Vorzeichen */
+inline eventData::eventData(uint8 v1, uint8 v2, uint8 v3, uint8 v4)
+	{
+	byteData[0] = v1;
+	byteData[1] = v2;
+	byteData[2] = v3;
+	byteData[3] = v4;
+	};
+
+
+class event
+	{
+	public:
+		event();
+		event(uint16, uint16, const eventData& = 0);
+
+		uint16		eventClass;
+		uint16		eventType;
+		tick_t		timestamp;
+		eventData	data;
+		event*		next;
+	};
+
+inline event::event()
+	:eventClass(kAnyEventClass), eventType(kAnyEventType), timestamp(0), data((uint32)0), next(NULL)
+	{
+	}
+
+inline event::event(uint16 c, uint16 t, const eventData& d)
+	:eventClass(c), eventType(t), timestamp(0), data(d), next(NULL)
+	{
+	}
+
+
+#endif // E_DEVICE_EVENT_H
+

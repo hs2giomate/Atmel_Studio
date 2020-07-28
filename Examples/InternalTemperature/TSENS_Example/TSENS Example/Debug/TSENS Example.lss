@@ -29,13 +29,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_ranges 00000f38  00000000  00000000  000515fb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  00035db6  00000000  00000000  00052533  2**0
+ 13 .debug_macro  00035da2  00000000  00000000  00052533  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_line   00014f43  00000000  00000000  000882e9  2**0
+ 14 .debug_line   00014f2a  00000000  00000000  000882d5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_str    0011fac4  00000000  00000000  0009d22c  2**0
+ 15 .debug_str    0011faa2  00000000  00000000  0009d1ff  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_frame  00002484  00000000  00000000  001bccf0  2**2
+ 16 .debug_frame  00002484  00000000  00000000  001bcca4  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2152,7 +2152,6 @@ int main(void)
      d60:	e92d 4880 	stmdb	sp!, {r7, fp, lr}
      d64:	b083      	sub	sp, #12
 	uint8_t buffer[2];
-
 	atmel_start_init();
      d66:	4b34      	ldr	r3, [pc, #208]	; (e38 <main+0xd8>)
      d68:	4798      	blx	r3

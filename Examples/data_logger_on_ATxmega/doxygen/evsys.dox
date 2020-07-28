@@ -1,0 +1,12 @@
+/*------------------------------------------------------------------------*/ /**
+\defgroup doc_driver_evsys EVSYS Drivers
+
+
+\section doc_driver_evsys_basic_and_practice EVSYS Basics and Best Practice
+
+The Event System (EVSYS) enables direct peripheral-to-peripheral communication and signaling. It
+allows a change in one peripheral's state to trigger actions in other peripherals. 
+
+*/
+
+

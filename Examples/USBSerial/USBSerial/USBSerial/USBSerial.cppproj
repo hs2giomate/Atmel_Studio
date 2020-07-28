@@ -32,15 +32,15 @@
     <EraseKey />
     <AsfFrameworkConfig>
       <framework-data>
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.39.0" />
-  </dependencies>
-</framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.39.0" />
+        </dependencies>
+      </framework-data>
     </AsfFrameworkConfig>
     <avrtool />
   </PropertyGroup>
@@ -293,6 +293,13 @@
     <None Include="linker_scripts\linker_scripts\gcc\flash_with_bootloader.ld">
       <SubType>compile</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ArduinoCore\ArduinoCore.cppproj">
+      <Name>ArduinoCore</Name>
+      <Project>{8866c026-3da0-465d-8fb9-0aa2404301e2}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

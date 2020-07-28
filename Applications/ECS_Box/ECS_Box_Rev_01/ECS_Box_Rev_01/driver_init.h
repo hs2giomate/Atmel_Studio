@@ -28,13 +28,9 @@ extern "C" {
 #include <hal_i2c_m_sync.h>
 
 #include <hal_i2c_m_sync.h>
+
+#include <hal_i2c_m_sync.h>
 #include <hal_spi_m_sync.h>
-
-#include <hal_i2c_m_sync.h>
-
-#include <hal_i2c_m_async.h>
-
-#include <hal_i2c_m_sync.h>
 #include <hal_spi_m_sync.h>
 
 #include "hal_usb_device.h"
@@ -44,15 +40,11 @@ extern struct spi_m_sync_descriptor Flash_Mem_SPI;
 
 extern struct i2c_m_sync_desc Fvx_I2C;
 
-extern struct i2c_m_sync_desc       Heater_I2C;
-extern struct spi_m_sync_descriptor SPI_Alc;
+extern struct i2c_m_sync_desc FANs_I2C;
 
-extern struct i2c_m_sync_desc Misc_Inc_I2C;
-
-extern struct i2c_m_async_desc I2C_CCu;
-
-extern struct i2c_m_sync_desc       FANs_I2C;
-extern struct spi_m_sync_descriptor SPI_Spare;
+extern struct i2c_m_sync_desc       Shared_I2C;
+extern struct spi_m_sync_descriptor SPI_Temp;
+extern struct spi_m_sync_descriptor SPI_AMMC;
 
 extern struct can_async_descriptor CCu_CAN;
 
@@ -64,29 +56,21 @@ void Fvx_I2C_CLOCK_init(void);
 void Fvx_I2C_init(void);
 void Fvx_I2C_PORT_init(void);
 
-void Heater_I2C_CLOCK_init(void);
-void Heater_I2C_init(void);
-void Heater_I2C_PORT_init(void);
-
-void SPI_Alc_PORT_init(void);
-void SPI_Alc_CLOCK_init(void);
-void SPI_Alc_init(void);
-
-void Misc_Inc_I2C_CLOCK_init(void);
-void Misc_Inc_I2C_init(void);
-void Misc_Inc_I2C_PORT_init(void);
-
-void I2C_CCu_PORT_init(void);
-void I2C_CCu_CLOCK_init(void);
-void I2C_CCu_init(void);
-
 void FANs_I2C_CLOCK_init(void);
 void FANs_I2C_init(void);
 void FANs_I2C_PORT_init(void);
 
-void SPI_Spare_PORT_init(void);
-void SPI_Spare_CLOCK_init(void);
-void SPI_Spare_init(void);
+void Shared_I2C_CLOCK_init(void);
+void Shared_I2C_init(void);
+void Shared_I2C_PORT_init(void);
+
+void SPI_Temp_PORT_init(void);
+void SPI_Temp_CLOCK_init(void);
+void SPI_Temp_init(void);
+
+void SPI_AMMC_PORT_init(void);
+void SPI_AMMC_CLOCK_init(void);
+void SPI_AMMC_init(void);
 
 void MaintUSB_CLOCK_init(void);
 void MaintUSB_init(void);

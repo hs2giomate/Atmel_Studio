@@ -234,7 +234,7 @@
 // <i> Indicates whether configuration for DFLL is enabled or not
 // <id> enable_dfll
 #ifndef CONF_DFLL_CONFIG
-#define CONF_DFLL_CONFIG 0
+#define CONF_DFLL_CONFIG 1
 #endif
 
 // <y> Reference Clock Source
@@ -253,7 +253,7 @@
 // <i> Select the clock source
 // <id> dfll_ref_clock
 #ifndef CONF_DFLL_GCLK
-#define CONF_DFLL_GCLK GCLK_PCHCTRL_GEN_GCLK3_Val
+#define CONF_DFLL_GCLK GCLK_PCHCTRL_GEN_GCLK10_Val
 #endif
 
 // <h> Digital Frequency Locked Loop Control
@@ -261,7 +261,7 @@
 // <i> Indicates whether DFLL is enabled or not
 // <id> dfll_arch_enable
 #ifndef CONF_DFLL_ENABLE
-#define CONF_DFLL_ENABLE 0
+#define CONF_DFLL_ENABLE 1
 #endif
 
 // <q> On Demand Control
@@ -282,14 +282,14 @@
 // <i> Indicates whether USB Clock Recovery Mode is enabled or not
 // <id> dfll_arch_usbcrm
 #ifndef CONF_DFLL_USBCRM
-#define CONF_DFLL_USBCRM 0
+#define CONF_DFLL_USBCRM 1
 #endif
 
 // <q> Wait Lock
 // <i> Indicates whether Wait Lock is enabled or not
 // <id> dfll_arch_waitlock
 #ifndef CONF_DFLL_WAITLOCK
-#define CONF_DFLL_WAITLOCK 1
+#define CONF_DFLL_WAITLOCK 0
 #endif
 
 // <q> Bypass Coarse Lock
@@ -310,7 +310,7 @@
 // <i> Indicates whether Chill Cycle Disable is enabled or not
 // <id> dfll_arch_ccdis
 #ifndef CONF_DFLL_CCDIS
-#define CONF_DFLL_CCDIS 0
+#define CONF_DFLL_CCDIS 1
 #endif
 
 // <q> Lose Lock After Wake
@@ -332,7 +332,7 @@
 // <1=>Closed Loop Mode
 // <id> dfll_mode
 #ifndef CONF_DFLL_MODE
-#define CONF_DFLL_MODE 0x0
+#define CONF_DFLL_MODE 0x1
 #endif
 
 // <o> Coarse Maximum Step <0x0-0x1F>
@@ -350,7 +350,7 @@
 // <o> DFLL Multiply Factor <0x0-0xFFFF>
 //  <id> dfll_mul
 #ifndef CONF_DFLL_MUL
-#define CONF_DFLL_MUL 0x0
+#define CONF_DFLL_MUL 0xbb80
 #endif
 
 // <e> DFLL Calibration Overwrite

@@ -428,9 +428,9 @@
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
 </ArmGcc>
     </ToolchainSettings>
-    <OutputFileName>libTSENS Example</OutputFileName>
-    <OutputFileExtension>.a</OutputFileExtension>
-    <OutputType>StaticLibrary</OutputType>
+    <OutputFileName>TSENS Example</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputType>Executable</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="atmel_start.c">

@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.ARMGCC.CPP</ToolchainName>
-    <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
+    <ProjectGuid>{dce6c7e3-ee26-4d79-826b-08594b9ad897}</ProjectGuid>
     <avrdevice>ATSAME54P20A</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -20,10 +20,10 @@
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
     <ResetRule>0</ResetRule>
     <eraseonlaunchrule>0</eraseonlaunchrule>
@@ -40,6 +40,34 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
+    <avrtoolserialnumber>J41800043454</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x61840300</avrdeviceexpectedsignature>
+    <avrtoolinterface>
+    </avrtoolinterface>
+    <com_atmel_avrdbg_tool_edbg>
+      <ToolOptions>
+        <InterfaceProperties>
+          <SwdClock>0</SwdClock>
+        </InterfaceProperties>
+        <InterfaceName>SWD</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.edbg</ToolType>
+      <ToolNumber>ATML2748051800004896</ToolNumber>
+      <ToolName>EDBG</ToolName>
+    </com_atmel_avrdbg_tool_edbg>
+    <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
+    <com_atmel_avrdbg_tool_atmelice>
+      <ToolOptions>
+        <InterfaceProperties>
+          <SwdClock>2000000</SwdClock>
+        </InterfaceProperties>
+        <InterfaceName>SWD</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
+      <ToolNumber>J41800043454</ToolNumber>
+      <ToolName>Atmel-ICE</ToolName>
+    </com_atmel_avrdbg_tool_atmelice>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -107,101 +135,178 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <ArmGccCpp>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
-  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-  <armgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-    </ListValues>
-  </armgcccpp.compiler.symbols.DefSymbols>
-  <armgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-      <Value>../../Classes_Driver/Config</Value>
-      <Value>../../Classes_Driver/</Value>
-      <Value>../../Classes_Driver/examples</Value>
-      <Value>../../Classes_Driver/hal/include</Value>
-      <Value>../../Classes_Driver/hal/utils/include</Value>
-      <Value>../../Classes_Driver/hpl/can</Value>
-      <Value>../../Classes_Driver/hpl/cmcc</Value>
-      <Value>../../Classes_Driver/hpl/core</Value>
-      <Value>../../Classes_Driver/hpl/dmac</Value>
-      <Value>../../Classes_Driver/hpl/evsys</Value>
-      <Value>../../Classes_Driver/hpl/gclk</Value>
-      <Value>../../Classes_Driver/hpl/mclk</Value>
-      <Value>../../Classes_Driver/hpl/osc32kctrl</Value>
-      <Value>../../Classes_Driver/hpl/oscctrl</Value>
-      <Value>../../Classes_Driver/hpl/pm</Value>
-      <Value>../../Classes_Driver/hpl/port</Value>
-      <Value>../../Classes_Driver/hpl/ramecc</Value>
-      <Value>../../Classes_Driver/hpl/rtc</Value>
-      <Value>../../Classes_Driver/hpl/sercom</Value>
-      <Value>../../Classes_Driver/hpl/tc</Value>
-      <Value>../../Classes_Driver/hpl/usb</Value>
-      <Value>../../Classes_Driver/hri</Value>
-      <Value>../../Classes_Driver/usb</Value>
-      <Value>../../Classes_Driver/usb/class/cdc</Value>
-      <Value>../../Classes_Driver/usb/class/cdc/device</Value>
-      <Value>../../Classes_Driver/usb/device</Value>
-      <Value>../avr</Value>
-      <Value>../Classes</Value>
-      <Value>../utils</Value>
-    </ListValues>
-  </armgcccpp.compiler.directories.IncludePaths>
-  <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>
-  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
-  <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
-  <armgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.Libraries>
-  <armgcccpp.linker.libraries.LibrarySearchPaths>
-    <ListValues>
-      <Value>%24(ProjectDir)\Device_Startup</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.LibrarySearchPaths>
-  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
-  <armgcccpp.linker.memorysettings.ExternalRAM />
-  <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsame54p20a_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
-  <armgcccpp.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.assembler.general.IncludePaths>
-  <armgcccpp.assembler.debugging.DebugLevel>Default (-g)</armgcccpp.assembler.debugging.DebugLevel>
-  <armgcccpp.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.preprocessingassembler.general.IncludePaths>
-  <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
-</ArmGccCpp>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>PARTNUMBER=1804</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/Config</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/examples</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hal/include</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hal/utils/include</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/can</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/cmcc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/core</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/dmac</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/eic</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/evsys</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/gclk</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/mclk</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/osc32kctrl</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/oscctrl</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/pm</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/port</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/qspi</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/ramecc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/rtc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/sercom</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/tc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/usb</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hri</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/usb</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/usb/class/cdc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/usb/class/cdc/device</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/usb/device</Value>
+            <Value>../avr</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>PARTNUMBER=1804</Value>
+          </ListValues>
+        </armgcccpp.compiler.symbols.DefSymbols>
+        <armgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>../avr</Value>
+            <Value>../utils</Value>
+            <Value>../LTC2983</Value>
+            <Value>../EEPROM</Value>
+            <Value>../I2C</Value>
+            <Value>../SPI</Value>
+            <Value>../Timers</Value>
+            <Value>../USBSerial</Value>
+            <Value>../ARINC</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/Config</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/examples</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hal/include</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hal/utils/include</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/can</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/cmcc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/core</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/dmac</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/eic</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/evsys</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/gclk</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/mclk</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/osc32kctrl</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/oscctrl</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/pm</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/port</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/qspi</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/ramecc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/rtc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/sercom</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/tc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hpl/usb</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/hri</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/usb</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/usb/class/cdc</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/usb/class/cdc/device</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/usb/device</Value>
+            <Value>../Storage</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/spi_nor_flash</Value>
+            <Value>../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a</Value>
+            <Value>../ErrorHandling</Value>
+            <Value>../EventHandling</Value>
+            <Value>../EIDE_Utils</Value>
+            <Value>../ApplicationLayer</Value>
+          </ListValues>
+        </armgcccpp.compiler.directories.IncludePaths>
+        <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
+        <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+        <armgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.Libraries>
+        <armgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>%24(ProjectDir)\Device_Startup</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.LibrarySearchPaths>
+        <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+        <armgcccpp.linker.memorysettings.ExternalRAM />
+        <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsame54p20a_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
+        <armgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcccpp.assembler.general.IncludePaths>
+        <armgcccpp.assembler.debugging.DebugLevel>Default (-g)</armgcccpp.assembler.debugging.DebugLevel>
+        <armgcccpp.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\ARM\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\Atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcccpp.preprocessingassembler.general.IncludePaths>
+        <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
+      </ArmGccCpp>
     </ToolchainSettings>
+    <OutputFileName>ECS_Box_Objects</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputType>Executable</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ARINC\AMMC_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ARINC\AMMC_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ARINC\ARINC_Conversions.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ARINC\ARINC_Conversions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ARINC\ARINC_Interface.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ARINC\ARINC_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ARINC\Holt_3593_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ARINC\Holt_3593_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ARINC\Protocol_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ARINC\Protocol_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="avr\dtostrf.h">
       <SubType>compile</SubType>
     </Compile>
@@ -214,40 +319,7 @@
     <Compile Include="avr\pgmspace.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Classes\CDC_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\CDC_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\eLib.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\eLib.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\Print.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\Print.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\Stream.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\Stream.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\Timer_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\Timer_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\WString.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Classes\WString.h">
+    <Compile Include="Classes\eDeviceStream.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Device_Startup\startup_same54.c">
@@ -256,16 +328,145 @@
     <Compile Include="Device_Startup\system_same54.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="EIDE_Utils\Arduino.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EIDE_Utils\coreTypes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ErrorHandling\diagnostics.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ErrorHandling\diagnostics.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EventHandling\eDeviceEvent.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EventHandling\EventHandler_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EventHandling\EventHandler_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EventHandling\Event_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EventHandling\Event_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="I2C\I2C_Asyn_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="I2C\I2C_Asyn_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LTC2983\LTC2983_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LTC2983\LTC2983_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LTC2983\LTC2983_configuration_constants.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LTC2983\LTC2983_table_coeffs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LTC2983\LT_SPI.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LTC2983\LT_SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="utils\itoa.c">
+    <Compile Include="main.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="utils\itoa.h">
+    <Compile Include="SPI\SPI_Asyn_Class.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="utils\Printable.h">
+    <Compile Include="SPI\SPI_Asyn_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SPI\SPI_Syn_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SPI\SPI_Syn_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\AT24MAC_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\AT24MAC_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\N25Q256_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\N25Q256_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\RingBuffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timers\Calendar_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timers\Calendar_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timers\DateTimeLog_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timers\DateTimeLog_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timers\Timer_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timers\Timer_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\CDC_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\CDC_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\eLib.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\eLib.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\itoa.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\itoa.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Print.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Print.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Printable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Stream.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Stream.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\WString.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\WString.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
@@ -273,7 +474,17 @@
     <Folder Include="Device_Startup\" />
     <Folder Include="avr" />
     <Folder Include="Classes" />
-    <Folder Include="utils" />
+    <Folder Include="LTC2983" />
+    <Folder Include="I2C" />
+    <Folder Include="ARINC" />
+    <Folder Include="ErrorHandling" />
+    <Folder Include="CANBUS" />
+    <Folder Include="EIDE_Utils" />
+    <Folder Include="EventHandling" />
+    <Folder Include="Storage" />
+    <Folder Include="Timers" />
+    <Folder Include="SPI" />
+    <Folder Include="USBSerial" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Device_Startup\same54p20a_flash.ld">
@@ -284,9 +495,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Classes_Driver\Classes_Driver.cproj">
-      <Name>Classes_Driver</Name>
-      <Project>{604a3814-42ae-4533-9ef0-681f323a0f3e}</Project>
+    <ProjectReference Include="..\..\ALU_Driver\ALU_Driver\ALU_Driver.cproj">
+      <Name>ALU_Driver</Name>
+      <Project>{e0042c05-e7ab-4bdc-850a-2b3b2af948cd}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

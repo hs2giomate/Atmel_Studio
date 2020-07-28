@@ -30,15 +30,15 @@
     <EraseKey />
     <AsfFrameworkConfig>
       <framework-data>
-        <options />
-        <configurations />
-        <files />
-        <documentation help="" />
-        <offline-documentation help="" />
-        <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.34.1" />
-        </dependencies>
-      </framework-data>
+  <options />
+  <configurations />
+  <files />
+  <documentation help="" />
+  <offline-documentation help="" />
+  <dependencies>
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.39.0" />
+  </dependencies>
+</framework-data>
     </AsfFrameworkConfig>
     <avrtool />
   </PropertyGroup>
@@ -108,94 +108,94 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <ArmGccCpp>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
-  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-  <armgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-    </ListValues>
-  </armgcccpp.compiler.symbols.DefSymbols>
-  <armgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-      <Value>..</Value>
-      <Value>../../Timer_Driver/Config</Value>
-      <Value>../../Timer_Driver</Value>
-      <Value>../../Timer_Driver/examples</Value>
-      <Value>../../Timer_Driver/hal/include</Value>
-      <Value>../../Timer_Driver/hal/utils/include</Value>
-      <Value>../../Timer_Driver/hpl/cmcc</Value>
-      <Value>../../Timer_Driver/hpl/core</Value>
-      <Value>../../Timer_Driver/hpl/dmac</Value>
-      <Value>../../Timer_Driver/hpl/evsys</Value>
-      <Value>../../Timer_Driver/hpl/gclk</Value>
-      <Value>../../Timer_Driver/hpl/mclk</Value>
-      <Value>../../Timer_Driver/hpl/osc32kctrl</Value>
-      <Value>../../Timer_Driver/hpl/oscctrl</Value>
-      <Value>../../Timer_Driver/hpl/pm</Value>
-      <Value>../../Timer_Driver/hpl/port</Value>
-      <Value>../../Timer_Driver/hpl/ramecc</Value>
-      <Value>../../Timer_Driver/hpl/rtc</Value>
-      <Value>../../Timer_Driver/hpl/systick</Value>
-      <Value>../../Timer_Driver/hri</Value>
-      <Value>../../Timer_Driver/hpl/tc</Value>
-      <Value>../avr</Value>
-      <Value>../../Timer_Driver/usb</Value>
-      <Value>../../Timer_Driver/usb/class/cdc</Value>
-      <Value>../../Timer_Driver/usb/class/cdc/device</Value>
-      <Value>../../Timer_Driver/usb/device</Value>
-      <Value>../../Timer_Driver/hpl/usb</Value>
-    </ListValues>
-  </armgcccpp.compiler.directories.IncludePaths>
-  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
-  <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
-  <armgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.Libraries>
-  <armgcccpp.linker.libraries.LibrarySearchPaths>
-    <ListValues>
-      <Value>%24(ProjectDir)\Device_Startup</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.LibrarySearchPaths>
-  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
-  <armgcccpp.linker.memorysettings.ExternalRAM />
-  <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsame54p20a_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
-  <armgcccpp.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.assembler.general.IncludePaths>
-  <armgcccpp.assembler.debugging.DebugLevel>Default (-g)</armgcccpp.assembler.debugging.DebugLevel>
-  <armgcccpp.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
-    </ListValues>
-  </armgcccpp.preprocessingassembler.general.IncludePaths>
-  <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
-</ArmGccCpp>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </armgcccpp.compiler.symbols.DefSymbols>
+        <armgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+            <Value>..</Value>
+            <Value>../../Timer_Driver/Config</Value>
+            <Value>../../Timer_Driver</Value>
+            <Value>../../Timer_Driver/examples</Value>
+            <Value>../../Timer_Driver/hal/include</Value>
+            <Value>../../Timer_Driver/hal/utils/include</Value>
+            <Value>../../Timer_Driver/hpl/cmcc</Value>
+            <Value>../../Timer_Driver/hpl/core</Value>
+            <Value>../../Timer_Driver/hpl/dmac</Value>
+            <Value>../../Timer_Driver/hpl/evsys</Value>
+            <Value>../../Timer_Driver/hpl/gclk</Value>
+            <Value>../../Timer_Driver/hpl/mclk</Value>
+            <Value>../../Timer_Driver/hpl/osc32kctrl</Value>
+            <Value>../../Timer_Driver/hpl/oscctrl</Value>
+            <Value>../../Timer_Driver/hpl/pm</Value>
+            <Value>../../Timer_Driver/hpl/port</Value>
+            <Value>../../Timer_Driver/hpl/ramecc</Value>
+            <Value>../../Timer_Driver/hpl/rtc</Value>
+            <Value>../../Timer_Driver/hpl/systick</Value>
+            <Value>../../Timer_Driver/hri</Value>
+            <Value>../../Timer_Driver/hpl/tc</Value>
+            <Value>../avr</Value>
+            <Value>../../Timer_Driver/usb</Value>
+            <Value>../../Timer_Driver/usb/class/cdc</Value>
+            <Value>../../Timer_Driver/usb/class/cdc/device</Value>
+            <Value>../../Timer_Driver/usb/device</Value>
+            <Value>../../Timer_Driver/hpl/usb</Value>
+          </ListValues>
+        </armgcccpp.compiler.directories.IncludePaths>
+        <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
+        <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+        <armgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.Libraries>
+        <armgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>%24(ProjectDir)\Device_Startup</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.LibrarySearchPaths>
+        <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+        <armgcccpp.linker.memorysettings.ExternalRAM />
+        <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsame54p20a_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
+        <armgcccpp.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcccpp.assembler.general.IncludePaths>
+        <armgcccpp.assembler.debugging.DebugLevel>Default (-g)</armgcccpp.assembler.debugging.DebugLevel>
+        <armgcccpp.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+            <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+          </ListValues>
+        </armgcccpp.preprocessingassembler.general.IncludePaths>
+        <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
+      </ArmGccCpp>
     </ToolchainSettings>
     <OutputFileName>TimerClass</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>

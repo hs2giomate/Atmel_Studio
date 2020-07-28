@@ -1,0 +1,2886 @@
+
+CalendarDemo.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000f78  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .relocate     00000000  20000000  20000000  00010f78  2**0
+                  CONTENTS
+  2 .bss          000000cc  20000000  20000000  00020000  2**2
+                  ALLOC
+  3 .stack        00002004  200000cc  200000cc  00020000  2**0
+                  ALLOC
+  4 .ARM.attributes 00000028  00000000  00000000  00010f78  2**0
+                  CONTENTS, READONLY
+  5 .comment      00000059  00000000  00000000  00010fa0  2**0
+                  CONTENTS, READONLY
+  6 .debug_info   000120af  00000000  00000000  00010ff9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00001ac0  00000000  00000000  000230a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    0000228e  00000000  00000000  00024b68  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_aranges 00000308  00000000  00000000  00026df6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 000002e8  00000000  00000000  000270fe  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_macro  0001695c  00000000  00000000  000273e6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_line   000084d6  00000000  00000000  0003dd42  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_str    0007f64b  00000000  00000000  00046218  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_frame  00000618  00000000  00000000  000c5864  2**2
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <exception_table>:
+   0:	d0 20 00 20 b5 02 00 00 b1 02 00 00 b1 02 00 00     . . ............
+	...
+  2c:	b1 02 00 00 00 00 00 00 00 00 00 00 b1 02 00 00     ................
+  3c:	b1 02 00 00 b1 02 00 00 b1 02 00 00 b1 02 00 00     ................
+  4c:	95 0d 00 00 b1 02 00 00 b1 02 00 00 b1 02 00 00     ................
+  5c:	b1 02 00 00 b1 02 00 00 b1 02 00 00 b1 02 00 00     ................
+  6c:	b1 02 00 00 b1 02 00 00 b1 02 00 00 b1 02 00 00     ................
+  7c:	b1 02 00 00 b1 02 00 00 b1 02 00 00 b1 02 00 00     ................
+  8c:	b1 02 00 00 b1 02 00 00 b1 02 00 00 b1 02 00 00     ................
+  9c:	b1 02 00 00 b1 02 00 00 b1 02 00 00 b1 02 00 00     ................
+  ac:	b1 02 00 00 00 00 00 00                             ........
+
+000000b4 <__do_global_dtors_aux>:
+  b4:	b510      	push	{r4, lr}
+  b6:	4c06      	ldr	r4, [pc, #24]	; (d0 <__do_global_dtors_aux+0x1c>)
+  b8:	7823      	ldrb	r3, [r4, #0]
+  ba:	2b00      	cmp	r3, #0
+  bc:	d107      	bne.n	ce <__do_global_dtors_aux+0x1a>
+  be:	4b05      	ldr	r3, [pc, #20]	; (d4 <__do_global_dtors_aux+0x20>)
+  c0:	2b00      	cmp	r3, #0
+  c2:	d002      	beq.n	ca <__do_global_dtors_aux+0x16>
+  c4:	4804      	ldr	r0, [pc, #16]	; (d8 <__do_global_dtors_aux+0x24>)
+  c6:	e000      	b.n	ca <__do_global_dtors_aux+0x16>
+  c8:	bf00      	nop
+  ca:	2301      	movs	r3, #1
+  cc:	7023      	strb	r3, [r4, #0]
+  ce:	bd10      	pop	{r4, pc}
+  d0:	20000000 	.word	0x20000000
+  d4:	00000000 	.word	0x00000000
+  d8:	00000f78 	.word	0x00000f78
+
+000000dc <frame_dummy>:
+  dc:	4b08      	ldr	r3, [pc, #32]	; (100 <frame_dummy+0x24>)
+  de:	b510      	push	{r4, lr}
+  e0:	2b00      	cmp	r3, #0
+  e2:	d003      	beq.n	ec <frame_dummy+0x10>
+  e4:	4907      	ldr	r1, [pc, #28]	; (104 <frame_dummy+0x28>)
+  e6:	4808      	ldr	r0, [pc, #32]	; (108 <frame_dummy+0x2c>)
+  e8:	e000      	b.n	ec <frame_dummy+0x10>
+  ea:	bf00      	nop
+  ec:	4807      	ldr	r0, [pc, #28]	; (10c <frame_dummy+0x30>)
+  ee:	6803      	ldr	r3, [r0, #0]
+  f0:	2b00      	cmp	r3, #0
+  f2:	d100      	bne.n	f6 <frame_dummy+0x1a>
+  f4:	bd10      	pop	{r4, pc}
+  f6:	4b06      	ldr	r3, [pc, #24]	; (110 <frame_dummy+0x34>)
+  f8:	2b00      	cmp	r3, #0
+  fa:	d0fb      	beq.n	f4 <frame_dummy+0x18>
+  fc:	4798      	blx	r3
+  fe:	e7f9      	b.n	f4 <frame_dummy+0x18>
+ 100:	00000000 	.word	0x00000000
+ 104:	20000004 	.word	0x20000004
+ 108:	00000f78 	.word	0x00000f78
+ 10c:	00000f78 	.word	0x00000f78
+ 110:	00000000 	.word	0x00000000
+
+00000114 <atmel_start_init>:
+
+/**
+ * Initializes MCU, drivers and middleware in the project
+ **/
+void atmel_start_init(void)
+{
+ 114:	b510      	push	{r4, lr}
+	system_init();
+ 116:	4b01      	ldr	r3, [pc, #4]	; (11c <atmel_start_init+0x8>)
+ 118:	4798      	blx	r3
+}
+ 11a:	bd10      	pop	{r4, pc}
+ 11c:	000003d9 	.word	0x000003d9
+
+00000120 <calendar_alarm_callback0>:
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+}
+
+static inline void hri_port_toggle_OUT_reg(const void *const hw, uint8_t submodule_index, hri_port_out_reg_t mask)
+{
+	((Port *)hw)->Group[submodule_index].OUTTGL.reg = mask;
+ 120:	2180      	movs	r1, #128	; 0x80
+ 122:	05c9      	lsls	r1, r1, #23
+ 124:	239c      	movs	r3, #156	; 0x9c
+ 126:	22c0      	movs	r2, #192	; 0xc0
+ 128:	05d2      	lsls	r2, r2, #23
+ 12a:	50d1      	str	r1, [r2, r3]
+
+/* [callback] */
+void calendar_alarm_callback0(struct calendar_descriptor *const calendar)
+{
+	gpio_toggle_pin_level(LED0);
+}
+ 12c:	4770      	bx	lr
+
+0000012e <calendar_alarm_callback1>:
+ 12e:	2180      	movs	r1, #128	; 0x80
+ 130:	05c9      	lsls	r1, r1, #23
+ 132:	239c      	movs	r3, #156	; 0x9c
+ 134:	22c0      	movs	r2, #192	; 0xc0
+ 136:	05d2      	lsls	r2, r2, #23
+ 138:	50d1      	str	r1, [r2, r3]
+
+void calendar_alarm_callback1(struct calendar_descriptor *const calendar)
+{
+	gpio_toggle_pin_level(LED0);
+}
+ 13a:	4770      	bx	lr
+
+0000013c <calendar_alarm_callback2>:
+ 13c:	2180      	movs	r1, #128	; 0x80
+ 13e:	05c9      	lsls	r1, r1, #23
+ 140:	239c      	movs	r3, #156	; 0x9c
+ 142:	22c0      	movs	r2, #192	; 0xc0
+ 144:	05d2      	lsls	r2, r2, #23
+ 146:	50d1      	str	r1, [r2, r3]
+
+void calendar_alarm_callback2(struct calendar_descriptor *const calendar)
+{
+	gpio_toggle_pin_level(LED0);
+}
+ 148:	4770      	bx	lr
+
+0000014a <calendar_alarm_callback3>:
+ 14a:	2180      	movs	r1, #128	; 0x80
+ 14c:	05c9      	lsls	r1, r1, #23
+ 14e:	239c      	movs	r3, #156	; 0x9c
+ 150:	22c0      	movs	r2, #192	; 0xc0
+ 152:	05d2      	lsls	r2, r2, #23
+ 154:	50d1      	str	r1, [r2, r3]
+
+void calendar_alarm_callback3(struct calendar_descriptor *const calendar)
+{
+	gpio_toggle_pin_level(LED0);
+}
+ 156:	4770      	bx	lr
+
+00000158 <calendar_alarm_callback4>:
+ 158:	2180      	movs	r1, #128	; 0x80
+ 15a:	05c9      	lsls	r1, r1, #23
+ 15c:	239c      	movs	r3, #156	; 0x9c
+ 15e:	22c0      	movs	r2, #192	; 0xc0
+ 160:	05d2      	lsls	r2, r2, #23
+ 162:	50d1      	str	r1, [r2, r3]
+
+void calendar_alarm_callback4(struct calendar_descriptor *const calendar)
+{
+	gpio_toggle_pin_level(LED0);
+}
+ 164:	4770      	bx	lr
+
+00000166 <calendar_alarm_callback5>:
+ 166:	2180      	movs	r1, #128	; 0x80
+ 168:	05c9      	lsls	r1, r1, #23
+ 16a:	239c      	movs	r3, #156	; 0x9c
+ 16c:	22c0      	movs	r2, #192	; 0xc0
+ 16e:	05d2      	lsls	r2, r2, #23
+ 170:	50d1      	str	r1, [r2, r3]
+
+void calendar_alarm_callback5(struct calendar_descriptor *const calendar)
+{
+	gpio_toggle_pin_level(LED0);
+}
+ 172:	4770      	bx	lr
+
+00000174 <main>:
+
+int main(void)
+{
+ 174:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 176:	46d6      	mov	lr, sl
+ 178:	464f      	mov	r7, r9
+ 17a:	b580      	push	{r7, lr}
+ 17c:	b083      	sub	sp, #12
+	atmel_start_init();
+ 17e:	4b3f      	ldr	r3, [pc, #252]	; (27c <main+0x108>)
+ 180:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+ 182:	2180      	movs	r1, #128	; 0x80
+ 184:	05c9      	lsls	r1, r1, #23
+ 186:	2398      	movs	r3, #152	; 0x98
+ 188:	22c0      	movs	r2, #192	; 0xc0
+ 18a:	05d2      	lsls	r2, r2, #23
+ 18c:	50d1      	str	r1, [r2, r3]
+	/* off the light */
+	gpio_set_pin_level(LED0, true);
+
+	/* Set current time. */
+	struct calendar_date date;
+	date.year  = 2000;
+ 18e:	ac01      	add	r4, sp, #4
+ 190:	23fa      	movs	r3, #250	; 0xfa
+ 192:	00db      	lsls	r3, r3, #3
+ 194:	8063      	strh	r3, [r4, #2]
+	date.month = 12;
+ 196:	230c      	movs	r3, #12
+ 198:	7063      	strb	r3, [r4, #1]
+	date.day   = 31;
+ 19a:	3313      	adds	r3, #19
+ 19c:	7023      	strb	r3, [r4, #0]
+	struct calendar_time time;
+	time.hour = 13;
+ 19e:	3b12      	subs	r3, #18
+ 1a0:	466a      	mov	r2, sp
+ 1a2:	7093      	strb	r3, [r2, #2]
+	time.min  = 59;
+ 1a4:	332e      	adds	r3, #46	; 0x2e
+ 1a6:	7053      	strb	r3, [r2, #1]
+	time.sec  = 59;
+ 1a8:	7013      	strb	r3, [r2, #0]
+
+	calendar_enable(&CALENDAR_0);
+ 1aa:	4835      	ldr	r0, [pc, #212]	; (280 <main+0x10c>)
+ 1ac:	4b35      	ldr	r3, [pc, #212]	; (284 <main+0x110>)
+ 1ae:	4798      	blx	r3
+	calendar_set_time(&CALENDAR_0, &time);
+ 1b0:	4669      	mov	r1, sp
+ 1b2:	4833      	ldr	r0, [pc, #204]	; (280 <main+0x10c>)
+ 1b4:	4b34      	ldr	r3, [pc, #208]	; (288 <main+0x114>)
+ 1b6:	4798      	blx	r3
+	calendar_set_date(&CALENDAR_0, &date);
+ 1b8:	0021      	movs	r1, r4
+ 1ba:	4831      	ldr	r0, [pc, #196]	; (280 <main+0x10c>)
+ 1bc:	4b33      	ldr	r3, [pc, #204]	; (28c <main+0x118>)
+ 1be:	4798      	blx	r3
+
+	/* Set alarm. */
+	alarm0.cal_alarm.datetime.date.month = 0;
+ 1c0:	4c33      	ldr	r4, [pc, #204]	; (290 <main+0x11c>)
+ 1c2:	2500      	movs	r5, #0
+ 1c4:	7265      	strb	r5, [r4, #9]
+	alarm0.cal_alarm.datetime.date.day   = 0;
+ 1c6:	7225      	strb	r5, [r4, #8]
+	alarm0.cal_alarm.datetime.time.hour  = 0;
+ 1c8:	71a5      	strb	r5, [r4, #6]
+	alarm0.cal_alarm.datetime.time.min   = 0;
+ 1ca:	7165      	strb	r5, [r4, #5]
+	alarm0.cal_alarm.datetime.time.sec   = 0;
+ 1cc:	7125      	strb	r5, [r4, #4]
+	alarm0.cal_alarm.option              = CALENDAR_ALARM_MATCH_SEC;
+ 1ce:	2301      	movs	r3, #1
+ 1d0:	4699      	mov	r9, r3
+ 1d2:	7423      	strb	r3, [r4, #16]
+	alarm0.cal_alarm.mode                = REPEAT;
+ 1d4:	2602      	movs	r6, #2
+ 1d6:	7466      	strb	r6, [r4, #17]
+
+	calendar_set_alarm(&CALENDAR_0, &alarm0, calendar_alarm_callback0);
+ 1d8:	4a2e      	ldr	r2, [pc, #184]	; (294 <main+0x120>)
+ 1da:	0021      	movs	r1, r4
+ 1dc:	4828      	ldr	r0, [pc, #160]	; (280 <main+0x10c>)
+ 1de:	4f2e      	ldr	r7, [pc, #184]	; (298 <main+0x124>)
+ 1e0:	47b8      	blx	r7
+
+	alarm1.cal_alarm.datetime.date.month = 0;
+ 1e2:	2321      	movs	r3, #33	; 0x21
+ 1e4:	54e5      	strb	r5, [r4, r3]
+	alarm1.cal_alarm.datetime.date.day   = 0;
+ 1e6:	3b01      	subs	r3, #1
+ 1e8:	54e5      	strb	r5, [r4, r3]
+	alarm1.cal_alarm.datetime.time.hour  = 0;
+ 1ea:	77a5      	strb	r5, [r4, #30]
+	alarm1.cal_alarm.datetime.time.min   = 0;
+ 1ec:	7765      	strb	r5, [r4, #29]
+	alarm1.cal_alarm.datetime.time.sec   = 10;
+ 1ee:	3b16      	subs	r3, #22
+ 1f0:	7723      	strb	r3, [r4, #28]
+	alarm1.cal_alarm.option              = CALENDAR_ALARM_MATCH_SEC;
+ 1f2:	331e      	adds	r3, #30
+ 1f4:	469a      	mov	sl, r3
+ 1f6:	464a      	mov	r2, r9
+ 1f8:	54e2      	strb	r2, [r4, r3]
+	alarm1.cal_alarm.mode                = REPEAT;
+ 1fa:	3301      	adds	r3, #1
+ 1fc:	54e6      	strb	r6, [r4, r3]
+
+	calendar_set_alarm(&CALENDAR_0, &alarm1, calendar_alarm_callback1);
+ 1fe:	0021      	movs	r1, r4
+ 200:	3118      	adds	r1, #24
+ 202:	4a26      	ldr	r2, [pc, #152]	; (29c <main+0x128>)
+ 204:	481e      	ldr	r0, [pc, #120]	; (280 <main+0x10c>)
+ 206:	47b8      	blx	r7
+
+	alarm2.cal_alarm.datetime.date.month = 0;
+ 208:	0021      	movs	r1, r4
+ 20a:	3130      	adds	r1, #48	; 0x30
+ 20c:	724d      	strb	r5, [r1, #9]
+	alarm2.cal_alarm.datetime.date.day   = 0;
+ 20e:	720d      	strb	r5, [r1, #8]
+	alarm2.cal_alarm.datetime.time.hour  = 0;
+ 210:	718d      	strb	r5, [r1, #6]
+	alarm2.cal_alarm.datetime.time.min   = 0;
+ 212:	714d      	strb	r5, [r1, #5]
+	alarm2.cal_alarm.datetime.time.sec   = 20;
+ 214:	2314      	movs	r3, #20
+ 216:	710b      	strb	r3, [r1, #4]
+	alarm2.cal_alarm.option              = CALENDAR_ALARM_MATCH_SEC;
+ 218:	464b      	mov	r3, r9
+ 21a:	740b      	strb	r3, [r1, #16]
+	alarm2.cal_alarm.mode                = REPEAT;
+ 21c:	744e      	strb	r6, [r1, #17]
+
+	calendar_set_alarm(&CALENDAR_0, &alarm2, calendar_alarm_callback2);
+ 21e:	4a20      	ldr	r2, [pc, #128]	; (2a0 <main+0x12c>)
+ 220:	4817      	ldr	r0, [pc, #92]	; (280 <main+0x10c>)
+ 222:	47b8      	blx	r7
+
+	alarm3.cal_alarm.datetime.date.month = 0;
+ 224:	0021      	movs	r1, r4
+ 226:	3148      	adds	r1, #72	; 0x48
+ 228:	724d      	strb	r5, [r1, #9]
+	alarm3.cal_alarm.datetime.date.day   = 0;
+ 22a:	720d      	strb	r5, [r1, #8]
+	alarm3.cal_alarm.datetime.time.hour  = 0;
+ 22c:	718d      	strb	r5, [r1, #6]
+	alarm3.cal_alarm.datetime.time.min   = 0;
+ 22e:	714d      	strb	r5, [r1, #5]
+	alarm3.cal_alarm.datetime.time.sec   = 30;
+ 230:	231e      	movs	r3, #30
+ 232:	710b      	strb	r3, [r1, #4]
+	alarm3.cal_alarm.option              = CALENDAR_ALARM_MATCH_SEC;
+ 234:	464b      	mov	r3, r9
+ 236:	740b      	strb	r3, [r1, #16]
+	alarm3.cal_alarm.mode                = REPEAT;
+ 238:	744e      	strb	r6, [r1, #17]
+
+	calendar_set_alarm(&CALENDAR_0, &alarm3, calendar_alarm_callback3);
+ 23a:	4a1a      	ldr	r2, [pc, #104]	; (2a4 <main+0x130>)
+ 23c:	4810      	ldr	r0, [pc, #64]	; (280 <main+0x10c>)
+ 23e:	47b8      	blx	r7
+
+	alarm4.cal_alarm.datetime.date.month = 0;
+ 240:	0021      	movs	r1, r4
+ 242:	3160      	adds	r1, #96	; 0x60
+ 244:	724d      	strb	r5, [r1, #9]
+	alarm4.cal_alarm.datetime.date.day   = 0;
+ 246:	720d      	strb	r5, [r1, #8]
+	alarm4.cal_alarm.datetime.time.hour  = 0;
+ 248:	718d      	strb	r5, [r1, #6]
+	alarm4.cal_alarm.datetime.time.min   = 0;
+ 24a:	714d      	strb	r5, [r1, #5]
+	alarm4.cal_alarm.datetime.time.sec   = 40;
+ 24c:	4653      	mov	r3, sl
+ 24e:	710b      	strb	r3, [r1, #4]
+	alarm4.cal_alarm.option              = CALENDAR_ALARM_MATCH_SEC;
+ 250:	464b      	mov	r3, r9
+ 252:	740b      	strb	r3, [r1, #16]
+	alarm4.cal_alarm.mode                = REPEAT;
+ 254:	744e      	strb	r6, [r1, #17]
+
+	calendar_set_alarm(&CALENDAR_0, &alarm4, calendar_alarm_callback4);
+ 256:	4a14      	ldr	r2, [pc, #80]	; (2a8 <main+0x134>)
+ 258:	4809      	ldr	r0, [pc, #36]	; (280 <main+0x10c>)
+ 25a:	47b8      	blx	r7
+
+	alarm5.cal_alarm.datetime.date.month = 0;
+ 25c:	0021      	movs	r1, r4
+ 25e:	3178      	adds	r1, #120	; 0x78
+ 260:	724d      	strb	r5, [r1, #9]
+	alarm5.cal_alarm.datetime.date.day   = 0;
+ 262:	720d      	strb	r5, [r1, #8]
+	alarm5.cal_alarm.datetime.time.hour  = 0;
+ 264:	718d      	strb	r5, [r1, #6]
+	alarm5.cal_alarm.datetime.time.min   = 0;
+ 266:	714d      	strb	r5, [r1, #5]
+	alarm5.cal_alarm.datetime.time.sec   = 50;
+ 268:	2332      	movs	r3, #50	; 0x32
+ 26a:	710b      	strb	r3, [r1, #4]
+	alarm5.cal_alarm.option              = CALENDAR_ALARM_MATCH_SEC;
+ 26c:	464b      	mov	r3, r9
+ 26e:	740b      	strb	r3, [r1, #16]
+	alarm5.cal_alarm.mode                = REPEAT;
+ 270:	744e      	strb	r6, [r1, #17]
+
+	calendar_set_alarm(&CALENDAR_0, &alarm5, calendar_alarm_callback5);
+ 272:	4a0e      	ldr	r2, [pc, #56]	; (2ac <main+0x138>)
+ 274:	4802      	ldr	r0, [pc, #8]	; (280 <main+0x10c>)
+ 276:	47b8      	blx	r7
+ 278:	e7fe      	b.n	278 <main+0x104>
+ 27a:	46c0      	nop			; (mov r8, r8)
+ 27c:	00000115 	.word	0x00000115
+ 280:	200000b0 	.word	0x200000b0
+ 284:	000007d9 	.word	0x000007d9
+ 288:	00000805 	.word	0x00000805
+ 28c:	00000869 	.word	0x00000869
+ 290:	2000001c 	.word	0x2000001c
+ 294:	00000121 	.word	0x00000121
+ 298:	000008cd 	.word	0x000008cd
+ 29c:	0000012f 	.word	0x0000012f
+ 2a0:	0000013d 	.word	0x0000013d
+ 2a4:	0000014b 	.word	0x0000014b
+ 2a8:	00000159 	.word	0x00000159
+ 2ac:	00000167 	.word	0x00000167
+
+000002b0 <Dummy_Handler>:
+
+/**
+ * \brief Default interrupt handler for unused IRQs.
+ */
+void Dummy_Handler(void)
+{
+ 2b0:	e7fe      	b.n	2b0 <Dummy_Handler>
+	...
+
+000002b4 <Reset_Handler>:
+{
+ 2b4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+        if (pSrc != pDest) {
+ 2b6:	4a2a      	ldr	r2, [pc, #168]	; (360 <Reset_Handler+0xac>)
+ 2b8:	4b2a      	ldr	r3, [pc, #168]	; (364 <Reset_Handler+0xb0>)
+ 2ba:	429a      	cmp	r2, r3
+ 2bc:	d011      	beq.n	2e2 <Reset_Handler+0x2e>
+                for (; pDest < &_erelocate;) {
+ 2be:	001a      	movs	r2, r3
+ 2c0:	4b29      	ldr	r3, [pc, #164]	; (368 <Reset_Handler+0xb4>)
+ 2c2:	429a      	cmp	r2, r3
+ 2c4:	d20d      	bcs.n	2e2 <Reset_Handler+0x2e>
+ 2c6:	4a29      	ldr	r2, [pc, #164]	; (36c <Reset_Handler+0xb8>)
+ 2c8:	3303      	adds	r3, #3
+ 2ca:	1a9b      	subs	r3, r3, r2
+ 2cc:	089b      	lsrs	r3, r3, #2
+ 2ce:	3301      	adds	r3, #1
+ 2d0:	009b      	lsls	r3, r3, #2
+ 2d2:	2200      	movs	r2, #0
+                        *pDest++ = *pSrc++;
+ 2d4:	4823      	ldr	r0, [pc, #140]	; (364 <Reset_Handler+0xb0>)
+ 2d6:	4922      	ldr	r1, [pc, #136]	; (360 <Reset_Handler+0xac>)
+ 2d8:	588c      	ldr	r4, [r1, r2]
+ 2da:	5084      	str	r4, [r0, r2]
+ 2dc:	3204      	adds	r2, #4
+                for (; pDest < &_erelocate;) {
+ 2de:	429a      	cmp	r2, r3
+ 2e0:	d1fa      	bne.n	2d8 <Reset_Handler+0x24>
+        for (pDest = &_szero; pDest < &_ezero;) {
+ 2e2:	4a23      	ldr	r2, [pc, #140]	; (370 <Reset_Handler+0xbc>)
+ 2e4:	4b23      	ldr	r3, [pc, #140]	; (374 <Reset_Handler+0xc0>)
+ 2e6:	429a      	cmp	r2, r3
+ 2e8:	d20a      	bcs.n	300 <Reset_Handler+0x4c>
+ 2ea:	43d3      	mvns	r3, r2
+ 2ec:	4921      	ldr	r1, [pc, #132]	; (374 <Reset_Handler+0xc0>)
+ 2ee:	185b      	adds	r3, r3, r1
+ 2f0:	2103      	movs	r1, #3
+ 2f2:	438b      	bics	r3, r1
+ 2f4:	3304      	adds	r3, #4
+ 2f6:	189b      	adds	r3, r3, r2
+                *pDest++ = 0;
+ 2f8:	2100      	movs	r1, #0
+ 2fa:	c202      	stmia	r2!, {r1}
+        for (pDest = &_szero; pDest < &_ezero;) {
+ 2fc:	4293      	cmp	r3, r2
+ 2fe:	d1fc      	bne.n	2fa <Reset_Handler+0x46>
+        SCB->VTOR = ((uint32_t) pSrc & SCB_VTOR_TBLOFF_Msk);
+ 300:	4a1d      	ldr	r2, [pc, #116]	; (378 <Reset_Handler+0xc4>)
+ 302:	21ff      	movs	r1, #255	; 0xff
+ 304:	4b1d      	ldr	r3, [pc, #116]	; (37c <Reset_Handler+0xc8>)
+ 306:	438b      	bics	r3, r1
+ 308:	6093      	str	r3, [r2, #8]
+        SBMATRIX->SFR[SBMATRIX_SLAVE_HMCRAMC0].reg = 2;
+ 30a:	39fd      	subs	r1, #253	; 0xfd
+ 30c:	2390      	movs	r3, #144	; 0x90
+ 30e:	005b      	lsls	r3, r3, #1
+ 310:	4a1b      	ldr	r2, [pc, #108]	; (380 <Reset_Handler+0xcc>)
+ 312:	50d1      	str	r1, [r2, r3]
+        USB->DEVICE.QOSCTRL.bit.CQOS = 2;
+ 314:	4a1b      	ldr	r2, [pc, #108]	; (384 <Reset_Handler+0xd0>)
+ 316:	78d3      	ldrb	r3, [r2, #3]
+ 318:	2503      	movs	r5, #3
+ 31a:	43ab      	bics	r3, r5
+ 31c:	2402      	movs	r4, #2
+ 31e:	4323      	orrs	r3, r4
+ 320:	70d3      	strb	r3, [r2, #3]
+        USB->DEVICE.QOSCTRL.bit.DQOS = 2;
+ 322:	78d3      	ldrb	r3, [r2, #3]
+ 324:	270c      	movs	r7, #12
+ 326:	43bb      	bics	r3, r7
+ 328:	2608      	movs	r6, #8
+ 32a:	4333      	orrs	r3, r6
+ 32c:	70d3      	strb	r3, [r2, #3]
+        DMAC->QOSCTRL.bit.DQOS = 2;
+ 32e:	4b16      	ldr	r3, [pc, #88]	; (388 <Reset_Handler+0xd4>)
+ 330:	7b98      	ldrb	r0, [r3, #14]
+ 332:	2230      	movs	r2, #48	; 0x30
+ 334:	4390      	bics	r0, r2
+ 336:	2220      	movs	r2, #32
+ 338:	4310      	orrs	r0, r2
+ 33a:	7398      	strb	r0, [r3, #14]
+        DMAC->QOSCTRL.bit.FQOS = 2;
+ 33c:	7b99      	ldrb	r1, [r3, #14]
+ 33e:	43b9      	bics	r1, r7
+ 340:	4331      	orrs	r1, r6
+ 342:	7399      	strb	r1, [r3, #14]
+        DMAC->QOSCTRL.bit.WRBQOS = 2;
+ 344:	7b9a      	ldrb	r2, [r3, #14]
+ 346:	43aa      	bics	r2, r5
+ 348:	4322      	orrs	r2, r4
+ 34a:	739a      	strb	r2, [r3, #14]
+        NVMCTRL->CTRLB.bit.MANW = 1;
+ 34c:	4a0f      	ldr	r2, [pc, #60]	; (38c <Reset_Handler+0xd8>)
+ 34e:	6853      	ldr	r3, [r2, #4]
+ 350:	2180      	movs	r1, #128	; 0x80
+ 352:	430b      	orrs	r3, r1
+ 354:	6053      	str	r3, [r2, #4]
+        __libc_init_array();
+ 356:	4b0e      	ldr	r3, [pc, #56]	; (390 <Reset_Handler+0xdc>)
+ 358:	4798      	blx	r3
+        main();
+ 35a:	4b0e      	ldr	r3, [pc, #56]	; (394 <Reset_Handler+0xe0>)
+ 35c:	4798      	blx	r3
+ 35e:	e7fe      	b.n	35e <Reset_Handler+0xaa>
+ 360:	00000f78 	.word	0x00000f78
+ 364:	20000000 	.word	0x20000000
+ 368:	20000000 	.word	0x20000000
+ 36c:	20000004 	.word	0x20000004
+ 370:	20000000 	.word	0x20000000
+ 374:	200000cc 	.word	0x200000cc
+ 378:	e000ed00 	.word	0xe000ed00
+ 37c:	00000000 	.word	0x00000000
+ 380:	41007000 	.word	0x41007000
+ 384:	41005000 	.word	0x41005000
+ 388:	41004800 	.word	0x41004800
+ 38c:	41004000 	.word	0x41004000
+ 390:	00000e25 	.word	0x00000e25
+ 394:	00000175 	.word	0x00000175
+
+00000398 <CALENDAR_0_CLOCK_init>:
+			peripheral = (uint32_t)_pm_get_ahb_index(module);
+			PM->AHBMASK.reg |= 1 << peripheral;
+		}
+		break;
+	case PM_BUS_APBA:
+		PM->APBAMASK.reg |= 1 << peripheral;
+ 398:	4a04      	ldr	r2, [pc, #16]	; (3ac <CALENDAR_0_CLOCK_init+0x14>)
+ 39a:	6993      	ldr	r3, [r2, #24]
+ 39c:	2120      	movs	r1, #32
+ 39e:	430b      	orrs	r3, r1
+ 3a0:	6193      	str	r3, [r2, #24]
+}
+
+static inline void hri_gclk_write_CLKCTRL_reg(const void *const hw, hri_gclk_clkctrl_reg_t data)
+{
+	GCLK_CRITICAL_SECTION_ENTER();
+	((Gclk *)hw)->CLKCTRL.reg = data;
+ 3a2:	4a03      	ldr	r2, [pc, #12]	; (3b0 <CALENDAR_0_CLOCK_init+0x18>)
+ 3a4:	4b03      	ldr	r3, [pc, #12]	; (3b4 <CALENDAR_0_CLOCK_init+0x1c>)
+ 3a6:	805a      	strh	r2, [r3, #2]
+
+void CALENDAR_0_CLOCK_init(void)
+{
+	_pm_enable_bus_clock(PM_BUS_APBA, RTC);
+	_gclk_enable_channel(RTC_GCLK_ID, CONF_GCLK_RTC_SRC);
+}
+ 3a8:	4770      	bx	lr
+ 3aa:	46c0      	nop			; (mov r8, r8)
+ 3ac:	40000400 	.word	0x40000400
+ 3b0:	00004204 	.word	0x00004204
+ 3b4:	40000c00 	.word	0x40000c00
+
+000003b8 <CALENDAR_0_init>:
+
+void CALENDAR_0_init(void)
+{
+ 3b8:	b510      	push	{r4, lr}
+	CALENDAR_0_CLOCK_init();
+ 3ba:	4b03      	ldr	r3, [pc, #12]	; (3c8 <CALENDAR_0_init+0x10>)
+ 3bc:	4798      	blx	r3
+	calendar_init(&CALENDAR_0, RTC);
+ 3be:	4903      	ldr	r1, [pc, #12]	; (3cc <CALENDAR_0_init+0x14>)
+ 3c0:	4803      	ldr	r0, [pc, #12]	; (3d0 <CALENDAR_0_init+0x18>)
+ 3c2:	4b04      	ldr	r3, [pc, #16]	; (3d4 <CALENDAR_0_init+0x1c>)
+ 3c4:	4798      	blx	r3
+}
+ 3c6:	bd10      	pop	{r4, pc}
+ 3c8:	00000399 	.word	0x00000399
+ 3cc:	40001400 	.word	0x40001400
+ 3d0:	200000b0 	.word	0x200000b0
+ 3d4:	00000791 	.word	0x00000791
+
+000003d8 <system_init>:
+
+void system_init(void)
+{
+ 3d8:	b510      	push	{r4, lr}
+ * Currently the following initialization functions are supported:
+ *  - System clock initialization
+ */
+static inline void init_mcu(void)
+{
+	_init_chip();
+ 3da:	4b0b      	ldr	r3, [pc, #44]	; (408 <system_init+0x30>)
+ 3dc:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+ 3de:	23c0      	movs	r3, #192	; 0xc0
+ 3e0:	05db      	lsls	r3, r3, #23
+ 3e2:	2280      	movs	r2, #128	; 0x80
+ 3e4:	05d2      	lsls	r2, r2, #23
+ 3e6:	2194      	movs	r1, #148	; 0x94
+ 3e8:	505a      	str	r2, [r3, r1]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+ 3ea:	390c      	subs	r1, #12
+ 3ec:	505a      	str	r2, [r3, r1]
+
+static inline void hri_port_write_WRCONFIG_reg(const void *const hw, uint8_t submodule_index,
+                                               hri_port_wrconfig_reg_t data)
+{
+	PORT_CRITICAL_SECTION_ENTER();
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+ 3ee:	4b07      	ldr	r3, [pc, #28]	; (40c <system_init+0x34>)
+ 3f0:	3120      	adds	r1, #32
+ 3f2:	505a      	str	r2, [r3, r1]
+ 3f4:	4a06      	ldr	r2, [pc, #24]	; (410 <system_init+0x38>)
+ 3f6:	505a      	str	r2, [r3, r1]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+ 3f8:	3136      	adds	r1, #54	; 0x36
+ 3fa:	5c5a      	ldrb	r2, [r3, r1]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+ 3fc:	2001      	movs	r0, #1
+ 3fe:	4382      	bics	r2, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+ 400:	545a      	strb	r2, [r3, r1]
+	// Set pin direction to output
+	gpio_set_pin_direction(LED0, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(LED0, GPIO_PIN_FUNCTION_OFF);
+
+	CALENDAR_0_init();
+ 402:	4b04      	ldr	r3, [pc, #16]	; (414 <system_init+0x3c>)
+ 404:	4798      	blx	r3
+}
+ 406:	bd10      	pop	{r4, pc}
+ 408:	00000b35 	.word	0x00000b35
+ 40c:	41004400 	.word	0x41004400
+ 410:	c0004000 	.word	0xc0004000
+ 414:	000003b9 	.word	0x000003b9
+
+00000418 <atomic_enter_critical>:
+ */
+__STATIC_FORCEINLINE uint32_t __get_PRIMASK(void)
+{
+  uint32_t result;
+
+  __ASM volatile ("MRS %0, primask" : "=r" (result) :: "memory");
+ 418:	f3ef 8310 	mrs	r3, PRIMASK
+/**
+ * \brief Disable interrupts, enter critical section
+ */
+void atomic_enter_critical(hal_atomic_t volatile *atomic)
+{
+	*atomic = __get_PRIMASK();
+ 41c:	6003      	str	r3, [r0, #0]
+  __ASM volatile ("cpsid i" : : : "memory");
+ 41e:	b672      	cpsid	i
+  \details Ensures the apparent order of the explicit memory operations before
+           and after the instruction, without ensuring their completion.
+ */
+__STATIC_FORCEINLINE void __DMB(void)
+{
+  __ASM volatile ("dmb 0xF":::"memory");
+ 420:	f3bf 8f5f 	dmb	sy
+	__disable_irq();
+	__DMB();
+}
+ 424:	4770      	bx	lr
+
+00000426 <atomic_leave_critical>:
+ 426:	f3bf 8f5f 	dmb	sy
+ * \brief Exit atomic section
+ */
+void atomic_leave_critical(hal_atomic_t volatile *atomic)
+{
+	__DMB();
+	__set_PRIMASK(*atomic);
+ 42a:	6803      	ldr	r3, [r0, #0]
+  __ASM volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
+ 42c:	f383 8810 	msr	PRIMASK, r3
+}
+ 430:	4770      	bx	lr
+	...
+
+00000434 <get_secs_in_month>:
+ */
+static uint32_t get_secs_in_month(uint32_t year, uint8_t month)
+{
+	uint32_t sec_in_month = 0;
+
+	if (leap_year(year)) {
+ 434:	0783      	lsls	r3, r0, #30
+ 436:	d10b      	bne.n	450 <get_secs_in_month+0x1c>
+		switch (month) {
+ 438:	290c      	cmp	r1, #12
+ 43a:	d815      	bhi.n	468 <get_secs_in_month+0x34>
+ 43c:	0089      	lsls	r1, r1, #2
+ 43e:	4b0c      	ldr	r3, [pc, #48]	; (470 <get_secs_in_month+0x3c>)
+ 440:	585b      	ldr	r3, [r3, r1]
+ 442:	469f      	mov	pc, r3
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			sec_in_month = SECS_IN_31DAYS;
+ 444:	480b      	ldr	r0, [pc, #44]	; (474 <get_secs_in_month+0x40>)
+			break;
+		}
+	}
+
+	return sec_in_month;
+}
+ 446:	4770      	bx	lr
+			sec_in_month = SECS_IN_29DAYS;
+ 448:	480b      	ldr	r0, [pc, #44]	; (478 <get_secs_in_month+0x44>)
+			break;
+ 44a:	e7fc      	b.n	446 <get_secs_in_month+0x12>
+			sec_in_month = SECS_IN_30DAYS;
+ 44c:	480b      	ldr	r0, [pc, #44]	; (47c <get_secs_in_month+0x48>)
+			break;
+ 44e:	e7fa      	b.n	446 <get_secs_in_month+0x12>
+		switch (month) {
+ 450:	290c      	cmp	r1, #12
+ 452:	d80b      	bhi.n	46c <get_secs_in_month+0x38>
+ 454:	0089      	lsls	r1, r1, #2
+ 456:	4b0a      	ldr	r3, [pc, #40]	; (480 <get_secs_in_month+0x4c>)
+ 458:	585b      	ldr	r3, [r3, r1]
+ 45a:	469f      	mov	pc, r3
+			sec_in_month = SECS_IN_31DAYS;
+ 45c:	4805      	ldr	r0, [pc, #20]	; (474 <get_secs_in_month+0x40>)
+ 45e:	e7f2      	b.n	446 <get_secs_in_month+0x12>
+			sec_in_month = SECS_IN_28DAYS;
+ 460:	4808      	ldr	r0, [pc, #32]	; (484 <get_secs_in_month+0x50>)
+			break;
+ 462:	e7f0      	b.n	446 <get_secs_in_month+0x12>
+			sec_in_month = SECS_IN_30DAYS;
+ 464:	4805      	ldr	r0, [pc, #20]	; (47c <get_secs_in_month+0x48>)
+			break;
+ 466:	e7ee      	b.n	446 <get_secs_in_month+0x12>
+	uint32_t sec_in_month = 0;
+ 468:	2000      	movs	r0, #0
+ 46a:	e7ec      	b.n	446 <get_secs_in_month+0x12>
+ 46c:	2000      	movs	r0, #0
+	return sec_in_month;
+ 46e:	e7ea      	b.n	446 <get_secs_in_month+0x12>
+ 470:	00000e6c 	.word	0x00000e6c
+ 474:	0028de80 	.word	0x0028de80
+ 478:	00263b80 	.word	0x00263b80
+ 47c:	00278d00 	.word	0x00278d00
+ 480:	00000ea0 	.word	0x00000ea0
+ 484:	0024ea00 	.word	0x0024ea00
+
+00000488 <calendar_add_new_alarm>:
+}
+
+/** \brief add new alarm into the list in ascending order
+ */
+static int32_t calendar_add_new_alarm(struct list_descriptor *list, struct calendar_alarm *alarm)
+{
+ 488:	b570      	push	{r4, r5, r6, lr}
+ 48a:	0005      	movs	r5, r0
+ 48c:	000c      	movs	r4, r1
+ * \return A pointer to the head of the given list or NULL if the list is
+ * empty
+ */
+static inline void *list_get_head(const struct list_descriptor *const list)
+{
+	return (void *)list->head;
+ 48e:	6801      	ldr	r1, [r0, #0]
+
+	/*get the head of alarms list*/
+	head = (struct calendar_alarm *)list_get_head(list);
+
+	/*if head is null, insert new alarm as head*/
+	if (!head) {
+ 490:	2900      	cmp	r1, #0
+ 492:	d00c      	beq.n	4ae <calendar_add_new_alarm+0x26>
+		return ERR_NONE;
+	}
+
+	/*insert the new alarm in accending order, the head will be invoked firstly */
+	for (it = head; it; it = (struct calendar_alarm *)list_get_next_element(it)) {
+		if (alarm->cal_alarm.timestamp <= it->cal_alarm.timestamp) {
+ 494:	68e2      	ldr	r2, [r4, #12]
+ 496:	68cb      	ldr	r3, [r1, #12]
+ 498:	429a      	cmp	r2, r3
+ 49a:	d918      	bls.n	4ce <calendar_add_new_alarm+0x46>
+ 49c:	0008      	movs	r0, r1
+ * \return A pointer to the next list element or NULL if there is not next
+ * element
+ */
+static inline void *list_get_next_element(const void *const element)
+{
+	return element ? ((struct list_element *)element)->next : NULL;
+ 49e:	6803      	ldr	r3, [r0, #0]
+	for (it = head; it; it = (struct calendar_alarm *)list_get_next_element(it)) {
+ 4a0:	2b00      	cmp	r3, #0
+ 4a2:	d00f      	beq.n	4c4 <calendar_add_new_alarm+0x3c>
+		if (alarm->cal_alarm.timestamp <= it->cal_alarm.timestamp) {
+ 4a4:	68de      	ldr	r6, [r3, #12]
+ 4a6:	4296      	cmp	r6, r2
+ 4a8:	d20a      	bcs.n	4c0 <calendar_add_new_alarm+0x38>
+ 4aa:	0018      	movs	r0, r3
+ 4ac:	e7f7      	b.n	49e <calendar_add_new_alarm+0x16>
+		list_insert_as_head(list, alarm);
+ 4ae:	0021      	movs	r1, r4
+ 4b0:	4b0c      	ldr	r3, [pc, #48]	; (4e4 <calendar_add_new_alarm+0x5c>)
+ 4b2:	4798      	blx	r3
+		_calendar_set_comp(&calendar->device, alarm->cal_alarm.timestamp);
+ 4b4:	68e1      	ldr	r1, [r4, #12]
+ 4b6:	0028      	movs	r0, r5
+ 4b8:	3810      	subs	r0, #16
+ 4ba:	4b0b      	ldr	r3, [pc, #44]	; (4e8 <calendar_add_new_alarm+0x60>)
+ 4bc:	4798      	blx	r3
+		return ERR_NONE;
+ 4be:	e004      	b.n	4ca <calendar_add_new_alarm+0x42>
+
+		prev = it;
+	}
+
+	/*insert new alarm into the list */
+	if (it == head) {
+ 4c0:	428b      	cmp	r3, r1
+ 4c2:	d004      	beq.n	4ce <calendar_add_new_alarm+0x46>
+		list_insert_as_head(list, alarm);
+		/*get the head and set it into register*/
+		_calendar_set_comp(&calendar->device, alarm->cal_alarm.timestamp);
+
+	} else {
+		list_insert_after(prev, alarm);
+ 4c4:	0021      	movs	r1, r4
+ 4c6:	4b09      	ldr	r3, [pc, #36]	; (4ec <calendar_add_new_alarm+0x64>)
+ 4c8:	4798      	blx	r3
+	}
+
+	return ERR_NONE;
+}
+ 4ca:	2000      	movs	r0, #0
+ 4cc:	bd70      	pop	{r4, r5, r6, pc}
+		list_insert_as_head(list, alarm);
+ 4ce:	0021      	movs	r1, r4
+ 4d0:	0028      	movs	r0, r5
+ 4d2:	4b04      	ldr	r3, [pc, #16]	; (4e4 <calendar_add_new_alarm+0x5c>)
+ 4d4:	4798      	blx	r3
+		_calendar_set_comp(&calendar->device, alarm->cal_alarm.timestamp);
+ 4d6:	68e1      	ldr	r1, [r4, #12]
+ 4d8:	0028      	movs	r0, r5
+ 4da:	3810      	subs	r0, #16
+ 4dc:	4b02      	ldr	r3, [pc, #8]	; (4e8 <calendar_add_new_alarm+0x60>)
+ 4de:	4798      	blx	r3
+ 4e0:	e7f3      	b.n	4ca <calendar_add_new_alarm+0x42>
+ 4e2:	46c0      	nop			; (mov r8, r8)
+ 4e4:	00000ab1 	.word	0x00000ab1
+ 4e8:	00000d4d 	.word	0x00000d4d
+ 4ec:	00000add 	.word	0x00000add
+
+000004f0 <calibrate_timestamp>:
+{
+ 4f0:	b570      	push	{r4, r5, r6, lr}
+ 4f2:	000c      	movs	r4, r1
+	uint32_t current_ts = current_dt->cal_alarm.timestamp;
+ 4f4:	68d0      	ldr	r0, [r2, #12]
+	alarm_ts = alarm->cal_alarm.timestamp;
+ 4f6:	68cd      	ldr	r5, [r1, #12]
+	switch (alarm->cal_alarm.option) {
+ 4f8:	7c0b      	ldrb	r3, [r1, #16]
+ 4fa:	2b05      	cmp	r3, #5
+ 4fc:	d806      	bhi.n	50c <calibrate_timestamp+0x1c>
+ 4fe:	009b      	lsls	r3, r3, #2
+ 500:	4914      	ldr	r1, [pc, #80]	; (554 <calibrate_timestamp+0x64>)
+ 502:	58cb      	ldr	r3, [r1, r3]
+ 504:	469f      	mov	pc, r3
+		if (alarm_ts <= current_ts) {
+ 506:	42a8      	cmp	r0, r5
+ 508:	d300      	bcc.n	50c <calibrate_timestamp+0x1c>
+			alarm_ts += SECS_IN_MINUTE;
+ 50a:	353c      	adds	r5, #60	; 0x3c
+	alarm->cal_alarm.timestamp = alarm_ts;
+ 50c:	60e5      	str	r5, [r4, #12]
+}
+ 50e:	bd70      	pop	{r4, r5, r6, pc}
+		if (alarm_ts <= current_ts) {
+ 510:	42a8      	cmp	r0, r5
+ 512:	d3fb      	bcc.n	50c <calibrate_timestamp+0x1c>
+			alarm_ts += SECS_IN_HOUR;
+ 514:	23e1      	movs	r3, #225	; 0xe1
+ 516:	011b      	lsls	r3, r3, #4
+ 518:	469c      	mov	ip, r3
+ 51a:	4465      	add	r5, ip
+ 51c:	e7f6      	b.n	50c <calibrate_timestamp+0x1c>
+		if (alarm_ts <= current_ts) {
+ 51e:	42a8      	cmp	r0, r5
+ 520:	d3f4      	bcc.n	50c <calibrate_timestamp+0x1c>
+			alarm_ts += SECS_IN_DAY;
+ 522:	4b0d      	ldr	r3, [pc, #52]	; (558 <calibrate_timestamp+0x68>)
+ 524:	469c      	mov	ip, r3
+ 526:	4465      	add	r5, ip
+ 528:	e7f0      	b.n	50c <calibrate_timestamp+0x1c>
+		if (alarm_ts <= current_ts) {
+ 52a:	42a8      	cmp	r0, r5
+ 52c:	d3ee      	bcc.n	50c <calibrate_timestamp+0x1c>
+			alarm_ts += get_secs_in_month(current_dt->cal_alarm.datetime.date.year,
+ 52e:	7a51      	ldrb	r1, [r2, #9]
+ 530:	8950      	ldrh	r0, [r2, #10]
+ 532:	4b0a      	ldr	r3, [pc, #40]	; (55c <calibrate_timestamp+0x6c>)
+ 534:	4798      	blx	r3
+ 536:	182d      	adds	r5, r5, r0
+ 538:	e7e8      	b.n	50c <calibrate_timestamp+0x1c>
+		if (alarm_ts <= current_ts) {
+ 53a:	42a8      	cmp	r0, r5
+ 53c:	d3e6      	bcc.n	50c <calibrate_timestamp+0x1c>
+			if (leap_year(current_dt->cal_alarm.datetime.date.year)) {
+ 53e:	8953      	ldrh	r3, [r2, #10]
+ 540:	079b      	lsls	r3, r3, #30
+ 542:	d003      	beq.n	54c <calibrate_timestamp+0x5c>
+				alarm_ts += SECS_IN_NON_LEAP_YEAR;
+ 544:	4b06      	ldr	r3, [pc, #24]	; (560 <calibrate_timestamp+0x70>)
+ 546:	469c      	mov	ip, r3
+ 548:	4465      	add	r5, ip
+ 54a:	e7df      	b.n	50c <calibrate_timestamp+0x1c>
+				alarm_ts += SECS_IN_LEAP_YEAR;
+ 54c:	4b05      	ldr	r3, [pc, #20]	; (564 <calibrate_timestamp+0x74>)
+ 54e:	469c      	mov	ip, r3
+ 550:	4465      	add	r5, ip
+ 552:	e7db      	b.n	50c <calibrate_timestamp+0x1c>
+ 554:	00000ed4 	.word	0x00000ed4
+ 558:	00015180 	.word	0x00015180
+ 55c:	00000435 	.word	0x00000435
+ 560:	01e13380 	.word	0x01e13380
+ 564:	01e28500 	.word	0x01e28500
+
+00000568 <convert_datetime_to_timestamp>:
+{
+ 568:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 56a:	46de      	mov	lr, fp
+ 56c:	4657      	mov	r7, sl
+ 56e:	464e      	mov	r6, r9
+ 570:	4645      	mov	r5, r8
+ 572:	b5e0      	push	{r5, r6, r7, lr}
+ 574:	b083      	sub	sp, #12
+	year    = dt->date.year - calendar->base_year;
+ 576:	88cb      	ldrh	r3, [r1, #6]
+ 578:	001a      	movs	r2, r3
+ 57a:	9301      	str	r3, [sp, #4]
+ 57c:	6943      	ldr	r3, [r0, #20]
+	month   = dt->date.month;
+ 57e:	794e      	ldrb	r6, [r1, #5]
+	day     = dt->date.day;
+ 580:	7908      	ldrb	r0, [r1, #4]
+ 582:	4680      	mov	r8, r0
+	hour    = dt->time.hour;
+ 584:	7888      	ldrb	r0, [r1, #2]
+ 586:	4683      	mov	fp, r0
+	minutes = dt->time.min;
+ 588:	7848      	ldrb	r0, [r1, #1]
+ 58a:	4681      	mov	r9, r0
+	seconds = dt->time.sec;
+ 58c:	7809      	ldrb	r1, [r1, #0]
+ 58e:	468a      	mov	sl, r1
+	year    = dt->date.year - calendar->base_year;
+ 590:	1ad1      	subs	r1, r2, r3
+	for (i = 0; i < year; ++i) {
+ 592:	b2c9      	uxtb	r1, r1
+ 594:	2900      	cmp	r1, #0
+ 596:	d012      	beq.n	5be <convert_datetime_to_timestamp+0x56>
+ 598:	b29b      	uxth	r3, r3
+ 59a:	2200      	movs	r2, #0
+ 59c:	2400      	movs	r4, #0
+		if (leap_year(calendar->base_year + i)) {
+ 59e:	2003      	movs	r0, #3
+ 5a0:	e007      	b.n	5b2 <convert_datetime_to_timestamp+0x4a>
+			tmp += SECS_IN_NON_LEAP_YEAR;
+ 5a2:	4d19      	ldr	r5, [pc, #100]	; (608 <convert_datetime_to_timestamp+0xa0>)
+ 5a4:	46ac      	mov	ip, r5
+ 5a6:	4464      	add	r4, ip
+	for (i = 0; i < year; ++i) {
+ 5a8:	3201      	adds	r2, #1
+ 5aa:	3301      	adds	r3, #1
+ 5ac:	b29b      	uxth	r3, r3
+ 5ae:	428a      	cmp	r2, r1
+ 5b0:	d206      	bcs.n	5c0 <convert_datetime_to_timestamp+0x58>
+		if (leap_year(calendar->base_year + i)) {
+ 5b2:	4218      	tst	r0, r3
+ 5b4:	d1f5      	bne.n	5a2 <convert_datetime_to_timestamp+0x3a>
+			tmp += SECS_IN_LEAP_YEAR;
+ 5b6:	4d15      	ldr	r5, [pc, #84]	; (60c <convert_datetime_to_timestamp+0xa4>)
+ 5b8:	46ac      	mov	ip, r5
+ 5ba:	4464      	add	r4, ip
+ 5bc:	e7f4      	b.n	5a8 <convert_datetime_to_timestamp+0x40>
+	uint32_t tmp = 0;
+ 5be:	000c      	movs	r4, r1
+	for (i = 1; i < month; ++i) {
+ 5c0:	2e01      	cmp	r6, #1
+ 5c2:	d908      	bls.n	5d6 <convert_datetime_to_timestamp+0x6e>
+ 5c4:	2501      	movs	r5, #1
+		tmp += get_secs_in_month(dt->date.year, i);
+ 5c6:	4f12      	ldr	r7, [pc, #72]	; (610 <convert_datetime_to_timestamp+0xa8>)
+ 5c8:	b2e9      	uxtb	r1, r5
+ 5ca:	9801      	ldr	r0, [sp, #4]
+ 5cc:	47b8      	blx	r7
+ 5ce:	1824      	adds	r4, r4, r0
+	for (i = 1; i < month; ++i) {
+ 5d0:	3501      	adds	r5, #1
+ 5d2:	42b5      	cmp	r5, r6
+ 5d4:	d3f8      	bcc.n	5c8 <convert_datetime_to_timestamp+0x60>
+	tmp += hour * SECS_IN_HOUR;
+ 5d6:	20e1      	movs	r0, #225	; 0xe1
+ 5d8:	0100      	lsls	r0, r0, #4
+ 5da:	465b      	mov	r3, fp
+ 5dc:	4358      	muls	r0, r3
+	tmp += minutes * SECS_IN_MINUTE;
+ 5de:	464b      	mov	r3, r9
+ 5e0:	011b      	lsls	r3, r3, #4
+ 5e2:	464a      	mov	r2, r9
+ 5e4:	1a9b      	subs	r3, r3, r2
+ 5e6:	009b      	lsls	r3, r3, #2
+	tmp += seconds;
+ 5e8:	18c0      	adds	r0, r0, r3
+ 5ea:	4450      	add	r0, sl
+	tmp += (day - 1) * SECS_IN_DAY;
+ 5ec:	4642      	mov	r2, r8
+ 5ee:	3a01      	subs	r2, #1
+ 5f0:	4b08      	ldr	r3, [pc, #32]	; (614 <convert_datetime_to_timestamp+0xac>)
+ 5f2:	4353      	muls	r3, r2
+	tmp += seconds;
+ 5f4:	18c0      	adds	r0, r0, r3
+ 5f6:	1900      	adds	r0, r0, r4
+}
+ 5f8:	b003      	add	sp, #12
+ 5fa:	bc3c      	pop	{r2, r3, r4, r5}
+ 5fc:	4690      	mov	r8, r2
+ 5fe:	4699      	mov	r9, r3
+ 600:	46a2      	mov	sl, r4
+ 602:	46ab      	mov	fp, r5
+ 604:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 606:	46c0      	nop			; (mov r8, r8)
+ 608:	01e13380 	.word	0x01e13380
+ 60c:	01e28500 	.word	0x01e28500
+ 610:	00000435 	.word	0x00000435
+ 614:	00015180 	.word	0x00015180
+
+00000618 <convert_timestamp_to_datetime>:
+{
+ 618:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 61a:	46ce      	mov	lr, r9
+ 61c:	4647      	mov	r7, r8
+ 61e:	b580      	push	{r7, lr}
+ 620:	000c      	movs	r4, r1
+ 622:	4690      	mov	r8, r2
+	uint32_t tmp_year    = calendar->base_year;
+ 624:	6946      	ldr	r6, [r0, #20]
+		sec_in_year = leap_year(tmp_year) ? SECS_IN_LEAP_YEAR : SECS_IN_NON_LEAP_YEAR;
+ 626:	2103      	movs	r1, #3
+ 628:	4a22      	ldr	r2, [pc, #136]	; (6b4 <convert_timestamp_to_datetime+0x9c>)
+ 62a:	4823      	ldr	r0, [pc, #140]	; (6b8 <convert_timestamp_to_datetime+0xa0>)
+ 62c:	e003      	b.n	636 <convert_timestamp_to_datetime+0x1e>
+		if (tmp >= sec_in_year) {
+ 62e:	429c      	cmp	r4, r3
+ 630:	d307      	bcc.n	642 <convert_timestamp_to_datetime+0x2a>
+			tmp -= sec_in_year;
+ 632:	1ae4      	subs	r4, r4, r3
+			tmp_year++;
+ 634:	3601      	adds	r6, #1
+		sec_in_year = leap_year(tmp_year) ? SECS_IN_LEAP_YEAR : SECS_IN_NON_LEAP_YEAR;
+ 636:	b2b7      	uxth	r7, r6
+ 638:	0013      	movs	r3, r2
+ 63a:	4239      	tst	r1, r7
+ 63c:	d0f7      	beq.n	62e <convert_timestamp_to_datetime+0x16>
+ 63e:	0003      	movs	r3, r0
+ 640:	e7f5      	b.n	62e <convert_timestamp_to_datetime+0x16>
+ 642:	2501      	movs	r5, #1
+		sec_in_month = get_secs_in_month(tmp_year, tmp_month);
+ 644:	4b1d      	ldr	r3, [pc, #116]	; (6bc <convert_timestamp_to_datetime+0xa4>)
+ 646:	4699      	mov	r9, r3
+ 648:	0029      	movs	r1, r5
+ 64a:	0030      	movs	r0, r6
+ 64c:	47c8      	blx	r9
+		if (tmp >= sec_in_month) {
+ 64e:	4284      	cmp	r4, r0
+ 650:	d303      	bcc.n	65a <convert_timestamp_to_datetime+0x42>
+			tmp -= sec_in_month;
+ 652:	1a24      	subs	r4, r4, r0
+			tmp_month++;
+ 654:	3501      	adds	r5, #1
+ 656:	b2ed      	uxtb	r5, r5
+		sec_in_month = get_secs_in_month(tmp_year, tmp_month);
+ 658:	e7f6      	b.n	648 <convert_timestamp_to_datetime+0x30>
+		if (tmp >= SECS_IN_DAY) {
+ 65a:	4b19      	ldr	r3, [pc, #100]	; (6c0 <convert_timestamp_to_datetime+0xa8>)
+ 65c:	2101      	movs	r1, #1
+ 65e:	429c      	cmp	r4, r3
+ 660:	d907      	bls.n	672 <convert_timestamp_to_datetime+0x5a>
+ 662:	4b17      	ldr	r3, [pc, #92]	; (6c0 <convert_timestamp_to_datetime+0xa8>)
+			tmp -= SECS_IN_DAY;
+ 664:	4a17      	ldr	r2, [pc, #92]	; (6c4 <convert_timestamp_to_datetime+0xac>)
+ 666:	4694      	mov	ip, r2
+ 668:	4464      	add	r4, ip
+			tmp_day++;
+ 66a:	3101      	adds	r1, #1
+ 66c:	b2c9      	uxtb	r1, r1
+		if (tmp >= SECS_IN_DAY) {
+ 66e:	429c      	cmp	r4, r3
+ 670:	d8f8      	bhi.n	664 <convert_timestamp_to_datetime+0x4c>
+		if (tmp >= SECS_IN_HOUR) {
+ 672:	4b15      	ldr	r3, [pc, #84]	; (6c8 <convert_timestamp_to_datetime+0xb0>)
+ 674:	2200      	movs	r2, #0
+ 676:	429c      	cmp	r4, r3
+ 678:	d907      	bls.n	68a <convert_timestamp_to_datetime+0x72>
+ 67a:	4b13      	ldr	r3, [pc, #76]	; (6c8 <convert_timestamp_to_datetime+0xb0>)
+			tmp -= SECS_IN_HOUR;
+ 67c:	4813      	ldr	r0, [pc, #76]	; (6cc <convert_timestamp_to_datetime+0xb4>)
+ 67e:	4684      	mov	ip, r0
+ 680:	4464      	add	r4, ip
+			tmp_hour++;
+ 682:	3201      	adds	r2, #1
+ 684:	b2d2      	uxtb	r2, r2
+		if (tmp >= SECS_IN_HOUR) {
+ 686:	429c      	cmp	r4, r3
+ 688:	d8f8      	bhi.n	67c <convert_timestamp_to_datetime+0x64>
+		if (tmp >= SECS_IN_MINUTE) {
+ 68a:	2300      	movs	r3, #0
+ 68c:	2c3b      	cmp	r4, #59	; 0x3b
+ 68e:	d904      	bls.n	69a <convert_timestamp_to_datetime+0x82>
+			tmp -= SECS_IN_MINUTE;
+ 690:	3c3c      	subs	r4, #60	; 0x3c
+			tmp_minutes++;
+ 692:	3301      	adds	r3, #1
+ 694:	b2db      	uxtb	r3, r3
+		if (tmp >= SECS_IN_MINUTE) {
+ 696:	2c3b      	cmp	r4, #59	; 0x3b
+ 698:	d8fa      	bhi.n	690 <convert_timestamp_to_datetime+0x78>
+	dt->date.year  = tmp_year;
+ 69a:	4640      	mov	r0, r8
+ 69c:	80c7      	strh	r7, [r0, #6]
+	dt->date.month = tmp_month;
+ 69e:	7145      	strb	r5, [r0, #5]
+	dt->date.day   = tmp_day;
+ 6a0:	7101      	strb	r1, [r0, #4]
+	dt->time.hour  = tmp_hour;
+ 6a2:	7082      	strb	r2, [r0, #2]
+	dt->time.min   = tmp_minutes;
+ 6a4:	7043      	strb	r3, [r0, #1]
+	dt->time.sec   = tmp;
+ 6a6:	7004      	strb	r4, [r0, #0]
+}
+ 6a8:	2000      	movs	r0, #0
+ 6aa:	bc0c      	pop	{r2, r3}
+ 6ac:	4690      	mov	r8, r2
+ 6ae:	4699      	mov	r9, r3
+ 6b0:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 6b2:	46c0      	nop			; (mov r8, r8)
+ 6b4:	01e28500 	.word	0x01e28500
+ 6b8:	01e13380 	.word	0x01e13380
+ 6bc:	00000435 	.word	0x00000435
+ 6c0:	0001517f 	.word	0x0001517f
+ 6c4:	fffeae80 	.word	0xfffeae80
+ 6c8:	00000e0f 	.word	0x00000e0f
+ 6cc:	fffff1f0 	.word	0xfffff1f0
+
+000006d0 <calendar_alarm>:
+
+/** \brief callback for alarm
+ */
+static void calendar_alarm(struct calendar_dev *const dev)
+{
+ 6d0:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 6d2:	b087      	sub	sp, #28
+ 6d4:	0004      	movs	r4, r0
+	struct calendar_descriptor *calendar = CONTAINER_OF(dev, struct calendar_descriptor, device);
+
+	struct calendar_alarm *head, *it, current_dt;
+
+	if ((calendar->flags & SET_ALARM_BUSY) || (calendar->flags & PROCESS_ALARM_BUSY)) {
+ 6d6:	7e03      	ldrb	r3, [r0, #24]
+ 6d8:	079a      	lsls	r2, r3, #30
+ 6da:	d004      	beq.n	6e6 <calendar_alarm+0x16>
+		calendar->flags |= PROCESS_ALARM_BUSY;
+ 6dc:	2202      	movs	r2, #2
+ 6de:	4313      	orrs	r3, r2
+ 6e0:	7603      	strb	r3, [r0, #24]
+		return;
+	}
+
+	/*put the new head into register */
+	_calendar_set_comp(&calendar->device, it->cal_alarm.timestamp);
+}
+ 6e2:	b007      	add	sp, #28
+ 6e4:	bdf0      	pop	{r4, r5, r6, r7, pc}
+	current_dt.cal_alarm.timestamp = _calendar_get_counter(dev);
+ 6e6:	4b21      	ldr	r3, [pc, #132]	; (76c <calendar_alarm+0x9c>)
+ 6e8:	4798      	blx	r3
+ 6ea:	9003      	str	r0, [sp, #12]
+	return (void *)list->head;
+ 6ec:	6926      	ldr	r6, [r4, #16]
+	ASSERT(head);
+ 6ee:	0030      	movs	r0, r6
+ 6f0:	1e43      	subs	r3, r0, #1
+ 6f2:	4198      	sbcs	r0, r3
+ 6f4:	b2c0      	uxtb	r0, r0
+ 6f6:	22ce      	movs	r2, #206	; 0xce
+ 6f8:	0052      	lsls	r2, r2, #1
+ 6fa:	491d      	ldr	r1, [pc, #116]	; (770 <calendar_alarm+0xa0>)
+ 6fc:	4b1d      	ldr	r3, [pc, #116]	; (774 <calendar_alarm+0xa4>)
+ 6fe:	4798      	blx	r3
+	for (it = head; it; it = (struct calendar_alarm *)list_get_head(&calendar->alarms)) {
+ 700:	2e00      	cmp	r6, #0
+ 702:	d027      	beq.n	754 <calendar_alarm+0x84>
+		if (it->cal_alarm.timestamp <= current_dt.cal_alarm.timestamp) {
+ 704:	0035      	movs	r5, r6
+ 706:	68f3      	ldr	r3, [r6, #12]
+ 708:	9a03      	ldr	r2, [sp, #12]
+ 70a:	4293      	cmp	r3, r2
+ 70c:	d822      	bhi.n	754 <calendar_alarm+0x84>
+			list_remove_head(&calendar->alarms);
+ 70e:	4f1a      	ldr	r7, [pc, #104]	; (778 <calendar_alarm+0xa8>)
+ 710:	e007      	b.n	722 <calendar_alarm+0x52>
+ 712:	6923      	ldr	r3, [r4, #16]
+	for (it = head; it; it = (struct calendar_alarm *)list_get_head(&calendar->alarms)) {
+ 714:	2b00      	cmp	r3, #0
+ 716:	d024      	beq.n	762 <calendar_alarm+0x92>
+ 718:	001d      	movs	r5, r3
+		if (it->cal_alarm.timestamp <= current_dt.cal_alarm.timestamp) {
+ 71a:	68da      	ldr	r2, [r3, #12]
+ 71c:	9903      	ldr	r1, [sp, #12]
+ 71e:	428a      	cmp	r2, r1
+ 720:	d81a      	bhi.n	758 <calendar_alarm+0x88>
+			list_remove_head(&calendar->alarms);
+ 722:	0026      	movs	r6, r4
+ 724:	3610      	adds	r6, #16
+ 726:	0030      	movs	r0, r6
+ 728:	47b8      	blx	r7
+			it->callback(calendar);
+ 72a:	0020      	movs	r0, r4
+ 72c:	696b      	ldr	r3, [r5, #20]
+ 72e:	4798      	blx	r3
+			if (it->cal_alarm.mode == REPEAT) {
+ 730:	7c6b      	ldrb	r3, [r5, #17]
+ 732:	2b02      	cmp	r3, #2
+ 734:	d1ed      	bne.n	712 <calendar_alarm+0x42>
+				calibrate_timestamp(calendar, it, &current_dt);
+ 736:	466a      	mov	r2, sp
+ 738:	0029      	movs	r1, r5
+ 73a:	0020      	movs	r0, r4
+ 73c:	4b0f      	ldr	r3, [pc, #60]	; (77c <calendar_alarm+0xac>)
+ 73e:	4798      	blx	r3
+				convert_timestamp_to_datetime(calendar, it->cal_alarm.timestamp, &it->cal_alarm.datetime);
+ 740:	1d2a      	adds	r2, r5, #4
+ 742:	68e9      	ldr	r1, [r5, #12]
+ 744:	0020      	movs	r0, r4
+ 746:	4b0e      	ldr	r3, [pc, #56]	; (780 <calendar_alarm+0xb0>)
+ 748:	4798      	blx	r3
+				calendar_add_new_alarm(&calendar->alarms, it);
+ 74a:	0029      	movs	r1, r5
+ 74c:	0030      	movs	r0, r6
+ 74e:	4b0d      	ldr	r3, [pc, #52]	; (784 <calendar_alarm+0xb4>)
+ 750:	4798      	blx	r3
+ 752:	e7de      	b.n	712 <calendar_alarm+0x42>
+ 754:	1e33      	subs	r3, r6, #0
+	if (!it) {
+ 756:	d004      	beq.n	762 <calendar_alarm+0x92>
+	_calendar_set_comp(&calendar->device, it->cal_alarm.timestamp);
+ 758:	68d9      	ldr	r1, [r3, #12]
+ 75a:	0020      	movs	r0, r4
+ 75c:	4b0a      	ldr	r3, [pc, #40]	; (788 <calendar_alarm+0xb8>)
+ 75e:	4798      	blx	r3
+ 760:	e7bf      	b.n	6e2 <calendar_alarm+0x12>
+		_calendar_register_callback(&calendar->device, NULL);
+ 762:	2100      	movs	r1, #0
+ 764:	0020      	movs	r0, r4
+ 766:	4b09      	ldr	r3, [pc, #36]	; (78c <calendar_alarm+0xbc>)
+ 768:	4798      	blx	r3
+		return;
+ 76a:	e7ba      	b.n	6e2 <calendar_alarm+0x12>
+ 76c:	00000d1d 	.word	0x00000d1d
+ 770:	00000f04 	.word	0x00000f04
+ 774:	00000a85 	.word	0x00000a85
+ 778:	00000ae5 	.word	0x00000ae5
+ 77c:	000004f1 	.word	0x000004f1
+ 780:	00000619 	.word	0x00000619
+ 784:	00000489 	.word	0x00000489
+ 788:	00000d4d 	.word	0x00000d4d
+ 78c:	00000bc5 	.word	0x00000bc5
+
+00000790 <calendar_init>:
+
+/** \brief Initialize Calendar
+ */
+int32_t calendar_init(struct calendar_descriptor *const calendar, const void *hw)
+{
+ 790:	b570      	push	{r4, r5, r6, lr}
+ 792:	0004      	movs	r4, r0
+ 794:	000d      	movs	r5, r1
+	int32_t ret = 0;
+
+	/* Sanity check arguments */
+	ASSERT(calendar);
+ 796:	1e43      	subs	r3, r0, #1
+ 798:	4198      	sbcs	r0, r3
+ 79a:	b2c0      	uxtb	r0, r0
+ 79c:	22e0      	movs	r2, #224	; 0xe0
+ 79e:	0052      	lsls	r2, r2, #1
+ 7a0:	4909      	ldr	r1, [pc, #36]	; (7c8 <calendar_init+0x38>)
+ 7a2:	4b0a      	ldr	r3, [pc, #40]	; (7cc <calendar_init+0x3c>)
+ 7a4:	4798      	blx	r3
+
+	if (calendar->device.hw == hw) {
+ 7a6:	6823      	ldr	r3, [r4, #0]
+ 7a8:	42ab      	cmp	r3, r5
+ 7aa:	d008      	beq.n	7be <calendar_init+0x2e>
+		/* Already initialized with current configuration */
+		return ERR_NONE;
+	} else if (calendar->device.hw != NULL) {
+ 7ac:	2b00      	cmp	r3, #0
+ 7ae:	d108      	bne.n	7c2 <calendar_init+0x32>
+		/* Initialized with another configuration */
+		return ERR_ALREADY_INITIALIZED;
+	}
+	calendar->device.hw = (void *)hw;
+ 7b0:	6025      	str	r5, [r4, #0]
+	ret                 = _calendar_init(&calendar->device);
+ 7b2:	0020      	movs	r0, r4
+ 7b4:	4b06      	ldr	r3, [pc, #24]	; (7d0 <calendar_init+0x40>)
+ 7b6:	4798      	blx	r3
+	calendar->base_year = DEFAULT_BASE_YEAR;
+ 7b8:	4b06      	ldr	r3, [pc, #24]	; (7d4 <calendar_init+0x44>)
+ 7ba:	6163      	str	r3, [r4, #20]
+
+	return ret;
+}
+ 7bc:	bd70      	pop	{r4, r5, r6, pc}
+		return ERR_NONE;
+ 7be:	2000      	movs	r0, #0
+ 7c0:	e7fc      	b.n	7bc <calendar_init+0x2c>
+		return ERR_ALREADY_INITIALIZED;
+ 7c2:	2012      	movs	r0, #18
+ 7c4:	4240      	negs	r0, r0
+ 7c6:	e7f9      	b.n	7bc <calendar_init+0x2c>
+ 7c8:	00000f04 	.word	0x00000f04
+ 7cc:	00000a85 	.word	0x00000a85
+ 7d0:	00000c25 	.word	0x00000c25
+ 7d4:	000007b2 	.word	0x000007b2
+
+000007d8 <calendar_enable>:
+}
+
+/** \brief Enable the Calendar
+ */
+int32_t calendar_enable(struct calendar_descriptor *const calendar)
+{
+ 7d8:	b510      	push	{r4, lr}
+ 7da:	0004      	movs	r4, r0
+	/* Sanity check arguments */
+	ASSERT(calendar);
+ 7dc:	1e43      	subs	r3, r0, #1
+ 7de:	4198      	sbcs	r0, r3
+ 7e0:	b2c0      	uxtb	r0, r0
+ 7e2:	22e6      	movs	r2, #230	; 0xe6
+ 7e4:	32ff      	adds	r2, #255	; 0xff
+ 7e6:	4904      	ldr	r1, [pc, #16]	; (7f8 <calendar_enable+0x20>)
+ 7e8:	4b04      	ldr	r3, [pc, #16]	; (7fc <calendar_enable+0x24>)
+ 7ea:	4798      	blx	r3
+
+	_calendar_enable(&calendar->device);
+ 7ec:	0020      	movs	r0, r4
+ 7ee:	4b04      	ldr	r3, [pc, #16]	; (800 <calendar_enable+0x28>)
+ 7f0:	4798      	blx	r3
+
+	return ERR_NONE;
+}
+ 7f2:	2000      	movs	r0, #0
+ 7f4:	bd10      	pop	{r4, pc}
+ 7f6:	46c0      	nop			; (mov r8, r8)
+ 7f8:	00000f04 	.word	0x00000f04
+ 7fc:	00000a85 	.word	0x00000a85
+ 800:	00000cad 	.word	0x00000cad
+
+00000804 <calendar_set_time>:
+}
+
+/** \brief Set time for calendar
+ */
+int32_t calendar_set_time(struct calendar_descriptor *const calendar, struct calendar_time *const p_calendar_time)
+{
+ 804:	b530      	push	{r4, r5, lr}
+ 806:	b083      	sub	sp, #12
+ 808:	0004      	movs	r4, r0
+ 80a:	000d      	movs	r5, r1
+	struct calendar_date_time dt;
+	uint32_t                  current_ts, new_ts;
+
+	/* Sanity check arguments */
+	ASSERT(calendar);
+ 80c:	1e43      	subs	r3, r0, #1
+ 80e:	4198      	sbcs	r0, r3
+ 810:	b2c0      	uxtb	r0, r0
+ 812:	2283      	movs	r2, #131	; 0x83
+ 814:	0092      	lsls	r2, r2, #2
+ 816:	490e      	ldr	r1, [pc, #56]	; (850 <calendar_set_time+0x4c>)
+ 818:	4b0e      	ldr	r3, [pc, #56]	; (854 <calendar_set_time+0x50>)
+ 81a:	4798      	blx	r3
+
+	/* convert time to timestamp */
+	current_ts = _calendar_get_counter(&calendar->device);
+ 81c:	0020      	movs	r0, r4
+ 81e:	4b0e      	ldr	r3, [pc, #56]	; (858 <calendar_set_time+0x54>)
+ 820:	4798      	blx	r3
+ 822:	0001      	movs	r1, r0
+	convert_timestamp_to_datetime(calendar, current_ts, &dt);
+ 824:	466a      	mov	r2, sp
+ 826:	0020      	movs	r0, r4
+ 828:	4b0c      	ldr	r3, [pc, #48]	; (85c <calendar_set_time+0x58>)
+ 82a:	4798      	blx	r3
+	dt.time.sec  = p_calendar_time->sec;
+ 82c:	782b      	ldrb	r3, [r5, #0]
+ 82e:	466a      	mov	r2, sp
+ 830:	7013      	strb	r3, [r2, #0]
+	dt.time.min  = p_calendar_time->min;
+ 832:	786b      	ldrb	r3, [r5, #1]
+ 834:	7053      	strb	r3, [r2, #1]
+	dt.time.hour = p_calendar_time->hour;
+ 836:	78ab      	ldrb	r3, [r5, #2]
+ 838:	7093      	strb	r3, [r2, #2]
+
+	new_ts = convert_datetime_to_timestamp(calendar, &dt);
+ 83a:	4669      	mov	r1, sp
+ 83c:	0020      	movs	r0, r4
+ 83e:	4b08      	ldr	r3, [pc, #32]	; (860 <calendar_set_time+0x5c>)
+ 840:	4798      	blx	r3
+ 842:	0001      	movs	r1, r0
+
+	_calendar_set_counter(&calendar->device, new_ts);
+ 844:	0020      	movs	r0, r4
+ 846:	4b07      	ldr	r3, [pc, #28]	; (864 <calendar_set_time+0x60>)
+ 848:	4798      	blx	r3
+
+	return ERR_NONE;
+}
+ 84a:	2000      	movs	r0, #0
+ 84c:	b003      	add	sp, #12
+ 84e:	bd30      	pop	{r4, r5, pc}
+ 850:	00000f04 	.word	0x00000f04
+ 854:	00000a85 	.word	0x00000a85
+ 858:	00000d1d 	.word	0x00000d1d
+ 85c:	00000619 	.word	0x00000619
+ 860:	00000569 	.word	0x00000569
+ 864:	00000ce5 	.word	0x00000ce5
+
+00000868 <calendar_set_date>:
+
+/** \brief Set date for calendar
+ */
+int32_t calendar_set_date(struct calendar_descriptor *const calendar, struct calendar_date *const p_calendar_date)
+{
+ 868:	b530      	push	{r4, r5, lr}
+ 86a:	b083      	sub	sp, #12
+ 86c:	0004      	movs	r4, r0
+ 86e:	000d      	movs	r5, r1
+	struct calendar_date_time dt;
+	uint32_t                  current_ts, new_ts;
+
+	/* Sanity check arguments */
+	ASSERT(calendar);
+ 870:	1e43      	subs	r3, r0, #1
+ 872:	4198      	sbcs	r0, r3
+ 874:	b2c0      	uxtb	r0, r0
+ 876:	2289      	movs	r2, #137	; 0x89
+ 878:	0092      	lsls	r2, r2, #2
+ 87a:	490e      	ldr	r1, [pc, #56]	; (8b4 <calendar_set_date+0x4c>)
+ 87c:	4b0e      	ldr	r3, [pc, #56]	; (8b8 <calendar_set_date+0x50>)
+ 87e:	4798      	blx	r3
+
+	/* convert date to timestamp */
+	current_ts = _calendar_get_counter(&calendar->device);
+ 880:	0020      	movs	r0, r4
+ 882:	4b0e      	ldr	r3, [pc, #56]	; (8bc <calendar_set_date+0x54>)
+ 884:	4798      	blx	r3
+ 886:	0001      	movs	r1, r0
+	convert_timestamp_to_datetime(calendar, current_ts, &dt);
+ 888:	466a      	mov	r2, sp
+ 88a:	0020      	movs	r0, r4
+ 88c:	4b0c      	ldr	r3, [pc, #48]	; (8c0 <calendar_set_date+0x58>)
+ 88e:	4798      	blx	r3
+	dt.date.day   = p_calendar_date->day;
+ 890:	782b      	ldrb	r3, [r5, #0]
+ 892:	466a      	mov	r2, sp
+ 894:	7113      	strb	r3, [r2, #4]
+	dt.date.month = p_calendar_date->month;
+ 896:	786b      	ldrb	r3, [r5, #1]
+ 898:	7153      	strb	r3, [r2, #5]
+	dt.date.year  = p_calendar_date->year;
+ 89a:	886b      	ldrh	r3, [r5, #2]
+ 89c:	80d3      	strh	r3, [r2, #6]
+
+	new_ts = convert_datetime_to_timestamp(calendar, &dt);
+ 89e:	4669      	mov	r1, sp
+ 8a0:	0020      	movs	r0, r4
+ 8a2:	4b08      	ldr	r3, [pc, #32]	; (8c4 <calendar_set_date+0x5c>)
+ 8a4:	4798      	blx	r3
+ 8a6:	0001      	movs	r1, r0
+
+	_calendar_set_counter(&calendar->device, new_ts);
+ 8a8:	0020      	movs	r0, r4
+ 8aa:	4b07      	ldr	r3, [pc, #28]	; (8c8 <calendar_set_date+0x60>)
+ 8ac:	4798      	blx	r3
+
+	return ERR_NONE;
+}
+ 8ae:	2000      	movs	r0, #0
+ 8b0:	b003      	add	sp, #12
+ 8b2:	bd30      	pop	{r4, r5, pc}
+ 8b4:	00000f04 	.word	0x00000f04
+ 8b8:	00000a85 	.word	0x00000a85
+ 8bc:	00000d1d 	.word	0x00000d1d
+ 8c0:	00000619 	.word	0x00000619
+ 8c4:	00000569 	.word	0x00000569
+ 8c8:	00000ce5 	.word	0x00000ce5
+
+000008cc <calendar_set_alarm>:
+
+/** \brief Set alarm for calendar
+ */
+int32_t calendar_set_alarm(struct calendar_descriptor *const calendar, struct calendar_alarm *const alarm,
+                           calendar_cb_alarm_t callback)
+{
+ 8cc:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8ce:	b087      	sub	sp, #28
+ 8d0:	0004      	movs	r4, r0
+ 8d2:	000d      	movs	r5, r1
+ 8d4:	0017      	movs	r7, r2
+	struct calendar_alarm *head;
+
+	/* Sanity check arguments */
+	ASSERT(calendar);
+ 8d6:	1e43      	subs	r3, r0, #1
+ 8d8:	4198      	sbcs	r0, r3
+ 8da:	b2c0      	uxtb	r0, r0
+ 8dc:	2293      	movs	r2, #147	; 0x93
+ 8de:	0092      	lsls	r2, r2, #2
+ 8e0:	4958      	ldr	r1, [pc, #352]	; (a44 <calendar_set_alarm+0x178>)
+ 8e2:	4e59      	ldr	r6, [pc, #356]	; (a48 <calendar_set_alarm+0x17c>)
+ 8e4:	47b0      	blx	r6
+	ASSERT(alarm);
+ 8e6:	0028      	movs	r0, r5
+ 8e8:	1e43      	subs	r3, r0, #1
+ 8ea:	4198      	sbcs	r0, r3
+ 8ec:	b2c0      	uxtb	r0, r0
+ 8ee:	4a57      	ldr	r2, [pc, #348]	; (a4c <calendar_set_alarm+0x180>)
+ 8f0:	4954      	ldr	r1, [pc, #336]	; (a44 <calendar_set_alarm+0x178>)
+ 8f2:	47b0      	blx	r6
+
+	alarm->callback = callback;
+ 8f4:	616f      	str	r7, [r5, #20]
+	current_ts = _calendar_get_counter(&calendar->device);
+ 8f6:	0020      	movs	r0, r4
+ 8f8:	4b55      	ldr	r3, [pc, #340]	; (a50 <calendar_set_alarm+0x184>)
+ 8fa:	4798      	blx	r3
+ 8fc:	0006      	movs	r6, r0
+	convert_timestamp_to_datetime(calendar, current_ts, &current_dt.cal_alarm.datetime);
+ 8fe:	aa01      	add	r2, sp, #4
+ 900:	0001      	movs	r1, r0
+ 902:	0020      	movs	r0, r4
+ 904:	4b53      	ldr	r3, [pc, #332]	; (a54 <calendar_set_alarm+0x188>)
+ 906:	4798      	blx	r3
+	current_dt.cal_alarm.timestamp = current_ts;
+ 908:	9603      	str	r6, [sp, #12]
+	switch (alarm->cal_alarm.option) {
+ 90a:	7c2b      	ldrb	r3, [r5, #16]
+ 90c:	2b05      	cmp	r3, #5
+ 90e:	d812      	bhi.n	936 <calendar_set_alarm+0x6a>
+ 910:	009b      	lsls	r3, r3, #2
+ 912:	4a51      	ldr	r2, [pc, #324]	; (a58 <calendar_set_alarm+0x18c>)
+ 914:	58d3      	ldr	r3, [r2, r3]
+ 916:	469f      	mov	pc, r3
+		alarm->cal_alarm.datetime.date.year  = current_dt.cal_alarm.datetime.date.year;
+ 918:	466b      	mov	r3, sp
+ 91a:	895b      	ldrh	r3, [r3, #10]
+ 91c:	816b      	strh	r3, [r5, #10]
+		alarm->cal_alarm.datetime.date.month = current_dt.cal_alarm.datetime.date.month;
+ 91e:	466b      	mov	r3, sp
+ 920:	7a5b      	ldrb	r3, [r3, #9]
+ 922:	726b      	strb	r3, [r5, #9]
+		alarm->cal_alarm.datetime.date.day   = current_dt.cal_alarm.datetime.date.day;
+ 924:	466b      	mov	r3, sp
+ 926:	7a1b      	ldrb	r3, [r3, #8]
+ 928:	722b      	strb	r3, [r5, #8]
+		alarm->cal_alarm.datetime.time.hour  = current_dt.cal_alarm.datetime.time.hour;
+ 92a:	466b      	mov	r3, sp
+ 92c:	799b      	ldrb	r3, [r3, #6]
+ 92e:	71ab      	strb	r3, [r5, #6]
+		alarm->cal_alarm.datetime.time.min   = current_dt.cal_alarm.datetime.time.min;
+ 930:	466b      	mov	r3, sp
+ 932:	795b      	ldrb	r3, [r3, #5]
+ 934:	716b      	strb	r3, [r5, #5]
+	tmp                        = convert_datetime_to_timestamp(calendar, &alarm->cal_alarm.datetime);
+ 936:	1d2e      	adds	r6, r5, #4
+ 938:	0031      	movs	r1, r6
+ 93a:	0020      	movs	r0, r4
+ 93c:	4b47      	ldr	r3, [pc, #284]	; (a5c <calendar_set_alarm+0x190>)
+ 93e:	4798      	blx	r3
+	alarm->cal_alarm.timestamp = tmp;
+ 940:	60e8      	str	r0, [r5, #12]
+	calibrate_timestamp(calendar, alarm, &current_dt);
+ 942:	466a      	mov	r2, sp
+ 944:	0029      	movs	r1, r5
+ 946:	0020      	movs	r0, r4
+ 948:	4b45      	ldr	r3, [pc, #276]	; (a60 <calendar_set_alarm+0x194>)
+ 94a:	4798      	blx	r3
+	convert_timestamp_to_datetime(calendar, alarm->cal_alarm.timestamp, &alarm->cal_alarm.datetime);
+ 94c:	0032      	movs	r2, r6
+ 94e:	68e9      	ldr	r1, [r5, #12]
+ 950:	0020      	movs	r0, r4
+ 952:	4b40      	ldr	r3, [pc, #256]	; (a54 <calendar_set_alarm+0x188>)
+ 954:	4798      	blx	r3
+
+	fill_alarm(calendar, alarm);
+
+	calendar->flags |= SET_ALARM_BUSY;
+ 956:	7e23      	ldrb	r3, [r4, #24]
+ 958:	2201      	movs	r2, #1
+ 95a:	4313      	orrs	r3, r2
+ 95c:	7623      	strb	r3, [r4, #24]
+
+	head = (struct calendar_alarm *)list_get_head(&calendar->alarms);
+
+	if (head != NULL) {
+ 95e:	6923      	ldr	r3, [r4, #16]
+ 960:	2b00      	cmp	r3, #0
+ 962:	d062      	beq.n	a2a <calendar_set_alarm+0x15e>
+		/* already added */
+		if (is_list_element(&calendar->alarms, alarm)) {
+ 964:	0026      	movs	r6, r4
+ 966:	3610      	adds	r6, #16
+ 968:	0029      	movs	r1, r5
+ 96a:	0030      	movs	r0, r6
+ 96c:	4b3d      	ldr	r3, [pc, #244]	; (a64 <calendar_set_alarm+0x198>)
+ 96e:	4798      	blx	r3
+ 970:	2800      	cmp	r0, #0
+ 972:	d045      	beq.n	a00 <calendar_set_alarm+0x134>
+			if (callback == NULL) {
+ 974:	2f00      	cmp	r7, #0
+ 976:	d037      	beq.n	9e8 <calendar_set_alarm+0x11c>
+				if (!list_get_head(&calendar->alarms)) {
+					_calendar_register_callback(&calendar->device, NULL);
+				}
+			} else {
+				/* re-add */
+				list_delete_element(&calendar->alarms, alarm);
+ 978:	0029      	movs	r1, r5
+ 97a:	0030      	movs	r0, r6
+ 97c:	4b3a      	ldr	r3, [pc, #232]	; (a68 <calendar_set_alarm+0x19c>)
+ 97e:	4798      	blx	r3
+				calendar_add_new_alarm(&calendar->alarms, alarm);
+ 980:	0029      	movs	r1, r5
+ 982:	0030      	movs	r0, r6
+ 984:	4b39      	ldr	r3, [pc, #228]	; (a6c <calendar_set_alarm+0x1a0>)
+ 986:	4798      	blx	r3
+			}
+		} else if (callback != NULL) {
+			calendar_add_new_alarm(&calendar->alarms, alarm);
+		}
+
+		calendar->flags &= ~SET_ALARM_BUSY;
+ 988:	7e23      	ldrb	r3, [r4, #24]
+ 98a:	2201      	movs	r2, #1
+ 98c:	0019      	movs	r1, r3
+ 98e:	4391      	bics	r1, r2
+ 990:	7621      	strb	r1, [r4, #24]
+
+		if (calendar->flags & PROCESS_ALARM_BUSY) {
+ 992:	079b      	lsls	r3, r3, #30
+ 994:	d43b      	bmi.n	a0e <calendar_set_alarm+0x142>
+		/* if head is NULL, Register callback*/
+		_calendar_register_callback(&calendar->device, calendar_alarm);
+		calendar_add_new_alarm(&calendar->alarms, alarm);
+	}
+
+	calendar->flags &= ~SET_ALARM_BUSY;
+ 996:	7e23      	ldrb	r3, [r4, #24]
+ 998:	2201      	movs	r2, #1
+ 99a:	4393      	bics	r3, r2
+ 99c:	7623      	strb	r3, [r4, #24]
+
+	return ERR_NONE;
+}
+ 99e:	2000      	movs	r0, #0
+ 9a0:	b007      	add	sp, #28
+ 9a2:	bdf0      	pop	{r4, r5, r6, r7, pc}
+		alarm->cal_alarm.datetime.date.year  = current_dt.cal_alarm.datetime.date.year;
+ 9a4:	466b      	mov	r3, sp
+ 9a6:	895b      	ldrh	r3, [r3, #10]
+ 9a8:	816b      	strh	r3, [r5, #10]
+		alarm->cal_alarm.datetime.date.month = current_dt.cal_alarm.datetime.date.month;
+ 9aa:	466b      	mov	r3, sp
+ 9ac:	7a5b      	ldrb	r3, [r3, #9]
+ 9ae:	726b      	strb	r3, [r5, #9]
+		alarm->cal_alarm.datetime.date.day   = current_dt.cal_alarm.datetime.date.day;
+ 9b0:	466b      	mov	r3, sp
+ 9b2:	7a1b      	ldrb	r3, [r3, #8]
+ 9b4:	722b      	strb	r3, [r5, #8]
+		alarm->cal_alarm.datetime.time.hour  = current_dt.cal_alarm.datetime.time.hour;
+ 9b6:	466b      	mov	r3, sp
+ 9b8:	799b      	ldrb	r3, [r3, #6]
+ 9ba:	71ab      	strb	r3, [r5, #6]
+ 9bc:	e7bb      	b.n	936 <calendar_set_alarm+0x6a>
+		alarm->cal_alarm.datetime.date.year  = current_dt.cal_alarm.datetime.date.year;
+ 9be:	466b      	mov	r3, sp
+ 9c0:	895b      	ldrh	r3, [r3, #10]
+ 9c2:	816b      	strh	r3, [r5, #10]
+		alarm->cal_alarm.datetime.date.month = current_dt.cal_alarm.datetime.date.month;
+ 9c4:	466b      	mov	r3, sp
+ 9c6:	7a5b      	ldrb	r3, [r3, #9]
+ 9c8:	726b      	strb	r3, [r5, #9]
+		alarm->cal_alarm.datetime.date.day   = current_dt.cal_alarm.datetime.date.day;
+ 9ca:	466b      	mov	r3, sp
+ 9cc:	7a1b      	ldrb	r3, [r3, #8]
+ 9ce:	722b      	strb	r3, [r5, #8]
+ 9d0:	e7b1      	b.n	936 <calendar_set_alarm+0x6a>
+		alarm->cal_alarm.datetime.date.year  = current_dt.cal_alarm.datetime.date.year;
+ 9d2:	466b      	mov	r3, sp
+ 9d4:	895b      	ldrh	r3, [r3, #10]
+ 9d6:	816b      	strh	r3, [r5, #10]
+		alarm->cal_alarm.datetime.date.month = current_dt.cal_alarm.datetime.date.month;
+ 9d8:	466b      	mov	r3, sp
+ 9da:	7a5b      	ldrb	r3, [r3, #9]
+ 9dc:	726b      	strb	r3, [r5, #9]
+ 9de:	e7aa      	b.n	936 <calendar_set_alarm+0x6a>
+		alarm->cal_alarm.datetime.date.year = current_dt.cal_alarm.datetime.date.year;
+ 9e0:	466b      	mov	r3, sp
+ 9e2:	895b      	ldrh	r3, [r3, #10]
+ 9e4:	816b      	strh	r3, [r5, #10]
+ 9e6:	e7a6      	b.n	936 <calendar_set_alarm+0x6a>
+				list_delete_element(&calendar->alarms, alarm);
+ 9e8:	0029      	movs	r1, r5
+ 9ea:	0030      	movs	r0, r6
+ 9ec:	4b1e      	ldr	r3, [pc, #120]	; (a68 <calendar_set_alarm+0x19c>)
+ 9ee:	4798      	blx	r3
+				if (!list_get_head(&calendar->alarms)) {
+ 9f0:	6923      	ldr	r3, [r4, #16]
+ 9f2:	2b00      	cmp	r3, #0
+ 9f4:	d1c8      	bne.n	988 <calendar_set_alarm+0xbc>
+					_calendar_register_callback(&calendar->device, NULL);
+ 9f6:	2100      	movs	r1, #0
+ 9f8:	0020      	movs	r0, r4
+ 9fa:	4b1d      	ldr	r3, [pc, #116]	; (a70 <calendar_set_alarm+0x1a4>)
+ 9fc:	4798      	blx	r3
+ 9fe:	e7c3      	b.n	988 <calendar_set_alarm+0xbc>
+		} else if (callback != NULL) {
+ a00:	2f00      	cmp	r7, #0
+ a02:	d0c1      	beq.n	988 <calendar_set_alarm+0xbc>
+			calendar_add_new_alarm(&calendar->alarms, alarm);
+ a04:	0029      	movs	r1, r5
+ a06:	0030      	movs	r0, r6
+ a08:	4b18      	ldr	r3, [pc, #96]	; (a6c <calendar_set_alarm+0x1a0>)
+ a0a:	4798      	blx	r3
+ a0c:	e7bc      	b.n	988 <calendar_set_alarm+0xbc>
+			CRITICAL_SECTION_ENTER()
+ a0e:	4668      	mov	r0, sp
+ a10:	4b18      	ldr	r3, [pc, #96]	; (a74 <calendar_set_alarm+0x1a8>)
+ a12:	4798      	blx	r3
+			calendar->flags &= ~PROCESS_ALARM_BUSY;
+ a14:	7e23      	ldrb	r3, [r4, #24]
+ a16:	2202      	movs	r2, #2
+ a18:	4393      	bics	r3, r2
+ a1a:	7623      	strb	r3, [r4, #24]
+			_calendar_set_irq(&calendar->device);
+ a1c:	0020      	movs	r0, r4
+ a1e:	4b16      	ldr	r3, [pc, #88]	; (a78 <calendar_set_alarm+0x1ac>)
+ a20:	4798      	blx	r3
+			CRITICAL_SECTION_LEAVE()
+ a22:	4668      	mov	r0, sp
+ a24:	4b15      	ldr	r3, [pc, #84]	; (a7c <calendar_set_alarm+0x1b0>)
+ a26:	4798      	blx	r3
+ a28:	e7b5      	b.n	996 <calendar_set_alarm+0xca>
+	} else if (callback != NULL) {
+ a2a:	2f00      	cmp	r7, #0
+ a2c:	d0b3      	beq.n	996 <calendar_set_alarm+0xca>
+		_calendar_register_callback(&calendar->device, calendar_alarm);
+ a2e:	4914      	ldr	r1, [pc, #80]	; (a80 <calendar_set_alarm+0x1b4>)
+ a30:	0020      	movs	r0, r4
+ a32:	4b0f      	ldr	r3, [pc, #60]	; (a70 <calendar_set_alarm+0x1a4>)
+ a34:	4798      	blx	r3
+		calendar_add_new_alarm(&calendar->alarms, alarm);
+ a36:	0020      	movs	r0, r4
+ a38:	3010      	adds	r0, #16
+ a3a:	0029      	movs	r1, r5
+ a3c:	4b0b      	ldr	r3, [pc, #44]	; (a6c <calendar_set_alarm+0x1a0>)
+ a3e:	4798      	blx	r3
+ a40:	e7a9      	b.n	996 <calendar_set_alarm+0xca>
+ a42:	46c0      	nop			; (mov r8, r8)
+ a44:	00000f04 	.word	0x00000f04
+ a48:	00000a85 	.word	0x00000a85
+ a4c:	0000024d 	.word	0x0000024d
+ a50:	00000d1d 	.word	0x00000d1d
+ a54:	00000619 	.word	0x00000619
+ a58:	00000eec 	.word	0x00000eec
+ a5c:	00000569 	.word	0x00000569
+ a60:	000004f1 	.word	0x000004f1
+ a64:	00000a8d 	.word	0x00000a8d
+ a68:	00000af3 	.word	0x00000af3
+ a6c:	00000489 	.word	0x00000489
+ a70:	00000bc5 	.word	0x00000bc5
+ a74:	00000419 	.word	0x00000419
+ a78:	00000d85 	.word	0x00000d85
+ a7c:	00000427 	.word	0x00000427
+ a80:	000006d1 	.word	0x000006d1
+
+00000a84 <assert>:
+/**
+ * \brief Assert function
+ */
+void assert(const bool condition, const char *const file, const int line)
+{
+	if (!(condition)) {
+ a84:	2800      	cmp	r0, #0
+ a86:	d100      	bne.n	a8a <assert+0x6>
+		__asm("BKPT #0");
+ a88:	be00      	bkpt	0x0000
+	}
+	(void)file;
+	(void)line;
+}
+ a8a:	4770      	bx	lr
+
+00000a8c <is_list_element>:
+ * \brief Check whether element belongs to list
+ */
+bool is_list_element(const struct list_descriptor *const list, const void *const element)
+{
+	struct list_element *it;
+	for (it = list->head; it; it = it->next) {
+ a8c:	6803      	ldr	r3, [r0, #0]
+ a8e:	2b00      	cmp	r3, #0
+ a90:	d00a      	beq.n	aa8 <is_list_element+0x1c>
+		if (it == element) {
+ a92:	428b      	cmp	r3, r1
+ a94:	d00a      	beq.n	aac <is_list_element+0x20>
+	for (it = list->head; it; it = it->next) {
+ a96:	681b      	ldr	r3, [r3, #0]
+ a98:	2b00      	cmp	r3, #0
+ a9a:	d003      	beq.n	aa4 <is_list_element+0x18>
+		if (it == element) {
+ a9c:	4299      	cmp	r1, r3
+ a9e:	d1fa      	bne.n	a96 <is_list_element+0xa>
+			return true;
+ aa0:	2001      	movs	r0, #1
+ aa2:	e000      	b.n	aa6 <is_list_element+0x1a>
+		}
+	}
+
+	return false;
+ aa4:	2000      	movs	r0, #0
+}
+ aa6:	4770      	bx	lr
+	return false;
+ aa8:	2000      	movs	r0, #0
+ aaa:	e7fc      	b.n	aa6 <is_list_element+0x1a>
+			return true;
+ aac:	2001      	movs	r0, #1
+ aae:	e7fa      	b.n	aa6 <is_list_element+0x1a>
+
+00000ab0 <list_insert_as_head>:
+
+/**
+ * \brief Insert an element as list head
+ */
+void list_insert_as_head(struct list_descriptor *const list, void *const element)
+{
+ ab0:	b570      	push	{r4, r5, r6, lr}
+ ab2:	0004      	movs	r4, r0
+ ab4:	000d      	movs	r5, r1
+	ASSERT(!is_list_element(list, element));
+ ab6:	4b06      	ldr	r3, [pc, #24]	; (ad0 <list_insert_as_head+0x20>)
+ ab8:	4798      	blx	r3
+ aba:	2301      	movs	r3, #1
+ abc:	4058      	eors	r0, r3
+ abe:	b2c0      	uxtb	r0, r0
+ ac0:	2239      	movs	r2, #57	; 0x39
+ ac2:	4904      	ldr	r1, [pc, #16]	; (ad4 <list_insert_as_head+0x24>)
+ ac4:	4b04      	ldr	r3, [pc, #16]	; (ad8 <list_insert_as_head+0x28>)
+ ac6:	4798      	blx	r3
+
+	((struct list_element *)element)->next = list->head;
+ ac8:	6823      	ldr	r3, [r4, #0]
+ aca:	602b      	str	r3, [r5, #0]
+	list->head                             = (struct list_element *)element;
+ acc:	6025      	str	r5, [r4, #0]
+}
+ ace:	bd70      	pop	{r4, r5, r6, pc}
+ ad0:	00000a8d 	.word	0x00000a8d
+ ad4:	00000f20 	.word	0x00000f20
+ ad8:	00000a85 	.word	0x00000a85
+
+00000adc <list_insert_after>:
+/**
+ * \brief Insert an element after the given list element
+ */
+void list_insert_after(void *const after, void *const element)
+{
+	((struct list_element *)element)->next = ((struct list_element *)after)->next;
+ adc:	6803      	ldr	r3, [r0, #0]
+ ade:	600b      	str	r3, [r1, #0]
+	((struct list_element *)after)->next   = (struct list_element *)element;
+ ae0:	6001      	str	r1, [r0, #0]
+}
+ ae2:	4770      	bx	lr
+
+00000ae4 <list_remove_head>:
+/**
+ * \brief Removes list head
+ */
+void *list_remove_head(struct list_descriptor *const list)
+{
+	if (list->head) {
+ ae4:	6803      	ldr	r3, [r0, #0]
+ ae6:	2b00      	cmp	r3, #0
+ ae8:	d001      	beq.n	aee <list_remove_head+0xa>
+		struct list_element *tmp = list->head;
+
+		list->head = list->head->next;
+ aea:	681a      	ldr	r2, [r3, #0]
+ aec:	6002      	str	r2, [r0, #0]
+		return (void *)tmp;
+	}
+
+	return NULL;
+}
+ aee:	0018      	movs	r0, r3
+ af0:	4770      	bx	lr
+
+00000af2 <list_delete_element>:
+/**
+ * \brief Removes list element
+ */
+bool list_delete_element(struct list_descriptor *const list, const void *const element)
+{
+	if (!element) {
+ af2:	2900      	cmp	r1, #0
+ af4:	d019      	beq.n	b2a <list_delete_element+0x38>
+		return false;
+	}
+
+	if (list->head == element) {
+ af6:	6802      	ldr	r2, [r0, #0]
+ af8:	4291      	cmp	r1, r2
+ afa:	d00b      	beq.n	b14 <list_delete_element+0x22>
+		list->head = list->head->next;
+		return true;
+	} else {
+		struct list_element *it = list->head;
+
+		while (it && it->next != element) {
+ afc:	2a00      	cmp	r2, #0
+ afe:	d016      	beq.n	b2e <list_delete_element+0x3c>
+ b00:	6813      	ldr	r3, [r2, #0]
+ b02:	4299      	cmp	r1, r3
+ b04:	d00a      	beq.n	b1c <list_delete_element+0x2a>
+ b06:	2b00      	cmp	r3, #0
+ b08:	d00d      	beq.n	b26 <list_delete_element+0x34>
+ b0a:	681a      	ldr	r2, [r3, #0]
+ b0c:	4291      	cmp	r1, r2
+ b0e:	d006      	beq.n	b1e <list_delete_element+0x2c>
+ b10:	0013      	movs	r3, r2
+ b12:	e7f8      	b.n	b06 <list_delete_element+0x14>
+		list->head = list->head->next;
+ b14:	6813      	ldr	r3, [r2, #0]
+ b16:	6003      	str	r3, [r0, #0]
+		return true;
+ b18:	2001      	movs	r0, #1
+ b1a:	e003      	b.n	b24 <list_delete_element+0x32>
+		while (it && it->next != element) {
+ b1c:	0013      	movs	r3, r2
+			it = it->next;
+		}
+		if (it) {
+			it->next = ((struct list_element *)element)->next;
+ b1e:	680a      	ldr	r2, [r1, #0]
+ b20:	601a      	str	r2, [r3, #0]
+			return true;
+ b22:	2001      	movs	r0, #1
+		}
+	}
+
+	return false;
+}
+ b24:	4770      	bx	lr
+	return false;
+ b26:	2000      	movs	r0, #0
+ b28:	e7fc      	b.n	b24 <list_delete_element+0x32>
+		return false;
+ b2a:	2000      	movs	r0, #0
+ b2c:	e7fa      	b.n	b24 <list_delete_element+0x32>
+	return false;
+ b2e:	2000      	movs	r0, #0
+ b30:	e7f8      	b.n	b24 <list_delete_element+0x32>
+	...
+
+00000b34 <_init_chip>:
+
+/**
+ * \brief Initialize the hardware abstraction layer
+ */
+void _init_chip(void)
+{
+ b34:	b510      	push	{r4, lr}
+}
+
+static inline void hri_nvmctrl_set_CTRLB_RWS_bf(const void *const hw, hri_nvmctrl_ctrlb_reg_t mask)
+{
+	NVMCTRL_CRITICAL_SECTION_ENTER();
+	((Nvmctrl *)hw)->CTRLB.reg |= NVMCTRL_CTRLB_RWS(mask);
+ b36:	4b06      	ldr	r3, [pc, #24]	; (b50 <_init_chip+0x1c>)
+ b38:	685a      	ldr	r2, [r3, #4]
+ b3a:	605a      	str	r2, [r3, #4]
+	hri_nvmctrl_set_CTRLB_RWS_bf(NVMCTRL, CONF_NVM_WAIT_STATE);
+
+	_pm_init();
+ b3c:	4b05      	ldr	r3, [pc, #20]	; (b54 <_init_chip+0x20>)
+ b3e:	4798      	blx	r3
+	_sysctrl_init_sources();
+ b40:	4b05      	ldr	r3, [pc, #20]	; (b58 <_init_chip+0x24>)
+ b42:	4798      	blx	r3
+#if _GCLK_INIT_1ST
+	_gclk_init_generators_by_fref(_GCLK_INIT_1ST);
+#endif
+	_sysctrl_init_referenced_generators();
+ b44:	4b05      	ldr	r3, [pc, #20]	; (b5c <_init_chip+0x28>)
+ b46:	4798      	blx	r3
+	_gclk_init_generators_by_fref(_GCLK_INIT_LAST);
+ b48:	20ff      	movs	r0, #255	; 0xff
+ b4a:	4b05      	ldr	r3, [pc, #20]	; (b60 <_init_chip+0x2c>)
+ b4c:	4798      	blx	r3
+#if CONF_DMAC_ENABLE
+	_pm_enable_bus_clock(PM_BUS_AHB, DMAC);
+	_pm_enable_bus_clock(PM_BUS_APBB, DMAC);
+	_dma_init();
+#endif
+}
+ b4e:	bd10      	pop	{r4, pc}
+ b50:	41004000 	.word	0x41004000
+ b54:	00000ba5 	.word	0x00000ba5
+ b58:	00000db9 	.word	0x00000db9
+ b5c:	00000e21 	.word	0x00000e21
+ b60:	00000b65 	.word	0x00000b65
+
+00000b64 <_gclk_init_generators_by_fref>:
+
+void _gclk_init_generators_by_fref(uint32_t bm)
+{
+
+#if CONF_GCLK_GENERATOR_0_CONFIG == 1
+	if (bm & (1ul << 0)) {
+ b64:	07c3      	lsls	r3, r0, #31
+ b66:	d50a      	bpl.n	b7e <_gclk_init_generators_by_fref+0x1a>
+}
+
+static inline void hri_gclk_write_GENDIV_reg(const void *const hw, hri_gclk_gendiv_reg_t data)
+{
+	GCLK_CRITICAL_SECTION_ENTER();
+	((Gclk *)hw)->GENDIV.reg = data;
+ b68:	4b0b      	ldr	r3, [pc, #44]	; (b98 <_gclk_init_generators_by_fref+0x34>)
+ b6a:	2280      	movs	r2, #128	; 0x80
+ b6c:	0052      	lsls	r2, r2, #1
+ b6e:	609a      	str	r2, [r3, #8]
+	((Gclk *)hw)->GENCTRL.reg = data;
+ b70:	2283      	movs	r2, #131	; 0x83
+ b72:	0252      	lsls	r2, r2, #9
+ b74:	605a      	str	r2, [r3, #4]
+	while (((const Gclk *)hw)->STATUS.bit.SYNCBUSY)
+ b76:	001a      	movs	r2, r3
+ b78:	7853      	ldrb	r3, [r2, #1]
+ b7a:	09db      	lsrs	r3, r3, #7
+ b7c:	d1fc      	bne.n	b78 <_gclk_init_generators_by_fref+0x14>
+		        | (CONF_GCLK_GENERATOR_1_CONFIG << GCLK_GENCTRL_GENEN_Pos) | CONF_GCLK_GEN_1_SRC | GCLK_GENCTRL_ID(1));
+	}
+#endif
+
+#if CONF_GCLK_GENERATOR_2_CONFIG == 1
+	if (bm & (1ul << 2)) {
+ b7e:	0743      	lsls	r3, r0, #29
+ b80:	d508      	bpl.n	b94 <_gclk_init_generators_by_fref+0x30>
+	((Gclk *)hw)->GENDIV.reg = data;
+ b82:	4b05      	ldr	r3, [pc, #20]	; (b98 <_gclk_init_generators_by_fref+0x34>)
+ b84:	4a05      	ldr	r2, [pc, #20]	; (b9c <_gclk_init_generators_by_fref+0x38>)
+ b86:	609a      	str	r2, [r3, #8]
+	((Gclk *)hw)->GENCTRL.reg = data;
+ b88:	4a05      	ldr	r2, [pc, #20]	; (ba0 <_gclk_init_generators_by_fref+0x3c>)
+ b8a:	605a      	str	r2, [r3, #4]
+	while (((const Gclk *)hw)->STATUS.bit.SYNCBUSY)
+ b8c:	001a      	movs	r2, r3
+ b8e:	7853      	ldrb	r3, [r2, #1]
+ b90:	09db      	lsrs	r3, r3, #7
+ b92:	d1fc      	bne.n	b8e <_gclk_init_generators_by_fref+0x2a>
+		        | (CONF_GCLK_GEN_8_DIVSEL << GCLK_GENCTRL_DIVSEL_Pos) | (CONF_GCLK_GEN_8_OE << GCLK_GENCTRL_OE_Pos)
+		        | (CONF_GCLK_GEN_8_OOV << GCLK_GENCTRL_OOV_Pos) | (CONF_GCLK_GEN_8_IDC << GCLK_GENCTRL_IDC_Pos)
+		        | (CONF_GCLK_GENERATOR_8_CONFIG << GCLK_GENCTRL_GENEN_Pos) | CONF_GCLK_GEN_8_SRC | GCLK_GENCTRL_ID(8));
+	}
+#endif
+}
+ b94:	4770      	bx	lr
+ b96:	46c0      	nop			; (mov r8, r8)
+ b98:	40000c00 	.word	0x40000c00
+ b9c:	00000402 	.word	0x00000402
+ ba0:	00110402 	.word	0x00110402
+
+00000ba4 <_pm_init>:
+}
+
+static inline void hri_pm_set_CPUSEL_CPUDIV_bf(const void *const hw, hri_pm_cpusel_reg_t mask)
+{
+	PM_CRITICAL_SECTION_ENTER();
+	((Pm *)hw)->CPUSEL.reg |= PM_CPUSEL_CPUDIV(mask);
+ ba4:	4b06      	ldr	r3, [pc, #24]	; (bc0 <_pm_init+0x1c>)
+ ba6:	7a1a      	ldrb	r2, [r3, #8]
+ ba8:	b2d2      	uxtb	r2, r2
+ baa:	721a      	strb	r2, [r3, #8]
+}
+
+static inline void hri_pm_set_APBASEL_APBADIV_bf(const void *const hw, hri_pm_apbasel_reg_t mask)
+{
+	PM_CRITICAL_SECTION_ENTER();
+	((Pm *)hw)->APBASEL.reg |= PM_APBASEL_APBADIV(mask);
+ bac:	7a5a      	ldrb	r2, [r3, #9]
+ bae:	b2d2      	uxtb	r2, r2
+ bb0:	725a      	strb	r2, [r3, #9]
+}
+
+static inline void hri_pm_set_APBBSEL_APBBDIV_bf(const void *const hw, hri_pm_apbbsel_reg_t mask)
+{
+	PM_CRITICAL_SECTION_ENTER();
+	((Pm *)hw)->APBBSEL.reg |= PM_APBBSEL_APBBDIV(mask);
+ bb2:	7a9a      	ldrb	r2, [r3, #10]
+ bb4:	b2d2      	uxtb	r2, r2
+ bb6:	729a      	strb	r2, [r3, #10]
+}
+
+static inline void hri_pm_set_APBCSEL_APBCDIV_bf(const void *const hw, hri_pm_apbcsel_reg_t mask)
+{
+	PM_CRITICAL_SECTION_ENTER();
+	((Pm *)hw)->APBCSEL.reg |= PM_APBCSEL_APBCDIV(mask);
+ bb8:	7ada      	ldrb	r2, [r3, #11]
+ bba:	b2d2      	uxtb	r2, r2
+ bbc:	72da      	strb	r2, [r3, #11]
+{
+	hri_pm_set_CPUSEL_CPUDIV_bf(PM, CONF_CPU_DIV);
+	hri_pm_set_APBASEL_APBADIV_bf(PM, CONF_APBA_DIV);
+	hri_pm_set_APBBSEL_APBBDIV_bf(PM, CONF_APBB_DIV);
+	hri_pm_set_APBCSEL_APBCDIV_bf(PM, CONF_APBC_DIV);
+}
+ bbe:	4770      	bx	lr
+ bc0:	40000400 	.word	0x40000400
+
+00000bc4 <_calendar_register_callback>:
+
+/**
+ * \brief Registers callback for the specified callback type
+ */
+int32_t _calendar_register_callback(struct calendar_dev *const dev, calendar_drv_cb_alarm_t callback)
+{
+ bc4:	b570      	push	{r4, r5, r6, lr}
+ bc6:	0004      	movs	r4, r0
+ bc8:	000d      	movs	r5, r1
+	/* Sanity check arguments */
+	ASSERT(dev && dev->hw);
+ bca:	2800      	cmp	r0, #0
+ bcc:	d015      	beq.n	bfa <_calendar_register_callback+0x36>
+ bce:	6800      	ldr	r0, [r0, #0]
+ bd0:	1e43      	subs	r3, r0, #1
+ bd2:	4198      	sbcs	r0, r3
+ bd4:	b2c0      	uxtb	r0, r0
+ bd6:	2233      	movs	r2, #51	; 0x33
+ bd8:	490f      	ldr	r1, [pc, #60]	; (c18 <_calendar_register_callback+0x54>)
+ bda:	4b10      	ldr	r3, [pc, #64]	; (c1c <_calendar_register_callback+0x58>)
+ bdc:	4798      	blx	r3
+
+	/* Check callback */
+	if (callback != NULL) {
+ bde:	2d00      	cmp	r5, #0
+ be0:	d00d      	beq.n	bfe <_calendar_register_callback+0x3a>
+		/* register the callback */
+		dev->callback = callback;
+ be2:	6065      	str	r5, [r4, #4]
+ */
+__STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+{
+  if ((int32_t)(IRQn) >= 0)
+  {
+    NVIC->ICPR[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+ be4:	4b0e      	ldr	r3, [pc, #56]	; (c20 <_calendar_register_callback+0x5c>)
+ be6:	2208      	movs	r2, #8
+ be8:	21c0      	movs	r1, #192	; 0xc0
+ bea:	0049      	lsls	r1, r1, #1
+ bec:	505a      	str	r2, [r3, r1]
+    NVIC->ISER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+ bee:	601a      	str	r2, [r3, #0]
+		/* enable RTC_IRQn */
+		NVIC_ClearPendingIRQ(RTC_IRQn);
+		NVIC_EnableIRQ(RTC_IRQn);
+
+		/* enable cmp */
+		hri_rtcmode0_set_INTEN_CMP0_bit(dev->hw);
+ bf0:	6823      	ldr	r3, [r4, #0]
+	((Rtc *)hw)->MODE2.INTFLAG.reg = mask;
+}
+
+static inline void hri_rtcmode0_set_INTEN_CMP0_bit(const void *const hw)
+{
+	((Rtc *)hw)->MODE0.INTENSET.reg = RTC_MODE0_INTENSET_CMP0;
+ bf2:	3a07      	subs	r2, #7
+ bf4:	71da      	strb	r2, [r3, #7]
+		/* disable RTC_IRQn */
+		NVIC_DisableIRQ(RTC_IRQn);
+	}
+
+	return ERR_NONE;
+}
+ bf6:	2000      	movs	r0, #0
+ bf8:	bd70      	pop	{r4, r5, r6, pc}
+ bfa:	2000      	movs	r0, #0
+ bfc:	e7eb      	b.n	bd6 <_calendar_register_callback+0x12>
+		hri_rtcmode0_clear_INTEN_CMP0_bit(dev->hw);
+ bfe:	6823      	ldr	r3, [r4, #0]
+	}
+}
+
+static inline void hri_rtcmode0_clear_INTEN_CMP0_bit(const void *const hw)
+{
+	((Rtc *)hw)->MODE0.INTENCLR.reg = RTC_MODE0_INTENSET_CMP0;
+ c00:	2201      	movs	r2, #1
+ c02:	719a      	strb	r2, [r3, #6]
+    NVIC->ICER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+ c04:	2108      	movs	r1, #8
+ c06:	2380      	movs	r3, #128	; 0x80
+ c08:	4a05      	ldr	r2, [pc, #20]	; (c20 <_calendar_register_callback+0x5c>)
+ c0a:	50d1      	str	r1, [r2, r3]
+  __ASM volatile ("dsb 0xF":::"memory");
+ c0c:	f3bf 8f4f 	dsb	sy
+  __ASM volatile ("isb 0xF":::"memory");
+ c10:	f3bf 8f6f 	isb	sy
+ c14:	e7ef      	b.n	bf6 <_calendar_register_callback+0x32>
+ c16:	46c0      	nop			; (mov r8, r8)
+ c18:	00000f40 	.word	0x00000f40
+ c1c:	00000a85 	.word	0x00000a85
+ c20:	e000e100 	.word	0xe000e100
+
+00000c24 <_calendar_init>:
+
+/**
+ * \brief Initializes the RTC module with given configurations.
+ */
+int32_t _calendar_init(struct calendar_dev *const dev)
+{
+ c24:	b510      	push	{r4, lr}
+ c26:	1e04      	subs	r4, r0, #0
+	uint16_t register_value;
+
+	/* Sanity check arguments */
+	ASSERT(dev && dev->hw);
+ c28:	d038      	beq.n	c9c <_calendar_init+0x78>
+ c2a:	6800      	ldr	r0, [r0, #0]
+ c2c:	1e43      	subs	r3, r0, #1
+ c2e:	4198      	sbcs	r0, r3
+ c30:	b2c0      	uxtb	r0, r0
+ c32:	2278      	movs	r2, #120	; 0x78
+ c34:	491a      	ldr	r1, [pc, #104]	; (ca0 <_calendar_init+0x7c>)
+ c36:	4b1b      	ldr	r3, [pc, #108]	; (ca4 <_calendar_init+0x80>)
+ c38:	4798      	blx	r3
+
+	_rtc_dev = dev;
+ c3a:	4b1b      	ldr	r3, [pc, #108]	; (ca8 <_calendar_init+0x84>)
+ c3c:	601c      	str	r4, [r3, #0]
+
+	hri_rtcmode0_wait_for_sync(dev->hw);
+ c3e:	6822      	ldr	r2, [r4, #0]
+	while (((const Rtc *)hw)->MODE0.STATUS.bit.SYNCBUSY)
+ c40:	7a93      	ldrb	r3, [r2, #10]
+ c42:	09db      	lsrs	r3, r3, #7
+ c44:	d1fc      	bne.n	c40 <_calendar_init+0x1c>
+ c46:	7a93      	ldrb	r3, [r2, #10]
+ c48:	09db      	lsrs	r3, r3, #7
+ c4a:	d1fc      	bne.n	c46 <_calendar_init+0x22>
+
+static inline bool hri_rtcmode0_get_CTRL_ENABLE_bit(const void *const hw)
+{
+	uint16_t tmp;
+	hri_rtc_wait_for_sync(hw);
+	tmp = ((Rtc *)hw)->MODE0.CTRL.reg;
+ c4c:	8813      	ldrh	r3, [r2, #0]
+	if (hri_rtcmode0_get_CTRL_ENABLE_bit(dev->hw)) {
+ c4e:	079b      	lsls	r3, r3, #30
+ c50:	d50a      	bpl.n	c68 <_calendar_init+0x44>
+}
+
+static inline void hri_rtcmode0_clear_CTRL_ENABLE_bit(const void *const hw)
+{
+	RTC_CRITICAL_SECTION_ENTER();
+	((Rtc *)hw)->MODE0.CTRL.reg &= ~RTC_MODE0_CTRL_ENABLE;
+ c52:	8813      	ldrh	r3, [r2, #0]
+ c54:	2102      	movs	r1, #2
+ c56:	438b      	bics	r3, r1
+ c58:	8013      	strh	r3, [r2, #0]
+	while (((const Rtc *)hw)->MODE0.STATUS.bit.SYNCBUSY)
+ c5a:	7a93      	ldrb	r3, [r2, #10]
+ c5c:	09db      	lsrs	r3, r3, #7
+ c5e:	d1fc      	bne.n	c5a <_calendar_init+0x36>
+#if !CONF_RTC_INIT_RESET
+		return ERR_DENIED;
+#else
+		hri_rtcmode0_clear_CTRL_ENABLE_bit(dev->hw);
+		hri_rtcmode0_wait_for_sync(dev->hw);
+ c60:	6822      	ldr	r2, [r4, #0]
+ c62:	7a93      	ldrb	r3, [r2, #10]
+ c64:	09db      	lsrs	r3, r3, #7
+ c66:	d1fc      	bne.n	c62 <_calendar_init+0x3e>
+#endif
+	}
+	hri_rtcmode0_set_CTRL_SWRST_bit(dev->hw);
+ c68:	6822      	ldr	r2, [r4, #0]
+	((Rtc *)hw)->MODE0.CTRL.reg |= RTC_MODE0_CTRL_SWRST;
+ c6a:	8813      	ldrh	r3, [r2, #0]
+ c6c:	2101      	movs	r1, #1
+ c6e:	430b      	orrs	r3, r1
+ c70:	8013      	strh	r3, [r2, #0]
+	while (((const Rtc *)hw)->MODE0.STATUS.bit.SYNCBUSY)
+ c72:	7a93      	ldrb	r3, [r2, #10]
+ c74:	09db      	lsrs	r3, r3, #7
+ c76:	d1fc      	bne.n	c72 <_calendar_init+0x4e>
+	hri_rtcmode0_wait_for_sync(dev->hw);
+ c78:	6822      	ldr	r2, [r4, #0]
+ c7a:	7a93      	ldrb	r3, [r2, #10]
+ c7c:	09db      	lsrs	r3, r3, #7
+ c7e:	d1fc      	bne.n	c7a <_calendar_init+0x56>
+}
+
+static inline void hri_rtcmode0_write_CTRL_reg(const void *const hw, hri_rtcmode0_ctrl_reg_t data)
+{
+	RTC_CRITICAL_SECTION_ENTER();
+	((Rtc *)hw)->MODE0.CTRL.reg = data;
+ c80:	23a0      	movs	r3, #160	; 0xa0
+ c82:	011b      	lsls	r3, r3, #4
+ c84:	8013      	strh	r3, [r2, #0]
+	while (((const Rtc *)hw)->MODE0.STATUS.bit.SYNCBUSY)
+ c86:	7a93      	ldrb	r3, [r2, #10]
+ c88:	09db      	lsrs	r3, r3, #7
+ c8a:	d1fc      	bne.n	c86 <_calendar_init+0x62>
+	register_value &= (~RTC_MODE0_CTRL_MATCHCLR);
+
+	hri_rtcmode0_write_CTRL_reg(dev->hw, register_value);
+
+	/* set continuously clock read update mode */
+	hri_rtcmode0_set_READREQ_RCONT_bit(dev->hw);
+ c8c:	6822      	ldr	r2, [r4, #0]
+}
+
+static inline void hri_rtc_set_READREQ_RCONT_bit(const void *const hw)
+{
+	RTC_CRITICAL_SECTION_ENTER();
+	((Rtc *)hw)->MODE0.READREQ.reg |= RTC_READREQ_RCONT;
+ c8e:	8853      	ldrh	r3, [r2, #2]
+ c90:	2180      	movs	r1, #128	; 0x80
+ c92:	01c9      	lsls	r1, r1, #7
+ c94:	430b      	orrs	r3, r1
+ c96:	8053      	strh	r3, [r2, #2]
+	        | (CONF_RTC_PEREO6 << RTC_MODE0_EVCTRL_PEREO6_Pos) | (CONF_RTC_PEREO7 << RTC_MODE0_EVCTRL_PEREO7_Pos)
+	        | (CONF_RTC_COMPE0 << RTC_MODE0_EVCTRL_CMPEO_Pos) | (CONF_RTC_OVFEO << RTC_MODE0_EVCTRL_OVFEO_Pos));
+#endif
+
+	return ERR_NONE;
+}
+ c98:	2000      	movs	r0, #0
+ c9a:	bd10      	pop	{r4, pc}
+ c9c:	2000      	movs	r0, #0
+ c9e:	e7c8      	b.n	c32 <_calendar_init+0xe>
+ ca0:	00000f40 	.word	0x00000f40
+ ca4:	00000a85 	.word	0x00000a85
+ ca8:	200000ac 	.word	0x200000ac
+
+00000cac <_calendar_enable>:
+
+/**
+ * \brief Enable the RTC module
+ */
+int32_t _calendar_enable(struct calendar_dev *const dev)
+{
+ cac:	b510      	push	{r4, lr}
+ cae:	1e04      	subs	r4, r0, #0
+	/* Sanity check arguments */
+	ASSERT(dev && dev->hw);
+ cb0:	d011      	beq.n	cd6 <_calendar_enable+0x2a>
+ cb2:	6800      	ldr	r0, [r0, #0]
+ cb4:	1e43      	subs	r3, r0, #1
+ cb6:	4198      	sbcs	r0, r3
+ cb8:	b2c0      	uxtb	r0, r0
+ cba:	22aa      	movs	r2, #170	; 0xaa
+ cbc:	4907      	ldr	r1, [pc, #28]	; (cdc <_calendar_enable+0x30>)
+ cbe:	4b08      	ldr	r3, [pc, #32]	; (ce0 <_calendar_enable+0x34>)
+ cc0:	4798      	blx	r3
+
+	/* Enable rtc */
+	hri_rtcmode0_set_CTRL_ENABLE_bit(dev->hw);
+ cc2:	6822      	ldr	r2, [r4, #0]
+	((Rtc *)hw)->MODE0.CTRL.reg |= RTC_MODE0_CTRL_ENABLE;
+ cc4:	8813      	ldrh	r3, [r2, #0]
+ cc6:	2102      	movs	r1, #2
+ cc8:	430b      	orrs	r3, r1
+ cca:	8013      	strh	r3, [r2, #0]
+	while (((const Rtc *)hw)->MODE0.STATUS.bit.SYNCBUSY)
+ ccc:	7a93      	ldrb	r3, [r2, #10]
+ cce:	09db      	lsrs	r3, r3, #7
+ cd0:	d1fc      	bne.n	ccc <_calendar_enable+0x20>
+
+	return ERR_NONE;
+}
+ cd2:	2000      	movs	r0, #0
+ cd4:	bd10      	pop	{r4, pc}
+ cd6:	2000      	movs	r0, #0
+ cd8:	e7ef      	b.n	cba <_calendar_enable+0xe>
+ cda:	46c0      	nop			; (mov r8, r8)
+ cdc:	00000f40 	.word	0x00000f40
+ ce0:	00000a85 	.word	0x00000a85
+
+00000ce4 <_calendar_set_counter>:
+
+/**
+ * \brief Set the current calendar time to desired time.
+ */
+int32_t _calendar_set_counter(struct calendar_dev *const dev, const uint32_t counter)
+{
+ ce4:	b570      	push	{r4, r5, r6, lr}
+ ce6:	0004      	movs	r4, r0
+ ce8:	000d      	movs	r5, r1
+	/* Sanity check arguments */
+	ASSERT(dev && dev->hw);
+ cea:	2800      	cmp	r0, #0
+ cec:	d00f      	beq.n	d0e <_calendar_set_counter+0x2a>
+ cee:	6800      	ldr	r0, [r0, #0]
+ cf0:	1e43      	subs	r3, r0, #1
+ cf2:	4198      	sbcs	r0, r3
+ cf4:	b2c0      	uxtb	r0, r0
+ cf6:	22c6      	movs	r2, #198	; 0xc6
+ cf8:	4906      	ldr	r1, [pc, #24]	; (d14 <_calendar_set_counter+0x30>)
+ cfa:	4b07      	ldr	r3, [pc, #28]	; (d18 <_calendar_set_counter+0x34>)
+ cfc:	4798      	blx	r3
+
+	/* Set current counter. */
+	hri_rtcmode0_write_COUNT_COUNT_bf(dev->hw, counter);
+ cfe:	6822      	ldr	r2, [r4, #0]
+
+static inline void hri_rtcmode0_write_COUNT_COUNT_bf(const void *const hw, hri_rtcmode0_count_reg_t data)
+{
+	uint32_t tmp;
+	RTC_CRITICAL_SECTION_ENTER();
+	tmp = ((Rtc *)hw)->MODE0.COUNT.reg;
+ d00:	6913      	ldr	r3, [r2, #16]
+	tmp &= ~RTC_MODE0_COUNT_COUNT_Msk;
+	tmp |= RTC_MODE0_COUNT_COUNT(data);
+	((Rtc *)hw)->MODE0.COUNT.reg = tmp;
+ d02:	6115      	str	r5, [r2, #16]
+	while (((const Rtc *)hw)->MODE0.STATUS.bit.SYNCBUSY)
+ d04:	7a93      	ldrb	r3, [r2, #10]
+ d06:	09db      	lsrs	r3, r3, #7
+ d08:	d1fc      	bne.n	d04 <_calendar_set_counter+0x20>
+
+	return ERR_NONE;
+}
+ d0a:	2000      	movs	r0, #0
+ d0c:	bd70      	pop	{r4, r5, r6, pc}
+ d0e:	2000      	movs	r0, #0
+ d10:	e7f1      	b.n	cf6 <_calendar_set_counter+0x12>
+ d12:	46c0      	nop			; (mov r8, r8)
+ d14:	00000f40 	.word	0x00000f40
+ d18:	00000a85 	.word	0x00000a85
+
+00000d1c <_calendar_get_counter>:
+
+/**
+ * \brief Get current counter
+ */
+uint32_t _calendar_get_counter(struct calendar_dev *const dev)
+{
+ d1c:	b510      	push	{r4, lr}
+ d1e:	1e04      	subs	r4, r0, #0
+	uint32_t tmp;
+
+	/* Sanity check arguments */
+	ASSERT(dev && dev->hw);
+ d20:	d00d      	beq.n	d3e <_calendar_get_counter+0x22>
+ d22:	6800      	ldr	r0, [r0, #0]
+ d24:	1e43      	subs	r3, r0, #1
+ d26:	4198      	sbcs	r0, r3
+ d28:	b2c0      	uxtb	r0, r0
+ d2a:	22d6      	movs	r2, #214	; 0xd6
+ d2c:	4905      	ldr	r1, [pc, #20]	; (d44 <_calendar_get_counter+0x28>)
+ d2e:	4b06      	ldr	r3, [pc, #24]	; (d48 <_calendar_get_counter+0x2c>)
+ d30:	4798      	blx	r3
+
+	/* Get counter. */
+	tmp = hri_rtcmode0_read_COUNT_COUNT_bf(dev->hw);
+ d32:	6822      	ldr	r2, [r4, #0]
+ d34:	7a93      	ldrb	r3, [r2, #10]
+ d36:	09db      	lsrs	r3, r3, #7
+ d38:	d1fc      	bne.n	d34 <_calendar_get_counter+0x18>
+
+static inline hri_rtcmode0_count_reg_t hri_rtcmode0_read_COUNT_COUNT_bf(const void *const hw)
+{
+	uint32_t tmp;
+	hri_rtc_wait_for_sync(hw);
+	tmp = ((Rtc *)hw)->MODE0.COUNT.reg;
+ d3a:	6910      	ldr	r0, [r2, #16]
+
+	return tmp;
+}
+ d3c:	bd10      	pop	{r4, pc}
+ d3e:	2000      	movs	r0, #0
+ d40:	e7f3      	b.n	d2a <_calendar_get_counter+0xe>
+ d42:	46c0      	nop			; (mov r8, r8)
+ d44:	00000f40 	.word	0x00000f40
+ d48:	00000a85 	.word	0x00000a85
+
+00000d4c <_calendar_set_comp>:
+
+/**
+ * \brief Set the compare for the specified value.
+ */
+int32_t _calendar_set_comp(struct calendar_dev *const dev, const uint32_t comp)
+{
+ d4c:	b570      	push	{r4, r5, r6, lr}
+ d4e:	0004      	movs	r4, r0
+ d50:	000d      	movs	r5, r1
+	/* Sanity check arguments */
+	ASSERT(dev && dev->hw);
+ d52:	2800      	cmp	r0, #0
+ d54:	d00f      	beq.n	d76 <_calendar_set_comp+0x2a>
+ d56:	6800      	ldr	r0, [r0, #0]
+ d58:	1e43      	subs	r3, r0, #1
+ d5a:	4198      	sbcs	r0, r3
+ d5c:	b2c0      	uxtb	r0, r0
+ d5e:	22e4      	movs	r2, #228	; 0xe4
+ d60:	4906      	ldr	r1, [pc, #24]	; (d7c <_calendar_set_comp+0x30>)
+ d62:	4b07      	ldr	r3, [pc, #28]	; (d80 <_calendar_set_comp+0x34>)
+ d64:	4798      	blx	r3
+
+	/* Set value into alarm register. */
+	hri_rtcmode0_write_COMP_COMP_bf(dev->hw, 0, comp);
+ d66:	6822      	ldr	r2, [r4, #0]
+
+static inline void hri_rtcmode0_write_COMP_COMP_bf(const void *const hw, uint8_t index, hri_rtcmode0_comp_reg_t data)
+{
+	uint32_t tmp;
+	RTC_CRITICAL_SECTION_ENTER();
+	tmp = ((Rtc *)hw)->MODE0.COMP[index].reg;
+ d68:	6993      	ldr	r3, [r2, #24]
+	tmp &= ~RTC_MODE0_COMP_COMP_Msk;
+	tmp |= RTC_MODE0_COMP_COMP(data);
+	((Rtc *)hw)->MODE0.COMP[index].reg = tmp;
+ d6a:	6195      	str	r5, [r2, #24]
+	while (((const Rtc *)hw)->MODE0.STATUS.bit.SYNCBUSY)
+ d6c:	7a93      	ldrb	r3, [r2, #10]
+ d6e:	09db      	lsrs	r3, r3, #7
+ d70:	d1fc      	bne.n	d6c <_calendar_set_comp+0x20>
+
+	return ERR_NONE;
+}
+ d72:	2000      	movs	r0, #0
+ d74:	bd70      	pop	{r4, r5, r6, pc}
+ d76:	2000      	movs	r0, #0
+ d78:	e7f1      	b.n	d5e <_calendar_set_comp+0x12>
+ d7a:	46c0      	nop			; (mov r8, r8)
+ d7c:	00000f40 	.word	0x00000f40
+ d80:	00000a85 	.word	0x00000a85
+
+00000d84 <_calendar_set_irq>:
+    NVIC->ISPR[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+ d84:	2108      	movs	r1, #8
+ d86:	2380      	movs	r3, #128	; 0x80
+ d88:	005b      	lsls	r3, r3, #1
+ d8a:	4a01      	ldr	r2, [pc, #4]	; (d90 <_calendar_set_irq+0xc>)
+ d8c:	50d1      	str	r1, [r2, r3]
+ */
+void _calendar_set_irq(struct calendar_dev *const dev)
+{
+	(void)dev;
+	NVIC_SetPendingIRQ(RTC_IRQn);
+}
+ d8e:	4770      	bx	lr
+ d90:	e000e100 	.word	0xe000e100
+
+00000d94 <RTC_Handler>:
+
+/**
+ * \brief Rtc interrupt handler
+ */
+void RTC_Handler(void)
+{
+ d94:	b510      	push	{r4, lr}
+	_rtc_interrupt_handler(_rtc_dev);
+ d96:	4b07      	ldr	r3, [pc, #28]	; (db4 <RTC_Handler+0x20>)
+ d98:	681c      	ldr	r4, [r3, #0]
+	return ((Rtc *)hw)->MODE0.INTFLAG.reg;
+ d9a:	6823      	ldr	r3, [r4, #0]
+ d9c:	7a1b      	ldrb	r3, [r3, #8]
+	if (interrupt_status & RTC_MODE0_INTFLAG_CMP0) {
+ d9e:	07db      	lsls	r3, r3, #31
+ da0:	d400      	bmi.n	da4 <RTC_Handler+0x10>
+}
+ da2:	bd10      	pop	{r4, pc}
+		dev->callback(dev);
+ da4:	0020      	movs	r0, r4
+ da6:	6863      	ldr	r3, [r4, #4]
+ da8:	4798      	blx	r3
+		hri_rtcmode0_clear_interrupt_CMP0_bit(dev->hw);
+ daa:	6823      	ldr	r3, [r4, #0]
+	((Rtc *)hw)->MODE0.INTFLAG.reg = RTC_MODE0_INTFLAG_CMP0;
+ dac:	2201      	movs	r2, #1
+ dae:	721a      	strb	r2, [r3, #8]
+}
+ db0:	e7f7      	b.n	da2 <RTC_Handler+0xe>
+ db2:	46c0      	nop			; (mov r8, r8)
+ db4:	200000ac 	.word	0x200000ac
+
+00000db8 <_sysctrl_init_sources>:
+}
+
+static inline hri_sysctrl_osc8m_reg_t hri_sysctrl_read_OSC8M_CALIB_bf(const void *const hw)
+{
+	uint32_t tmp;
+	tmp = ((Sysctrl *)hw)->OSC8M.reg;
+ db8:	4b15      	ldr	r3, [pc, #84]	; (e10 <_sysctrl_init_sources+0x58>)
+ dba:	6a1a      	ldr	r2, [r3, #32]
+}
+
+static inline hri_sysctrl_osc8m_reg_t hri_sysctrl_read_OSC8M_FRANGE_bf(const void *const hw)
+{
+	uint32_t tmp;
+	tmp = ((Sysctrl *)hw)->OSC8M.reg;
+ dbc:	6a19      	ldr	r1, [r3, #32]
+	hri_sysctrl_write_OSC8M_reg(hw,
+	                            SYSCTRL_OSC8M_FRANGE(hri_sysctrl_read_OSC8M_FRANGE_bf(hw)) |
+#if CONF_OSC8M_OVERWRITE_CALIBRATION == 1
+	                                SYSCTRL_OSC8M_CALIB(CONF_OSC8M_CALIB) |
+#else
+	                                SYSCTRL_OSC8M_CALIB(calib) |
+ dbe:	4815      	ldr	r0, [pc, #84]	; (e14 <_sysctrl_init_sources+0x5c>)
+ dc0:	4002      	ands	r2, r0
+	                            SYSCTRL_OSC8M_FRANGE(hri_sysctrl_read_OSC8M_FRANGE_bf(hw)) |
+ dc2:	0f89      	lsrs	r1, r1, #30
+ dc4:	0789      	lsls	r1, r1, #30
+	hri_sysctrl_write_OSC8M_reg(hw,
+ dc6:	4814      	ldr	r0, [pc, #80]	; (e18 <_sysctrl_init_sources+0x60>)
+ dc8:	4301      	orrs	r1, r0
+ dca:	430a      	orrs	r2, r1
+}
+
+static inline void hri_sysctrl_write_OSC8M_reg(const void *const hw, hri_sysctrl_osc8m_reg_t data)
+{
+	SYSCTRL_CRITICAL_SECTION_ENTER();
+	((Sysctrl *)hw)->OSC8M.reg = data;
+ dcc:	621a      	str	r2, [r3, #32]
+	tmp = ((Sysctrl *)hw)->OSC32K.reg;
+ dce:	699a      	ldr	r2, [r3, #24]
+	hri_sysctrl_write_OSC32K_reg(
+	    hw,
+#if CONF_OSC32K_OVERWRITE_CALIBRATION == 1
+	    SYSCTRL_OSC32K_CALIB(CONF_OSC32K_CALIB) |
+#else
+	    SYSCTRL_OSC32K_CALIB(calib) |
+ dd0:	21fe      	movs	r1, #254	; 0xfe
+ dd2:	03c9      	lsls	r1, r1, #15
+ dd4:	4011      	ands	r1, r2
+#endif
+	        (CONF_OSC32K_WRTLOCK << SYSCTRL_OSC32K_WRTLOCK_Pos) | SYSCTRL_OSC32K_STARTUP(CONF_OSC32K_STARTUP)
+	        | (CONF_OSC32K_RUNSTDBY << SYSCTRL_OSC32K_RUNSTDBY_Pos) | (CONF_OSC32K_EN1K << SYSCTRL_OSC32K_EN1K_Pos)
+	        | (CONF_OSC32K_EN32K << SYSCTRL_OSC32K_EN32K_Pos) | (1 << SYSCTRL_OSC32K_ENABLE_Pos));
+ dd6:	4a11      	ldr	r2, [pc, #68]	; (e1c <_sysctrl_init_sources+0x64>)
+ dd8:	430a      	orrs	r2, r1
+	((Sysctrl *)hw)->OSC32K.reg = data;
+ dda:	619a      	str	r2, [r3, #24]
+	tmp = ((Sysctrl *)hw)->OSCULP32K.reg;
+ ddc:	7f1a      	ldrb	r2, [r3, #28]
+	tmp = (tmp & SYSCTRL_OSCULP32K_CALIB_Msk) >> SYSCTRL_OSCULP32K_CALIB_Pos;
+ dde:	211f      	movs	r1, #31
+ de0:	400a      	ands	r2, r1
+	((Sysctrl *)hw)->OSCULP32K.reg = data;
+ de2:	771a      	strb	r2, [r3, #28]
+	return (((Sysctrl *)hw)->PCLKSR.reg & SYSCTRL_PCLKSR_OSC32KRDY) >> SYSCTRL_PCLKSR_OSC32KRDY_Pos;
+ de4:	0019      	movs	r1, r3
+#endif
+#endif
+
+#if CONF_OSC32K_CONFIG == 1
+#if CONF_OSC32K_ENABLE == 1
+	while (!hri_sysctrl_get_PCLKSR_OSC32KRDY_bit(hw))
+ de6:	2204      	movs	r2, #4
+ de8:	68cb      	ldr	r3, [r1, #12]
+ dea:	421a      	tst	r2, r3
+ dec:	d0fc      	beq.n	de8 <_sysctrl_init_sources+0x30>
+	((Sysctrl *)hw)->OSC32K.reg |= SYSCTRL_OSC32K_ONDEMAND;
+ dee:	4a08      	ldr	r2, [pc, #32]	; (e10 <_sysctrl_init_sources+0x58>)
+ df0:	6993      	ldr	r3, [r2, #24]
+ df2:	2180      	movs	r1, #128	; 0x80
+ df4:	430b      	orrs	r3, r1
+ df6:	6193      	str	r3, [r2, #24]
+	return (((Sysctrl *)hw)->PCLKSR.reg & SYSCTRL_PCLKSR_OSC8MRDY) >> SYSCTRL_PCLKSR_OSC8MRDY_Pos;
+ df8:	0011      	movs	r1, r2
+#endif
+#endif
+
+#if CONF_OSC8M_CONFIG == 1
+#if CONF_OSC8M_ENABLE == 1
+	while (!hri_sysctrl_get_PCLKSR_OSC8MRDY_bit(hw))
+ dfa:	2208      	movs	r2, #8
+ dfc:	68cb      	ldr	r3, [r1, #12]
+ dfe:	421a      	tst	r2, r3
+ e00:	d0fc      	beq.n	dfc <_sysctrl_init_sources+0x44>
+	((Sysctrl *)hw)->OSC8M.reg |= SYSCTRL_OSC8M_ONDEMAND;
+ e02:	4a03      	ldr	r2, [pc, #12]	; (e10 <_sysctrl_init_sources+0x58>)
+ e04:	6a13      	ldr	r3, [r2, #32]
+ e06:	2180      	movs	r1, #128	; 0x80
+ e08:	430b      	orrs	r3, r1
+ e0a:	6213      	str	r3, [r2, #32]
+	hri_sysctrl_set_OSC8M_ONDEMAND_bit(hw);
+#endif
+#endif
+
+	(void)calib, (void)hw;
+}
+ e0c:	4770      	bx	lr
+ e0e:	46c0      	nop			; (mov r8, r8)
+ e10:	40000800 	.word	0x40000800
+ e14:	0fff0000 	.word	0x0fff0000
+ e18:	00000302 	.word	0x00000302
+ e1c:	0000030e 	.word	0x0000030e
+
+00000e20 <_sysctrl_init_referenced_generators>:
+	/* Disable after all possible configurations needs sync written. */
+	hri_sysctrl_clear_OSC32K_ENABLE_bit(hw);
+#endif
+
+	(void)hw;
+}
+ e20:	4770      	bx	lr
+	...
+
+00000e24 <__libc_init_array>:
+ e24:	b570      	push	{r4, r5, r6, lr}
+ e26:	2600      	movs	r6, #0
+ e28:	4d0c      	ldr	r5, [pc, #48]	; (e5c <__libc_init_array+0x38>)
+ e2a:	4c0d      	ldr	r4, [pc, #52]	; (e60 <__libc_init_array+0x3c>)
+ e2c:	1b64      	subs	r4, r4, r5
+ e2e:	10a4      	asrs	r4, r4, #2
+ e30:	42a6      	cmp	r6, r4
+ e32:	d109      	bne.n	e48 <__libc_init_array+0x24>
+ e34:	2600      	movs	r6, #0
+ e36:	f000 f88f 	bl	f58 <_init>
+ e3a:	4d0a      	ldr	r5, [pc, #40]	; (e64 <__libc_init_array+0x40>)
+ e3c:	4c0a      	ldr	r4, [pc, #40]	; (e68 <__libc_init_array+0x44>)
+ e3e:	1b64      	subs	r4, r4, r5
+ e40:	10a4      	asrs	r4, r4, #2
+ e42:	42a6      	cmp	r6, r4
+ e44:	d105      	bne.n	e52 <__libc_init_array+0x2e>
+ e46:	bd70      	pop	{r4, r5, r6, pc}
+ e48:	00b3      	lsls	r3, r6, #2
+ e4a:	58eb      	ldr	r3, [r5, r3]
+ e4c:	4798      	blx	r3
+ e4e:	3601      	adds	r6, #1
+ e50:	e7ee      	b.n	e30 <__libc_init_array+0xc>
+ e52:	00b3      	lsls	r3, r6, #2
+ e54:	58eb      	ldr	r3, [r5, r3]
+ e56:	4798      	blx	r3
+ e58:	3601      	adds	r6, #1
+ e5a:	e7f2      	b.n	e42 <__libc_init_array+0x1e>
+ e5c:	00000f64 	.word	0x00000f64
+ e60:	00000f64 	.word	0x00000f64
+ e64:	00000f64 	.word	0x00000f64
+ e68:	00000f68 	.word	0x00000f68
+ e6c:	00000468 	.word	0x00000468
+ e70:	00000444 	.word	0x00000444
+ e74:	00000448 	.word	0x00000448
+ e78:	00000444 	.word	0x00000444
+ e7c:	0000044c 	.word	0x0000044c
+ e80:	00000444 	.word	0x00000444
+ e84:	0000044c 	.word	0x0000044c
+ e88:	00000444 	.word	0x00000444
+ e8c:	00000444 	.word	0x00000444
+ e90:	0000044c 	.word	0x0000044c
+ e94:	00000444 	.word	0x00000444
+ e98:	0000044c 	.word	0x0000044c
+ e9c:	00000444 	.word	0x00000444
+ ea0:	0000046c 	.word	0x0000046c
+ ea4:	0000045c 	.word	0x0000045c
+ ea8:	00000460 	.word	0x00000460
+ eac:	0000045c 	.word	0x0000045c
+ eb0:	00000464 	.word	0x00000464
+ eb4:	0000045c 	.word	0x0000045c
+ eb8:	00000464 	.word	0x00000464
+ ebc:	0000045c 	.word	0x0000045c
+ ec0:	0000045c 	.word	0x0000045c
+ ec4:	00000464 	.word	0x00000464
+ ec8:	0000045c 	.word	0x0000045c
+ ecc:	00000464 	.word	0x00000464
+ ed0:	0000045c 	.word	0x0000045c
+ ed4:	0000050c 	.word	0x0000050c
+ ed8:	00000506 	.word	0x00000506
+ edc:	00000510 	.word	0x00000510
+ ee0:	0000051e 	.word	0x0000051e
+ ee4:	0000052a 	.word	0x0000052a
+ ee8:	0000053a 	.word	0x0000053a
+ eec:	00000936 	.word	0x00000936
+ ef0:	00000918 	.word	0x00000918
+ ef4:	000009a4 	.word	0x000009a4
+ ef8:	000009be 	.word	0x000009be
+ efc:	000009d2 	.word	0x000009d2
+ f00:	000009e0 	.word	0x000009e0
+ f04:	682f2e2e 	.word	0x682f2e2e
+ f08:	732f6c61 	.word	0x732f6c61
+ f0c:	682f6372 	.word	0x682f6372
+ f10:	635f6c61 	.word	0x635f6c61
+ f14:	6e656c61 	.word	0x6e656c61
+ f18:	2e726164 	.word	0x2e726164
+ f1c:	00000063 	.word	0x00000063
+ f20:	682f2e2e 	.word	0x682f2e2e
+ f24:	752f6c61 	.word	0x752f6c61
+ f28:	736c6974 	.word	0x736c6974
+ f2c:	6372732f 	.word	0x6372732f
+ f30:	6974752f 	.word	0x6974752f
+ f34:	6c5f736c 	.word	0x6c5f736c
+ f38:	2e747369 	.word	0x2e747369
+ f3c:	00000063 	.word	0x00000063
+ f40:	682f2e2e 	.word	0x682f2e2e
+ f44:	722f6c70 	.word	0x722f6c70
+ f48:	682f6374 	.word	0x682f6374
+ f4c:	725f6c70 	.word	0x725f6c70
+ f50:	632e6374 	.word	0x632e6374
+ f54:	00000000 	.word	0x00000000
+
+00000f58 <_init>:
+ f58:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ f5a:	46c0      	nop			; (mov r8, r8)
+ f5c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ f5e:	bc08      	pop	{r3}
+ f60:	469e      	mov	lr, r3
+ f62:	4770      	bx	lr
+
+00000f64 <__init_array_start>:
+ f64:	000000dd 	.word	0x000000dd
+
+00000f68 <_fini>:
+ f68:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ f6a:	46c0      	nop			; (mov r8, r8)
+ f6c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ f6e:	bc08      	pop	{r3}
+ f70:	469e      	mov	lr, r3
+ f72:	4770      	bx	lr
+
+00000f74 <__fini_array_start>:
+ f74:	000000b5 	.word	0x000000b5

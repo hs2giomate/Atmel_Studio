@@ -12,11 +12,19 @@
 extern "C" {
 #endif
 
-void TIMER_RTC_example(void);
+void EXTERNAL_IRQ_0_example(void);
+
+void Live_Pulse_example(void);
+
+void SPI_TEMP_example(void);
 
 void I2C_EEPROM_example(void);
 
 void TIMEOUT_example(void);
+
+void Event_Timer_example(void);
+
+void TIMER_ARINC_example(void);
 
 void CAN_Compressor_example(void);
 

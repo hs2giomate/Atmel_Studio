@@ -16,13 +16,9 @@ void EXTERNAL_IRQ_0_example(void);
 
 void Fvx_I2C_example(void);
 
-void Heater_I2C_example(void);
-
-void Misc_Inc_I2C_example(void);
-
-void I2C_CCu_example(void);
-
 void FANs_I2C_example(void);
+
+void Shared_I2C_example(void);
 
 void CCu_CAN_example(void);
 

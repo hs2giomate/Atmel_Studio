@@ -251,9 +251,9 @@
         <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
       </ArmGccCpp>
     </ToolchainSettings>
-    <OutputFileName>libUSB_CDC_Class</OutputFileName>
-    <OutputFileExtension>.a</OutputFileExtension>
-    <OutputType>StaticLibrary</OutputType>
+    <OutputFileName>USB_CDC_Class</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputType>Executable</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Device_Startup\startup_same54.c">

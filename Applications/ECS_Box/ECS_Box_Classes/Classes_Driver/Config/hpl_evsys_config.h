@@ -5838,7 +5838,7 @@
 // <id> evsys_channel_0
 // <i> Indicates which channel is chosen for user
 #ifndef CONF_CHANNEL_0
-#define CONF_CHANNEL_0 0
+#define CONF_CHANNEL_0 1
 #endif
 //</h>
 

@@ -49,6 +49,7 @@ SUBDIRS :=  \
 ../hpl/cmcc/ \
 ../hpl/core/ \
 ../hpl/dmac/ \
+../hpl/eic/ \
 ../hpl/evsys/ \
 ../hpl/gclk/ \
 ../hpl/mclk/ \
@@ -72,8 +73,6 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../atmel_start.c \
-../Device_Startup/startup_same54.c \
-../Device_Startup/system_same54.c \
 ../driver_init.c \
 ../examples/driver_examples.c \
 ../hal/src/hal_atomic.c \
@@ -81,11 +80,13 @@ C_SRCS +=  \
 ../hal/src/hal_can_async.c \
 ../hal/src/hal_delay.c \
 ../hal/src/hal_evsys.c \
+../hal/src/hal_ext_irq.c \
 ../hal/src/hal_gpio.c \
-../hal/src/hal_i2c_m_sync.c \
+../hal/src/hal_i2c_m_async.c \
 ../hal/src/hal_init.c \
 ../hal/src/hal_io.c \
 ../hal/src/hal_sleep.c \
+../hal/src/hal_spi_m_async.c \
 ../hal/src/hal_spi_m_sync.c \
 ../hal/src/hal_timer.c \
 ../hal/src/hal_usb_device.c \
@@ -98,6 +99,7 @@ C_SRCS +=  \
 ../hpl/core/hpl_core_m4.c \
 ../hpl/core/hpl_init.c \
 ../hpl/dmac/hpl_dmac.c \
+../hpl/eic/hpl_eic.c \
 ../hpl/evsys/hpl_evsys.c \
 ../hpl/gclk/hpl_gclk.c \
 ../hpl/mclk/hpl_mclk.c \
@@ -124,8 +126,6 @@ ASM_SRCS +=
 
 OBJS +=  \
 atmel_start.o \
-Device_Startup/startup_same54.o \
-Device_Startup/system_same54.o \
 driver_init.o \
 examples/driver_examples.o \
 hal/src/hal_atomic.o \
@@ -133,11 +133,13 @@ hal/src/hal_cache.o \
 hal/src/hal_can_async.o \
 hal/src/hal_delay.o \
 hal/src/hal_evsys.o \
+hal/src/hal_ext_irq.o \
 hal/src/hal_gpio.o \
-hal/src/hal_i2c_m_sync.o \
+hal/src/hal_i2c_m_async.o \
 hal/src/hal_init.o \
 hal/src/hal_io.o \
 hal/src/hal_sleep.o \
+hal/src/hal_spi_m_async.o \
 hal/src/hal_spi_m_sync.o \
 hal/src/hal_timer.o \
 hal/src/hal_usb_device.o \
@@ -150,6 +152,7 @@ hpl/cmcc/hpl_cmcc.o \
 hpl/core/hpl_core_m4.o \
 hpl/core/hpl_init.o \
 hpl/dmac/hpl_dmac.o \
+hpl/eic/hpl_eic.o \
 hpl/evsys/hpl_evsys.o \
 hpl/gclk/hpl_gclk.o \
 hpl/mclk/hpl_mclk.o \
@@ -169,8 +172,6 @@ usb_start.o
 
 OBJS_AS_ARGS +=  \
 atmel_start.o \
-Device_Startup/startup_same54.o \
-Device_Startup/system_same54.o \
 driver_init.o \
 examples/driver_examples.o \
 hal/src/hal_atomic.o \
@@ -178,11 +179,13 @@ hal/src/hal_cache.o \
 hal/src/hal_can_async.o \
 hal/src/hal_delay.o \
 hal/src/hal_evsys.o \
+hal/src/hal_ext_irq.o \
 hal/src/hal_gpio.o \
-hal/src/hal_i2c_m_sync.o \
+hal/src/hal_i2c_m_async.o \
 hal/src/hal_init.o \
 hal/src/hal_io.o \
 hal/src/hal_sleep.o \
+hal/src/hal_spi_m_async.o \
 hal/src/hal_spi_m_sync.o \
 hal/src/hal_timer.o \
 hal/src/hal_usb_device.o \
@@ -195,6 +198,7 @@ hpl/cmcc/hpl_cmcc.o \
 hpl/core/hpl_core_m4.o \
 hpl/core/hpl_init.o \
 hpl/dmac/hpl_dmac.o \
+hpl/eic/hpl_eic.o \
 hpl/evsys/hpl_evsys.o \
 hpl/gclk/hpl_gclk.o \
 hpl/mclk/hpl_mclk.o \
@@ -214,8 +218,6 @@ usb_start.o
 
 C_DEPS +=  \
 atmel_start.d \
-Device_Startup/startup_same54.d \
-Device_Startup/system_same54.d \
 driver_init.d \
 examples/driver_examples.d \
 hal/src/hal_atomic.d \
@@ -223,11 +225,13 @@ hal/src/hal_cache.d \
 hal/src/hal_can_async.d \
 hal/src/hal_delay.d \
 hal/src/hal_evsys.d \
+hal/src/hal_ext_irq.d \
 hal/src/hal_gpio.d \
-hal/src/hal_i2c_m_sync.d \
+hal/src/hal_i2c_m_async.d \
 hal/src/hal_init.d \
 hal/src/hal_io.d \
 hal/src/hal_sleep.d \
+hal/src/hal_spi_m_async.d \
 hal/src/hal_spi_m_sync.d \
 hal/src/hal_timer.d \
 hal/src/hal_usb_device.d \
@@ -240,6 +244,7 @@ hpl/cmcc/hpl_cmcc.d \
 hpl/core/hpl_core_m4.d \
 hpl/core/hpl_init.d \
 hpl/dmac/hpl_dmac.d \
+hpl/eic/hpl_eic.d \
 hpl/evsys/hpl_evsys.d \
 hpl/gclk/hpl_gclk.d \
 hpl/mclk/hpl_mclk.d \
@@ -259,8 +264,6 @@ usb_start.d
 
 C_DEPS_AS_ARGS +=  \
 atmel_start.d \
-Device_Startup/startup_same54.d \
-Device_Startup/system_same54.d \
 driver_init.d \
 examples/driver_examples.d \
 hal/src/hal_atomic.d \
@@ -268,11 +271,13 @@ hal/src/hal_cache.d \
 hal/src/hal_can_async.d \
 hal/src/hal_delay.d \
 hal/src/hal_evsys.d \
+hal/src/hal_ext_irq.d \
 hal/src/hal_gpio.d \
-hal/src/hal_i2c_m_sync.d \
+hal/src/hal_i2c_m_async.d \
 hal/src/hal_init.d \
 hal/src/hal_io.d \
 hal/src/hal_sleep.d \
+hal/src/hal_spi_m_async.d \
 hal/src/hal_spi_m_sync.d \
 hal/src/hal_timer.d \
 hal/src/hal_usb_device.d \
@@ -285,6 +290,7 @@ hpl/cmcc/hpl_cmcc.d \
 hpl/core/hpl_core_m4.d \
 hpl/core/hpl_init.d \
 hpl/dmac/hpl_dmac.d \
+hpl/eic/hpl_eic.d \
 hpl/evsys/hpl_evsys.d \
 hpl/gclk/hpl_gclk.d \
 hpl/mclk/hpl_mclk.d \
@@ -312,310 +318,315 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 
 LIB_DEP+= 
 
-LINKER_SCRIPT_DEP+=  \
-../Device_Startup/same54p20a_flash.ld \
-../Device_Startup/same54p20a_sram.ld
+LINKER_SCRIPT_DEP+= 
 
 
 # AVR32/GNU C Compiler
 ./atmel_start.o: .././atmel_start.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-Device_Startup/startup_same54.o: ../Device_Startup/startup_same54.c
-	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-Device_Startup/system_same54.o: ../Device_Startup/system_same54.c
-	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 ./driver_init.o: .././driver_init.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 examples/driver_examples.o: ../examples/driver_examples.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_atomic.o: ../hal/src/hal_atomic.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_cache.o: ../hal/src/hal_cache.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_can_async.o: ../hal/src/hal_can_async.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_delay.o: ../hal/src/hal_delay.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_evsys.o: ../hal/src/hal_evsys.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+hal/src/hal_ext_irq.o: ../hal/src/hal_ext_irq.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_gpio.o: ../hal/src/hal_gpio.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-hal/src/hal_i2c_m_sync.o: ../hal/src/hal_i2c_m_sync.c
+hal/src/hal_i2c_m_async.o: ../hal/src/hal_i2c_m_async.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_init.o: ../hal/src/hal_init.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_io.o: ../hal/src/hal_io.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_sleep.o: ../hal/src/hal_sleep.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+hal/src/hal_spi_m_async.o: ../hal/src/hal_spi_m_async.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_spi_m_sync.o: ../hal/src/hal_spi_m_sync.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_timer.o: ../hal/src/hal_timer.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/src/hal_usb_device.o: ../hal/src/hal_usb_device.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/utils/src/utils_assert.o: ../hal/utils/src/utils_assert.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/utils/src/utils_event.o: ../hal/utils/src/utils_event.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/utils/src/utils_list.o: ../hal/utils/src/utils_list.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hal/utils/src/utils_syscalls.o: ../hal/utils/src/utils_syscalls.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/can/hpl_can.o: ../hpl/can/hpl_can.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/cmcc/hpl_cmcc.o: ../hpl/cmcc/hpl_cmcc.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/core/hpl_core_m4.o: ../hpl/core/hpl_core_m4.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/core/hpl_init.o: ../hpl/core/hpl_init.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/dmac/hpl_dmac.o: ../hpl/dmac/hpl_dmac.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+hpl/eic/hpl_eic.o: ../hpl/eic/hpl_eic.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/evsys/hpl_evsys.o: ../hpl/evsys/hpl_evsys.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/gclk/hpl_gclk.o: ../hpl/gclk/hpl_gclk.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/mclk/hpl_mclk.o: ../hpl/mclk/hpl_mclk.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/osc32kctrl/hpl_osc32kctrl.o: ../hpl/osc32kctrl/hpl_osc32kctrl.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/oscctrl/hpl_oscctrl.o: ../hpl/oscctrl/hpl_oscctrl.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/pm/hpl_pm.o: ../hpl/pm/hpl_pm.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/ramecc/hpl_ramecc.o: ../hpl/ramecc/hpl_ramecc.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/rtc/hpl_rtc.o: ../hpl/rtc/hpl_rtc.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/sercom/hpl_sercom.o: ../hpl/sercom/hpl_sercom.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/tc/hpl_tc.o: ../hpl/tc/hpl_tc.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 hpl/usb/hpl_usb.o: ../hpl/usb/hpl_usb.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 ./main.o: .././main.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 usb/class/cdc/device/cdcdf_acm.o: ../usb/class/cdc/device/cdcdf_acm.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 usb/device/usbdc.o: ../usb/device/usbdc.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 usb/usb_protocol.o: ../usb/usb_protocol.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 ./usb_start.o: .././usb_start.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME54P20A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/can" -I"../hpl/cmcc" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/eic" -I"../hpl/evsys" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/rtc" -I"../hpl/sercom" -I"../hpl/tc" -I"../hpl/usb" -I"../hri" -I"../usb" -I"../usb/class/cdc" -I"../usb/class/cdc/device" -I"../usb/device" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -std=gnu99 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 

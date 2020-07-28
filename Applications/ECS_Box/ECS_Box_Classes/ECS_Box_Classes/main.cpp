@@ -5,31 +5,197 @@
  * Author : GMateusDP
  */ 
 
-#include <atmel_start.h>
-#include "CDC_Class.h"
+#include "main.h"
 
 int main(void)
 {
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
-	CDC_Class	usb;
-	usb.init();
 	
-
-	/* Replace with your application code */
+	usb.init();
+	delay_ms(200);
+	StartLivePulse();
+	//QSPIDriverTest();
+	//DateTimeTest();
+	EEPROM_Test();
+		/* Replace with your application code */
 	while (1) {
-		if (usb.is_enabled())
+		
+		
+	}
+}
+
+uint8_t	StartLivePulse(void){
+	usb<<"**** Life Pulse Activated****"<<NEWLINE;
+	//pwm_set_parameters(&PWM_0, 500, 1000);
+	uint32_t p=pwm_enable(&LIVE_PULSE);
+	return p;
+}
+
+void usb_test(void){
+	if (usb.available())
+	{
+		usb<<"it should work";
+		int inByte=usb.read();
+		if (inByte>33)
 		{
-			int inByte=usb.read();
-			if (inByte>33)
-			{
-				usb.println(inByte);
-				usb.println((char)inByte);
-				usb.println((float)(inByte/2));
-				usb.println("it works");
-				usb<<"it does work";
+			//usb.writeData2(&inByte,1);
+			usb.println(inByte);
+			usb.println((float)inByte/23);
+			
+			usb<<"it does work"<<NEWLINE;
+		}
+	}
+}
+uint8_t EEPROM_Test(void){
+	AT24MAC_Class	eeprom(&I2C_EEPROM);
+	eeprom.Init();
+	uint8_t addr=0x00;
+	uint8_t	value;
+	usb<<"  Function for testing an i2c EEPROM"<<NEWLINE;
+	/* Replace with your application code */
+			
+	while (1) {
+		if (eeprom.is_EEPROM_ready())
+		{
+			value=eeprom.read_byte(addr);
+			usb<<" the value on address: "<<addr<<" is: "<<value<<NEWLINE;
+			eeprom.write_byte(addr,16-addr);
+		
+			if (addr<16){
+				addr++;
 			}
+			else{
+				addr=0;
+			}
+		}
+		else
+		{
+			if (usb.available())
+			{
+				usb<< "---I2C connection error!!-----"<<NEWLINE;
+			}			
 		}
 		delay_ms(100);
 	}
+	return	 value;
+}
+
+void	LTC2983_test(void){
+	LTC2983_Class	LTC(&SPI_TEMP);
+	LTC.init();
+	LTC.print_title();
+	LTC.configure_channels();
+	LTC.configure_global_parameters();
+	while (LTC.ready)
+	{
+		 LTC.measure_channel(CHIP_SELECT, 4, TEMPERATURE);      // Ch 4: RTD PT-100
+		 delay_ms(1);
+		 LTC.measure_channel(CHIP_SELECT, 8, TEMPERATURE);      // Ch 8: RTD PT-100
+		  delay_ms(1);
+		 LTC.measure_channel(CHIP_SELECT, 15, TEMPERATURE);     // Ch 15: RTD PT-100
+		  delay_ms(1);
+	}
+	
+}
+
+int ARINC_test(void)
+{
+	ARINC_Interface		ECSBox;
+	ECSBox.Init();
+
+	delay_ms(100);
+
+	while (1)
+	{
+
+		ECSBox.SayHello();
+		delay_ms(100);
+		ECSBox.CustomMessage(SELFTEST_OFF);
+		
+	}
+	return 0;
+}
+void	QSPIDriverTest(void){
+		bool is_corrupted = false;
+		uint8_t tx_buffer[QSPI_BUFFER_SIZE] ;
+		uint8_t rx_buffer[QSPI_BUFFER_SIZE] ;
+		flash.Init();
+
+		usb.print("QSPI Program Started\n\r");
+		/* Initialize Tx buffer */
+		for (int i = 0; i <QSPI_BUFFER_SIZE ; i++) {
+			tx_buffer[i] = (uint8_t)i;
+		}
+	
+		flash.Erase();
+		/* Erase flash memory */
+
+		while (1) {
+			delay_ms(400);
+				/* Write data to flash memory */
+				if (ERR_NONE ==flash.WriteAddress((uint8_t *)tx_buffer,0,QSPI_BUFFER_SIZE)) {
+					usb.print("Flash write successful \n\r");
+				}
+			delay_ms(100);
+				/* Read data from flash memory */
+				if (ERR_NONE == flash.ReadAddress((uint8_t *)rx_buffer,0,QSPI_BUFFER_SIZE)) {
+					//while(!memory.xferDone);
+					usb.print("Flash read successful\n\r");
+				}
+				delay_ms(100);
+					is_corrupted = false;
+				for (int i = 0; i < QSPI_BUFFER_SIZE; i++) {
+					if (tx_buffer[i] != rx_buffer[i]) {
+						is_corrupted = true;
+						usb.print("Flash data verification failed.\n\r");
+						usb<<"bit :"<<i<<NEWLINE;
+						i=QSPI_BUFFER_SIZE;
+						break;
+					}
+					
+				}
+
+				if (!is_corrupted) {
+					usb.print("Write - Read is successful in QSPI Flash memory.\n\r");
+					for (int i = 0; i <QSPI_BUFFER_SIZE ; i++) {
+						rx_buffer[i] = (uint8_t)(QSPI_BUFFER_SIZE-i);
+					}
+				}
+					
+		}
+}
+
+void	DateTimeTest(void){
+	usb<<"****  Calendar Update Test***"<<NEWLINE;
+	usb<<__TIMESTAMP__<<NEWLINE;
+	//eeprom.init();
+	//memory.Init();
+	calendar.Init();
+	calendar_date dia;
+	calendar_time tiempo;
+	calendar_date_time	cdt;
+
+	while (1)
+	{
+		calendar.ReadDateTime(&cdt);
+		usb<<NEWLINE<<"****last data time:"<<NEWLINE;
+		dia=cdt.date;
+		usb<<"	year :"<<dia.year<<"	month :"<<dia.month<<"	day: "<<dia.day<<NEWLINE;
+		tiempo=cdt.time;
+		usb<<"	hour :"<<tiempo.hour<<"	min :"<<tiempo.min<<"	sec: "<<tiempo.sec<<NEWLINE;
+		delay_ms(1000);
+		
+		usb<<"**current data time:"<<NEWLINE;
+		calendar.GetDateTime(&cdt);
+		dia=cdt.date;
+		usb<<"	year :"<<dia.year<<"	month :"<<dia.month<<"	day: "<<dia.day<<NEWLINE;
+		tiempo=cdt.time;
+		usb<<"	hour :"<<tiempo.hour<<"	min :"<<tiempo.min<<"	sec: "<<tiempo.sec<<NEWLINE;
+		
+		calendar.SaveCurrentDateTime();
+		delay_ms(1000);
+		
+	}
+	
 }

@@ -163,6 +163,10 @@ static struct usart_configuration _usarts[] = {
 };
 #endif
 
+static struct _spi_async_dev *_sercom4_dev = NULL;
+
+static struct _i2c_m_async_device *_sercom7_dev = NULL;
+
 static uint8_t _get_sercom_index(const void *const hw);
 static uint8_t _sercom_get_irq_num(const void *const hw);
 static void    _sercom_init_irq_param(const void *const hw, void *dev);
@@ -589,6 +593,14 @@ static uint8_t _get_sercom_index(const void *const hw)
  */
 static void _sercom_init_irq_param(const void *const hw, void *dev)
 {
+
+	if (hw == SERCOM4) {
+		_sercom4_dev = (struct _spi_async_dev *)dev;
+	}
+
+	if (hw == SERCOM7) {
+		_sercom7_dev = (struct _i2c_m_async_device *)dev;
+	}
 }
 
 /**
@@ -1032,6 +1044,48 @@ static inline int32_t _sercom_i2c_sync_analyse_flags(void *const hw, uint32_t fl
 	}
 
 	return I2C_OK;
+}
+
+/**
+ * \internal Sercom i2c master interrupt handler
+ *
+ * \param[in] i2c_dev The pointer to i2c device
+ */
+static void _sercom_i2c_m_irq_handler(struct _i2c_m_async_device *i2c_dev)
+{
+	void *   hw    = i2c_dev->hw;
+	uint32_t flags = hri_sercomi2cm_read_INTFLAG_reg(hw);
+	int32_t  ret   = I2C_OK;
+
+	ASSERT(i2c_dev);
+	ASSERT(i2c_dev->hw);
+
+	while (!(flags & ERROR_FLAG)) {
+		ret = _sercom_i2c_sync_analyse_flags(hw, flags, &i2c_dev->service.msg);
+
+		if (ret != 0) {
+			break;
+		}
+
+		/* app callback */
+		if ((flags & MB_FLAG) && i2c_dev->cb.tx_complete) {
+			i2c_dev->cb.tx_complete(i2c_dev);
+		} else if ((flags & SB_FLAG) && i2c_dev->cb.rx_complete) {
+			i2c_dev->cb.rx_complete(i2c_dev);
+		}
+
+		return;
+	}
+
+	i2c_dev->service.msg.flags &= ~I2C_M_BUSY;
+	if (i2c_dev->cb.error) {
+		if (ret != I2C_OK) {
+			i2c_dev->cb.error(i2c_dev, ret);
+		} else {
+			i2c_dev->cb.error(i2c_dev, I2C_ERR_BUS);
+		}
+		hri_sercomi2cm_clear_INTFLAG_reg(hw, SERCOM_I2CM_INTFLAG_ERROR);
+	}
 }
 
 /**
@@ -2355,6 +2409,90 @@ static inline const struct sercomspi_regs_cfg *_spi_get_regs(const uint32_t hw_a
 	}
 
 	return NULL;
+}
+
+/**
+ *  \brief IRQ handler used
+ *  \param[in, out] p Pointer to SPI device instance.
+ */
+static void _spi_handler(struct _spi_async_dev *dev)
+{
+	void *                      hw = dev->prvt;
+	hri_sercomspi_intflag_reg_t st;
+
+	st = hri_sercomspi_read_INTFLAG_reg(hw);
+	st &= hri_sercomspi_read_INTEN_reg(hw);
+
+	if (st & SERCOM_SPI_INTFLAG_DRE) {
+		dev->callbacks.tx(dev);
+	} else if (st & SERCOM_SPI_INTFLAG_RXC) {
+		dev->callbacks.rx(dev);
+	} else if (st & SERCOM_SPI_INTFLAG_TXC) {
+		hri_sercomspi_clear_INTFLAG_reg(hw, SERCOM_SPI_INTFLAG_TXC);
+		dev->callbacks.complete(dev);
+	} else if (st & SERCOM_SPI_INTFLAG_ERROR) {
+		hri_sercomspi_clear_STATUS_reg(hw, SERCOM_SPI_STATUS_BUFOVF);
+		hri_sercomspi_clear_INTFLAG_reg(hw, SERCOM_SPI_INTFLAG_ERROR);
+		dev->callbacks.err(dev, ERR_OVERFLOW);
+	}
+}
+
+/**
+ * \internal Sercom interrupt handler
+ */
+void SERCOM4_0_Handler(void)
+{
+	_spi_handler(_sercom4_dev);
+}
+/**
+ * \internal Sercom interrupt handler
+ */
+void SERCOM4_1_Handler(void)
+{
+	_spi_handler(_sercom4_dev);
+}
+/**
+ * \internal Sercom interrupt handler
+ */
+void SERCOM4_2_Handler(void)
+{
+	_spi_handler(_sercom4_dev);
+}
+/**
+ * \internal Sercom interrupt handler
+ */
+void SERCOM4_3_Handler(void)
+{
+	_spi_handler(_sercom4_dev);
+}
+
+/**
+ * \internal Sercom interrupt handler
+ */
+void SERCOM7_0_Handler(void)
+{
+	_sercom_i2c_m_irq_handler(_sercom7_dev);
+}
+/**
+ * \internal Sercom interrupt handler
+ */
+void SERCOM7_1_Handler(void)
+{
+	_sercom_i2c_m_irq_handler(_sercom7_dev);
+}
+/**
+ * \internal Sercom interrupt handler
+ */
+void SERCOM7_2_Handler(void)
+{
+	_sercom_i2c_m_irq_handler(_sercom7_dev);
+}
+/**
+ * \internal Sercom interrupt handler
+ */
+void SERCOM7_3_Handler(void)
+{
+	_sercom_i2c_m_irq_handler(_sercom7_dev);
 }
 
 int32_t _spi_m_sync_init(struct _spi_m_sync_dev *dev, void *const hw)

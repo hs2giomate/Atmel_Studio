@@ -4,10 +4,6 @@
 
 atmel_start.c
 
-Device_Startup\startup_same54.c
-
-Device_Startup\system_same54.c
-
 driver_init.c
 
 examples\driver_examples.c
@@ -22,15 +18,19 @@ hal\src\hal_delay.c
 
 hal\src\hal_evsys.c
 
+hal\src\hal_ext_irq.c
+
 hal\src\hal_gpio.c
 
-hal\src\hal_i2c_m_sync.c
+hal\src\hal_i2c_m_async.c
 
 hal\src\hal_init.c
 
 hal\src\hal_io.c
 
 hal\src\hal_sleep.c
+
+hal\src\hal_spi_m_async.c
 
 hal\src\hal_spi_m_sync.c
 
@@ -55,6 +55,8 @@ hpl\core\hpl_core_m4.c
 hpl\core\hpl_init.c
 
 hpl\dmac\hpl_dmac.c
+
+hpl\eic\hpl_eic.c
 
 hpl\evsys\hpl_evsys.c
 

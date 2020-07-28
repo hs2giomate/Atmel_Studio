@@ -10364,7 +10364,6 @@ Discarded input sections
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
- .group         0x00000000        0x8 main.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -13186,7 +13185,7 @@ OUTPUT(TSENS Example.elf elf32-littlearm)
  .debug_ranges  0x00000ef8       0x28 stdio_redirect/stdio_io.o
  .debug_ranges  0x00000f20       0x18 stdio_start.o
 
-.debug_macro    0x00000000    0x35db6
+.debug_macro    0x00000000    0x35da2
  .debug_macro   0x00000000      0x8f9 atmel_start.o
  .debug_macro   0x000008f9      0x8b0 atmel_start.o
  .debug_macro   0x000011a9      0x16d atmel_start.o
@@ -13418,15 +13417,14 @@ OUTPUT(TSENS Example.elf elf32-littlearm)
  .debug_macro   0x00032be0       0x10 hpl/sercom/hpl_sercom.o
  .debug_macro   0x00032bf0      0x695 hpl/systick/hpl_systick.o
  .debug_macro   0x00033285       0x10 hpl/systick/hpl_systick.o
- .debug_macro   0x00033295      0x963 main.o
- .debug_macro   0x00033bf8       0x10 main.o
- .debug_macro   0x00033c08      0x7f6 stdio_redirect/gcc/read.o
- .debug_macro   0x000343fe      0x7f6 stdio_redirect/gcc/write.o
- .debug_macro   0x00034bf4      0x7ef stdio_redirect/stdio_io.o
- .debug_macro   0x000353e3       0xd9 stdio_redirect/stdio_io.o
- .debug_macro   0x000354bc      0x8fa stdio_start.o
+ .debug_macro   0x00033295      0x95f main.o
+ .debug_macro   0x00033bf4      0x7f6 stdio_redirect/gcc/read.o
+ .debug_macro   0x000343ea      0x7f6 stdio_redirect/gcc/write.o
+ .debug_macro   0x00034be0      0x7ef stdio_redirect/stdio_io.o
+ .debug_macro   0x000353cf       0xd9 stdio_redirect/stdio_io.o
+ .debug_macro   0x000354a8      0x8fa stdio_start.o
 
-.debug_line     0x00000000    0x14f43
+.debug_line     0x00000000    0x14f2a
  .debug_line    0x00000000      0xe73 atmel_start.o
  .debug_line    0x00000e73      0x89d Device_Startup/startup_same54.o
  .debug_line    0x00001710      0xe1e driver_init.o
@@ -13446,13 +13444,13 @@ OUTPUT(TSENS Example.elf elf32-littlearm)
  .debug_line    0x0000c763      0xc84 hpl/ramecc/hpl_ramecc.o
  .debug_line    0x0000d3e7     0x2aaa hpl/sercom/hpl_sercom.o
  .debug_line    0x0000fe91      0xc51 hpl/systick/hpl_systick.o
- .debug_line    0x00010ae2      0xf03 main.o
- .debug_line    0x000119e5      0xce6 stdio_redirect/gcc/read.o
- .debug_line    0x000126cb      0xce7 stdio_redirect/gcc/write.o
- .debug_line    0x000133b2      0xd0a stdio_redirect/stdio_io.o
- .debug_line    0x000140bc      0xe87 stdio_start.o
+ .debug_line    0x00010ae2      0xeea main.o
+ .debug_line    0x000119cc      0xce6 stdio_redirect/gcc/read.o
+ .debug_line    0x000126b2      0xce7 stdio_redirect/gcc/write.o
+ .debug_line    0x00013399      0xd0a stdio_redirect/stdio_io.o
+ .debug_line    0x000140a3      0xe87 stdio_start.o
 
-.debug_str      0x00000000   0x11fac4
+.debug_str      0x00000000   0x11faa2
  .debug_str     0x00000000   0x10b3a8 atmel_start.o
                              0x10b921 (size before relaxing)
  .debug_str     0x0010b3a8      0xbfb Device_Startup/startup_same54.o
@@ -13491,15 +13489,15 @@ OUTPUT(TSENS Example.elf elf32-littlearm)
                              0x10cc2b (size before relaxing)
  .debug_str     0x0011f4e8       0xcd hpl/systick/hpl_systick.o
                              0x10672f (size before relaxing)
- .debug_str     0x0011f5b5      0x440 main.o
-                             0x10be1a (size before relaxing)
- .debug_str     0x0011f9f5       0x2b stdio_redirect/gcc/read.o
+ .debug_str     0x0011f5b5      0x41e main.o
+                             0x10bdf8 (size before relaxing)
+ .debug_str     0x0011f9d3       0x2b stdio_redirect/gcc/read.o
                              0x10a494 (size before relaxing)
- .debug_str     0x0011fa20       0x2d stdio_redirect/gcc/write.o
+ .debug_str     0x0011f9fe       0x2d stdio_redirect/gcc/write.o
                              0x10a496 (size before relaxing)
- .debug_str     0x0011fa4d       0x4b stdio_redirect/stdio_io.o
+ .debug_str     0x0011fa2b       0x4b stdio_redirect/stdio_io.o
                              0x10a51d (size before relaxing)
- .debug_str     0x0011fa98       0x2c stdio_start.o
+ .debug_str     0x0011fa76       0x2c stdio_start.o
                              0x10b951 (size before relaxing)
 
 .debug_frame    0x00000000     0x2484

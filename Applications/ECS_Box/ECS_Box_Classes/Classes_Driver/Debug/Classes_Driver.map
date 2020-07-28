@@ -759,7 +759,7 @@ Discarded input sections
  .debug_macro   0x00000000     0x4ff3 Device_Startup/system_same54.o
  .debug_macro   0x00000000       0xcf Device_Startup/system_same54.o
  .debug_line    0x00000000      0x87e Device_Startup/system_same54.o
- .debug_str     0x00000000    0xf0163 Device_Startup/system_same54.o
+ .debug_str     0x00000000    0xf0153 Device_Startup/system_same54.o
  .comment       0x00000000       0x5a Device_Startup/system_same54.o
  .debug_frame   0x00000000       0x30 Device_Startup/system_same54.o
  .ARM.attributes
@@ -1463,7 +1463,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xd1 examples/driver_examples.o
  .debug_macro   0x00000000       0xee examples/driver_examples.o
  .debug_line    0x00000000      0xf29 examples/driver_examples.o
- .debug_str     0x00000000   0x1091f4 examples/driver_examples.o
+ .debug_str     0x00000000   0x1091e4 examples/driver_examples.o
  .comment       0x00000000       0x5a examples/driver_examples.o
  .debug_frame   0x00000000      0x15c examples/driver_examples.o
  .ARM.attributes
@@ -2120,7 +2120,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xca hal/src/hal_cache.o
  .debug_macro   0x00000000       0x34 hal/src/hal_cache.o
  .debug_line    0x00000000      0xc25 hal/src/hal_cache.o
- .debug_str     0x00000000   0x1069c7 hal/src/hal_cache.o
+ .debug_str     0x00000000   0x1069b7 hal/src/hal_cache.o
  .comment       0x00000000       0x5a hal/src/hal_cache.o
  .debug_frame   0x00000000       0x78 hal/src/hal_cache.o
  .ARM.attributes
@@ -2796,7 +2796,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 hal/src/hal_delay.o
  .debug_macro   0x00000000       0xca hal/src/hal_delay.o
  .debug_line    0x00000000      0xc1d hal/src/hal_delay.o
- .debug_str     0x00000000   0x10674c hal/src/hal_delay.o
+ .debug_str     0x00000000   0x10673c hal/src/hal_delay.o
  .comment       0x00000000       0x5a hal/src/hal_delay.o
  .debug_frame   0x00000000       0x68 hal/src/hal_delay.o
  .ARM.attributes
@@ -3458,7 +3458,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 hal/src/hal_gpio.o
  .debug_macro   0x00000000      0x185 hal/src/hal_gpio.o
  .debug_line    0x00000000      0xc0d hal/src/hal_gpio.o
- .debug_str     0x00000000   0x10772f hal/src/hal_gpio.o
+ .debug_str     0x00000000   0x10771f hal/src/hal_gpio.o
  .comment       0x00000000       0x5a hal/src/hal_gpio.o
  .debug_frame   0x00000000       0x20 hal/src/hal_gpio.o
  .ARM.attributes
@@ -4129,7 +4129,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 hal/src/hal_init.o
  .debug_macro   0x00000000       0xca hal/src/hal_init.o
  .debug_line    0x00000000      0xbbd hal/src/hal_init.o
- .debug_str     0x00000000   0x10668d hal/src/hal_init.o
+ .debug_str     0x00000000   0x10667d hal/src/hal_init.o
  .comment       0x00000000       0x5a hal/src/hal_init.o
  .debug_frame   0x00000000       0x20 hal/src/hal_init.o
  .ARM.attributes
@@ -4466,7 +4466,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xca hal/src/hal_io.o
  .debug_macro   0x00000000       0x16 hal/src/hal_io.o
  .debug_line    0x00000000      0xc09 hal/src/hal_io.o
- .debug_str     0x00000000   0x10677d hal/src/hal_io.o
+ .debug_str     0x00000000   0x10676d hal/src/hal_io.o
  .comment       0x00000000       0x5a hal/src/hal_io.o
  .debug_frame   0x00000000       0x58 hal/src/hal_io.o
  .ARM.attributes
@@ -4797,7 +4797,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 hal/src/hal_sleep.o
  .debug_macro   0x00000000       0xca hal/src/hal_sleep.o
  .debug_line    0x00000000      0xbd5 hal/src/hal_sleep.o
- .debug_str     0x00000000   0x1066c9 hal/src/hal_sleep.o
+ .debug_str     0x00000000   0x1066b9 hal/src/hal_sleep.o
  .comment       0x00000000       0x5a hal/src/hal_sleep.o
  .debug_frame   0x00000000       0x38 hal/src/hal_sleep.o
  .ARM.attributes
@@ -6519,7 +6519,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 hal/utils/src/utils_event.o
  .debug_macro   0x00000000       0x35 hal/utils/src/utils_event.o
  .debug_line    0x00000000      0xd14 hal/utils/src/utils_event.o
- .debug_str     0x00000000   0x109a59 hal/utils/src/utils_event.o
+ .debug_str     0x00000000   0x109a49 hal/utils/src/utils_event.o
  .comment       0x00000000       0x5a hal/utils/src/utils_event.o
  .debug_frame   0x00000000       0x70 hal/utils/src/utils_event.o
  .ARM.attributes
@@ -6933,7 +6933,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x35 hal/utils/src/utils_syscalls.o
  .debug_macro   0x00000000      0x122 hal/utils/src/utils_syscalls.o
  .debug_line    0x00000000      0x40a hal/utils/src/utils_syscalls.o
- .debug_str     0x00000000     0x73c5 hal/utils/src/utils_syscalls.o
+ .debug_str     0x00000000     0x73b5 hal/utils/src/utils_syscalls.o
  .comment       0x00000000       0x5a hal/utils/src/utils_syscalls.o
  .debug_frame   0x00000000       0xa8 hal/utils/src/utils_syscalls.o
  .ARM.attributes
@@ -7657,7 +7657,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x34 hpl/cmcc/hpl_cmcc.o
  .debug_macro   0x00000000       0x28 hpl/cmcc/hpl_cmcc.o
  .debug_line    0x00000000      0xef7 hpl/cmcc/hpl_cmcc.o
- .debug_str     0x00000000   0x106d4d hpl/cmcc/hpl_cmcc.o
+ .debug_str     0x00000000   0x106d3d hpl/cmcc/hpl_cmcc.o
  .comment       0x00000000       0x5a hpl/cmcc/hpl_cmcc.o
  .debug_frame   0x00000000      0x100 hpl/cmcc/hpl_cmcc.o
  .ARM.attributes
@@ -8670,7 +8670,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x6cc hpl/dmac/hpl_dmac.o
  .debug_macro   0x00000000      0x6ba hpl/dmac/hpl_dmac.o
  .debug_line    0x00000000      0xc1b hpl/dmac/hpl_dmac.o
- .debug_str     0x00000000   0x10ed8e hpl/dmac/hpl_dmac.o
+ .debug_str     0x00000000   0x10ed7e hpl/dmac/hpl_dmac.o
  .comment       0x00000000       0x5a hpl/dmac/hpl_dmac.o
  .ARM.attributes
                 0x00000000       0x37 hpl/dmac/hpl_dmac.o
@@ -10598,7 +10598,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 hpl/pm/hpl_pm.o
  .debug_macro   0x00000000       0xca hpl/pm/hpl_pm.o
  .debug_line    0x00000000      0xbcf hpl/pm/hpl_pm.o
- .debug_str     0x00000000   0x106818 hpl/pm/hpl_pm.o
+ .debug_str     0x00000000   0x106808 hpl/pm/hpl_pm.o
  .comment       0x00000000       0x5a hpl/pm/hpl_pm.o
  .debug_frame   0x00000000       0x20 hpl/pm/hpl_pm.o
  .ARM.attributes
@@ -16093,67 +16093,67 @@ OUTPUT(Classes_Driver.elf elf32-littlearm)
  .debug_line    0x0001a33c      0xdf9 usb/usb_protocol.o
  .debug_line    0x0001b135      0xfd6 usb_start.o
 
-.debug_str      0x00000000   0x12ac86
- .debug_str     0x00000000   0x10e32a atmel_start.o
-                             0x10e94d (size before relaxing)
- .debug_str     0x0010e32a      0xbf6 Device_Startup/startup_same54.o
-                              0xf0d2f (size before relaxing)
- .debug_str     0x0010ef20     0x300c driver_init.o
-                             0x10bf79 (size before relaxing)
- .debug_str     0x00111f2c       0x9c hal/src/hal_atomic.o
+.debug_str      0x00000000   0x12ac76
+ .debug_str     0x00000000   0x10e31a atmel_start.o
+                             0x10e93d (size before relaxing)
+ .debug_str     0x0010e31a      0xbf6 Device_Startup/startup_same54.o
+                              0xf0d1f (size before relaxing)
+ .debug_str     0x0010ef10     0x300c driver_init.o
+                             0x10bf69 (size before relaxing)
+ .debug_str     0x00111f1c       0x9c hal/src/hal_atomic.o
+                             0x1066d2 (size before relaxing)
+ .debug_str     0x00111fb8      0x23b hal/src/hal_can_async.o
+                             0x106fbc (size before relaxing)
+ .debug_str     0x001121f3       0xd2 hal/src/hal_evsys.o
+                             0x1067a8 (size before relaxing)
+ .debug_str     0x001122c5      0x170 hal/src/hal_i2c_m_sync.o
+                             0x106fc3 (size before relaxing)
+ .debug_str     0x00112435      0x2e8 hal/src/hal_spi_m_sync.o
+                             0x10705a (size before relaxing)
+ .debug_str     0x0011271d      0x1f8 hal/src/hal_timer.o
+                             0x106f87 (size before relaxing)
+ .debug_str     0x00112915      0x821 hal/src/hal_usb_device.o
+                             0x10a8c1 (size before relaxing)
+ .debug_str     0x00113136       0x2a hal/utils/src/utils_assert.o
                              0x1066e2 (size before relaxing)
- .debug_str     0x00111fc8      0x23b hal/src/hal_can_async.o
-                             0x106fcc (size before relaxing)
- .debug_str     0x00112203       0xd2 hal/src/hal_evsys.o
-                             0x1067b8 (size before relaxing)
- .debug_str     0x001122d5      0x170 hal/src/hal_i2c_m_sync.o
-                             0x106fd3 (size before relaxing)
- .debug_str     0x00112445      0x2e8 hal/src/hal_spi_m_sync.o
-                             0x10706a (size before relaxing)
- .debug_str     0x0011272d      0x1f8 hal/src/hal_timer.o
-                             0x106f97 (size before relaxing)
- .debug_str     0x00112925      0x821 hal/src/hal_usb_device.o
-                             0x10a8d1 (size before relaxing)
- .debug_str     0x00113146       0x2a hal/utils/src/utils_assert.o
-                             0x1066f2 (size before relaxing)
- .debug_str     0x00113170       0x31 hal/utils/src/utils_list.o
-                             0x10679c (size before relaxing)
- .debug_str     0x001131a1     0x19e7 hpl/can/hpl_can.o
-                             0x10c0f3 (size before relaxing)
- .debug_str     0x00114b88      0x169 hpl/core/hpl_core_m4.o
-                             0x107ea0 (size before relaxing)
- .debug_str     0x00114cf1     0x3148 hpl/core/hpl_init.o
-                             0x10b42f (size before relaxing)
- .debug_str     0x00117e39     0x7df1 hpl/evsys/hpl_evsys.o
-                             0x10e53e (size before relaxing)
- .debug_str     0x0011fc2a      0xbfa hpl/gclk/hpl_gclk.o
-                             0x107423 (size before relaxing)
- .debug_str     0x00120824       0x47 hpl/mclk/hpl_mclk.o
-                             0x1073c4 (size before relaxing)
- .debug_str     0x0012086b      0x50f hpl/osc32kctrl/hpl_osc32kctrl.o
-                             0x106c02 (size before relaxing)
- .debug_str     0x00120d7a      0xe6e hpl/oscctrl/hpl_oscctrl.o
-                             0x10826e (size before relaxing)
- .debug_str     0x00121be8      0x25d hpl/ramecc/hpl_ramecc.o
-                             0x107628 (size before relaxing)
- .debug_str     0x00121e45      0x6c9 hpl/rtc/hpl_rtc.o
-                             0x107d46 (size before relaxing)
- .debug_str     0x0012250e     0x5067 hpl/sercom/hpl_sercom.o
-                             0x10db69 (size before relaxing)
- .debug_str     0x00127575      0xad1 hpl/tc/hpl_tc.o
-                             0x108c5f (size before relaxing)
- .debug_str     0x00128046     0x1d45 hpl/usb/hpl_usb.o
-                             0x10cf6a (size before relaxing)
- .debug_str     0x00129d8b        0xc main.o
-                             0x10e936 (size before relaxing)
- .debug_str     0x00129d97      0x78c usb/class/cdc/device/cdcdf_acm.o
-                             0x10ccc0 (size before relaxing)
- .debug_str     0x0012a523      0x53f usb/device/usbdc.o
-                             0x10c329 (size before relaxing)
- .debug_str     0x0012aa62       0xe4 usb/usb_protocol.o
-                             0x10a8f6 (size before relaxing)
- .debug_str     0x0012ab46      0x140 usb_start.o
-                             0x10ec40 (size before relaxing)
+ .debug_str     0x00113160       0x31 hal/utils/src/utils_list.o
+                             0x10678c (size before relaxing)
+ .debug_str     0x00113191     0x19e7 hpl/can/hpl_can.o
+                             0x10c0e3 (size before relaxing)
+ .debug_str     0x00114b78      0x169 hpl/core/hpl_core_m4.o
+                             0x107e90 (size before relaxing)
+ .debug_str     0x00114ce1     0x3148 hpl/core/hpl_init.o
+                             0x10b41f (size before relaxing)
+ .debug_str     0x00117e29     0x7df1 hpl/evsys/hpl_evsys.o
+                             0x10e52e (size before relaxing)
+ .debug_str     0x0011fc1a      0xbfa hpl/gclk/hpl_gclk.o
+                             0x107413 (size before relaxing)
+ .debug_str     0x00120814       0x47 hpl/mclk/hpl_mclk.o
+                             0x1073b4 (size before relaxing)
+ .debug_str     0x0012085b      0x50f hpl/osc32kctrl/hpl_osc32kctrl.o
+                             0x106bf2 (size before relaxing)
+ .debug_str     0x00120d6a      0xe6e hpl/oscctrl/hpl_oscctrl.o
+                             0x10825e (size before relaxing)
+ .debug_str     0x00121bd8      0x25d hpl/ramecc/hpl_ramecc.o
+                             0x107618 (size before relaxing)
+ .debug_str     0x00121e35      0x6c9 hpl/rtc/hpl_rtc.o
+                             0x107d36 (size before relaxing)
+ .debug_str     0x001224fe     0x5067 hpl/sercom/hpl_sercom.o
+                             0x10db59 (size before relaxing)
+ .debug_str     0x00127565      0xad1 hpl/tc/hpl_tc.o
+                             0x108c4f (size before relaxing)
+ .debug_str     0x00128036     0x1d45 hpl/usb/hpl_usb.o
+                             0x10cf5a (size before relaxing)
+ .debug_str     0x00129d7b        0xc main.o
+                             0x10e926 (size before relaxing)
+ .debug_str     0x00129d87      0x78c usb/class/cdc/device/cdcdf_acm.o
+                             0x10ccb0 (size before relaxing)
+ .debug_str     0x0012a513      0x53f usb/device/usbdc.o
+                             0x10c319 (size before relaxing)
+ .debug_str     0x0012aa52       0xe4 usb/usb_protocol.o
+                             0x10a8e6 (size before relaxing)
+ .debug_str     0x0012ab36      0x140 usb_start.o
+                             0x10ec30 (size before relaxing)
 
 .debug_frame    0x00000000     0x2a0c
  .debug_frame   0x00000000       0x28 atmel_start.o

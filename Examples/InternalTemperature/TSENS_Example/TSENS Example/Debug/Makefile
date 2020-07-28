@@ -261,9 +261,9 @@ stdio_redirect/gcc/write.d \
 stdio_redirect/stdio_io.d \
 stdio_start.d
 
-OUTPUT_FILE_PATH +=libTSENS\ Example.a
+OUTPUT_FILE_PATH +=TSENS\ Example.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +="libTSENS Example.a"
+OUTPUT_FILE_PATH_AS_ARGS +="TSENS Example.elf"
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -552,14 +552,20 @@ endif
 # All Target
 all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
-
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
+$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
-	@echo Invoking: ARM/GNU Archiver : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
+	@echo Invoking: ARM/GNU Linker : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="TSENS Example.map" --specs=nano.specs -Wl,--start-group -lm  -Wl,--end-group -L"..\\Device_Startup"  -Wl,--gc-sections -mcpu=cortex-m4 -Tsame54p20a_flash.ld  
 	@echo Finished building target: $@
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "TSENS Example.elf" "TSENS Example.bin"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "TSENS Example.elf" "TSENS Example.hex"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O binary "TSENS Example.elf" "TSENS Example.eep" || exit 0
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objdump.exe" -h -S "TSENS Example.elf" > "TSENS Example.lss"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "TSENS Example.elf" "TSENS Example.srec"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-size.exe" "TSENS Example.elf"
 	
 	
+
 
 
 
@@ -568,5 +574,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "libTSENS Example.elf" "libTSENS Example.a" "libTSENS Example.hex" "libTSENS Example.bin" "libTSENS Example.lss" "libTSENS Example.eep" "libTSENS Example.map" "libTSENS Example.srec"
+	rm -rf "TSENS Example.elf" "TSENS Example.a" "TSENS Example.hex" "TSENS Example.bin" "TSENS Example.lss" "TSENS Example.eep" "TSENS Example.map" "TSENS Example.srec"
 	

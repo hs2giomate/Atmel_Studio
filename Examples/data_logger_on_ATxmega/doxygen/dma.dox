@@ -1,0 +1,51 @@
+/*------------------------------------------------------------------------*/ /**
+\defgroup doc_driver_dma DMA Drivers
+
+The DMA (Direct Memory Access ) is a peripheral that allows high speed 
+data transfers with minimal CPU intervention.
+
+
+The following driver variants are available:
+
+- \ref doc_driver_dma_init : Init driver initializing the DMA hardware as 
+specified by the user in START.
+
+\section doc_driver_dma_basic_and_practice DAM Basics and Best Practice
+
+Direct Memory Access (DMA) controller can transfer data between memories and 
+peripherals, and thus off load these tasks from the CPU. It enables high data 
+transfer rates with minimum CPU intervention, and frees up CPU time. 
+
+The DMA controller can move data between SRAM and peripherals, between SRAM 
+locations and directly between peripheral registers. With access to all peripherals, 
+the DMA controller can handle automatic transfer of data to/from communication modules. 
+The DMA controller can also read from memory mapped EEPROM.
+
+Data transfers are done in continuous bursts of 1, 2, 4, or 8 bytes. They build 
+block transfers of configurable size from 1 byte to 64KB. A repeat counter can be 
+used to repeat each block transfer for single transactions up to 16MB. Source and 
+destination addressing can be static, incremental or decremental. Automatic reload 
+of source and/or destination addresses can be done after each burst or block transfer, 
+or when a transaction is complete. Application software, peripherals, and events can 
+trigger DMA transfers.
+
+The DMA channels have individual configuration and control settings. This include source, 
+destination, transfer triggers, and transaction sizes. They have individual interrupt 
+settings. Interrupt requests can be generated when a transaction is complete or when 
+the DMA controller detects an error on a DMA channel. To allow for continuous transfers, 
+two channels can be interlinked so that the second takes over the transfer when the
+first is finished, and vice versa.
+
+A complete DMA read and write operation between memories and/or peripherals is called 
+a DMA transaction. A transaction is done in data blocks, and the size of the transaction 
+(number of bytes to transfer) is selectable from software and controlled by the block size 
+and repeat counter settings. Each block transfer is divided into smaller bursts.
+
+The size of the block transfer is set by the block transfer count register, and can be 
+anything from 1 byte to 64KB. A repeat counter can be enabled to set a number of repeated 
+block transfers before a transaction is complete. The repeat is from 1 to 255, and an 
+unlimited repeat count can be achieved by setting the repeat count to zero.
+
+*/
+
+

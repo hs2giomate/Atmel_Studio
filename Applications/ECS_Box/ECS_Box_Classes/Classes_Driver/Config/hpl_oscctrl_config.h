@@ -253,7 +253,7 @@
 // <i> Select the clock source
 // <id> dfll_ref_clock
 #ifndef CONF_DFLL_GCLK
-#define CONF_DFLL_GCLK GCLK_PCHCTRL_GEN_GCLK11_Val
+#define CONF_DFLL_GCLK GCLK_PCHCTRL_GEN_GCLK10_Val
 #endif
 
 // <h> Digital Frequency Locked Loop Control
@@ -547,7 +547,7 @@
 // <i> Indicates whether On Demand Control is enabled or not
 // <id> fdpll1_arch_ondemand
 #ifndef CONF_FDPLL1_ONDEMAND
-#define CONF_FDPLL1_ONDEMAND 0
+#define CONF_FDPLL1_ONDEMAND 1
 #endif
 
 // <q> Run in Standby

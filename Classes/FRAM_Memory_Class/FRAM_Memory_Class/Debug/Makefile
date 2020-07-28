@@ -83,9 +83,7 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 LIB_DEP+=  \
-S:/Bitbucket/ars_2400024_all/scr/Debug/libDoorActuator1.a \
-S:/AtmelStudio/Applications/ParametersSaver/Main_Driver/Main_Driver/Debug/libMain_Driver.a \
-S:/AtmelStudio/Classes/SPI/SPI_Asyn_Class/Debug/libSPI_Asyn_Class.a
+S:/AtmelStudio/Applications/ParametersSaver/Main_Driver/Main_Driver/Debug/libMain_Driver.a
 
 LINKER_SCRIPT_DEP+=  \
 ../Device_Startup/samd21j18a_flash.ld \

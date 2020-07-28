@@ -10,6 +10,18 @@
 #include "driver_init.h"
 #include "utils.h"
 
+static void button_on_PD00_pressed(void)
+{
+}
+
+static void button_on_PD01_pressed(void)
+{
+}
+
+static void button_on_PC18_pressed(void)
+{
+}
+
 static void button_on_PB03_pressed(void)
 {
 }
@@ -56,6 +68,9 @@ static void button_on_PB29_pressed(void)
 void EXTERNAL_IRQ_0_example(void)
 {
 
+	ext_irq_register(PIN_PD00, button_on_PD00_pressed);
+	ext_irq_register(PIN_PD01, button_on_PD01_pressed);
+	ext_irq_register(PIN_PC18, button_on_PC18_pressed);
 	ext_irq_register(PIN_PB03, button_on_PB03_pressed);
 	ext_irq_register(PIN_PB04, button_on_PB04_pressed);
 	ext_irq_register(PIN_PB05, button_on_PB05_pressed);
@@ -92,58 +107,6 @@ void Fvx_I2C_example(void)
 	io_write(Fvx_I2C_io, (uint8_t *)"Hello World!", 12);
 }
 
-void Heater_I2C_example(void)
-{
-	struct io_descriptor *Heater_I2C_io;
-
-	i2c_m_sync_get_io_descriptor(&Heater_I2C, &Heater_I2C_io);
-	i2c_m_sync_enable(&Heater_I2C);
-	i2c_m_sync_set_slaveaddr(&Heater_I2C, 0x12, I2C_M_SEVEN);
-	io_write(Heater_I2C_io, (uint8_t *)"Hello World!", 12);
-}
-
-/**
- * Example of using SPI_Alc to write "Hello World" using the IO abstraction.
- */
-static uint8_t example_SPI_Alc[12] = "Hello World!";
-
-void SPI_Alc_example(void)
-{
-	struct io_descriptor *io;
-	spi_m_sync_get_io_descriptor(&SPI_Alc, &io);
-
-	spi_m_sync_enable(&SPI_Alc);
-	io_write(io, example_SPI_Alc, 12);
-}
-
-void Misc_Inc_I2C_example(void)
-{
-	struct io_descriptor *Misc_Inc_I2C_io;
-
-	i2c_m_sync_get_io_descriptor(&Misc_Inc_I2C, &Misc_Inc_I2C_io);
-	i2c_m_sync_enable(&Misc_Inc_I2C);
-	i2c_m_sync_set_slaveaddr(&Misc_Inc_I2C, 0x12, I2C_M_SEVEN);
-	io_write(Misc_Inc_I2C_io, (uint8_t *)"Hello World!", 12);
-}
-
-static uint8_t I2C_CCu_example_str[12] = "Hello World!";
-
-void I2C_CCu_tx_complete(struct i2c_m_async_desc *const i2c)
-{
-}
-
-void I2C_CCu_example(void)
-{
-	struct io_descriptor *I2C_CCu_io;
-
-	i2c_m_async_get_io_descriptor(&I2C_CCu, &I2C_CCu_io);
-	i2c_m_async_enable(&I2C_CCu);
-	i2c_m_async_register_callback(&I2C_CCu, I2C_M_ASYNC_TX_COMPLETE, (FUNC_PTR)I2C_CCu_tx_complete);
-	i2c_m_async_set_slaveaddr(&I2C_CCu, 0x12, I2C_M_SEVEN);
-
-	io_write(I2C_CCu_io, I2C_CCu_example_str, 12);
-}
-
 void FANs_I2C_example(void)
 {
 	struct io_descriptor *FANs_I2C_io;
@@ -154,18 +117,42 @@ void FANs_I2C_example(void)
 	io_write(FANs_I2C_io, (uint8_t *)"Hello World!", 12);
 }
 
-/**
- * Example of using SPI_Spare to write "Hello World" using the IO abstraction.
- */
-static uint8_t example_SPI_Spare[12] = "Hello World!";
+void Shared_I2C_example(void)
+{
+	struct io_descriptor *Shared_I2C_io;
 
-void SPI_Spare_example(void)
+	i2c_m_sync_get_io_descriptor(&Shared_I2C, &Shared_I2C_io);
+	i2c_m_sync_enable(&Shared_I2C);
+	i2c_m_sync_set_slaveaddr(&Shared_I2C, 0x12, I2C_M_SEVEN);
+	io_write(Shared_I2C_io, (uint8_t *)"Hello World!", 12);
+}
+
+/**
+ * Example of using SPI_Temp to write "Hello World" using the IO abstraction.
+ */
+static uint8_t example_SPI_Temp[12] = "Hello World!";
+
+void SPI_Temp_example(void)
 {
 	struct io_descriptor *io;
-	spi_m_sync_get_io_descriptor(&SPI_Spare, &io);
+	spi_m_sync_get_io_descriptor(&SPI_Temp, &io);
 
-	spi_m_sync_enable(&SPI_Spare);
-	io_write(io, example_SPI_Spare, 12);
+	spi_m_sync_enable(&SPI_Temp);
+	io_write(io, example_SPI_Temp, 12);
+}
+
+/**
+ * Example of using SPI_AMMC to write "Hello World" using the IO abstraction.
+ */
+static uint8_t example_SPI_AMMC[12] = "Hello World!";
+
+void SPI_AMMC_example(void)
+{
+	struct io_descriptor *io;
+	spi_m_sync_get_io_descriptor(&SPI_AMMC, &io);
+
+	spi_m_sync_enable(&SPI_AMMC);
+	io_write(io, example_SPI_AMMC, 12);
 }
 
 void CCu_CAN_tx_callback(struct can_async_descriptor *const descr)
