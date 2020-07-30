@@ -9,7 +9,7 @@
 #ifndef __CRC32_CLASS_H__
 #define __CRC32_CLASS_H__
 #include "driver_init.h"
-COMPILER_ALIGNED(4)
+/*COMPILER_ALIGNED(4)*/
 class CRC32_Class
 {
 //variables

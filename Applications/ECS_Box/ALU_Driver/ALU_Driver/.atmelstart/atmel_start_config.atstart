@@ -1302,7 +1302,7 @@ drivers:
       gclk_arch_gen_5_idc: false
       gclk_arch_gen_5_oe: true
       gclk_arch_gen_5_oov: false
-      gclk_arch_gen_5_runstdby: false
+      gclk_arch_gen_5_runstdby: true
       gclk_arch_gen_6_enable: false
       gclk_arch_gen_6_idc: false
       gclk_arch_gen_6_oe: false
@@ -1450,7 +1450,7 @@ drivers:
       fdpll0_arch_ltime: No time-out, automatic lock
       fdpll0_arch_ondemand: false
       fdpll0_arch_refclk: GCLK clock reference
-      fdpll0_arch_runstdby: false
+      fdpll0_arch_runstdby: true
       fdpll0_arch_wuf: true
       fdpll0_clock_dcofilter: 0
       fdpll0_clock_div: 0
@@ -1564,7 +1564,7 @@ drivers:
     api: HAL:Driver:QSPI_Sync
     configuration:
       qspi_advanced: true
-      qspi_baud_rate: 6000000
+      qspi_baud_rate: 600000
       qspi_cpha: Data is changed on the leading edge of SPCK and captured on the following
         edge of SPCK.
       qspi_cpol: The inactive state value of SPCK is logic level zero.
@@ -2142,6 +2142,13 @@ drivers:
         configuration:
           can_gclk_selection: Generic clock generator 3
 pads:
+  VBUS_DETECTED:
+    name: PC00
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC00
+    mode: Digital input
+    user_label: VBUS_DETECTED
+    configuration:
+      pad_pull_config: Pull-down
   INT_LTC2983:
     name: PB07
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB07

@@ -27,10 +27,13 @@ ALU_Class::~ALU_Class()
 uint32_t	ALU_Class::Init(void){
 	uint32_t	s;
 	StartLivePulse();
+	hvac.Init();
 	hvac.SetCRCConfigData();
 	SetInitialConfiguration(configuration);
-	hvac.SetInitialState(lastState);
+	memory.WriteDefaultState();
+	hvac.SetInitialState();
 	uhr.Init();
+	hvac.saveCurrentState();
 	s=arincInterface.Init();
 	if (s!=0x01)
 	{	
@@ -89,7 +92,7 @@ uint8_t	ALU_Class::Run(void){
 	else
 	{
 	}
-
+	return line;
 }
 int32_t	ALU_Class::EnableWatchDog(uint32_t clk_rate ,uint32_t timeout_period ){
 
@@ -120,6 +123,7 @@ bool	ALU_Class::ValidateCyclus(void){
 }
 uint32_t ALU_Class::SetInitialConfiguration(ConfigurationData& cd){
 	uint32_t	w,crc,refCRC;
+	w=0;
 	uint32_t	r=memory.ReadLastConfigurationData(cd);
 	if (memory.IsConfigurationDataUpdated())
 	{

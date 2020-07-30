@@ -193,12 +193,12 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -268,6 +268,7 @@ main.d main.o: .././main.cpp .././main.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/avr/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
@@ -294,6 +295,7 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
  ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  .././States_Class.h .././MaintenanceTool.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
@@ -304,14 +306,14 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  .././Error_Labelling_Class.h .././AMMC_Class.h \
  .././MemoryManagment_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling/diagnostics.h \
  .././PersistenceServices.h .././ErrorAnalyer_Class.h \
  .././GainDefinitions.h .././CRC32_Class.h .././DataLoger_Class.h \
- .././MemoryStruct_Class.h .././FastStorage_Class.h
+ .././MemoryStruct_Class.h .././FastStorage_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h
 
 .././main.h:
 
@@ -703,17 +705,17 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
@@ -853,6 +855,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h:
 
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
+
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
@@ -909,6 +913,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././GAINDefinitions.h:
 
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
 .././States_Class.h:
 
 .././MaintenanceTool.h:
@@ -930,8 +936,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
 .././Error_Labelling_Class.h:
 
@@ -956,3 +960,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././MemoryStruct_Class.h:
 
 .././FastStorage_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:

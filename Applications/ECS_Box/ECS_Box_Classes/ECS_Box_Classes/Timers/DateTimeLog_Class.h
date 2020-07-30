@@ -38,7 +38,7 @@ public:
 	DateTimeLog_Class();
 	~DateTimeLog_Class();
 	tick_t	GetPowerInterrupTime(void);
-	bool	WasInterrpted(void);
+	bool	WasInterrupted(void);
 	uint8_t	ReadStackValue(void);
 	
 	uint16_t	SetCalendarStackAddress(uint32_t);

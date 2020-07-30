@@ -48,9 +48,11 @@ public:
 protected:
 	calendar_date_time dateTime,lastDateTime;
 	friend class DateTime_Class;
+	friend class DateTimeLog_Class;
+	uint32_t  nullTimestamp;
 private:
 	calendar_date_time maxDateTime,compilationDateTime,erasedDateTime,nullDateTime;
-	uint32_t  currentTimestamp,lastTimestamp,maxTimestamp,erasedTimestamp,nullTimestamp;
+	uint32_t  currentTimestamp,lastTimestamp,maxTimestamp,erasedTimestamp;
 	calendar_descriptor *ptrCalendar;
 	//N25Q256_Class	*ptrMemory;
 	AT24MAC_Class	*ptrMemory;

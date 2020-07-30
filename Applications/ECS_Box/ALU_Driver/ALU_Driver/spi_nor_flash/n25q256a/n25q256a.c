@@ -192,6 +192,7 @@ int32_t n25q256a_read(const struct spi_nor_flash *const me, uint8_t *buf, uint32
 	    .inst_frame.bits.dummy_cycles = n25q->quad_mode ? 10 : 8,
 	    .inst_frame.bits.tfr_type     = QSPI_READMEM_ACCESS,
 	    .instruction                  = N25Q_FAST_READ,
+	//	.instruction                  = N25Q_READ_ARRAY_LF,
 	    .address                      = address,
 	    .buf_len                      = length,
 	    .rx_buf                       = buf,

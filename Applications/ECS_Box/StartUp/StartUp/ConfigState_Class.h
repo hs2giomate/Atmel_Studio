@@ -11,6 +11,7 @@
 #include "coreTypes.h"
 #include "ConfigurationData.h"
 #include "GAINDefinitions.h"
+#include "hpl_calendar.h"
 
 typedef struct
 {
@@ -65,10 +66,11 @@ enum
 	};
 
 #pragma pack (4)		
-typedef struct
+struct HVACState
 	{
 	uint32_t	magic;
 	tick_t		now;
+	calendar_date_time	dateTime;
 	uint32_t	seconds;
 	int			build;
 	HVACStatus	status;
@@ -122,7 +124,11 @@ typedef struct
 	bool	alarmState:1;
     bool    selftestNeedsToBePerformed;    //!< Tells at bootup  in resume state whether a selftest was requested (over NSD)
 
-	} HVACState;
+	} ;
+
+typedef struct  HVACState HVACState;
+	
+
 #pragma pack ()		
 
 typedef		void	(*PTR_HVAC_STATE)(HVACState *);
@@ -131,27 +137,30 @@ class ConfigState_Class
 {
 //variables
 public:
+	HVACState defaultState;
 protected:
 private:
 	ConfigurationData	configuration,defaultsConfiguration;
 	HVACState	lastState,currentState;
+	uint8_t	i,j,k;
 	
 
 //functions
 public:
 	ConfigState_Class();
 	~ConfigState_Class();
-		uint32_t	SetInitialState(HVACState& hs);
-		uint32_t	SetDefaultState(HVACState& hs);
+		uint32_t		SetInitialState(void);
 		virtual void	SetCurrentState(HVACState& ) = 0;
-		void SetFactoryDefaults(uint32_t subPartNumber, bool config, bool cycles);
-		uint32_t	GetInitialStatus(HVACStatus& st);
-		
+		void			SetFactoryDefaults(uint32_t subPartNumber, bool config, bool cycles);
+		uint32_t		GetInitialStatus(HVACStatus& st);
+		void			PrintState(void);
+		void			SetDefaultState(void);
 protected:
 	
 private:
 	ConfigState_Class( const ConfigState_Class &c );
 	ConfigState_Class& operator=( const ConfigState_Class &c );
+	
 
 }; //ConfigState_Class
 

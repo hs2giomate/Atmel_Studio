@@ -10,7 +10,7 @@
 #include "math.h"
 #include "time.h"
 #include "AT24MAC_Class.h"
-
+#include "Calendar_Class.h"
 
 DateTimeLog_Class::DateTimeLog_Class()
 {
@@ -26,12 +26,22 @@ tick_t	DateTimeLog_Class::GetPowerInterrupTime(void){
 	currentTimestamp=convert_datetime_to_timestamp(&dateTime);
 	ReadLastDateTime();
 	lastTimestamp=convert_datetime_to_timestamp(&lastDateTime);
-	timeDifference=difftime((time_t)currentTimestamp,(time_t)lastTimestamp);
-	tick_t diferencia=(uint32_t)timeDifference;
+	tick_t diferencia;
+	if (lastTimestamp==calendar.nullTimestamp)
+	{
+		diferencia=UPDATE_TIME_MAX*2;
+	} 
+	else
+	{
+		timeDifference=difftime((time_t)currentTimestamp,(time_t)lastTimestamp);
+		diferencia=(uint32_t)timeDifference;
+	}
+
 	return	diferencia;
 }
 
-bool	DateTimeLog_Class::WasInterrpted(void){
+bool	DateTimeLog_Class::WasInterrupted(void){
+	
 	if (abs(GetPowerInterrupTime()-UPDATE_TIME_MAX)>UPDATE_ERROR)
 	{
 		powerInterrupt=true;

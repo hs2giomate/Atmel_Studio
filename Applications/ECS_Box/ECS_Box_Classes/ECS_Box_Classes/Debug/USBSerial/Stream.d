@@ -46,7 +46,8 @@ USBSerial/Stream.d USBSerial/Stream.o: ../USBSerial/Stream.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
- ../avr/pgmspace.h ../USBSerial/Printable.h ../Timers/Timer_Class.h \
+ ../avr/pgmspace.h ../USBSerial/Printable.h \
+ ../USBSerial/TimerSerial_Class.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
@@ -351,7 +352,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../USBSerial/Printable.h:
 
-../Timers/Timer_Class.h:
+../USBSerial/TimerSerial_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
 

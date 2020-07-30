@@ -194,12 +194,12 @@ PBIT_Class.d PBIT_Class.o: .././PBIT_Class.cpp .././PBIT_Class.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -242,6 +242,7 @@ PBIT_Class.d PBIT_Class.o: .././PBIT_Class.cpp .././PBIT_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
  ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  .././Interfaces_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h
@@ -638,17 +639,17 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
@@ -735,6 +736,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../ApplicationLayer/ConfigurationCommons.h:
 
 .././GAINDefinitions.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
 .././Interfaces_Class.h:
 

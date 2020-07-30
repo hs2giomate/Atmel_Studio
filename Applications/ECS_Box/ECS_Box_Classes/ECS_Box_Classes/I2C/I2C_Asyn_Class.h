@@ -19,9 +19,9 @@ public:
 
 	volatile	bool	ack;
 protected:
-	io_descriptor *I2C_io;
+
 private:
-	
+	io_descriptor *I2C_io;
 	i2c_m_async_desc *ptrI2CAsynDescr;
 	uint8_t	localBuffer;
 	uint8_t	localValue;

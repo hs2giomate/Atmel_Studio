@@ -43,7 +43,7 @@ private:
 		tick_t	powerInterruptDuration;
 		bool	resumeLastStateValid;
 		ConfigurationData			configuration;
-		uint32_t	CRC32;
+		uint32_t	CRC32,readResult,writeResult;
 	
 
 //functions
@@ -61,7 +61,7 @@ public:
 	bool	syncConfigurationWithPanel(bool syncWithInfo = true);
 	void	resyncWithCycleDescription(uint8 cycleID);
 	bool	resyncWithPanel(uint8 state = kGAINStateReset);
-	void	GetCurrentState(HVACState *hs);
+	void	GetCurrentState(HVACState& hs);
 	virtual		void	SetCurrentState(HVACState&);
 	uint32_t	GetStatus(HVACStatus& s);
 
@@ -73,6 +73,7 @@ protected:
 	friend class PBIT_Class;
 	friend class CBIT_Class;
 	friend class ALU_Class;
+	void	saveCurrentState(void);
 private:
 	States_Class( const States_Class &c );
 	States_Class& operator=( const States_Class &c );
@@ -113,7 +114,7 @@ private:
 
 	
 
-	void	saveCurrentState(void);
+
 	
 	
 

@@ -22,9 +22,10 @@ DateTime_Class::~DateTime_Class()
 void	DateTime_Class::Init(){
 	uint32_t	add=(uint32_t)&eepromMap->stack;
 	calendar.SetCalendarStackAddress(add);
-	uint32_t	addTimeLogs=(uint32_t)&eepromMap->timeLogs[1];
+	uint32_t	addTimeLogs=(uint32_t)&eepromMap->timeLogs[0];
 	calendar.SetCalendarAddress(addTimeLogs);
 	calendar.Init();
+	
 }
 
 DateTime_Class	uhr;

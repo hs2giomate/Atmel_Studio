@@ -17,6 +17,7 @@
 #include "Timer_Class.h"
 #include "N25Q256_Class.h"
 #include "Calendar_Class.h"
+#include "MCP23017_Class.h"
 
 void usb_test(void);
 uint8_t EEPROM_Test(void);
@@ -25,4 +26,5 @@ int ARINC_test(void);
 uint8_t	StartLivePulse(void);
 void	QSPIDriverTest(void);
 void	DateTimeTest(void);
+void	IO_ExpanderTest(void);
 #endif /* MAIN_H_ */

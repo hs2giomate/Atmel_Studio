@@ -29,14 +29,14 @@ typedef uint8	contextID;
 extern const int16	sizeOfEventQueue;
 extern const tick_t	forever;
 
-enum
+enum EventClass
 	{
 	kErrorEventClass = 0x8000,
 	kCommunicationEventClass = 0x9000,
 	kAnyEventClass = 0xFFFF
 	};
 
-enum
+enum EventType
 	{
 	kTimeoutEvent = 0x0001,
 	kSerialDataAvailableEvent,
@@ -49,6 +49,7 @@ enum
 	kCAN0MessageAvailableEvent,
 	kCAN1MessageAvailableEvent,
 	kI2CDataAvailableEvent,
+	kInterfaceAvailable,
 	kBootingRequest,
 	kAnyEventType = 0xFFFF
 	};
@@ -119,10 +120,12 @@ class event
 	{
 	public:
 		event();
-		event(uint16, uint16, const eventData& = 0);
+		/*event(EventClass, EventType);*/
+		event(EventClass, EventType, const eventData& = 0);
+		
 
-		uint16		eventClass;
-		uint16		eventType;
+		EventClass		eventClass;
+		EventType		eventType;
 		tick_t		timestamp;
 		eventData	data;
 		event*		next;
@@ -133,11 +136,14 @@ inline event::event()
 	{
 	}
 
-inline event::event(uint16 c, uint16 t, const eventData& d)
+inline event::event(EventClass c, EventType t, const eventData& d)
 	:eventClass(c), eventType(t), timestamp(0), data(d), next(NULL)
 	{
 	}
-
+// inline event::event(EventClass c, EventType t)
+// :eventClass(c), eventType(t), timestamp(0), data((uint32)0), next(NULL)
+// {
+// }
 
 #endif // E_DEVICE_EVENT_H
 

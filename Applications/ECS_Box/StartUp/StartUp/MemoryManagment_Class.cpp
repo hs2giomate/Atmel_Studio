@@ -160,11 +160,16 @@ uint32_t	MemoryManagment_Class::ReadDeafultApplicationState(HVACState& as){
 	uint32_t	r=flash.ReadAddress((uint8_t*)handlerAppState,add,sizeof(HVACState));
 	return	r;
 }
- uint32_t	MemoryManagment_Class::WriteApplicationState(ECSConfiguration *as){
-	  handlerCtrState=PTR_CTR_STATE(as);
-	 uint32_t	r=flash.WriteAddress((uint8_t*)handlerCtrState,APP_STATE_ADDRESS,sizeof(appState));
-	 
-	 return	r;
+ uint32_t	MemoryManagment_Class::WriteValidApplicationState(HVACState& hs ){
+	uint32_t w=  WriteCurrentState(hs);
+	crc32=CalculateCRC((uint32_t *)PTR_HVAC_STATE(&hs),sizeof(HVACState));
+	w=WriteCRCAppState(crc32);
+	return	w;
  }
+ uint32_t	MemoryManagment_Class::WriteValidConfigurationData(ConfigurationData& cd){
+	 uint32_t	w=WriteCurrentConfigurationData(cd);
+	 crc32=CalculateCRC((uint32_t*)PTR_CONFIG_DATA(&cd),sizeof(ConfigurationData));
+	 w=WriteCRCConfigurationData(crc32);
+ };
  
  MemoryManagment_Class	memory;

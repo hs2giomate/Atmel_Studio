@@ -1,11 +1,9 @@
 USBSerial/CDC_Class.d USBSerial/CDC_Class.o: ../USBSerial/CDC_Class.cpp \
- ../USBSerial/CDC_Class.h ../../../ALU_Driver/ALU_Driver/atmel_start.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h \
- ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
- ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
+ ../USBSerial/CDC_Class.h ../../../ALU_Driver/ALU_Driver/usb_start.h \
+ ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
+ ../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdbool.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_default_types.h \
@@ -13,7 +11,23 @@ USBSerial/CDC_Class.d USBSerial/CDC_Class.o: ../USBSerial/CDC_Class.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_newlib_version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_intsup.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdbool.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
+ ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
+ ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
+ ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/parts.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include/same54.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include/same54p20a.h \
@@ -164,81 +178,17 @@ USBSerial/CDC_Class.d USBSerial/CDC_Class.o: ../USBSerial/CDC_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hri/hri_usb_e54.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h \
- ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h \
- ../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_delay.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_reset.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_sleep.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_init.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_init.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_io.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_sleep.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_crc_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_crc_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_ext_irq.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_ext_irq.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_evsys.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_evsys.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_qspi_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
- ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
- ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
- ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
  ../../../ALU_Driver/ALU_Driver/Config/hpl_usb_config.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_wdt.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_wdt.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../../../ALU_Driver/ALU_Driver/usb_start.h \
- ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
- ../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h \
- ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
- ../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h \
- ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
  ../../../ALU_Driver/ALU_Driver/Config/usbd_config.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/usb_protocol_cdc.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h \
- ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
- ../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h \
- ../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h \
- ../../../ALU_Driver/ALU_Driver/usb_start.h ../USBSerial/Stream.h \
+ ../USBSerial/Stream.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\inttypes.h \
  ../USBSerial/Print.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h \
@@ -264,31 +214,66 @@ USBSerial/CDC_Class.d USBSerial/CDC_Class.o: ../USBSerial/CDC_Class.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
- ../avr/pgmspace.h ../USBSerial/Printable.h ../Timers/Calendar_Class.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h ../Storage/N25Q256_Class.h \
- ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
- ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
- ../Storage/RingBuffer.h ../Storage/AT24MAC_Class.h \
- ../I2C/I2C_Asyn_Class.h ../Timers/DateTimeLog_Class.h \
- ../EIDE_Utils/coreTypes.h \
+ ../avr/pgmspace.h ../USBSerial/Printable.h \
+ ../USBSerial/SerialTerminal_Class.h ../USBSerial/TimerSerial_Class.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h \
+ ../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_delay.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_reset.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_sleep.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_init.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_init.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_io.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_sleep.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_crc_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_crc_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_ext_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_ext_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_evsys.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_evsys.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_qspi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
- ../Timers/Timer_Class.h
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_wdt.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_wdt.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h
 
 ../USBSerial/CDC_Class.h:
 
-../../../ALU_Driver/ALU_Driver/atmel_start.h:
+../../../ALU_Driver/ALU_Driver/usb_start.h:
 
-../../../ALU_Driver/ALU_Driver/driver_init.h:
+../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h:
 
-../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
+../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
+../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
-
-../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdbool.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h:
 
@@ -304,7 +289,39 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdbool.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
+
+../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h:
+
+../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h:
+
+../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/parts.h:
 
@@ -606,85 +623,11 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h:
 
-../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h:
 
-../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h:
+../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_delay.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_reset.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_sleep.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_init.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_init.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_io.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_sleep.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_crc_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_crc_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_ext_irq.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_ext_irq.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_evsys.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_evsys.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_qspi_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
-
-../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h:
-
-../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
-
-../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
+../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
@@ -694,67 +637,11 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/Config/hpl_usb_config.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_wdt.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_wdt.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
-
-../../../ALU_Driver/ALU_Driver/usb_start.h:
-
-../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h:
-
-../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h:
-
-../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
-
-../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h:
-
-../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
-
 ../../../ALU_Driver/ALU_Driver/Config/usbd_config.h:
 
 ../../../ALU_Driver/ALU_Driver/usb/class/cdc/usb_protocol_cdc.h:
 
 ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h:
-
-../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
-
-../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h:
-
-../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h:
-
-../../../ALU_Driver/ALU_Driver/usb_start.h:
 
 ../USBSerial/Stream.h:
 
@@ -812,26 +699,98 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../USBSerial/Printable.h:
 
-../Timers/Calendar_Class.h:
+../USBSerial/SerialTerminal_Class.h:
+
+../USBSerial/TimerSerial_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
 
-../Storage/N25Q256_Class.h:
+../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
 
-../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
 
-../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h:
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
 
-../Storage/RingBuffer.h:
+../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h:
 
-../Storage/AT24MAC_Class.h:
+../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h:
 
-../I2C/I2C_Asyn_Class.h:
+../../../ALU_Driver/ALU_Driver/hal/include/hal_delay.h:
 
-../Timers/DateTimeLog_Class.h:
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
 
-../EIDE_Utils/coreTypes.h:
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_reset.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_sleep.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_init.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_init.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_io.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_sleep.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_crc_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_crc_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_ext_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_ext_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_evsys.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_evsys.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_qspi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
-../Timers/Timer_Class.h:
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_wdt.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_wdt.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:

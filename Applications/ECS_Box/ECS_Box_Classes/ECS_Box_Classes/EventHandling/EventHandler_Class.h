@@ -34,11 +34,12 @@ public:
 	EventHandler_Class();
 	~EventHandler_Class();
 	void Init();
+	bool WaitForEvent(event& e, EventClass eventClass, EventType eventType, tick_t timeout= forever);
 	bool WaitForEvent(event& e, uint16 eventClass, uint16 eventType, tick_t timeout= forever);
 	void SendEvent(event& e, contextID receiver);
 	void SendEventSelf(const event& e);
-	void SendEvent(uint16 eventClass, uint16 eventType, const eventData& data, contextID receiver);
-	void SendEventSelf(uint16 eventClass, uint16 eventType, const eventData& data = 0);
+	void SendEvent(EventClass eventClass, EventType eventType,const eventData& data, contextID receiver);
+	void SendEventSelf(EventClass eventClass, EventType eventType, const eventData& data = 0);
 	void SendErrorSelf(uint16_t, const eventData& data = 0 );
 	uint32_t CheckEvent(void);
 protected:

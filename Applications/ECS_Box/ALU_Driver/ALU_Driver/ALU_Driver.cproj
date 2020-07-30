@@ -183,9 +183,9 @@
           <AcmeProjectActionInfo Action="File" Source="spi_nor_flash/spi_nor_flash.c" IsConfig="false" Hash="TCraZft50OJXeOYtNzasUw" />
           <AcmeProjectActionInfo Action="File" Source="spi_nor_flash/spi_nor_flash.h" IsConfig="false" Hash="k5fsJwmFou4udJsMuAaH3g" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="p9iIOPeSkgx/VSgU8ywjbA" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="PwI7g6dUsip7OWACSNyRPQ" />
           <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="rWpvM6VlYpYDIF3XV4jh1Q" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="0xQpAuWd8ra5IvVxTzyD3w" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="WQairbEyBw7zcnb03A2pDQ" />
           <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="gaAOiKIbF8RnykpsWROOAg" />
           <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="UeF9ZoV9RgE0devwqYKqZQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_pwm.h" IsConfig="false" Hash="RXcBZcci/7vXKRJKNIq/Kw" />
@@ -249,12 +249,12 @@
           <AcmeProjectActionInfo Action="File" Source="config/hpl_dmac_config.h" IsConfig="true" Hash="BRm2aHhlYqJV1cLnrYiZAg" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_eic_config.h" IsConfig="true" Hash="StuBg6456eIY7atiT7kE6A" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_evsys_config.h" IsConfig="true" Hash="uni6ZQJWzgJJSJi9m9vtCw" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_gclk_config.h" IsConfig="true" Hash="KQVfDXVGrHbDes0ZSdB8uw" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_gclk_config.h" IsConfig="true" Hash="7EMCFOYfDf9KHkJyQKSegQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_mclk_config.h" IsConfig="true" Hash="rFy+pgVSojYF+DZnJ6X/og" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_osc32kctrl_config.h" IsConfig="true" Hash="EetOouhk86whijj4cNoDVw" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_oscctrl_config.h" IsConfig="true" Hash="kiKLC8VyOsB2zB4a8BQ5yg" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_oscctrl_config.h" IsConfig="true" Hash="LTdGbGkFsz7uBCAfV5SNcQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_port_config.h" IsConfig="true" Hash="IJMX/CdQRL87JYlxeZCBcg" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_qspi_config.h" IsConfig="true" Hash="aJCR9rMJWT1O8sGh1hj+fQ" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_qspi_config.h" IsConfig="true" Hash="qFv4cCENbm5B139FBhmT1g" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_rtc_config.h" IsConfig="true" Hash="JklWtgJ/YTFDhfNHXa1tdQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="FecScxAH9LrIwBH50KanVQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_tc_config.h" IsConfig="true" Hash="9n0ZHPgmUC9NuovgZ1AO9A" />

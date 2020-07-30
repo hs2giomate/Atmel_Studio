@@ -1,5 +1,5 @@
-USBSerial/eLib.d USBSerial/eLib.o: ../USBSerial/eLib.cpp \
- ../USBSerial/eLib.h \
+EIDE_Utils/eLib.d EIDE_Utils/eLib.o: ../EIDE_Utils/eLib.cpp \
+ ../EIDE_Utils/eLib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h \
@@ -36,7 +36,7 @@ USBSerial/eLib.d USBSerial/eLib.o: ../USBSerial/eLib.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h
 
-../USBSerial/eLib.h:
+../EIDE_Utils/eLib.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h:
 

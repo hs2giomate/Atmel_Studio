@@ -75,8 +75,11 @@ void EventHandler_Class::Init(void)
 
 	#endif
 }
+bool	EventHandler_Class::WaitForEvent(event& e, uint16 eventClass, uint16 eventType, tick_t timeout){
+	return	WaitForEvent(e,(EventClass)eventClass,(EventType)eventType,timeout);
+}
 
-bool	EventHandler_Class::WaitForEvent(event& e, uint16 eventClass, uint16 eventType, tick_t timeout)
+bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType eventType, tick_t timeout)
 {
 	bool	result(false);
 	event*	queue;
@@ -110,9 +113,9 @@ bool	EventHandler_Class::WaitForEvent(event& e, uint16 eventClass, uint16 eventT
 			usb << "     queue:            " << (void*)queue << newline;
 			usb << "     eventClass:       " << eventClass << newline;
 			usb << "     eventType:        " << eventType << newline;
-			usb << "     queue->class:     " << (*queue).eventClass << newline;
-			usb << "     queue->type:      " << (*queue).eventType << newline;
-			usb << "     queue->timestamp: " << (*queue).timestamp << newline;
+			usb << "     queue->class:     " << (uint16)((*queue).eventClass) << newline;
+			usb << "     queue->type:      " << (uint16)((*queue).eventType) << newline;
+			usb << "     queue->timestamp: " << (uint16)((*queue).timestamp) << newline;
 		
 			#endif
 			if (
@@ -244,7 +247,7 @@ void EventHandler_Class::SendEventSelf(const event& e)
 	}
 }
 
-void EventHandler_Class::SendEvent(uint16 eventClass, uint16 eventType, const eventData& data, contextID receiver)
+void EventHandler_Class::SendEvent(EventClass eventClass, EventType eventType, const eventData& data, contextID receiver)
 {
 	event		theEvent;
 
@@ -255,7 +258,7 @@ void EventHandler_Class::SendEvent(uint16 eventClass, uint16 eventType, const ev
 	SendEventSelf(theEvent);
 }
 
-void EventHandler_Class::SendEventSelf(uint16 eventClass, uint16 eventType, const eventData& data)
+void EventHandler_Class::SendEventSelf(EventClass eventClass, EventType eventType, const eventData& data)
 {
 	event		theEvent;
 
@@ -270,7 +273,7 @@ void EventHandler_Class::SendErrorSelf(uint16_t et,const eventData& data)
 {
 	event		theEvent;
 	theEvent.eventClass = kErrorEventClass;
-	theEvent.eventType =(uint16_t)et ;
+	theEvent.eventType =(EventType)et ;
 	theEvent.data = data;
 	SendEventSelf(theEvent);
 }

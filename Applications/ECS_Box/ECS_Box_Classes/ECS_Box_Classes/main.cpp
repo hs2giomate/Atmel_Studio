@@ -12,12 +12,13 @@ int main(void)
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
 	
-	usb.init();
+	usb.Init();
 	delay_ms(200);
 	StartLivePulse();
 	//QSPIDriverTest();
 	//DateTimeTest();
 	EEPROM_Test();
+	//IO_ExpanderTest();
 		/* Replace with your application code */
 	while (1) {
 		
@@ -48,35 +49,52 @@ void usb_test(void){
 	}
 }
 uint8_t EEPROM_Test(void){
-	AT24MAC_Class	eeprom(&I2C_EEPROM);
+	bool	is_corrupted;
 	eeprom.Init();
 	uint8_t addr=0x00;
 	uint8_t	value;
 	usb<<"  Function for testing an i2c EEPROM"<<NEWLINE;
 	/* Replace with your application code */
-			
+		uint8_t tx_buffer[ AT24MAC_BUFFER_SIZE] ;
+		uint8_t rx_buffer[ AT24MAC_BUFFER_SIZE] ;
 	while (1) {
-		if (eeprom.is_EEPROM_ready())
+		for (int i = 0; i < AT24MAC_BUFFER_SIZE ; i++) {
+			tx_buffer[i] = (uint8_t)rand();
+			rx_buffer[i] = (uint8_t)(AT24MAC_BUFFER_SIZE-i);
+		}
+// 		while(!eeprom.IsReady());
+// 		eeprom.WriteAddress(tx_buffer,addr,AT24MAC_BUFFER_SIZE);
+		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++)
 		{
-			value=eeprom.read_byte(addr);
-			usb<<" the value on address: "<<addr<<" is: "<<value<<NEWLINE;
-			eeprom.write_byte(addr,16-addr);
+			while(!eeprom.IsReady());			
+			eeprom.Write_byte(addr+i,tx_buffer[i]);
+			
+		}
+// 		while(!eeprom.AcknolledgePolling());
+// 		eeprom.ReadAddress(rx_buffer,addr,AT24MAC_BUFFER_SIZE);	
+		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++)
+		{
+			while(!eeprom.IsReady());			rx_buffer[i]=eeprom.Read_byte(addr+i);
+		}
+		is_corrupted = false;
+		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++) {
+			if (tx_buffer[i] != rx_buffer[i]) {
+				is_corrupted = true;
+				usb.print("EEPROM verification failed. Address: ");
+				usb.print(addr,HEX);
+				usb<<" bit :"<<i<<NEWLINE;
+		    	//flashAddress=0;
+			
+				break;
+			}
 		
-			if (addr<16){
-				addr++;
-			}
-			else{
-				addr=0;
-			}
 		}
-		else
-		{
-			if (usb.available())
-			{
-				usb<< "---I2C connection error!!-----"<<NEWLINE;
-			}			
+
+		if (!is_corrupted) {
+			usb.print("Write - Read is successful in EEPROM memory  " );
+			usb.println(addr,HEX);
+			addr=(addr+AT24MAC_BUFFER_SIZE)%AT24MAC_MEMORY_SIZE;
 		}
-		delay_ms(100);
 	}
 	return	 value;
 }
@@ -124,44 +142,51 @@ void	QSPIDriverTest(void){
 
 		usb.print("QSPI Program Started\n\r");
 		/* Initialize Tx buffer */
-		for (int i = 0; i <QSPI_BUFFER_SIZE ; i++) {
-			tx_buffer[i] = (uint8_t)i;
-		}
 	
-		flash.Erase();
+	
 		/* Erase flash memory */
-
+		uint32_t flashAddress=0;
+		uint32_t	delay=1;
 		while (1) {
-			delay_ms(400);
-				/* Write data to flash memory */
-				if (ERR_NONE ==flash.WriteAddress((uint8_t *)tx_buffer,0,QSPI_BUFFER_SIZE)) {
-					usb.print("Flash write successful \n\r");
-				}
-			delay_ms(100);
-				/* Read data from flash memory */
-				if (ERR_NONE == flash.ReadAddress((uint8_t *)rx_buffer,0,QSPI_BUFFER_SIZE)) {
-					//while(!memory.xferDone);
-					usb.print("Flash read successful\n\r");
-				}
-				delay_ms(100);
-					is_corrupted = false;
-				for (int i = 0; i < QSPI_BUFFER_SIZE; i++) {
-					if (tx_buffer[i] != rx_buffer[i]) {
-						is_corrupted = true;
-						usb.print("Flash data verification failed.\n\r");
-						usb<<"bit :"<<i<<NEWLINE;
-						i=QSPI_BUFFER_SIZE;
-						break;
-					}
-					
-				}
+	
+			flash.WaitOnBusy();
+			if ((flashAddress % N25Q_SECTOR_SIZE)==0) {
+				flash.Erase(flashAddress);
+			}
+			for (int i = 0; i <QSPI_BUFFER_SIZE ; i++) {
+				tx_buffer[i] = (uint8_t)rand();
+				rx_buffer[i] = (uint8_t)(QSPI_BUFFER_SIZE-i);
+			}
+			/* Write data to flash memory */
+			if (ERR_NONE ==flash.WriteAddress((uint8_t *)tx_buffer,flashAddress,QSPI_BUFFER_SIZE)) {
+				//usb.print("Flash write successful \n\r");
+			}
+			flash.WaitOnBusy();
 
-				if (!is_corrupted) {
-					usb.print("Write - Read is successful in QSPI Flash memory.\n\r");
-					for (int i = 0; i <QSPI_BUFFER_SIZE ; i++) {
-						rx_buffer[i] = (uint8_t)(QSPI_BUFFER_SIZE-i);
-					}
+			if (ERR_NONE == flash.ReadAddress((uint8_t *)rx_buffer,flashAddress,QSPI_BUFFER_SIZE)) {
+				//while(!memory.xferDone);
+				//usb.print("Flash read successful\n\r");
+			}
+			flash.WaitOnBusy();
+			is_corrupted = false;
+			for (int i = 0; i < QSPI_BUFFER_SIZE; i++) {
+				if (tx_buffer[i] != rx_buffer[i]) {
+					is_corrupted = true;
+					usb.print("Flash data verification failed. Address: ");
+					usb.print(flashAddress,HEX);
+					usb<<" bit :"<<i<<NEWLINE;
+					//flashAddress=0;
+						
+					break;
 				}
+					
+			}
+
+			if (!is_corrupted){
+				usb.print("Write - Read is successful in QSPI Flash memory  " );
+				usb.println(flashAddress,HEX);
+				flashAddress=(flashAddress+QSPI_BUFFER_SIZE)%N25Q_FLASH_SIZE;
+			}
 					
 		}
 }
@@ -198,4 +223,21 @@ void	DateTimeTest(void){
 		
 	}
 	
+}
+
+void	IO_ExpanderTest(void){
+	MCP23017_Class	mcp(&I2C_EXPANDER);
+	mcp.Init();
+	mcp.SetPortAInput();
+	mcp.SetPortBOutput();
+
+	/* Replace with your application code */
+	while (1)
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			mcp.digitalWrite(8+i,mcp.digitalRead(i));
+		}
+		
+	}
 }

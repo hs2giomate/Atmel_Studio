@@ -42,9 +42,8 @@ void AT24MAC_Class::Init(uint8_t addr ){
 }
 
 
-int32_t AT24MAC_Class::write_byte(uint8_t addr, uint8_t value){
+int32_t AT24MAC_Class::Write_byte(uint8_t addr, uint8_t value){
 	
-	//uint8_t cmd=(uint8_t)AT24MAC_WRITE_CMD;
 	isReady=false;
 	uint8_t array[2];
 	array[0]=addr;
@@ -54,47 +53,27 @@ int32_t AT24MAC_Class::write_byte(uint8_t addr, uint8_t value){
 	return	w;
 }
 uint32_t AT24MAC_Class::WriteAddress(uint8_t *p, uint8_t addr, uint8_t size){
-	
-	//uint8_t cmd=(uint8_t)AT24MAC_WRITE_CMD;
-	
+		
 	uint8_t array[1+AT24MAC_BUFFER_SIZE],value;
 	uint32_t w;
 	isReady=false;
 	array[0]=addr;
 	for (int i=1;i<size+1;i++)
-	{
-				
+	{				
 		value=*p;
 		array[i]=value;
-	
 		p++;
 	}
 	w= i2ca.Write(array,1+size);
 	while(!i2ca.txReady);
-	
 	return	w;
 }
 uint32_t AT24MAC_Class::WriteAddress(uint8_t *p, uint16_t addr, uint8_t size){
 	
 	//uint8_t cmd=(uint8_t)AT24MAC_WRITE_CMD;
 	
-	uint8_t array[2+AT24MAC_BUFFER_SIZE],value;
-	uint32_t w;
-	isReady=false;
-	array[0]=(uint8_t)((addr&(0xff00))>>8);
-	array[1]=(uint8_t)(addr)&(0xff);
-	for (int i=2;i<size+2;i++)
-	{
-		
-		value=*p;
-		array[i]=value;
-		
-		p++;
-	}
-	w= i2ca.Write(array,2+size);
-	while(!i2ca.txReady);
-	
-	return	w;
+	uint8_t add=(uint8_t)addr;
+	return	WriteAddress(p,add,size);
 }
 int32_t AT24MAC_Class::write_page(uint8_t addr, uint8_t *buffer){
 	uint8_t frame[17];
@@ -108,7 +87,7 @@ int32_t AT24MAC_Class::write_page(uint8_t addr, uint8_t *buffer){
 	return i2ca.Write(frame,17);
 }
 
-uint8_t AT24MAC_Class::read_byte(uint8_t addr){
+uint8_t AT24MAC_Class::Read_byte(uint8_t addr){
 
 	uint8_t value;
 	//i2ca.read_cmd(addr,&value);
@@ -136,9 +115,21 @@ uint32_t AT24MAC_Class::ReadAddress(uint8_t *p, uint16_t addr, uint8_t size){
 	while(!i2ca.rxReady);
 	return r;
 }
+bool	AT24MAC_Class::GetAcknowledge(void){
+	byte=Read_byte(0);
+	return	byte>0;
+}
+bool AT24MAC_Class::AcknolledgePolling(void){
+	do 
+	{
+		GetAcknowledge();
+	} while (!IsReady());
+	return isReady;
+}
 
 
-bool AT24MAC_Class::is_EEPROM_ready(void){
+bool AT24MAC_Class::IsReady(void){
+
 	if (i2ca.txReady && i2ca.rxReady)
 	{
 		isReady=true;

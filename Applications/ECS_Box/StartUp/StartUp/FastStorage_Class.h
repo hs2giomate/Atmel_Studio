@@ -13,6 +13,7 @@
 #include "AT24MAC_Class.h"
 #include "ConfigState_Class.h"
 #include "ConfigurationData.h"
+#include "DateTimeLog_Class.h"
 struct      EEpromProperties {
 
 	uint8_t manufacturerID;
@@ -69,20 +70,28 @@ class FastStorage_Class
 {
 //variables
 public:
-	uint32_t	ReadApplicationState(HVACState& hs);
-	uint32_t	ReadCRCApplicationState(void);
+
 protected:
 private:
 	PTR_HVAC_STATE	handlerAppState;
+	PTR_DATE_TIME	handlerCalendar;
+	uint32_t		crc32;
+	uint16_t		eepromAddress;
+
 //functions
 public:
 	FastStorage_Class();
 	~FastStorage_Class();
+	uint32_t	GetTimeLogs(calendar_date_time& cdt);
+	uint32_t	ReadFastCRCApplicationState(void);
+	uint32_t	ReadFastApplicationState(HVACState& hs);
+	uint32_t	WriteFastCurrentState(HVACState& hs);
 protected:
 private:
 	FastStorage_Class( const FastStorage_Class &c );
 	FastStorage_Class& operator=( const FastStorage_Class &c );
-
+	uint32_t	WriteFastCRCAppState(uint32_t crc);
+	uint32_t	WriteFastAppState(HVACState& hs,uint32_t add);
 }; //FastStorage_Class
 
 #endif //__FASTSTORAGE_CLASS_H__

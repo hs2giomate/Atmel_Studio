@@ -19,17 +19,7 @@
 States_Class::States_Class(void)
 	{
 	listener.eventHandler = NULL;
- 	state.currentState = kGAINStateReset;
-	state.callingState = kGAINStateReset;
-	state.internalCateringState = 0;
-	state.targetUDC = 0.0;
-	state.cycleDuration = 0;
-	state.inStateTime = 0;
-	state.remainingTime = 0;
-	state.waitingExceededTime = 0;
-	state.fansOnAfterCateringCycleTime = forever;
-	state.savedDoorLatchState = true;
-	state.reedRelayOpen = false;
+state=defaultState;
 	}
 
 // default destructor
@@ -48,7 +38,7 @@ void States_Class::Start(uint8_t	operationMode)
     bool	isCurrentStateValid = false;
 	memory.ReadApplicationState(lastState);
 	state.currentState = kGAINStateReset;
-	if (calendar.WasInterrpted())
+	if (calendar.WasInterrupted())
 	{
 		powerInterruptDuration = calendar.GetPowerInterrupTime();
 		#ifdef OFFLINE
@@ -65,19 +55,17 @@ void States_Class::Start(uint8_t	operationMode)
 		memory.LogResetEvent();
 	}
 
-
-
 	
 
 	//	Check persistent memory
-	if (SetInitialState(state)>1){
-		SetDefaultState(state);
+	if (SetInitialState()>1){
+		SetDefaultState();
 	}
 
 
 
-	uint32_t	r=memory.ReadLastConfigurationData(configuration);
-	if (r>0)
+	readResult=memory.ReadLastConfigurationData(configuration);
+	if (readResult>0)
 		{
 	#if __DEBUG__ > 3
 		usb << "readConfigurationDataArea failed!" << newline;
@@ -109,13 +97,6 @@ void States_Class::Start(uint8_t	operationMode)
 					<< ", flags == " << persistentConfiguration.cycle.cycleFlags << newline;
 #endif
 	
-	if (!memory.readCycleDictionaryArea(cycleDictionary))
-		{
-	#if __DEBUG__ > 3
-		usb << "readCycleDictionaryArea failed!" << memory.getUptime() << newline;
-	#endif
-		SetFactoryDefaults(0, false, true);
-		}
 
 	communicator.CheckCommunication();
 
@@ -153,7 +134,7 @@ void States_Class::setPersistentConfiguration(uint8 cycleID)
 	{
 	persistentConfiguration.cycleDescriptionID = cycleID;
 	readCycleDescription(persistentConfiguration.cycle, persistentConfiguration.cycleDescriptionID);
-	memory.writePersistentConfigurationDataArea(persistentConfiguration);
+   writeResult=memory.writePersistentConfigurationDataArea(persistentConfiguration);
 	} 	
 
 
@@ -491,8 +472,8 @@ bool States_Class::handleInStateEvent(event& e, tick_t t, bool& done)
 
 void States_Class::prepareStateChangeEvent(event& e, uint16 newState, uint16 data)
 	{
-	e.eventClass = kGAINEventClass;
-	e.eventType = kGAINSwitchStateEvent;
+	e.eventClass =(EventClass)kGAINEventClass;
+	e.eventType = (EventType)kGAINSwitchStateEvent;
 	e.data.wordData[0] = newState;
 	e.data.wordData[1] = data;
 	}
@@ -509,14 +490,24 @@ uint32_t States_Class::handlePowerOnSelftest(void)
 
 
 void States_Class::saveCurrentState(void){
-	if (state.currentState>0){
-		state.now = hvacTimer.get_ticks();
-		memory.saveWorkingStateForGAIN(state);
+		calendar_date_time	cdt;
+		calendar.GetDateTime(&cdt);
+		state.dateTime=cdt;
+		state.now = calendar.convert_datetime_to_timestamp(&cdt);
+	if (state.currentState!=kGAINStateMaintenance){
+		memory.WriteFastCurrentState(state);
+		memory.ReadFastApplicationState(lastState);
+		if (state.currentState==0)
+		{
+			memory.WriteValidApplicationState(state);
+			//delay_ms(100);	
+		}
+		
 	}else{
-		 if (state.currentState > kGAINStateResume){
-			 
-			memory.clearWorkingStateForGAIN();
-		 }
+// 		 if (state.currentState > kGAINStateResume){
+// 			 
+// 			memory.clearWorkingStateForGAIN();
+// 		 }
 	}
 }
 
@@ -527,6 +518,9 @@ uint8_t	States_Class::Stop(uint8_t	layer){
 
 void	States_Class::GetCurrentConfiguration(ConfigurationData *cd){
 	cd=&configuration;
+}
+void	States_Class::GetCurrentState(HVACState& hs){
+	hs=state;
 }
 void	States_Class::SetConfigurationData(ConfigurationData& cd){
 	configuration=cd;
@@ -541,5 +535,6 @@ uint32_t	States_Class::GetStatus(HVACStatus& s){
 	s=state.status;
 	return	state.status.rawStatus;
 }
+
 
 States_Class	hvac;

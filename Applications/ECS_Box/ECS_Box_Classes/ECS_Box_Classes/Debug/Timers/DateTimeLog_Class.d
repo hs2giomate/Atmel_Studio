@@ -246,7 +246,26 @@ Timers/DateTimeLog_Class.d Timers/DateTimeLog_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../I2C/I2C_Asyn_Class.h
+ ../I2C/I2C_Asyn_Class.h ../Timers/Calendar_Class.h \
+ ../Storage/N25Q256_Class.h ../../../ALU_Driver/ALU_Driver/atmel_start.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../ALU_Driver/ALU_Driver/usb_start.h \
+ ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
+ ../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
+ ../../../ALU_Driver/ALU_Driver/Config/usbd_config.h \
+ ../../../ALU_Driver/ALU_Driver/usb/class/cdc/usb_protocol_cdc.h \
+ ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
+ ../Storage/RingBuffer.h
 
 ../Timers/DateTimeLog_Class.h:
 
@@ -745,3 +764,45 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
 
 ../I2C/I2C_Asyn_Class.h:
+
+../Timers/Calendar_Class.h:
+
+../Storage/N25Q256_Class.h:
+
+../../../ALU_Driver/ALU_Driver/atmel_start.h:
+
+../../../ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../ALU_Driver/ALU_Driver/usb_start.h:
+
+../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h:
+
+../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h:
+
+../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
+
+../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h:
+
+../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
+
+../../../ALU_Driver/ALU_Driver/Config/usbd_config.h:
+
+../../../ALU_Driver/ALU_Driver/usb/class/cdc/usb_protocol_cdc.h:
+
+../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h:
+
+../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+
+../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h:
+
+../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h:
+
+../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+
+../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h:
+
+../Storage/RingBuffer.h:

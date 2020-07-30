@@ -426,7 +426,7 @@
 // <i> Indicates whether Run in Standby is enabled or not
 // <id> fdpll0_arch_runstdby
 #ifndef CONF_FDPLL0_RUNSTDBY
-#define CONF_FDPLL0_RUNSTDBY 0
+#define CONF_FDPLL0_RUNSTDBY 1
 #endif
 
 // <o> Loop Divider Ratio Fractional Part <0x0-0x1F>

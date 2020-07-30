@@ -38,9 +38,14 @@ private:
 	
 	uint8_t tx_buffer[QSPI_BUFFER_SIZE];
 	uint8_t rx_buffer[QSPI_BUFFER_SIZE];
+
 	spi_nor_flash *SPI_NOR_FLASH;
 	static n25q256a SPI_NOR_FLASH_descr;
 	uint32_t	memoryCapacity;
+	bool			is_corrupted,isOK;
+	uint8_t		status;
+	_qspi_command cmd;
+	uint32_t	currentAddress;
 	
 
 //functions
@@ -48,22 +53,23 @@ public:
 	N25Q256_Class();
 	N25Q256_Class(qspi_sync_descriptor *);
 	~N25Q256_Class();
-	void Init(void);
+	bool Init(void);
 	void Init(qspi_sync_descriptor *);
-	uint32_t	Erase(void);
-	uint32_t	Write(uint8_t *,uint32_t);
+	uint32_t	Erase(uint32_t);
 	uint32_t	WriteAddress(uint8_t *p,uint32_t addr, uint32_t size );
 	uint32_t	ReadAddress(uint8_t *p,uint32_t addr, uint32_t size);
-	uint8_t		GetReadStatus(void);
-	uint32_t	GetMemoryCapacity();
 
+	uint32_t	GetMemoryCapacity(void);
+	bool		IsReady(void);
+	bool		WaitOnBusy(void);
 protected:
 
 private:
 	N25Q256_Class( const N25Q256_Class &c );
 	N25Q256_Class& operator=( const N25Q256_Class &c );
 	void spi_nor_flash_init();
-	
+	bool	SelfTest(void);
+	uint8_t		GetStatus(void);
 
 }; //N25Q256_Class
 extern	N25Q256_Class	flash;

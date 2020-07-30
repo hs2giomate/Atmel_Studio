@@ -23,7 +23,7 @@
  */
 
 #include "Stream.h"
-#include "Timer_Class.h"
+#include "TimerSerial_Class.h"
 
 #define PARSE_TIMEOUT 1000  // default number of milli-seconds to wait
 
@@ -321,6 +321,6 @@ int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {
 unsigned long Stream::millis(void){
 	uint32_t ticks;
 	
-	ticks= timer_get_clock_cycles_in_tick(&TIMER_INTERFACE,&ticks);
+	ticks= usbTimer.Get_ticks();
 	return (unsigned long)ticks;
 }

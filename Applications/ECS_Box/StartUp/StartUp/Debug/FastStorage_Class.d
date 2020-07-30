@@ -194,12 +194,12 @@ FastStorage_Class.d FastStorage_Class.o: .././FastStorage_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -219,6 +219,8 @@ FastStorage_Class.d FastStorage_Class.o: .././FastStorage_Class.cpp \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
  ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h \
@@ -249,7 +251,16 @@ FastStorage_Class.d FastStorage_Class.o: .././FastStorage_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h \
  ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
  ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
+ .././MemoryManagment_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling/diagnostics.h \
+ .././PersistenceServices.h .././ErrorAnalyer_Class.h \
+ .././GainDefinitions.h .././CRC32_Class.h .././States_Class.h \
+ .././MaintenanceTool.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
+ .././Interfaces_Class.h .././DataLoger_Class.h .././MemoryStruct_Class.h
 
 .././FastStorage_Class.h:
 
@@ -641,17 +652,17 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
@@ -692,6 +703,10 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../ApplicationLayer/ConfigurationCommons.h:
 
 .././GAINDefinitions.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h:
 
@@ -754,3 +769,31 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
+
+.././MemoryManagment_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling/diagnostics.h:
+
+.././PersistenceServices.h:
+
+.././ErrorAnalyer_Class.h:
+
+.././GainDefinitions.h:
+
+.././CRC32_Class.h:
+
+.././States_Class.h:
+
+.././MaintenanceTool.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h:
+
+.././Interfaces_Class.h:
+
+.././DataLoger_Class.h:
+
+.././MemoryStruct_Class.h:

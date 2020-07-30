@@ -7,6 +7,7 @@
 
 
 #include "N25Q256_Class.h"
+#include "stdlib.h"
 
 	
 
@@ -62,10 +63,10 @@ N25Q256_Class::~N25Q256_Class()
 {
 } //~N25Q256_Class
 
-void N25Q256_Class::Init(void){
+bool N25Q256_Class::Init(void){
 	xferDone=false;
-	
 	spi_nor_flash_init();
+	return SelfTest();
 }
 
 void N25Q256_Class::Init(qspi_sync_descriptor  *d){
@@ -79,16 +80,14 @@ void N25Q256_Class::spi_nor_flash_init(void)
 	SPI_NOR_FLASH = n25q256a_construct(
 	&SPI_NOR_FLASH_descr.parent, ptrQSPIDescriptor, QSPI_N25Q256_exit_xip, CONF_SPI_NOR_FLASH_0_QUAD_MODE);
 }
-uint32_t	N25Q256_Class::Erase(void){
-	uint32_t e=(uint32_t)(SPI_NOR_FLASH->interface->erase(SPI_NOR_FLASH, 0, QSPI_ERSIZE));
+uint32_t	N25Q256_Class::Erase(uint32_t add){
+	uint32_t e=(uint32_t)(SPI_NOR_FLASH->interface->erase(SPI_NOR_FLASH, add, QSPI_ERBLK));
 	return	e;
 }
 
-uint32_t	N25Q256_Class::Write(uint8_t *p, uint32_t size){
-	uint32_t w=(uint32_t)(SPI_NOR_FLASH->interface->write(SPI_NOR_FLASH,p, 0, size));
-	return	w;
-}
+
 uint32_t	N25Q256_Class::WriteAddress(uint8_t *p,uint32_t addr, uint32_t size){
+	//uint32_t e=(uint32_t)(SPI_NOR_FLASH->interface->erase(SPI_NOR_FLASH, addr, size));
 	uint32_t w=(uint32_t)(SPI_NOR_FLASH->interface->write(SPI_NOR_FLASH, p,addr, size));
 	return	w;
 }
@@ -98,14 +97,55 @@ uint32_t	N25Q256_Class::ReadAddress(uint8_t *p,uint32_t addr, uint32_t size){
 	return	r;
 }
 
-uint8_t	N25Q256_Class::GetReadStatus(void){
-		n25q256a *n25q  = ( n25q256a *)SPI_NOR_FLASH;
-		uint8_t          width = n25q->quad_mode ? QSPI_INST4_ADDR4_DATA4 : QSPI_INST1_ADDR1_DATA1;
-		uint8_t vcfg = n25q256a_read_reg(SPI_NOR_FLASH, width, N25Q_READ_STATUS_REGISTER);
-		return	vcfg;
-	
+uint8_t	N25Q256_Class::GetStatus(void){
+		cmd.inst_frame.bits.inst_en  = 1;
+		cmd.inst_frame.bits.data_en  = 1;
+		cmd.inst_frame.bits.tfr_type = QSPI_READ_ACCESS;
+		cmd.instruction              = N25Q_READ_STATUS_REGISTER;
+		cmd.buf_len                  = 1;
+		cmd.rx_buf                   = &status;
+		
+		qspi_sync_serial_run_command(ptrQSPIDescriptor, &cmd);
+		return status;
 	}
 uint32_t	N25Q256_Class::GetMemoryCapacity(){
 	return	memoryCapacity;
+}
+bool	N25Q256_Class::IsReady(){
+	return	((GetStatus())&(0x01))==0;
+}
+
+bool	N25Q256_Class::WaitOnBusy(void){
+		do{
+			status=GetStatus();
+		}while(status & (1 << 0));
+		return	(status&(0x01))==0;
+}
+bool	N25Q256_Class::SelfTest(void){
+	currentAddress=2*QSPI_ERBLK;
+// 	for (uint32_t i = 0; i <QSPI_ERBLK ; i++) {
+// 		tx_buffer[i] = (uint8_t)rand();
+// 		rx_buffer[i] = (uint8_t)(QSPI_BUFFER_SIZE-i);
+// 	}	uint8_t	testRXBuffer[QSPI_ERBLK];
+	uint8_t	testTXBuffer[QSPI_ERBLK];
+	ReadAddress(testTXBuffer,currentAddress,QSPI_ERBLK);
+	flash.WaitOnBusy();
+	Erase(currentAddress);
+	flash.WaitOnBusy();
+	WriteAddress(testTXBuffer,currentAddress,QSPI_ERBLK);
+	flash.WaitOnBusy();
+	ReadAddress(testRXBuffer,currentAddress,QSPI_ERBLK);
+	flash.WaitOnBusy();
+	isOK	 = true;
+	for (int i = 0; i < QSPI_ERBLK; i++) {
+		if (testRXBuffer[i] != testTXBuffer[i]) {
+			isOK = false;
+			//usb.print("Flash data verification failed.\n\r");
+		//	usb<<"bit :"<<i<<NEWLINE;
+			break;
+		}
+					
+	}
+	return	isOK;
 }
 N25Q256_Class	flash(&QSPI_N25Q256);

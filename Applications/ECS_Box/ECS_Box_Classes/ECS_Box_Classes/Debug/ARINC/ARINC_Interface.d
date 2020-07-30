@@ -234,9 +234,7 @@ ARINC/ARINC_Interface.d ARINC/ARINC_Interface.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
- ../USBSerial/CDC_Class.h ../../../ALU_Driver/ALU_Driver/atmel_start.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h \
- ../../../ALU_Driver/ALU_Driver/usb_start.h \
+ ../USBSerial/CDC_Class.h ../../../ALU_Driver/ALU_Driver/usb_start.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
  ../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h \
  ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
@@ -248,10 +246,7 @@ ARINC/ARINC_Interface.d ARINC/ARINC_Interface.o: \
  ../../../ALU_Driver/ALU_Driver/Config/usbd_config.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/usb_protocol_cdc.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h \
- ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
- ../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h \
- ../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h \
- ../../../ALU_Driver/ALU_Driver/usb_start.h ../USBSerial/Stream.h \
+ ../USBSerial/Stream.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\inttypes.h \
  ../USBSerial/Print.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h \
@@ -274,7 +269,8 @@ ARINC/ARINC_Interface.d ARINC/ARINC_Interface.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
- ../avr/pgmspace.h ../USBSerial/Printable.h
+ ../avr/pgmspace.h ../USBSerial/Printable.h \
+ ../USBSerial/SerialTerminal_Class.h
 
 ../ARINC/ARINC_Interface.h:
 
@@ -754,10 +750,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../USBSerial/CDC_Class.h:
 
-../../../ALU_Driver/ALU_Driver/atmel_start.h:
-
-../../../ALU_Driver/ALU_Driver/driver_init.h:
-
 ../../../ALU_Driver/ALU_Driver/usb_start.h:
 
 ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h:
@@ -781,14 +773,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ALU_Driver/ALU_Driver/usb/class/cdc/usb_protocol_cdc.h:
 
 ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h:
-
-../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
-
-../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h:
-
-../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h:
-
-../../../ALU_Driver/ALU_Driver/usb_start.h:
 
 ../USBSerial/Stream.h:
 
@@ -839,3 +823,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../avr/pgmspace.h:
 
 ../USBSerial/Printable.h:
+
+../USBSerial/SerialTerminal_Class.h:

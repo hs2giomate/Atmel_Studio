@@ -32,6 +32,7 @@
 #define EUI64_LEN 8
 #define EUI48_LEN 6
 #define AT24MAC_BUFFER_SIZE 16
+#define AT24MAC_MEMORY_SIZE 256
 
 
 
@@ -47,6 +48,7 @@ private:
 	
 	I2C_Asyn_Class	i2ca;
 	uint8_t		i2c_addr;
+	uint8_t		byte;
 	
 	
 //functions
@@ -57,19 +59,22 @@ public:
 	void Init(void);
 	void Init(uint8_t addr);
 	void Init(i2c_m_async_desc *);
-	int32_t write_byte(uint8_t addr, uint8_t value);
+	int32_t Write_byte(uint8_t addr, uint8_t value);
 	int32_t write_page(uint8_t addr, uint8_t *buffer);
-	uint8_t	read_byte(uint8_t );
-	bool	is_EEPROM_ready(void);
+	uint8_t	Read_byte(uint8_t );
+	bool	IsReady(void);
 	uint32_t ReadAddress(uint8_t *p, uint8_t addr, uint8_t size);
 	uint32_t ReadAddress(uint8_t *p, uint16_t addr, uint8_t size);
 	uint32_t WriteAddress(uint8_t *p, uint8_t addr, uint8_t size);
 	uint32_t WriteAddress(uint8_t *p, uint16_t addr, uint8_t size);
+	bool	AcknolledgePolling(void);
 protected:
 	
 private:
 	AT24MAC_Class( const AT24MAC_Class &c );
 	AT24MAC_Class& operator=( const AT24MAC_Class &c );
+	bool	GetAcknowledge(void);
+
 
 }; //AT24MAC_Class
 

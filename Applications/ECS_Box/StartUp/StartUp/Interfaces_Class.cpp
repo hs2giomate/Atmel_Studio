@@ -8,6 +8,7 @@
 
 #include "Interfaces_Class.h"
 #include "CDC_Class.h"
+#include "States_Class.h"
 
 // default constructor
 Interfaces_Class::Interfaces_Class()
@@ -22,14 +23,19 @@ Interfaces_Class::~Interfaces_Class()
 uint32_t Interfaces_Class::CheckCommunication(void)
 {
 	uint32_t	r;
-	uint8_t comBuffer[64];
-	if (usb.rxReady)
+
+	
+	if (usb.terminalStarted)
 	{
-		event	e;
-		r=usb.readData(comBuffer, sizeof(comBuffer));
+		
+		hvac.PrintState();	
+	}else{
+		event	e(kCommunicationEventClass,kInterfaceAvailable);
 		listener.SendEventSelf(e);
+		
 	}
-	return r;
+	
+	return	0;
 }
 
 uint32_t	Interfaces_Class::GetStatus(HVACStatus& s){

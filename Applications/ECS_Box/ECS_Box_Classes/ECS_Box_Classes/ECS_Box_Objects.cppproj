@@ -40,15 +40,14 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
-    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
-    <avrtoolserialnumber>J41800043454</avrtoolserialnumber>
+    <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
+    <avrtoolserialnumber>ATML2748051800004896</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x61840300</avrdeviceexpectedsignature>
-    <avrtoolinterface>
-    </avrtoolinterface>
+    <avrtoolinterface>SWD</avrtoolinterface>
     <com_atmel_avrdbg_tool_edbg>
       <ToolOptions>
         <InterfaceProperties>
-          <SwdClock>0</SwdClock>
+          <SwdClock>2000000</SwdClock>
         </InterfaceProperties>
         <InterfaceName>SWD</InterfaceName>
       </ToolOptions>
@@ -62,7 +61,8 @@
         <InterfaceProperties>
           <SwdClock>2000000</SwdClock>
         </InterfaceProperties>
-        <InterfaceName>SWD</InterfaceName>
+        <InterfaceName>
+        </InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
       <ToolNumber>J41800043454</ToolNumber>
@@ -238,6 +238,7 @@
             <Value>../EventHandling</Value>
             <Value>../EIDE_Utils</Value>
             <Value>../ApplicationLayer</Value>
+            <Value>../IO_Expander</Value>
           </ListValues>
         </armgcccpp.compiler.directories.IncludePaths>
         <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -334,6 +335,30 @@
     <Compile Include="EIDE_Utils\coreTypes.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="EIDE_Utils\dtostrf.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EIDE_Utils\eLib.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EIDE_Utils\eLib.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EIDE_Utils\interrupt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EIDE_Utils\io.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EIDE_Utils\itoa.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EIDE_Utils\itoa.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EIDE_Utils\pgmspace.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ErrorHandling\diagnostics.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -359,6 +384,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="I2C\I2C_Asyn_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IO_Expander\MCP23017_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IO_Expander\MCP23017_Class.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="LTC2983\LTC2983_Class.cpp">
@@ -436,18 +467,6 @@
     <Compile Include="USBSerial\CDC_Class.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="USBSerial\eLib.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="USBSerial\eLib.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="USBSerial\itoa.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="USBSerial\itoa.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="USBSerial\Print.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -457,10 +476,22 @@
     <Compile Include="USBSerial\Printable.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="USBSerial\SerialTerminal_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\SerialTerminal_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="USBSerial\Stream.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="USBSerial\Stream.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\TimerSerial_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\TimerSerial_Class.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="USBSerial\WString.cpp">
@@ -481,6 +512,7 @@
     <Folder Include="CANBUS" />
     <Folder Include="EIDE_Utils" />
     <Folder Include="EventHandling" />
+    <Folder Include="IO_Expander" />
     <Folder Include="Storage" />
     <Folder Include="Timers" />
     <Folder Include="SPI" />

@@ -47,7 +47,7 @@ struct MemoryFlashStruct
 		PowerLevel			powerLevel;
 		HVACState		hvacDefaultState;
 		HVACState		hvacState;
-		
+		uint32_t		crcAppState;
 	};
 
 };
@@ -65,7 +65,8 @@ protected:
 private:
 	ConfigurationData	configuration;
 	PTR_CONFIG_DATA		handlerConfigData;
-
+	PTR_HVAC_STATE	handlerAppState;
+	uint32_t	flashAddress;
 //functions
 public:
 	MemoryStruct_Class();
@@ -77,7 +78,13 @@ public:
 	uint32_t	WriteDefaultConfiguration(ConfigurationData& cd);
 	uint32_t	ReadCRCConfigurationData(void);
 	uint32_t	WriteCRCConfigurationData(uint32_t crc);
-	uint32_t	WriteValidConfigurationData(ConfigurationData& cd);
+
+	uint32_t	ReadApplicationState(HVACState& hs);
+	uint32_t	ReadCRCApplicationState(void);
+	uint32_t	WriteDefaultState(void);
+	uint32_t	WriteCurrentState(HVACState& hs);
+	uint32_t	WriteCRCAppState(uint32_t crc);
+	uint32_t	WriteCurrentConfigurationData(ConfigurationData& cd);
 protected:
 private:
 	MemoryStruct_Class( const MemoryStruct_Class &c );
@@ -85,6 +92,7 @@ private:
 	uint32_t	ReadConfigurationData(ConfigurationData& cd,uint32_t	add);
 	uint32_t	WriteConfigurationData(ConfigurationData& cd,uint32_t add);
 	uint32_t	WriteLastConfigurationData(ConfigurationData& cd);
+	uint32_t	WriteApplicationState(HVACState& hs,uint32_t add);
 }; //MemoryStruct_Class
 
 

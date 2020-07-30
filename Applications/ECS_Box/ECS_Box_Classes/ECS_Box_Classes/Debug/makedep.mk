@@ -16,6 +16,10 @@ Device_Startup\startup_same54.c
 
 Device_Startup\system_same54.c
 
+EIDE_Utils\eLib.cpp
+
+EIDE_Utils\itoa.c
+
 ErrorHandling\diagnostics.cpp
 
 EventHandling\EventHandler_Class.cpp
@@ -23,6 +27,8 @@ EventHandling\EventHandler_Class.cpp
 EventHandling\Event_Class.cpp
 
 I2C\I2C_Asyn_Class.cpp
+
+IO_Expander\MCP23017_Class.cpp
 
 LTC2983\LTC2983_Class.cpp
 
@@ -46,13 +52,13 @@ Timers\Timer_Class.cpp
 
 USBSerial\CDC_Class.cpp
 
-USBSerial\eLib.cpp
-
-USBSerial\itoa.c
-
 USBSerial\Print.cpp
 
+USBSerial\SerialTerminal_Class.cpp
+
 USBSerial\Stream.cpp
+
+USBSerial\TimerSerial_Class.cpp
 
 USBSerial\WString.cpp
 

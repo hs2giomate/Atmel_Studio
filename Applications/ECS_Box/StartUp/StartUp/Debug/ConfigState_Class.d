@@ -163,6 +163,9 @@ ConfigState_Class.d ConfigState_Class.o: .././ConfigState_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h \
  ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
  .././MemoryManagment_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
@@ -207,19 +210,17 @@ ConfigState_Class.d ConfigState_Class.o: .././ConfigState_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
- ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -258,7 +259,41 @@ ConfigState_Class.d ConfigState_Class.o: .././ConfigState_Class.cpp \
  .././Interfaces_Class.h .././DataLoger_Class.h .././MemoryStruct_Class.h \
  .././FastStorage_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h
+ ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/CDC_Class.h \
+ ../../../ALU_Driver/ALU_Driver/usb_start.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Stream.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\inttypes.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Print.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdarg.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\endian.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_endian.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\select.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_sigset.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timeval.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\timespec.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timespec.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/WString.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\os_defines.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/avr/pgmspace.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h
 
 .././ConfigState_Class.h:
 
@@ -590,6 +625,12 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 .././GAINDefinitions.h:
 
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
+
 .././MemoryManagment_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
@@ -678,10 +719,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
-../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
@@ -692,17 +729,17 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
@@ -791,3 +828,71 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/CDC_Class.h:
+
+../../../ALU_Driver/ALU_Driver/usb_start.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Stream.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\inttypes.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Print.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdarg.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\endian.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_endian.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\select.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_sigset.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timeval.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\timespec.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timespec.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/WString.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\os_defines.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/avr/pgmspace.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h:

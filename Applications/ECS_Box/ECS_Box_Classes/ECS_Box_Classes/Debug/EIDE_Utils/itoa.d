@@ -1,5 +1,5 @@
-USBSerial/itoa.d USBSerial/itoa.o: ../USBSerial/itoa.c \
- ../USBSerial/itoa.h \
+EIDE_Utils/itoa.d EIDE_Utils/itoa.o: ../EIDE_Utils/itoa.c \
+ ../EIDE_Utils/itoa.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
@@ -18,7 +18,7 @@ USBSerial/itoa.d USBSerial/itoa.o: ../USBSerial/itoa.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h
 
-../USBSerial/itoa.h:
+../EIDE_Utils/itoa.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
 
