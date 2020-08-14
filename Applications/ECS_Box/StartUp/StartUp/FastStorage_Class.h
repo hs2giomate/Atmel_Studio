@@ -23,40 +23,31 @@ struct      EEpromProperties {
 	uint32_t eraseTime;
 };
 
-
-struct EEPROMMemoryStruct
+typedef struct EEPROMMemoryStruct
 {
-	union
-	{
-		uint8_t		status;
-		EEpromProperties	properties;
-	};
-	union
-	{
-		uint32_t		stack;
-		calendar_date_time			timeLogs[AT24MAC_BUFFER_SIZE];
-	};
-	union
-	{
-		CycleData			cyclicData;
-		
-	};
-	union
-	{
-		HVACState	appState;
-		uint32_t	crcAppState;
-		
-	};
-	union
-	{
-		ECSConfiguration	controllerState;
-		uint32_t	crcCtrlState;
-		
-	};
+	
+	uint8_t		status;
+	EEpromProperties	properties;
+	uint32_t	crcAppState;
+	HVACState	appState;
+	uint32_t		stack;
+	calendar_date_time			timeLogs[AT24MAC_BUFFER_SIZE];
+	
+// 	union
+// 	{
+// 		CycleData			cyclicData;
+// 		
+// 	};
+// 	union
+// 	{
+// 		ECSConfiguration	controllerState;
+// 		uint32_t	crcCtrlState;
+// 		
+// 	};
 
 };
 
-typedef struct EEPROMMemoryStruct		EEPROMMemoryStruct;
+
 extern			EEPROMMemoryStruct*		eepromMap;
 
 

@@ -70,7 +70,7 @@ int main(void)
 	delay_ms(100);
 	usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
 	usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
-	QSPIDriverTest();
+	//QSPIDriverTest();
 	memory.Init();
 	alu.Init();
 	usb<<"*** ALU initiated ***"<<NEWLINE;

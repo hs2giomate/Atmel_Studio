@@ -40,7 +40,7 @@
 #define ISSI_BUFFER_SIZE 16
 #define WRITE_DELAY		100	
 #define MEMORY_FLASH_SIZE	0x7ffffff
-#define TEST_FLASH_SIZE	0x10000
+#define TEST_FLASH_SIZE	0x1000
 
 struct firmwareDescriptionStruct
 {

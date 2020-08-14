@@ -41,11 +41,11 @@
 #include <hpl_dmac_config.h>
 
 /* Referenced GCLKs (out of 0~7), should be initialized firstly
- * - GCLK 7 for FDPLL96M
+ * - GCLK 4 for FDPLL96M
  */
-#define _GCLK_INIT_1ST 0x00000080
+#define _GCLK_INIT_1ST 0x00000010
 /* Not referenced GCLKs, initialized last */
-#define _GCLK_INIT_LAST 0x0000007F
+#define _GCLK_INIT_LAST 0x000000EF
 
 /**
  * \brief Initialize the hardware abstraction layer

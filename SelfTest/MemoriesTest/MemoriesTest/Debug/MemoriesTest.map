@@ -30,10 +30,8 @@ S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_T
                               S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o) (_spi_m_sync_init)
 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
                               S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o) (_sysctrl_init_sources)
-S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o) (_tcc_get_timer)
 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o) (_pwm_init)
+                              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o) (_timer_init)
 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_atomic.o)
                               S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o) (atomic_enter_critical)
 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libstdc++.a(atexit_arm.o)
@@ -112,7 +110,7 @@ Common symbol       size              file
 
 __lock___atexit_recursive_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
-TIMER_2             0x20              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+TIMER_2             0x1c              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
 PWM_0               0x1c              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
 __lock___arc4random_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
@@ -122,12 +120,12 @@ __lock___sinit_recursive_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
 __lock___malloc_recursive_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
-TIMER_1             0x20              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+TIMER_1             0x1c              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
 _irq_table          0x70              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
 SPI_0               0x18              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
 __lock___at_quick_exit_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
-TIMER_3             0x20              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+TIMER_3             0x1c              S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
 __lock___dd_hash_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
 __lock___tz_mutex   0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
@@ -527,7 +525,7 @@ Discarded input sections
  .text._ZN16FlashMemoryClass9readFlashEPvmm
                 0x00000000       0x84 FlashMemoryClass.o
  .text._ZN16FlashMemoryClass9ChipEraseEv
-                0x00000000       0x4c FlashMemoryClass.o
+                0x00000000       0x64 FlashMemoryClass.o
  .text._ZN16FlashMemoryClass10writeFlashEmPKvm
                 0x00000000       0xec FlashMemoryClass.o
  .text._ZN16FlashMemoryClass20ReadFunctionRegisterEv
@@ -2449,19 +2447,19 @@ Discarded input sections
  .data          0x00000000        0x0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
  .bss           0x00000000        0x0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
  .text.timer_deinit
-                0x00000000       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+                0x00000000       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
  .text.timer_start
-                0x00000000       0x44 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .text.timer_stop
-                0x00000000       0x44 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .text.timer_set_clock_cycles_per_tick
-                0x00000000       0x34 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .text.timer_add_task
-                0x00000000       0xb0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .text.timer_remove_task
-                0x00000000       0xa8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .text.timer_get_clock_cycles_in_tick
                 0x00000000       0x3c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .text.timer_stop
+                0x00000000       0x3c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .text.timer_set_clock_cycles_per_tick
+                0x00000000       0x2c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .text.timer_add_task
+                0x00000000       0xac S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .text.timer_remove_task
+                0x00000000       0xa4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .text.timer_get_clock_cycles_in_tick
+                0x00000000       0x38 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
  .text.timer_get_version
                 0x00000000        0x4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
  .debug_macro   0x00000000      0x89e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
@@ -3087,6 +3085,8 @@ Discarded input sections
                 0x00000000        0xa S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
  .text._irq_disable
                 0x00000000       0x24 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+ .text._irq_set
+                0x00000000       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
  .text._irq_clear
                 0x00000000       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
  .text._irq_enable
@@ -3518,7 +3518,7 @@ Discarded input sections
  .data          0x00000000        0x0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
  .bss           0x00000000        0x0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
  .text._gclk_init_generators
-                0x00000000       0x9c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+                0x00000000       0xb4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
  .debug_macro   0x00000000      0x89e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
  .debug_macro   0x00000000      0x16d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
  .debug_macro   0x00000000       0x22 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
@@ -4536,214 +4536,6 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
  .debug_macro   0x00000000       0xca S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
  .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .text          0x00000000        0x0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .text._tcc_get_pwm
-                0x00000000        0x4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x89e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x16d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x22 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x87 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x51 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xef S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x6a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x1df S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x22 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x3f S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x22 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xb5 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x3ad S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x67e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x8b1 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x22e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0xd5c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x4dc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x9f6 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x82b S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x45f S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x5e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x8f9 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x21c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x735 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x5e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x632 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x3ac S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0xc76 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000     0x1092 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0xc4a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x6ba S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000     0x1b3d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000     0x143c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x340 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x7c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xa0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x4c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xca S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x94 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x58 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x341 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x82 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x189 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xb8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xa0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xb2 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x7c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x15a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xdc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x124 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x124 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x124 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x124 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x124 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x124 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x124 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xe2 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xe2 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xe2 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xe2 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xe2 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x12a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x100 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xf4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x40f S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x40 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x392 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000     0x1fb0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x6d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x4c3 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x94 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x6a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x28c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000      0x4d8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xca S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x5e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0xc9 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x00000000       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
  .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
@@ -4849,22 +4641,36 @@ Discarded input sections
  .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .group         0x00000000        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text          0x00000000        0x0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .text._timer_deinit
+                0x00000000       0x40 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text._pwm_deinit
                 0x00000000       0x40 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .text._timer_start
+                0x00000000        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text._pwm_enable
+                0x00000000        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .text._timer_stop
                 0x00000000        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text._pwm_disable
                 0x00000000        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .text._timer_set_period
+                0x00000000       0x2e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text._pwm_set_param
                 0x00000000       0x40 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text._pwm_get_period
                 0x00000000       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text._pwm_get_duty
                 0x00000000       0x44 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .text._timer_get_period
+                0x00000000       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .text._timer_is_started
+                0x00000000        0xa S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text._pwm_is_enabled
                 0x00000000        0xa S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text._pwm_set_irq_state
                 0x00000000       0x50 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .text._timer_set_irq
+                0x00000000       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .debug_macro   0x00000000      0x89e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .debug_macro   0x00000000      0x16d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .debug_macro   0x00000000       0x22 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
@@ -5416,7 +5222,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtn.o
                 0x00002000                STACK_SIZE = DEFINED (STACK_SIZE)?STACK_SIZE:DEFINED (__stack_size__)?__stack_size__:0x2000
 
-.text           0x00000000     0x24e0
+.text           0x00000000     0x21d8
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                _sfixed = .
  *(.vectors .vectors.*)
@@ -5435,12 +5241,12 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x0000020c                AC_Handler
                 0x0000020c                SysTick_Handler
                 0x0000020c                PendSV_Handler
-                0x0000020c                TC7_Handler
                 0x0000020c                SERCOM1_Handler
                 0x0000020c                ADC_Handler
                 0x0000020c                NonMaskableInt_Handler
                 0x0000020c                TCC1_Handler
                 0x0000020c                SERCOM2_Handler
+                0x0000020c                TCC0_Handler
                 0x0000020c                RTC_Handler
                 0x0000020c                EIC_Handler
                 0x0000020c                TC6_Handler
@@ -5528,458 +5334,398 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x00000850       0xf4 FlashMemoryClass.o
                 0x00000850                FlashMemoryClass::WriteAddress(unsigned char*, unsigned long, unsigned long)
  .text._ZN16FlashMemoryClass11ReadAddressEPhmm
-                0x00000944       0xb8 FlashMemoryClass.o
+                0x00000944       0xc0 FlashMemoryClass.o
                 0x00000944                FlashMemoryClass::ReadAddress(unsigned char*, unsigned long, unsigned long)
  .text._Z41__static_initialization_and_destruction_0ii
-                0x000009fc       0x54 FlashMemoryClass.o
+                0x00000a04       0x54 FlashMemoryClass.o
  .text._GLOBAL__sub_I__ZN16FlashMemoryClassC2Ev
-                0x00000a50       0x1c FlashMemoryClass.o
+                0x00000a58       0x1c FlashMemoryClass.o
  .text.hri_port_set_OUT_reg
-                0x00000a6c       0x2c main.o
+                0x00000a74       0x2c main.o
  .text.hri_port_clear_OUT_reg
-                0x00000a98       0x2c main.o
+                0x00000aa0       0x2c main.o
  .text._gpio_set_level
-                0x00000ac4       0x50 main.o
+                0x00000acc       0x50 main.o
  .text.gpio_set_pin_level
-                0x00000b14       0x40 main.o
- .text.main     0x00000b54      0x128 main.o
-                0x00000b54                main
+                0x00000b1c       0x40 main.o
+ .text.main     0x00000b5c      0x118 main.o
+                0x00000b5c                main
  .text._ZN13SPI_Syn_ClassC2Ev
-                0x00000c7c       0x1c SPI_Syn_Class.o
-                0x00000c7c                SPI_Syn_Class::SPI_Syn_Class()
-                0x00000c7c                SPI_Syn_Class::SPI_Syn_Class()
+                0x00000c74       0x1c SPI_Syn_Class.o
+                0x00000c74                SPI_Syn_Class::SPI_Syn_Class()
+                0x00000c74                SPI_Syn_Class::SPI_Syn_Class()
  .text._ZN13SPI_Syn_ClassD2Ev
-                0x00000c98       0x12 SPI_Syn_Class.o
-                0x00000c98                SPI_Syn_Class::~SPI_Syn_Class()
-                0x00000c98                SPI_Syn_Class::~SPI_Syn_Class()
- *fill*         0x00000caa        0x2 
+                0x00000c90       0x12 SPI_Syn_Class.o
+                0x00000c90                SPI_Syn_Class::~SPI_Syn_Class()
+                0x00000c90                SPI_Syn_Class::~SPI_Syn_Class()
+ *fill*         0x00000ca2        0x2 
  .text._ZN13SPI_Syn_Class4initEv
-                0x00000cac       0x40 SPI_Syn_Class.o
-                0x00000cac                SPI_Syn_Class::init()
+                0x00000ca4       0x40 SPI_Syn_Class.o
+                0x00000ca4                SPI_Syn_Class::init()
  .text._ZN13SPI_Syn_Class13SetDescriptorEP21spi_m_sync_descriptor
-                0x00000cec       0x24 SPI_Syn_Class.o
-                0x00000cec                SPI_Syn_Class::SetDescriptor(spi_m_sync_descriptor*)
+                0x00000ce4       0x24 SPI_Syn_Class.o
+                0x00000ce4                SPI_Syn_Class::SetDescriptor(spi_m_sync_descriptor*)
  .text._ZN13SPI_Syn_Class6enableEv
-                0x00000d10       0x3c SPI_Syn_Class.o
-                0x00000d10                SPI_Syn_Class::enable()
+                0x00000d08       0x3c SPI_Syn_Class.o
+                0x00000d08                SPI_Syn_Class::enable()
  .text._ZN13SPI_Syn_Class5writeEPKhl
-                0x00000d4c       0x40 SPI_Syn_Class.o
-                0x00000d4c                SPI_Syn_Class::write(unsigned char const*, long)
+                0x00000d44       0x40 SPI_Syn_Class.o
+                0x00000d44                SPI_Syn_Class::write(unsigned char const*, long)
  .text._ZN13SPI_Syn_Class4readEPhl
-                0x00000d8c       0x40 SPI_Syn_Class.o
-                0x00000d8c                SPI_Syn_Class::read(unsigned char*, long)
+                0x00000d84       0x40 SPI_Syn_Class.o
+                0x00000d84                SPI_Syn_Class::read(unsigned char*, long)
  .text._ZN13SPI_Syn_Class7disableEv
-                0x00000dcc       0x20 SPI_Syn_Class.o
-                0x00000dcc                SPI_Syn_Class::disable()
+                0x00000dc4       0x20 SPI_Syn_Class.o
+                0x00000dc4                SPI_Syn_Class::disable()
  .text.atmel_start_init
-                0x00000dec        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
-                0x00000dec                atmel_start_init
+                0x00000de4        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
+                0x00000de4                atmel_start_init
  .text.SPI_0_PORT_init
-                0x00000df8       0xbc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                0x00000df8                SPI_0_PORT_init
+                0x00000df0       0xbc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+                0x00000df0                SPI_0_PORT_init
  .text.SPI_0_CLOCK_init
-                0x00000eb4       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                0x00000eb4                SPI_0_CLOCK_init
+                0x00000eac       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+                0x00000eac                SPI_0_CLOCK_init
  .text.SPI_0_init
-                0x00000ed4       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                0x00000ed4                SPI_0_init
+                0x00000ecc       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+                0x00000ecc                SPI_0_init
  .text.PWM_0_CLOCK_init
-                0x00000efc       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                0x00000efc                PWM_0_CLOCK_init
+                0x00000ef4       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+                0x00000ef4                PWM_0_CLOCK_init
  .text.PWM_0_init
-                0x00000f1c       0x2c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                0x00000f1c                PWM_0_init
- .text.TIMER_3_CLOCK_init
-                0x00000f48       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                0x00000f48                TIMER_3_CLOCK_init
- .text.TIMER_3_init
-                0x00000f68       0x2c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                0x00000f68                TIMER_3_init
+                0x00000f14       0x2c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+                0x00000f14                PWM_0_init
  .text.system_init
-                0x00000f94       0xf8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                0x00000f94                system_init
+                0x00000f40      0x114 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+                0x00000f40                system_init
  .text.delay_ms
-                0x0000108c       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
-                0x0000108c                delay_ms
+                0x00001054       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+                0x00001054                delay_ms
  .text.io_write
-                0x000010ac       0x34 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
-                0x000010ac                io_write
- .text.io_read  0x000010e0       0x34 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
-                0x000010e0                io_read
+                0x00001074       0x34 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+                0x00001074                io_write
+ .text.io_read  0x000010a8       0x34 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+                0x000010a8                io_read
  .text.pwm_period_expired
-                0x00001114        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+                0x000010dc        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
  .text.pwm_detect_fault
-                0x00001120        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+                0x000010e8        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
  .text.pwm_init
-                0x0000112c       0x48 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
-                0x0000112c                pwm_init
+                0x000010f4       0x48 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+                0x000010f4                pwm_init
  .text.spi_m_sync_init
-                0x00001174       0x54 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
-                0x00001174                spi_m_sync_init
+                0x0000113c       0x54 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+                0x0000113c                spi_m_sync_init
  .text.spi_m_sync_enable
-                0x000011c8       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
-                0x000011c8                spi_m_sync_enable
+                0x00001190       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+                0x00001190                spi_m_sync_enable
  .text.spi_m_sync_disable
-                0x000011f0       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
-                0x000011f0                spi_m_sync_disable
+                0x000011b8       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+                0x000011b8                spi_m_sync_disable
  .text.spi_m_sync_transfer
-                0x00001218       0x48 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
-                0x00001218                spi_m_sync_transfer
+                0x000011e0       0x48 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+                0x000011e0                spi_m_sync_transfer
  .text._spi_m_sync_io_write
-                0x00001260       0x3c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+                0x00001228       0x3c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
  .text._spi_m_sync_io_read
-                0x0000129c       0x3c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+                0x00001264       0x3c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
  .text.spi_m_sync_get_io_descriptor
-                0x000012d8       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
-                0x000012d8                spi_m_sync_get_io_descriptor
+                0x000012a0       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+                0x000012a0                spi_m_sync_get_io_descriptor
  .text.timer_add_timer_task
-                0x00001308       0x70 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+                0x000012d0       0x70 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
  .text.timer_process_counted
-                0x00001378       0x8c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+                0x00001340       0x8c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
  .text.timer_init
-                0x00001404       0x48 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
-                0x00001404                timer_init
- .text.assert   0x0000144c        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
-                0x0000144c                assert
+                0x000013cc       0x44 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+                0x000013cc                timer_init
+ .text.assert   0x00001410        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+                0x00001410                assert
  .text.is_list_element
-                0x00001454       0x24 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
-                0x00001454                is_list_element
+                0x00001418       0x24 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+                0x00001418                is_list_element
  .text.list_insert_as_head
-                0x00001478       0x2c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
-                0x00001478                list_insert_as_head
+                0x0000143c       0x2c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+                0x0000143c                list_insert_as_head
  .text.list_insert_after
-                0x000014a4        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
-                0x000014a4                list_insert_after
+                0x00001468        0x8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+                0x00001468                list_insert_after
  .text.list_remove_head
-                0x000014ac        0xe S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
-                0x000014ac                list_remove_head
- *fill*         0x000014ba        0x2 
- .text._irq_set
-                0x000014bc       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
-                0x000014bc                _irq_set
+                0x00001470        0xe S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+                0x00001470                list_remove_head
+ *fill*         0x0000147e        0x2 
  .text._get_cycles_for_ms
-                0x000014d8       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
-                0x000014d8                _get_cycles_for_ms
+                0x00001480       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+                0x00001480                _get_cycles_for_ms
  .text._delay_cycles
-                0x000014f4        0x6 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
-                0x000014f4                _delay_cycles
- *fill*         0x000014fa        0x2 
+                0x0000149c        0x6 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+                0x0000149c                _delay_cycles
+ *fill*         0x000014a2        0x2 
  .text._init_chip
-                0x000014fc       0x38 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
-                0x000014fc                _init_chip
+                0x000014a4       0x38 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+                0x000014a4                _init_chip
  .text._gclk_init_generators_by_fref
-                0x00001534       0xb4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
-                0x00001534                _gclk_init_generators_by_fref
+                0x000014dc       0xd0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+                0x000014dc                _gclk_init_generators_by_fref
  .text._pm_init
-                0x000015e8       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
-                0x000015e8                _pm_init
+                0x000015ac       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+                0x000015ac                _pm_init
  .text._spi_sync_enable
-                0x00001608       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+                0x000015cc       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
  .text._spi_sync_disable
-                0x00001628       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+                0x000015ec       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
  .text._spi_m_sync_init
-                0x00001648       0xf8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
-                0x00001648                _spi_m_sync_init
+                0x0000160c       0xf8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+                0x0000160c                _spi_m_sync_init
  .text._spi_m_sync_enable
-                0x00001740       0x34 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
-                0x00001740                _spi_m_sync_enable
+                0x00001704       0x34 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+                0x00001704                _spi_m_sync_enable
  .text._spi_m_sync_disable
-                0x00001774       0x34 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
-                0x00001774                _spi_m_sync_disable
+                0x00001738       0x34 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+                0x00001738                _spi_m_sync_disable
  .text._spi_m_sync_trans
-                0x000017a8      0x110 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
-                0x000017a8                _spi_m_sync_trans
+                0x0000176c      0x110 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+                0x0000176c                _spi_m_sync_trans
  .text._sysctrl_init_sources
-                0x000018b8       0x44 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
-                0x000018b8                _sysctrl_init_sources
+                0x0000187c       0x44 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+                0x0000187c                _sysctrl_init_sources
  .text._sysctrl_init_referenced_generators
-                0x000018fc       0xb4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
-                0x000018fc                _sysctrl_init_referenced_generators
- .text._tcc_timer_start
-                0x000019b0       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x000019b0                _tcc_timer_start
- .text._tcc_timer_stop
-                0x000019c4       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x000019c4                _tcc_timer_stop
- .text._tcc_timer_set_period
-                0x000019d8        0xe S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x000019d8                _tcc_timer_set_period
- .text._tcc_timer_get_period
-                0x000019e6        0xe S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x000019e6                _tcc_timer_get_period
- .text._tcc_timer_is_started
-                0x000019f4       0x12 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x000019f4                _tcc_timer_is_started
- *fill*         0x00001a06        0x2 
- .text._tcc_timer_init
-                0x00001a08       0xec S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x00001a08                _tcc_timer_init
- .text._tcc_timer_set_irq
-                0x00001af4       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x00001af4                _tcc_timer_set_irq
- .text._tcc_timer_deinit
-                0x00001b14       0x54 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x00001b14                _tcc_timer_deinit
- .text._tcc_get_timer
-                0x00001b68        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x00001b68                _tcc_get_timer
- .text.TCC0_Handler
-                0x00001b74       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                0x00001b74                TCC0_Handler
- .text._tc_timer_start
-                0x00001b94        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001b94                _tc_timer_start
- .text._tc_timer_stop
-                0x00001ba0        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001ba0                _tc_timer_stop
- .text._tc_timer_set_period
-                0x00001bac       0x2e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001bac                _tc_timer_set_period
- .text._tc_timer_get_period
-                0x00001bda       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001bda                _tc_timer_get_period
- .text._tc_timer_is_started
-                0x00001c0a        0xa S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001c0a                _tc_timer_is_started
+                0x000018c0       0xb0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+                0x000018c0                _sysctrl_init_referenced_generators
  .text.tc_interrupt_handler
-                0x00001c14       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
- *fill*         0x00001c2a        0x2 
- .text._tc_timer_deinit
-                0x00001c2c       0x40 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001c2c                _tc_timer_deinit
- .text._tc_timer_set_irq
-                0x00001c6c       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001c6c                _tc_timer_set_irq
+                0x00001970       0x16 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ *fill*         0x00001986        0x2 
+ .text._tc_init_irq_param
+                0x00001988       0x48 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .text.get_tc_index
-                0x00001c8c       0x54 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
- .text._tc_timer_init
-                0x00001ce0      0x140 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001ce0                _tc_timer_init
+                0x000019d0       0x60 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .text._timer_init
+                0x00001a30      0x10c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00001a30                _timer_init
  .text._pwm_init
-                0x00001e20      0x10c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001e20                _pwm_init
+                0x00001b3c       0xdc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00001b3c                _pwm_init
  .text._tc_get_timer
-                0x00001f2c        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001f2c                _tc_get_timer
+                0x00001c18        0x4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00001c18                _tc_get_timer
  .text._tc_get_pwm
-                0x00001f38        0x4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001f38                _tc_get_pwm
+                0x00001c1c        0x4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00001c1c                _tc_get_pwm
  .text.TC3_Handler
-                0x00001f3c       0x38 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001f3c                TC3_Handler
+                0x00001c20       0x38 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00001c20                TC3_Handler
  .text.TC4_Handler
-                0x00001f74       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001f74                TC4_Handler
+                0x00001c58       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00001c58                TC4_Handler
  .text.TC5_Handler
-                0x00001f88       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                0x00001f88                TC5_Handler
+                0x00001c6c       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00001c6c                TC5_Handler
+ .text.TC7_Handler
+                0x00001c80       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00001c80                TC7_Handler
  .text.__aeabi_atexit
-                0x00001f9c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libstdc++.a(atexit_arm.o)
-                0x00001f9c                __aeabi_atexit
- .text          0x00001fac      0x114 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_udivsi3.o)
-                0x00001fac                __aeabi_uidiv
-                0x00001fac                __udivsi3
-                0x000020b8                __aeabi_uidivmod
- .text          0x000020c0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_dvmd_tls.o)
-                0x000020c0                __aeabi_idiv0
-                0x000020c0                __aeabi_ldiv0
- .text          0x000020c4       0x54 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_muldi3.o)
-                0x000020c4                __muldi3
-                0x000020c4                __aeabi_lmul
+                0x00001c94       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libstdc++.a(atexit_arm.o)
+                0x00001c94                __aeabi_atexit
+ .text          0x00001ca4      0x114 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_udivsi3.o)
+                0x00001ca4                __aeabi_uidiv
+                0x00001ca4                __udivsi3
+                0x00001db0                __aeabi_uidivmod
+ .text          0x00001db8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_dvmd_tls.o)
+                0x00001db8                __aeabi_idiv0
+                0x00001db8                __aeabi_ldiv0
+ .text          0x00001dbc       0x54 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_muldi3.o)
+                0x00001dbc                __muldi3
+                0x00001dbc                __aeabi_lmul
  .text.__cxa_atexit
-                0x00002118       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-cxa_atexit.o)
-                0x00002118                __cxa_atexit
+                0x00001e10       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-cxa_atexit.o)
+                0x00001e10                __cxa_atexit
  .text.__libc_init_array
-                0x00002128       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
-                0x00002128                __libc_init_array
- .text.memcpy   0x00002170       0x84 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memcpy-stub.o)
-                0x00002170                memcpy
- .text.rand     0x000021f4       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-rand.o)
-                0x000021f4                rand
+                0x00001e20       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+                0x00001e20                __libc_init_array
+ .text.memcpy   0x00001e68       0x84 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memcpy-stub.o)
+                0x00001e68                memcpy
+ .text.rand     0x00001eec       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-rand.o)
+                0x00001eec                rand
  .text.__register_exitproc
-                0x00002228       0xf4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
-                0x00002228                __register_exitproc
+                0x00001f20       0xf4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+                0x00001f20                __register_exitproc
  .text.startup.register_fini
-                0x0000231c       0x18 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x00002334       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
-                0x00002334                atexit
+                0x00002014       0x18 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x0000202c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+                0x0000202c                atexit
  .text.__libc_fini_array
-                0x00002344       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
-                0x00002344                __libc_fini_array
+                0x0000203c       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+                0x0000203c                __libc_fini_array
  .text.__retarget_lock_acquire_recursive
-                0x00002378        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
-                0x00002378                __retarget_lock_acquire_recursive
+                0x00002070        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00002070                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0000237c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
-                0x0000237c                __retarget_lock_release_recursive
+                0x00002074        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00002074                __retarget_lock_release_recursive
  *(.glue_7t)
- .glue_7t       0x00002380        0x0 linker stubs
+ .glue_7t       0x00002078        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00002380        0x0 linker stubs
+ .glue_7        0x00002078        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
- .rodata        0x00002380       0x84 Parameters.o
-                0x00002380                defaultParameters
-                0x000023fc                defaultPreferences
+ .rodata        0x00002078       0x84 Parameters.o
+                0x00002078                defaultParameters
+                0x000020f4                defaultPreferences
  .rodata.str1.4
-                0x00002404       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+                0x000020fc       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
  .rodata.str1.4
-                0x00002418       0x15 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
- *fill*         0x0000242d        0x3 
+                0x00002110       0x15 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+ *fill*         0x00002125        0x3 
  .rodata.str1.4
-                0x00002430       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+                0x00002128       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
  .rodata.str1.4
-                0x0000244c       0x17 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- *fill*         0x00002463        0x1 
+                0x00002144       0x17 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ *fill*         0x0000215b        0x1 
  .rodata.str1.4
-                0x00002464       0x1e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
- *fill*         0x00002482        0x2 
+                0x0000215c       0x1e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+ *fill*         0x0000217a        0x2 
  .rodata.str1.4
-                0x00002484       0x1b S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- *fill*         0x0000249f        0x1 
+                0x0000217c       0x1b S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ *fill*         0x00002197        0x1 
  .rodata.str1.4
-                0x000024a0       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00002198       0x14 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
                                  0x13 (size before relaxing)
  .rodata._global_impure_ptr
-                0x000024b4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
-                0x000024b4                _global_impure_ptr
+                0x000021ac        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+                0x000021ac                _global_impure_ptr
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000024b8                . = ALIGN (0x4)
+                0x000021b0                . = ALIGN (0x4)
  *(.init)
- .init          0x000024b8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crti.o
-                0x000024b8                _init
- .init          0x000024bc        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtn.o
-                0x000024c4                . = ALIGN (0x4)
-                0x000024c4                __preinit_array_start = .
+ .init          0x000021b0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crti.o
+                0x000021b0                _init
+ .init          0x000021b4        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtn.o
+                0x000021bc                . = ALIGN (0x4)
+                0x000021bc                __preinit_array_start = .
  *(.preinit_array)
-                0x000024c4                __preinit_array_end = .
-                0x000024c4                . = ALIGN (0x4)
-                0x000024c4                __init_array_start = .
+                0x000021bc                __preinit_array_end = .
+                0x000021bc                . = ALIGN (0x4)
+                0x000021bc                __init_array_start = .
  *(SORT(.init_array.*))
  .init_array.00000
-                0x000024c4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+                0x000021bc        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
  *(.init_array)
- .init_array    0x000024c8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
- .init_array    0x000024cc        0x4 FlashMemoryClass.o
-                0x000024d0                __init_array_end = .
-                0x000024d0                . = ALIGN (0x4)
+ .init_array    0x000021c0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
+ .init_array    0x000021c4        0x4 FlashMemoryClass.o
+                0x000021c8                __init_array_end = .
+                0x000021c8                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x000024d0                . = ALIGN (0x4)
+                0x000021c8                . = ALIGN (0x4)
  *(.fini)
- .fini          0x000024d0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crti.o
-                0x000024d0                _fini
- .fini          0x000024d4        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtn.o
-                0x000024dc                . = ALIGN (0x4)
-                0x000024dc                __fini_array_start = .
+ .fini          0x000021c8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crti.o
+                0x000021c8                _fini
+ .fini          0x000021cc        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtn.o
+                0x000021d4                . = ALIGN (0x4)
+                0x000021d4                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x000024dc        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
+ .fini_array    0x000021d4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x000024e0                __fini_array_end = .
+                0x000021d8                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x000024e0                . = ALIGN (0x4)
-                0x000024e0                _efixed = .
+                0x000021d8                . = ALIGN (0x4)
+                0x000021d8                _efixed = .
                 [!provide]                PROVIDE (__exidx_start, .)
 
-.vfp11_veneer   0x000024e0        0x0
- .vfp11_veneer  0x000024e0        0x0 linker stubs
+.vfp11_veneer   0x000021d8        0x0
+ .vfp11_veneer  0x000021d8        0x0 linker stubs
 
-.v4_bx          0x000024e0        0x0
- .v4_bx         0x000024e0        0x0 linker stubs
+.v4_bx          0x000021d8        0x0
+ .v4_bx         0x000021d8        0x0 linker stubs
 
-.iplt           0x000024e0        0x0
- .iplt          0x000024e0        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
+.iplt           0x000021d8        0x0
+ .iplt          0x000021d8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
 
-.ARM.exidx      0x000024e0        0x8
+.ARM.exidx      0x000021d8        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
  .ARM.exidx.text.__aeabi_atexit
-                0x000024e0        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libstdc++.a(atexit_arm.o)
+                0x000021d8        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libstdc++.a(atexit_arm.o)
                 [!provide]                PROVIDE (__exidx_end, .)
 
-.eh_frame       0x000024e8        0x0
- .eh_frame      0x000024e8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
+.eh_frame       0x000021e0        0x0
+ .eh_frame      0x000021e0        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
 
-.rel.dyn        0x000024e8        0x0
- .rel.iplt      0x000024e8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
+.rel.dyn        0x000021e0        0x0
+ .rel.iplt      0x000021e0        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
 
-.jcr            0x000024e8        0x0
- .jcr           0x000024e8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
+.jcr            0x000021e0        0x0
+ .jcr           0x000021e0        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
 
-.igot.plt       0x000024e8        0x0
- .igot.plt      0x000024e8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
-                0x000024e8                . = ALIGN (0x4)
-                0x000024e8                _etext = .
+.igot.plt       0x000021e0        0x0
+ .igot.plt      0x000021e0        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
+                0x000021e0                . = ALIGN (0x4)
+                0x000021e0                _etext = .
 
-.relocate       0x20000000      0x4dc load address 0x000024e8
+.relocate       0x20000000      0x484 load address 0x000021e0
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _srelocate = .
  *(.ramfunc .ramfunc.*)
  *(.data .data.*)
  .data          0x20000000        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
                 0x20000000                __dso_handle
- .data          0x20000004       0x48 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .data          0x2000004c       0x5c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .data          0x20000004       0x50 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .data._impure_ptr
-                0x200000a8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
-                0x200000a8                _impure_ptr
- *fill*         0x200000ac        0x4 
+                0x20000054        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+                0x20000054                _impure_ptr
  .data.impure_data
-                0x200000b0      0x428 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+                0x20000058      0x428 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
  .data.__atexit_recursive_mutex
-                0x200004d8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
-                0x200004d8                __atexit_recursive_mutex
-                0x200004dc                . = ALIGN (0x4)
-                0x200004dc                _erelocate = .
+                0x20000480        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+                0x20000480                __atexit_recursive_mutex
+                0x20000484                . = ALIGN (0x4)
+                0x20000484                _erelocate = .
 
-.bss            0x200004dc      0x1b0 load address 0x000029c4
-                0x200004dc                . = ALIGN (0x4)
-                0x200004dc                _sbss = .
-                0x200004dc                _szero = .
+.bss            0x20000484      0x1a4 load address 0x00002664
+                0x20000484                . = ALIGN (0x4)
+                0x20000484                _sbss = .
+                0x20000484                _szero = .
  *(.bss .bss.*)
- .bss           0x200004dc       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
- .bss           0x200004f8       0xc4 FlashMemoryClass.o
-                0x200004fc                flash
- .bss           0x200005bc        0x4 SPI_Syn_Class.o
-                0x200005bc                ptrSPISync
- .bss           0x200005c0        0x4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
- .bss           0x200005c4        0x4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .bss           0x200005c8        0xc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .bss           0x20000484       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtbegin.o
+ .bss           0x200004a0       0xc4 FlashMemoryClass.o
+                0x200004a4                flash
+ .bss           0x20000564        0x4 SPI_Syn_Class.o
+                0x20000564                ptrSPISync
+ .bss           0x20000568        0x4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+ .bss           0x2000056c       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  *(COMMON)
- COMMON         0x200005d4       0x94 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                0x200005d4                TIMER_2
-                0x200005f4                PWM_0
-                0x20000610                TIMER_1
-                0x20000630                SPI_0
-                0x20000648                TIMER_3
- COMMON         0x20000668       0x21 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
-                0x20000668                __lock___atexit_recursive_mutex
-                0x2000066c                __lock___arc4random_mutex
-                0x20000670                __lock___env_recursive_mutex
-                0x20000674                __lock___sinit_recursive_mutex
-                0x20000678                __lock___malloc_recursive_mutex
-                0x2000067c                __lock___at_quick_exit_mutex
-                0x20000680                __lock___dd_hash_mutex
-                0x20000684                __lock___tz_mutex
-                0x20000688                __lock___sfp_recursive_mutex
-                0x2000068c                . = ALIGN (0x4)
- *fill*         0x20000689        0x3 
-                0x2000068c                _ebss = .
-                0x2000068c                _ezero = .
+ COMMON         0x2000057c       0x88 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+                0x2000057c                TIMER_2
+                0x20000598                PWM_0
+                0x200005b4                TIMER_1
+                0x200005d0                SPI_0
+                0x200005e8                TIMER_3
+ COMMON         0x20000604       0x21 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x20000604                __lock___atexit_recursive_mutex
+                0x20000608                __lock___arc4random_mutex
+                0x2000060c                __lock___env_recursive_mutex
+                0x20000610                __lock___sinit_recursive_mutex
+                0x20000614                __lock___malloc_recursive_mutex
+                0x20000618                __lock___at_quick_exit_mutex
+                0x2000061c                __lock___dd_hash_mutex
+                0x20000620                __lock___tz_mutex
+                0x20000624                __lock___sfp_recursive_mutex
+                0x20000628                . = ALIGN (0x4)
+ *fill*         0x20000625        0x3 
+                0x20000628                _ebss = .
+                0x20000628                _ezero = .
 
-.stack          0x2000068c     0x2004 load address 0x00002b74
-                0x20000690                . = ALIGN (0x8)
- *fill*         0x2000068c        0x4 
-                0x20000690                _sstack = .
-                0x20002690                . = (. + STACK_SIZE)
- *fill*         0x20000690     0x2000 
-                0x20002690                . = ALIGN (0x8)
-                0x20002690                _estack = .
-                0x20002690                . = ALIGN (0x4)
-                0x20002690                _end = .
+.stack          0x20000628     0x2000 load address 0x00002808
+                0x20000628                . = ALIGN (0x8)
+                0x20000628                _sstack = .
+                0x20002628                . = (. + STACK_SIZE)
+ *fill*         0x20000628     0x2000 
+                0x20002628                . = ALIGN (0x8)
+                0x20002628                _estack = .
+                0x20002628                . = ALIGN (0x4)
+                0x20002628                _end = .
 OUTPUT(MemoriesTest.elf elf32-littlearm)
 
 .ARM.attributes
@@ -6029,39 +5775,37 @@ OUTPUT(MemoriesTest.elf elf32-littlearm)
  .ARM.attributes
                 0x00000400       0x32 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
  .ARM.attributes
-                0x00000432       0x32 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
+                0x00000432       0x32 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
  .ARM.attributes
-                0x00000464       0x32 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00000464       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libstdc++.a(atexit_arm.o)
  .ARM.attributes
-                0x00000496       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libstdc++.a(atexit_arm.o)
+                0x00000490       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x000004c2       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_udivsi3.o)
+                0x000004ae       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x000004e0       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_dvmd_tls.o)
+                0x000004cc       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_muldi3.o)
  .ARM.attributes
-                0x000004fe       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_muldi3.o)
+                0x000004f8       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-cxa_atexit.o)
  .ARM.attributes
-                0x0000052a       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-cxa_atexit.o)
+                0x00000524       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000556       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+                0x00000550       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
  .ARM.attributes
-                0x00000582       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+                0x0000057c       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x000005ae       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memcpy-stub.o)
+                0x000005a8       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-rand.o)
  .ARM.attributes
-                0x000005da       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-rand.o)
+                0x000005d4       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
  .ARM.attributes
-                0x00000606       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+                0x00000600       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
  .ARM.attributes
-                0x00000632       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+                0x0000062c       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
  .ARM.attributes
-                0x0000065e       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+                0x00000658       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
  .ARM.attributes
-                0x0000068a       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+                0x00000684       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
  .ARM.attributes
-                0x000006b6       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
- .ARM.attributes
-                0x000006e2       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtn.o
+                0x000006b0       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m/crtn.o
 
 .comment        0x00000000       0x59
  .comment       0x00000000       0x59 Device_Startup/startup_samd21.o
@@ -6085,34 +5829,32 @@ OUTPUT(MemoriesTest.elf elf32-littlearm)
  .comment       0x00000059       0x5a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
  .comment       0x00000059       0x5a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
  .comment       0x00000059       0x5a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .comment       0x00000059       0x5a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
  .comment       0x00000059       0x5a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
 
-.debug_info     0x00000000    0x2d4b6
+.debug_info     0x00000000    0x28142
  .debug_info    0x00000000     0x3a2b Device_Startup/startup_samd21.o
- .debug_info    0x00003a2b     0x3217 FlashMemoryClass.o
- .debug_info    0x00006c42     0x2a98 main.o
- .debug_info    0x000096da      0x37f Parameters.o
- .debug_info    0x00009a59      0xaf4 SPI_Syn_Class.o
- .debug_info    0x0000a54d      0x5cc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
- .debug_info    0x0000ab19     0xb44f S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
- .debug_info    0x00015f68      0x1dc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
- .debug_info    0x00016144      0x2b2 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
- .debug_info    0x000163f6      0x7ad S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
- .debug_info    0x00016ba3      0x9c9 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
- .debug_info    0x0001756c      0xb15 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .debug_info    0x00018081      0x107 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
- .debug_info    0x00018188      0x310 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
- .debug_info    0x00018498      0x859 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
- .debug_info    0x00018cf1      0x68b S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
- .debug_info    0x0001937c      0x8dd S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
- .debug_info    0x00019c59      0xc6d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
- .debug_info    0x0001a8c6     0xb33c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_info    0x00025c02     0x1b96 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .debug_info    0x00027798     0x3159 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_info    0x0002a8f1     0x2bc5 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .debug_info    0x00003a2b     0x313c FlashMemoryClass.o
+ .debug_info    0x00006b67     0x29a2 main.o
+ .debug_info    0x00009509      0x37f Parameters.o
+ .debug_info    0x00009888      0x9fe SPI_Syn_Class.o
+ .debug_info    0x0000a286      0x4ac S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
+ .debug_info    0x0000a732     0x948a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+ .debug_info    0x00013bbc      0x1dc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+ .debug_info    0x00013d98      0x2b2 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+ .debug_info    0x0001404a      0x7ad S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+ .debug_info    0x000147f7      0x9c9 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+ .debug_info    0x000151c0      0xbb7 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .debug_info    0x00015d77      0x107 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+ .debug_info    0x00015e7e      0x310 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+ .debug_info    0x0001618e      0x859 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+ .debug_info    0x000169e7      0x68a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+ .debug_info    0x00017071      0x9a9 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+ .debug_info    0x00017a1a      0xc6d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+ .debug_info    0x00018687     0xb33c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_info    0x000239c3     0x1b96 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+ .debug_info    0x00025559     0x2be9 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
 
-.debug_abbrev   0x00000000     0x36c7
+.debug_abbrev   0x00000000     0x3297
  .debug_abbrev  0x00000000      0x227 Device_Startup/startup_samd21.o
  .debug_abbrev  0x00000227      0x54a FlashMemoryClass.o
  .debug_abbrev  0x00000771      0x4da main.o
@@ -6124,41 +5866,39 @@ OUTPUT(MemoriesTest.elf elf32-littlearm)
  .debug_abbrev  0x00001484      0x115 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
  .debug_abbrev  0x00001599      0x180 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
  .debug_abbrev  0x00001719      0x1b1 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
- .debug_abbrev  0x000018ca      0x22a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .debug_abbrev  0x00001af4       0x86 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
- .debug_abbrev  0x00001b7a      0x159 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
- .debug_abbrev  0x00001cd3      0x2cd S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
- .debug_abbrev  0x00001fa0      0x1d9 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
- .debug_abbrev  0x00002179      0x1c3 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
- .debug_abbrev  0x0000233c      0x211 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
- .debug_abbrev  0x0000254d      0x586 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_abbrev  0x00002ad3      0x29f S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .debug_abbrev  0x00002d72      0x43d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_abbrev  0x000031af      0x518 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .debug_abbrev  0x000018ca      0x221 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .debug_abbrev  0x00001aeb       0x86 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+ .debug_abbrev  0x00001b71      0x159 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+ .debug_abbrev  0x00001cca      0x2cd S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+ .debug_abbrev  0x00001f97      0x1d9 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+ .debug_abbrev  0x00002170      0x1c3 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+ .debug_abbrev  0x00002333      0x211 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+ .debug_abbrev  0x00002544      0x586 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_abbrev  0x00002aca      0x29f S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+ .debug_abbrev  0x00002d69      0x52e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
 
-.debug_loc      0x00000000     0xd6aa
+.debug_loc      0x00000000     0xcfd3
  .debug_loc     0x00000000       0x64 Device_Startup/startup_samd21.o
  .debug_loc     0x00000064      0x8f0 FlashMemoryClass.o
  .debug_loc     0x00000954      0x11a main.o
  .debug_loc     0x00000a6e      0x230 SPI_Syn_Class.o
  .debug_loc     0x00000c9e       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
- .debug_loc     0x00000cbe      0xd87 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
- .debug_loc     0x00001a45       0xc3 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
- .debug_loc     0x00001b08      0x18a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
- .debug_loc     0x00001c92      0x3f7 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
- .debug_loc     0x00002089      0x700 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
- .debug_loc     0x00002789      0x854 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .debug_loc     0x00002fdd      0x271 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
- .debug_loc     0x0000324e      0x1f7 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
- .debug_loc     0x00003445       0x4c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
- .debug_loc     0x00003491      0x540 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
- .debug_loc     0x000039d1      0x11b S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
- .debug_loc     0x00003aec     0x7fdb S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_loc     0x0000bac7      0x3b8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .debug_loc     0x0000be7f      0x678 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_loc     0x0000c4f7     0x11b3 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .debug_loc     0x00000cbe      0xd67 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+ .debug_loc     0x00001a25       0xc3 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+ .debug_loc     0x00001ae8      0x18a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+ .debug_loc     0x00001c72      0x3f7 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+ .debug_loc     0x00002069      0x700 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+ .debug_loc     0x00002769      0x761 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .debug_loc     0x00002eca      0x271 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+ .debug_loc     0x0000313b      0x1f7 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+ .debug_loc     0x00003332       0x4c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+ .debug_loc     0x0000337e      0x62c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+ .debug_loc     0x000039aa      0x11b S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+ .debug_loc     0x00003ac5     0x7fdb S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_loc     0x0000baa0      0x3b4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+ .debug_loc     0x0000be54     0x117f S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
 
-.debug_aranges  0x00000000      0xc20
+.debug_aranges  0x00000000      0xbb0
  .debug_aranges
                 0x00000000       0x28 Device_Startup/startup_samd21.o
  .debug_aranges
@@ -6172,62 +5912,59 @@ OUTPUT(MemoriesTest.elf elf32-littlearm)
  .debug_aranges
                 0x00000248       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
  .debug_aranges
-                0x00000268       0x60 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+                0x00000268       0x50 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
  .debug_aranges
-                0x000002c8       0x38 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+                0x000002b8       0x38 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
  .debug_aranges
-                0x00000300       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+                0x000002f0       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
  .debug_aranges
-                0x00000330       0x60 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+                0x00000320       0x60 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
  .debug_aranges
-                0x00000390       0x88 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+                0x00000380       0x88 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
  .debug_aranges
-                0x00000418       0x70 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+                0x00000408       0x70 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
  .debug_aranges
-                0x00000488       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+                0x00000478       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
  .debug_aranges
-                0x000004a8       0x48 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+                0x00000498       0x48 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
  .debug_aranges
-                0x000004f0       0x80 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+                0x000004e0       0x80 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
  .debug_aranges
-                0x00000570       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+                0x00000560       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
  .debug_aranges
-                0x00000590       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+                0x00000580       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
  .debug_aranges
-                0x000005b8       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+                0x000005a8       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
  .debug_aranges
-                0x000005e8      0x4c8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+                0x000005d8      0x4c8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
  .debug_aranges
-                0x00000ab0       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+                0x00000aa0       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
  .debug_aranges
-                0x00000ad8       0x70 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_aranges
-                0x00000b48       0xd8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                0x00000ac8       0xe8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
 
-.debug_ranges   0x00000000     0x1190
+.debug_ranges   0x00000000     0x1078
  .debug_ranges  0x00000000       0x18 Device_Startup/startup_samd21.o
  .debug_ranges  0x00000018      0x150 FlashMemoryClass.o
  .debug_ranges  0x00000168       0x30 main.o
  .debug_ranges  0x00000198       0x58 SPI_Syn_Class.o
  .debug_ranges  0x000001f0       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
- .debug_ranges  0x00000200       0x50 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
- .debug_ranges  0x00000250       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
- .debug_ranges  0x00000278       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
- .debug_ranges  0x00000298       0x50 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
- .debug_ranges  0x000002e8       0x78 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
- .debug_ranges  0x00000360       0xa8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .debug_ranges  0x00000408       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
- .debug_ranges  0x00000418       0x58 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
- .debug_ranges  0x00000470       0x70 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
- .debug_ranges  0x000004e0       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
- .debug_ranges  0x000004f0       0x18 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
- .debug_ranges  0x00000508       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
- .debug_ranges  0x00000528      0x9f8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_ranges  0x00000f20       0x78 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .debug_ranges  0x00000f98       0x90 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_ranges  0x00001028      0x168 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .debug_ranges  0x00000200       0x40 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+ .debug_ranges  0x00000240       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+ .debug_ranges  0x00000268       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+ .debug_ranges  0x00000288       0x50 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+ .debug_ranges  0x000002d8       0x78 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+ .debug_ranges  0x00000350       0xa8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .debug_ranges  0x000003f8       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+ .debug_ranges  0x00000408       0x58 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+ .debug_ranges  0x00000460       0x70 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+ .debug_ranges  0x000004d0       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+ .debug_ranges  0x000004e0       0x18 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+ .debug_ranges  0x000004f8       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+ .debug_ranges  0x00000518      0x9f8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_ranges  0x00000f10       0x78 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+ .debug_ranges  0x00000f88       0xf0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
 
-.debug_macro    0x00000000    0x1c393
+.debug_macro    0x00000000    0x1be2c
  .debug_macro   0x00000000      0x310 Device_Startup/startup_samd21.o
  .debug_macro   0x00000310      0x89e Device_Startup/startup_samd21.o
  .debug_macro   0x00000bae       0x22 Device_Startup/startup_samd21.o
@@ -6302,204 +6039,198 @@ OUTPUT(MemoriesTest.elf elf32-littlearm)
  .debug_macro   0x0000efd4      0x392 Device_Startup/startup_samd21.o
  .debug_macro   0x0000f366     0x1fb0 Device_Startup/startup_samd21.o
  .debug_macro   0x00011316       0x6d Device_Startup/startup_samd21.o
- .debug_macro   0x00011383      0x64e FlashMemoryClass.o
- .debug_macro   0x000119d1      0x970 FlashMemoryClass.o
- .debug_macro   0x00012341       0x1c FlashMemoryClass.o
- .debug_macro   0x0001235d       0x87 FlashMemoryClass.o
- .debug_macro   0x000123e4       0x58 FlashMemoryClass.o
- .debug_macro   0x0001243c       0x35 FlashMemoryClass.o
- .debug_macro   0x00012471       0x9c FlashMemoryClass.o
- .debug_macro   0x0001250d      0x17b FlashMemoryClass.o
- .debug_macro   0x00012688       0x58 FlashMemoryClass.o
- .debug_macro   0x000126e0       0x1f FlashMemoryClass.o
- .debug_macro   0x000126ff       0x43 FlashMemoryClass.o
- .debug_macro   0x00012742       0x20 FlashMemoryClass.o
- .debug_macro   0x00012762      0x187 FlashMemoryClass.o
- .debug_macro   0x000128e9      0x353 FlashMemoryClass.o
- .debug_macro   0x00012c3c       0x10 FlashMemoryClass.o
- .debug_macro   0x00012c4c       0x35 FlashMemoryClass.o
- .debug_macro   0x00012c81       0x16 FlashMemoryClass.o
- .debug_macro   0x00012c97       0x3f FlashMemoryClass.o
- .debug_macro   0x00012cd6       0xaf FlashMemoryClass.o
- .debug_macro   0x00012d85      0x3ad FlashMemoryClass.o
- .debug_macro   0x00013132       0x10 FlashMemoryClass.o
- .debug_macro   0x00013142       0x10 FlashMemoryClass.o
- .debug_macro   0x00013152       0x16 FlashMemoryClass.o
- .debug_macro   0x00013168       0x16 FlashMemoryClass.o
- .debug_macro   0x0001317e       0x16 FlashMemoryClass.o
- .debug_macro   0x00013194       0x16 FlashMemoryClass.o
- .debug_macro   0x000131aa       0x16 FlashMemoryClass.o
- .debug_macro   0x000131c0       0x16 FlashMemoryClass.o
- .debug_macro   0x000131d6       0x16 FlashMemoryClass.o
- .debug_macro   0x000131ec       0x16 FlashMemoryClass.o
- .debug_macro   0x00013202       0x16 FlashMemoryClass.o
- .debug_macro   0x00013218       0x16 FlashMemoryClass.o
- .debug_macro   0x0001322e       0x16 FlashMemoryClass.o
- .debug_macro   0x00013244       0x16 FlashMemoryClass.o
- .debug_macro   0x0001325a       0x16 FlashMemoryClass.o
- .debug_macro   0x00013270       0x16 FlashMemoryClass.o
- .debug_macro   0x00013286      0x4c3 FlashMemoryClass.o
- .debug_macro   0x00013749       0x94 FlashMemoryClass.o
- .debug_macro   0x000137dd       0x16 FlashMemoryClass.o
- .debug_macro   0x000137f3       0x6a FlashMemoryClass.o
- .debug_macro   0x0001385d      0x28c FlashMemoryClass.o
- .debug_macro   0x00013ae9      0x4d8 FlashMemoryClass.o
- .debug_macro   0x00013fc1       0x16 FlashMemoryClass.o
- .debug_macro   0x00013fd7       0xca FlashMemoryClass.o
- .debug_macro   0x000140a1       0x1c FlashMemoryClass.o
- .debug_macro   0x000140bd       0x16 FlashMemoryClass.o
- .debug_macro   0x000140d3       0x58 FlashMemoryClass.o
- .debug_macro   0x0001412b       0xc9 FlashMemoryClass.o
- .debug_macro   0x000141f4       0xa0 FlashMemoryClass.o
- .debug_macro   0x00014294      0x6e2 main.o
- .debug_macro   0x00014976      0x34d main.o
- .debug_macro   0x00014cc3      0x143 main.o
- .debug_macro   0x00014e06       0x10 main.o
- .debug_macro   0x00014e16      0x3c3 main.o
- .debug_macro   0x000151d9       0x10 main.o
+ .debug_macro   0x00011383      0x643 FlashMemoryClass.o
+ .debug_macro   0x000119c6      0x970 FlashMemoryClass.o
+ .debug_macro   0x00012336       0x1c FlashMemoryClass.o
+ .debug_macro   0x00012352       0x87 FlashMemoryClass.o
+ .debug_macro   0x000123d9       0x58 FlashMemoryClass.o
+ .debug_macro   0x00012431       0x35 FlashMemoryClass.o
+ .debug_macro   0x00012466       0x9c FlashMemoryClass.o
+ .debug_macro   0x00012502      0x17b FlashMemoryClass.o
+ .debug_macro   0x0001267d       0x58 FlashMemoryClass.o
+ .debug_macro   0x000126d5       0x1f FlashMemoryClass.o
+ .debug_macro   0x000126f4       0x43 FlashMemoryClass.o
+ .debug_macro   0x00012737       0x20 FlashMemoryClass.o
+ .debug_macro   0x00012757      0x187 FlashMemoryClass.o
+ .debug_macro   0x000128de      0x353 FlashMemoryClass.o
+ .debug_macro   0x00012c31       0x10 FlashMemoryClass.o
+ .debug_macro   0x00012c41       0x35 FlashMemoryClass.o
+ .debug_macro   0x00012c76       0x16 FlashMemoryClass.o
+ .debug_macro   0x00012c8c       0x3f FlashMemoryClass.o
+ .debug_macro   0x00012ccb       0xaf FlashMemoryClass.o
+ .debug_macro   0x00012d7a      0x3ad FlashMemoryClass.o
+ .debug_macro   0x00013127       0x10 FlashMemoryClass.o
+ .debug_macro   0x00013137       0x10 FlashMemoryClass.o
+ .debug_macro   0x00013147       0x16 FlashMemoryClass.o
+ .debug_macro   0x0001315d       0x16 FlashMemoryClass.o
+ .debug_macro   0x00013173       0x16 FlashMemoryClass.o
+ .debug_macro   0x00013189       0x16 FlashMemoryClass.o
+ .debug_macro   0x0001319f       0x16 FlashMemoryClass.o
+ .debug_macro   0x000131b5       0x16 FlashMemoryClass.o
+ .debug_macro   0x000131cb       0x16 FlashMemoryClass.o
+ .debug_macro   0x000131e1       0x16 FlashMemoryClass.o
+ .debug_macro   0x000131f7       0x16 FlashMemoryClass.o
+ .debug_macro   0x0001320d       0x16 FlashMemoryClass.o
+ .debug_macro   0x00013223       0x16 FlashMemoryClass.o
+ .debug_macro   0x00013239       0x16 FlashMemoryClass.o
+ .debug_macro   0x0001324f       0x16 FlashMemoryClass.o
+ .debug_macro   0x00013265       0x16 FlashMemoryClass.o
+ .debug_macro   0x0001327b      0x4c3 FlashMemoryClass.o
+ .debug_macro   0x0001373e       0x94 FlashMemoryClass.o
+ .debug_macro   0x000137d2       0x16 FlashMemoryClass.o
+ .debug_macro   0x000137e8       0x6a FlashMemoryClass.o
+ .debug_macro   0x00013852      0x28c FlashMemoryClass.o
+ .debug_macro   0x00013ade      0x4d8 FlashMemoryClass.o
+ .debug_macro   0x00013fb6       0x16 FlashMemoryClass.o
+ .debug_macro   0x00013fcc       0xca FlashMemoryClass.o
+ .debug_macro   0x00014096       0x1c FlashMemoryClass.o
+ .debug_macro   0x000140b2       0x16 FlashMemoryClass.o
+ .debug_macro   0x000140c8       0x58 FlashMemoryClass.o
+ .debug_macro   0x00014120       0xc9 FlashMemoryClass.o
+ .debug_macro   0x000141e9       0xa0 FlashMemoryClass.o
+ .debug_macro   0x00014289      0x6d7 main.o
+ .debug_macro   0x00014960      0x34d main.o
+ .debug_macro   0x00014cad      0x143 main.o
+ .debug_macro   0x00014df0       0x10 main.o
+ .debug_macro   0x00014e00      0x3c3 main.o
+ .debug_macro   0x000151c3       0x10 main.o
+ .debug_macro   0x000151d3       0x16 main.o
  .debug_macro   0x000151e9       0x16 main.o
- .debug_macro   0x000151ff       0x16 main.o
- .debug_macro   0x00015215       0x29 main.o
- .debug_macro   0x0001523e       0xea main.o
- .debug_macro   0x00015328       0x7c Parameters.o
- .debug_macro   0x000153a4      0x569 SPI_Syn_Class.o
- .debug_macro   0x0001590d      0x564 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
- .debug_macro   0x00015e71      0x89e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
- .debug_macro   0x0001670f      0x16d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
- .debug_macro   0x0001687c       0x22 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
- .debug_macro   0x0001689e      0x579 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
- .debug_macro   0x00016e17       0x5e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
- .debug_macro   0x00016e75      0x470 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
- .debug_macro   0x000172e5      0x451 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
- .debug_macro   0x00017736      0x46e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
- .debug_macro   0x00017ba4      0x494 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
- .debug_macro   0x00018038      0x484 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .debug_macro   0x000184bc      0x447 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
- .debug_macro   0x00018903       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
- .debug_macro   0x00018913      0x44b S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
- .debug_macro   0x00018d5e      0x495 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
- .debug_macro   0x000191f3      0x4b8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
- .debug_macro   0x000196ab       0x2e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
- .debug_macro   0x000196d9      0x6ec S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
- .debug_macro   0x00019dc5      0x45a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
- .debug_macro   0x0001a21f      0x1f3 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
- .debug_macro   0x0001a412      0x47d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
- .debug_macro   0x0001a88f      0x685 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_macro   0x0001af14       0x70 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_macro   0x0001af84       0x94 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_macro   0x0001b018       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_macro   0x0001b028       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_macro   0x0001b044       0x22 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_macro   0x0001b066       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_macro   0x0001b076      0x454 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .debug_macro   0x0001b4ca      0x2da S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .debug_macro   0x0001b7a4      0x48e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x0001bc32      0x121 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_macro   0x0001bd53      0x4bc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
- .debug_macro   0x0001c20f       0x7d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
- .debug_macro   0x0001c28c      0x107 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .debug_macro   0x000151ff       0x29 main.o
+ .debug_macro   0x00015228       0xea main.o
+ .debug_macro   0x00015312       0x7c Parameters.o
+ .debug_macro   0x0001538e      0x55e SPI_Syn_Class.o
+ .debug_macro   0x000158ec      0x559 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
+ .debug_macro   0x00015e45      0x89e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
+ .debug_macro   0x000166e3      0x16d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
+ .debug_macro   0x00016850       0x22 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
+ .debug_macro   0x00016872      0x56e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+ .debug_macro   0x00016de0       0x5e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+ .debug_macro   0x00016e3e      0x470 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+ .debug_macro   0x000172ae      0x451 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+ .debug_macro   0x000176ff      0x46e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+ .debug_macro   0x00017b6d      0x494 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+ .debug_macro   0x00018001      0x484 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .debug_macro   0x00018485      0x447 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+ .debug_macro   0x000188cc       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+ .debug_macro   0x000188dc      0x44b S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+ .debug_macro   0x00018d27      0x495 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+ .debug_macro   0x000191bc      0x4b8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+ .debug_macro   0x00019674       0x2e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+ .debug_macro   0x000196a2      0x6ec S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+ .debug_macro   0x00019d8e      0x45a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+ .debug_macro   0x0001a1e8      0x1f3 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+ .debug_macro   0x0001a3db      0x47d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+ .debug_macro   0x0001a858      0x685 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_macro   0x0001aedd       0x70 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_macro   0x0001af4d       0x94 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_macro   0x0001afe1       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_macro   0x0001aff1       0x1c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_macro   0x0001b00d       0x22 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_macro   0x0001b02f       0x10 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_macro   0x0001b03f      0x454 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+ .debug_macro   0x0001b493      0x2da S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+ .debug_macro   0x0001b76d      0x4b6 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .debug_macro   0x0001bc23       0x7d S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .debug_macro   0x0001bca0      0x18c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
 
-.debug_line     0x00000000    0x10c8d
+.debug_line     0x00000000     0xff6c
  .debug_line    0x00000000      0x715 Device_Startup/startup_samd21.o
- .debug_line    0x00000715     0x10f9 FlashMemoryClass.o
- .debug_line    0x0000180e      0xee4 main.o
- .debug_line    0x000026f2      0x24e Parameters.o
- .debug_line    0x00002940      0xcc7 SPI_Syn_Class.o
- .debug_line    0x00003607      0xafa S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
- .debug_line    0x00004101      0xcc9 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
- .debug_line    0x00004dca      0x9b1 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
- .debug_line    0x0000577b      0x99a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
- .debug_line    0x00006115      0xa3e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
- .debug_line    0x00006b53      0xafb S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
- .debug_line    0x0000764e      0xb96 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .debug_line    0x000081e4      0x950 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
- .debug_line    0x00008b34      0x9e4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
- .debug_line    0x00009518      0xb20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
- .debug_line    0x0000a038      0xa31 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
- .debug_line    0x0000aa69      0xa4a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
- .debug_line    0x0000b4b3      0x9f6 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
- .debug_line    0x0000bea9     0x2819 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_line    0x0000e6c2      0xb00 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .debug_line    0x0000f1c2      0xbbf S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_line    0x0000fd81      0xf0c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .debug_line    0x00000715     0x10bc FlashMemoryClass.o
+ .debug_line    0x000017d1      0xea4 main.o
+ .debug_line    0x00002675      0x24e Parameters.o
+ .debug_line    0x000028c3      0xc87 SPI_Syn_Class.o
+ .debug_line    0x0000354a      0xae2 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
+ .debug_line    0x0000402c      0xc8c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+ .debug_line    0x00004cb8      0x9b1 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+ .debug_line    0x00005669      0x99a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+ .debug_line    0x00006003      0xa3e S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+ .debug_line    0x00006a41      0xafb S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+ .debug_line    0x0000753c      0xb2f S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .debug_line    0x0000806b      0x950 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+ .debug_line    0x000089bb      0x9e4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+ .debug_line    0x0000939f      0xb20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+ .debug_line    0x00009ebf      0xa31 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+ .debug_line    0x0000a8f0      0xa6a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+ .debug_line    0x0000b35a      0x9f6 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+ .debug_line    0x0000bd50     0x2819 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_line    0x0000e569      0xb00 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+ .debug_line    0x0000f069      0xf03 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
 
-.debug_str      0x00000000    0x8c52c
+.debug_str      0x00000000    0x8b574
  .debug_str     0x00000000    0x71354 Device_Startup/startup_samd21.o
                               0x71786 (size before relaxing)
- .debug_str     0x00071354     0xdbac FlashMemoryClass.o
-                              0x7e402 (size before relaxing)
- .debug_str     0x0007ef00     0x17dc main.o
-                              0x7fa73 (size before relaxing)
- .debug_str     0x000806dc       0x3d Parameters.o
+ .debug_str     0x00071354     0xdb32 FlashMemoryClass.o
+                              0x7e376 (size before relaxing)
+ .debug_str     0x0007ee86     0x17dc main.o
+                              0x7f9e7 (size before relaxing)
+ .debug_str     0x00080662       0x3d Parameters.o
                                0x3b3b (size before relaxing)
- .debug_str     0x00080719       0xa3 SPI_Syn_Class.o
-                              0x7a49a (size before relaxing)
- .debug_str     0x000807bc      0x132 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
-                              0x79da8 (size before relaxing)
- .debug_str     0x000808ee     0x18f3 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
-                              0x7c6d8 (size before relaxing)
- .debug_str     0x000821e1       0x92 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+ .debug_str     0x0008069f       0xa3 SPI_Syn_Class.o
+                              0x7a40d (size before relaxing)
+ .debug_str     0x00080742      0x132 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
+                              0x79d16 (size before relaxing)
+ .debug_str     0x00080874     0x1338 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+                              0x7c08b (size before relaxing)
+ .debug_str     0x00081bac       0x92 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
                               0x792b3 (size before relaxing)
- .debug_str     0x00082273       0x3a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+ .debug_str     0x00081c3e       0x3a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
                               0x792f6 (size before relaxing)
- .debug_str     0x000822ad      0x185 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+ .debug_str     0x00081c78      0x185 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
                               0x799e6 (size before relaxing)
- .debug_str     0x00082432      0x2bd S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+ .debug_str     0x00081dfd      0x2bd S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
                               0x79be3 (size before relaxing)
- .debug_str     0x000826ef      0x231 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
-                              0x79b10 (size before relaxing)
- .debug_str     0x00082920       0x2a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+ .debug_str     0x000820ba      0x305 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+                              0x79b88 (size before relaxing)
+ .debug_str     0x000823bf       0x2a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
                               0x79259 (size before relaxing)
- .debug_str     0x0008294a       0x31 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+ .debug_str     0x000823e9       0x31 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
                               0x79303 (size before relaxing)
- .debug_str     0x0008297b      0x309 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
-                              0x79d8d (size before relaxing)
- .debug_str     0x00082c84     0x17d7 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
-                              0x7aeca (size before relaxing)
- .debug_str     0x0008445b      0x85f S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
-                              0x79b86 (size before relaxing)
- .debug_str     0x00084cba      0x194 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
-                              0x79a29 (size before relaxing)
- .debug_str     0x00084e4e     0x47c4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
-                              0x7ee2d (size before relaxing)
- .debug_str     0x00089612     0x143a S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
-                              0x7a878 (size before relaxing)
- .debug_str     0x0008aa4c      0xc23 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
-                              0x7b0a2 (size before relaxing)
- .debug_str     0x0008b66f      0xebd S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
-                              0x7aff5 (size before relaxing)
+ .debug_str     0x0008241a      0x309 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+                              0x79d8b (size before relaxing)
+ .debug_str     0x00082723     0x17d7 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+                              0x7aec8 (size before relaxing)
+ .debug_str     0x00083efa      0x860 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+                              0x79b87 (size before relaxing)
+ .debug_str     0x0008475a      0x194 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+                              0x79a27 (size before relaxing)
+ .debug_str     0x000848ee     0x47c4 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+                              0x7ee2b (size before relaxing)
+ .debug_str     0x000890b2     0x143c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+                              0x7a875 (size before relaxing)
+ .debug_str     0x0008a4ee     0x1086 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+                              0x7b22c (size before relaxing)
 
-.debug_frame    0x00000000     0x2304
+.debug_frame    0x00000000     0x2224
  .debug_frame   0x00000000       0x4c Device_Startup/startup_samd21.o
  .debug_frame   0x0000004c      0x52c FlashMemoryClass.o
  .debug_frame   0x00000578       0xb0 main.o
  .debug_frame   0x00000628      0x150 SPI_Syn_Class.o
  .debug_frame   0x00000778       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(atmel_start.o)
- .debug_frame   0x000007a0       0xe0 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
- .debug_frame   0x00000880       0x68 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
- .debug_frame   0x000008e8       0x58 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
- .debug_frame   0x00000940       0xec S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
- .debug_frame   0x00000a2c      0x188 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
- .debug_frame   0x00000bb4      0x154 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
- .debug_frame   0x00000d08       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
- .debug_frame   0x00000d28       0x88 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
- .debug_frame   0x00000db0       0xfc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
- .debug_frame   0x00000eac       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
- .debug_frame   0x00000ed4       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
- .debug_frame   0x00000f04       0x40 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
- .debug_frame   0x00000f44      0xddc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
- .debug_frame   0x00001d20       0x3c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
- .debug_frame   0x00001d5c       0xd8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tcc.o)
- .debug_frame   0x00001e34      0x204 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
- .debug_frame   0x00002038       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libstdc++.a(atexit_arm.o)
- .debug_frame   0x00002060       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_udivsi3.o)
- .debug_frame   0x00002080       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_muldi3.o)
- .debug_frame   0x000020b4       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-cxa_atexit.o)
- .debug_frame   0x000020dc       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
- .debug_frame   0x00002108       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00002138       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-rand.o)
- .debug_frame   0x00002170       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
- .debug_frame   0x000021ac       0x54 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x00002200       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
- .debug_frame   0x00002228       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
- .debug_frame   0x00002254       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+ .debug_frame   0x000007a0       0xb8 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(driver_init.o)
+ .debug_frame   0x00000858       0x68 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_delay.o)
+ .debug_frame   0x000008c0       0x58 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_io.o)
+ .debug_frame   0x00000918       0xec S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_pwm.o)
+ .debug_frame   0x00000a04      0x188 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_spi_m_sync.o)
+ .debug_frame   0x00000b8c      0x14c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hal_timer.o)
+ .debug_frame   0x00000cd8       0x20 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_assert.o)
+ .debug_frame   0x00000cf8       0x88 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(utils_list.o)
+ .debug_frame   0x00000d80       0xfc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_core_m0plus_base.o)
+ .debug_frame   0x00000e7c       0x28 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_init.o)
+ .debug_frame   0x00000ea4       0x30 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_gclk.o)
+ .debug_frame   0x00000ed4       0x40 S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_pm.o)
+ .debug_frame   0x00000f14      0xddc S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sercom.o)
+ .debug_frame   0x00001cf0       0x3c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_sysctrl.o)
+ .debug_frame   0x00001d2c      0x22c S:\AtmelStudio\SelfTest\GPIO_SAMD21_TEST\GPIO_SAMD21_TEST\Debug\libGPIO_SAMD21_TEST.a(hpl_tc.o)
+ .debug_frame   0x00001f58       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libstdc++.a(atexit_arm.o)
+ .debug_frame   0x00001f80       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00001fa0       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(_muldi3.o)
+ .debug_frame   0x00001fd4       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-cxa_atexit.o)
+ .debug_frame   0x00001ffc       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+ .debug_frame   0x00002028       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00002058       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-rand.o)
+ .debug_frame   0x00002090       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x000020cc       0x54 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00002120       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+ .debug_frame   0x00002148       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+ .debug_frame   0x00002174       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)

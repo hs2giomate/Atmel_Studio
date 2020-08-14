@@ -7,6 +7,7 @@
 
 
 #include "AT24MAC_Class.h"
+#include "stdlib.h"
 
 AT24MAC_Class	*ptrAT24MACClass;
 
@@ -27,8 +28,9 @@ AT24MAC_Class::~AT24MAC_Class()
 } //~AT24MAC_Class
 
 
-void AT24MAC_Class::Init(void){
+bool AT24MAC_Class::Init(void){
 	Init((uint8_t)AT24MAC_DEVICE_ADDRESS);
+	return SelfTest();
 }
 void AT24MAC_Class::Init(i2c_m_async_desc *i2c){
 	ptrI2CDescr=i2c;
@@ -53,26 +55,34 @@ int32_t AT24MAC_Class::Write_byte(uint8_t addr, uint8_t value){
 	return	w;
 }
 uint32_t AT24MAC_Class::WriteAddress(uint8_t *p, uint8_t addr, uint8_t size){
-		
-	uint8_t array[1+AT24MAC_BUFFER_SIZE],value;
 	uint32_t w;
-	isReady=false;
-	array[0]=addr;
-	for (int i=1;i<size+1;i++)
-	{				
-		value=*p;
-		array[i]=value;
+	for (int i = 0; i < size; i++)
+	{
+		while(!IsReady());
+		w=Write_byte(addr+i,*p);
 		p++;
+		delay_ms(2);
+		while(!AcknolledgePolling());
 	}
-	w= i2ca.Write(array,1+size);
-	while(!i2ca.txReady);
+	
+//	uint8_t array[1+AT24MAC_BUFFER_SIZE],value;
+//	
+// 	isReady=false;
+// 	array[0]=addr;
+// 	for (int i=1;i<size+1;i++)
+// 	{				
+// 		value=*p;
+// 		array[i]=value;
+// 		p++;
+// 	}
+// 	w= i2ca.Write(array,1+size);
+// 	while(!i2ca.txReady);
 	return	w;
 }
 uint32_t AT24MAC_Class::WriteAddress(uint8_t *p, uint16_t addr, uint8_t size){
 	
-	//uint8_t cmd=(uint8_t)AT24MAC_WRITE_CMD;
-	
-	uint8_t add=(uint8_t)addr;
+
+	uint8_t add=(uint8_t)(0xff&addr);
 	return	WriteAddress(p,add,size);
 }
 int32_t AT24MAC_Class::write_page(uint8_t addr, uint8_t *buffer){
@@ -107,13 +117,9 @@ uint32_t AT24MAC_Class::ReadAddress(uint8_t *p, uint8_t addr, uint8_t size){
 	return r;
 }
 uint32_t AT24MAC_Class::ReadAddress(uint8_t *p, uint16_t addr, uint8_t size){
-	//i2ca.read_cmd(addr,&value);
+	uint8_t add=(uint8_t)(0xff&addr);
 	
-	i2ca.Write((uint8_t *)&addr,2);
-	while(!i2ca.txReady);
-	uint32_t r= i2ca.Read(p,size);
-	while(!i2ca.rxReady);
-	return r;
+	return ReadAddress(p,add,size);
 }
 bool	AT24MAC_Class::GetAcknowledge(void){
 	byte=Read_byte(0);
@@ -125,6 +131,33 @@ bool AT24MAC_Class::AcknolledgePolling(void){
 		GetAcknowledge();
 	} while (!IsReady());
 	return isReady;
+}
+
+bool	AT24MAC_Class::SelfTest(void){
+	currentAddress=AT24MAC_MEMORY_SIZE-AT24MAC_BUFFER_SIZE;
+	for (int i = 0; i < AT24MAC_BUFFER_SIZE ; i++) {
+		tx_buffer[i] = (uint8_t)rand();
+		rx_buffer[i] = (uint8_t)(AT24MAC_BUFFER_SIZE-i);
+	}
+
+	while(!IsReady());
+	WriteAddress(tx_buffer,currentAddress,AT24MAC_BUFFER_SIZE);
+	while(!IsReady());
+	ReadAddress(rx_buffer,currentAddress,AT24MAC_BUFFER_SIZE);
+	isOK = true;
+	for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++) {
+		if (tx_buffer[i] != rx_buffer[i]) {
+			isOK = false;
+// 			usb.print("EEPROM verification failed. Address: ");
+// 			usb.print(addr,HEX);
+// 			usb<<" bit :"<<i<<NEWLINE;
+			//flashAddress=0;
+			
+			break;
+		}
+		
+	}
+	return isOK;
 }
 
 

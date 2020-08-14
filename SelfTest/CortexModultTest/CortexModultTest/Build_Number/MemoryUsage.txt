@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+  21328	   1156	   9500	  31984	   7cf0	S:\AtmelStudio\SelfTest\CortexModultTest\CortexModultTest\Build_Number\CortexModulTest.elf

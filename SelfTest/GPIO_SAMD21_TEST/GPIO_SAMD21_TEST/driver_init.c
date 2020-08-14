@@ -16,10 +16,9 @@
 struct spi_m_sync_descriptor SPI_0;
 struct timer_descriptor      TIMER_1;
 struct timer_descriptor      TIMER_2;
+struct timer_descriptor      TIMER_3;
 
 struct pwm_descriptor PWM_0;
-
-struct timer_descriptor TIMER_3;
 
 void SPI_0_PORT_init(void)
 {
@@ -118,16 +117,17 @@ static void TIMER_2_init(void)
 	timer_init(&TIMER_2, TC5, _tc_get_timer());
 }
 
-void TIMER_3_CLOCK_init(void)
+/**
+ * \brief Timer initialization function
+ *
+ * Enables Timer peripheral, clocks and initializes Timer driver
+ */
+static void TIMER_3_init(void)
 {
-	_pm_enable_bus_clock(PM_BUS_APBC, TCC0);
-	_gclk_enable_channel(TCC0_GCLK_ID, CONF_GCLK_TCC0_SRC);
-}
+	_pm_enable_bus_clock(PM_BUS_APBC, TC7);
+	_gclk_enable_channel(TC7_GCLK_ID, CONF_GCLK_TC7_SRC);
 
-void TIMER_3_init(void)
-{
-	TIMER_3_CLOCK_init();
-	timer_init(&TIMER_3, TCC0, _tcc_get_timer());
+	timer_init(&TIMER_3, TC7, _tc_get_timer());
 }
 
 void system_init(void)
@@ -183,6 +183,5 @@ void system_init(void)
 
 	TIMER_1_init();
 	TIMER_2_init();
-
 	TIMER_3_init();
 }

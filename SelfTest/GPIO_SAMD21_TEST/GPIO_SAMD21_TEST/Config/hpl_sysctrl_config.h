@@ -600,7 +600,7 @@
 // <i> Select the clock source.
 // <id> fdpll96m_ref_clock
 #ifndef CONF_DPLL_GCLK
-#define CONF_DPLL_GCLK GCLK_CLKCTRL_GEN_GCLK7_Val
+#define CONF_DPLL_GCLK GCLK_CLKCTRL_GEN_GCLK4_Val
 #endif
 
 #if (CONF_DPLL_GCLK == GCLK_GENCTRL_SRC_XOSC32K)
@@ -655,14 +655,14 @@
 // <i> Set the  fractional part of the frequency multiplier.
 // <id> fdpll96m_ldrfrac
 #ifndef CONF_DPLL_LDRFRAC
-#define CONF_DPLL_LDRFRAC 13
+#define CONF_DPLL_LDRFRAC 0
 #endif
 
 // <o>DPLL LDR <0-4095>
 // <i> Set the  integer part of the frequency multiplier.
 // <id> fdpll96m_ldr
 #ifndef CONF_DPLL_LDR
-#define CONF_DPLL_LDR 1463
+#define CONF_DPLL_LDR 23
 #endif
 
 // </h>

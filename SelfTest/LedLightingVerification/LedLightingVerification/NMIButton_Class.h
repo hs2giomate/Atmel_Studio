@@ -8,7 +8,7 @@
 
 #ifndef __NMIBUTTON_CLASS_H__
 #define __NMIBUTTON_CLASS_H__
-#define		COUNTER_TIME	4
+
 #define		POWERON_SINGLE_TIME_MAX	4000
 #include "driver_init.h"
 class NMIButton_Class

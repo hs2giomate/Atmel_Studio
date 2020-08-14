@@ -306,6 +306,7 @@ class PersistenceServices: public	CRC32_Class
 		bool IsConfigurationDataValid(ConfigurationData& cd);
 		bool IsConfigurationDataUpdated(void);
 		bool IsStateDataValid(HVACState& as);
+		bool IsFastStateDataValid(HVACState& as);
 
 	private:
 		uint32	getUsageTime(uint8 counter) const;

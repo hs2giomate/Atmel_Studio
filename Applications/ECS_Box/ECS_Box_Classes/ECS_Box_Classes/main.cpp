@@ -13,11 +13,11 @@ int main(void)
 	atmel_start_init();
 	
 	usb.Init();
-	delay_ms(200);
+	delay_ms(100);
 	StartLivePulse();
-	//QSPIDriverTest();
+	QSPIDriverTest();
 	//DateTimeTest();
-	EEPROM_Test();
+	//EEPROM_Test();
 	//IO_ExpanderTest();
 		/* Replace with your application code */
 	while (1) {
@@ -51,7 +51,7 @@ void usb_test(void){
 uint8_t EEPROM_Test(void){
 	bool	is_corrupted;
 	eeprom.Init();
-	uint8_t addr=0x00;
+	uint8_t addr=0*AT24MAC_BUFFER_SIZE;
 	uint8_t	value;
 	usb<<"  Function for testing an i2c EEPROM"<<NEWLINE;
 	/* Replace with your application code */
@@ -62,20 +62,24 @@ uint8_t EEPROM_Test(void){
 			tx_buffer[i] = (uint8_t)rand();
 			rx_buffer[i] = (uint8_t)(AT24MAC_BUFFER_SIZE-i);
 		}
-// 		while(!eeprom.IsReady());
+
+		while(!eeprom.IsReady());
 // 		eeprom.WriteAddress(tx_buffer,addr,AT24MAC_BUFFER_SIZE);
 		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++)
 		{
 			while(!eeprom.IsReady());			
 			eeprom.Write_byte(addr+i,tx_buffer[i]);
-			
+			delay_ms(2);
+			while(!eeprom.AcknolledgePolling());
 		}
-// 		while(!eeprom.AcknolledgePolling());
-// 		eeprom.ReadAddress(rx_buffer,addr,AT24MAC_BUFFER_SIZE);	
-		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++)
-		{
-			while(!eeprom.IsReady());			rx_buffer[i]=eeprom.Read_byte(addr+i);
-		}
+ 		
+		eeprom.ReadAddress(rx_buffer,addr,AT24MAC_BUFFER_SIZE);	
+// 		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++)
+// 		{
+// 			while(!eeprom.IsReady());// 			rx_buffer[i]=eeprom.Read_byte(addr+i);
+// 		}
+
+	
 		is_corrupted = false;
 		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++) {
 			if (tx_buffer[i] != rx_buffer[i]) {
@@ -101,7 +105,7 @@ uint8_t EEPROM_Test(void){
 
 void	LTC2983_test(void){
 	LTC2983_Class	LTC(&SPI_TEMP);
-	LTC.init();
+	LTC.Init();
 	LTC.print_title();
 	LTC.configure_channels();
 	LTC.configure_global_parameters();
@@ -121,16 +125,12 @@ int ARINC_test(void)
 {
 	ARINC_Interface		ECSBox;
 	ECSBox.Init();
-
 	delay_ms(100);
-
 	while (1)
 	{
-
 		ECSBox.SayHello();
 		delay_ms(100);
 		ECSBox.CustomMessage(SELFTEST_OFF);
-		
 	}
 	return 0;
 }
@@ -226,7 +226,6 @@ void	DateTimeTest(void){
 }
 
 void	IO_ExpanderTest(void){
-	MCP23017_Class	mcp(&I2C_EXPANDER);
 	mcp.Init();
 	mcp.SetPortAInput();
 	mcp.SetPortBOutput();

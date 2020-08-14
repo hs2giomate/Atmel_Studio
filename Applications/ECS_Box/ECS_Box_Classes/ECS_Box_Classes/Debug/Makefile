@@ -218,9 +218,9 @@ USBSerial/Stream.d \
 USBSerial/TimerSerial_Class.d \
 USBSerial/WString.d
 
-OUTPUT_FILE_PATH +=ECS_Box_Objects.elf
+OUTPUT_FILE_PATH +=libECS_Box_Objects.a
 
-OUTPUT_FILE_PATH_AS_ARGS +=ECS_Box_Objects.elf
+OUTPUT_FILE_PATH_AS_ARGS +=libECS_Box_Objects.a
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -468,20 +468,14 @@ endif
 # All Target
 all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
-	@echo Building target: $@
-	@echo Invoking: ARM/GNU Linker : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="ECS_Box_Objects.map" -Wl,--start-group -lm -lALU_Driver  -Wl,--end-group -L"..\\Device_Startup" -L"S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver\Debug"  -Wl,--gc-sections -mcpu=cortex-m4 -Tsame54p20a_flash.ld  
-	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "ECS_Box_Objects.elf" "ECS_Box_Objects.bin"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "ECS_Box_Objects.elf" "ECS_Box_Objects.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O binary "ECS_Box_Objects.elf" "ECS_Box_Objects.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objdump.exe" -h -S "ECS_Box_Objects.elf" > "ECS_Box_Objects.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "ECS_Box_Objects.elf" "ECS_Box_Objects.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-size.exe" "ECS_Box_Objects.elf"
-	
-	
 
+$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
+	@echo Building target: $@
+	@echo Invoking: ARM/GNU Archiver : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
+	@echo Finished building target: $@
+	
+	
 
 
 
@@ -490,5 +484,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "ECS_Box_Objects.elf" "ECS_Box_Objects.a" "ECS_Box_Objects.hex" "ECS_Box_Objects.bin" "ECS_Box_Objects.lss" "ECS_Box_Objects.eep" "ECS_Box_Objects.map" "ECS_Box_Objects.srec"
+	rm -rf "libECS_Box_Objects.elf" "libECS_Box_Objects.a" "libECS_Box_Objects.hex" "libECS_Box_Objects.bin" "libECS_Box_Objects.lss" "libECS_Box_Objects.eep" "libECS_Box_Objects.map" "libECS_Box_Objects.srec"
 	

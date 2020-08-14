@@ -25,7 +25,6 @@
       <Value>../hpl/sercom</Value>
       <Value>../hpl/sysctrl</Value>
       <Value>../hpl/tc</Value>
-      <Value>../hpl/tcc</Value>
       <Value>../hri</Value>
       <Value>%24(PackRepoDir)\Atmel\SAMD21_DFP\1.3.395\samd21a\include</Value>
     </ListValues>
@@ -57,7 +56,6 @@
       <Value>../hpl/sercom</Value>
       <Value>../hpl/sysctrl</Value>
       <Value>../hpl/tc</Value>
-      <Value>../hpl/tcc</Value>
       <Value>../hri</Value>
       <Value>%24(PackRepoDir)\Atmel\SAMD21_DFP\1.3.395\samd21a\include</Value>
     </ListValues>
@@ -79,7 +77,6 @@
       <Value>../hpl/sercom</Value>
       <Value>../hpl/sysctrl</Value>
       <Value>../hpl/tc</Value>
-      <Value>../hpl/tcc</Value>
       <Value>../hri</Value>
       <Value>%24(PackRepoDir)\Atmel\SAMD21_DFP\1.3.395\samd21a\include</Value>
     </ListValues>

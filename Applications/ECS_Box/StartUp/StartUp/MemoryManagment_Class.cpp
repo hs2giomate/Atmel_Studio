@@ -8,6 +8,7 @@
 
 #include "MemoryManagment_Class.h"
 #include "AT24MAC_Class.h"
+#include "CDC_Class.h"
 
 // default constructor
 MemoryManagment_Class::MemoryManagment_Class()
@@ -27,8 +28,23 @@ MemoryManagment_Class::~MemoryManagment_Class()
 } //~MemoryManagment_Class
 
 bool	MemoryManagment_Class::Init(uint32_t flashChipSize){
-		flash.Init();
-		eeprom.Init();
+		if (flash.Init())
+		{
+			usb<<"Flash Memory SelfTest PASSED"<<NEWLINE;
+		} 
+		else
+		{
+			usb<<"Flash Memory SelfTest FAILED"<<NEWLINE;
+		}
+		if (eeprom.Init())
+		{
+			usb<<"EEPROM Memory SelfTest PASSED"<<NEWLINE;
+		} 
+		else
+		{
+			usb<<"EEPROM Memory SelfTest FAILED"<<NEWLINE;
+		}
+		
 		SetChipID(flashChipSize);
 }
 
@@ -70,7 +86,7 @@ uint32_t MemoryManagment_Class::GetNextAvailableAddress(uint16_t size) {
  uint8_t	MemoryManagment_Class::GetErrorCode(){
 	 
 	 // PLease don forget to do the real impelementation
-	 return	GetReadStatus();
+	 return	0;
  }
   void MemoryManagment_Class::_troubleshoot(uint8_t _code, bool printoverride) {
 	  diagnostics.troubleshoot(_code, printoverride);
@@ -171,5 +187,24 @@ uint32_t	MemoryManagment_Class::ReadDeafultApplicationState(HVACState& as){
 	 crc32=CalculateCRC((uint32_t*)PTR_CONFIG_DATA(&cd),sizeof(ConfigurationData));
 	 w=WriteCRCConfigurationData(crc32);
  };
+ uint32_t	MemoryManagment_Class::SaveCurrentState(HVACState& hs){
+	 uint32_t	add=(uint32_t)&flashMap->hvacState;
+	 uint32_t	bufferAddres=((uint32_t)&flashBuffer);
+	 bufferAddres+=add;
+	 memcpy((void*)bufferAddres,&hs,sizeof(HVACState));
+	 return	bufferAddres;
+ }
+uint32_t	MemoryManagment_Class::SaveApplicationState(HVACState& hs ){
+	  uint32_t w=  SaveCurrentState(hs);
+	  crc32=CalculateCRC((uint32_t *)PTR_HVAC_STATE(&hs),sizeof(HVACState));
+	  w=SaveCRCAppState(crc32);
+	  return	w;
+  }
+uint32_t	MemoryManagment_Class::SaveCRCAppState(uint32_t crc){
+	uint32_t	add=(uint32_t)&flashMap->crcAppState;
+	uint32_t	bufferAddres=((uint32_t)&flashBuffer)+add;
+	memcpy((void*)bufferAddres,&crc,sizeof(uint32_t));
+	return	bufferAddres;
+}
  
  MemoryManagment_Class	memory;

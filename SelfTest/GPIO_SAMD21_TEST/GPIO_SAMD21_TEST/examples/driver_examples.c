@@ -87,11 +87,11 @@ void TIMER_2_example(void)
 	timer_start(&TIMER_2);
 }
 
+static struct timer_task TIMER_3_task1, TIMER_3_task2;
+
 /**
  * Example of using TIMER_3.
  */
-struct timer_task TIMER_3_task1, TIMER_3_task2;
-
 static void TIMER_3_task1_cb(const struct timer_task *const timer_task)
 {
 }

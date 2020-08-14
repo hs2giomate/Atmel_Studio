@@ -12,9 +12,9 @@
 #include "LEDLighting_Class.h"
 #include "hpl_tc_config.h"
 #define INITIAL_STATE	0
-#define		NUMBER_STATES	6
-#define		POWERON_SINGLE_TIME	4
-#define		POWEROFF_SINGLE_TIME	1000
+#define		NUMBER_STATES	4
+
+#define		POWEROFF_SINGLE_TIME	POWERON_SINGLE_TIME*10
 #define		PWM_WAVE_PERIOD  CONF_TC3_WAVE_PER_VAL 
 #define		PWM_WAVE_DUTY  CONF_TC3_WAVE_DUTY_VAL
 // #define		PWM_WAVE_PERIOD  1000000
@@ -29,14 +29,16 @@ class LedHandler_Class: public	LEDLighting_Class
 {
 //variables
 public:
-	volatile bool shutDown,restarted,poweron,deadTime,changeModeRequest,lightOn,ready,blinkOut;
+	volatile bool shutDown,restarted,poweron,deadTime,changeModeRequest,lightOn,ready,blinkOut,timerFinish;
 	volatile uint32_t	dutyCycle,stepTime;
 	bool request,onLila,onMagenta, onWhite;
+	uint32_t poweronSingleTime;
+		
 protected:
 private:
 	uint8_t	modus;
 	uint32_t	dimer,tapTime,tapLimit;
-	
+	bool	keepGoing;
 	
 	BothSidePins	pins;
 	StateLeds	state;
@@ -65,12 +67,13 @@ public:
 	void	RunOnMode(void);
 	void	Modulate(void);
 	friend	void EVSYS_Handler(void);
-	void	Dimmen(int	modulate=0);
+	bool	Dimmen(int	modulate=0);
 	uint8_t GetTotalPins(void);
 	void	RestartLedModus(void);
 	bool	PowerOnSingleLed(int);
 	bool	PowerOnLila(int pn);
 	bool	PowerOnFail(int pn);
+	bool	CheckNMIButton(void);
 
 protected:
 private:

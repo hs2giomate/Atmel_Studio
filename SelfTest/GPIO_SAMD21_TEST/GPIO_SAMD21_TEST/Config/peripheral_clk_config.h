@@ -9,7 +9,7 @@
  * \brief CPU's Clock frequency
  */
 #ifndef CONF_CPU_FREQUENCY
-#define CONF_CPU_FREQUENCY 47998976
+#define CONF_CPU_FREQUENCY 48000000
 #endif
 
 // <y> Core Clock Source
@@ -57,7 +57,7 @@
 
 // <i> Select the slow clock source.
 #ifndef CONF_GCLK_SERCOM0_SLOW_SRC
-#define CONF_GCLK_SERCOM0_SLOW_SRC GCLK_CLKCTRL_GEN_GCLK7_Val
+#define CONF_GCLK_SERCOM0_SLOW_SRC GCLK_CLKCTRL_GEN_GCLK2_Val
 #endif
 
 /**
@@ -65,7 +65,7 @@
  * \brief SERCOM0's Core Clock frequency
  */
 #ifndef CONF_GCLK_SERCOM0_CORE_FREQUENCY
-#define CONF_GCLK_SERCOM0_CORE_FREQUENCY 47998976
+#define CONF_GCLK_SERCOM0_CORE_FREQUENCY 48000000
 #endif
 
 /**
@@ -73,7 +73,7 @@
  * \brief SERCOM0's Slow Clock frequency
  */
 #ifndef CONF_GCLK_SERCOM0_SLOW_FREQUENCY
-#define CONF_GCLK_SERCOM0_SLOW_FREQUENCY 32768
+#define CONF_GCLK_SERCOM0_SLOW_FREQUENCY 1000000
 #endif
 
 // <y> TC Clock Source
@@ -172,8 +172,8 @@
 #define CONF_GCLK_TC5_FREQUENCY 8000000
 #endif
 
-// <y> TCC Clock Source
-// <id> tcc_gclk_selection
+// <y> TC Clock Source
+// <id> tc_gclk_selection
 
 // <GCLK_CLKCTRL_GEN_GCLK0_Val"> Generic clock generator 0
 
@@ -191,17 +191,17 @@
 
 // <GCLK_CLKCTRL_GEN_GCLK7_Val"> Generic clock generator 7
 
-// <i> Select the clock source for TCC.
-#ifndef CONF_GCLK_TCC0_SRC
-#define CONF_GCLK_TCC0_SRC GCLK_CLKCTRL_GEN_GCLK2_Val
+// <i> Select the clock source for TC.
+#ifndef CONF_GCLK_TC7_SRC
+#define CONF_GCLK_TC7_SRC GCLK_CLKCTRL_GEN_GCLK3_Val
 #endif
 
 /**
- * \def CONF_GCLK_TCC0_FREQUENCY
- * \brief TCC0's Clock frequency
+ * \def CONF_GCLK_TC7_FREQUENCY
+ * \brief TC7's Clock frequency
  */
-#ifndef CONF_GCLK_TCC0_FREQUENCY
-#define CONF_GCLK_TCC0_FREQUENCY 1000000
+#ifndef CONF_GCLK_TC7_FREQUENCY
+#define CONF_GCLK_TC7_FREQUENCY 8000000
 #endif
 
 // <<< end of configuration section >>>

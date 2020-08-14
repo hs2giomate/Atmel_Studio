@@ -266,7 +266,7 @@
 // <i> Indicates whether Divide Selection is enabled or not
 //<id> gclk_gen_3_div_sel
 #ifndef CONF_GCLK_GEN_3_DIVSEL
-#define CONF_GCLK_GEN_3_DIVSEL 1
+#define CONF_GCLK_GEN_3_DIVSEL 0
 #endif
 
 // <q> Output Enable
@@ -302,7 +302,7 @@
 //<o> Generic clock generator 3 division <0x0000-0xFFFF>
 // <id> gclk_gen_3_div
 #ifndef CONF_GCLK_GEN_3_DIV
-#define CONF_GCLK_GEN_3_DIV 1
+#define CONF_GCLK_GEN_3_DIV 2
 #endif
 // </h>
 // </e>

@@ -49,14 +49,17 @@ private:
 	I2C_Asyn_Class	i2ca;
 	uint8_t		i2c_addr;
 	uint8_t		byte;
-	
+	uint8_t tx_buffer[ AT24MAC_BUFFER_SIZE] ;
+	uint8_t rx_buffer[ AT24MAC_BUFFER_SIZE] ;
+	uint8_t	currentAddress;
+	bool is_corrupted, isOK;
 	
 //functions
 public:
 	AT24MAC_Class();
 	AT24MAC_Class(i2c_m_async_desc *i2c);
 	~AT24MAC_Class();
-	void Init(void);
+	bool Init(void);
 	void Init(uint8_t addr);
 	void Init(i2c_m_async_desc *);
 	int32_t Write_byte(uint8_t addr, uint8_t value);
@@ -68,6 +71,7 @@ public:
 	uint32_t WriteAddress(uint8_t *p, uint8_t addr, uint8_t size);
 	uint32_t WriteAddress(uint8_t *p, uint16_t addr, uint8_t size);
 	bool	AcknolledgePolling(void);
+	bool	SelfTest(void);
 protected:
 	
 private:

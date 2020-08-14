@@ -27,8 +27,8 @@ States_Class::~States_Class()
 {
 } //~States_Class
 
-void States_Class::Init(void){
-	
+bool States_Class::Init(void){
+	return fv1.Init();
 	
 }
 void States_Class::Start(uint8_t	operationMode)
@@ -36,7 +36,7 @@ void States_Class::Start(uint8_t	operationMode)
 	event	e;
     tick_t	timerValue = 0L;
     bool	isCurrentStateValid = false;
-	memory.ReadApplicationState(lastState);
+	memory.ReadFastApplicationState(lastState);
 	state.currentState = kGAINStateReset;
 	if (calendar.WasInterrupted())
 	{
@@ -58,7 +58,7 @@ void States_Class::Start(uint8_t	operationMode)
 	
 
 	//	Check persistent memory
-	if (SetInitialState()>1){
+	if (SetInitialState()<0){
 		SetDefaultState();
 	}
 
@@ -496,10 +496,10 @@ void States_Class::saveCurrentState(void){
 		state.now = calendar.convert_datetime_to_timestamp(&cdt);
 	if (state.currentState!=kGAINStateMaintenance){
 		memory.WriteFastCurrentState(state);
-		memory.ReadFastApplicationState(lastState);
+		//memory.ReadFastApplicationState(lastState);
 		if (state.currentState==0)
 		{
-			memory.WriteValidApplicationState(state);
+			memory.SaveApplicationState(state);
 			//delay_ms(100);	
 		}
 		

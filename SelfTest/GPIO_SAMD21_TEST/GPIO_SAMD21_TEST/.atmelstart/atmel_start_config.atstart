@@ -34,7 +34,7 @@ drivers:
       enable_gclk_gen_2__externalclock: 1000000
       enable_gclk_gen_3: true
       enable_gclk_gen_3__externalclock: 1000000
-      enable_gclk_gen_4: false
+      enable_gclk_gen_4: true
       enable_gclk_gen_4__externalclock: 1000000
       enable_gclk_gen_5: true
       enable_gclk_gen_5__externalclock: 1000000
@@ -63,9 +63,9 @@ drivers:
       gclk_arch_gen_3_oe: true
       gclk_arch_gen_3_oov: false
       gclk_arch_gen_4_RUNSTDBY: false
-      gclk_arch_gen_4_enable: false
+      gclk_arch_gen_4_enable: true
       gclk_arch_gen_4_idc: false
-      gclk_arch_gen_4_oe: false
+      gclk_arch_gen_4_oe: true
       gclk_arch_gen_4_oov: false
       gclk_arch_gen_5_RUNSTDBY: false
       gclk_arch_gen_5_enable: true
@@ -94,9 +94,9 @@ drivers:
       gclk_gen_3_div: 1
       gclk_gen_3_div_sel: false
       gclk_gen_3_oscillator: 8MHz Internal Oscillator (OSC8M)
-      gclk_gen_4_div: 1
+      gclk_gen_4_div: 4
       gclk_gen_4_div_sel: false
-      gclk_gen_4_oscillator: External Crystal Oscillator 0.4-32MHz (XOSC)
+      gclk_gen_4_oscillator: 8MHz Internal Oscillator (OSC8M)
       gclk_gen_5_div: 32
       gclk_gen_5_div_sel: false
       gclk_gen_5_oscillator: 32kHz Ultra Low Power Internal Oscillator (OSCULP32K)
@@ -122,7 +122,7 @@ drivers:
       cpu_clock_source: Generic clock generator 0
       cpu_div: '1'
       enable_cpu_clock: true
-      nvm_wait_states: '4'
+      nvm_wait_states: '8'
     optional_signals: []
     variant: null
     clocks:
@@ -171,12 +171,12 @@ drivers:
           external: false
           external_frequency: 0
         - name: Slow
-          input: Generic clock generator 7
+          input: Generic clock generator 2
           external: false
           external_frequency: 0
         configuration:
           core_gclk_selection: Generic clock generator 0
-          slow_gclk_selection: Generic clock generator 7
+          slow_gclk_selection: Generic clock generator 2
   PWM_0:
     user_label: PWM_0
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21J18A-AU::TC3::driver_config_definition::PWM::HAL:Driver:PWM
@@ -194,7 +194,7 @@ drivers:
       tc_arch_tcei: false
       tc_arch_tceinv: false
       tc_arch_wave_duty_val: 500
-      tc_arch_wave_per_val: 2083
+      tc_arch_wave_per_val: 10000
       tc_prescaler: No division
       timer_event_control: true
     optional_signals: []
@@ -226,7 +226,7 @@ drivers:
       timer_advanced_configuration: false
       timer_event_control: false
       timer_prescaler: No division
-      timer_tick: 48
+      timer_tick: 100
     optional_signals: []
     variant: null
     clocks:
@@ -255,8 +255,38 @@ drivers:
       tc_arch_tceinv: false
       timer_advanced_configuration: false
       timer_event_control: false
-      timer_prescaler: Divide by 2
+      timer_prescaler: No division
       timer_tick: 1000
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC
+          input: Generic clock generator 3
+          external: false
+          external_frequency: 0
+        configuration:
+          tc_gclk_selection: Generic clock generator 3
+  TIMER_3:
+    user_label: TIMER_3
+    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21J18A-AU::TC7::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      tc_arch_dbgrun: false
+      tc_arch_evact: Event action disabled
+      tc_arch_mceo0: false
+      tc_arch_mceo1: false
+      tc_arch_ovfeo: false
+      tc_arch_presync: Reload or reset counter on next GCLK
+      tc_arch_runstdby: false
+      tc_arch_tcei: false
+      tc_arch_tceinv: false
+      timer_advanced_configuration: false
+      timer_event_control: false
+      timer_prescaler: No division
+      timer_tick: 200
     optional_signals: []
     variant: null
     clocks:
@@ -584,9 +614,9 @@ drivers:
       fdpll96m_arch_ondemand: false
       fdpll96m_arch_runstdby: false
       fdpll96m_clock_div: 0
-      fdpll96m_ldr: 1463
-      fdpll96m_ldrfrac: 13
-      fdpll96m_ref_clock: Generic clock generator 7
+      fdpll96m_ldr: 23
+      fdpll96m_ldrfrac: 0
+      fdpll96m_ref_clock: Generic clock generator 4
       osc32k_arch_calib: 0
       osc32k_arch_en1k: false
       osc32k_arch_en32k: false
@@ -626,49 +656,6 @@ drivers:
     variant: null
     clocks:
       domain_group: null
-  TIMER_3:
-    user_label: TIMER_3
-    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21J18A-AU::TCC0::driver_config_definition::Timer::HAL:Driver:Timer
-    functionality: Timer
-    api: HAL:Driver:Timer
-    configuration:
-      arch_tcc_cntsel: An interrupt/event is generated at the beginning of each counter
-        cycle
-      arch_tcc_evact0: Event action disabled
-      arch_tcc_evact1: Event action disabled
-      tcc_arch_cnteo: false
-      tcc_arch_dbgrun: false
-      tcc_arch_mcei0: false
-      tcc_arch_mcei1: false
-      tcc_arch_mcei2: false
-      tcc_arch_mcei3: false
-      tcc_arch_mceo0: false
-      tcc_arch_mceo1: false
-      tcc_arch_mceo2: false
-      tcc_arch_mceo3: false
-      tcc_arch_ovfeo: false
-      tcc_arch_presync: Reload or reset counter on next GCLK
-      tcc_arch_runstdby: false
-      tcc_arch_tcei0: false
-      tcc_arch_tcei1: false
-      tcc_arch_tceinv0: false
-      tcc_arch_tceinv1: false
-      tcc_arch_trgeo: false
-      timer_advanced_configuration: false
-      timer_event_control: false
-      timer_prescaler: Divide by 2
-      timer_tick: 100
-    optional_signals: []
-    variant: null
-    clocks:
-      domain_group:
-        nodes:
-        - name: TCC
-          input: Generic clock generator 2
-          external: false
-          external_frequency: 0
-        configuration:
-          tcc_gclk_selection: Generic clock generator 2
 pads:
   NMI:
     name: PA08

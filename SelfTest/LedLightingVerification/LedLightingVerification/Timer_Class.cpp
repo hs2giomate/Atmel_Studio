@@ -140,7 +140,7 @@ int32_t Timer_Class::add_periodic_task(FUNC_PTR func,uint32_t interval){
 	status=add_task(func,interval,TIMER_TASK_REPEAT);
 		return status;
 }
-int32_t Timer_Class::add_oneShot_task(FUNC_PTR func,uint32_t interval){
+int32_t Timer_Class::Add_oneShot_task(FUNC_PTR func,uint32_t interval){
 	int32_t	status;
 	status=add_task(func,interval,TIMER_TASK_ONE_SHOT);
 	return status;

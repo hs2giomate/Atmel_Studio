@@ -53,6 +53,7 @@
 #define PC04 GPIO(GPIO_PORTC, 4)
 #define PC05 GPIO(GPIO_PORTC, 5)
 #define PC07 GPIO(GPIO_PORTC, 7)
+#define CAN_STDBY GPIO(GPIO_PORTC, 13)
 #define CS_Holt GPIO(GPIO_PORTC, 14)
 #define Ethernet_Led GPIO(GPIO_PORTC, 15)
 #define LED0 GPIO(GPIO_PORTC, 18)

@@ -50,7 +50,7 @@ private:
 public:
 	States_Class();
 	~States_Class();
-	void	Init(void);
+	bool	Init(void);
 	void	Start(uint8_t operationMode=0);
 	uint8_t	Stop(uint8_t layer=0);
 

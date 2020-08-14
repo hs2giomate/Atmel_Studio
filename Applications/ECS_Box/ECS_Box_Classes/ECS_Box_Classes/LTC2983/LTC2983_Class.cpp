@@ -26,10 +26,16 @@ LTC2983_Class::LTC2983_Class(spi_m_async_descriptor *SPI_LTC){
 	SPIA=SPI_LTC;
 	};
 
-void LTC2983_Class::init(){
+bool LTC2983_Class::Init(){
+	activeChannels[0]=4;
+	activeChannels[1]=8;
+	activeChannels[2]=15;
 	spiLT.set_descriptor(SPIA);
 	spiLT.init();
+	configure_channels();
+	configure_global_parameters();
 	ready=true;	
+	return	SelfTest();
 }
 
 void LTC2983_Class::print_title()
@@ -121,23 +127,25 @@ void LTC2983_Class::measure_channel(uint8_t chip_select, uint8_t channel_number,
 void LTC2983_Class::convert_channel(uint8_t chip_select, uint8_t channel_number)
 {
 	// Start conversion
+	conversionFinished=0;
 	transfer_byte(chip_select, WRITE_TO_RAM, COMMAND_STATUS_REGISTER, CONVERSION_CONTROL_BYTE | channel_number);
-	
+	channelOnProcess=channel_number;
 	wait_for_process_to_finish(chip_select);
 }
 
 
 void LTC2983_Class::wait_for_process_to_finish(uint8_t chip_select)
 {
-	uint8_t process_finished = 0;
+	process_finished = 0;
 	uint8_t data;
-	while(!gpio_get_pin_level(INT_LTC2983));
+	//while(!gpio_get_pin_level(INT_LTC2983));
 	while (process_finished == 0)
 	{
 		data = transfer_byte(chip_select, READ_FROM_RAM, COMMAND_STATUS_REGISTER, 0);
 		process_finished  = data & 0x40;
 		delay_ms(1);
 	}
+	conversionFinished=1;
 }
 
 
@@ -160,11 +168,7 @@ void LTC2983_Class::print_config_channel(uint8_t chip_select, uint8_t channel_nu
 }
 void LTC2983_Class::get_result(uint8_t chip_select, uint8_t channel_number, uint8_t channel_output)
 {
-	uint32_t raw_data;
-	uint8_t fault_data;
-	uint16_t start_address = get_start_address(CONVERSION_RESULT_MEMORY_BASE, channel_number);
-	uint32_t raw_conversion_result;
-
+	start_address = get_start_address(CONVERSION_RESULT_MEMORY_BASE, channel_number);
 	raw_data = transfer_four_bytes(chip_select, READ_FROM_RAM, start_address, 0);
 
 	usb.print(F("\nChannel "));
@@ -184,16 +188,20 @@ void LTC2983_Class::get_result(uint8_t chip_select, uint8_t channel_number, uint
 	fault_data = raw_data >> 24;
 	print_fault_data(fault_data);
 }
+uint32_t	LTC2983_Class::SaveChannelValue(uint8_t ch){
+		start_address = get_start_address(CONVERSION_RESULT_MEMORY_BASE, ch);
+		raw_data = transfer_four_bytes(CHIP_SELECT, READ_FROM_RAM, start_address, 0);
+		channelsRawData[ch]=raw_data;
+		return	raw_data;
+}
 
 
 void LTC2983_Class::print_conversion_result(uint32_t raw_conversion_result, uint8_t channel_output)
 {
-	int32_t signed_data = raw_conversion_result;
-	float scaled_result;
-
+	signed_data = raw_conversion_result;
 	// Convert the 24 LSB's into a signed 32-bit integer
 	if(signed_data & 0x800000)
-	signed_data = signed_data | 0xFF000000;
+		signed_data = signed_data | 0xFF000000;
 
 	// Translate and print result
 	if (channel_output == TEMPERATURE)
@@ -380,7 +388,20 @@ void LTC2983_Class::configure_global_parameters()
 	// -- Set any extra delay between conversions (in this case, 0*100us)
 	transfer_byte(CHIP_SELECT, WRITE_TO_RAM, 0xFF, 0);
 }
+bool	LTC2983_Class::SelfTest(void){
+	process_finished = 0;
+	uint32_t	timeCounter=0;
+	while ((process_finished == 0)&&(timeCounter<5000*60))
+	{
+		data = transfer_byte(CHIP_SELECT, READ_FROM_RAM, COMMAND_STATUS_REGISTER, 0);
+		process_finished  = data & 0x40;
+		delay_ms(1);
+		timeCounter;
+	}
+	isOK=process_finished==1?true:false;
+	return	isOK;
+	}
 
-
+LTC2983_Class	ltc(&SPI_TEMP);
 
 

@@ -39,6 +39,8 @@ private:
 	volatile uint32_t index;
 	MemoryFlashStruct		header;
 	uint32_t	crc32;
+	uint8_t	flashBuffer[QSPI_ERBLK];
+	
 //functions
 public:
 	MemoryManagment_Class();
@@ -54,6 +56,9 @@ public:
 	uint8_t		GetErrorCode(void);
 	uint32_t	WriteValidApplicationState(HVACState& hs );
 	uint32_t	WriteValidConfigurationData(ConfigurationData& cd);
+	uint32_t	SaveApplicationState(HVACState& hs );
+	uint32_t	SaveCRCAppState(uint32_t crc);
+	uint32_t	SaveCurrentState(HVACState& hs);
 protected:
 private:
 	MemoryManagment_Class( const MemoryManagment_Class &c );

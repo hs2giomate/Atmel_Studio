@@ -1338,8 +1338,8 @@ drivers:
       gclk_gen_2_div: 1
       gclk_gen_2_div_sel: false
       gclk_gen_2_oscillator: Digital Frequency Locked Loop (DFLL48M)
-      gclk_gen_3_div: 1
-      gclk_gen_3_div_sel: true
+      gclk_gen_3_div: 2
+      gclk_gen_3_div_sel: false
       gclk_gen_3_oscillator: Digital Phase Locked Loop (DPLL1)
       gclk_gen_4_div: 1
       gclk_gen_4_div_sel: false
@@ -1564,7 +1564,7 @@ drivers:
     api: HAL:Driver:QSPI_Sync
     configuration:
       qspi_advanced: true
-      qspi_baud_rate: 600000
+      qspi_baud_rate: 6000000
       qspi_cpha: Data is changed on the leading edge of SPCK and captured on the following
         edge of SPCK.
       qspi_cpol: The inactive state value of SPCK is logic level zero.
@@ -1824,7 +1824,7 @@ drivers:
       i2c_master_arch_sdahold: 300-600ns hold time
       i2c_master_arch_sexttoen: false
       i2c_master_arch_trise: 215
-      i2c_master_baud_rate: 100000
+      i2c_master_baud_rate: 400000
     optional_signals: []
     variant:
       specification: SDA=0, SCL=1
@@ -1839,7 +1839,7 @@ drivers:
       domain_group:
         nodes:
         - name: Core
-          input: Generic clock generator 4
+          input: Generic clock generator 2
           external: false
           external_frequency: 0
         - name: Slow
@@ -1847,7 +1847,7 @@ drivers:
           external: false
           external_frequency: 0
         configuration:
-          core_gclk_selection: Generic clock generator 4
+          core_gclk_selection: Generic clock generator 2
           slow_gclk_selection: Generic clock generator 10
   TIMER_INTERFACE:
     user_label: TIMER_INTERFACE
@@ -2083,19 +2083,19 @@ drivers:
     functionality: CAN
     api: HAL:Driver:CAN_Async
     configuration:
-      can_btp_brp: 3
-      can_btp_sjw: 4
-      can_btp_tseg1: 11
-      can_btp_tseg2: 8
-      can_cccr_brse: false
-      can_cccr_fdoe: false
-      can_dbtp_dbrp: 1
-      can_dbtp_dsjw: 4
-      can_dbtp_dtseg1: 11
-      can_dbtp_dtseg2: 4
+      can_btp_brp: 2
+      can_btp_sjw: 1
+      can_btp_tseg1: 13
+      can_btp_tseg2: 2
+      can_cccr_brse: true
+      can_cccr_fdoe: true
+      can_dbtp_dbrp: 2
+      can_dbtp_dsjw: 1
+      can_dbtp_dtseg1: 13
+      can_dbtp_dtseg2: 2
       can_dbtp_tdc: false
       can_gfc_anfe: Reject
-      can_gfc_anfs: Reject
+      can_gfc_anfs: Accept in Rx FIFO 0
       can_gfc_rrfe: Filter remote frames with 29-bit standard IDs
       can_gfc_rrfs: Filter remote frames with 11-bit standard IDs
       can_ie_bo: false
@@ -2103,18 +2103,18 @@ drivers:
       can_ie_ea: false
       can_ie_ep: false
       can_ie_ew: false
-      can_mrcfg_dqos: Background (no sensitive operation)
+      can_mrcfg_dqos: Sensitive latency
       can_mrcfg_runstandby: false
-      can_rxesc_f0ds: 8 byte data field.
-      can_rxf0c_f0om: blocking mode
-      can_rxf0c_f0s: 2
+      can_rxesc_f0ds: 64 byte data field.
+      can_rxf0c_f0om: overwrite mode
+      can_rxf0c_f0s: 1
       can_rxf0c_f0wm: 0
-      can_sidfc_lss: 2
-      can_txbc_tfqs: 2
+      can_sidfc_lss: 32
+      can_txbc_tfqs: 1
       can_txefc_efs: 2
       can_txefc_efwm: 0
-      can_txesc_tbds: 8 byte data field.
-      can_xidam_eidm: 0
+      can_txesc_tbds: 64 byte data field.
+      can_xidam_eidm: 536870911
       can_xidfc_lss: 2
     optional_signals:
     - identifier: CAN_CCU:RX
@@ -2247,6 +2247,12 @@ pads:
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD09
     mode: I2C
     user_label: PD09
+    configuration: null
+  CAN_STDBY:
+    name: PC13
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC13
+    mode: Digital output
+    user_label: CAN_STDBY
     configuration: null
   CS_Holt:
     name: PC14

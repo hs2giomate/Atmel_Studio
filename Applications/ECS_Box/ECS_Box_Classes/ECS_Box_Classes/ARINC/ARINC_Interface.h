@@ -85,7 +85,7 @@ public:
 	bool	BITRATE2;
 	
 	bool	PARITY;
-	volatile	bool newMessageR1;
+	volatile	bool newMessageR1,newMessageR2;
 	unsigned char TXBuffer [16];                 // Transmit Buffer
 	//const char WelcomeMesg[] = "Holt HI-3593 Demonstration.";
 	volatile unsigned int g_count100us;          // Global timer tick for delays.
@@ -95,6 +95,7 @@ public:
 	unsigned char MODES,OPTION;
 	uint8_t DebugArray[16];                        // Global array for 3110 status registers
 	unsigned char receiverBuffer[MESSAGECOUNTMAX][4];             // [# of buffers][16 bytes]
+	
 //	Datagram			arincMessage;
 	FUNC_PTR			handler;
 protected:
@@ -102,6 +103,12 @@ private:
 	uint8_t	receiverArray[4];
 	unsigned char RXBuffer[g_RXBuffSize];       // Temp buffer to hold messages data
 	unsigned char RXBufferPL[g_RXBuffSize];     // Temp buffer to hold PL messages data
+	uint8_t RXBuffer1[g_RXBuffSize];       // Temp buffer to hold messages data
+	uint8_t RXBufferPL1[g_RXBuffSize];     // Temp buffer to hold PL messages data
+	uint8_t RXBuffer2[g_RXBuffSize];       // Temp buffer to hold messages data
+	uint8_t RXBufferPL2[g_RXBuffSize];     // Temp buffer to hold PL messages data
+	uint8_t	MessageCount1;
+	uint8_t	MessageCount2;
 	unsigned char LabelsAr1[32];                // All Rec1 256 labels
 	unsigned char LabelsAr2[32];                // All Rec2 256 labels
 	unsigned char statusRegister;                // All Rec2 256 labels
@@ -112,10 +119,12 @@ private:
 	uint8_t Arate;
 	uint8_t Rec1Parity;
 	uint8_t Rec2Parity;
+	uint8_t	i,j,k;
 	static char Status_F;
 	Timer_Class		timer;
 	Holt_3593_Class	HI3593;
-	
+	uint8_t receiverBuffer1[MESSAGECOUNTMAX/2][4];             // [# of buffers][16 bytes]
+	uint8_t receiverBuffer2[MESSAGECOUNTMAX/2][4];
 //functions
 public:
 	ARINC_Interface();
@@ -124,29 +133,17 @@ public:
 	bool	Init(void);
 	void	SayHello(void);
 	void	TransmitReceiveWithLabels_Mode(const uint8_t);
-	void	CE_Low_Holt(void);
-	void	CE_High_Holt(void);
+	void	FetchAllMessagesReceiver1(void);
+	void	FetchAllMessagesReceiver2(void);
 	void	getRegStatus(void);
-	void	LED_CTL(uint8_t ledNumber, uint8_t OnOff);
-	void	SerialCommands(void);
-	void	debounceButton(uint8_t button);
-	char	TimerScheduler100us(void);         // reserved for possible use
-	void	printARINCData(const uint8_t channel,unsigned char *array);
-	void	printStatusRegisters(void);
 	void	PrintLabelsOnConsole(unsigned char *labelarray);
 	void	FetchAllMessagesAndDisplay(unsigned char *,unsigned char *);
 	void	CheckMessageCountMax(void);
 	void	printARINCTXData(unsigned char *array);
-	bool	 ConsoleCommands(char ch);
+	bool	ConsoleCommands(char ch);
 	void	ConsoleCommandsHelp(void);
-	void	cpu_irq_enable(void);
-	void	cpu_irq_disable(void);
-	void	xgetchar(char *);
-	char	xgetchar();
-	void	crlf(void);
 	void	PrintHexByte(uint8_t);
 	void    HW_RESET(void);
-	void	PrintOctalLabelsOnConsole(unsigned char *);
 	void	PrintOctals(uint8_t );
 	void	CustomMessage(const uint8_t);
 	void	space(void);
@@ -168,7 +165,22 @@ private:
 	ARINC_Interface( const ARINC_Interface &c );
 	ARINC_Interface& operator=( const ARINC_Interface &c );
 	void CommandStatus( void);
+	uint8_t	RollMessageCount(uint8_t);
+	void	cpu_irq_enable(void);
+	void	cpu_irq_disable(void);
+	void	PrintOctalLabelsOnConsole(unsigned char *);
+	void	LED_CTL(uint8_t ledNumber, uint8_t OnOff);
+	void	SerialCommands(void);
+	void	debounceButton(uint8_t button);
+	char	TimerScheduler100us(void);         // reserved for possible use
+	void	printARINCData(const uint8_t channel,unsigned char *array);
+	void	printStatusRegisters(void);
+	void	xgetchar(char *);
+	char	xgetchar();
+	void	crlf(void);
+	void	CE_Low_Holt(void);
+	void	CE_High_Holt(void);
 
 }; //ARINC_Interface
-extern	ARINC_Interface arincInterface;
+extern	ARINC_Interface arinc;
 #endif //__ARINC_INTERFACE_H__

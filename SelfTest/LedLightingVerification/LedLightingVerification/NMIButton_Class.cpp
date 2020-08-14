@@ -131,68 +131,68 @@ bool	NMIButton_Class::IsButtonPressed(void){
 	return false;
 }
 uint32_t	NMIButton_Class::OnPressed(void){
-	if (!pressedTimerStarted)
-	{
-		butttonTimer.stop();
-		pressCounter=0;
-		direction=false;
-		butttonTimer.add_periodic_task((FUNC_PTR)ChangeModeTimer,COUNTER_TIME);
-		butttonTimer.start();
-		stepTime=lighter.stepTime;
-		nmi.released=false;
-		pressedTimerStarted=true;
-	}else{
-		if (IsButtonPressed()){
-			ModulateStepTime();
-		}
-		else
-		{
-			if (pressCounter<COUNTER_TIME)
-			{
-				lighter.changeModeRequest=true;
-			
-			} 
-			else
-			{
-				lighter.changeModeRequest=false;
-				
-			}
-			OnRelease();
-			
-		}
-	}
+// 	if (!pressedTimerStarted)
+// 	{
+// 		butttonTimer.stop();
+// 		pressCounter=0;
+// 		direction=false;
+// 		butttonTimer.add_periodic_task((FUNC_PTR)ChangeModeTimer,POWERON_SINGLE_TIME);
+// 		butttonTimer.start();
+// 		stepTime=lighter.stepTime;
+// 		nmi.released=false;
+// 		pressedTimerStarted=true;
+// 	}else{
+// 		if (IsButtonPressed()){
+// 			ModulateStepTime();
+// 		}
+// 		else
+// 		{
+// 			if (pressCounter<COUNTER_TIME)
+// 			{
+// 				lighter.changeModeRequest=true;
+// 			
+// 			} 
+// 			else
+// 			{
+// 				lighter.changeModeRequest=false;
+// 				
+// 			}
+// 			OnRelease();
+// 			
+// 		}
+// 	}
 		
-	
+	lighter.changeModeRequest=true;
 	return	stepTime;
 }
 uint32_t	NMIButton_Class::ModulateStepTime(void){
-	pressCounter++;
-	
-	if (!direction)
-	{
-		if (lighter.stepTime<POWERON_SINGLE_TIME_MAX)
-		{
-			lighter.stepTime+=COUNTER_TIME;
-		}
-		else
-		{
-			lighter.stepTime-=COUNTER_TIME;
-			direction=true;
-		}
-	}
-	else
-	{
-		if (lighter.stepTime<COUNTER_TIME)
-		{
-			lighter.stepTime+=COUNTER_TIME;
-			direction=false;
-		}
-		else
-		{
-			lighter.stepTime-=COUNTER_TIME;
-			
-		}
-	}
+// 	pressCounter++;
+// 	
+// 	if (!direction)
+// 	{
+// 		if (lighter.stepTime<POWERON_SINGLE_TIME_MAX)
+// 		{
+// 			lighter.stepTime+=COUNTER_TIME;
+// 		}
+// 		else
+// 		{
+// 			lighter.stepTime-=COUNTER_TIME;
+// 			direction=true;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		if (lighter.stepTime<COUNTER_TIME)
+// 		{
+// 			lighter.stepTime+=COUNTER_TIME;
+// 			direction=false;
+// 		}
+// 		else
+// 		{
+// 			lighter.stepTime-=COUNTER_TIME;
+// 			
+// 		}
+// 	}
 	return	lighter.stepTime;
 }
 	
@@ -205,13 +205,12 @@ uint32_t NMIButton_Class::OnRelease(void){
 				
 			}
 	}else{
-				butttonTimer.stop();
-				butttonTimer.remove_task();
+// 				butttonTimer.stop();
+// 				butttonTimer.remove_task();
 				stepTime=lighter.stepTime;
-				pressedTimerStarted=false;
+			/*	pressedTimerStarted=false;*/
 				
 	}
-
 	return	stepTime;
 }
 

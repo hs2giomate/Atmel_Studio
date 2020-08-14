@@ -20,6 +20,24 @@ MCP23017_Class::MCP23017_Class(i2c_m_async_desc *i2c)
 MCP23017_Class::~MCP23017_Class()
 {
 } //~AT24MAC_Class
+
+void MCP23017_Class::Init(uint8_t addr) {
+	i2c_addr=addr;
+	i2ca.Set_descriptor(ptrI2CDescr);
+	isReady=i2ca.Init(addr)==0;
+}
+void MCP23017_Class::Init(i2c_m_async_desc *i2c){
+	ptrI2CDescr=i2c;
+	Init((uint8_t)MCP23017_ADDRESS);
+}
+
+/**
+ * Initializes the default MCP23017, with 000 for the configurable part of the address
+ */
+bool MCP23017_Class::Init(void) {
+    Init((uint8_t)MCP23017_ADDRESS);
+	return	SelfTest();	
+}
 /**
  * Bit number associated to a give Pin
  */
@@ -100,22 +118,7 @@ void MCP23017_Class::updateRegisterBit(uint8_t pin, uint8_t pValue, uint8_t port
  * the addr is from 0 to 7
  * soldering the A0 to A2 to change the addr
  */
-void MCP23017_Class::Init(uint8_t addr) {
-	i2c_addr=addr;
-	i2ca.Set_descriptor(ptrI2CDescr);
-	isReady=i2ca.Init(addr)==0;
-}
-void MCP23017_Class::Init(i2c_m_async_desc *i2c){
-	ptrI2CDescr=i2c;
-	Init((uint8_t)MCP23017_ADDRESS);
-}
 
-/**
- * Initializes the default MCP23017, with 000 for the configurable part of the address
- */
-void MCP23017_Class::Init(void) {
-    Init((uint8_t)MCP23017_ADDRESS);
-}
 
 /**
  * Sets the pin mode to either INPUT or OUTPUT
@@ -261,6 +264,10 @@ uint8_t MCP23017_Class::getLastInterruptPin(){
 	return MCP23017_INT_ERR;
 
 }
+uint8_t	MCP23017_Class::SavePorts(void){
+	portA=readGPIO(0);
+	portB=readGPIO(1);
+}
 uint8_t MCP23017_Class::getLastInterruptPinValue(){
 	uint8_t intPin=getLastInterruptPin();
 	if(intPin!=MCP23017_INT_ERR){
@@ -271,3 +278,24 @@ uint8_t MCP23017_Class::getLastInterruptPinValue(){
 
 	return MCP23017_INT_ERR;
 }
+bool	MCP23017_Class::SelfTest(void){
+	controlRegisterA=readRegister(MCP23017_IOCONA);
+	controlRegisterB=readRegister(MCP23017_IOCONB);
+	if (controlRegisterA==controlRegisterB)
+	{
+		if (controlRegisterA&(0x80)==0)
+		{
+			isOK=true;
+		} 
+		else
+		{
+			isOK=false;
+		}
+	} 
+	else
+	{
+		isOK=false;
+	}
+	return isOK;
+}
+MCP23017_Class	mcp(&I2C_EXPANDER);

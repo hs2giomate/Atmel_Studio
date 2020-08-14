@@ -37,7 +37,7 @@ uint32_t	FastStorage_Class::ReadFastApplicationState(HVACState& hs){
 	eepromAddress=(uint16_t)(0xffff&add32);
 	handlerAppState=PTR_HVAC_STATE(&hs);
 	r=eeprom.ReadAddress((uint8_t*)handlerAppState,eepromAddress,sizeof(HVACState));
-	return	crc;
+	return	r;
 }
 uint32_t	FastStorage_Class::GetTimeLogs(calendar_date_time& cdt){
 	uint32_t	add32=(uint32_t)&eepromMap->timeLogs[0];

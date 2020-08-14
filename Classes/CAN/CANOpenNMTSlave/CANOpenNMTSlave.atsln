@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CANOpenNMTSlave", "CANOpenNMTSlave\CANOpenNMTSlave.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CANOpen_Class", "..\CANOpen_Class\CANOpen_Class\CANOpen_Class.cppproj", "{A19EFDF3-F37A-49D6-8BC0-1774108432B7}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ALU_Driver", "..\..\..\Applications\ECS_Box\ALU_Driver\ALU_Driver\ALU_Driver.cproj", "{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Master|ARM = Master|ARM
+		NMTSlave|ARM = NMTSlave|ARM
+		Release|ARM = Release|ARM
+		Slave|ARM = Slave|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Master|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Master|ARM.Build.0 = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.NMTSlave|ARM.ActiveCfg = NMTSlave|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.NMTSlave|ARM.Build.0 = NMTSlave|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.ActiveCfg = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|ARM.Build.0 = Release|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Slave|ARM.ActiveCfg = Debug|ARM
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Slave|ARM.Build.0 = Debug|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Debug|ARM.Build.0 = Debug|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Master|ARM.ActiveCfg = Master|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Master|ARM.Build.0 = Master|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.NMTSlave|ARM.ActiveCfg = Slave|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.NMTSlave|ARM.Build.0 = Slave|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Release|ARM.ActiveCfg = Release|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Release|ARM.Build.0 = Release|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Slave|ARM.ActiveCfg = Slave|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Slave|ARM.Build.0 = Slave|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Debug|ARM.Build.0 = Debug|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Master|ARM.ActiveCfg = Master|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Master|ARM.Build.0 = Master|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.NMTSlave|ARM.ActiveCfg = Debug|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.NMTSlave|ARM.Build.0 = Debug|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Release|ARM.ActiveCfg = Release|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Release|ARM.Build.0 = Release|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Slave|ARM.ActiveCfg = Slave|ARM
+		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Slave|ARM.Build.0 = Slave|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

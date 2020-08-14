@@ -22,22 +22,68 @@ Interfaces_Class::~Interfaces_Class()
 
 uint32_t Interfaces_Class::CheckCommunication(void)
 {
-	uint32_t	r;
-
+	uint32_t	r=0;
+	r=(uint32_t)CheckI2CExpander();
 	
-	if (usb.terminalStarted)
-	{
-		
-		hvac.PrintState();	
-	}else{
-		event	e(kCommunicationEventClass,kInterfaceAvailable);
-		listener.SendEventSelf(e);
-		
-	}
+	
+
+
 	
 	return	0;
 }
+bool	Interfaces_Class::CheckI2CExpander(uint8_t add){
+		if (mcp.hasChanged)
+		{
+			mcp.SavePorts();
+			mcp.hasChanged=false;
+		}
+		return	mcp.hasChanged;
+}
+bool	Interfaces_Class::CheckUSBInterface(void){
+		if (usb.terminalStarted)
+		{
+			hvac.PrintState();
+		}else{
+						
+		}
+		return	usb.terminalStarted;
+}
 
+bool	Interfaces_Class::checkLTC2983(void){
+	if (ltc.conversionFinished)
+	{
+		for (i = 0; i <NUMBER_TEMPERATURE_CHANNELS ; i++)
+		{
+			ltc.SaveChannelValue(ltc.activeChannels[i]);
+		}
+		ltc.conversionFinished=0;
+	} 
+	else
+	{
+	}
+	return	ltc.conversionFinished;
+}
+bool	Interfaces_Class::CheckArincInterface(void){
+	if (arinc.newMessageR1||arinc.newMessageR2)
+	{
+		if (arinc.newMessageR1)
+		{
+			arinc.FetchAllMessagesReceiver1();
+	
+		} 
+		else
+		{
+			arinc.FetchAllMessagesReceiver2();
+	
+		}
+		
+	} 
+	else
+	{
+		
+	}
+	return	arinc.newMessageR1||arinc.newMessageR2;
+}
 uint32_t	Interfaces_Class::GetStatus(HVACStatus& s){
 	s=status;
 	uint32_t	*p=(uint32_t*)(&s.statusBits);

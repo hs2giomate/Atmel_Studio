@@ -49,7 +49,7 @@ public:
 	void setOneShotTimer(uint32_t interval);
 	int32_t	add_task(FUNC_PTR func,uint32_t interval);
 	int32_t	add_periodic_task(FUNC_PTR func,uint32_t interval);
-	int32_t	add_oneShot_task(FUNC_PTR func,uint32_t interval);
+	int32_t	Add_oneShot_task(FUNC_PTR func,uint32_t interval);
 	int32_t	Start_oneShot_task(FUNC_PTR func,uint32_t interval);
 	void remove_task();
 	uint32_t	get_ticks(void);

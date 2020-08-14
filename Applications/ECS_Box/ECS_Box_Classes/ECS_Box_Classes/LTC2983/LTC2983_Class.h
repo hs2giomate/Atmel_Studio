@@ -16,23 +16,33 @@
 #define highByte(w) ((uint8_t) ((w) >> 8))
 
 #define CHIP_SELECT CS_SPI_LTC  // Chip select pin
+#define NUMBER_TEMPERATURE_CHANNELS	3
 
 class LTC2983_Class
 {
 //variables
 public:
 	LT_SPI	spiLT;
-	volatile bool	ready;
-	spi_m_async_descriptor *SPIA;
+	volatile bool	ready,conversionFinished;
+	
+	uint8_t	channelOnProcess;
 protected:
 private:
-	
+	uint8_t process_finished,data,fault_data;
+	bool	isOK;
+	spi_m_async_descriptor *SPIA;
+	uint8_t	activeChannels[NUMBER_TEMPERATURE_CHANNELS];
+	float	channelsRawData[NUMBER_TEMPERATURE_CHANNELS];
+	uint32_t raw_conversion_result,raw_data;
+	float scaled_result;
+	int32_t signed_data;
+	uint16_t start_address;
 //functions
 public:
 	LTC2983_Class();
 	LTC2983_Class(spi_m_async_descriptor *);
 	~LTC2983_Class();
-	void	init();
+	bool	Init();
 	void print_title();
 	void assign_channel(uint8_t chip_select, uint8_t channel_number, uint32_t channel_assignment_data);
 	void write_custom_table(uint8_t chip_select, struct table_coeffs coefficients[64], uint16_t start_address, uint8_t table_length);
@@ -48,6 +58,7 @@ public:
 	void print_fault_data(uint8_t fault_byte);
 	void configure_channels(void);
 	void configure_global_parameters(void);
+	uint32_t	SaveChannelValue(uint8_t);
 	
 
 	uint32_t transfer_four_bytes(uint8_t chip_select, uint8_t read_or_write, uint16_t start_address, uint32_t input_data);
@@ -62,8 +73,9 @@ private:
 	void print_config_channel(uint8_t chip_select, uint8_t channel_number, uint16_t start_address);
 	LTC2983_Class( const LTC2983_Class &c );
 	LTC2983_Class& operator=( const LTC2983_Class &c );
+	bool	SelfTest(void);
 
 }; //LTC2983_Class
 
-//extern	LTC2983_Class	LTC;
+extern	LTC2983_Class	ltc;
 #endif //__LTC2983_CLASS_H__

@@ -18,11 +18,7 @@ static void RestartLeds(const struct timer_task *const timer_task)
 {
 	ptrLedHandler->restarted=true;
 }
-static void PWMPeriodExpired(struct _pwm_device *device){
-	
 
-	ptrLedHandler->deadTime=!lighter.deadTime;
-}
 
 static void BlinkTimer(const struct timer_task *const timer_task)
 {
@@ -32,10 +28,19 @@ static void BlinkTimer(const struct timer_task *const timer_task)
 static void PowerOnTimer(const struct timer_task *const timer_task)
 {
 	ptrLedHandler->deadTime=true;
+	ptrLedHandler->timerFinish=true;
+}
+
+static void PWMPeriodExpired(struct _pwm_device *device){
+	
+	//ptrLedHandler->deadTime=false;
+
+
 }
 static void PowerOffTimer(const struct timer_task *const timer_task)
 {
 	ptrLedHandler->deadTime=false;
+	ptrLedHandler->timerFinish=true;
 }
 
 
@@ -47,8 +52,8 @@ LedHandler_Class::LedHandler_Class()
 	modus=INITIAL_STATE;
 	ptrLedHandler=this;
 	totalPins=kTOTALLEFTPINS+kTOTALRIGHTPINS;
-	dutyCycle=500;
-	stepTime=POWERON_SINGLE_TIME;
+	dutyCycle=200;
+
 	period=POWER_PERIOD;
 	
 	} //LedDriverClass
@@ -72,16 +77,16 @@ void	LedHandler_Class::Init(void){
 	}
 	SetBothSidesPins(pins);
 	deadTime=false;
-
+	stepTime=poweronSingleTime;
 	ledTimer.Init();
 	pwmTimer.Init();
 	DefineColors(state);
 	ready=true;
-	pwm_set_parameters(&PWM_0,PWM_WAVE_PERIOD,PWM_WAVE_DUTY);
+	pwm_set_parameters(&PWM_0,PWM_WAVE_PERIOD,dutyCycle);
 	pwm_register_callback(&PWM_0,PWM_PERIOD_CB, (pwm_cb_t)PWMPeriodExpired);
 	pwmTimer.stop();
-	tapLimit=COUNTER_TIME*(kTOTALLEFTPINS+kTOTALLEFTPINS);
-
+	tapLimit=poweronSingleTime*(kTOTALLEFTPINS+kTOTALLEFTPINS);
+	
 }
 
 void	LedHandler_Class::Run(void){
@@ -128,11 +133,11 @@ void	LedHandler_Class::Run(void){
 void	LedHandler_Class::ChangeModus(void){
 		ledTimer.stop();
 		restarted=false;
-		ledTimer.Start_oneShot_task((FUNC_PTR)RestartLeds,POWEROFF_SINGLE_TIME);
+		ledTimer.Start_oneShot_task((FUNC_PTR)RestartLeds,poweronSingleTime*2);
 		ClearAll();
 		nmi.pressedTimerStarted=false;
 		changeModeRequest=false;
-		stepTime=COUNTER_TIME;
+		stepTime=poweronSingleTime;
 		modus=(modus+1)%NUMBER_STATES;
 		if (modus>NUMBER_STATES)
 		{
@@ -146,11 +151,11 @@ void	LedHandler_Class::ChangeModus(void){
 void	LedHandler_Class::RestartLedModus(void){
 			ledTimer.stop();
 			restarted=false;
-			ledTimer.Start_oneShot_task((FUNC_PTR)RestartLeds,POWEROFF_SINGLE_TIME);
+			ledTimer.Start_oneShot_task((FUNC_PTR)RestartLeds,poweronSingleTime*2);
 			ClearAll();
 			nmi.pressedTimerStarted=false;
 			changeModeRequest=false;
-			stepTime=COUNTER_TIME;
+			stepTime=poweronSingleTime;
 }
 
 void	LedHandler_Class::RunOnMode(void){
@@ -353,7 +358,7 @@ void	LedHandler_Class::WhiteWave(void){
 	
 }
 bool	LedHandler_Class::PowerOnSingleLed(int pn){
-
+	keepGoing=true;
 	if (onLila){
 		StartBlinker(1);
 		PowerOnPin(pn);
@@ -371,6 +376,7 @@ bool	LedHandler_Class::PowerOnSingleLed(int pn){
 		while((!blinkOut)){
 			//Dimmen(0);
 		}
+		timerFinish=true;
 		PowerOffPin(pn);
 		if (pn<kTOTALLEFTPINS)
 		{
@@ -426,7 +432,7 @@ bool	LedHandler_Class::PowerOnSingleLed(int pn){
 		{
 			if (onWhite)
 			{
-				StartBlinker(0);
+				StartBlinker(1);
 				PowerOnPin(pn);
 				if (pn<kTOTALLEFTPINS)
 				{
@@ -467,47 +473,45 @@ bool	LedHandler_Class::PowerOnSingleLed(int pn){
 				StartBlinker(0);
 				PowerOnPin(pn);
 				while((!blinkOut)){
-					Dimmen(0);
+					
+					if (keepGoing)
+					{
+						keepGoing=Dimmen(0);
+					} 
+					else
+					{
+						
+					}
 				}
 				PowerOffPin(pn);
 			}
 		
 		}
 	}
-	
-
-	if (nmi.IsButtonPressed())
+	if (keepGoing)
 	{
-		request=true;
-		nmi.OnPressed();
-		
-		}else{
-		if (request&&nmi.pressedTimerStarted)
+		keepGoing=CheckNMIButton();
+	}
+	
+	return keepGoing;
+
+}
+
+bool	LedHandler_Class::CheckNMIButton(void){
+		if (nmi.IsButtonPressed())
 		{
-			nmi.OnRelease();
-			request=false;
-			if (stepTime>tapLimit)
+			request=true;
+			nmi.OnPressed();
+			
+		}else{
+		
+			if (changeModeRequest)
 			{
-				tapTime=tapLimit;
-			} 
-			else
-			{
-				tapTime=stepTime;
-			}
-			if (nmi.pressCounter<(512*COUNTER_TIME/(tapTime+COUNTER_TIME))){
-				changeModeRequest=true;
 				return false;
-			}else{
-			changeModeRequest=false;
-				
 			}
 			
 		}
-		else
-		{
-		}
-	}
-	return true;
+		return true;
 }
 
 bool	LedHandler_Class::PowerOnFail(int pn){
@@ -545,7 +549,7 @@ void	LedHandler_Class::SimplePowerON(int pn){
 
 bool	LedHandler_Class::PowerOnLila(int pn){
 
-	StartBlinker(0);
+	StartBlinker(1);
 	PowerOnPin(pn);
 	if (pn<kTOTALLEFTPINS)
 	{
@@ -561,6 +565,7 @@ bool	LedHandler_Class::PowerOnLila(int pn){
 	while((!blinkOut)){
 		//Dimmen(0);
 	}
+	timerFinish=true;
 	PowerOffPin(pn);
 	if (pn<kTOTALLEFTPINS)
 	{
@@ -582,6 +587,7 @@ bool	LedHandler_Class::PowerOnLila(int pn){
 }
 void	LedHandler_Class::StartBlinker(uint8_t lapsus){
 		ledTimer.stop();
+		pwmTimer.stop();
 		if (lapsus>0)
 		{
 			ledTimer.Start_oneShot_task((FUNC_PTR)BlinkTimer,2*stepTime);
@@ -589,9 +595,12 @@ void	LedHandler_Class::StartBlinker(uint8_t lapsus){
 		else
 		{
 			ledTimer.Start_oneShot_task((FUNC_PTR)BlinkTimer,stepTime);
+			timerFinish=false;
+			deadTime=false;
+			pwmTimer.Start_oneShot_task((FUNC_PTR)PowerOnTimer,(uint32_t)((PWM_WAVE_PERIOD*dutyCycle)/100000));
+				
 		}
 		
-
 		blinkOut=false;
 }
 	
@@ -604,6 +613,9 @@ void	LedHandler_Class::PowerOnPin(int	pn){
 void	LedHandler_Class::PowerOffPin(int	pn){
 	ClearPin(pins.allPorts[pn],pins.allPins[pn]);
 	pwm_disable(&PWM_0);
+	while(!timerFinish);
+	pwmTimer.stop();
+	deadTime=false;
 	state.status[pn]=0;
 	poweron=false;
 }
@@ -629,48 +641,66 @@ void	LedHandler_Class::ClearAllExcept(int ex){
 	}
 }
 
-void	LedHandler_Class::Dimmen(int	modulate){
-	if (stepTime>3*POWERON_SINGLE_TIME_MAX/4)
+bool	LedHandler_Class::Dimmen(int	modulate){
+	keepGoing=true;
+	if (modulate>0)
 	{
-		if (modulate>0)
-		{
-			//	pwm_set_parameters(&PWM_0, period, dutyCycle);
-		}
-		if (deadTime)
-		{
-			if (poweron)
-			{
-				LightOffActivePins();
-				poweron=false;
-			}			
-		}
-		else
-		{
-			if (!poweron)
-			{
-				LightOnActivePins();
-				//SetPowerOnTimer();
-				poweron=true;
-				
-			}
-			
-			
-		}
+		//	pwm_set_parameters(&PWM_0, period, dutyCycle);
 	}
-	
-	
+	if (deadTime)
+	{
+		if (poweron)
+		{
+			LightOffActivePins();
+			poweron=false;
+			//keepGoing=CheckNMIButton();
+			if (keepGoing)
+			{
+				while(!timerFinish);
+				pwmTimer.stop();
+				timerFinish=false;
+				pwmTimer.Start_oneShot_task((FUNC_PTR)PowerOffTimer,(uint32_t)((PWM_WAVE_PERIOD*(1000-dutyCycle))/100000));
+			} 
+			else
+			{
+				return	keepGoing;
+			}
+				
+				
+		}			
+	}
+	else
+	{
+		if (!poweron)
+		{
+			LightOnActivePins();
+			while(!timerFinish);
+			pwmTimer.stop();
+			timerFinish=false;
+			pwmTimer.Start_oneShot_task((FUNC_PTR)PowerOnTimer,(uint32_t)((PWM_WAVE_PERIOD*dutyCycle)/100000));
+			//SetPowerOnTimer();
+			poweron=true;
+				
+		}
+			
+			
+	}
+	return	keepGoing;
 }
+	
+	
+
 void	LedHandler_Class::SetPowerOnTimer(void){
-		pwmTimer.stop();
+		//pwmTimer.stop();
 		pwm_enable(&PWM_0);
-		//pwmTimer.Start_oneShot_task((FUNC_PTR)PowerOnTimer,int(PWM_WAVE_PERIOD/20));
+		
 
 }
 void	LedHandler_Class::SetPowerOffTimer(void){
-	pwmTimer.stop();
+//	pwmTimer.stop();
 //	pwmTimer.remove_task();
-	pwmTimer.add_oneShot_task((FUNC_PTR)PowerOffTimer,uint32_t(period*(1000-dutyCycle)/1000));
-	pwmTimer.start();
+//	pwmTimer.add_oneShot_task((FUNC_PTR)PowerOffTimer,uint32_t(period*(1000-dutyCycle)/1000));
+//	pwmTimer.start();
 }
 
 void	LedHandler_Class::LightOnActivePins(void){

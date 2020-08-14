@@ -93,10 +93,21 @@ uint32_t ConfigState_Class::SetInitialState(){
 				hvac.SetCurrentState(lastState);
 		} 
 		else
-		{			
-			hvac.SetDefaultState();
-			memory.WriteValidApplicationState(hvac.defaultState);
-			memory.WriteFastCurrentState(hvac.defaultState);
+		{	
+			r=memory.ReadFastApplicationState(lastState);
+			if (memory.IsFastStateDataValid(lastState))
+			{
+				hvac.SetCurrentState(lastState);
+				memory.SaveApplicationState(lastState);
+			} 
+			else
+			{
+				hvac.SetDefaultState();
+				memory.WriteValidApplicationState(hvac.defaultState);
+				memory.WriteFastCurrentState(hvac.defaultState);
+			}
+					
+		
 		}
 
 		return r;

@@ -25,7 +25,7 @@ int main(void)
 		tx_buffer[i] = (uint8_t)i;
 	}
 
-	flash.eraseFlash(0,1*1024);
+	flash.eraseFlash(0,TEST_FLASH_SIZE);
 	/* Erase flash memory */
 	uint32_t	m=0;
 	while (1) {

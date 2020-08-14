@@ -64,6 +64,7 @@ ARINC_Interface::~ARINC_Interface()
 
 
 bool	ARINC_Interface::Init(void){
+	MessageCount=0; MessageCount1=0; MessageCount2=0;
 	BITRATE0=false;
 	BITRATE1=false;
 	BITRATE2=false;
@@ -909,6 +910,62 @@ void ARINC_Interface::printARINCTXData(unsigned char *array) {
 	usb.println(">");
 }
 
+void	ARINC_Interface::FetchAllMessagesReceiver1(void){
+	cpu_irq_disable();
+	Status_F = HI3593.R_Register(RXSTATUS_1);                       // Poll Receiver1 status register
+	cpu_irq_enable();
+
+	if((Status_F & FFEMPTY) == 0)
+	{
+		cpu_irq_disable();
+		HI3593.ArincRead(RXFIFO_1,RXBuffer1 );
+		(void)memcpy(receiverBuffer1[MessageCount1],RXBuffer1,g_RXBuffSize);  // copy frame to large array for safe keeping
+		cpu_irq_enable();
+		RollMessageCount(1);
+	}
+	for (i = 0; i < 3; i++)
+	{
+		if(Status_F & (PL1<<(i)))
+		{
+			cpu_irq_disable();
+			HI3593.ArincRead(RXFIFO_1L1+(4*i),RXBufferPL1 );
+			(void)memcpy(receiverBuffer1[MessageCount1],RXBufferPL1,g_RXBuffSize);  // copy frame to large array for safe keeping
+			cpu_irq_enable();
+			RollMessageCount(1);
+		}
+	}
+	// Receiver1 Priority Labels
+	newMessageR1=false;
+}
+void	ARINC_Interface::FetchAllMessagesReceiver2(void){
+	cpu_irq_disable();
+	Status_F = HI3593.R_Register(RXSTATUS_2);                       // Poll Receiver1 status register
+	cpu_irq_enable();
+
+	if((Status_F & FFEMPTY) == 0)
+	{
+		cpu_irq_disable();
+		HI3593.ArincRead(RXFIFO_2,RXBuffer2 );
+		(void)memcpy(receiverBuffer2[MessageCount2],RXBuffer2,g_RXBuffSize);  // copy frame to large array for safe keeping
+		cpu_irq_enable();
+		RollMessageCount(2);
+	}
+
+	for (i = 0; i < 3; i++)
+	{
+		if(Status_F & (PL1<<(i)))
+		{
+			cpu_irq_disable();
+			HI3593.ArincRead(RXFIFO_2L1+(4*i),RXBufferPL2 );
+			(void)memcpy(receiverBuffer2[MessageCount2],RXBufferPL2,g_RXBuffSize);  // copy frame to large array for safe keeping
+			cpu_irq_enable();
+			RollMessageCount(2);
+		}
+	}
+	// Receiver1 Priority Labels
+	newMessageR2=false;
+}
+
 void ARINC_Interface::FetchAllMessagesAndDisplay(unsigned char *RXBuff,unsigned char *RXBuffPL)
 {
 	
@@ -1046,6 +1103,27 @@ void ARINC_Interface::CheckMessageCountMax(void)
 	MessageCount=0;
 }
 
+uint8_t	ARINC_Interface::RollMessageCount(uint8_t mc){
+	switch (mc)
+	{
+		case 0:
+			CheckMessageCountMax();
+		/* Your code here */
+		break;
+		case 1:
+			MessageCount1=(MessageCount1+1)%(MESSAGECOUNTMAX/2);
+		/* Your code here */
+		break;
+		case 2:
+			MessageCount2=(MessageCount2+1)%(MESSAGECOUNTMAX/2);
+		/* Your code here */
+		break;
+		default:
+		/* Your code here */
+		break;
+	}
+	return	MessageCount;
+}
 void ARINC_Interface::printARINCData(const uint8_t channel, unsigned char *array) {
 	unsigned char i;
 
@@ -1371,4 +1449,4 @@ void	ARINC_Interface::xputc(char byte) {
 	usb.write(&p[0],sizeof(p));
 }
 
-ARINC_Interface	arincInterface;
+ARINC_Interface	arinc;

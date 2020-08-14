@@ -27,7 +27,7 @@ ALU_Class::~ALU_Class()
 uint32_t	ALU_Class::Init(void){
 	uint32_t	s;
 	StartLivePulse();
-	hvac.Init();
+	cBit.statusBits.hvacOK=hvac.Init();
 	hvac.SetCRCConfigData();
 	SetInitialConfiguration(configuration);
 	memory.WriteDefaultState();
@@ -122,7 +122,7 @@ bool	ALU_Class::ValidateCyclus(void){
 	return (alu.FeedWatchDog()>0);
 }
 uint32_t ALU_Class::SetInitialConfiguration(ConfigurationData& cd){
-	uint32_t	w,crc,refCRC;
+	uint32_t	w,crc,refCRC,e;
 	w=0;
 	uint32_t	r=memory.ReadLastConfigurationData(cd);
 	if (memory.IsConfigurationDataUpdated())
@@ -153,6 +153,7 @@ uint32_t ALU_Class::SetInitialConfiguration(ConfigurationData& cd){
 			{
 							
 				configuration=factoryDefaultsConfiguration;
+				e=flash.Erase(0);
 				w=memory.WriteDefaultConfiguration(configuration);
 				w=memory.WriteCRCConfigurationData(hvac.CRC32);
 				

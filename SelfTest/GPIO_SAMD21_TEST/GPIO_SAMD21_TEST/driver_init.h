@@ -28,16 +28,14 @@ extern "C" {
 #include <hpl_tc_base.h>
 #include <hal_timer.h>
 #include <hpl_tc_base.h>
-
 #include <hal_timer.h>
-#include <hpl_tcc.h>
+#include <hpl_tc_base.h>
 
 extern struct spi_m_sync_descriptor SPI_0;
 
 extern struct pwm_descriptor   PWM_0;
 extern struct timer_descriptor TIMER_1;
 extern struct timer_descriptor TIMER_2;
-
 extern struct timer_descriptor TIMER_3;
 
 void SPI_0_PORT_init(void);
@@ -47,9 +45,6 @@ void SPI_0_init(void);
 void PWM_0_PORT_init(void);
 void PWM_0_CLOCK_init(void);
 void PWM_0_init(void);
-
-void TIMER_3_CLOCK_init(void);
-void TIMER_3_init(void);
 
 /**
  * \brief Perform system initialization, initialize pins and clocks for

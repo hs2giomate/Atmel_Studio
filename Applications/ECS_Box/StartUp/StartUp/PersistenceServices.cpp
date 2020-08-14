@@ -608,6 +608,12 @@ bool PersistenceServices::IsStateDataValid(HVACState& as)
 	uint32_t	crc=CalculateCRC((uint32_t *)PTR_HVAC_STATE(&as),sizeof(lastState));
 	return (refCRC==crc);
 }
+bool PersistenceServices::IsFastStateDataValid(HVACState& as)
+{
+	uint32_t	refCRC=memory.ReadFastCRCApplicationState();
+	uint32_t	crc=CalculateCRC((uint32_t *)PTR_HVAC_STATE(&as),sizeof(HVACState));
+	return (refCRC==crc);
+}
 
 void PersistenceServices::invalidatePersistentArea(uint8 nvm, NVMHeader& adr)
 	{

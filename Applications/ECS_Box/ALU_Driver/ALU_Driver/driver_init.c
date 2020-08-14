@@ -821,6 +821,20 @@ void system_init(void)
 
 	gpio_set_pin_function(VBUS_DETECTED, GPIO_PIN_FUNCTION_OFF);
 
+	// GPIO on PC13
+
+	gpio_set_pin_level(CAN_STDBY,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(CAN_STDBY, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(CAN_STDBY, GPIO_PIN_FUNCTION_OFF);
+
 	// GPIO on PC14
 
 	gpio_set_pin_level(CS_Holt,

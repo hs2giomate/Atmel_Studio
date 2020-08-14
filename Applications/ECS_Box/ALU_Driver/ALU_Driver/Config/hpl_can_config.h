@@ -13,14 +13,14 @@
 // <i> Enable CAN FD operation
 // <id> can_cccr_fdoe
 #ifndef CONF_CAN1_CCCR_FDOE
-#define CONF_CAN1_CCCR_FDOE 0
+#define CONF_CAN1_CCCR_FDOE 1
 #endif
 
 // <q> Bit Rate Switch Enable
 // <i> Bit Rate Switch Enable
 // <id> can_cccr_brse
 #ifndef CONF_CAN1_CCCR_BRSE
-#define CONF_CAN1_CCCR_BRSE 0
+#define CONF_CAN1_CCCR_BRSE 1
 #endif
 
 // <hidden> Run In Standby is invalid for C21/E5x/D5x devices
@@ -40,7 +40,7 @@
 // <3=> Critical latency
 // <id> can_mrcfg_dqos
 #ifndef CONF_CAN1_MRCFG_DQOS
-#define CONF_CAN1_MRCFG_DQOS 0
+#define CONF_CAN1_MRCFG_DQOS 2
 #endif
 
 // </h>
@@ -51,28 +51,28 @@
 // <i> Baud Rate Prescale
 // <id> can_btp_brp
 #ifndef CONF_CAN1_BTP_BRP
-#define CONF_CAN1_BTP_BRP 3
+#define CONF_CAN1_BTP_BRP 2
 #endif
 
 // <o> time segment before sample point <2-256>
 // <i> time segment before sample point
 // <id> can_btp_tseg1
 #ifndef CONF_CAN1_BTP_TSEG1
-#define CONF_CAN1_BTP_TSEG1 11
+#define CONF_CAN1_BTP_TSEG1 13
 #endif
 
 // <o> time segment after sample point <1-128>
 // <i> time segment after sample point
 // <id> can_btp_tseg2
 #ifndef CONF_CAN1_BTP_TSEG2
-#define CONF_CAN1_BTP_TSEG2 8
+#define CONF_CAN1_BTP_TSEG2 2
 #endif
 
 // <o> Data (Re)Syncronization Jump Width <1-128>
 // <i> (Re)Syncronization Jump Width
 // <id> can_btp_sjw
 #ifndef CONF_CAN1_BTP_SJW
-#define CONF_CAN1_BTP_SJW 4
+#define CONF_CAN1_BTP_SJW 1
 #endif
 
 // </h>
@@ -90,28 +90,28 @@
 // <i> Data Baud Rate Prescaler
 // <id> can_dbtp_dbrp
 #ifndef CONF_CAN1_DBTP_DBRP
-#define CONF_CAN1_DBTP_DBRP 1
+#define CONF_CAN1_DBTP_DBRP 2
 #endif
 
 // <o> Fast time segment before sample point <1-32>
 // <i> Fast time segment before sample point
 // <id> can_dbtp_dtseg1
 #ifndef CONF_CAN1_DBTP_DTSEG1
-#define CONF_CAN1_DBTP_DTSEG1 11
+#define CONF_CAN1_DBTP_DTSEG1 13
 #endif
 
 // <o> Data time segment after sample point <1-16>
 // <i> Fast time segment after sample point
 // <id> can_dbtp_dtseg2
 #ifndef CONF_CAN1_DBTP_DTSEG2
-#define CONF_CAN1_DBTP_DTSEG2 4
+#define CONF_CAN1_DBTP_DTSEG2 2
 #endif
 
 // <o> Data (Re)Syncronization Jump Width <1-16>
 // <i> Fast Syncronization Jump Width
 // <id> can_dbtp_dsjw
 #ifndef CONF_CAN1_DBTP_DSJW
-#define CONF_CAN1_DBTP_DSJW 4
+#define CONF_CAN1_DBTP_DSJW 1
 #endif
 
 // </h>
@@ -124,7 +124,7 @@
 // <1=> overwrite mode
 // <id> can_rxf0c_f0om
 #ifndef CONF_CAN1_RXF0C_F0OM
-#define CONF_CAN1_RXF0C_F0OM 0
+#define CONF_CAN1_RXF0C_F0OM 1
 #endif
 
 // <o> Watermark <0-64>
@@ -138,7 +138,7 @@
 // <i> Number of Rx FIFO 0 element
 // <id> can_rxf0c_f0s
 #ifndef CONF_CAN1_RXF0C_F0S
-#define CONF_CAN1_RXF0C_F0S 2
+#define CONF_CAN1_RXF0C_F0S 1
 #endif
 
 // <o> Data Field Size
@@ -153,7 +153,7 @@
 // <7=> 64 byte data field.
 // <id> can_rxesc_f0ds
 #ifndef CONF_CAN1_RXESC_F0DS
-#define CONF_CAN1_RXESC_F0DS 0
+#define CONF_CAN1_RXESC_F0DS 7
 #endif
 
 /* Bytes size for CAN FIFO 0 element, plus 8 bytes for R0,R1 */
@@ -169,7 +169,7 @@
 // <i> Number of Tx Buffers used for Tx FIFO
 // <id> can_txbc_tfqs
 #ifndef CONF_CAN1_TXBC_TFQS
-#define CONF_CAN1_TXBC_TFQS 2
+#define CONF_CAN1_TXBC_TFQS 1
 #endif
 
 // <o> Tx Buffer Data Field Size
@@ -184,7 +184,7 @@
 // <7=> 64 byte data field.
 // <id> can_txesc_tbds
 #ifndef CONF_CAN1_TXESC_TBDS
-#define CONF_CAN1_TXESC_TBDS 0
+#define CONF_CAN1_TXESC_TBDS 7
 #endif
 
 /* Bytes size for CAN Transmit Buffer element, plus 8 bytes for R0,R1 */
@@ -222,7 +222,7 @@
 // <2=> Reject
 // <id> can_gfc_anfs
 #ifndef CONF_CAN1_GFC_ANFS
-#define CONF_CAN1_GFC_ANFS 2
+#define CONF_CAN1_GFC_ANFS 0
 #endif
 
 // <o> Accept Non-matching Frames Extended
@@ -258,7 +258,7 @@
 // <i> Number of standard Message ID filter elements
 // <id> can_sidfc_lss
 #ifndef CONF_CAN1_SIDFC_LSS
-#define CONF_CAN1_SIDFC_LSS 2
+#define CONF_CAN1_SIDFC_LSS 32
 #endif
 
 // <o> Number of Extended Message ID filter elements <0-128>
@@ -275,7 +275,7 @@
 // <i> mask is not active.
 // <id> can_xidam_eidm
 #ifndef CONF_CAN1_XIDAM_EIDM
-#define CONF_CAN1_XIDAM_EIDM 0x0
+#define CONF_CAN1_XIDAM_EIDM 0x1fffffff
 #endif
 
 // </h>

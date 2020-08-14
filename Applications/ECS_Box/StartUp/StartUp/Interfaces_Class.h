@@ -20,6 +20,8 @@ protected:
 private:
 	HVACState	state;
 	HVACStatus	status;
+	uint8_t		checkResult,i;
+		
 	
 //functions
 public:
