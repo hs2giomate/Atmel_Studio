@@ -31,7 +31,7 @@ static void I2C_tx_complete(struct i2c_m_async_desc *const i2c)
 // default constructor
 I2C_Asyn_Class::I2C_Asyn_Class()
 {
-	ptrI2CAsynDescr=&I2C_EEPROM;
+	ptrI2CAsynDescr=&I2C_EXPANDER;
 	ptrI2C_Asyn_Class=this;
 } //I2C_Asyn_Class
 // default constructor

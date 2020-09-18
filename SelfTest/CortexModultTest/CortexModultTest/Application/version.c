@@ -15,7 +15,7 @@ const uint8_t versionMinor = 0;
 const uint8_t versionBugfix = 0;
 const uint8_t developmentStage = 1;
 const uint16_t release = 1;
-const uint16_t build =3;
+const uint16_t build =4;
 const uint16_t revision = 1;
 
 

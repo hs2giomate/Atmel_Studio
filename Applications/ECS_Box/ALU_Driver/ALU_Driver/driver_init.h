@@ -29,13 +29,12 @@ extern "C" {
 #include <hal_qspi_sync.h>
 
 #include <hal_calendar.h>
+#include <hal_spi_m_sync.h>
 
 #include <hal_spi_m_async.h>
 
 #include <hal_i2c_m_async.h>
 #include <hal_spi_m_sync.h>
-
-#include <hal_i2c_m_async.h>
 #include <hal_timer.h>
 #include <hpl_tc_base.h>
 #include <hal_timer.h>
@@ -56,18 +55,17 @@ extern struct crc_sync_descriptor CRC_CALC;
 
 extern struct qspi_sync_descriptor QSPI_N25Q256;
 
-extern struct calendar_descriptor DATETIME_CLOCK;
+extern struct calendar_descriptor   DATETIME_CLOCK;
+extern struct spi_m_sync_descriptor SPI_HI3593;
 
 extern struct spi_m_async_descriptor SPI_TEMP;
 
 extern struct i2c_m_async_desc      I2C_EXPANDER;
-extern struct spi_m_sync_descriptor SPI_HI3593;
-
-extern struct i2c_m_async_desc I2C_EEPROM;
-extern struct timer_descriptor TIMER_INTERFACE;
-extern struct timer_descriptor TIMER_EVENT;
-extern struct timer_descriptor TIMER_ARINC;
-extern struct timer_descriptor TIMER_HVAC;
+extern struct spi_m_sync_descriptor SPI_MEMORIES;
+extern struct timer_descriptor      TIMER_INTERFACE;
+extern struct timer_descriptor      TIMER_EVENT;
+extern struct timer_descriptor      TIMER_ARINC;
+extern struct timer_descriptor      TIMER_HVAC;
 
 extern struct pwm_descriptor LIVE_PULSE;
 
@@ -81,6 +79,10 @@ void QSPI_N25Q256_init(void);
 void DATETIME_CLOCK_CLOCK_init(void);
 void DATETIME_CLOCK_init(void);
 
+void SPI_HI3593_PORT_init(void);
+void SPI_HI3593_CLOCK_init(void);
+void SPI_HI3593_init(void);
+
 void SPI_TEMP_PORT_init(void);
 void SPI_TEMP_CLOCK_init(void);
 void SPI_TEMP_init(void);
@@ -89,13 +91,9 @@ void I2C_EXPANDER_PORT_init(void);
 void I2C_EXPANDER_CLOCK_init(void);
 void I2C_EXPANDER_init(void);
 
-void SPI_HI3593_PORT_init(void);
-void SPI_HI3593_CLOCK_init(void);
-void SPI_HI3593_init(void);
-
-void I2C_EEPROM_PORT_init(void);
-void I2C_EEPROM_CLOCK_init(void);
-void I2C_EEPROM_init(void);
+void SPI_MEMORIES_PORT_init(void);
+void SPI_MEMORIES_CLOCK_init(void);
+void SPI_MEMORIES_init(void);
 
 void LIVE_PULSE_PORT_init(void);
 void LIVE_PULSE_CLOCK_init(void);

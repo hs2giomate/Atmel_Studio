@@ -307,6 +307,12 @@
     <Compile Include="FlashMemoryClass.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="FRAM_Memory_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FRAM_Memory_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>

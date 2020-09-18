@@ -8,6 +8,8 @@ Device_Startup\system_samd21.c
 
 FlashMemoryClass.cpp
 
+FRAM_Memory_Class.cpp
+
 main.cpp
 
 Parameters.cpp

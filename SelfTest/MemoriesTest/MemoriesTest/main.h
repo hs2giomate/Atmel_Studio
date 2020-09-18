@@ -9,6 +9,10 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 #include "FlashMemoryClass.h"
+#include "FRAM_Memory_Class.h"
+
+void	FramMemoryTest(void);
+void	FlashMemoryTest(void);
 
 
 

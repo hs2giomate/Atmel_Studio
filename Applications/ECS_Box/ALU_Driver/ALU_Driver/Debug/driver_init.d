@@ -146,12 +146,12 @@ driver_init.d driver_init.o: .././driver_init.c .././driver_init.h \
  ../hal/include/hal_qspi_sync.h ../hal/include/hpl_qspi_sync.h \
  ../hal/include/hpl_qspi.h ../hal/include/hal_calendar.h \
  ../hal/include/hpl_calendar.h ../hal/utils/include/utils_list.h \
- ../hal/include/hpl_irq.h ../hal/include/hal_spi_m_async.h \
- ../hal/include/hpl_spi_m_async.h ../hal/include/hpl_spi.h \
- ../hal/utils/include/utils.h ../hal/include/hpl_spi_async.h \
- ../hal/include/hal_i2c_m_async.h ../hal/include/hpl_i2c_m_async.h \
- ../hal/include/hpl_i2c_m_sync.h ../hal/include/hal_spi_m_sync.h \
- ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi_sync.h \
+ ../hal/include/hpl_irq.h ../hal/include/hal_spi_m_sync.h \
+ ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi.h \
+ ../hal/utils/include/utils.h ../hal/include/hpl_spi_sync.h \
+ ../hal/include/hal_spi_m_async.h ../hal/include/hpl_spi_m_async.h \
+ ../hal/include/hpl_spi_async.h ../hal/include/hal_i2c_m_async.h \
+ ../hal/include/hpl_i2c_m_async.h ../hal/include/hpl_i2c_m_sync.h \
  ../hal/include/hal_timer.h ../hal/include/hpl_timer.h \
  ../hpl/tc/hpl_tc_base.h ../hal/include/hpl_pwm.h \
  ../hal/include/hal_pwm.h ../hal/include/hal_usb_device.h \
@@ -537,13 +537,19 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../hal/include/hpl_irq.h:
 
-../hal/include/hal_spi_m_async.h:
+../hal/include/hal_spi_m_sync.h:
 
-../hal/include/hpl_spi_m_async.h:
+../hal/include/hpl_spi_m_sync.h:
 
 ../hal/include/hpl_spi.h:
 
 ../hal/utils/include/utils.h:
+
+../hal/include/hpl_spi_sync.h:
+
+../hal/include/hal_spi_m_async.h:
+
+../hal/include/hpl_spi_m_async.h:
 
 ../hal/include/hpl_spi_async.h:
 
@@ -552,12 +558,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../hal/include/hpl_i2c_m_async.h:
 
 ../hal/include/hpl_i2c_m_sync.h:
-
-../hal/include/hal_spi_m_sync.h:
-
-../hal/include/hpl_spi_m_sync.h:
-
-../hal/include/hpl_spi_sync.h:
 
 ../hal/include/hal_timer.h:
 

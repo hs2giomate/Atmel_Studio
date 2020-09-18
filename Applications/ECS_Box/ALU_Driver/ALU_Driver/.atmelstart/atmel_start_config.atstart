@@ -2,16 +2,16 @@ format_version: '2'
 name: ALU_DRIVER
 versions:
   api: '1.0'
-  backend: 1.7.391
-  commit: d4b7e9f65a05ebffcb0986e4060cb8c0a313e69a
+  backend: 1.7.430
+  commit: f09e2a2493613fab9dafdd76d38e1ed2f0a13a39
   content: unknown
   content_pack_name: unknown
   format: '2'
-  frontend: 1.7.391
-  packs_version_avr8: 1.0.1421
+  frontend: 1.7.430
+  packs_version_avr8: 1.0.1429
   packs_version_qtouch: unknown
   packs_version_sam: 1.0.1658
-  version_backend: 1.7.391
+  version_backend: 1.7.430
   version_frontend: ''
 board:
   identifier: SAME54XplainedPro
@@ -1255,7 +1255,7 @@ drivers:
       enable_gclk_gen_4__externalclock: 1000000
       enable_gclk_gen_5: true
       enable_gclk_gen_5__externalclock: 1000000
-      enable_gclk_gen_6: false
+      enable_gclk_gen_6: true
       enable_gclk_gen_6__externalclock: 1000000
       enable_gclk_gen_7: false
       enable_gclk_gen_7__externalclock: 1000000
@@ -1303,11 +1303,11 @@ drivers:
       gclk_arch_gen_5_oe: true
       gclk_arch_gen_5_oov: false
       gclk_arch_gen_5_runstdby: true
-      gclk_arch_gen_6_enable: false
+      gclk_arch_gen_6_enable: true
       gclk_arch_gen_6_idc: false
-      gclk_arch_gen_6_oe: false
+      gclk_arch_gen_6_oe: true
       gclk_arch_gen_6_oov: false
-      gclk_arch_gen_6_runstdby: false
+      gclk_arch_gen_6_runstdby: true
       gclk_arch_gen_7_enable: false
       gclk_arch_gen_7_idc: false
       gclk_arch_gen_7_oe: false
@@ -1347,7 +1347,7 @@ drivers:
       gclk_gen_5_div: 6
       gclk_gen_5_div_sel: false
       gclk_gen_5_oscillator: External Crystal Oscillator 8-48MHz (XOSC1)
-      gclk_gen_6_div: 1
+      gclk_gen_6_div: 12
       gclk_gen_6_div_sel: false
       gclk_gen_6_oscillator: External Crystal Oscillator 8-48MHz (XOSC1)
       gclk_gen_7_div: 1
@@ -1681,9 +1681,53 @@ drivers:
           external_frequency: 0
         configuration:
           rtc_clk_selection: RTC source
+  SPI_HI3593:
+    user_label: SPI_HI3593
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM0::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
+    functionality: SPI
+    api: HAL:Driver:SPI_Master_Sync
+    configuration:
+      spi_master_advanced: false
+      spi_master_arch_cpha: Sample input on leading edge
+      spi_master_arch_cpol: SCK is low when idle
+      spi_master_arch_dbgstop: Keep running
+      spi_master_arch_dord: MSB first
+      spi_master_arch_ibon: In data stream
+      spi_master_arch_runstdby: false
+      spi_master_baud_rate: 100000
+      spi_master_character_size: 8 bits
+      spi_master_dummybyte: 511
+      spi_master_rx_enable: true
+    optional_signals: []
+    variant:
+      specification: TXPO=0, RXPO=2
+      required_signals:
+      - name: SERCOM0/PAD/0
+        pad: PC17
+        label: MOSI
+      - name: SERCOM0/PAD/1
+        pad: PC16
+        label: SCK
+      - name: SERCOM0/PAD/2
+        pad: PA06
+        label: MISO
+    clocks:
+      domain_group:
+        nodes:
+        - name: Core
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Slow
+          input: Generic clock generator 3
+          external: false
+          external_frequency: 0
+        configuration:
+          core_gclk_selection: Generic clock generator 0
+          slow_gclk_selection: Generic clock generator 3
   SPI_TEMP:
     user_label: SPI_TEMP
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM4::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Async
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM1::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Async
     functionality: SPI
     api: HAL:Driver:SPI_Master_Async
     configuration:
@@ -1702,29 +1746,29 @@ drivers:
     variant:
       specification: TXPO=0, RXPO=2
       required_signals:
-      - name: SERCOM4/PAD/0
-        pad: PB27
+      - name: SERCOM1/PAD/0
+        pad: PA00
         label: MOSI
-      - name: SERCOM4/PAD/1
-        pad: PB26
+      - name: SERCOM1/PAD/1
+        pad: PA01
         label: SCK
-      - name: SERCOM4/PAD/2
-        pad: PB28
+      - name: SERCOM1/PAD/2
+        pad: PA18
         label: MISO
     clocks:
       domain_group:
         nodes:
         - name: Core
-          input: Generic clock generator 3
+          input: Generic clock generator 0
           external: false
           external_frequency: 0
         - name: Slow
-          input: Generic clock generator 10
+          input: Generic clock generator 3
           external: false
           external_frequency: 0
         configuration:
-          core_gclk_selection: Generic clock generator 3
-          slow_gclk_selection: Generic clock generator 10
+          core_gclk_selection: Generic clock generator 0
+          slow_gclk_selection: Generic clock generator 3
   I2C_EXPANDER:
     user_label: I2C_EXPANDER
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM5::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Async
@@ -1755,18 +1799,18 @@ drivers:
       domain_group:
         nodes:
         - name: Core
-          input: Generic clock generator 3
+          input: Generic clock generator 2
           external: false
           external_frequency: 0
         - name: Slow
-          input: Generic clock generator 10
+          input: Generic clock generator 6
           external: false
           external_frequency: 0
         configuration:
-          core_gclk_selection: Generic clock generator 3
-          slow_gclk_selection: Generic clock generator 10
-  SPI_HI3593:
-    user_label: SPI_HI3593
+          core_gclk_selection: Generic clock generator 2
+          slow_gclk_selection: Generic clock generator 6
+  SPI_MEMORIES:
+    user_label: SPI_MEMORIES
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM6::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
     functionality: SPI
     api: HAL:Driver:SPI_Master_Sync
@@ -1778,63 +1822,23 @@ drivers:
       spi_master_arch_dord: MSB first
       spi_master_arch_ibon: In data stream
       spi_master_arch_runstdby: false
-      spi_master_baud_rate: 100000
+      spi_master_baud_rate: 8000000
       spi_master_character_size: 8 bits
       spi_master_dummybyte: 511
       spi_master_rx_enable: true
     optional_signals: []
     variant:
-      specification: TXPO=0, RXPO=3
+      specification: TXPO=0, RXPO=2
       required_signals:
       - name: SERCOM6/PAD/0
-        pad: PC04
+        pad: PD09
         label: MOSI
       - name: SERCOM6/PAD/1
-        pad: PC05
-        label: SCK
-      - name: SERCOM6/PAD/3
-        pad: PC07
-        label: MISO
-    clocks:
-      domain_group:
-        nodes:
-        - name: Core
-          input: Generic clock generator 3
-          external: false
-          external_frequency: 0
-        - name: Slow
-          input: Generic clock generator 10
-          external: false
-          external_frequency: 0
-        configuration:
-          core_gclk_selection: Generic clock generator 3
-          slow_gclk_selection: Generic clock generator 10
-  I2C_EEPROM:
-    user_label: I2C_EEPROM
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM7::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Async
-    functionality: I2C
-    api: HAL:Driver:I2C_Master_Async
-    configuration:
-      i2c_master_advanced: false
-      i2c_master_arch_dbgstop: Keep running
-      i2c_master_arch_inactout: Disabled
-      i2c_master_arch_lowtout: false
-      i2c_master_arch_mexttoen: false
-      i2c_master_arch_runstdby: false
-      i2c_master_arch_sdahold: 300-600ns hold time
-      i2c_master_arch_sexttoen: false
-      i2c_master_arch_trise: 215
-      i2c_master_baud_rate: 400000
-    optional_signals: []
-    variant:
-      specification: SDA=0, SCL=1
-      required_signals:
-      - name: SERCOM7/PAD/0
         pad: PD08
-        label: SDA
-      - name: SERCOM7/PAD/1
-        pad: PD09
-        label: SCL
+        label: SCK
+      - name: SERCOM6/PAD/2
+        pad: PC06
+        label: MISO
     clocks:
       domain_group:
         nodes:
@@ -1843,12 +1847,12 @@ drivers:
           external: false
           external_frequency: 0
         - name: Slow
-          input: Generic clock generator 10
+          input: Generic clock generator 6
           external: false
           external_frequency: 0
         configuration:
           core_gclk_selection: Generic clock generator 2
-          slow_gclk_selection: Generic clock generator 10
+          slow_gclk_selection: Generic clock generator 6
   TIMER_INTERFACE:
     user_label: TIMER_INTERFACE
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TC0::driver_config_definition::Timer::HAL:Driver:Timer
@@ -1996,21 +2000,7 @@ drivers:
       tc_mode: Counter in 32-bit mode
       tc_prescaler: No division
       timer_event_control: true
-    optional_signals:
-    - identifier: LIVE_PULSE:WO/0
-      pad: PB00
-      mode: PWM output
-      configuration: null
-      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::TC7.WO.0
-      name: TC7/WO/0
-      label: WO/0
-    - identifier: LIVE_PULSE:WO/1
-      pad: PB01
-      mode: PWM output
-      configuration: null
-      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::TC7.WO.1
-      name: TC7/WO/1
-      label: WO/1
+    optional_signals: []
     variant: null
     clocks:
       domain_group:
@@ -2142,6 +2132,18 @@ drivers:
         configuration:
           can_gclk_selection: Generic clock generator 3
 pads:
+  PA00:
+    name: PA00
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA00
+    mode: Digital output
+    user_label: PA00
+    configuration: null
+  PA01:
+    name: PA01
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA01
+    mode: Digital output
+    user_label: PA01
+    configuration: null
   VBUS_DETECTED:
     name: PC00
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC00
@@ -2170,24 +2172,32 @@ pads:
     user_label: PA05
     configuration:
       pad_pull_config: Pull-down
-  PC04:
-    name: PC04
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC04
-    mode: Digital output
-    user_label: PC04
+  PA06:
+    name: PA06
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA06
+    mode: Digital input
+    user_label: PA06
     configuration: null
-  PC05:
+  CS_FLASH:
     name: PC05
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC05
     mode: Digital output
-    user_label: PC05
+    user_label: CS_FLASH
+    configuration:
+      pad_initial_level: High
+  PC06:
+    name: PC06
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC06
+    mode: Digital input
+    user_label: PC06
     configuration: null
-  PC07:
+  CS_FRAM:
     name: PC07
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC07
-    mode: Digital input
-    user_label: PC07
-    configuration: null
+    mode: Digital output
+    user_label: CS_FRAM
+    configuration:
+      pad_initial_level: High
   FLASH_IO0:
     name: PA08
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA08
@@ -2239,13 +2249,13 @@ pads:
   PD08:
     name: PD08
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD08
-    mode: I2C
+    mode: Digital output
     user_label: PD08
     configuration: null
   PD09:
     name: PD09
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD09
-    mode: I2C
+    mode: Digital output
     user_label: PD09
     configuration: null
   CAN_STDBY:
@@ -2266,6 +2276,24 @@ pads:
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC15
     mode: Digital output
     user_label: Ethernet_Led
+    configuration: null
+  PA18:
+    name: PA18
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA18
+    mode: Digital input
+    user_label: PA18
+    configuration: null
+  PC16:
+    name: PC16
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC16
+    mode: Digital output
+    user_label: PC16
+    configuration: null
+  PC17:
+    name: PC17
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC17
+    mode: Digital output
+    user_label: PC17
     configuration: null
   LED0:
     name: PC18
@@ -2311,24 +2339,6 @@ pads:
     mode: Advanced
     user_label: PA25
     configuration: null
-  PB26:
-    name: PB26
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB26
-    mode: Digital output
-    user_label: PB26
-    configuration: null
-  PB27:
-    name: PB27
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB27
-    mode: Digital output
-    user_label: PB27
-    configuration: null
-  PB28:
-    name: PB28
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB28
-    mode: Digital input
-    user_label: PB28
-    configuration: null
   CS_SPI_LTC:
     name: PB29
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB29
@@ -2343,16 +2353,4 @@ pads:
     user_label: SW0
     configuration:
       pad_pull_config: Pull-up
-  PB00:
-    name: PB00
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB00
-    mode: Peripheral IO
-    user_label: PB00
-    configuration: null
-  PB01:
-    name: PB01
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB01
-    mode: Peripheral IO
-    user_label: PB01
-    configuration: null
 toolchain_options: []

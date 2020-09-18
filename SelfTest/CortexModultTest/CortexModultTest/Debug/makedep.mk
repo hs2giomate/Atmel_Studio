@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+Application\version.c
+
 Application_Class.cpp
 
 Device_Startup\startup_samd21.c

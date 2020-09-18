@@ -41,6 +41,7 @@ C_SRCS +=  \
 ../Device_Startup/startup_samd21.c \
 ../Device_Startup/system_samd21.c \
 ../FlashMemoryClass.cpp \
+../FRAM_Memory_Class.cpp \
 ../main.cpp \
 ../Parameters.cpp \
 ../SPI_Syn_Class.cpp
@@ -56,6 +57,7 @@ OBJS +=  \
 Device_Startup/startup_samd21.o \
 Device_Startup/system_samd21.o \
 FlashMemoryClass.o \
+FRAM_Memory_Class.o \
 main.o \
 Parameters.o \
 SPI_Syn_Class.o
@@ -64,6 +66,7 @@ OBJS_AS_ARGS +=  \
 Device_Startup/startup_samd21.o \
 Device_Startup/system_samd21.o \
 FlashMemoryClass.o \
+FRAM_Memory_Class.o \
 main.o \
 Parameters.o \
 SPI_Syn_Class.o
@@ -72,6 +75,7 @@ C_DEPS +=  \
 Device_Startup/startup_samd21.d \
 Device_Startup/system_samd21.d \
 FlashMemoryClass.d \
+FRAM_Memory_Class.d \
 main.d \
 Parameters.d \
 SPI_Syn_Class.d
@@ -80,6 +84,7 @@ C_DEPS_AS_ARGS +=  \
 Device_Startup/startup_samd21.d \
 Device_Startup/system_samd21.d \
 FlashMemoryClass.d \
+FRAM_Memory_Class.d \
 main.d \
 Parameters.d \
 SPI_Syn_Class.d
@@ -116,6 +121,13 @@ Device_Startup/system_samd21.o: ../Device_Startup/system_samd21.c
 	
 
 ./FlashMemoryClass.o: .././FlashMemoryClass.cpp
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAMD21J18A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAMD21_DFP\1.3.395\samd21a\include" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/Config" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/examples" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hal/include" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hal/utils/include" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/core" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/dmac" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/gclk" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/pm" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/port" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/rtc" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/sercom" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/sysctrl" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/tc" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/tcc" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hri"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m0plus -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./FRAM_Memory_Class.o: .././FRAM_Memory_Class.cpp
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAMD21J18A__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAMD21_DFP\1.3.395\samd21a\include" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/Config" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/examples" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hal/include" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hal/utils/include" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/core" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/dmac" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/gclk" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/pm" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/port" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/rtc" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/sercom" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/sysctrl" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/tc" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hpl/tcc" -I"../../../GPIO_SAMD21_TEST/GPIO_SAMD21_TEST/hri"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m0plus -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

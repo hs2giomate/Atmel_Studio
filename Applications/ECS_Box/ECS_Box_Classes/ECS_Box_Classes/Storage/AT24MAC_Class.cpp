@@ -174,4 +174,4 @@ bool AT24MAC_Class::IsReady(void){
 	return isReady;	
 }
 
-AT24MAC_Class	eeprom(&I2C_EEPROM);
+AT24MAC_Class	eeprom(&I2C_EXPANDER);

@@ -24,8 +24,6 @@ void SPI_TEMP_example(void);
 
 void I2C_EXPANDER_example(void);
 
-void I2C_EEPROM_example(void);
-
 void TIMER_INTERFACE_example(void);
 
 void TIMER_EVENT_example(void);
