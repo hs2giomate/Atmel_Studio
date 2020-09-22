@@ -36,7 +36,7 @@ void SPI_Syn_Class::init(){
 	ready=true;
 	
 }
-void SPI_Syn_Class::setDescriptor(spi_m_sync_descriptor *spiDesc){
+void SPI_Syn_Class::SetDescriptor(spi_m_sync_descriptor *spiDesc){
 	ptrSPISync=this;
 	SPI=spiDesc;
 }

@@ -7,6 +7,7 @@
 
 
 #include "FlapperValve_Class.h"
+#include "MCP23017_Class.h"
 
 // default constructor
 FlapperValve_Class::FlapperValve_Class()

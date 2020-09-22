@@ -67,7 +67,7 @@ unsigned char LabelPriority2 [3];
   
  uint8_t	Holt_3593_Class::Init(void){
 	 
-	 spi.setDescriptor(&SPI_HI3593);
+	 spi.SetDescriptor(&SPI_HI3593);
 	  spi.init();
 	 uint8_t	status=	Init3593(ACLKDIV,  // ARINC clock divisor
 	 TMODE,    // Transmit mode. Set for "send as soon as possible"

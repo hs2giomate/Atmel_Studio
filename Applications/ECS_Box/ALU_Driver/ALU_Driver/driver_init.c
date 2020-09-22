@@ -14,10 +14,12 @@
 struct crc_sync_descriptor   CRC_CALC;
 struct spi_m_sync_descriptor SPI_HI3593;
 struct spi_m_sync_descriptor SPI_MEMORIES;
-struct timer_descriptor      TIMER_INTERFACE;
+struct timer_descriptor      TIMER_USB;
 struct timer_descriptor      TIMER_EVENT;
 struct timer_descriptor      TIMER_ARINC;
 struct timer_descriptor      TIMER_HVAC;
+struct timer_descriptor      TIMER_MAINTENANCE;
+struct timer_descriptor      TIMER_INTERFACE;
 struct can_async_descriptor  CAN_CCU;
 
 struct qspi_sync_descriptor QSPI_N25Q256;
@@ -559,12 +561,12 @@ void SPI_MEMORIES_init(void)
  *
  * Enables Timer peripheral, clocks and initializes Timer driver
  */
-static void TIMER_INTERFACE_init(void)
+static void TIMER_USB_init(void)
 {
 	hri_mclk_set_APBAMASK_TC0_bit(MCLK);
 	hri_gclk_write_PCHCTRL_reg(GCLK, TC0_GCLK_ID, CONF_GCLK_TC0_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 
-	timer_init(&TIMER_INTERFACE, TC0, _tc_get_timer());
+	timer_init(&TIMER_USB, TC0, _tc_get_timer());
 }
 
 /**
@@ -604,6 +606,32 @@ static void TIMER_HVAC_init(void)
 	hri_gclk_write_PCHCTRL_reg(GCLK, TC3_GCLK_ID, CONF_GCLK_TC3_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 
 	timer_init(&TIMER_HVAC, TC3, _tc_get_timer());
+}
+
+/**
+ * \brief Timer initialization function
+ *
+ * Enables Timer peripheral, clocks and initializes Timer driver
+ */
+static void TIMER_MAINTENANCE_init(void)
+{
+	hri_mclk_set_APBCMASK_TC4_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TC4_GCLK_ID, CONF_GCLK_TC4_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+
+	timer_init(&TIMER_MAINTENANCE, TC4, _tc_get_timer());
+}
+
+/**
+ * \brief Timer initialization function
+ *
+ * Enables Timer peripheral, clocks and initializes Timer driver
+ */
+static void TIMER_INTERFACE_init(void)
+{
+	hri_mclk_set_APBCMASK_TC5_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TC5_GCLK_ID, CONF_GCLK_TC5_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+
+	timer_init(&TIMER_INTERFACE, TC5, _tc_get_timer());
 }
 
 void LIVE_PULSE_PORT_init(void)
@@ -934,10 +962,12 @@ void system_init(void)
 
 	SPI_MEMORIES_init();
 
-	TIMER_INTERFACE_init();
+	TIMER_USB_init();
 	TIMER_EVENT_init();
 	TIMER_ARINC_init();
 	TIMER_HVAC_init();
+	TIMER_MAINTENANCE_init();
+	TIMER_INTERFACE_init();
 	LIVE_PULSE_init();
 
 	CDCUSB_init();

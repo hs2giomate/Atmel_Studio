@@ -434,10 +434,28 @@
     <Compile Include="Storage\AT24MAC_Class.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Storage\FlashMemoryClass.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\FlashMemoryClass.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\FRAM_Memory_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\FRAM_Memory_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Storage\N25Q256_Class.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Storage\N25Q256_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\Parameters.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Storage\Parameters.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Storage\RingBuffer.h">

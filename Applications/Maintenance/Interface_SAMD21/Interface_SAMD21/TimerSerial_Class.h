@@ -14,7 +14,7 @@
 #include "utils.h"
 #include <utils_list.h>
 #include <hpl_timer.h>
-#define TASK_NUMBER		4
+#define TASK_NUMBER		8
 
 
 class TimerSerial_Class
@@ -69,7 +69,7 @@ private:
 
 }; //Timer_Class
 
-extern	TimerSerial_Class usbTimer;
-
+extern	TimerSerial_Class usbTerminalTimer;
+extern	TimerSerial_Class interfaceTimer;
 
 #endif //__TIMER_CLASS_H__

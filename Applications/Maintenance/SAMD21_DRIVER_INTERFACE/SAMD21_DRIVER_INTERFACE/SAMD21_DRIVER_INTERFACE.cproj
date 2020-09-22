@@ -138,11 +138,11 @@
           <AcmeProjectActionInfo Action="File" Source="usb/usb_protocol.c" IsConfig="false" Hash="506QsMNqKwMw3St/nEXa8Q" />
           <AcmeProjectActionInfo Action="File" Source="usb/usb_protocol.h" IsConfig="false" Hash="IjsDWsLIdSQj3pFlkAX0UA" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="HCVyIVt8d4nc2IMY+CPvOQ" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="H4qtn+3QV3Smp9rOi7B15Q" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="HchlklITm51vp9KG80sVoA" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="qtsm0PxU6Mwzgos/n2gwUA" />
           <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="fCabQPP40V0FXYNGelrysA" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="ioBZb4YUK4HefmZYLaQRgA" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="XUWHIIewjEvwvPg7z/H2tw" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="sEUayntSQ+cML5nmnbSzRQ" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="01Yhg4vGBIgsBi9/XCdgzg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_timer.h" IsConfig="false" Hash="5pZVthtMl40VMvofOld2ng" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_calendar.h" IsConfig="false" Hash="BydYrqFPbPNiZJO/Ir3uTQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_missing_features.h" IsConfig="false" Hash="XsAvpgfutzkw0Y5SydYFaw" />
@@ -173,7 +173,7 @@
           <AcmeProjectActionInfo Action="File" Source="hpl/rtc/hpl_rtc_base.h" IsConfig="false" Hash="6MZP9mg3QA6lytcm00LePQ" />
           <AcmeProjectActionInfo Action="File" Source="hpl/sercom/hpl_sercom.c" IsConfig="false" Hash="dr5LuevJbM4AXs6Wy7Dpsg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/sysctrl/hpl_sysctrl.c" IsConfig="false" Hash="d4wIg1swqGafMtp4ATkI2w" />
-          <AcmeProjectActionInfo Action="File" Source="hpl/tc/hpl_tc.c" IsConfig="false" Hash="ReUiR7Ahjj7Bj6j7lzJV0w" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/tc/hpl_tc.c" IsConfig="false" Hash="35XzqSu3oQJJnwE3U/BVOw" />
           <AcmeProjectActionInfo Action="File" Source="hpl/tc/hpl_tc_base.h" IsConfig="false" Hash="gjj5IyaZPy6sUReifzS1GQ" />
           <AcmeProjectActionInfo Action="File" Source="hpl/usb/hpl_usb.c" IsConfig="false" Hash="f7KYTBdjUC7VhcMdSgU7Wg" />
           <AcmeProjectActionInfo Action="File" Source="usb_start.c" IsConfig="false" Hash="Z3VoMycwi6ePlP/FidkA8w" />
@@ -186,9 +186,9 @@
           <AcmeProjectActionInfo Action="File" Source="config/hpl_rtc_config.h" IsConfig="true" Hash="oFcuAvWZP0Ii9Zk19YZ01Q" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="gniqXkLrcNR/UthhCBew9w" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_sysctrl_config.h" IsConfig="true" Hash="M7T8cxtON9ithlJ/uHeHkA" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_tc_config.h" IsConfig="true" Hash="3+dI0yHpus78AnrrjT9QUQ" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_tc_config.h" IsConfig="true" Hash="V+E9+Jp0FlbgHwWMBOMoVw" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_usb_config.h" IsConfig="true" Hash="7Y+Y3ly4J8lQY5S8ItH/9Q" />
-          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="Oq2ALyBCeBL+JO0hBpZQAA" />
+          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="d0WNHnG0Y3PUoKn7eUbkJg" />
           <AcmeProjectActionInfo Action="File" Source="config/usbd_config.h" IsConfig="true" Hash="D6drRowd1XvzVArZlLMbvA" />
         </AcmeActionInfos>
         <NonsecureFilesInfo />

@@ -129,13 +129,13 @@ bool	N25Q256_Class::SelfTest(void){
 // 	}	uint8_t	testRXBuffer[QSPI_ERBLK];
 	uint8_t	testTXBuffer[QSPI_ERBLK];
 	ReadAddress(testTXBuffer,currentAddress,QSPI_ERBLK);
-	flash.WaitOnBusy();
+	WaitOnBusy();
 	Erase(currentAddress);
-	flash.WaitOnBusy();
+	WaitOnBusy();
 	WriteAddress(testTXBuffer,currentAddress,QSPI_ERBLK);
-	flash.WaitOnBusy();
+	WaitOnBusy();
 	ReadAddress(testRXBuffer,currentAddress,QSPI_ERBLK);
-	flash.WaitOnBusy();
+	WaitOnBusy();
 	isOK	 = true;
 	for (int i = 0; i < QSPI_ERBLK; i++) {
 		if (testRXBuffer[i] != testTXBuffer[i]) {
@@ -148,4 +148,4 @@ bool	N25Q256_Class::SelfTest(void){
 	}
 	return	isOK;
 }
-N25Q256_Class	flash(&QSPI_N25Q256);
+N25Q256_Class	qspiFlash(&QSPI_N25Q256);

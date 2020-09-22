@@ -133,6 +133,10 @@ static struct _timer_device *_tc2_dev = NULL;
 
 static struct _timer_device *_tc3_dev = NULL;
 
+static struct _timer_device *_tc4_dev = NULL;
+
+static struct _timer_device *_tc5_dev = NULL;
+
 static struct _pwm_device *_tc7_dev = NULL;
 
 static int8_t         get_tc_index(const void *const hw);
@@ -492,6 +496,22 @@ void TC3_Handler(void)
 /**
  * \brief TC interrupt handler
  */
+void TC4_Handler(void)
+{
+	tc_interrupt_handler(_tc4_dev);
+}
+
+/**
+ * \brief TC interrupt handler
+ */
+void TC5_Handler(void)
+{
+	tc_interrupt_handler(_tc5_dev);
+}
+
+/**
+ * \brief TC interrupt handler
+ */
 void TC7_Handler(void)
 {
 	tc_pwm_interrupt_handler(_tc7_dev);
@@ -535,6 +555,12 @@ static void _tc_init_irq_param(const void *const hw, void *dev)
 	}
 	if (hw == TC3) {
 		_tc3_dev = (struct _timer_device *)dev;
+	}
+	if (hw == TC4) {
+		_tc4_dev = (struct _timer_device *)dev;
+	}
+	if (hw == TC5) {
+		_tc5_dev = (struct _timer_device *)dev;
 	}
 	if (hw == TC7) {
 		_tc7_dev = (struct _pwm_device *)dev;

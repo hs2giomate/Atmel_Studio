@@ -14,7 +14,7 @@
 #include "utils.h"
 #include <utils_list.h>
 #include <hpl_timer.h>
-
+#define TASK_NUMBER		8
 
 
 class TimerSerial_Class
@@ -24,15 +24,16 @@ public:
 	bool	enabled;
 	volatile bool	timeout;
 	FUNC_PTR			handler;
-	
+	timer_task*			task;
 protected:
 private:
 	timer_descriptor    *timer_descr;
 	//Tc* timerRegister;
 	TimerSerial_Class	*    prtTimer;
 	uint32_t	 clockCycles;
-	timer_task			task;
+	
 	uint32_t			ticks;
+	uint8_t			i,j;
 //functions
 public:
 	TimerSerial_Class();
@@ -55,6 +56,9 @@ public:
 	int32_t	Start_oneShot_task(FUNC_PTR func,uint32_t interval);
 	void Remove_task();
 	uint32_t	Get_ticks(void);
+	void	GetTaskFunction(FUNC_PTR func);
+	void	ChooseAvailableTimerTask(void);
+	void	Remove_task(FUNC_PTR func);
 	
 
 protected:
@@ -65,7 +69,7 @@ private:
 
 }; //Timer_Class
 
-extern	TimerSerial_Class usbTimer;
-
+extern	TimerSerial_Class usbTerminalTimer;
+extern	TimerSerial_Class interfaceTimer;
 
 #endif //__TIMER_CLASS_H__

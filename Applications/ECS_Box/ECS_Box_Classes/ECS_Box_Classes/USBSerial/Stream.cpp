@@ -321,6 +321,6 @@ int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {
 unsigned long Stream::millis(void){
 	uint32_t ticks;
 	
-	ticks= usbTimer.Get_ticks();
+	ticks= usbTerminalTimer.Get_ticks();
 	return (unsigned long)ticks;
 }

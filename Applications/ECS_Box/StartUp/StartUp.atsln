@@ -12,6 +12,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "StartUp", "StartUp\StartUp.
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ALU_Driver", "..\ALU_Driver\ALU_Driver\ALU_Driver.cproj", "{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "InterfacesECS_BOX", "..\InterfacesECS_BOX\InterfacesECS_BOX.cppproj", "{42F7CA40-20CB-44A2-B5AC-8332A2AE5969}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -30,6 +32,10 @@ Global
 		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Debug|ARM.Build.0 = Debug|ARM
 		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Release|ARM.ActiveCfg = Release|ARM
 		{E0042C05-E7AB-4BDC-850A-2B3B2AF948CD}.Release|ARM.Build.0 = Release|ARM
+		{42F7CA40-20CB-44A2-B5AC-8332A2AE5969}.Debug|ARM.ActiveCfg = Debug|ARM
+		{42F7CA40-20CB-44A2-B5AC-8332A2AE5969}.Debug|ARM.Build.0 = Debug|ARM
+		{42F7CA40-20CB-44A2-B5AC-8332A2AE5969}.Release|ARM.ActiveCfg = Release|ARM
+		{42F7CA40-20CB-44A2-B5AC-8332A2AE5969}.Release|ARM.Build.0 = Release|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

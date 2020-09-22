@@ -217,31 +217,31 @@ void SPI_MEMORIES_example(void)
 	io_write(io, example_SPI_MEMORIES, 12);
 }
 
-static struct timer_task TIMER_INTERFACE_task1, TIMER_INTERFACE_task2;
+static struct timer_task TIMER_USB_task1, TIMER_USB_task2;
 
 /**
- * Example of using TIMER_INTERFACE.
+ * Example of using TIMER_USB.
  */
-static void TIMER_INTERFACE_task1_cb(const struct timer_task *const timer_task)
+static void TIMER_USB_task1_cb(const struct timer_task *const timer_task)
 {
 }
 
-static void TIMER_INTERFACE_task2_cb(const struct timer_task *const timer_task)
+static void TIMER_USB_task2_cb(const struct timer_task *const timer_task)
 {
 }
 
-void TIMER_INTERFACE_example(void)
+void TIMER_USB_example(void)
 {
-	TIMER_INTERFACE_task1.interval = 100;
-	TIMER_INTERFACE_task1.cb       = TIMER_INTERFACE_task1_cb;
-	TIMER_INTERFACE_task1.mode     = TIMER_TASK_REPEAT;
-	TIMER_INTERFACE_task2.interval = 200;
-	TIMER_INTERFACE_task2.cb       = TIMER_INTERFACE_task2_cb;
-	TIMER_INTERFACE_task2.mode     = TIMER_TASK_REPEAT;
+	TIMER_USB_task1.interval = 100;
+	TIMER_USB_task1.cb       = TIMER_USB_task1_cb;
+	TIMER_USB_task1.mode     = TIMER_TASK_REPEAT;
+	TIMER_USB_task2.interval = 200;
+	TIMER_USB_task2.cb       = TIMER_USB_task2_cb;
+	TIMER_USB_task2.mode     = TIMER_TASK_REPEAT;
 
-	timer_add_task(&TIMER_INTERFACE, &TIMER_INTERFACE_task1);
-	timer_add_task(&TIMER_INTERFACE, &TIMER_INTERFACE_task2);
-	timer_start(&TIMER_INTERFACE);
+	timer_add_task(&TIMER_USB, &TIMER_USB_task1);
+	timer_add_task(&TIMER_USB, &TIMER_USB_task2);
+	timer_start(&TIMER_USB);
 }
 
 static struct timer_task TIMER_EVENT_task1, TIMER_EVENT_task2;
@@ -323,6 +323,60 @@ void TIMER_HVAC_example(void)
 	timer_add_task(&TIMER_HVAC, &TIMER_HVAC_task1);
 	timer_add_task(&TIMER_HVAC, &TIMER_HVAC_task2);
 	timer_start(&TIMER_HVAC);
+}
+
+static struct timer_task TIMER_MAINTENANCE_task1, TIMER_MAINTENANCE_task2;
+
+/**
+ * Example of using TIMER_MAINTENANCE.
+ */
+static void TIMER_MAINTENANCE_task1_cb(const struct timer_task *const timer_task)
+{
+}
+
+static void TIMER_MAINTENANCE_task2_cb(const struct timer_task *const timer_task)
+{
+}
+
+void TIMER_MAINTENANCE_example(void)
+{
+	TIMER_MAINTENANCE_task1.interval = 100;
+	TIMER_MAINTENANCE_task1.cb       = TIMER_MAINTENANCE_task1_cb;
+	TIMER_MAINTENANCE_task1.mode     = TIMER_TASK_REPEAT;
+	TIMER_MAINTENANCE_task2.interval = 200;
+	TIMER_MAINTENANCE_task2.cb       = TIMER_MAINTENANCE_task2_cb;
+	TIMER_MAINTENANCE_task2.mode     = TIMER_TASK_REPEAT;
+
+	timer_add_task(&TIMER_MAINTENANCE, &TIMER_MAINTENANCE_task1);
+	timer_add_task(&TIMER_MAINTENANCE, &TIMER_MAINTENANCE_task2);
+	timer_start(&TIMER_MAINTENANCE);
+}
+
+static struct timer_task TIMER_INTERFACE_task1, TIMER_INTERFACE_task2;
+
+/**
+ * Example of using TIMER_INTERFACE.
+ */
+static void TIMER_INTERFACE_task1_cb(const struct timer_task *const timer_task)
+{
+}
+
+static void TIMER_INTERFACE_task2_cb(const struct timer_task *const timer_task)
+{
+}
+
+void TIMER_INTERFACE_example(void)
+{
+	TIMER_INTERFACE_task1.interval = 100;
+	TIMER_INTERFACE_task1.cb       = TIMER_INTERFACE_task1_cb;
+	TIMER_INTERFACE_task1.mode     = TIMER_TASK_REPEAT;
+	TIMER_INTERFACE_task2.interval = 200;
+	TIMER_INTERFACE_task2.cb       = TIMER_INTERFACE_task2_cb;
+	TIMER_INTERFACE_task2.mode     = TIMER_TASK_REPEAT;
+
+	timer_add_task(&TIMER_INTERFACE, &TIMER_INTERFACE_task1);
+	timer_add_task(&TIMER_INTERFACE, &TIMER_INTERFACE_task2);
+	timer_start(&TIMER_INTERFACE);
 }
 
 /**

@@ -92,7 +92,7 @@ void CDC_Class::Init(void){
 		//serial<<"*** USB CDC Driver Version: "<<USBSERIALCLASSVERSION<<"."<<USBSERIALCLASSSUBVERSION<<" ***"<<NEWLINE;
 	}
 
-	
+	delay_ms(200);
 
 }
 
@@ -118,6 +118,13 @@ int32_t CDC_Class::readData(void* p, int32_t size)
 	rxReady=false;
 	r=cdcdf_acm_read((uint8_t *)p, size);
 	while(!rxReady);
+	return r;
+}
+int32_t CDC_Class::readDataAsyn(void* p, int32_t size)
+{
+	uint32_t	r;
+	rxReady=false;
+	r=cdcdf_acm_read((uint8_t *)p, size);
 	return r;
 }
 int CDC_Class::read(void)
@@ -162,7 +169,7 @@ int32_t CDC_Class::writeData(const void *buffer, int32_t size)
 		while((!txReady)&&(terminalStarted)){
 			
 			};
-			usbTimer.Stop();
+			usbTerminalTimer.Stop();
 		return r;
 	} 
 	else
@@ -177,10 +184,10 @@ size_t CDC_Class::write(const uint8_t *buffer, size_t size)
 	uint32_t r;
 	txReady=false;
 /*	uint32_t r = (uint32_t)cdcdf_acm_write((uint8_t *)buffer,(uint32_t)size);*/
- 	if (CheckTerminal(size)){ 		r= (uint32_t)cdcdf_acm_write((uint8_t *)buffer,(uint32_t)size);
+ 	if (plugged){ 		r= (uint32_t)cdcdf_acm_write((uint8_t *)buffer,(uint32_t)size);
 		while((!txReady)&&(terminalStarted));
 		//while((!txReady));
-		usbTimer.Stop();
+		usbTerminalTimer.Stop();
 	}else{ 		r=0;
 	 }
 	return r;		

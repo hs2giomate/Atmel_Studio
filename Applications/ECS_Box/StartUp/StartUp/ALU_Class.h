@@ -11,6 +11,7 @@
 #include "driver_init.h"
 #include "ARINC_Interface.h"
 #include "PBIT_Class.h"
+#include "CBIT_Class.h"
 #include "ConfigurationData.h"
 #include "States_Class.h"
 #include "Calendar_Class.h"

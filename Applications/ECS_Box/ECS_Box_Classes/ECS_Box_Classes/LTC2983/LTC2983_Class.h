@@ -24,6 +24,7 @@ class LTC2983_Class
 public:
 	LT_SPI	spiLT;
 	volatile bool	ready,conversionFinished;
+	uint8_t	activeChannels[NUMBER_TEMPERATURE_CHANNELS];
 	
 	uint8_t	channelOnProcess;
 protected:
@@ -31,7 +32,7 @@ private:
 	uint8_t process_finished,data,fault_data;
 	bool	isOK;
 	spi_m_async_descriptor *SPIA;
-	uint8_t	activeChannels[NUMBER_TEMPERATURE_CHANNELS];
+	
 	float	channelsRawData[NUMBER_TEMPERATURE_CHANNELS];
 	uint32_t raw_conversion_result,raw_data;
 	float scaled_result;
@@ -77,5 +78,5 @@ private:
 
 }; //LTC2983_Class
 
-extern	LTC2983_Class	ltc;
+extern	LTC2983_Class	temperatures;
 #endif //__LTC2983_CLASS_H__

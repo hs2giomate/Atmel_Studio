@@ -43,6 +43,10 @@ extern "C" {
 #include <hpl_tc_base.h>
 #include <hal_timer.h>
 #include <hpl_tc_base.h>
+#include <hal_timer.h>
+#include <hpl_tc_base.h>
+#include <hal_timer.h>
+#include <hpl_tc_base.h>
 #include <hal_pwm.h>
 #include <hpl_tc_base.h>
 
@@ -62,10 +66,12 @@ extern struct spi_m_async_descriptor SPI_TEMP;
 
 extern struct i2c_m_async_desc      I2C_EXPANDER;
 extern struct spi_m_sync_descriptor SPI_MEMORIES;
-extern struct timer_descriptor      TIMER_INTERFACE;
+extern struct timer_descriptor      TIMER_USB;
 extern struct timer_descriptor      TIMER_EVENT;
 extern struct timer_descriptor      TIMER_ARINC;
 extern struct timer_descriptor      TIMER_HVAC;
+extern struct timer_descriptor      TIMER_MAINTENANCE;
+extern struct timer_descriptor      TIMER_INTERFACE;
 
 extern struct pwm_descriptor LIVE_PULSE;
 
