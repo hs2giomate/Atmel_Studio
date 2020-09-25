@@ -109,15 +109,10 @@ void FRAM_Memory_Class::readConfigurationData(userParameters *data)
 	ReadFRAM(&appData, (uint32_t)&memoryAddress->parameters, sizeof(userParameters));
 	FramClose();
 
-	if  ((appData.flapperValveOffset == 46)){
 		memcpy(data, &appData, sizeof(userParameters));
-		//gpio_set_pin_level(LED0,true);
-	}else{
-		//gpio_set_pin_level(LED0,true);
-		initializeConfigurationData(&appParameters);
-		memcpy(data, &appParameters, sizeof(userParameters));
+
 		
-	}
+	
 }
 void FRAM_Memory_Class::readParameters(userParameters *framParameters)
 {

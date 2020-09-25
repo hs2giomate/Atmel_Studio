@@ -41,6 +41,7 @@ public:
 	virtual int peek(void);
 	virtual int read(void);
 	virtual int32_t readData(void* p, int32_t size);
+	int32_t readDataAsyn(void* p, int32_t size);
 	virtual void flush(void);
 	virtual void clear(void);
 	virtual size_t write(uint8_t) ;

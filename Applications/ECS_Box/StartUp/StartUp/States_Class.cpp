@@ -14,6 +14,7 @@
 #include "CDC_Class.h"
 #include "ALU_Class.h"
 #include "CBIT_Class.h"
+#include "FlapperValve_Class.h"
 
 	// default constructor
 States_Class::States_Class(void)
@@ -98,7 +99,7 @@ void States_Class::Start(uint8_t	operationMode)
 #endif
 	
 
-	communicator.CheckCommunication();
+	interfaces.CheckCommunication();
 
 	if (isCurrentStateValid)
     {

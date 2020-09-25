@@ -35,7 +35,7 @@ public:
 	
 	
 	bool	isSPIReady(void);
-	void	setDescriptor(spi_m_sync_descriptor *);
+	void	SetDescriptor(spi_m_sync_descriptor *);
 protected:
 	
 private:

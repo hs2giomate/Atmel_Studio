@@ -162,7 +162,9 @@ States_Class.d States_Class.o: .././States_Class.cpp .././States_Class.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_usb_e54.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h \
- .././MaintenanceTool.h .././ConfigState_Class.h .././GAINDefinitions.h \
+ ../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
+ .././ConfigState_Class.h .././GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
@@ -637,7 +639,9 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h:
 
-.././MaintenanceTool.h:
+../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 
 .././ConfigState_Class.h:
 

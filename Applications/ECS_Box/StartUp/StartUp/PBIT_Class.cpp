@@ -21,9 +21,9 @@ PBIT_Class::~PBIT_Class()
 
 uint8_t	PBIT_Class::GetStatus(void){
 	uint8_t	s=0;
-	label371=arincInterface.ReadBufferLabel(int(371));
+	label371=arinc.ReadBufferLabel(int(371));
 	datafield=0;
-	datafield=arincInterface.GetDataField(label371);
+	datafield=arinc.GetDataField(label371);
 
 	for (uint8_t i=0;i<32;i++)
 	{
@@ -50,7 +50,7 @@ PBIT_Class::operator bool(){
 }
 
 uint32_t  PBIT_Class::CheckCurrentStatus(HVACStatus& cs){
-	communicator.GetStatus(cs);
+	interfaces.GetStatus(cs);
 	uint32_t	*s=(uint32_t*)&cs.statusBits;
 	uint32_t	v=*s;
 

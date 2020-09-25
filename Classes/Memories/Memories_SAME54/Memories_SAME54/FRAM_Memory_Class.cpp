@@ -9,6 +9,8 @@
 #include "FRAM_Memory_Class.h"
 
 
+FRAMMemoryStruct*   framMemory=NULL;
+
 // default constructor
 FRAM_Memory_Class::FRAM_Memory_Class()
 {

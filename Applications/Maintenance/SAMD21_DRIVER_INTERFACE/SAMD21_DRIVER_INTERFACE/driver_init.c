@@ -16,6 +16,7 @@
 struct spi_m_sync_descriptor SPI_MEMORIES;
 struct timer_descriptor      TIMER_INTERFACE;
 struct timer_descriptor      TIMER_CALENDAR;
+struct timer_descriptor      TIMER_TERMINAL;
 
 struct calendar_descriptor CALENDAR;
 
@@ -109,6 +110,19 @@ static void TIMER_CALENDAR_init(void)
 	_gclk_enable_channel(TC4_GCLK_ID, CONF_GCLK_TC4_SRC);
 
 	timer_init(&TIMER_CALENDAR, TC4, _tc_get_timer());
+}
+
+/**
+ * \brief Timer initialization function
+ *
+ * Enables Timer peripheral, clocks and initializes Timer driver
+ */
+static void TIMER_TERMINAL_init(void)
+{
+	_pm_enable_bus_clock(PM_BUS_APBC, TC5);
+	_gclk_enable_channel(TC5_GCLK_ID, CONF_GCLK_TC5_SRC);
+
+	timer_init(&TIMER_TERMINAL, TC5, _tc_get_timer());
 }
 
 void USB_DEVICE_INSTANCE_PORT_init(void)
@@ -280,6 +294,7 @@ void system_init(void)
 
 	TIMER_INTERFACE_init();
 	TIMER_CALENDAR_init();
+	TIMER_TERMINAL_init();
 
 	USB_DEVICE_INSTANCE_init();
 }

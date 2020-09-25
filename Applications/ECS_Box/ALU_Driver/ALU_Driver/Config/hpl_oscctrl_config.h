@@ -200,7 +200,7 @@
 // <i> Indicates whether Run in Standby is enabled or not
 // <id> xosc1_arch_runstdby
 #ifndef CONF_XOSC1_RUNSTDBY
-#define CONF_XOSC1_RUNSTDBY 0
+#define CONF_XOSC1_RUNSTDBY 1
 #endif
 
 // <q> Crystal connected to XIN/XOUT Enable

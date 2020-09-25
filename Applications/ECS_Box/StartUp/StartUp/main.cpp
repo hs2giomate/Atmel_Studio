@@ -13,7 +13,7 @@ void	QSPIDriverTest(void){
 	bool is_corrupted = false;
 	uint8_t tx_buffer[QSPI_BUFFER_SIZE] ;
 	uint8_t rx_buffer[QSPI_BUFFER_SIZE] ;
-	flash.Init();
+	qspiFlash.Init();
 
 	usb.print("QSPI Program Started\n\r");
 	/* Initialize Tx buffer */
@@ -21,18 +21,18 @@ void	QSPIDriverTest(void){
 		tx_buffer[i] = (uint8_t)i;
 	}
 	
-	//flash.Erase();
+	//qspiFlash.Erase();
 	/* Erase flash memory */
 	uint32_t	flashAddres=0;
 	while (1) {
 		delay_us(100);
 		/* Write data to flash memory */
-		if (ERR_NONE ==flash.WriteAddress((uint8_t *)tx_buffer,flashAddres,QSPI_BUFFER_SIZE)) {
+		if (ERR_NONE ==qspiFlash.WriteAddress((uint8_t *)tx_buffer,flashAddres,QSPI_BUFFER_SIZE)) {
 			//usb.print("Flash write successful \n\r");
 		}
 		delay_us(100);
 		/* Read data from flash memory */
-		if (ERR_NONE == flash.ReadAddress((uint8_t *)rx_buffer,flashAddres,QSPI_BUFFER_SIZE)) {
+		if (ERR_NONE == qspiFlash.ReadAddress((uint8_t *)rx_buffer,flashAddres,QSPI_BUFFER_SIZE)) {
 			//while(!memory.xferDone);
 			//usb.print("Flash read successful\n\r");
 		}

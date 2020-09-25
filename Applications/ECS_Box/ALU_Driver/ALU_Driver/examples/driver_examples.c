@@ -160,6 +160,20 @@ void SPI_HI3593_example(void)
 }
 
 /**
+ * Example of using SPI_MEMORIES to write "Hello World" using the IO abstraction.
+ */
+static uint8_t example_SPI_MEMORIES[12] = "Hello World!";
+
+void SPI_MEMORIES_example(void)
+{
+	struct io_descriptor *io;
+	spi_m_sync_get_io_descriptor(&SPI_MEMORIES, &io);
+
+	spi_m_sync_enable(&SPI_MEMORIES);
+	io_write(io, example_SPI_MEMORIES, 12);
+}
+
+/**
  * Example of using SPI_TEMP to write "Hello World" using the IO abstraction.
  *
  * Since the driver is asynchronous we need to use statically allocated memory for string
@@ -203,18 +217,22 @@ void I2C_EXPANDER_example(void)
 	io_write(I2C_EXPANDER_io, I2C_EXPANDER_example_str, 12);
 }
 
-/**
- * Example of using SPI_MEMORIES to write "Hello World" using the IO abstraction.
- */
-static uint8_t example_SPI_MEMORIES[12] = "Hello World!";
+static uint8_t I2C_EEPROM_example_str[12] = "Hello World!";
 
-void SPI_MEMORIES_example(void)
+void I2C_EEPROM_tx_complete(struct i2c_m_async_desc *const i2c)
 {
-	struct io_descriptor *io;
-	spi_m_sync_get_io_descriptor(&SPI_MEMORIES, &io);
+}
 
-	spi_m_sync_enable(&SPI_MEMORIES);
-	io_write(io, example_SPI_MEMORIES, 12);
+void I2C_EEPROM_example(void)
+{
+	struct io_descriptor *I2C_EEPROM_io;
+
+	i2c_m_async_get_io_descriptor(&I2C_EEPROM, &I2C_EEPROM_io);
+	i2c_m_async_enable(&I2C_EEPROM);
+	i2c_m_async_register_callback(&I2C_EEPROM, I2C_M_ASYNC_TX_COMPLETE, (FUNC_PTR)I2C_EEPROM_tx_complete);
+	i2c_m_async_set_slaveaddr(&I2C_EEPROM, 0x12, I2C_M_SEVEN);
+
+	io_write(I2C_EEPROM_io, I2C_EEPROM_example_str, 12);
 }
 
 static struct timer_task TIMER_USB_task1, TIMER_USB_task2;

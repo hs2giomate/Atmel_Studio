@@ -72,5 +72,5 @@ private:
 	uint8_t		GetStatus(void);
 
 }; //N25Q256_Class
-extern	N25Q256_Class	flash;
+extern	N25Q256_Class	qspiFlash;
 #endif //__N25Q256_CLASS_H__

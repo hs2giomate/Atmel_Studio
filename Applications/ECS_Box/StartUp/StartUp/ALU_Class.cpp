@@ -11,6 +11,7 @@
 #include "MemoryManagment_Class.h"
 #include "CDC_Class.h"
 #include "DateTime_Class.h"
+#include "N25Q256_Class.h"
 
 
 // default constructor
@@ -34,7 +35,7 @@ uint32_t	ALU_Class::Init(void){
 	hvac.SetInitialState();
 	uhr.Init();
 	hvac.saveCurrentState();
-	s=arincInterface.Init();
+	s=arinc.Init();
 	if (s!=0x01)
 	{	
 		NotifyError(kARINCINnterfaceError,s);
@@ -58,7 +59,7 @@ uint32_t	ALU_Class::Init(void){
 }
 
 uint8_t	ALU_Class::GetSelectedAMMC(void){
-	activeLine=arincInterface.GetActiveLine();
+	activeLine=arinc.GetActiveLine();
 		switch (activeLine)
 		{
 			case 1:
@@ -153,7 +154,7 @@ uint32_t ALU_Class::SetInitialConfiguration(ConfigurationData& cd){
 			{
 							
 				configuration=factoryDefaultsConfiguration;
-				e=flash.Erase(0);
+				e=qspiFlash.Erase(0);
 				w=memory.WriteDefaultConfiguration(configuration);
 				w=memory.WriteCRCConfigurationData(hvac.CRC32);
 				

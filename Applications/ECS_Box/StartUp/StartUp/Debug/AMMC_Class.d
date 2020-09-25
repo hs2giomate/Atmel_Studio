@@ -189,17 +189,17 @@ AMMC_Class.d AMMC_Class.o: .././AMMC_Class.cpp .././AMMC_Class.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -244,7 +244,9 @@ AMMC_Class.d AMMC_Class.o: .././AMMC_Class.cpp .././AMMC_Class.h \
  ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
- .././States_Class.h .././MaintenanceTool.h \
+ .././CBIT_Class.h .././States_Class.h \
+ ../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
  .././Interfaces_Class.h \
@@ -657,13 +659,19 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
 
@@ -672,12 +680,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
@@ -771,9 +773,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
+.././CBIT_Class.h:
+
 .././States_Class.h:
 
-.././MaintenanceTool.h:
+../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h:
 

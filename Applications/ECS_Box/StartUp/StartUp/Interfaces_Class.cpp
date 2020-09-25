@@ -9,6 +9,9 @@
 #include "Interfaces_Class.h"
 #include "CDC_Class.h"
 #include "States_Class.h"
+#include "ARINC_Interface.h"
+#include "LTC2983_Class.h"
+#include "MCP23017_Class.h"
 
 // default constructor
 Interfaces_Class::Interfaces_Class()
@@ -23,7 +26,7 @@ Interfaces_Class::~Interfaces_Class()
 uint32_t Interfaces_Class::CheckCommunication(void)
 {
 	uint32_t	r=0;
-	r=(uint32_t)CheckI2CExpander();
+	r=(uint32_t)CheckI2CExpander(1);
 	
 	
 
@@ -50,18 +53,18 @@ bool	Interfaces_Class::CheckUSBInterface(void){
 }
 
 bool	Interfaces_Class::checkLTC2983(void){
-	if (ltc.conversionFinished)
+	if (temperatures.conversionFinished)
 	{
 		for (i = 0; i <NUMBER_TEMPERATURE_CHANNELS ; i++)
 		{
-			ltc.SaveChannelValue(ltc.activeChannels[i]);
+			temperatures.SaveChannelValue(temperatures.activeChannels[i]);
 		}
-		ltc.conversionFinished=0;
+		temperatures.conversionFinished=0;
 	} 
 	else
 	{
 	}
-	return	ltc.conversionFinished;
+	return	temperatures.conversionFinished;
 }
 bool	Interfaces_Class::CheckArincInterface(void){
 	if (arinc.newMessageR1||arinc.newMessageR2)
@@ -95,4 +98,4 @@ uint32_t	Interfaces_Class::GetStatus(HVACStatus& s){
 	return	status.rawStatus;
 }
 
-Interfaces_Class	communicator;
+Interfaces_Class	interfaces;

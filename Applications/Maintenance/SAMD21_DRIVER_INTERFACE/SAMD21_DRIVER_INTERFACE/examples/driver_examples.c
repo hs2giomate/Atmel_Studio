@@ -112,3 +112,30 @@ void TIMER_CALENDAR_example(void)
 	timer_add_task(&TIMER_CALENDAR, &TIMER_CALENDAR_task2);
 	timer_start(&TIMER_CALENDAR);
 }
+
+static struct timer_task TIMER_TERMINAL_task1, TIMER_TERMINAL_task2;
+
+/**
+ * Example of using TIMER_TERMINAL.
+ */
+static void TIMER_TERMINAL_task1_cb(const struct timer_task *const timer_task)
+{
+}
+
+static void TIMER_TERMINAL_task2_cb(const struct timer_task *const timer_task)
+{
+}
+
+void TIMER_TERMINAL_example(void)
+{
+	TIMER_TERMINAL_task1.interval = 100;
+	TIMER_TERMINAL_task1.cb       = TIMER_TERMINAL_task1_cb;
+	TIMER_TERMINAL_task1.mode     = TIMER_TASK_REPEAT;
+	TIMER_TERMINAL_task2.interval = 200;
+	TIMER_TERMINAL_task2.cb       = TIMER_TERMINAL_task2_cb;
+	TIMER_TERMINAL_task2.mode     = TIMER_TASK_REPEAT;
+
+	timer_add_task(&TIMER_TERMINAL, &TIMER_TERMINAL_task1);
+	timer_add_task(&TIMER_TERMINAL, &TIMER_TERMINAL_task2);
+	timer_start(&TIMER_TERMINAL);
+}

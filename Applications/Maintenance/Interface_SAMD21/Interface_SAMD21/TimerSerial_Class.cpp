@@ -212,5 +212,6 @@ void	TimerSerial_Class::GetTaskFunction(FUNC_PTR func){
 }
 
 
-TimerSerial_Class usbTimer(&TIMER_INTERFACE);
+TimerSerial_Class usbTerminalTimer(&TIMER_TERMINAL);
+TimerSerial_Class interfaceTimer(&TIMER_INTERFACE);
 

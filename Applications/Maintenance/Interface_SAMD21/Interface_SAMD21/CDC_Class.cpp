@@ -169,7 +169,7 @@ int32_t CDC_Class::writeData(const void *buffer, int32_t size)
 		while((!txReady)&&(terminalStarted)){
 			
 			};
-			usbTimer.Stop();
+			usbTerminalTimer.Stop();
 		return r;
 	} 
 	else
@@ -187,7 +187,7 @@ size_t CDC_Class::write(const uint8_t *buffer, size_t size)
  	if (plugged){ 		r= (uint32_t)cdcdf_acm_write((uint8_t *)buffer,(uint32_t)size);
 		while((!txReady)&&(terminalStarted));
 		//while((!txReady));
-		usbTimer.Stop();
+		usbTerminalTimer.Stop();
 	}else{ 		r=0;
 	 }
 	return r;		

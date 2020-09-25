@@ -29,11 +29,15 @@ public:
 	~Interfaces_Class();
 	uint32_t	CheckCommunication(void);
 	uint32_t	GetStatus(HVACStatus&);
+	bool	CheckI2CExpander(uint8_t add);
+	bool	checkLTC2983(void);
+	bool CheckUSBInterface(void);
+	bool	CheckArincInterface(void);
 protected:
 private:
 	Interfaces_Class( const Interfaces_Class &c );
 	Interfaces_Class& operator=( const Interfaces_Class &c );
 
 }; //Interfaces_Class
-extern	Interfaces_Class	communicator;
+extern	Interfaces_Class	interfaces;
 #endif //__INTERFACES_CLASS_H__

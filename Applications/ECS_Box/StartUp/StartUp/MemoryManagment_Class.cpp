@@ -28,7 +28,7 @@ MemoryManagment_Class::~MemoryManagment_Class()
 } //~MemoryManagment_Class
 
 bool	MemoryManagment_Class::Init(uint32_t flashChipSize){
-		if (flash.Init())
+		if (qspiFlash.Init())
 		{
 			usb<<"Flash Memory SelfTest PASSED"<<NEWLINE;
 		} 
@@ -126,7 +126,7 @@ uint32_t MemoryManagment_Class::GetNextAvailableAddress(uint16_t size) {
 	 uint32_t	w;
 	   if ( i != tail )
 	   {
-		w=   flash.WriteAddress((uint8_t*)PTR_RINGBUFFER(&ringBuffer),head,sizeof(ringBuffer));
+		w=   qspiFlash.WriteAddress((uint8_t*)PTR_RINGBUFFER(&ringBuffer),head,sizeof(ringBuffer));
 		   head = i ;
 	   }
 	   return	w;
@@ -148,7 +148,7 @@ uint32_t MemoryManagment_Class::GetNextAvailableAddress(uint16_t size) {
 	   if(tail == head)
 	   return -1;
 
-	   uint32_t value = flash.ReadAddress((uint8_t*)PTR_RINGBUFFER(p),tail,sizeof(ringBuffer));
+	   uint32_t value = qspiFlash.ReadAddress((uint8_t*)PTR_RINGBUFFER(p),tail,sizeof(ringBuffer));
 	   tail = NextIndex(tail);
 
 	   return value;
@@ -166,14 +166,14 @@ uint32_t MemoryManagment_Class::GetNextAvailableAddress(uint16_t size) {
  }
   uint32_t	MemoryManagment_Class::ReadControllerState(ECSConfiguration *cs){
 	  handlerCtrState=PTR_CTR_STATE(cs);
-	  uint32_t	r=flash.ReadAddress((uint8_t*)handlerCtrState,APP_STATE_ADDRESS,sizeof(appState));
+	  uint32_t	r=qspiFlash.ReadAddress((uint8_t*)handlerCtrState,APP_STATE_ADDRESS,sizeof(appState));
 	  return	r;
   }
 
 uint32_t	MemoryManagment_Class::ReadDeafultApplicationState(HVACState& as){
 	handlerAppState=PTR_HVAC_STATE(&as);
 	uint32_t	add=(uint32_t )(&flashMap->hvacDefaultState);
-	uint32_t	r=flash.ReadAddress((uint8_t*)handlerAppState,add,sizeof(HVACState));
+	uint32_t	r=qspiFlash.ReadAddress((uint8_t*)handlerAppState,add,sizeof(HVACState));
 	return	r;
 }
  uint32_t	MemoryManagment_Class::WriteValidApplicationState(HVACState& hs ){

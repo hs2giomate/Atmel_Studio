@@ -18,6 +18,8 @@ void TIMER_INTERFACE_example(void);
 
 void TIMER_CALENDAR_example(void);
 
+void TIMER_TERMINAL_example(void);
+
 #ifdef __cplusplus
 }
 #endif

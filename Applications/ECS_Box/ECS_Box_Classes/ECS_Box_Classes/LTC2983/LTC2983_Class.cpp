@@ -402,6 +402,6 @@ bool	LTC2983_Class::SelfTest(void){
 	return	isOK;
 	}
 
-LTC2983_Class	ltc(&SPI_TEMP);
+LTC2983_Class	temperatures(&SPI_TEMP);
 
 

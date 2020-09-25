@@ -28,6 +28,8 @@ extern "C" {
 #include <hpl_tc_base.h>
 #include <hal_timer.h>
 #include <hpl_tc_base.h>
+#include <hal_timer.h>
+#include <hpl_tc_base.h>
 
 #include "hal_usb_device.h"
 
@@ -36,6 +38,7 @@ extern struct spi_m_sync_descriptor SPI_MEMORIES;
 extern struct calendar_descriptor CALENDAR;
 extern struct timer_descriptor    TIMER_INTERFACE;
 extern struct timer_descriptor    TIMER_CALENDAR;
+extern struct timer_descriptor    TIMER_TERMINAL;
 
 void SPI_MEMORIES_PORT_init(void);
 void SPI_MEMORIES_CLOCK_init(void);

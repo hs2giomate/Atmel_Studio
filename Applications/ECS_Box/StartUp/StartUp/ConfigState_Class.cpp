@@ -116,7 +116,7 @@ uint32_t ConfigState_Class::SetInitialState(){
 uint32_t	ConfigState_Class::GetInitialStatus(HVACStatus& st){
 	HVACStatus	is,hs;
 	uint32_t	s;
-	communicator.GetStatus(is);
+	interfaces.GetStatus(is);
 	hvac.GetStatus(hs);
 	is=st;
 	if (is.rawStatus==hs.rawStatus)

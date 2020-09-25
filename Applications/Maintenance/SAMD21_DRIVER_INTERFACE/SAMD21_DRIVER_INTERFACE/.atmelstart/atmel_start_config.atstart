@@ -2,16 +2,16 @@ format_version: '2'
 name: SAMD21_DRIVER_INTERFACE
 versions:
   api: '1.0'
-  backend: 1.8.444
-  commit: 67d717bdb2430fd0c05c024d0ff1c3c7adf153dc
+  backend: 1.8.449
+  commit: c39d50a8c7c22fe58c921178843d3cbb666dc04b
   content: unknown
   content_pack_name: unknown
   format: '2'
-  frontend: 1.8.444
+  frontend: 1.8.449
   packs_version_avr8: 1.0.1438
   packs_version_qtouch: unknown
   packs_version_sam: 1.0.1726
-  version_backend: 1.8.444
+  version_backend: 1.8.449
   version_frontend: ''
 board:
   identifier: CustomBoard
@@ -325,6 +325,36 @@ drivers:
   TIMER_CALENDAR:
     user_label: TIMER_CALENDAR
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21J18A-AF::TC4::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      tc_arch_dbgrun: false
+      tc_arch_evact: Event action disabled
+      tc_arch_mceo0: false
+      tc_arch_mceo1: false
+      tc_arch_ovfeo: false
+      tc_arch_presync: Reload or reset counter on next GCLK
+      tc_arch_runstdby: false
+      tc_arch_tcei: false
+      tc_arch_tceinv: false
+      timer_advanced_configuration: false
+      timer_event_control: false
+      timer_prescaler: Divide by 8
+      timer_tick: 1000
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC
+          input: Generic clock generator 3
+          external: false
+          external_frequency: 0
+        configuration:
+          tc_gclk_selection: Generic clock generator 3
+  TIMER_TERMINAL:
+    user_label: TIMER_TERMINAL
+    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21J18A-AF::TC5::driver_config_definition::Timer::HAL:Driver:Timer
     functionality: Timer
     api: HAL:Driver:Timer
     configuration:

@@ -8,6 +8,7 @@
 
 #include "Maintenance_Tool.h"
 #include "FlashMemoryClass.h"
+#include "FRAM_Memory_Class.h"
 #include "CDC_Class.h"
 #include "TimerSerial_Class.h"
 
@@ -48,14 +49,15 @@ Maintenance_Tool::Maintenance_Tool()
 Maintenance_Tool::~Maintenance_Tool()
 {
 	ticks=0;
-	usbTimer.Stop();
-	usbTimer.Remove_task();
+	interfaceTimer.Stop();
+	interfaceTimer.Remove_task();
 	
 } //~Maintenance_Tool
 
 bool	Maintenance_Tool::Init(void){
 	ticks=0;
-	
+	interfaceTimer.Init();
+	interfaceTimer.Add_periodic_task((FUNC_PTR)MaintenaceToolTimming,1000);
 	GetCPUSerialNumber(cpuSerial);
 	memcpy(localBuffer,0,4);
 	gotAccess=false;
@@ -109,15 +111,15 @@ void Maintenance_Tool::setConnected(bool isConnected)
 		maintenanceIsConnected = isConnected;
 		if (isConnected)
 		{
-			usbTimer.Add_periodic_task((FUNC_PTR)MaintenaceToolTimming,1000);
-			usbTimer.Start_oneShot_task((FUNC_PTR)MaintenaceToolPCBeaming,60*1000);
+			
+			interfaceTimer.Start_oneShot_task((FUNC_PTR)MaintenaceToolPCBeaming,60*1000);
 			//usbTimer.Start();
 				
 				
 		} 
 		else
 		{
-			usbTimer.Stop();
+			interfaceTimer.Stop();
 				
 		}
 
@@ -173,9 +175,9 @@ bool Maintenance_Tool::handleCommunication(void)
 
 				case '=': //This is something like an alive beacon from MTool. Received every 10 sec
 					is_MTPC_Beaming=true;
-					usbTimer.Stop();
-					usbTimer.Remove_task((FUNC_PTR)MaintenaceToolPCBeaming);
-					usbTimer.Start_oneShot_task((FUNC_PTR)MaintenaceToolPCBeaming,60*1000);
+					interfaceTimer.Stop();
+					interfaceTimer.Remove_task((FUNC_PTR)MaintenaceToolPCBeaming);
+					interfaceTimer.Start_oneShot_task((FUNC_PTR)MaintenaceToolPCBeaming,10*1000);
 				
 					nextMaintenanceSyncTime = 0;
 					maintenanceIsConnected = true;
@@ -321,7 +323,7 @@ bool Maintenance_Tool::GAINNotifyState( uint8 state, uint8 flags)
 bool	Maintenance_Tool::NotifyConnectionAcknowledge(void){
 	memcpy(&deviceID.cpuSerialNumber,cpuSerial,sizeof(cpuSerial));
 	//deviceID.cpuSerialNumber=cpuSerial;
-	delay_ms(200);
+	delay_us(100);
 	usb<<"CPU Serial: ";
 	for (i = 0; i < sizeof(cpuSerial); i++)
 	{
@@ -845,17 +847,20 @@ bool Maintenance_Tool::handleGAINCommandSetConfiguration( GAINMessageHeader& hea
 	}
 
 bool Maintenance_Tool::handleGAINCommandReadParameters(GAINMessageHeader& header){
-
-	
+	int n=sizeof(GAINMessageHeader)+1;
 	uint32_t	w,r;
 	
 	 	bool	result(header.command == kGAINCommandReadParameters);
 		if (result){
-			uint32_t add=(uint32_t)&flashMap->parameters;
-			r=flash.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
+			uint32_t add=(uint32_t)&framMemory->parameters;
+			r=fram.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
 			 if (r>0)
 			 {
-				w= usb.writeData((void*)&parameters,sizeof(userParameters));
+				 delay_us(100);
+				memcpy(&localBuffer[n+1],(uint8_t*)&parameters,sizeof(userParameters));
+				 usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+				//w= usb.writeData((void*)&parameters,sizeof(userParameters));
+				//w=usb.print("AA");
 				 result=w>0;
 			 } 
 			 else
@@ -876,18 +881,15 @@ bool Maintenance_Tool::handleGAINCommandWriteParameters(GAINMessageHeader& heade
 
 	uint32_t	w,r;
 	
-	bool	result(header.dataSize == sizeof(userParameters));
+	bool	result(header.command == kGAINCommandWriteParameters);
 	if (result){
-		r= usb.readData((void*)&parameters,sizeof(userParameters));
-		if (r>0)
-		{
-			uint32_t add=(uint32_t)&flashMap->parameters;
-			r=flash.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
+		int n=sizeof(GAINMessageHeader)+1;
+		memcpy((uint8_t*)&parameters,&localBuffer[n+1],sizeof(userParameters));
+		uint32_t add=(uint32_t)&framMemory->parameters;
+			r=fram.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
 			result=(bool)(r==0);
-		}
-		else
-		{
-		}
+	
+		
 	}else{
 		// 		 		uint8	i;
 		// 		 		char	ch;

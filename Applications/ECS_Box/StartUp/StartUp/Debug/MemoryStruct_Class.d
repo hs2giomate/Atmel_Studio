@@ -253,7 +253,8 @@ MemoryStruct_Class.d MemoryStruct_Class.o: .././MemoryStruct_Class.cpp \
  .././PersistenceServices.h .././ErrorAnalyer_Class.h \
  .././GainDefinitions.h .././CRC32_Class.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h .././States_Class.h \
- .././MaintenanceTool.h \
+ ../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
  .././Interfaces_Class.h .././DataLoger_Class.h .././FastStorage_Class.h \
@@ -779,7 +780,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././States_Class.h:
 
-.././MaintenanceTool.h:
+../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h:
 

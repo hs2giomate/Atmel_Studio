@@ -205,6 +205,7 @@
       <Value>../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a</Value>
       <Value>../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling</Value>
       <Value>../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander</Value>
+      <Value>../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
   <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -338,9 +339,6 @@
     <Compile Include="main.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MaintenanceTool.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="MemoryManagment_Class.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -393,6 +391,11 @@
     <ProjectReference Include="..\..\ECS_Box_Classes\ECS_Box_Classes\ECS_Box_Objects.cppproj">
       <Name>ECS_Box_Objects</Name>
       <Project>{beb6ad6e-9654-4e0a-aeb3-838ccb975f4f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Interfaces_ECS_BOX\Interfaces_ECS_BOX\Interfaces_ECS_BOX.cppproj">
+      <Name>Interfaces_ECS_BOX</Name>
+      <Project>{dbaffc46-dff1-4ecc-8d5f-b78a6507d578}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

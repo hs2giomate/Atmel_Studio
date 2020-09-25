@@ -52,7 +52,7 @@ struct FRAMMemoryStruct
 
 typedef struct FRAMMemoryStruct	FRAMMemoryStruct;
 
-static	FRAMMemoryStruct*   framMemory= NULL;
+extern	FRAMMemoryStruct*   framMemory;
 
 class FRAM_Memory_Class
 {

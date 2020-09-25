@@ -155,6 +155,7 @@ Maintenance_Tool.d Maintenance_Tool.o: .././Maintenance_Tool.cpp \
  ../../../../../Applications/Maintenance/SAMD21_DRIVER_INTERFACE/SAMD21_DRIVER_INTERFACE/hal/include/hpl_usb_device.h \
  ../../../../../Applications/Maintenance/SAMD21_DRIVER_INTERFACE/SAMD21_DRIVER_INTERFACE/hal/include/hpl_usb.h \
  ../../../../../Applications/Maintenance/SAMD21_DRIVER_INTERFACE/SAMD21_DRIVER_INTERFACE/Config/hpl_usb_config.h \
+ ../../../../../Classes/Memories/Memories_SAME54/Memories_SAME54/FRAM_Memory_Class.h \
  .././CDC_Class.h \
  ../../../../../Applications/Maintenance/SAMD21_DRIVER_INTERFACE/SAMD21_DRIVER_INTERFACE/usb_start.h \
  ..\..\..\..\..\Applications\Maintenance\SAMD21_DRIVER_INTERFACE\SAMD21_DRIVER_INTERFACE\usb\class\cdc\device/cdcdf_acm.h \
@@ -507,6 +508,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../Applications/Maintenance/SAMD21_DRIVER_INTERFACE/SAMD21_DRIVER_INTERFACE/hal/include/hpl_usb.h:
 
 ../../../../../Applications/Maintenance/SAMD21_DRIVER_INTERFACE/SAMD21_DRIVER_INTERFACE/Config/hpl_usb_config.h:
+
+../../../../../Classes/Memories/Memories_SAME54/Memories_SAME54/FRAM_Memory_Class.h:
 
 .././CDC_Class.h:
 

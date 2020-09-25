@@ -42,7 +42,13 @@ SPI\SPI_Syn_Class.cpp
 
 Storage\AT24MAC_Class.cpp
 
+Storage\FlashMemoryClass.cpp
+
+Storage\FRAM_Memory_Class.cpp
+
 Storage\N25Q256_Class.cpp
+
+Storage\Parameters.cpp
 
 Timers\Calendar_Class.cpp
 

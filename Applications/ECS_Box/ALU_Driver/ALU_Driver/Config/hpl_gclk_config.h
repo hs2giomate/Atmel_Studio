@@ -539,7 +539,7 @@
 // <i> Indicates whether generic clock 7 configuration is enabled or not
 // <id> enable_gclk_gen_7
 #ifndef CONF_GCLK_GENERATOR_7_CONFIG
-#define CONF_GCLK_GENERATOR_7_CONFIG 0
+#define CONF_GCLK_GENERATOR_7_CONFIG 1
 #endif
 
 // <h> Generic Clock Generator Control
@@ -556,14 +556,14 @@
 // <i> This defines the clock source for generic clock generator 7
 // <id> gclk_gen_7_oscillator
 #ifndef CONF_GCLK_GEN_7_SOURCE
-#define CONF_GCLK_GEN_7_SOURCE GCLK_GENCTRL_SRC_XOSC1
+#define CONF_GCLK_GEN_7_SOURCE GCLK_GENCTRL_SRC_DPLL1
 #endif
 
 // <q> Run in Standby
 // <i> Indicates whether Run in Standby is enabled or not
 // <id> gclk_arch_gen_7_runstdby
 #ifndef CONF_GCLK_GEN_7_RUNSTDBY
-#define CONF_GCLK_GEN_7_RUNSTDBY 0
+#define CONF_GCLK_GEN_7_RUNSTDBY 1
 #endif
 
 // <q> Divide Selection
@@ -577,7 +577,7 @@
 // <i> Indicates whether Output Enable is enabled or not
 // <id> gclk_arch_gen_7_oe
 #ifndef CONF_GCLK_GEN_7_OE
-#define CONF_GCLK_GEN_7_OE 0
+#define CONF_GCLK_GEN_7_OE 1
 #endif
 
 // <q> Output Off Value
@@ -598,7 +598,7 @@
 // <i> Indicates whether Generic Clock Generator Enable is enabled or not
 // <id> gclk_arch_gen_7_enable
 #ifndef CONF_GCLK_GEN_7_GENEN
-#define CONF_GCLK_GEN_7_GENEN 0
+#define CONF_GCLK_GEN_7_GENEN 1
 #endif
 // </h>
 
@@ -606,7 +606,7 @@
 //<o> Generic clock generator 7 division <0x0000-0xFFFF>
 // <id> gclk_gen_7_div
 #ifndef CONF_GCLK_GEN_7_DIV
-#define CONF_GCLK_GEN_7_DIV 1
+#define CONF_GCLK_GEN_7_DIV 8
 #endif
 // </h>
 // </e>
@@ -615,7 +615,7 @@
 // <i> Indicates whether generic clock 8 configuration is enabled or not
 // <id> enable_gclk_gen_8
 #ifndef CONF_GCLK_GENERATOR_8_CONFIG
-#define CONF_GCLK_GENERATOR_8_CONFIG 0
+#define CONF_GCLK_GENERATOR_8_CONFIG 1
 #endif
 
 // <h> Generic Clock Generator Control
@@ -639,7 +639,7 @@
 // <i> Indicates whether Run in Standby is enabled or not
 // <id> gclk_arch_gen_8_runstdby
 #ifndef CONF_GCLK_GEN_8_RUNSTDBY
-#define CONF_GCLK_GEN_8_RUNSTDBY 0
+#define CONF_GCLK_GEN_8_RUNSTDBY 1
 #endif
 
 // <q> Divide Selection
@@ -653,7 +653,7 @@
 // <i> Indicates whether Output Enable is enabled or not
 // <id> gclk_arch_gen_8_oe
 #ifndef CONF_GCLK_GEN_8_OE
-#define CONF_GCLK_GEN_8_OE 0
+#define CONF_GCLK_GEN_8_OE 1
 #endif
 
 // <q> Output Off Value
@@ -674,7 +674,7 @@
 // <i> Indicates whether Generic Clock Generator Enable is enabled or not
 // <id> gclk_arch_gen_8_enable
 #ifndef CONF_GCLK_GEN_8_GENEN
-#define CONF_GCLK_GEN_8_GENEN 0
+#define CONF_GCLK_GEN_8_GENEN 1
 #endif
 // </h>
 
@@ -682,7 +682,7 @@
 //<o> Generic clock generator 8 division <0x0000-0xFFFF>
 // <id> gclk_gen_8_div
 #ifndef CONF_GCLK_GEN_8_DIV
-#define CONF_GCLK_GEN_8_DIV 1
+#define CONF_GCLK_GEN_8_DIV 3
 #endif
 // </h>
 // </e>

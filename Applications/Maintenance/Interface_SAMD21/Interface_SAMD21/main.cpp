@@ -88,8 +88,8 @@ int main(void)
 	atmel_start_init();
 		usb.Init();
 		delay_ms(500);
-		flash.Init();
-		WriteUserParametersFlash();
+		fram.Init();
+		//WriteUserParametersFlash();
 		Maintenance_Tool	toolApp;
 		toolApp.Init();
 		while (1)

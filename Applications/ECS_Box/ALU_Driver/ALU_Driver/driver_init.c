@@ -30,6 +30,8 @@ struct spi_m_async_descriptor SPI_TEMP;
 
 struct i2c_m_async_desc I2C_EXPANDER;
 
+struct i2c_m_async_desc I2C_EEPROM;
+
 struct pwm_descriptor LIVE_PULSE;
 
 struct wdt_descriptor WATCHDOG;
@@ -405,10 +407,10 @@ void SPI_HI3593_init(void)
 	SPI_HI3593_PORT_init();
 }
 
-void SPI_TEMP_PORT_init(void)
+void SPI_MEMORIES_PORT_init(void)
 {
 
-	gpio_set_pin_level(PA00,
+	gpio_set_pin_level(PA16,
 	                   // <y> Initial level
 	                   // <id> pad_initial_level
 	                   // <false"> Low
@@ -416,11 +418,11 @@ void SPI_TEMP_PORT_init(void)
 	                   false);
 
 	// Set pin direction to output
-	gpio_set_pin_direction(PA00, GPIO_DIRECTION_OUT);
+	gpio_set_pin_direction(PA16, GPIO_DIRECTION_OUT);
 
-	gpio_set_pin_function(PA00, PINMUX_PA00D_SERCOM1_PAD0);
+	gpio_set_pin_function(PA16, PINMUX_PA16C_SERCOM1_PAD0);
 
-	gpio_set_pin_level(PA01,
+	gpio_set_pin_level(PA17,
 	                   // <y> Initial level
 	                   // <id> pad_initial_level
 	                   // <false"> Low
@@ -428,9 +430,9 @@ void SPI_TEMP_PORT_init(void)
 	                   false);
 
 	// Set pin direction to output
-	gpio_set_pin_direction(PA01, GPIO_DIRECTION_OUT);
+	gpio_set_pin_direction(PA17, GPIO_DIRECTION_OUT);
 
-	gpio_set_pin_function(PA01, PINMUX_PA01D_SERCOM1_PAD1);
+	gpio_set_pin_function(PA17, PINMUX_PA17C_SERCOM1_PAD1);
 
 	// Set pin direction to input
 	gpio_set_pin_direction(PA18, GPIO_DIRECTION_IN);
@@ -446,7 +448,7 @@ void SPI_TEMP_PORT_init(void)
 	gpio_set_pin_function(PA18, PINMUX_PA18C_SERCOM1_PAD2);
 }
 
-void SPI_TEMP_CLOCK_init(void)
+void SPI_MEMORIES_CLOCK_init(void)
 {
 	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM1_GCLK_ID_CORE, CONF_GCLK_SERCOM1_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM1_GCLK_ID_SLOW, CONF_GCLK_SERCOM1_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
@@ -454,10 +456,66 @@ void SPI_TEMP_CLOCK_init(void)
 	hri_mclk_set_APBAMASK_SERCOM1_bit(MCLK);
 }
 
+void SPI_MEMORIES_init(void)
+{
+	SPI_MEMORIES_CLOCK_init();
+	spi_m_sync_init(&SPI_MEMORIES, SERCOM1);
+	SPI_MEMORIES_PORT_init();
+}
+
+void SPI_TEMP_PORT_init(void)
+{
+
+	gpio_set_pin_level(PB27,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(PB27, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(PB27, PINMUX_PB27D_SERCOM4_PAD0);
+
+	gpio_set_pin_level(PB26,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(PB26, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(PB26, PINMUX_PB26D_SERCOM4_PAD1);
+
+	// Set pin direction to input
+	gpio_set_pin_direction(PB28, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(PB28,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(PB28, PINMUX_PB28D_SERCOM4_PAD2);
+}
+
+void SPI_TEMP_CLOCK_init(void)
+{
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM4_GCLK_ID_CORE, CONF_GCLK_SERCOM4_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM4_GCLK_ID_SLOW, CONF_GCLK_SERCOM4_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+
+	hri_mclk_set_APBDMASK_SERCOM4_bit(MCLK);
+}
+
 void SPI_TEMP_init(void)
 {
 	SPI_TEMP_CLOCK_init();
-	spi_m_async_init(&SPI_TEMP, SERCOM1);
+	spi_m_async_init(&SPI_TEMP, SERCOM4);
 	SPI_TEMP_PORT_init();
 }
 
@@ -500,37 +558,10 @@ void I2C_EXPANDER_init(void)
 	I2C_EXPANDER_PORT_init();
 }
 
-void SPI_MEMORIES_PORT_init(void)
+void I2C_EEPROM_PORT_init(void)
 {
 
-	gpio_set_pin_level(PD09,
-	                   // <y> Initial level
-	                   // <id> pad_initial_level
-	                   // <false"> Low
-	                   // <true"> High
-	                   false);
-
-	// Set pin direction to output
-	gpio_set_pin_direction(PD09, GPIO_DIRECTION_OUT);
-
-	gpio_set_pin_function(PD09, PINMUX_PD09D_SERCOM6_PAD0);
-
-	gpio_set_pin_level(PD08,
-	                   // <y> Initial level
-	                   // <id> pad_initial_level
-	                   // <false"> Low
-	                   // <true"> High
-	                   false);
-
-	// Set pin direction to output
-	gpio_set_pin_direction(PD08, GPIO_DIRECTION_OUT);
-
-	gpio_set_pin_function(PD08, PINMUX_PD08D_SERCOM6_PAD1);
-
-	// Set pin direction to input
-	gpio_set_pin_direction(PC06, GPIO_DIRECTION_IN);
-
-	gpio_set_pin_pull_mode(PC06,
+	gpio_set_pin_pull_mode(PD08,
 	                       // <y> Pull configuration
 	                       // <id> pad_pull_config
 	                       // <GPIO_PULL_OFF"> Off
@@ -538,22 +569,32 @@ void SPI_MEMORIES_PORT_init(void)
 	                       // <GPIO_PULL_DOWN"> Pull-down
 	                       GPIO_PULL_OFF);
 
-	gpio_set_pin_function(PC06, PINMUX_PC06C_SERCOM6_PAD2);
+	gpio_set_pin_function(PD08, PINMUX_PD08C_SERCOM7_PAD0);
+
+	gpio_set_pin_pull_mode(PD09,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(PD09, PINMUX_PD09C_SERCOM7_PAD1);
 }
 
-void SPI_MEMORIES_CLOCK_init(void)
+void I2C_EEPROM_CLOCK_init(void)
 {
-	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM6_GCLK_ID_CORE, CONF_GCLK_SERCOM6_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
-	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM6_GCLK_ID_SLOW, CONF_GCLK_SERCOM6_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM7_GCLK_ID_CORE, CONF_GCLK_SERCOM7_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM7_GCLK_ID_SLOW, CONF_GCLK_SERCOM7_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 
-	hri_mclk_set_APBDMASK_SERCOM6_bit(MCLK);
+	hri_mclk_set_APBDMASK_SERCOM7_bit(MCLK);
 }
 
-void SPI_MEMORIES_init(void)
+void I2C_EEPROM_init(void)
 {
-	SPI_MEMORIES_CLOCK_init();
-	spi_m_sync_init(&SPI_MEMORIES, SERCOM6);
-	SPI_MEMORIES_PORT_init();
+	I2C_EEPROM_CLOCK_init();
+	i2c_m_async_init(&I2C_EEPROM, SERCOM7);
+	I2C_EEPROM_PORT_init();
 }
 
 /**
@@ -802,6 +843,34 @@ void system_init(void)
 {
 	init_mcu();
 
+	// GPIO on PA15
+
+	gpio_set_pin_level(CS_FLASH,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   true);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(CS_FLASH, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(CS_FLASH, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PA19
+
+	gpio_set_pin_level(CS_FRAM,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   true);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(CS_FRAM, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(CS_FRAM, GPIO_PIN_FUNCTION_OFF);
+
 	// GPIO on PB07
 
 	// Set pin direction to input
@@ -860,34 +929,6 @@ void system_init(void)
 	                       GPIO_PULL_DOWN);
 
 	gpio_set_pin_function(VBUS_DETECTED, GPIO_PIN_FUNCTION_OFF);
-
-	// GPIO on PC05
-
-	gpio_set_pin_level(CS_FLASH,
-	                   // <y> Initial level
-	                   // <id> pad_initial_level
-	                   // <false"> Low
-	                   // <true"> High
-	                   true);
-
-	// Set pin direction to output
-	gpio_set_pin_direction(CS_FLASH, GPIO_DIRECTION_OUT);
-
-	gpio_set_pin_function(CS_FLASH, GPIO_PIN_FUNCTION_OFF);
-
-	// GPIO on PC07
-
-	gpio_set_pin_level(CS_FRAM,
-	                   // <y> Initial level
-	                   // <id> pad_initial_level
-	                   // <false"> Low
-	                   // <true"> High
-	                   true);
-
-	// Set pin direction to output
-	gpio_set_pin_direction(CS_FRAM, GPIO_DIRECTION_OUT);
-
-	gpio_set_pin_function(CS_FRAM, GPIO_PIN_FUNCTION_OFF);
 
 	// GPIO on PC13
 
@@ -956,11 +997,13 @@ void system_init(void)
 
 	SPI_HI3593_init();
 
+	SPI_MEMORIES_init();
+
 	SPI_TEMP_init();
 
 	I2C_EXPANDER_init();
 
-	SPI_MEMORIES_init();
+	I2C_EEPROM_init();
 
 	TIMER_USB_init();
 	TIMER_EVENT_init();
