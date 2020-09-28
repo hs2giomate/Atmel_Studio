@@ -243,8 +243,8 @@ Timers/Calendar_Class.d Timers/Calendar_Class.o: \
  ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
  ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
  ../Storage/RingBuffer.h ../Storage/AT24MAC_Class.h \
- ../I2C/I2C_Asyn_Class.h ../Timers/DateTimeLog_Class.h \
- ../EIDE_Utils/coreTypes.h \
+ ../I2C/I2C_Asyn_Class.h ../Storage/Parameters.h \
+ ../EIDE_Utils/coreTypes.h ../Timers/DateTimeLog_Class.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h
 
 ../Timers/Calendar_Class.h:
@@ -741,8 +741,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../I2C/I2C_Asyn_Class.h:
 
-../Timers/DateTimeLog_Class.h:
+../Storage/Parameters.h:
 
 ../EIDE_Utils/coreTypes.h:
+
+../Timers/DateTimeLog_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:

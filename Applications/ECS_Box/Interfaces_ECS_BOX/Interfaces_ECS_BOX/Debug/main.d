@@ -278,7 +278,9 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
  .././Maintenance_Tool.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h
 
 .././main.h:
 
@@ -841,3 +843,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././Maintenance_Tool.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:

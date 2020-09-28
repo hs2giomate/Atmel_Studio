@@ -17,6 +17,7 @@
 #include "TimerSerial_Class.h"
 #include "Maintenance_Tool.h"
 #include "Parameters.h"
+#include "AT24MAC_Class.h"
 
 void	FramMemoryTest(void);
 void	FlashMemoryTest(void);

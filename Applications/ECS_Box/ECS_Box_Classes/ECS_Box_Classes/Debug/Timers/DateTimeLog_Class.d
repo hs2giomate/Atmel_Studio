@@ -246,8 +246,9 @@ Timers/DateTimeLog_Class.d Timers/DateTimeLog_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../I2C/I2C_Asyn_Class.h ../Timers/Calendar_Class.h \
- ../Storage/N25Q256_Class.h ../../../ALU_Driver/ALU_Driver/atmel_start.h \
+ ../I2C/I2C_Asyn_Class.h ../Storage/Parameters.h \
+ ../Timers/Calendar_Class.h ../Storage/N25Q256_Class.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ALU_Driver/ALU_Driver/usb_start.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
@@ -764,6 +765,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
 
 ../I2C/I2C_Asyn_Class.h:
+
+../Storage/Parameters.h:
 
 ../Timers/Calendar_Class.h:
 

@@ -11,6 +11,7 @@
 //#include "FRAM_Memory_Class.h"
 #include "CDC_Class.h"
 #include "TimerSerial_Class.h"
+#include "AT24MAC_Class.h"
 
 
 
@@ -855,8 +856,11 @@ bool Maintenance_Tool::ReadParameters(GAINMessageHeader& header){
 			int n=sizeof(GAINMessageHeader)+1;
 // 			uint32_t add=(uint32_t)&framMemory->parameters;
 // 			r=fram.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
-			uint32_t add=(uint32_t)&flashLayout->parameters;
-			r=flash.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
+			uint32_t add32= (uint32_t)&eepromLayout->parameters;
+			uint8_t  add8=(uint8_t)(0xff&add32);
+			r=eeprom.ReadAddress((uint8_t*)&parameters,add8,sizeof(userParameters));
+			//uint32_t add=(uint32_t)&flashLayout->parameters;
+			//	r=flash.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
 			 if (r>0)
 			 {
 				// delay_us(100);
@@ -865,7 +869,7 @@ bool Maintenance_Tool::ReadParameters(GAINMessageHeader& header){
 				 usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 				//w= usb.writeData((void*)&parameters,sizeof(userParameters));
 				//w=usb.print("AA");
-				 result=w>0;
+				 result=r>0;
 			 } 
 			 else
 			 {
@@ -888,13 +892,16 @@ bool Maintenance_Tool::WriteParameters(GAINMessageHeader& header)	{
 	bool	result(header.command == kGAINCommandWriteParameters);
 	if (result){
 		int n=sizeof(GAINMessageHeader)+1;
-		flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(userParameters));
+		//flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(userParameters));
 			
 		memcpy((uint8_t*)&parameters,&localBuffer[n+1],sizeof(userParameters));
 		//uint32_t add=(uint32_t)&framMemory->parameters;
-		uint32_t add=(uint32_t)&flashLayout->parameters;
-		delay_ms(WRITE_DELAY);
-		r=flash.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
+		//	uint32_t add=(uint32_t)&flashLayout->parameters;
+		//	delay_ms(WRITE_DELAY);
+		uint32_t add32= (uint32_t)&eepromLayout->parameters;
+		uint8_t  add8=(uint8_t)(0xff&add32);
+		r=eeprom.WriteAddress((uint8_t*)&parameters,add8,sizeof(userParameters));
+		//r=flash.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
 		//	r=fram.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
 			result=(bool)(r==0);
 	

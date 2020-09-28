@@ -61,6 +61,26 @@ bool	WriteUserParametersFram(void){
 		return false;
 	}
 }
+bool	WriteUserParametersEEPROM(void){
+
+	userParameters	p=defaultParameters;
+	//flash.eraseFlash((uint32_t)&flashMap->parameters,sizeof(userParameters));
+	uint32_t add32= (uint32_t)&eepromLayout->parameters;
+	uint8_t  add8=(uint8_t)(0xff&add32);
+	eeprom.WriteAddress((uint8_t*)&p,add8,sizeof(userParameters));
+	delay_ms(WRITE_DELAY);
+	userParameters	q;
+	eeprom.ReadAddress((uint8_t*)&q,add8,sizeof(userParameters));
+	if (p.flapperValveOffset==q.flapperValveOffset)
+	{
+		return true;
+	}
+	else
+	{
+		WriteUserParametersEEPROM();
+	}
+	return false;
+}
 
 
 int main(void)		
@@ -69,8 +89,8 @@ int main(void)
 	usb.Init();
 	StartLivePulse();
 	delay_ms(500);
-	flash.Init();
-	WriteUserParametersFlash();
+	eeprom.Init();
+	WriteUserParametersEEPROM();
 	Maintenance_Tool	toolApp;
 	toolApp.Init();
 	while (1)

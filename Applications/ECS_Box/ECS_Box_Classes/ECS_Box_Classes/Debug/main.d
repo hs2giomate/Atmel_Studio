@@ -268,6 +268,7 @@ main.d main.o: .././main.cpp .././main.h \
  ../avr/pgmspace.h ../USBSerial/Printable.h \
  ../USBSerial/SerialTerminal_Class.h ../Storage/AT24MAC_Class.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h ../I2C/I2C_Asyn_Class.h \
+ ../Storage/Parameters.h ../EIDE_Utils/coreTypes.h \
  ../LTC2983/LTC2983_Class.h ../LTC2983/LTC2983_configuration_constants.h \
  ../LTC2983/LTC2983_table_coeffs.h ../LTC2983/LT_SPI.h \
  ../SPI/SPI_Asyn_Class.h ../ARINC/ARINC_Interface.h \
@@ -284,7 +285,7 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
  ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
  ../Storage/RingBuffer.h ../Timers/Calendar_Class.h \
- ../Timers/DateTimeLog_Class.h ../EIDE_Utils/coreTypes.h \
+ ../Timers/DateTimeLog_Class.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  ../IO_Expander/MCP23017_Class.h ../EIDE_Utils/Arduino.h
 
@@ -836,6 +837,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../I2C/I2C_Asyn_Class.h:
 
+../Storage/Parameters.h:
+
+../EIDE_Utils/coreTypes.h:
+
 ../LTC2983/LTC2983_Class.h:
 
 ../LTC2983/LTC2983_configuration_constants.h:
@@ -881,8 +886,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../Timers/Calendar_Class.h:
 
 ../Timers/DateTimeLog_Class.h:
-
-../EIDE_Utils/coreTypes.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 

@@ -10,6 +10,7 @@
 #include "stdlib.h"
 
 AT24MAC_Class	*ptrAT24MACClass;
+EEPROMMemoryLayout*   eepromLayout=NULL;
 
 // default constructor
 AT24MAC_Class::AT24MAC_Class()
@@ -174,4 +175,4 @@ bool AT24MAC_Class::IsReady(void){
 	return isReady;	
 }
 
-AT24MAC_Class	eeprom(&I2C_EXPANDER);
+AT24MAC_Class	eeprom(&I2C_EEPROM);

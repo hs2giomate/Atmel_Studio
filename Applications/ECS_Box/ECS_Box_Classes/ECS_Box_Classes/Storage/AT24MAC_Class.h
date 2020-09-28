@@ -11,6 +11,7 @@
 #include "driver_init.h"
 #include "utils.h"
 #include "I2C_Asyn_Class.h"
+#include "Parameters.h"
 
 
 
@@ -32,10 +33,32 @@
 #define EUI64_LEN 8
 #define EUI48_LEN 6
 #define AT24MAC_BUFFER_SIZE 16
+#define AT24MAC_SECTOR_SIZE 64
 #define AT24MAC_MEMORY_SIZE 256
+struct EEPROMMemoryLayout
+{
+
+	uint8_t					applicationStateSector[AT24MAC_SECTOR_SIZE];
+
+	union
+	{
+		userParameters			parameters;
+		uint8_t					ParametersSector[2*AT24MAC_SECTOR_SIZE-sizeof(parameters)];
+	};
+	union
+	{
+		userPreferences			preferences;
+		uint8_t					preferencesSector[AT24MAC_SECTOR_SIZE-sizeof(preferences)];
+	};
 
 
 
+};
+
+
+typedef struct EEPROMMemoryLayout	EEPROMMemoryLayout;
+
+extern	EEPROMMemoryLayout*   eepromLayout;
 class AT24MAC_Class
 {
 //variables
