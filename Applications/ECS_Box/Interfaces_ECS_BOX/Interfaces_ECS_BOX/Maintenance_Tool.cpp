@@ -58,7 +58,7 @@ Maintenance_Tool::~Maintenance_Tool()
 bool	Maintenance_Tool::Init(void){
 	ticks=0;
 	interfaceTimer.Init();
-	interfaceTimer.Add_periodic_task((FUNC_PTR)MaintenaceToolTimming,1000);
+	//interfaceTimer.Add_periodic_task((FUNC_PTR)MaintenaceToolTimming,1000);
 	GetCPUSerialNumber(cpuSerial);
 	memcpy(localBuffer,cpuSerial,16);
 	gotAccess=false;
@@ -112,7 +112,7 @@ void Maintenance_Tool::setConnected(bool isConnected)
 		maintenanceIsConnected = isConnected;
 		if (isConnected)
 		{
-			
+			interfaceTimer.Add_periodic_task((FUNC_PTR)MaintenaceToolTimming,1000);
 			interfaceTimer.Start_oneShot_task((FUNC_PTR)MaintenaceToolPCBeaming,60*1000);
 			//usbTimer.Start();
 				

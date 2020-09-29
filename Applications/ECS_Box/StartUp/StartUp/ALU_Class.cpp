@@ -35,8 +35,8 @@ uint32_t	ALU_Class::Init(void){
 	hvac.SetInitialState();
 	uhr.Init();
 	hvac.saveCurrentState();
-	s=arinc.Init();
-	if (s!=0x01)
+	
+	if (!(interfaces.Init()))
 	{	
 		NotifyError(kARINCINnterfaceError,s);
 		return s;

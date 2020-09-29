@@ -26,6 +26,8 @@
 #define TOGGLE 1
 #define DEADLOOP 1
 #define MESSAGECOUNTMAX 64
+#define TX_LABELS_NUMBER 32
+#define RX_LABELS_NUMBER 32
 #define SELFTEST_ON 1
 #define SELFTEST_OFF 0
 #define g_RXBuffSize 4  
@@ -78,14 +80,12 @@ class ARINC_Interface: public virtual ARINC_Conversions, public Protocol_Class
 {
 //variables
 public:
-	
-
 	bool	BITRATE0;
 	bool	BITRATE1;
 	bool	BITRATE2;
 	
 	bool	PARITY;
-	volatile	bool newMessageR1,newMessageR2;
+	volatile	bool newMessageR1,newMessageR2, txTimeout;
 	unsigned char TXBuffer [16];                 // Transmit Buffer
 	//const char WelcomeMesg[] = "Holt HI-3593 Demonstration.";
 	volatile unsigned int g_count100us;          // Global timer tick for delays.
@@ -94,10 +94,13 @@ public:
 	unsigned char MessageCount;
 	unsigned char MODES,OPTION;
 	uint8_t DebugArray[16];                        // Global array for 3110 status registers
-	unsigned char receiverBuffer[MESSAGECOUNTMAX][4];             // [# of buffers][16 bytes]
+	uint8_t receiverBuffer[RX_LABELS_NUMBER][4];             // [# of buffers][16 bytes]
+	uint8_t	transmitBuffer[TX_LABELS_NUMBER][4];
 	
 //	Datagram			arincMessage;
 	FUNC_PTR			handler;
+	unsigned char LabelsArrayTX[TX_LABELS_NUMBER];                // All Rec1 256 labels
+	unsigned char LabelsArrayRX[RX_LABELS_NUMBER];                // All Rec2 256 labels
 protected:
 private:
 	uint8_t	receiverArray[4];
@@ -109,8 +112,8 @@ private:
 	uint8_t RXBufferPL2[g_RXBuffSize];     // Temp buffer to hold PL messages data
 	uint8_t	MessageCount1;
 	uint8_t	MessageCount2;
-	unsigned char LabelsAr1[32];                // All Rec1 256 labels
-	unsigned char LabelsAr2[32];                // All Rec2 256 labels
+	unsigned char LabelsArrayTX[TX_LABELS_NUMBER];                // All Rec1 256 labels
+	unsigned char LabelsArrayRX[RX_LABELS_NUMBER];                // All Rec2 256 labels
 	unsigned char statusRegister;                // All Rec2 256 labels
 	uint8_t	statusHolt;
 	bool	isOK;
@@ -121,10 +124,9 @@ private:
 	uint8_t Rec2Parity;
 	uint8_t	i,j,k;
 	static char Status_F;
-	Timer_Class		timer;
 	Holt_3593_Class	HI3593;
-	uint8_t receiverBuffer1[MESSAGECOUNTMAX/2][4];             // [# of buffers][16 bytes]
-	uint8_t receiverBuffer2[MESSAGECOUNTMAX/2][4];
+	uint8_t receiverBuffer1[RX_LABELS_NUMBER][4];             // [# of buffers][16 bytes]
+	uint8_t receiverBuffer2[RX_LABELS_NUMBER][4];
 //functions
 public:
 	ARINC_Interface();

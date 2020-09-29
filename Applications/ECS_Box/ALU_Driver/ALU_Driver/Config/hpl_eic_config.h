@@ -455,7 +455,7 @@
 // <e> Interrupt 8 Settings
 // <id> eic_arch_enable_irq_setting8
 #ifndef CONF_EIC_ENABLE_IRQ_SETTING8
-#define CONF_EIC_ENABLE_IRQ_SETTING8 0
+#define CONF_EIC_ENABLE_IRQ_SETTING8 1
 #endif
 
 // <q> External Interrupt 8 Filter Enable
@@ -469,7 +469,7 @@
 // <i> Indicates whether the external interrupt 8 debounce is enabled or not
 // <id> eic_arch_debounce_enable8
 #ifndef CONF_EIC_DEBOUNCE_ENABLE8
-#define CONF_EIC_DEBOUNCE_ENABLE8 0
+#define CONF_EIC_DEBOUNCE_ENABLE8 1
 #endif
 
 // <q> External Interrupt 8 Event Output Enable
@@ -489,14 +489,14 @@
 // <i> This defines input sense trigger
 // <id> eic_arch_sense8
 #ifndef CONF_EIC_SENSE8
-#define CONF_EIC_SENSE8 EIC_NMICTRL_NMISENSE_NONE_Val
+#define CONF_EIC_SENSE8 EIC_NMICTRL_NMISENSE_RISE_Val
 #endif
 
 // <q> External Interrupt 8 Asynchronous Edge Detection Mode
 // <i> Indicates the external interrupt 8 detection mode operated synchronously or asynchronousl
 // <id> eic_arch_asynch8
 #ifndef CONF_EIC_ASYNCH8
-#define CONF_EIC_ASYNCH8 0
+#define CONF_EIC_ASYNCH8 1
 #endif
 
 // </e>
@@ -504,7 +504,7 @@
 // <e> Interrupt 9 Settings
 // <id> eic_arch_enable_irq_setting9
 #ifndef CONF_EIC_ENABLE_IRQ_SETTING9
-#define CONF_EIC_ENABLE_IRQ_SETTING9 0
+#define CONF_EIC_ENABLE_IRQ_SETTING9 1
 #endif
 
 // <q> External Interrupt 9 Filter Enable
@@ -518,7 +518,7 @@
 // <i> Indicates whether the external interrupt 9 debounce is enabled or not
 // <id> eic_arch_debounce_enable9
 #ifndef CONF_EIC_DEBOUNCE_ENABLE9
-#define CONF_EIC_DEBOUNCE_ENABLE9 0
+#define CONF_EIC_DEBOUNCE_ENABLE9 1
 #endif
 
 // <q> External Interrupt 9 Event Output Enable
@@ -538,14 +538,14 @@
 // <i> This defines input sense trigger
 // <id> eic_arch_sense9
 #ifndef CONF_EIC_SENSE9
-#define CONF_EIC_SENSE9 EIC_NMICTRL_NMISENSE_NONE_Val
+#define CONF_EIC_SENSE9 EIC_NMICTRL_NMISENSE_RISE_Val
 #endif
 
 // <q> External Interrupt 9 Asynchronous Edge Detection Mode
 // <i> Indicates the external interrupt 9 detection mode operated synchronously or asynchronousl
 // <id> eic_arch_asynch9
 #ifndef CONF_EIC_ASYNCH9
-#define CONF_EIC_ASYNCH9 0
+#define CONF_EIC_ASYNCH9 1
 #endif
 
 // </e>

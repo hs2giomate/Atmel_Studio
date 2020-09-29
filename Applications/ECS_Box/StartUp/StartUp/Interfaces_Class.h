@@ -12,6 +12,29 @@
 #include "EventHandler_Class.h"
 #include "ConfigState_Class.h"
 
+struct InternCommunicationRequest
+{
+
+	bool LTC2983GotMessage;
+	bool I2CExpanderGotMessage;
+	
+};
+struct ExternCommunicationRequest
+{
+	bool arinc1GotMessage;
+	bool arinc2GotMessage;
+	bool USBGotMessage;
+
+	
+};
+
+struct CommunicationRequest
+{
+	InternCommunicationRequest	internRequest;
+	ExternCommunicationRequest	externRequest;
+	
+};
+
 class Interfaces_Class
 {
 //variables
@@ -21,16 +44,20 @@ private:
 	HVACState	state;
 	HVACStatus	status;
 	uint8_t		checkResult,i;
+	uint32_t result;
+	CommunicationRequest request;
 		
 	
 //functions
 public:
 	Interfaces_Class();
 	~Interfaces_Class();
-	uint32_t	CheckCommunication(void);
+	bool Init(void);
+	CommunicationRequest	CheckCommunication(void);
+	uint32_t	CheckInternalCommunication(void);
 	uint32_t	GetStatus(HVACStatus&);
 	bool	CheckI2CExpander(uint8_t add);
-	bool	checkLTC2983(void);
+	bool	CheckLTC2983(void);
 	bool CheckUSBInterface(void);
 	bool	CheckArincInterface(void);
 protected:

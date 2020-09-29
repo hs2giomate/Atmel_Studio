@@ -9,9 +9,15 @@
 #include "Timer_Class.h"
 
 Timer_Class*	ptrTimerClass;
+static  timer_task taskArray[TASK_NUMBER];
+static  timer_task countTicks;
 static void extern_task_cb(const struct timer_task *const timer_task)
 {
 	ptrTimerClass->handler();
+}
+static void CountTicks(const struct timer_task *const timer_task)
+{
+	ptrTimerClass->ticks++;
 }
 static void task_cb(const struct timer_task *const timer_task)
 {
@@ -23,7 +29,7 @@ Timer_Class::Timer_Class()
 	prtTimer=this;
 	ptrTimerClass=this;
 	clockCycles=1024;
-	task.cb=task_cb;
+	task->cb=task_cb;
 } //Timer_Class
 
 // default constructor
@@ -32,7 +38,8 @@ Timer_Class::Timer_Class( timer_descriptor * descr)
 	timer_descr=descr;
 	ptrTimerClass=this;
 	clockCycles=1024;
-	task.cb=task_cb;
+	task=&countTicks;
+	//task->cb=task_cb;
 } //Timer_Class
 void	Timer_Class::set_descriptor(timer_descriptor * descr){
 		timer_descr=descr;
@@ -53,6 +60,8 @@ void Timer_Class::Init(timer_descriptor * descr){
 }
 void Timer_Class::Init(void){
 	ticks=0;
+	add_periodic_task(FUNC_PTR(CountTicks),1)
+	start();
 }
 int32_t Timer_Class::set_clock_cycles_per_tick(uint32_t clock_cycles){
 	int32_t	status;
@@ -65,7 +74,7 @@ int32_t Timer_Class::start(uint32_t timeoutsec){
 	timer_task tempTask;
 	timeout=0;
 	//set_clock_cycles_per_tick(timeoutsec/10);
-	if (task.cb==task_cb)
+	if (task->cb==task_cb)
 	{
 		setOneShotTimer(timeoutsec);
 	} 
@@ -73,8 +82,8 @@ int32_t Timer_Class::start(uint32_t timeoutsec){
 	{
 		tempTask=task;
 		remove_task();
-		task=tempTask;
-		task.interval=timeoutsec;
+		task=&tempTask;
+		task->interval=timeoutsec;
 		timer_add_task(timer_descr, &task);
 	}
 	
@@ -101,10 +110,11 @@ int32_t Timer_Class::stop( void){
 
 
 void	Timer_Class::setOneShotTimer(uint32_t interval){
-	task.interval=interval;
-	task.cb=task_cb;
-	task.mode=TIMER_TASK_ONE_SHOT;
-	timer_add_task(timer_descr, &task);
+	ChooseAvailableTimerTask();
+	task->interval=interval;
+	task->cb=task_cb;
+	task->mode=TIMER_TASK_ONE_SHOT;
+	timer_add_task(timer_descr, task);
 }
 
 volatile void Timer_Class::setTimeout(){
@@ -114,51 +124,102 @@ void	Timer_Class::deinit(){
 	timer_deinit(timer_descr);
 }
 
-int32_t Timer_Class::add_task(FUNC_PTR func,uint32_t interval){
+int32_t Timer_Class::Add_task(FUNC_PTR func,uint32_t interval){
 	int32_t	status;
 
-
-	task.interval = interval;
-	task.cb       = (timer_cb_t)func;
-	task.mode     = TIMER_TASK_REPEAT;
-	status=timer_add_task(timer_descr, &task);
+	ChooseAvailableTimerTask();
+	task->interval = interval;
+	task->cb       = (timer_cb_t)func;
+	task->mode     = TIMER_TASK_REPEAT;
+	status=timer_add_task(timer_descr, task);
 	
 	return status;
 }
-int32_t Timer_Class::add_task(FUNC_PTR func,uint32_t interval,timer_task_mode modeTask){
+int32_t Timer_Class::Add_task(FUNC_PTR func,uint32_t interval,timer_task_mode modeTask){
 	int32_t	status;
-
-	task.interval = interval;
-	task.cb       = (timer_cb_t)func;
-	task.mode     = modeTask;
-	status=timer_add_task(timer_descr, &task);
+	ChooseAvailableTimerTask();
+	task->interval = interval;
+	task->cb       = (timer_cb_t)func;
+	task->mode     = modeTask;
+	status=timer_add_task(timer_descr, task);
 	
 	return status;
 }
 int32_t Timer_Class::add_periodic_task(FUNC_PTR func,uint32_t interval){
 	int32_t	status;
-	status=add_task(func,interval,TIMER_TASK_REPEAT);
+	status=Add_task(func,interval,TIMER_TASK_REPEAT);
 		return status;
 }
 int32_t Timer_Class::add_oneShot_task(FUNC_PTR func,uint32_t interval){
 	int32_t	status;
-	status=add_task(func,interval,TIMER_TASK_ONE_SHOT);
+	status=Add_task(func,interval,TIMER_TASK_ONE_SHOT);
 	status=timer_start(timer_descr);
 	return status;
 }
 
-void	Timer_Class::remove_task(void){
-	timer_remove_task(timer_descr, &task);
+void	Timer_Class::Remove_task(void){
+	
+	timer_remove_task(timer_descr, task);
+	task->cb=NULL;
+}
+
+void	Timer_Class::Remove_task(FUNC_PTR func){
+	GetTaskFunction(func);
+	
+	if (is_list_element(&timer_descr->tasks, task))
+	{
+		timer_remove_task(timer_descr, task);
+	}
+	else
+	{
+		
+	}
+
+	task->cb=NULL;
 }
 
 
 
-uint32_t	Timer_Class::get_ticks(void){
+uint32_t	Timer_Class::Get_ticks(void){
 	
-	timer_get_clock_cycles_in_tick(timer_descr,&ticks);
-	return ticks;
+		return ticks;
+}
+int32_t Timer_Class::Start_oneShot_task(FUNC_PTR func,uint32_t interval){
+	int32_t	status;
+	status=Add_task(func,interval,TIMER_TASK_ONE_SHOT);
+	status=timer_start(timer_descr);
+	return status;
+}
+void	Timer_Class::ChooseAvailableTimerTask(void){
+	for (i = 0; i < TASK_NUMBER; i++)
+	{
+		if (taskArray[i].cb==NULL)
+		{
+			
+			task=&taskArray[i];
+			return;
+			
+		}
+	}
+	task=&taskArray[0];
+
+}
+void	Timer_Class::GetTaskFunction(FUNC_PTR func){
+	for (i = 0; i < TASK_NUMBER; i++)
+	{
+		if (taskArray[i].cb==(timer_cb_t)func)
+		{
+			
+			task=&taskArray[i];
+			return;
+			
+		}
+	}
+
+
 }
 
 Timer_Class eventTimer(&TIMER_EVENT);
 Timer_Class hvacTimer(&TIMER_HVAC);
 Timer_Class connectionTimer(&TIMER_INTERFACE);
+Timer_Class eventTimer(&TIMER_ARINC);

@@ -232,5 +232,5 @@ inline bool Maintenance_Tool::isConnected(void) const
 {
 	return maintenanceIsConnected;
 }
-
+extern	Maintenance_Tool	maintenance;
 #endif //__MAINTENANCE_TOOL_H__
