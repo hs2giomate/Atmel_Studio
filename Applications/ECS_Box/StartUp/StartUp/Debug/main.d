@@ -272,6 +272,8 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
@@ -291,9 +293,7 @@ main.d main.o: .././main.cpp .././main.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
  .././ALU_Class.h .././PBIT_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h \
- .././ConfigState_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
- ../ApplicationLayer/ConfigurationData.h \
+ .././ConfigState_Class.h ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  .././CBIT_Class.h .././States_Class.h \
@@ -865,6 +865,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
 
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
+
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h:
@@ -906,8 +910,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h:
 
 .././ConfigState_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
 
 ../ApplicationLayer/ConfigurationData.h:
 

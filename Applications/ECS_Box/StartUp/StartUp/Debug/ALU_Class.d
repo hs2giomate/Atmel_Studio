@@ -274,6 +274,7 @@ ALU_Class.d ALU_Class.o: .././ALU_Class.cpp .././ALU_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
  .././Error_Labelling_Class.h .././AMMC_Class.h \
  .././MemoryManagment_Class.h \
@@ -868,6 +869,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
 

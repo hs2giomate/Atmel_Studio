@@ -53,6 +53,19 @@ void EXTERNAL_IRQ_0_init(void)
 	hri_mclk_set_APBAMASK_EIC_bit(MCLK);
 
 	// Set pin direction to input
+	gpio_set_pin_direction(VBUS_DETECTED, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(VBUS_DETECTED,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(VBUS_DETECTED, PINMUX_PC00A_EIC_EXTINT0);
+
+	// Set pin direction to input
 	gpio_set_pin_direction(PA04, GPIO_DIRECTION_IN);
 
 	gpio_set_pin_pull_mode(PA04,
@@ -914,21 +927,6 @@ void system_init(void)
 	                       GPIO_PULL_UP);
 
 	gpio_set_pin_function(SW0, GPIO_PIN_FUNCTION_OFF);
-
-	// GPIO on PC00
-
-	// Set pin direction to input
-	gpio_set_pin_direction(VBUS_DETECTED, GPIO_DIRECTION_IN);
-
-	gpio_set_pin_pull_mode(VBUS_DETECTED,
-	                       // <y> Pull configuration
-	                       // <id> pad_pull_config
-	                       // <GPIO_PULL_OFF"> Off
-	                       // <GPIO_PULL_UP"> Pull-up
-	                       // <GPIO_PULL_DOWN"> Pull-down
-	                       GPIO_PULL_DOWN);
-
-	gpio_set_pin_function(VBUS_DETECTED, GPIO_PIN_FUNCTION_OFF);
 
 	// GPIO on PC13
 

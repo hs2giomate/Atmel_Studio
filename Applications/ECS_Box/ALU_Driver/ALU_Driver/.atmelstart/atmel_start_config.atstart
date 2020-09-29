@@ -665,7 +665,7 @@ drivers:
     functionality: External_IRQ
     api: HAL:Driver:Ext_IRQ
     configuration:
-      eic_arch_asynch0: false
+      eic_arch_asynch0: true
       eic_arch_asynch1: false
       eic_arch_asynch10: false
       eic_arch_asynch11: false
@@ -682,7 +682,7 @@ drivers:
       eic_arch_asynch8: false
       eic_arch_asynch9: false
       eic_arch_cksel: Clocked by GCLK
-      eic_arch_debounce_enable0: false
+      eic_arch_debounce_enable0: true
       eic_arch_debounce_enable1: false
       eic_arch_debounce_enable10: false
       eic_arch_debounce_enable11: false
@@ -698,7 +698,7 @@ drivers:
       eic_arch_debounce_enable7: false
       eic_arch_debounce_enable8: false
       eic_arch_debounce_enable9: false
-      eic_arch_enable_irq_setting0: false
+      eic_arch_enable_irq_setting0: true
       eic_arch_enable_irq_setting1: false
       eic_arch_enable_irq_setting10: false
       eic_arch_enable_irq_setting11: false
@@ -752,7 +752,7 @@ drivers:
       eic_arch_nmisense: No detection
       eic_arch_prescaler0: Divided by 2
       eic_arch_prescaler1: Divided by 2
-      eic_arch_sense0: No detection
+      eic_arch_sense0: Both-edges detection
       eic_arch_sense1: No detection
       eic_arch_sense10: No detection
       eic_arch_sense11: No detection
@@ -772,6 +772,13 @@ drivers:
       eic_arch_states1: '3'
       eic_arch_tickon: The sampling rate is EIC clock
     optional_signals:
+    - identifier: EXTERNAL_IRQ_0:EXTINT/0
+      pad: PC00
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.0
+      name: EIC/EXTINT/0
+      label: EXTINT/0
     - identifier: EXTERNAL_IRQ_0:EXTINT/4
       pad: PA04
       mode: Enabled
@@ -2274,8 +2281,7 @@ pads:
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC00
     mode: Digital input
     user_label: VBUS_DETECTED
-    configuration:
-      pad_pull_config: Pull-down
+    configuration: null
   INT_LTC2983:
     name: PB07
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB07

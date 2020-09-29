@@ -43,13 +43,13 @@ bool	Interfaces_Class::CheckI2CExpander(uint8_t add){
 		return	mcp.hasChanged;
 }
 bool	Interfaces_Class::CheckUSBInterface(void){
-		if (usb.terminalStarted)
+		if (usb.connected)
 		{
 			hvac.PrintState();
 		}else{
 						
 		}
-		return	usb.terminalStarted;
+		return	usb.connected;
 }
 
 bool	Interfaces_Class::checkLTC2983(void){

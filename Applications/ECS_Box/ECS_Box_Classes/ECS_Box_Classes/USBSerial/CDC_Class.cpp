@@ -11,7 +11,11 @@
 
 CDC_Class	*ptrCDCClass;
 
-
+static void	USBTimeout(const struct timer_task *const timer_task){
+	ptrCDCClass->timeout=true;
+	ptrCDCClass->connected=false;
+	
+}
 
 /**
  * \brief Callback invoked when bulk OUT data received
@@ -20,8 +24,8 @@ static bool cb_bulk_read(const uint8_t ep, const enum usb_xfer_code rc, const ui
 {
 	
 	ptrCDCClass->rxReady=true;
-	ptrCDCClass->terminalStarted=true;
 	ptrCDCClass->plugged=true;
+	ptrCDCClass->connected=true;
 
 
 	return false;
@@ -35,8 +39,8 @@ static bool cb_bulk_write(const uint8_t ep, const enum usb_xfer_code rc, const u
 	/* Echo data. */
 	
 	ptrCDCClass->txReady=true;
-	ptrCDCClass->terminalStarted=true;
 	ptrCDCClass->plugged=true;
+	ptrCDCClass->connected=true;
 
 	/* No error. */
 	return false;
@@ -51,7 +55,7 @@ static bool cb_state_c(usb_cdc_control_signal_t state)
 	cdcdf_acm_register_callback(CDCDF_ACM_CB_WRITE, (FUNC_PTR)cb_bulk_write);
 		ptrCDCClass->txReady=true;
 		ptrCDCClass->rxReady=true;
-		ptrCDCClass->plugged=true;
+		ptrCDCClass->connected=true;
 		//ptrCDCClass->terminalStarted=true;
 		
 	}
@@ -87,7 +91,7 @@ void CDC_Class::Init(void){
 	cdcdf_acm_register_callback(CDCDF_ACM_CB_STATE_C, (FUNC_PTR)cb_state_c);
 	
 		
-	if (plugged)
+	if (connected)
 	{
 		//serial<<"*** USB CDC Driver Version: "<<USBSERIALCLASSVERSION<<"."<<USBSERIALCLASSSUBVERSION<<" ***"<<NEWLINE;
 	}
@@ -115,9 +119,20 @@ int CDC_Class::peek(void)
 int32_t CDC_Class::readData(void* p, int32_t size)
 {
 	uint8_t	r;
-	rxReady=false;
-	r=cdcdf_acm_read((uint8_t *)p, size);
-	while(!rxReady);
+	if (connected)
+	{
+		usbTerminalTimer.Start_oneShot_task((FUNC_PTR)USBTimeout,USB_TIMEOUT*size);
+		rxReady=false;
+		r=cdcdf_acm_read((uint8_t *)p, size);
+		while((!rxReady)&&(connected));
+		usbTerminalTimer.Stop();
+		usbTerminalTimer.Remove_task((FUNC_PTR)USBTimeout);
+	} 
+	else
+	{
+		r=0;
+	}
+
 	return r;
 }
 int32_t CDC_Class::readDataAsyn(void* p, int32_t size)
@@ -142,9 +157,19 @@ void CDC_Class::read(char *c)
 int32_t CDC_Class::read(void* p, int32_t size)
 {
 	uint8_t	r;
-	rxReady=false;
-	r=cdcdf_acm_read((uint8_t *)p, size);
-	while(!rxReady);
+	if (connected)
+	{
+		usbTerminalTimer.Start_oneShot_task((FUNC_PTR)USBTimeout,USB_TIMEOUT*size);
+		rxReady=false;
+		r=cdcdf_acm_read((uint8_t *)p, size);
+		while((!rxReady)&&(connected));
+		usbTerminalTimer.Stop();
+		usbTerminalTimer.Remove_task((FUNC_PTR)USBTimeout);
+	}
+	else
+	{
+		r=0;
+	}
 	return r;
 }
 void	CDC_Class::flush(void){
@@ -162,14 +187,18 @@ size_t CDC_Class::write(uint8_t c) {
 int32_t CDC_Class::writeData(const void *buffer, int32_t size)
 {
 	
-	txReady=false;
-	if (CheckTerminal())
+	
+	if (connected)
 	{
+		usbTerminalTimer.Start_oneShot_task((FUNC_PTR)USBTimeout,USB_TIMEOUT*size);
+		txReady=false;
 		uint32_t r = (uint32_t)cdcdf_acm_write((uint8_t *)buffer,(uint32_t)size);
-		while((!txReady)&&(terminalStarted)){
-			
+		while((!txReady)&&(connected)){
+			;
 			};
+			
 			usbTerminalTimer.Stop();
+			usbTerminalTimer.Remove_task((FUNC_PTR)USBTimeout);
 		return r;
 	} 
 	else
@@ -183,11 +212,12 @@ size_t CDC_Class::write(const uint8_t *buffer, size_t size)
 {
 	uint32_t r;
 	txReady=false;
-/*	uint32_t r = (uint32_t)cdcdf_acm_write((uint8_t *)buffer,(uint32_t)size);*/
- 	if (plugged){ 		r= (uint32_t)cdcdf_acm_write((uint8_t *)buffer,(uint32_t)size);
-		while((!txReady)&&(terminalStarted));
-		//while((!txReady));
+
+ 	if (connected){		usbTerminalTimer.Start_oneShot_task((FUNC_PTR)USBTimeout,USB_TIMEOUT*size); 		r= (uint32_t)cdcdf_acm_write((uint8_t *)buffer,(uint32_t)size);
+		while((!txReady)&&(connected));
+
 		usbTerminalTimer.Stop();
+		usbTerminalTimer.Remove_task((FUNC_PTR)USBTimeout);
 	}else{ 		r=0;
 	 }
 	return r;		

@@ -63,7 +63,7 @@
 // <e> Interrupt 0 Settings
 // <id> eic_arch_enable_irq_setting0
 #ifndef CONF_EIC_ENABLE_IRQ_SETTING0
-#define CONF_EIC_ENABLE_IRQ_SETTING0 0
+#define CONF_EIC_ENABLE_IRQ_SETTING0 1
 #endif
 
 // <q> External Interrupt 0 Filter Enable
@@ -77,7 +77,7 @@
 // <i> Indicates whether the external interrupt 0 debounce is enabled or not
 // <id> eic_arch_debounce_enable0
 #ifndef CONF_EIC_DEBOUNCE_ENABLE0
-#define CONF_EIC_DEBOUNCE_ENABLE0 0
+#define CONF_EIC_DEBOUNCE_ENABLE0 1
 #endif
 
 // <q> External Interrupt 0 Event Output Enable
@@ -97,14 +97,14 @@
 // <i> This defines input sense trigger
 // <id> eic_arch_sense0
 #ifndef CONF_EIC_SENSE0
-#define CONF_EIC_SENSE0 EIC_NMICTRL_NMISENSE_NONE_Val
+#define CONF_EIC_SENSE0 EIC_NMICTRL_NMISENSE_BOTH_Val
 #endif
 
 // <q> External Interrupt 0 Asynchronous Edge Detection Mode
 // <i> Indicates the external interrupt 0 detection mode operated synchronously or asynchronousl
 // <id> eic_arch_asynch0
 #ifndef CONF_EIC_ASYNCH0
-#define CONF_EIC_ASYNCH0 0
+#define CONF_EIC_ASYNCH0 1
 #endif
 
 // </e>
@@ -906,7 +906,7 @@
 
 // </h>
 
-#define CONFIG_EIC_EXTINT_MAP {4, PIN_PA04}, {5, PIN_PA05}, {6, PIN_PC22}, {7, PIN_PC23},
+#define CONFIG_EIC_EXTINT_MAP {0, PIN_PC00}, {4, PIN_PA04}, {5, PIN_PA05}, {6, PIN_PC22}, {7, PIN_PC23},
 
 // <<< end of configuration section >>>
 

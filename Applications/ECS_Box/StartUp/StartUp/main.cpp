@@ -68,6 +68,20 @@ int main(void)
 	
 	usb.Init();
 	delay_ms(100);
+	while (usb.plugged==false);
+	while(1){
+		if (usb.connected)
+		{
+			
+			usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
+			//usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
+			delay_ms(1000);
+		} 
+		else
+		{
+		}
+	}
+
 	usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
 	usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
 	//QSPIDriverTest();

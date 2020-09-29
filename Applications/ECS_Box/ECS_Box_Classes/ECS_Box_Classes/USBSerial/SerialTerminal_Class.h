@@ -17,7 +17,7 @@ class SerialTerminal_Class
 {
 //variables
 public:
-	volatile bool	plugged, terminalStarted,timeout;
+	volatile bool	connected, plugged,timeout;
 
 protected:
 private:

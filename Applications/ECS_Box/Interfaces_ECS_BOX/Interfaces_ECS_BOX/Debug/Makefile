@@ -74,9 +74,9 @@ Device_Startup/system_same54.d \
 main.d \
 Maintenance_Tool.d
 
-OUTPUT_FILE_PATH +=Interfaces_ECS_BOX.elf
+OUTPUT_FILE_PATH +=libInterfaces_ECS_BOX.a
 
-OUTPUT_FILE_PATH_AS_ARGS +=Interfaces_ECS_BOX.elf
+OUTPUT_FILE_PATH_AS_ARGS +=libInterfaces_ECS_BOX.a
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -143,20 +143,14 @@ endif
 # All Target
 all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
-	@echo Building target: $@
-	@echo Invoking: ARM/GNU Linker : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="Interfaces_ECS_BOX.map" -Wl,--start-group -lm -lALU_Driver -lECS_Box_Objects  -Wl,--end-group -L"..\\Device_Startup" -L"S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver\Debug" -L"S:\AtmelStudio\Applications\ECS_Box\ECS_Box_Classes\ECS_Box_Classes\Debug"  -Wl,--gc-sections -mcpu=cortex-m4 -Tsame54p20a_flash.ld  
-	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "Interfaces_ECS_BOX.elf" "Interfaces_ECS_BOX.bin"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "Interfaces_ECS_BOX.elf" "Interfaces_ECS_BOX.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O binary "Interfaces_ECS_BOX.elf" "Interfaces_ECS_BOX.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objdump.exe" -h -S "Interfaces_ECS_BOX.elf" > "Interfaces_ECS_BOX.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "Interfaces_ECS_BOX.elf" "Interfaces_ECS_BOX.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-size.exe" "Interfaces_ECS_BOX.elf"
-	
-	
 
+$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
+	@echo Building target: $@
+	@echo Invoking: ARM/GNU Archiver : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
+	@echo Finished building target: $@
+	
+	
 
 
 
@@ -165,5 +159,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "Interfaces_ECS_BOX.elf" "Interfaces_ECS_BOX.a" "Interfaces_ECS_BOX.hex" "Interfaces_ECS_BOX.bin" "Interfaces_ECS_BOX.lss" "Interfaces_ECS_BOX.eep" "Interfaces_ECS_BOX.map" "Interfaces_ECS_BOX.srec"
+	rm -rf "libInterfaces_ECS_BOX.elf" "libInterfaces_ECS_BOX.a" "libInterfaces_ECS_BOX.hex" "libInterfaces_ECS_BOX.bin" "libInterfaces_ECS_BOX.lss" "libInterfaces_ECS_BOX.eep" "libInterfaces_ECS_BOX.map" "libInterfaces_ECS_BOX.srec"
 	

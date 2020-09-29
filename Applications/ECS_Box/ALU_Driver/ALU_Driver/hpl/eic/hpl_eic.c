@@ -70,7 +70,7 @@ static int ffs(int v)
 	}
 #endif
 
-#define EXT_IRQ_AMOUNT 4
+#define EXT_IRQ_AMOUNT 5
 
 /**
  * \brief EXTINTx and pin number map
@@ -167,6 +167,9 @@ int32_t _ext_irq_init(void (*cb)(const uint32_t pin))
 	                             | 0);
 
 	hri_eic_set_CTRLA_ENABLE_bit(EIC);
+	NVIC_DisableIRQ(EIC_0_IRQn);
+	NVIC_ClearPendingIRQ(EIC_0_IRQn);
+	NVIC_EnableIRQ(EIC_0_IRQn);
 	NVIC_DisableIRQ(EIC_4_IRQn);
 	NVIC_ClearPendingIRQ(EIC_4_IRQn);
 	NVIC_EnableIRQ(EIC_4_IRQn);
@@ -190,6 +193,7 @@ int32_t _ext_irq_init(void (*cb)(const uint32_t pin))
  */
 int32_t _ext_irq_deinit(void)
 {
+	NVIC_DisableIRQ(EIC_0_IRQn);
 	NVIC_DisableIRQ(EIC_4_IRQn);
 	NVIC_DisableIRQ(EIC_5_IRQn);
 	NVIC_DisableIRQ(EIC_6_IRQn);
@@ -275,6 +279,12 @@ static void _ext_irq_handler(void)
 /**
  * \brief EIC interrupt handler
  */
+void EIC_0_Handler(void)
+{
+	_ext_irq_handler();
+} /**
+   * \brief EIC interrupt handler
+   */
 void EIC_4_Handler(void)
 {
 	_ext_irq_handler();

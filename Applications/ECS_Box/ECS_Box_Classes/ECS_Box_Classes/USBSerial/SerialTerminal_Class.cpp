@@ -14,13 +14,27 @@ SerialTerminal_Class	*ptrSerialTerminalClass;
 
 static void	USBTimeoutTask(const struct timer_task *const timer_task){
 	ptrSerialTerminalClass->timeout=true;
-	ptrSerialTerminalClass->terminalStarted=false;
+	ptrSerialTerminalClass->plugged=false;
+}
+
+static void USBPlugged(void){
+	if (gpio_get_pin_level(PIN_PC00))
+	{
+		ptrSerialTerminalClass->plugged=true;
+	} 
+	else
+	{
+		ptrSerialTerminalClass->plugged=false;
+		ptrSerialTerminalClass->connected=false;
+	}
+	
 }
 
 // default constructor
 SerialTerminal_Class::SerialTerminal_Class()
 {
 	ptrSerialTerminalClass=this;
+	
 } //SerialTerminal_Class
 
 // default destructor
@@ -29,18 +43,19 @@ SerialTerminal_Class::~SerialTerminal_Class()
 } //~SerialTerminal_Class
 
 void	SerialTerminal_Class::OnInit(void){
+		ext_irq_register(PIN_PC00, USBPlugged);
 		vbusDetected=gpio_get_pin_level(VBUS_DETECTED);
 		if (vbusDetected)
 		{
 			timeout=false;
-			terminalStarted=true;
+			plugged=true;
 			usbTerminalTimer.Add_oneShot_task((FUNC_PTR)USBTimeoutTask,USB_TIMEOUT*60);
 			usbTerminalTimer.Start();
 			//while ((!usb.IsEnabled())||(!plugged)){
 			while ((!usb.IsEnabled())){
 				if (timeout)
 				{
-					plugged=false;
+					connected=false;
 					return;
 				}
 				else
@@ -52,8 +67,8 @@ void	SerialTerminal_Class::OnInit(void){
 		} 
 		else
 		{
+			connected=false;
 			plugged=false;
-			terminalStarted=false;
 		}
 		
 }
@@ -62,11 +77,11 @@ void	SerialTerminal_Class::OnPlugged(void){
 	usbTerminalTimer.Remove_task();
 	usbTerminalTimer.Add_oneShot_task((FUNC_PTR)USBTimeoutTask,USB_TIMEOUT*40);
 	usbTerminalTimer.Start();
-	while (!plugged){
+	while (!connected){
 		if (timeout)
 		{
+			connected=false;
 			plugged=false;
-			terminalStarted=false;
 			return;
 		}
 		else
@@ -77,43 +92,43 @@ void	SerialTerminal_Class::OnPlugged(void){
 	
 }
 bool	SerialTerminal_Class::CheckTerminal(void){
-	if (terminalStarted)
+	if (plugged)
 	{
-		if (plugged||usb.IsEnabled())
+		if (connected||usb.IsEnabled())
 		{
-			terminalStarted=usbTerminalTimer.Start()==0;
+			plugged=usbTerminalTimer.Start()==0;
 		}
 		else
 		{
-			terminalStarted=false;
+			plugged=false;
 		}
 	}
 	else
 	{
-		return	terminalStarted;
+		return	plugged;
 	}
 	
-	return	terminalStarted;
+	return	plugged;
 }
 bool	SerialTerminal_Class::CheckTerminal(uint32_t size){
-	if (terminalStarted)
+	if (plugged)
 	{
-		if (plugged||usb.IsEnabled())
+		if (connected||usb.IsEnabled())
 		{
 			usbTerminalTimer.Stop();
-			usbTerminalTimer.Remove_task();
+			usbTerminalTimer.Remove_task((FUNC_PTR)USBTimeoutTask);
 			usbTerminalTimer.Add_oneShot_task((FUNC_PTR)USBTimeoutTask,USB_TIMEOUT*size);
-			terminalStarted=usbTerminalTimer.Start()==0;
+			plugged=usbTerminalTimer.Start()==0;
 		}
 		else
 		{
-			terminalStarted=false;
+			plugged=false;
 		}
 	}
 	else
 	{
-		return	terminalStarted;
+		return	plugged;
 	}
 	
-	return	terminalStarted;
+	return	plugged;
 }

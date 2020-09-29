@@ -59,6 +59,10 @@ void CRC_CALC_example(void)
 		;
 }
 
+static void button_on_PC00_pressed(void)
+{
+}
+
 static void button_on_PA04_pressed(void)
 {
 }
@@ -81,6 +85,7 @@ static void button_on_PC23_pressed(void)
 void EXTERNAL_IRQ_0_example(void)
 {
 
+	ext_irq_register(PIN_PC00, button_on_PC00_pressed);
 	ext_irq_register(PIN_PA04, button_on_PA04_pressed);
 	ext_irq_register(PIN_PA05, button_on_PA05_pressed);
 	ext_irq_register(PIN_PC22, button_on_PC22_pressed);

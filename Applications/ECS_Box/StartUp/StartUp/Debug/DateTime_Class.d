@@ -215,9 +215,9 @@ DateTime_Class.d DateTime_Class.o: .././DateTime_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
- .././ConfigState_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
- ../ApplicationLayer/ConfigurationData.h \
+ .././ConfigState_Class.h ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
@@ -689,9 +689,11 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
 
-.././ConfigState_Class.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
+
+.././ConfigState_Class.h:
 
 ../ApplicationLayer/ConfigurationData.h:
 
