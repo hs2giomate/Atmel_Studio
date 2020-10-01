@@ -6,6 +6,12 @@
 
 MCP23017_Class	*ptrMCP23017Class;
 
+static void	MCPHadChanged(void){
+	
+			ptrMCP23017Class->hasChanged=true;
+
+}
+
 MCP23017_Class::MCP23017_Class()
 {
 	ptrMCP23017Class=this;
@@ -25,6 +31,7 @@ void MCP23017_Class::Init(uint8_t addr) {
 	i2c_addr=addr;
 	i2ca.Set_descriptor(ptrI2CDescr);
 	isReady=i2ca.Init(addr)==0;
+	ext_irq_register(PIN_PA04,FUNC_PTR(MCPHadChanged));
 }
 void MCP23017_Class::Init(i2c_m_async_desc *i2c){
 	ptrI2CDescr=i2c;

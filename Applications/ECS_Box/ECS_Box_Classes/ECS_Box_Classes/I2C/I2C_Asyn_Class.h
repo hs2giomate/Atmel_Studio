@@ -9,8 +9,9 @@
 #ifndef __I2C_ASYN_CLASS_H__
 #define __I2C_ASYN_CLASS_H__
 #include "driver_init.h"
+#include "I2C_ObjectList.h"
 
-class I2C_Asyn_Class
+class I2C_Asyn_Class: public I2C_ObjectList
 {
 //variables
 public:
@@ -18,6 +19,7 @@ public:
 	volatile bool  rxReady;
 
 	volatile	bool	ack;
+	I2C_Asyn_Class	*ptrClass;
 protected:
 
 private:
@@ -25,6 +27,7 @@ private:
 	i2c_m_async_desc *ptrI2CAsynDescr;
 	uint8_t	localBuffer;
 	uint8_t	localValue;
+	I2CPointerAndDescriptor coupleKey;
 
 //functions
 public:
@@ -60,5 +63,7 @@ private:
 	int32_t	Send_stop(void);
 
 }; //I2C_Asyn_Class
+
+extern	list_descriptor		i2cList;
 
 #endif //__I2C_ASYN_CLASS_H__

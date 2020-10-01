@@ -12,6 +12,9 @@
 #include "ARINC_Interface.h"
 #include "LTC2983_Class.h"
 #include "MCP23017_Class.h"
+#include "ALU_Class.h"
+#include "Error_Labelling_Class.h"
+#include "Maintenance_Tool.h"
 
 // default constructor
 Interfaces_Class::Interfaces_Class()
@@ -23,15 +26,49 @@ Interfaces_Class::~Interfaces_Class()
 {
 } //~Interfaces_Class
 
-uint32_t Interfaces_Class::CheckCommunication(void)
+bool	Interfaces_Class::Init(){
+	result=arinc.Init();
+	if (result==0x01)
+	{
+		arinc.TrasmitSingleLabel();
+		if (maintenance.IsAppConnected())
+		{
+		} 
+		else
+		{
+		}
+	} 
+	else
+	{
+		alu.NotifyError(kARINCINnterfaceError,result);
+	}
+	return result;
+}
+
+CommunicationRequest Interfaces_Class::CheckCommunication(void)
+{
+	CommunicationRequest	r;
+	CheckInternalCommunication();
+	CheckExternalCommunication();
+	r=request;
+	
+	return	r;
+}
+
+uint32_t Interfaces_Class::CheckInternalCommunication(void)
 {
 	uint32_t	r=0;
-	r=(uint32_t)CheckI2CExpander(1);
-	
-	
+	request.internRequest.I2CExpanderGotMessage=CheckI2CExpander(1);
+	request.internRequest.LTC2983GotMessage=CheckLTC2983();
+	return	0;
+}
+uint32_t Interfaces_Class::CheckExternalCommunication(void)
+{
+	uint32_t	r=0;
 
-
-	
+	request.externRequest.arinc1GotMessage=arinc.newMessageR1;
+	request.externRequest.arinc1GotMessage=arinc.newMessageR2;
+	request.externRequest.USBGotMessage=CheckUSBInterface();
 	return	0;
 }
 bool	Interfaces_Class::CheckI2CExpander(uint8_t add){
@@ -45,6 +82,14 @@ bool	Interfaces_Class::CheckI2CExpander(uint8_t add){
 bool	Interfaces_Class::CheckUSBInterface(void){
 		if (usb.connected)
 		{
+			if (maintenance.IsAppConnected())
+			{
+				usb<<"Maintenance Tool Locked"<<NEWLINE;
+			} 
+			else
+			{
+				usb<<"Remote operation Disabled"<<NEWLINE;
+			}
 			hvac.PrintState();
 		}else{
 						
@@ -52,7 +97,7 @@ bool	Interfaces_Class::CheckUSBInterface(void){
 		return	usb.connected;
 }
 
-bool	Interfaces_Class::checkLTC2983(void){
+bool	Interfaces_Class::CheckLTC2983(void){
 	if (temperatures.conversionFinished)
 	{
 		for (i = 0; i <NUMBER_TEMPERATURE_CHANNELS ; i++)

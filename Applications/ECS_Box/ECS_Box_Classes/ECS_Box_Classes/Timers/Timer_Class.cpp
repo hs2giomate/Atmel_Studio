@@ -60,7 +60,7 @@ void Timer_Class::Init(timer_descriptor * descr){
 }
 void Timer_Class::Init(void){
 	ticks=0;
-	add_periodic_task(FUNC_PTR(CountTicks),1)
+	add_periodic_task(FUNC_PTR(CountTicks),1);
 	start();
 }
 int32_t Timer_Class::set_clock_cycles_per_tick(uint32_t clock_cycles){
@@ -80,11 +80,9 @@ int32_t Timer_Class::start(uint32_t timeoutsec){
 	} 
 	else
 	{
-		tempTask=task;
-		remove_task();
-		task=&tempTask;
+
 		task->interval=timeoutsec;
-		timer_add_task(timer_descr, &task);
+		timer_add_task(timer_descr, task);
 	}
 	
 	status=timer_start(timer_descr);
@@ -144,6 +142,10 @@ int32_t Timer_Class::Add_task(FUNC_PTR func,uint32_t interval,timer_task_mode mo
 	status=timer_add_task(timer_descr, task);
 	
 	return status;
+}
+int32_t Timer_Class::Start_periodic_task(FUNC_PTR func,uint32_t interval){
+	 add_periodic_task(func,interval);
+	 return timer_start(timer_descr);
 }
 int32_t Timer_Class::add_periodic_task(FUNC_PTR func,uint32_t interval){
 	int32_t	status;
@@ -222,4 +224,4 @@ void	Timer_Class::GetTaskFunction(FUNC_PTR func){
 Timer_Class eventTimer(&TIMER_EVENT);
 Timer_Class hvacTimer(&TIMER_HVAC);
 Timer_Class connectionTimer(&TIMER_INTERFACE);
-Timer_Class eventTimer(&TIMER_ARINC);
+Timer_Class arincTimer(&TIMER_ARINC);

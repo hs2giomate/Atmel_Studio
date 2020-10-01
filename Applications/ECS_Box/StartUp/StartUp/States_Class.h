@@ -64,6 +64,7 @@ public:
 	void	GetCurrentState(HVACState& hs);
 	virtual		void	SetCurrentState(HVACState&);
 	uint32_t	GetStatus(HVACStatus& s);
+	void Resume(uint8_t	operationMode);
 
 
 protected:

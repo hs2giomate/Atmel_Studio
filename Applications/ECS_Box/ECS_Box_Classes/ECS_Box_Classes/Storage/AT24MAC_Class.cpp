@@ -110,11 +110,38 @@ uint8_t AT24MAC_Class::Read_byte(uint8_t addr){
 }
 
 uint32_t AT24MAC_Class::ReadAddress(uint8_t *p, uint8_t addr, uint8_t size){
-	//i2ca.read_cmd(addr,&value);
+	
+	uint32_t r;
+	uint8_t	value;
 	i2ca.Write(&addr,1);
 	while(!i2ca.txReady);
-	uint32_t r= i2ca.Read(p,size);
+	r= i2ca.Read(p,size);
 	while(!i2ca.rxReady);
+		/*
+	if (size<AT24MAC_BUFFER_SIZE+1)
+	{
+			i2ca.Write(&addr,1);
+			while(!i2ca.txReady);
+			r= i2ca.Read(p,size);
+			while(!i2ca.rxReady);
+	} 
+	else
+	{
+		uint8_t localAddress=addr;
+		uint8_t	localSize;
+		//i2ca.Read_cmd(addr,&value);
+		while (localAddress<addr+size)
+		{
+			i2ca.Write(&localAddress,1);
+			localSize=AT24MAC_BUFFER_SIZE-localAddress%AT24MAC_BUFFER_SIZE;
+			while(!i2ca.txReady);
+			r= i2ca.Read(p,localSize);
+			while(!i2ca.rxReady);
+			localAddress+=localSize;
+		}
+	}
+	*/
+	
 	return r;
 }
 uint32_t AT24MAC_Class::ReadAddress(uint8_t *p, uint16_t addr, uint8_t size){
@@ -135,7 +162,7 @@ bool AT24MAC_Class::AcknolledgePolling(void){
 }
 
 bool	AT24MAC_Class::SelfTest(void){
-	currentAddress=AT24MAC_MEMORY_SIZE-AT24MAC_BUFFER_SIZE;
+	currentAddress=AT24MAC_MEMORY_SIZE-AT24MAC_BUFFER_SIZE*2;
 	for (int i = 0; i < AT24MAC_BUFFER_SIZE ; i++) {
 		tx_buffer[i] = (uint8_t)rand();
 		rx_buffer[i] = (uint8_t)(AT24MAC_BUFFER_SIZE-i);

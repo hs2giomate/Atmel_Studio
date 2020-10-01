@@ -71,11 +71,11 @@ struct HVACState
 	uint32_t	magic;
 	tick_t		now;
 	calendar_date_time	dateTime;
-	uint32_t	seconds;
+
 	int			build;
 	HVACStatus	status;
 
-	uint32_t	selfProtectSourceMask;
+
 
 	uint32_t	currentState;
 	uint32_t	callingState;			//State where system came from
@@ -83,9 +83,9 @@ struct HVACState
 	uint32_t	stateFlags;
 	tick_t	stateEntryTime;
 
-	float	targetUDC;
-	float	targetUDCMax;
-	float	targetPower;
+	//float	targetUDC;
+
+	//float	targetPower;
 
 	tick_t	inStateTime;
 	tick_t	leaveInternalOperationStateTime;
@@ -101,28 +101,24 @@ struct HVACState
     //tick_t	resetEmptyCavityTime;
 	tick_t	resetInsufficientSMPSCoolingTime;
 
-	int32_t	errorPEM;
-	uint32_t	errorCode;
 
 	bool	fanState:1;
 
-	bool	smpsTemperatureInRangeEventSent:1;
+	
 	bool	smpsTemperatureOutOfRangeEventSent:1;
-	bool	exhaustTemperatureInRangeEventSent:1;
+
 	bool	exhaustTemperatureOutOfRangeEventSent:1;
-	bool	magnetronTemperatureInRangeEventSent:1;
+
 	bool	magnetronTemperatureOutOfRangeEventSent:1;
 
-	bool	maintenanceToolConnected:1;
-	bool	doorOpenedAfterCateringCycle:1;
-	bool	savedDoorLatchState:1;
+
+
 	bool	reedRelayOpen:1;
 	bool	latchClosedConfirmPending:1;
-	bool	safetyRelayFaultDetected:1;
 
-	bool	nextGenerationHMIAvailable:1;
+
 	bool	alarmState:1;
-    bool    selftestNeedsToBePerformed;    //!< Tells at bootup  in resume state whether a selftest was requested (over NSD)
+
 
 	} ;
 

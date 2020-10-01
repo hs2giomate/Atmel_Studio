@@ -74,34 +74,38 @@ bool	Maintenance_Tool::IsAppConnected(void){
 	} 
 	else
 	{
-		if (usb.rxReady)
+		if (usb.connected)
 		{
-			for (int i = 0; i < 4; i++)
+			if (usb.rxReady)
 			{
-				magic=magic<<8;
-				magic|= localBuffer[i];
-			}
-			xorResult=magic^MAINTENANCE_TOOL_KEYWORD;
-			if (xorResult==0)
-			{
-				gotAccess=true;
-				result=true;
-				is_MTPC_Beaming=true;
-				setConnected(true);
-				return	result;
+				for (int i = 0; i < 4; i++)
+				{
+					magic=magic<<8;
+					magic|= localBuffer[i];
+				}
+				xorResult=magic^MAINTENANCE_TOOL_KEYWORD;
+				if (xorResult==0)
+				{
+					gotAccess=true;
+					result=true;
+					is_MTPC_Beaming=true;
+					setConnected(true);
+					return	result;
+				}
+				else
+				{
+					//delay_ms(1000);
+					result=false;
+				}
 			}
 			else
 			{
-				//delay_ms(1000);
 				result=false;
 			}
-		}
-		else
-		{
-			result=false;
+			
+			usb.readDataAsyn(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 		}
 		
-		usb.readDataAsyn(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 	}
 	
 	return	result;
@@ -1663,3 +1667,4 @@ void Maintenance_Tool::GetCPUSerialNumber(uint8_t* buffer)
 	}
 
 }
+	Maintenance_Tool	maintenance;

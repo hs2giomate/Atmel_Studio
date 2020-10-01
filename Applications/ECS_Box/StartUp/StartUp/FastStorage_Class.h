@@ -27,7 +27,8 @@ typedef struct EEPROMMemoryStruct
 {
 	
 	uint8_t		status;
-	EEpromProperties	properties;
+	userParameters			parameters;
+	//EEpromProperties	properties;
 	uint32_t	crcAppState;
 	HVACState	appState;
 	uint32_t		stack;

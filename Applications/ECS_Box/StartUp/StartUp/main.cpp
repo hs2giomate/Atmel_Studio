@@ -68,35 +68,22 @@ int main(void)
 	
 	usb.Init();
 	delay_ms(100);
-	while (usb.plugged==false);
-	while(1){
-		if (usb.connected)
-		{
-			
-			usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
-			//usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
-			delay_ms(1000);
-		} 
-		else
-		{
-		}
-	}
-
 	usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
 	usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
 	//QSPIDriverTest();
 	memory.Init();
 	alu.Init();
+	alu.RunController();
 	usb<<"*** ALU initiated ***"<<NEWLINE;
 	uint8_t	line= alu.GetSelectedAMMC();
 	usb<<"Active line: "<<line<<NEWLINE;
 	if (!pBIT)
 	{
-		hvac.Stop();
+		hvac.Stop(0);
 	} 
 	else
 	{
-		hvac.Start();
+		hvac.Start(0);
 	}
     /* Replace with your application code */
     while (1) 

@@ -39,7 +39,7 @@ Calendar_Class::~Calendar_Class()
 void	Calendar_Class::Init(void){
 	ptrMemory=&eeprom;
 	calendar_enable(ptrCalendar);
-	ptrMemory->Init();
+	
 	InitMaxDate();
 	
 	//memory.ReadAddress((uint8_t*)handler,CALENDER_ADDRESS,QSPI_BUFFER_SIZE);

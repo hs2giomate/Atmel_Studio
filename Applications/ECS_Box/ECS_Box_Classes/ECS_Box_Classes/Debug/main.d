@@ -268,8 +268,9 @@ main.d main.o: .././main.cpp .././main.h \
  ../avr/pgmspace.h ../USBSerial/Printable.h \
  ../USBSerial/SerialTerminal_Class.h ../Storage/AT24MAC_Class.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h ../I2C/I2C_Asyn_Class.h \
- ../Storage/Parameters.h ../EIDE_Utils/coreTypes.h \
- ../LTC2983/LTC2983_Class.h ../LTC2983/LTC2983_configuration_constants.h \
+ ../I2C/I2C_ObjectList.h ../Storage/Parameters.h \
+ ../EIDE_Utils/coreTypes.h ../LTC2983/LTC2983_Class.h \
+ ../LTC2983/LTC2983_configuration_constants.h \
  ../LTC2983/LTC2983_table_coeffs.h ../LTC2983/LT_SPI.h \
  ../SPI/SPI_Asyn_Class.h ../ARINC/ARINC_Interface.h \
  ../ARINC/Holt_3593_Class.h ../SPI/SPI_Syn_Class.h \
@@ -836,6 +837,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
 
 ../I2C/I2C_Asyn_Class.h:
+
+../I2C/I2C_ObjectList.h:
 
 ../Storage/Parameters.h:
 

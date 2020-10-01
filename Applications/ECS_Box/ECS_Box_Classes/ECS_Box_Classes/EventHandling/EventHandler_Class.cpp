@@ -92,11 +92,11 @@ bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType
 	tick_t	timeoutTime;
 	
 	if (timeout != forever)
-	timeoutTime = (eventTimer.get_ticks() + timeout);
+	timeoutTime = (eventTimer.Get_ticks() + timeout);
 	else
 	timeoutTime = forever;
 
-	while (!result && (eventTimer.get_ticks() < timeoutTime))
+	while (!result && (eventTimer.Get_ticks() < timeoutTime))
 	{
 		if (eventHandler)
 		{
@@ -165,12 +165,12 @@ bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType
 		}
 		else
 		{
-			tick_t	timeRemaining(timeoutTime - eventTimer.get_ticks());
+			tick_t	timeRemaining(timeoutTime - eventTimer.Get_ticks());
 			eventTimeout=false;
 			if (timeRemaining > CHECK_EVENT_PERIOD){
 				eventTimer.add_oneShot_task((FUNC_PTR)EventTimerTask,CHECK_EVENT_PERIOD);
 			}else if (timeRemaining > 0){
-				eventTimer.add_oneShot_task((FUNC_PTR)EventTimerTask,timeoutTime - eventTimer.get_ticks());
+				eventTimer.add_oneShot_task((FUNC_PTR)EventTimerTask,timeoutTime - eventTimer.Get_ticks());
 			}
 			eventTimer.start();
 			while (!eventTimeout);
@@ -224,7 +224,7 @@ void EventHandler_Class::SendEventSelf(const event& e)
 		(*theEvent).eventClass = e.eventClass;
 		(*theEvent).eventType = e.eventType;
 		(*theEvent).data = e.data;
-		(*theEvent).timestamp = eventTimer.get_ticks();
+		(*theEvent).timestamp = eventTimer.Get_ticks();
 		#if __DEBUG__  > 4
 	
 		usb << "     mainThreadEventQueue: " << (void*)mainThreadEventQueue << newline;
