@@ -80,6 +80,11 @@ typedef	enum{
 	kARINCINnterfaceError,
 	kpBITError,
 	}Internal_Fault_List;
+typedef enum 
+{
+	kARINCError,
+	kUSBError,
+}CoomunicationFaultList;
 	
 
 class Error_Labelling_Class

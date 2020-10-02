@@ -386,6 +386,18 @@
     <Compile Include="I2C\I2C_Asyn_Class.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="I2C\I2C_ObjectList.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="I2C\I2C_ObjectList.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IO_Expander\MCP23008_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IO_Expander\MCP23008_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="IO_Expander\MCP23017_Class.cpp">
       <SubType>compile</SubType>
     </Compile>

@@ -28,6 +28,8 @@ EventHandling\Event_Class.cpp
 
 I2C\I2C_Asyn_Class.cpp
 
+I2C\I2C_ObjectList.cpp
+
 IO_Expander\MCP23017_Class.cpp
 
 LTC2983\LTC2983_Class.cpp

@@ -192,6 +192,8 @@ ALU_Class.d ALU_Class.o: .././ALU_Class.cpp .././ALU_Class.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
@@ -274,6 +276,7 @@ ALU_Class.d ALU_Class.o: .././ALU_Class.cpp .././ALU_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
  .././Error_Labelling_Class.h .././AMMC_Class.h \
@@ -702,6 +705,10 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
+../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
@@ -869,6 +876,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 

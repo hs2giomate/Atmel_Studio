@@ -92,3 +92,36 @@ uint8_t ARINC_Conversions::FlipByte(uint8_t byte){
 	}
 	return rev;
 }
+uint8_t ARINC_Conversions::GetIndexTXLabelarray(uint8_t l, uint8_t* arr){
+	for (i = 0; i < 32; i++)
+	{
+		if (arr[i]==l)
+		{
+			return i;
+		}
+		
+	}
+	return 32;
+}
+
+void ARINC_Conversions::PrepareSingleTXBuffer(uint8_t* buff, uint8_t* src){
+
+	for (i = 0; i < 4; i++)
+	{
+		buff[3-i]=src[i];
+	
+		
+	}
+
+
+}
+uint32_t	ARINC_Conversions::FourBytesArray2Uint32(uint8_t* arr){
+
+		result=0;
+		for (i = 0; i < 4; i++)
+		{
+			result|=((uint32_t)arr[i])<<(3-i);
+
+		}
+		return result;
+}

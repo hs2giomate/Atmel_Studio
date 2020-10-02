@@ -12,12 +12,16 @@
 #include "CDC_Class.h"
 #include "DateTime_Class.h"
 #include "N25Q256_Class.h"
-
+ALU_Class	*ptrALUClass;
+static void ARINCTimeUp(const struct timer_task *const timer_task){
+	ptrALUClass->arincTXTimeUP=true;
+}
 
 // default constructor
 ALU_Class::ALU_Class()
 {
 	ptrPbit=&pBIT;
+	ptrALUClass=this;
 } //ALU_Class
 
 // default destructor
@@ -28,7 +32,9 @@ ALU_Class::~ALU_Class()
 uint32_t	ALU_Class::Init(void){
 	uint32_t	s;
 	StartLivePulse();
+		
 	cBit.statusBits.hvacOK=hvac.Init();
+	
 	hvac.SetCRCConfigData();
 	SetInitialConfiguration(configuration);
 	memory.WriteDefaultState();
@@ -43,6 +49,8 @@ uint32_t	ALU_Class::Init(void){
 	} 
 	else
 	{
+		arincTimer.Start_periodic_task(FUNC_PTR(ARINCTimeUp),500);
+		
 		s=pBIT.CheckCurrentStatus(status);
 		if (s>0)
 		{
@@ -51,11 +59,33 @@ uint32_t	ALU_Class::Init(void){
 		} 
 		else
 		{
-			
+			hvac.Start(0);
 		}
 	}
 	  
 	return s;
+}
+
+uint32_t	ALU_Class::RunController(void){
+	while (1)
+	{
+		while (!arincTXTimeUP)
+		{
+			if (!pBIT)
+			{
+				hvac.Stop(0);
+			}
+			else
+			{
+				hvac.Resume(0);
+			}
+			interfaces.CheckCommunication();
+		}
+		arinc.TrasmitSingleLabel();
+		
+		arincTXTimeUP=false;
+	}
+	
 }
 
 uint8_t	ALU_Class::GetSelectedAMMC(void){
@@ -114,10 +144,10 @@ uint8_t	ALU_Class::StartLivePulse(void){
 bool	ALU_Class::ValidateCyclus(void){
 	tick_t	nextUptimeUpdate;
 	
-	if (hvacTimer.get_ticks() > nextUptimeUpdate)
+	if (hvacTimer.Get_ticks() > nextUptimeUpdate)
 	{
 		persistent.updateUptime(false);
-		nextUptimeUpdate = hvacTimer.get_ticks()+ 1000;
+		nextUptimeUpdate = hvacTimer.Get_ticks()+ 1000;
 	}
 	
 	return (alu.FeedWatchDog()>0);

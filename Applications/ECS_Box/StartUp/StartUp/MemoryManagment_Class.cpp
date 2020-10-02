@@ -39,6 +39,7 @@ bool	MemoryManagment_Class::Init(uint32_t flashChipSize){
 		if (eeprom.Init())
 		{
 			usb<<"EEPROM Memory SelfTest PASSED"<<NEWLINE;
+		
 		} 
 		else
 		{

@@ -1767,6 +1767,46 @@ drivers:
         configuration:
           core_gclk_selection: Generic clock generator 5
           slow_gclk_selection: Generic clock generator 10
+  I2C_SHARED:
+    user_label: I2C_SHARED
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM2::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
+    functionality: I2C
+    api: HAL:Driver:I2C_Master_Sync
+    configuration:
+      i2c_master_advanced: false
+      i2c_master_arch_dbgstop: Keep running
+      i2c_master_arch_inactout: Disabled
+      i2c_master_arch_lowtout: false
+      i2c_master_arch_mexttoen: false
+      i2c_master_arch_runstdby: false
+      i2c_master_arch_sdahold: 300-600ns hold time
+      i2c_master_arch_sexttoen: false
+      i2c_master_arch_trise: 215
+      i2c_master_baud_rate: 100000
+    optional_signals: []
+    variant:
+      specification: SDA=0, SCL=1
+      required_signals:
+      - name: SERCOM2/PAD/0
+        pad: PA12
+        label: SDA
+      - name: SERCOM2/PAD/1
+        pad: PA13
+        label: SCL
+    clocks:
+      domain_group:
+        nodes:
+        - name: Core
+          input: Generic clock generator 2
+          external: false
+          external_frequency: 0
+        - name: Slow
+          input: Generic clock generator 10
+          external: false
+          external_frequency: 0
+        configuration:
+          core_gclk_selection: Generic clock generator 2
+          slow_gclk_selection: Generic clock generator 10
   SPI_TEMP:
     user_label: SPI_TEMP
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM4::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Async
@@ -1801,16 +1841,16 @@ drivers:
       domain_group:
         nodes:
         - name: Core
-          input: Generic clock generator 0
+          input: Generic clock generator 2
           external: false
           external_frequency: 0
         - name: Slow
-          input: Generic clock generator 3
+          input: Generic clock generator 10
           external: false
           external_frequency: 0
         configuration:
-          core_gclk_selection: Generic clock generator 0
-          slow_gclk_selection: Generic clock generator 3
+          core_gclk_selection: Generic clock generator 2
+          slow_gclk_selection: Generic clock generator 10
   I2C_EXPANDER:
     user_label: I2C_EXPANDER
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM5::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Async
@@ -2399,6 +2439,18 @@ pads:
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC15
     mode: Digital output
     user_label: Ethernet_Led
+    configuration: null
+  PA12:
+    name: PA12
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA12
+    mode: I2C
+    user_label: PA12
+    configuration: null
+  PA13:
+    name: PA13
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA13
+    mode: I2C
+    user_label: PA13
     configuration: null
   CS_FLASH:
     name: PA15

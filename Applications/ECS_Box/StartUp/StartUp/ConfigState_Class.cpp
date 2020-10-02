@@ -57,7 +57,7 @@ ConfigState_Class::ConfigState_Class()
 	defaultState.currentState = kGAINStateReset;
 	defaultState.callingState = kGAINStateReset;
 	defaultState.internalCateringState = 0;
-	defaultState.targetUDC = 0.0;
+	//defaultState.targetUDC = 0.0;
 	defaultState.cycleDuration = 0;
 	defaultState.inStateTime = 0;
 	defaultState.remainingTime = 0;
@@ -157,7 +157,7 @@ void	ConfigState_Class::PrintState(void){
 			/* Your code here */
 			break;
 			case 3:
-				usb<<(uint32_t)hs.targetPower;
+				//usb<<(uint32_t)hs.targetPower;
 			/* Your code here */
 			break;
 			case 4:

@@ -41,16 +41,18 @@
 #define MCP23017_OLATB 0x15
 
 #define MCP23017_INT_ERR 255
+#define MCP23017_NUMBER_PINS 16
 
 class MCP23017_Class
  {
 //variables
 public:
 	volatile bool isReady,hasChanged;
+	I2C_Asyn_Class	i2ca;
 private:
 	i2c_m_async_desc *ptrI2CDescr;
-	I2C_Asyn_Class	i2ca;
-	uint8_t		i2c_addr,registerValue,regAddress,i,controlRegisterA,controlRegisterB,portA,portB;
+	uint8_t	i,j,k;
+	uint8_t		i2c_addr,registerValue,regAddress,controlRegisterA,controlRegisterB,portA,portB;
 	bool isOK;
 	//Funcitons
 public:
@@ -77,6 +79,7 @@ public:
 	void	SetPortAInput(void);
 	void	SetPortBOutput(void);
 	uint8_t	SavePorts(void);
+	void SetChangeInterruptAllPins();
 	
 private:
     uint8_t i2caddr;
@@ -89,6 +92,7 @@ private:
 
     void updateRegisterBit(uint8_t p, uint8_t pValue, uint8_t portAaddr, uint8_t portBaddr);
 	bool	SelfTest(void);
+	void ClearIntRegisters(void);
 };
 
 extern	MCP23017_Class	mcp;

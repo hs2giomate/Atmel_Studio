@@ -149,6 +149,7 @@ usb_start.d usb_start.o: .././usb_start.c .././atmel_start.h \
  ../hal/include/hpl_irq.h ../hal/include/hal_spi_m_sync.h \
  ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi.h \
  ../hal/utils/include/utils.h ../hal/include/hpl_spi_sync.h \
+ ../hal/include/hal_i2c_m_sync.h ../hal/include/hpl_i2c_m_sync.h \
  ../hal/include/hal_spi_m_async.h ../hal/include/hpl_spi_m_async.h \
  ../hal/include/hpl_spi_async.h ../hal/include/hal_i2c_m_async.h \
  ../hal/include/hpl_i2c_m_async.h ../hal/include/hpl_i2c_m_sync.h \
@@ -566,6 +567,10 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../hal/utils/include/utils.h:
 
 ../hal/include/hpl_spi_sync.h:
+
+../hal/include/hal_i2c_m_sync.h:
+
+../hal/include/hpl_i2c_m_sync.h:
 
 ../hal/include/hal_spi_m_async.h:
 

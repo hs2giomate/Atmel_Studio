@@ -63,6 +63,8 @@
 //#define EOF -1             // ** This may need to be commend out for some codewarrior installs if duplicate declared**
 #define XON 0x11           // Flow control ON
 #define XOFF 0x13          // Flow control OFF
+#define DEFAULT_LABEL 270
+#define DEFAULT_MESSAGE 0x1d5d21
 
 
 
@@ -99,8 +101,9 @@ public:
 	
 //	Datagram			arincMessage;
 	FUNC_PTR			handler;
-	unsigned char LabelsArrayTX[TX_LABELS_NUMBER];                // All Rec1 256 labels
-	unsigned char LabelsArrayRX[RX_LABELS_NUMBER];                // All Rec2 256 labels
+	uint8_t LabelsArrayTX[TX_LABELS_NUMBER];                // All Rec1 256 labels
+	uint8_t LabelsArrayRX1[RX_LABELS_NUMBER];                // All Rec2 256 labels
+	uint8_t  LabelsArrayRX2[RX_LABELS_NUMBER];                // All Rec2 256 labels
 protected:
 private:
 	uint8_t	receiverArray[4];
@@ -112,8 +115,7 @@ private:
 	uint8_t RXBufferPL2[g_RXBuffSize];     // Temp buffer to hold PL messages data
 	uint8_t	MessageCount1;
 	uint8_t	MessageCount2;
-	unsigned char LabelsArrayTX[TX_LABELS_NUMBER];                // All Rec1 256 labels
-	unsigned char LabelsArrayRX[RX_LABELS_NUMBER];                // All Rec2 256 labels
+
 	unsigned char statusRegister;                // All Rec2 256 labels
 	uint8_t	statusHolt;
 	bool	isOK;
@@ -122,7 +124,7 @@ private:
 	uint8_t Arate;
 	uint8_t Rec1Parity;
 	uint8_t Rec2Parity;
-	uint8_t	i,j,k;
+	uint8_t	i,j,k,index;
 	static char Status_F;
 	Holt_3593_Class	HI3593;
 	uint8_t receiverBuffer1[RX_LABELS_NUMBER][4];             // [# of buffers][16 bytes]
@@ -158,7 +160,8 @@ public:
 	bool		isThereNewMessage(void);
 	uint32_t	Hex2Octal(uint8_t);
 	char	AtoHex2(char, char);
-
+	uint32_t TrasmitSingleLabel(void);
+	uint32_t TrasmitSingleLabel(uint32_t l);
 	
 
 protected:

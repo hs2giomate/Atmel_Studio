@@ -13,7 +13,7 @@
 #include <utils_list.h>
 #include <hpl_timer.h>
 
-
+#define TASK_NUMBER		8
 
 class Timer_Class
 {
@@ -22,15 +22,16 @@ public:
 	bool	enabled;
 	volatile bool	timeout;
 	FUNC_PTR			handler;
-	
+	volatile uint32_t	ticks;
 protected:
 private:
 	timer_descriptor    *timer_descr;
 	//Tc* timerRegister;
 	Timer_Class	*    prtTimer;
 	uint32_t	 clockCycles;
-	timer_task			task;
-	uint32_t			ticks;
+	timer_task*			task;
+	
+	uint8_t	i,j,k;
 //functions
 public:
 	Timer_Class();
@@ -47,16 +48,22 @@ public:
 	volatile void	setTimeout();
 	int32_t set_clock_cycles_per_tick(uint32_t clock_cycles);
 	void setOneShotTimer(uint32_t interval);
-	int32_t	add_task(FUNC_PTR func,uint32_t interval);
+	int32_t	Add_task(FUNC_PTR func,uint32_t interval);
 	int32_t	add_periodic_task(FUNC_PTR func,uint32_t interval);
 	int32_t	add_oneShot_task(FUNC_PTR func,uint32_t interval);
+	int32_t Start_oneShot_task(FUNC_PTR func,uint32_t interval);
+	int32_t Start_periodic_task(FUNC_PTR func,uint32_t interval);
 	
-	void remove_task();
-	uint32_t	get_ticks(void);
+
+	void	GetTaskFunction(FUNC_PTR func);
+	void	ChooseAvailableTimerTask(void);
+	void	Remove_task(void);
+	void	Remove_task(FUNC_PTR func);
+	uint32_t	Get_ticks(void);
 	
 
 protected:
-	int32_t	add_task(FUNC_PTR func,uint32_t interval,timer_task_mode);
+	int32_t	Add_task(FUNC_PTR func,uint32_t interval,timer_task_mode);
 private:
 	Timer_Class( const Timer_Class &c );
 	Timer_Class& operator=( const Timer_Class &c );
@@ -66,4 +73,5 @@ private:
 extern	Timer_Class eventTimer;
 extern	Timer_Class hvacTimer;
 extern	Timer_Class	connectionTimer;
+extern	Timer_Class	arincTimer;
 #endif //__TIMER_CLASS_H__

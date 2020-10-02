@@ -207,7 +207,7 @@ void PersistenceServices::logError(uint16 error, uint16 annotation)
 	
 	newError.errorID = error;
 	newError.annotation = annotation;
-	newError.timestamp = eventTimer.get_ticks();
+	newError.timestamp = eventTimer.Get_ticks();
 
 	newError.totalUpTime = getUptime();
 

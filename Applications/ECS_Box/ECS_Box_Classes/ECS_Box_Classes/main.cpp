@@ -15,10 +15,10 @@ int main(void)
 	usb.Init();
 	delay_ms(100);
 	StartLivePulse();
-	QSPIDriverTest();
+	//QSPIDriverTest();
 	//DateTimeTest();
-	//EEPROM_Test();
-	//IO_ExpanderTest();
+//	EEPROM_Test();
+	IO_ExpanderTest();
 		/* Replace with your application code */
 	while (1) {
 		
@@ -51,7 +51,7 @@ void usb_test(void){
 uint8_t EEPROM_Test(void){
 	bool	is_corrupted;
 	eeprom.Init();
-	uint8_t addr=0*AT24MAC_BUFFER_SIZE;
+	uint8_t addr=AT24MAC_BUFFER_SIZE/2;
 	uint8_t	value;
 	usb<<"  Function for testing an i2c EEPROM"<<NEWLINE;
 	/* Replace with your application code */

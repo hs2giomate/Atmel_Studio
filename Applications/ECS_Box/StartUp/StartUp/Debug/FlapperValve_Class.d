@@ -194,6 +194,8 @@ FlapperValve_Class.d FlapperValve_Class.o: .././FlapperValve_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
@@ -215,6 +217,7 @@ FlapperValve_Class.d FlapperValve_Class.o: .././FlapperValve_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib \
@@ -633,6 +636,10 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
+../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
@@ -674,6 +681,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h:
 

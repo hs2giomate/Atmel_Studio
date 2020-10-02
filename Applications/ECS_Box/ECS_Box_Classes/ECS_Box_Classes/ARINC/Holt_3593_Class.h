@@ -88,6 +88,7 @@ typedef unsigned char uint8;
 #define REC1PARITY_OFF  0
 #define REC2PARITY_ON   1
 #define REC2PARITY_OFF  0
+#define  LABEL_ARRAY_SIZE 32
 
 
 
@@ -103,11 +104,13 @@ class Holt_3593_Class
 //variables
 public:
 	SPI_Syn_Class	spi;
+
 protected:
 private:
 	uint8_t	rate;
 	uint8_t	receiverArray[4];
 	unsigned char TXBuffer [16];                 // Transmit Buffer
+	
 //functions
 public:
 	Holt_3593_Class();

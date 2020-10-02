@@ -32,6 +32,7 @@ void MCP23017_Class::Init(uint8_t addr) {
 	i2ca.Set_descriptor(ptrI2CDescr);
 	isReady=i2ca.Init(addr)==0;
 	ext_irq_register(PIN_PA04,FUNC_PTR(MCPHadChanged));
+	//ext_irq_register(PIN_PA05,FUNC_PTR(MCPHadChanged));
 }
 void MCP23017_Class::Init(i2c_m_async_desc *i2c){
 	ptrI2CDescr=i2c;
@@ -257,6 +258,14 @@ void MCP23017_Class::setupInterruptPin(uint8_t pin, uint8_t mode) {
 
 }
 
+void MCP23017_Class::SetChangeInterruptAllPins(){
+	setupInterrupts(false,false,HIGH);
+	for (i = 0; i <MCP23017_NUMBER_PINS ; i++)
+	{
+		setupInterruptPin(i,CHANGE);
+	}
+}
+
 uint8_t MCP23017_Class::getLastInterruptPin(){
 	uint8_t intf;
 
@@ -274,6 +283,15 @@ uint8_t MCP23017_Class::getLastInterruptPin(){
 uint8_t	MCP23017_Class::SavePorts(void){
 	portA=readGPIO(0);
 	portB=readGPIO(1);
+	if (hasChanged)
+	{
+		ClearIntRegisters();
+	}
+	return portA;
+}
+void MCP23017_Class::ClearIntRegisters(){
+		readRegister(MCP23017_INTCAPA);
+	readRegister(MCP23017_INTCAPB);
 }
 uint8_t MCP23017_Class::getLastInterruptPinValue(){
 	uint8_t intPin=getLastInterruptPin();
@@ -286,11 +304,22 @@ uint8_t MCP23017_Class::getLastInterruptPinValue(){
 	return MCP23017_INT_ERR;
 }
 bool	MCP23017_Class::SelfTest(void){
-	controlRegisterA=readRegister(MCP23017_IOCONA);
-	controlRegisterB=readRegister(MCP23017_IOCONB);
+	SetPortAInput();
+	controlRegisterA=readRegister(MCP23017_GPIOA);
+	SetPortBOutput();
+	SetChangeInterruptAllPins();
+	ClearIntRegisters();
+	hasChanged=false;
+	for (int i = 0; i < 8; i++)
+	{
+		mcp.digitalWrite(8+i,mcp.digitalRead(i));
+	}
+		
+	controlRegisterB=readRegister(MCP23017_GPIOB);
+	ClearIntRegisters();
 	if (controlRegisterA==controlRegisterB)
 	{
-		if (controlRegisterA&(0x80)==0)
+		if (hasChanged==true)
 		{
 			isOK=true;
 		} 
@@ -298,6 +327,7 @@ bool	MCP23017_Class::SelfTest(void){
 		{
 			isOK=false;
 		}
+		
 	} 
 	else
 	{

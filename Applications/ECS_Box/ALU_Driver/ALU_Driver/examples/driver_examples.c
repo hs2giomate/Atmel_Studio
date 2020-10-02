@@ -151,20 +151,6 @@ void DATETIME_CLOCK_example(void)
 }
 
 /**
- * Example of using SPI_HI3593 to write "Hello World" using the IO abstraction.
- */
-static uint8_t example_SPI_HI3593[12] = "Hello World!";
-
-void SPI_HI3593_example(void)
-{
-	struct io_descriptor *io;
-	spi_m_sync_get_io_descriptor(&SPI_HI3593, &io);
-
-	spi_m_sync_enable(&SPI_HI3593);
-	io_write(io, example_SPI_HI3593, 12);
-}
-
-/**
  * Example of using SPI_MEMORIES to write "Hello World" using the IO abstraction.
  */
 static uint8_t example_SPI_MEMORIES[12] = "Hello World!";
@@ -176,6 +162,16 @@ void SPI_MEMORIES_example(void)
 
 	spi_m_sync_enable(&SPI_MEMORIES);
 	io_write(io, example_SPI_MEMORIES, 12);
+}
+
+void I2C_SHARED_example(void)
+{
+	struct io_descriptor *I2C_SHARED_io;
+
+	i2c_m_sync_get_io_descriptor(&I2C_SHARED, &I2C_SHARED_io);
+	i2c_m_sync_enable(&I2C_SHARED);
+	i2c_m_sync_set_slaveaddr(&I2C_SHARED, 0x12, I2C_M_SEVEN);
+	io_write(I2C_SHARED_io, (uint8_t *)"Hello World!", 12);
 }
 
 /**
@@ -220,6 +216,20 @@ void I2C_EXPANDER_example(void)
 	i2c_m_async_set_slaveaddr(&I2C_EXPANDER, 0x12, I2C_M_SEVEN);
 
 	io_write(I2C_EXPANDER_io, I2C_EXPANDER_example_str, 12);
+}
+
+/**
+ * Example of using SPI_HI3593 to write "Hello World" using the IO abstraction.
+ */
+static uint8_t example_SPI_HI3593[12] = "Hello World!";
+
+void SPI_HI3593_example(void)
+{
+	struct io_descriptor *io;
+	spi_m_sync_get_io_descriptor(&SPI_HI3593, &io);
+
+	spi_m_sync_enable(&SPI_HI3593);
+	io_write(io, example_SPI_HI3593, 12);
 }
 
 static uint8_t I2C_EEPROM_example_str[12] = "Hello World!";

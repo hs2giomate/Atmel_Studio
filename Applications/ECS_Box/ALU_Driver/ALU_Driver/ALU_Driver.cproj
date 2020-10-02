@@ -60,6 +60,7 @@
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_ext_irq.h" IsConfig="false" Hash="sm9cN3GPkLctaX5iRw7wzw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_gpio.h" IsConfig="false" Hash="3mBEQ9Ix28YOArddDes83Q" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_i2c_m_async.h" IsConfig="false" Hash="re2I6y1cdl1kJYhxBoBUTQ" />
+          <AcmeProjectActionInfo Action="File" Source="hal/include/hal_i2c_m_sync.h" IsConfig="false" Hash="wYjgBbVVd/11drj/bh4EaQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_init.h" IsConfig="false" Hash="OrYSVpF3YA5XrOBImWpdSg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_io.h" IsConfig="false" Hash="XZRSabc39WU/0MFBLYGLvQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_qspi_sync.h" IsConfig="false" Hash="4qiSjqQ6OSFtUrCffFwcHw" />
@@ -107,6 +108,7 @@
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_evsys.c" IsConfig="false" Hash="lNdxWuQaRyRL4TGcI12LBQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_gpio.c" IsConfig="false" Hash="wIzN9zQd1b8qd+RDoSkD7Q" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_i2c_m_async.c" IsConfig="false" Hash="D7Skbh0K93T2IP0/tKY0oA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_i2c_m_sync.c" IsConfig="false" Hash="rXHlXpjvdMJ9o6yJQwR90g" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_init.c" IsConfig="false" Hash="bJvq8kpNbbOE2nZfChOGTQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_io.c" IsConfig="false" Hash="FYpavzYSxhFzVrBQtcH2ZA" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_qspi_sync.c" IsConfig="false" Hash="QXpQdsNQ9F+mMPT7W7RFuw" />
@@ -183,11 +185,11 @@
           <AcmeProjectActionInfo Action="File" Source="spi_nor_flash/spi_nor_flash.c" IsConfig="false" Hash="TCraZft50OJXeOYtNzasUw" />
           <AcmeProjectActionInfo Action="File" Source="spi_nor_flash/spi_nor_flash.h" IsConfig="false" Hash="k5fsJwmFou4udJsMuAaH3g" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="vh8FxkvWRQyxqnB1jv5f2A" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="3p9ef28YFjTXmzT+3PvkAA" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="XPOzmEbomlo2ZcDTRLy3Pw" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="2Y1M0bg1SNIIoxK7apJh3A" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="K264wbgJszNWzCnsIsoMuA" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="x+NnYgOLcrkWnBZIaIRfEg" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="WJPkGeYcs2KomawLSZljMQ" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="Ps8B/NOrYxYhQxQKkQWEfw" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="O2gBs/ZJ4qJFz4ExxNwybw" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="JKJmiQcyavT04DfA9z9a9A" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_pwm.h" IsConfig="false" Hash="RXcBZcci/7vXKRJKNIq/Kw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_timer.h" IsConfig="false" Hash="5pZVthtMl40VMvofOld2ng" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_calendar.h" IsConfig="false" Hash="E2gwBBatdcqZegUjH8HtWg" />
@@ -256,11 +258,11 @@
           <AcmeProjectActionInfo Action="File" Source="config/hpl_port_config.h" IsConfig="true" Hash="IJMX/CdQRL87JYlxeZCBcg" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_qspi_config.h" IsConfig="true" Hash="aJCR9rMJWT1O8sGh1hj+fQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_rtc_config.h" IsConfig="true" Hash="JklWtgJ/YTFDhfNHXa1tdQ" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="0v5G7LyMYrhaj2wYcjUWIw" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="zFfkxkqWx2bpXr4a2aJV+w" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_tc_config.h" IsConfig="true" Hash="qFzoq0b+lDqmVT1wJMUGKQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_usb_config.h" IsConfig="true" Hash="GL4w2byey5plSZxTOTR8OA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_wdt_config.h" IsConfig="true" Hash="iw0Cp/dOS9UQgxO8iEHfXg" />
-          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="PpKj1vjPAsvVuE23HAMMeA" />
+          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="EGfplGIc6oKW7PwZW8udlg" />
           <AcmeProjectActionInfo Action="File" Source="config/usbd_config.h" IsConfig="true" Hash="D6drRowd1XvzVArZlLMbvA" />
           <AcmeProjectActionInfo Action="File" Source="config/conf_spi_nor_flash.h" IsConfig="true" Hash="ON9u/h+nnU/HdicdT2PUsQ" />
         </AcmeActionInfos>
@@ -1147,6 +1149,9 @@
     <Compile Include="hal\include\hal_i2c_m_async.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hal\include\hal_i2c_m_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="hal\include\hal_init.h">
       <SubType>compile</SubType>
     </Compile>
@@ -1334,6 +1339,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_i2c_m_async.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hal\src\hal_i2c_m_sync.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_init.c">
@@ -1754,6 +1762,9 @@
       <SubType>compile</SubType>
     </None>
     <None Include="hal\documentation\i2c_master_async.rst">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="hal\documentation\i2c_master_sync.rst">
       <SubType>compile</SubType>
     </None>
     <None Include="hal\documentation\pwm.rst">

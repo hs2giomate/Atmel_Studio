@@ -39,7 +39,7 @@ const char HistoryMesg[] = "History FIFO: ";
 
 ARINC_Interface  *ptrARINCInterface;
 static void blink_LED0(const struct timer_task *const timer_task){
-	gpio_toggle_pin_level(LED0);
+	//gpio_toggle_pin_level(LED0);
 }
 static void TxTimeout(const struct timer_task *const timer_task){
 	ptrARINCInterface->txTimeout=true;
@@ -93,7 +93,7 @@ bool	ARINC_Interface::Init(void){
 		HI3593.initReceiver1Labels();     // initial Rec1 labels
 		HI3593.initReceiver2Labels();     // initial Rec2 labels
 		HI3593.MultiByteRead(REC1MEMORY, 32, LabelsArrayTX); // read in all Rec-1 labels into the passed array
-		HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX); // read in all Rec-2 labels into the passed array
+		HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX1); // read in all Rec-2 labels into the passed array
 
 		Rec1Parity =0;
 		Rec2Parity =0;
@@ -225,11 +225,12 @@ uint32_t ARINC_Interface::TrasmitSingleLabel(void){
 }
 
 uint32_t ARINC_Interface::TrasmitSingleLabel(uint32_t l){
+	gpio_set_pin_level(LED0,true);
 	ARINCLabel=Label2Byte(l);
 	index=GetIndexTXLabelarray(l,LabelsArrayTX);
 	uint8_t localBuffer[4];
 	memcpy(localBuffer,&transmitBuffer[index][0],4);
-	PrepareSingleTXBuffer(TXBuffer,localBuffer);
+	PrepareSingleTXBuffer(TXBuffer,LabelsArrayTX);
 	usb.println(" transmitting...");
 	cpu_irq_disable();
 	HI3593.TransmitCommandAndData(TXFIFO,TXBuffer);
@@ -238,6 +239,7 @@ uint32_t ARINC_Interface::TrasmitSingleLabel(uint32_t l){
 	usb.println(">");
 	printARINCTXData(TXBuffer);
 	txTimeout=false;
+	gpio_set_pin_level(LED0,false);
 	return FourBytesArray2Uint32(TXBuffer);
 }
 
@@ -272,7 +274,7 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 	HI3593.initReceiver1Labels();     // initial Rec1 labels
 	HI3593.initReceiver2Labels();     // initial Rec2 labels
 	HI3593.MultiByteRead(REC1MEMORY, 32, LabelsArrayTX); // read in all Rec-1 labels into the passed array
-	HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX); // read in all Rec-2 labels into the passed array
+	HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX1); // read in all Rec-2 labels into the passed array
 
 	Rec1Parity =0;
 	Rec2Parity =0;
@@ -357,7 +359,7 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 				//crlf();
 				
 				usb.println("\n\rReceiver 2 Labels\n\r");
-				PrintLabelsOnConsole(LabelsArrayRX);
+				PrintLabelsOnConsole(LabelsArrayRX1);
 				usb.println("\n\rPress OLED_BUTTON-3 to Resume\n\r");
 				
 				while(gpio_get_pin_level(SW0));                      // resume if Button-4 pressed or spacebar again
@@ -1276,7 +1278,7 @@ void ARINC_Interface::CustomMessage(const uint8_t SELFTEST){
 	HI3593.initReceiver1Labels();     // initial Rec1 labels
 	HI3593.initReceiver2Labels();     // initial Rec2 labels
 	HI3593.MultiByteRead(REC1MEMORY, 32, LabelsArrayTX); // read in all Rec-1 labels into the passed array
-	HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX); // read in all Rec-2 labels into the passed array
+	HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX1); // read in all Rec-2 labels into the passed array
 
 	Rec1Parity =0;
 	Rec2Parity =0;
@@ -1330,7 +1332,7 @@ void ARINC_Interface::CustomMessage(const uint8_t SELFTEST){
 				crlf();
 				
 				usb.println("\n\rReceiver 2 Labels\n\r");
-				PrintLabelsOnConsole(LabelsArrayRX);
+				PrintLabelsOnConsole(LabelsArrayRX1);
 				usb.println("Press spacebar to continue");
 				
 				while(' ' != ch){ch=xgetchar();};      // start again if Button-4 pressed/spacebar
