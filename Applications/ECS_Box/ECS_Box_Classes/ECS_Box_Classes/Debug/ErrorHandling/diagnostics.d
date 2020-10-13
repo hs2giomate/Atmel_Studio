@@ -216,7 +216,56 @@ ErrorHandling/diagnostics.d ErrorHandling/diagnostics.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
  ../avr/pgmspace.h ../USBSerial/Printable.h \
- ../USBSerial/SerialTerminal_Class.h
+ ../USBSerial/SerialTerminal_Class.h ../USBSerial/TimerSerial_Class.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h \
+ ../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_delay.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_reset.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_sleep.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_init.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_init.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_io.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_sleep.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_crc_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_crc_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_ext_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_ext_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_evsys.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_evsys.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_qspi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_wdt.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_wdt.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h
 
 ../ErrorHandling/diagnostics.h:
 
@@ -657,3 +706,103 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../USBSerial/Printable.h:
 
 ../USBSerial/SerialTerminal_Class.h:
+
+../USBSerial/TimerSerial_Class.h:
+
+../../../ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h:
+
+../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_delay.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_reset.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_sleep.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_init.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_init.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_io.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_sleep.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_crc_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_crc_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_ext_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_ext_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_evsys.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_evsys.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_qspi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_wdt.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_wdt.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:

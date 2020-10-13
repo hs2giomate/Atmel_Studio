@@ -173,7 +173,7 @@ uint32_t MemoryManagment_Class::GetNextAvailableAddress(uint16_t size) {
 
 uint32_t	MemoryManagment_Class::ReadDeafultApplicationState(HVACState& as){
 	handlerAppState=PTR_HVAC_STATE(&as);
-	uint32_t	add=(uint32_t )(&flashMap->hvacDefaultState);
+	uint32_t	add=(uint32_t )(&flashMap->hvacStateSector.hvacDefaultState);
 	uint32_t	r=qspiFlash.ReadAddress((uint8_t*)handlerAppState,add,sizeof(HVACState));
 	return	r;
 }
@@ -189,11 +189,18 @@ uint32_t	MemoryManagment_Class::ReadDeafultApplicationState(HVACState& as){
 	 w=WriteCRCConfigurationData(crc32);
  };
  uint32_t	MemoryManagment_Class::SaveCurrentState(HVACState& hs){
-	 uint32_t	add=(uint32_t)&flashMap->hvacState;
-	 uint32_t	bufferAddres=((uint32_t)&flashBuffer);
-	 bufferAddres+=add;
-	 memcpy((void*)bufferAddres,&hs,sizeof(HVACState));
-	 return	bufferAddres;
+	 uint32_t	add=(uint32_t)&flashMap->hvacStateSector;
+	 HVACStateSector	*hss=(HVACStateSector*)&flashBuffer[0];
+	 uint32_t r=qspiFlash.ReadAddress((uint8_t*)hss,add,QSPI_ERBLK);
+	 if (r==0)
+	 {
+		 memcpy((void*)&(hss->hvacState),(void*)&hs,sizeof(HVACState));
+		 qspiFlash.Erase(add);
+		 uint32_t w=qspiFlash.WriteAddress((uint8_t*)hss,add,QSPI_ERBLK);
+		  return	w;
+	 }
+
+	 return	r;
  }
 uint32_t	MemoryManagment_Class::SaveApplicationState(HVACState& hs ){
 	  uint32_t w=  SaveCurrentState(hs);
@@ -202,10 +209,11 @@ uint32_t	MemoryManagment_Class::SaveApplicationState(HVACState& hs ){
 	  return	w;
   }
 uint32_t	MemoryManagment_Class::SaveCRCAppState(uint32_t crc){
-	uint32_t	add=(uint32_t)&flashMap->crcAppState;
-	uint32_t	bufferAddres=((uint32_t)&flashBuffer)+add;
-	memcpy((void*)bufferAddres,&crc,sizeof(uint32_t));
-	return	bufferAddres;
+// 	uint32_t	add=(uint32_t)&flashMap->hvacStateSector.crcAppState;
+// 	uint32_t	bufferAddres=((uint32_t)&flashBuffer)+add;
+// 	memcpy((void*)bufferAddres,&crc,sizeof(uint32_t));
+// 	return	bufferAddres;
+	return WriteCRCAppState(crc);
 }
  
- MemoryManagment_Class	memory;
+	MemoryManagment_Class	memory;

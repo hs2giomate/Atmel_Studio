@@ -7,22 +7,35 @@
 
 
 #include "I2C_Asyn_Class.h"
+#include "MCP23017_Class.h"
+
 
 
 I2C_Asyn_Class	*ptrI2C_Asyn_Class;
+//static list_descriptor i2cList=NULL;
+//i2cList=NULL;
+list_descriptor i2cList;
+static void GetRelativeClassPointer(i2c_m_async_desc*  i2c){
+	uint32_t  *ptr=(uint32_t*)ptrI2C_Asyn_Class->GetClassPointer(i2c);;
+	I2C_Asyn_Class	*ptrClass=(I2C_Asyn_Class*)ptr;
+	ptrI2C_Asyn_Class=ptrClass;
+}
 static void I2C_tx_complete(struct i2c_m_async_desc *const i2c)
 {
-
+	
+	GetRelativeClassPointer(i2c);
 	ptrI2C_Asyn_Class->txReady=true;
+
 
 }
  static void I2C_rx_complete(struct i2c_m_async_desc *const i2c)
 {
+		GetRelativeClassPointer(i2c);
 	ptrI2C_Asyn_Class->rxReady=true;
 }
  static void I2C_error_transfer(struct i2c_m_async_desc *const i2c)
  {
-
+		GetRelativeClassPointer(i2c);
 		ptrI2C_Asyn_Class->Clear_ack();
 		ptrI2C_Asyn_Class->txReady=true;
 		ptrI2C_Asyn_Class->rxReady=true;
@@ -32,26 +45,32 @@ static void I2C_tx_complete(struct i2c_m_async_desc *const i2c)
 I2C_Asyn_Class::I2C_Asyn_Class()
 {
 	ptrI2CAsynDescr=&I2C_EXPANDER;
+	ptrClass=this;
 	ptrI2C_Asyn_Class=this;
 } //I2C_Asyn_Class
 // default constructor
 I2C_Asyn_Class::I2C_Asyn_Class(i2c_m_async_desc *i2c_a)
 {
 	ptrI2CAsynDescr=i2c_a;
+	ptrClass=this;
 	ptrI2C_Asyn_Class=this;
+	isOK=false;
+	initiated=false;
 } //I2C_Asyn_Class
 
 // default destructor
 I2C_Asyn_Class::~I2C_Asyn_Class()
 {
+
 } //~I2C_Asyn_Class
 
 void	I2C_Asyn_Class::Set_descriptor(i2c_m_async_desc * i2c_a){
 	ptrI2CAsynDescr=i2c_a;
+	ptrClass=this;
 	ptrI2C_Asyn_Class=this;
 }
 
-uint8_t	I2C_Asyn_Class::Init(void){
+bool	I2C_Asyn_Class::Init(void){
 	
 
 	i2c_m_async_get_io_descriptor(ptrI2CAsynDescr, &I2C_io);
@@ -60,17 +79,32 @@ uint8_t	I2C_Asyn_Class::Init(void){
 	i2c_m_async_register_callback(ptrI2CAsynDescr, I2C_M_ASYNC_RX_COMPLETE, (FUNC_PTR)I2C_rx_complete);
 	i2c_m_async_register_callback(ptrI2CAsynDescr, I2C_M_ASYNC_ERROR, (FUNC_PTR)I2C_error_transfer);
 	//	i2c_m_async_set_slaveaddr(&I2C_A, 0x12, I2C_M_SEVEN);
+	coupleKey.ptrI2CAsynClass=(uint32_t)ptrClass;
+	coupleKey.i2cDescr=ptrI2CAsynDescr;
+	coupleKey.dummy=(uint32_t)ptrClass;
+	AddI2CObject(coupleKey);
 	txReady=true;
 	rxReady=true;
-	return ena;
+	isOK=ena==0;
+	initiated=isOK;
+	return isOK;
 	
 }
-uint8_t	I2C_Asyn_Class::Init(uint8_t add){
-	uint8_t ena=Init();
+bool	I2C_Asyn_Class::Init(uint8_t add){
+	isOK=Init();
 	i2c_m_async_set_slaveaddr(ptrI2CAsynDescr,(int16_t)add, I2C_M_SEVEN);
 	txReady=true;
 	rxReady=true;
-	return ena;
+	return isOK;
+}
+
+bool	I2C_Asyn_Class::Init(i2c_m_async_desc * i2c_a){
+	ptrI2CAsynDescr=i2c_a;
+	uint8_t ena=Init();
+
+	txReady=true;
+	rxReady=true;
+	return ena==0;
 }
 
 int32_t	I2C_Asyn_Class::Set_slaveaddr(uint8_t add){
@@ -179,3 +213,4 @@ int32_t I2C_Asyn_Class::Send_stop(void){
 	 ack=false;
 	 return ack;
  }
+ 

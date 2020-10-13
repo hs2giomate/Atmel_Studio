@@ -12,13 +12,14 @@
 
 LT_SPI	*ptrLTSPIClass;
 
-SPI_Asyn_Class LT_SPI::spiTemp;
+static  SPI_Asyn_Class spiStaticTemp;
 
 
 // default constructor
 LT_SPI::LT_SPI()
 {
 	ptrLTSPIClass=this;
+	spiTemp=&spiStaticTemp;
 } //LT_SPI
 
 // default destructor
@@ -27,9 +28,9 @@ LT_SPI::~LT_SPI()
 } //~LT_SPI
 
 void LT_SPI::init(){
-	spiTemp.set_descriptor(SPIA);
-	spiTemp.init();
-	spiTemp.enable();
+	spiTemp->set_descriptor(SPIA);
+	spiTemp->init();
+	spiTemp->enable();
 	ready=true;
 }
 void	LT_SPI::set_descriptor(spi_m_async_descriptor * i2c_a){
@@ -39,13 +40,13 @@ void	LT_SPI::set_descriptor(spi_m_async_descriptor * i2c_a){
 
 // Reads and sends a byte
 // Return 0 if successful, 1 if failed
-void LT_SPI::spi_transfer_byte(uint8_t cs_pin, uint8_t tx, uint8_t *rx)
+void LT_SPI::spi_transfer_byte(uint32_t cs_pin, uint8_t tx, uint8_t *rx)
 {
 	gpio_set_pin_level(cs_pin,false)  ;              //! 1) Pull CS low
 	
-	spiTemp.write(&tx,1);             //! 2) Read byte and send byte
-	while(!spiTemp.xferDone);
-	spiTemp.read(rx,1);
+	spiTemp->write(&tx,1);             //! 2) Read byte and send byte
+	while(!spiTemp->xferDone);
+	spiTemp->read(rx,1);
 	
 	gpio_set_pin_level(cs_pin,true) ;             //! 3) Pull CS high
 }
@@ -53,10 +54,10 @@ void LT_SPI::spi_transfer_byte(uint8_t cs_pin, uint8_t tx, uint8_t *rx)
 uint8_t LT_SPI::spi_transfer( uint8_t tx)
 {
 		
-	spiTemp.write(&tx,1);             //! 2) Read byte and send byte
-	while(!spiTemp.xferDone);
+	spiTemp->write(&tx,1);             //! 2) Read byte and send byte
+	while(!spiTemp->xferDone);
 	uint8_t rx;
-	spiTemp.read(&rx,1);
+	spiTemp->read(&rx,1);
 	return	rx;
 }
 
@@ -66,40 +67,43 @@ uint8_t LT_SPI::spi_transfer( uint8_t tx)
 
 
 // Reads and sends a byte array
-void LT_SPI::spi_transfer_block(uint8_t cs_pin, uint8_t *tx, uint8_t *rx, uint8_t length)
+void LT_SPI::spi_transfer_block(uint32_t cs_pin, uint8_t *tx, uint8_t *rx, uint8_t length)
 {
 	uint8_t rOrw=*tx;
 	gpio_set_pin_level(cs_pin,false)  ;               //! 1) Pull CS low
 	
 	switch(rOrw){
 		case WRITE_TO_RAM:
-			spiTemp.write(tx,length);				//! 2) Read byte and send byte
-			while(!spiTemp.xferDone);
+			spiTemp->write(tx,length);				//! 2) Read byte and send byte
+			while(!spiTemp->xferDone);
 			break;
 		case READ_FROM_RAM:
-			spiTemp.write(tx,3); 
+			spiTemp->write(tx,3); 
 			//while(!spiTemp.xferDone);
 			if (length>4)
 			{
-				for (uint8_t i=0;i<length;i++)
-				{
-					//spiTemp.write(tx,1); tx++;
-					//while(!spiTemp.xferDone);
-					spiTemp.read(rx,1); rx++;
-							
-				}
-				rx-=length;
+				spiTemp->read(rx,length); 
+// 				for (uint8_t i=0;i<length;i++)
+// 				{
+// 					//spiTemp.write(tx,1); tx++;
+// 					//while(!spiTemp.xferDone);
+// 					spiTemp->read(rx,1); 
+// 						rx++;	
+// 				}
+// 			
+// 				rx-=length;
 			}
 			else
 			{
-				spiTemp.read(rx,1);
+				spiTemp->read(rx,1);
+				asm("nop");
 			}
 	
 			break;
 		default:
-			spiTemp.write(tx,length);             //! 2) Read byte and send byte
-			while(!spiTemp.xferDone);
-			spiTemp.read(rx,length-3);
+			spiTemp->write(tx,length);             //! 2) Read byte and send byte
+			while(!spiTemp->xferDone);
+			spiTemp->read(rx,length-3);
 			break;
 	}
 
@@ -131,7 +135,7 @@ void LT_SPI::spi_transfer_block(uint8_t cs_pin, uint8_t *tx, uint8_t *rx, uint8_
 void LT_SPI::spi_write(int8_t  data)  // Byte to be written to SPI port
 {
 	uint8_t tx=(uint8_t)data;
-	spiTemp.write(&tx,1); 
+	spiTemp->write(&tx,1); 
 
 }
 
@@ -140,7 +144,7 @@ void LT_SPI::spi_write(int8_t  data)  // Byte to be written to SPI port
 int8_t LT_SPI::spi_read(int8_t  data) //!The data byte to be written
 {
 	uint8_t rx;
-	spiTemp.read(&rx,1);
+	spiTemp->read(&rx,1);
 	return	(int8_t)rx;
 
 }

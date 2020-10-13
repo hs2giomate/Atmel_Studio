@@ -42,7 +42,7 @@ struct EEPROMMemoryLayout
 
 	union
 	{
-		userParameters			parameters;
+		UserParameters			parameters;
 		uint8_t					ParametersSector[2*AT24MAC_SECTOR_SIZE-sizeof(parameters)];
 	};
 	union
@@ -64,12 +64,12 @@ class AT24MAC_Class
 //variables
 public:
 	volatile bool isReady;
-
+	I2C_Asyn_Class	i2ca;
 protected:
 private:
 	i2c_m_async_desc *ptrI2CDescr;
 	
-	I2C_Asyn_Class	i2ca;
+	
 	uint8_t		i2c_addr;
 	uint8_t		byte;
 	uint8_t tx_buffer[ AT24MAC_BUFFER_SIZE] ;
@@ -106,4 +106,5 @@ private:
 }; //AT24MAC_Class
 
 extern	AT24MAC_Class	eeprom;
+
 #endif //__AT24MAC_CLASS_H__

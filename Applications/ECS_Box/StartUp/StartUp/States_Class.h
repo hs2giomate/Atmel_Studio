@@ -32,6 +32,8 @@ public:
 	CycleDictionary				cycleDictionary;
 	LRUCycles					lruCycles;
 	PersistentConfigurationData	persistentConfiguration;
+	volatile	bool isOK,timeElapsed;
+	HVACState	*hvacState;
 protected:
 	
 	friend	class	ALU_Class;
@@ -39,9 +41,9 @@ protected:
 private:
 		uint32_t	maximumPowerBudget;
 		uint32_t	minimumPowerBudget;
-		HVACState	state, lastState;
+		HVACState	lastHVACState;
 		tick_t	powerInterruptDuration;
-		bool	resumeLastStateValid;
+		bool	resumeLastStateValid,gotAluEvent,gotHVACEvent;
 		ConfigurationData			configuration;
 		uint32_t	CRC32,readResult,writeResult;
 	
@@ -60,12 +62,12 @@ public:
 
 	bool	syncConfigurationWithPanel(bool syncWithInfo = true);
 	void	resyncWithCycleDescription(uint8 cycleID);
-	bool	resyncWithPanel(uint8 state = kGAINStateReset);
+	bool	resyncWithPanel(uint8 state = kHVACStateReset);
 	void	GetCurrentState(HVACState& hs);
 	virtual		void	SetCurrentState(HVACState&);
 	uint32_t	GetStatus(HVACStatus& s);
-	void Resume(uint8_t	operationMode);
-
+	void ControllerResume(uint8_t	operationMode);
+	
 
 protected:
 	void	GetCurrentConfiguration(ConfigurationData *cd);
@@ -94,21 +96,24 @@ private:
 
 	void	handleStateON(uint32 flags);
 	void	handleStateFinished(uint32 flags);
-	void	handleStateStoppedProcess(uint32 flags);
+	void	StateStoppedProcess(uint32 flags);
 	void	handleStateSelfProtect(uint32_t error);
 	void	handleStateError(uint32_t error);
 	void	handleStateMaintenance(uint32 flags);
 
 	void	handleStateHMIUpdate(uint32 flags);
+	void	prepareNewEvent(event& e, uint16 newState, uint16 data = 0);
+	void	StateLeaving(uint32 flags);
 
 
 
 
 	bool	handleInStateEvent(event& e, tick_t t, bool& done);
 
-	void	prepareStateChangeEvent(event& e, uint16 newState, uint16 data = 0);
+	void	prepareStateChangeEvent(uint16 newState, uint16 data = 0);
 
 	uint32_t	handlePowerOnSelftest(void);
+	static void CheckEvents(void);
 
 	
 

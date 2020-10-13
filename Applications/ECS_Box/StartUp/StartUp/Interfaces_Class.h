@@ -23,7 +23,7 @@ struct ExternCommunicationRequest
 {
 	bool arinc1GotMessage;
 	bool arinc2GotMessage;
-	bool USBGotMessage;
+	bool usbGotMessage;
 
 	
 };
@@ -41,11 +41,12 @@ class Interfaces_Class
 public:
 protected:
 private:
-	HVACState	state;
+	HVACState	hvacState;
 	HVACStatus	status;
 	uint8_t		checkResult,i;
 	uint32_t result;
-	CommunicationRequest request;
+	static CommunicationRequest request;
+	uint8_t	size,j,k;
 		
 	
 //functions
@@ -55,16 +56,20 @@ public:
 	bool Init(void);
 	CommunicationRequest	CheckCommunication(void);
 	uint32_t	CheckInternalCommunication(void);
+	uint32_t	CheckExternalCommunication(void);
 	uint32_t	GetStatus(HVACStatus&);
 	bool	CheckI2CExpander(uint8_t add);
-	bool	CheckLTC2983(void);
+	bool	CheckTemperatures(void);
 	bool CheckUSBInterface(void);
 	bool	CheckArincInterface(void);
+	bool	IsCommunicationRequest();
 protected:
 private:
 	Interfaces_Class( const Interfaces_Class &c );
 	Interfaces_Class& operator=( const Interfaces_Class &c );
 
 }; //Interfaces_Class
-extern	Interfaces_Class	interfaces;
+
+extern 	Interfaces_Class	interfaces;
+//static 	Interfaces_Class	interfaces;
 #endif //__INTERFACES_CLASS_H__

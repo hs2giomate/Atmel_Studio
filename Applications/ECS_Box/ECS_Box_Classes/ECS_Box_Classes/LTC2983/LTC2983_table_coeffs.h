@@ -46,6 +46,8 @@ http://store.arduino.cc , and consider a purchase that will help fund their
 ongoing work.
 */
 
+#ifndef __LTC2983_COEFFICIENTS_H__
+#define __LTC2983_COEFFICIENTS_H__
 
 
 
@@ -61,3 +63,4 @@ struct channel_table
   uint16_t channel;
   uint8_t is_a_temperature_measurement;
 };
+#endif //__LTC2983_CLASS_H__

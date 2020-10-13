@@ -12,15 +12,23 @@
 #include "CDC_Class.h"
 #include "DateTime_Class.h"
 #include "N25Q256_Class.h"
+#include "CBIT_Class.h"
+#include "EventHandler_class.h"
 ALU_Class	*ptrALUClass;
+
+//static TaskHandler_Class*	taskList(NULL);
+
+static void CheckPeriodicTask(void);
 static void ARINCTimeUp(const struct timer_task *const timer_task){
 	ptrALUClass->arincTXTimeUP=true;
 }
 
+
 // default constructor
 ALU_Class::ALU_Class()
 {
-	ptrPbit=&pBIT;
+	
+	//taskList=(list_descriptor*)taskStorage;
 	ptrALUClass=this;
 } //ALU_Class
 
@@ -31,61 +39,133 @@ ALU_Class::~ALU_Class()
 
 uint32_t	ALU_Class::Init(void){
 	uint32_t	s;
+	event	e;
+	ptrPbit=&pBit;
 	StartLivePulse();
+	if (hvac.Init())
+	{
+		cBit.isOK=true;
+		hvac.SetCRCConfigData();
+		SetInitialConfiguration(configuration);
+		memory.WriteDefaultState();
+		hvac.SetInitialState();
+		uhr.Init();
+		hvac.saveCurrentState();
+		listener.Init();
 		
-	cBit.statusBits.hvacOK=hvac.Init();
-	
-	hvac.SetCRCConfigData();
-	SetInitialConfiguration(configuration);
-	memory.WriteDefaultState();
-	hvac.SetInitialState();
-	uhr.Init();
-	hvac.saveCurrentState();
-	
-	if (!(interfaces.Init()))
-	{	
-		NotifyError(kARINCINnterfaceError,s);
-		return s;
+		if (!(interfaces.Init()))
+		{
+			NotifyError(kARINCINnterfaceError,s);
+			return s;
+		}
+		else
+		{
+			arincTimer.Start_periodic_task(FUNC_PTR(ARINCTimeUp),50);
+			
+			s=pBit.CheckCurrentStatus(status);
+			if (s>0)
+			{
+				NotifyError(kpBITError,s);
+				return s;
+			}
+			else
+			{
+				InitTaskArray();
+				PrepareNewEvent(kALUEventSimpleStart);
+				
+			}
+		}
+		
+		
 	} 
 	else
 	{
-		arincTimer.Start_periodic_task(FUNC_PTR(ARINCTimeUp),500);
-		
-		s=pBIT.CheckCurrentStatus(status);
-		if (s>0)
-		{
-			NotifyError(kpBITError,s);
-			return s;
-		} 
-		else
-		{
-			hvac.Start(0);
-		}
 	}
+	//while(1);
+
+	
+
 	  
 	return s;
 }
 
 uint32_t	ALU_Class::RunController(void){
-	while (1)
-	{
-		while (!arincTXTimeUP)
-		{
-			if (!pBIT)
-			{
-				hvac.Stop(0);
-			}
-			else
-			{
-				hvac.Resume(0);
-			}
-			interfaces.CheckCommunication();
-		}
-		arinc.TrasmitSingleLabel();
-		
-		arincTXTimeUP=false;
-	}
+	event e;
 	
+	
+	   while (pBit)
+	   {
+		   listener.eventHandler=&ALU_Class::CheckPeriodicTask;
+		   while (!arincTXTimeUP)
+		   	{
+				   if (listener.WaitForEvent(e, kALUEventClass, kALUControllerEvent,1))
+				   {
+					   HandleControllerEvent(e);
+					   
+				   }else if (listener.WaitForEvent(e, kHVACEventClass, kHVACEventDoPendingTasks,1))
+				   {
+					break;
+				   }
+			 }
+			arinc.TrasmitSingleLabel();
+			ExecutePendingTask();
+			arincTXTimeUP=false;
+	   }
+// 	while (1)
+// 	{
+// 		while (!arincTXTimeUP)
+// 		{
+// 			if (!pBit)
+// 			{
+// 				hvac.Stop(0);
+// 			}
+// 			else
+// 			{
+// 				hvac.Resume(0);
+// 			}
+// 			
+// 		}
+// 		interfaces.CheckCommunication();
+// 	}
+	
+}
+
+
+
+void ALU_Class::HandleControllerEvent(event& e)
+{
+
+	alu.callingTask = alu.currentTask;
+	alu.currentTask = e.data.wordData[0];
+	alu.taskEntryTime= hvacTimer.Get_ticks();
+
+
+
+
+	switch (alu.currentTask)
+	{
+		case kALUEventSimpleStart:
+			hvac.Start(1);
+		break;
+
+		case kALUEventSimpleResume:
+			hvac.ControllerResume(1);
+		break;
+
+		case kALUEventSimpleStop:
+			hvac.Stop(0);
+		break;
+		case kALUTaskCheckCommunication:
+			interfaces.CheckCommunication();
+		break;
+		case kALUEventCheckPheripherals:
+			interfaces.CheckCommunication();
+		break;
+
+		default:
+			hvac.Stop(0);
+		break;
+	}
 }
 
 uint8_t	ALU_Class::GetSelectedAMMC(void){
@@ -137,7 +217,7 @@ int32_t	ALU_Class::FeedWatchDog(void){
 }
 uint8_t	ALU_Class::StartLivePulse(void){
 	usb<<"**** Life Pulse Activated****"<<NEWLINE;
-	//pwm_set_parameters(&PWM_0, 500, 1000);
+	//pwm_set_parameters(&LIVE_PULSE, 1000000, 500);
 	uint32_t p=pwm_enable(&LIVE_PULSE);
 	return p;
 }
@@ -184,9 +264,14 @@ uint32_t ALU_Class::SetInitialConfiguration(ConfigurationData& cd){
 			{
 							
 				configuration=factoryDefaultsConfiguration;
-				e=qspiFlash.Erase(0);
-				w=memory.WriteDefaultConfiguration(configuration);
+				e=qspiFlash.Erase((uint32_t)&flashMap->configurationSector);
+				w=memory.WriteDefaultConfiguration();
+				
 				w=memory.WriteCRCConfigurationData(hvac.CRC32);
+				
+				e=qspiFlash.Erase((uint32_t)&flashMap->parametersSector);
+				w=memory.WriteDefaultParameters();
+				memory.WriteFastDefaultParameters();
 				
 			}
 			
@@ -206,4 +291,85 @@ void ALU_Class::NotifyError(Fault_List fl,const eventData& data)
 {
 	listener.SendErrorSelf(uint16_t(fl),data);
 }
+
+void ALU_Class::PrepareNewTask(ALUTaskEnum newTask, uint32_t data)
+{
+	
+	task.id=newTask;
+	task.prio=(uint8_t)newTask;
+	AddTask(task);
+
+}
+
+void ALU_Class::PrepareNewEvent( uint16 newState, uint16 data)
+{
+	event	e;
+	e.eventClass =(EventClass)kALUEventClass;
+	e.eventType = (EventType)kALUControllerEvent;
+	e.data.wordData[0] = newState;
+	e.data.wordData[1] = data;
+	listener.SendEventSelf(e);
+
+}
+
+bool	ALU_Class::ExecutePendingTask(void){
+	allTasksDone=false;
+	list_element *it;
+	ControllerTask tk;
+	uint8_t		highPrio=kALUNumberTasks;
+	while (tasks->head){
+		tk=GetHighPrioTask();
+		HandleTasks(tk);
+		RemoveTask(tk);
+	
+	}
+	allTasksDone=~((bool)tasks->head);
+	if (allTasksDone)
+	{
+		PrepareNewEvent(kALUEventSimpleResume);
+	}
+	return allTasksDone; 
+}
+void ALU_Class::HandleTasks(ControllerTask& ct)
+{
+
+	taskEntryTime= hvacTimer.Get_ticks();
+	switch (ct.id)
+	{
+		case kALUEventSimpleStart:
+		hvac.Start(0);
+		break;
+
+		case kALUSimpleResume:
+		hvac.ControllerResume(0);
+		break;
+
+		case kALUSimpleStop:
+		hvac.Stop(0);
+		break;
+		case kALUTaskCheckCommunication:
+		interfaces.CheckCommunication();
+		break;
+		case kALUTaskReadARINCR1:
+			arinc.ReadRXBuffer(1);
+			
+		break;
+		case kALUTaskUpdateTemperatures:
+			arinc.SaveTemperature();
+		
+		break;
+
+		default:
+		hvac.Stop(0);
+		break;
+	}
+}
+
+void ALU_Class::CheckPeriodicTask(void){
+	interfaces.CheckCommunication();
+}
+
+
+
+
 ALU_Class	alu;

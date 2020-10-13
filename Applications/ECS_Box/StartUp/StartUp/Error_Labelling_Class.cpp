@@ -8,7 +8,7 @@
 
 #include "Error_Labelling_Class.h"
 
-const char* faultDescription[] =
+const char* faultListTag[] =
 {
 	"E- 0801-CCuCAN-X2-CCU",
 	"E- 0802-CCuCAN-X2-CCU",
@@ -72,6 +72,18 @@ const char* faultDescription[] =
 	"E- 0703-ECS-X4-Line2",
 	"E- 0704-ECS-X4-ECS",
 
+};
+const char* internFaultList[]={
+	"E- Flash- 001",
+	"E- FRAM- 001",
+};
+
+const char* communicationFaultList[]={
+		"E- 0801-ARINC-Communication",
+		"E- 0801-USB-Communication",
+		"E- 0801-SPI-Communication",
+		"E- 0801-I2C-Communication",
+		"E- 0801-I2C-Communication",
 };
 
 // default constructor

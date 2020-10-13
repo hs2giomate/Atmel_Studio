@@ -92,7 +92,7 @@ struct flashMemoryStruct
 	firmwareBufferStruct		firmwareBuffer;
 	union
 	{
-		userParameters			parameters;
+		UserParameters			parameters;
 		uint8_t					configurationDataSector[4096];
 	};
 	union
@@ -113,7 +113,7 @@ class FlashMemoryClass
 public:
 
 	flashMemoryStruct*		memoryMap;
-	userParameters			appParameters;
+	UserParameters			appParameters;
 	uint32_t				garbage;
 
 
@@ -133,15 +133,15 @@ private:
 public:
 	FlashMemoryClass();
 	FlashMemoryClass(uint8_t);
-	FlashMemoryClass(userParameters*);
+	FlashMemoryClass(UserParameters*);
 	FlashMemoryClass(spi_m_sync_descriptor *);
 
 	~FlashMemoryClass();
 	
-	void flushConfigurationData( userParameters *data);
-	void initializeConfigurationData(userParameters *data);
-	void readConfigurationData(userParameters *data);
-	void	Init(userParameters*);
+	void flushConfigurationData( UserParameters *data);
+	void initializeConfigurationData(UserParameters *data);
+	void readConfigurationData(UserParameters *data);
+	void	Init(UserParameters*);
 	void	Init(void);
 	void	Init(spi_m_sync_descriptor *spi_des);
 	void	flashOpen(void);
@@ -161,7 +161,7 @@ public:
 	void	flashClose(void);
 	void	Sector_Erase(uint32_t Dst);
 	bool	IsReady(void);
-	userParameters	readConfigurationData(userParameters& );
+	UserParameters	readConfigurationData(UserParameters& );
 protected:
 uint32_t coreCalculateCRC32(const void *buffer, uint32_t size);
 private:

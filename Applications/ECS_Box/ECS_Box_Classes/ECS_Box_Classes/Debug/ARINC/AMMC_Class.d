@@ -206,6 +206,7 @@ ARINC/AMMC_Class.d ARINC/AMMC_Class.o: ../ARINC/AMMC_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -235,7 +236,8 @@ ARINC/AMMC_Class.d ARINC/AMMC_Class.o: ../ARINC/AMMC_Class.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ ../ARINC/ARINC_Buffer_Class.h
 
 ../ARINC/AMMC_Class.h:
 
@@ -655,6 +657,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
 
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h:
@@ -718,3 +722,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+../ARINC/ARINC_Buffer_Class.h:

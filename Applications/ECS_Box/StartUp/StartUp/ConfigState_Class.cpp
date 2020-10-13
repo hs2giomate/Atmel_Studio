@@ -50,12 +50,68 @@ const	char*	printableNamesHVACState[]={
 	
 };
 
+const  HVACState defaultHVACState=
+{
+		.magic	= 0x61626364,
+// 	tick_t		now;
+// 	calendar_date_time	dateTime;
+// 
+// 	int			build;
+// 	HVACStatus	hvacStatus;
+// 
+// 
+// 
+// 	uint32_t	currentState;
+// 	uint32_t	callingState;			//State where system came from
+// 	uint32_t	internalCateringState;
+// 	uint32_t	stateFlags;
+// 	tick_t	stateEntryTime;
+// 
+// 	//float	targetUDC;
+// 
+// 	//float	targetPower;
+// 
+// 	tick_t	inStateTime;
+// 	tick_t	leaveInternalOperationStateTime;
+// 
+// 	tick_t	cycleDuration;
+// 	tick_t	remainingTime;
+// 	tick_t	cycleStepRemainingTime;
+// 	tick_t	waitingExceededTime;
+// 	tick_t	fansOnAfterCateringCycleTime;
+// 	tick_t	lastPEModuleCheck;
+// 	tick_t	resetSMPSInternalTemperatureOutOfRangeTime;
+// 	tick_t	magnetronFanFailureDetectionTime;
+// 	//tick_t	resetEmptyCavityTime;
+// 	tick_t	resetInsufficientSMPSCoolingTime;
+// 
+// 
+// 	bool	fanState:1;
+// 
+// 	
+// 	bool	smpsTemperatureOutOfRangeEventSent:1;
+// 
+// 	bool	exhaustTemperatureOutOfRangeEventSent:1;
+// 
+// 	bool	magnetronTemperatureOutOfRangeEventSent:1;
+// 
+// 
+// 
+// 	bool	reedRelayOpen:1;
+// 	bool	latchClosedConfirmPending:1;
+// 
+// 
+// 	bool	alarmState:1;
+
+
+} ;
+
 
 // default constructor
 ConfigState_Class::ConfigState_Class()
 {
-	defaultState.currentState = kGAINStateReset;
-	defaultState.callingState = kGAINStateReset;
+	defaultState.currentState = kHVACStateReset;
+	defaultState.callingState = kHVACStateReset;
 	defaultState.internalCateringState = 0;
 	//defaultState.targetUDC = 0.0;
 	defaultState.cycleDuration = 0;
@@ -87,18 +143,18 @@ void ConfigState_Class::SetFactoryDefaults(uint32_t subPartNumber, bool config, 
 
 uint32_t ConfigState_Class::SetInitialState(){
 		uint32_t	r;
-		r=memory.ReadApplicationState(lastState);
-		if (memory.IsStateDataValid(lastState))
+		r=memory.ReadApplicationState(lastHVACState);
+		if (memory.IsStateDataValid(lastHVACState))
 		{
-				hvac.SetCurrentState(lastState);
+				hvac.SetCurrentState(lastHVACState);
 		} 
 		else
 		{	
-			r=memory.ReadFastApplicationState(lastState);
-			if (memory.IsFastStateDataValid(lastState))
+			r=memory.ReadFastApplicationState(lastHVACState);
+			if (memory.IsFastStateDataValid(lastHVACState))
 			{
-				hvac.SetCurrentState(lastState);
-				memory.SaveApplicationState(lastState);
+				hvac.SetCurrentState(lastHVACState);
+				memory.SaveApplicationState(lastHVACState);
 			} 
 			else
 			{
@@ -137,12 +193,12 @@ void	ConfigState_Class::PrintState(void){
 	uint32_t	nowTime=(uint32_t)hs.now;
 	char *act=ctime((time_t *)&nowTime);
 	k=sizeof(printableNamesHVACState)/(sizeof(char*));
-	for (i = 0; i < k; i++)
+	for (uint8_t ii = 0; ii < k; ii++)
 	{
 	
-		usb<<printableNamesHVACState[i]<<" : ";
+		usb<<printableNamesHVACState[ii]<<" : ";
 	
-		switch (i)
+		switch (ii)
 		{
 			case 0:
 				usb<<(uint32_t)hs.currentState;

@@ -12,6 +12,7 @@
 // default constructor
 PBIT_Class::PBIT_Class()
 {
+	isOK=true;
 } //PBIT_Class
 
 // default destructor
@@ -66,4 +67,3 @@ uint32_t  PBIT_Class::CheckCurrentStatus(HVACStatus& cs){
 	return	v;
 }
 
-PBIT_Class	pBIT;

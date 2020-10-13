@@ -12,7 +12,7 @@
 
 const int16		maxEventCount(EVENT_QUEUE_BUFFER/sizeof(event));
 static event	eventStorage[EVENT_QUEUE_BUFFER];
-static event*	eventQueue(NULL);
+
 const int16		sizeOfEventQueue(sizeof(eventStorage)/sizeof(event));
 #ifndef PREEMPTION_SUPPORTED
 static volatile event*	mainThreadEventQueue((event*)NULL);
@@ -27,11 +27,16 @@ static void	EventTimerTask(const struct timer_task *const timer_task){
 	ptrEventHandlerClass->eventTimeout=true;
 }
 
+static void EventTimerTicks(const struct timer_task *const timer_task)
+{
+	eventTimer.ticks++;
+}
 
 // default constructor
 EventHandler_Class::EventHandler_Class()
 {
 	ptrEventHandlerClass=this;
+	eventQueue = eventStorage;
 } //EventHandler_Class
 
 // default destructor
@@ -40,7 +45,9 @@ EventHandler_Class::~EventHandler_Class()
 	ptrEventHandlerClass=this;
 } //~EventHandler_Class
 
-void EventHandler_Class::Init(void)
+
+
+bool EventHandler_Class::Init(void)
 {
 	int16	i;
 	eventTimeout=false;
@@ -54,13 +61,14 @@ void EventHandler_Class::Init(void)
 	usb << "initializeEvents\r";
 
 	#endif
-	eventQueue = eventStorage;
+
 	for (i=1; i<sizeOfEventQueue; i++)
 	{
 		eventStorage[i].next = (event*)NULL;
 		eventStorage[i-1].next = &eventStorage[i];
 	}
-
+	isOK=eventTimer.Init();
+	eventTimer.Start_periodic_task(FUNC_PTR(EventTimerTicks),1);
 	#if __DEBUG__  > 4
 
 	usb << "initializeEvents: eventQueue == " << (void*)eventQueue << newline;
@@ -74,6 +82,7 @@ void EventHandler_Class::Init(void)
 	}
 
 	#endif
+	return (bool)&eventStorage[0];
 }
 bool	EventHandler_Class::WaitForEvent(event& e, uint16 eventClass, uint16 eventType, tick_t timeout){
 	return	WaitForEvent(e,(EventClass)eventClass,(EventType)eventType,timeout);
@@ -84,19 +93,22 @@ bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType
 	bool	result(false);
 	event*	queue;
 	event*	queuePrev(NULL);
-	
+	eventTimeout=false;
+
 	
 	e.eventClass = eventClass;
 	e.eventType = eventType;
 
-	tick_t	timeoutTime;
 	
-	if (timeout != forever)
-	timeoutTime = (eventTimer.Get_ticks() + timeout);
-	else
-	timeoutTime = forever;
+	if (timeout != forever){
+		eventTimer.Start_oneShot_task((FUNC_PTR)EventTimerTask,(uint32_t)timeout);
 
-	while (!result && (eventTimer.Get_ticks() < timeoutTime))
+	}else{
+		
+			eventTimer.Start_oneShot_task((FUNC_PTR)EventTimerTask,CHECK_EVENT_PERIOD);
+	}
+
+	while (!result && (!eventTimeout))
 	{
 		if (eventHandler)
 		{
@@ -118,13 +130,8 @@ bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType
 			usb << "     queue->timestamp: " << (uint16)((*queue).timestamp) << newline;
 		
 			#endif
-			if (
-			((e.eventClass == kAnyEventClass) ||
-			(queue->eventClass == e.eventClass))
-			&&
-			((e.eventType == kAnyEventType) ||
-			(queue->eventType == e.eventType))
-			)
+			if (((e.eventClass == kAnyEventClass) ||(queue->eventClass == e.eventClass))
+			&& ((e.eventType == kAnyEventType) ||	(queue->eventType == e.eventType)))
 			{
 				if (queuePrev)
 				{
@@ -162,22 +169,18 @@ bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType
 			usb << "     eventType:        " << e.eventType << newline;
 		
 			#endif
+			
 		}
 		else
 		{
-			tick_t	timeRemaining(timeoutTime - eventTimer.Get_ticks());
-			eventTimeout=false;
-			if (timeRemaining > CHECK_EVENT_PERIOD){
-				eventTimer.add_oneShot_task((FUNC_PTR)EventTimerTask,CHECK_EVENT_PERIOD);
-			}else if (timeRemaining > 0){
-				eventTimer.add_oneShot_task((FUNC_PTR)EventTimerTask,timeoutTime - eventTimer.Get_ticks());
-			}
-			eventTimer.start();
-			while (!eventTimeout);
+	
+		
+			//while (!eventTimeout);
 		
 		}
+		eventTimer.Remove_task(FUNC_PTR(EventTimerTask));
 	}
-
+	//eventTimer.stop();
 	return result;
 }
 void EventHandler_Class::SendEvent(event& e, contextID receiver)
@@ -305,5 +308,5 @@ uint32_t EventHandler_Class::CheckEvent(void)
 	
 }
 
+	EventHandler_Class	listener;
 
-EventHandler_Class	listener;

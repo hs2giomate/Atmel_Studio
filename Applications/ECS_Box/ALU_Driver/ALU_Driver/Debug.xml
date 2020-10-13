@@ -37,6 +37,7 @@
       <Value>../hpl/rtc</Value>
       <Value>../hpl/sercom</Value>
       <Value>../hpl/tc</Value>
+      <Value>../hpl/tcc</Value>
       <Value>../hpl/usb</Value>
       <Value>../hpl/wdt</Value>
       <Value>../hri</Value>
@@ -93,6 +94,7 @@
       <Value>../hpl/rtc</Value>
       <Value>../hpl/sercom</Value>
       <Value>../hpl/tc</Value>
+      <Value>../hpl/tcc</Value>
       <Value>../hpl/usb</Value>
       <Value>../hpl/wdt</Value>
       <Value>../hri</Value>
@@ -133,6 +135,7 @@
       <Value>../hpl/rtc</Value>
       <Value>../hpl/sercom</Value>
       <Value>../hpl/tc</Value>
+      <Value>../hpl/tcc</Value>
       <Value>../hpl/usb</Value>
       <Value>../hpl/wdt</Value>
       <Value>../hri</Value>

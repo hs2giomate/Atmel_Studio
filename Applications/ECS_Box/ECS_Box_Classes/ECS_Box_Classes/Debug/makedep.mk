@@ -4,6 +4,8 @@
 
 ARINC\AMMC_Class.cpp
 
+ARINC\ARINC_Buffer_Class.cpp
+
 ARINC\ARINC_Conversions.cpp
 
 ARINC\ARINC_Interface.cpp
@@ -30,11 +32,15 @@ I2C\I2C_Asyn_Class.cpp
 
 I2C\I2C_ObjectList.cpp
 
+IO_Expander\MCP23008_Class.cpp
+
 IO_Expander\MCP23017_Class.cpp
 
 LTC2983\LTC2983_Class.cpp
 
 LTC2983\LT_SPI.cpp
+
+LTC2983\TemperatureSensors_Class.cpp
 
 main.cpp
 

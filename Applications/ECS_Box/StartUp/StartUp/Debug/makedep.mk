@@ -28,6 +28,8 @@ Error_Labelling_Class.cpp
 
 FastStorage_Class.cpp
 
+FlapperValveDataStruct.cpp
+
 FlapperValve_Class.cpp
 
 Interfaces_Class.cpp
@@ -36,11 +38,13 @@ main.cpp
 
 MemoryManagment_Class.cpp
 
-MemoryStruct_Class.cpp
+FlashHandler_Class.cpp
 
 PBIT_Class.cpp
 
 PersistenceServices.cpp
 
 States_Class.cpp
+
+TaskHandler_Class.cpp
 

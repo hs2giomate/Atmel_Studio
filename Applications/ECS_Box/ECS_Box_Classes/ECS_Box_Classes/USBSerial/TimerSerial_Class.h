@@ -6,15 +6,15 @@
 */
 
 
-#ifndef __TIMER_CLASS_H__
-#define __TIMER_CLASS_H__
+#ifndef __TIMER_SERIAL_CLASS_H__
+#define __TIMER_SERIAL_CLASS_H__
 #define		TIMERSERIALCLASSVERSION			0x01
 #define		TIMERSERIALCLASSSUBVERSION		0x00
 #include "driver_init.h"
 #include "utils.h"
 #include <utils_list.h>
 #include <hpl_timer.h>
-#define TASK_NUMBER		8
+#define SERIAL_TASK_NUMBER		4
 
 
 class TimerSerial_Class
@@ -22,9 +22,10 @@ class TimerSerial_Class
 //variables
 public:
 	bool	enabled;
-	volatile bool	timeout;
+	volatile bool	timeout,isOK;
 	FUNC_PTR			handler;
 	timer_task*			task;
+	uint32_t			ticks;
 protected:
 private:
 	timer_descriptor    *timer_descr;
@@ -32,7 +33,7 @@ private:
 	TimerSerial_Class	*    prtTimer;
 	uint32_t	 clockCycles;
 	
-	uint32_t			ticks;
+	
 	uint8_t			i,j;
 //functions
 public:
@@ -40,7 +41,7 @@ public:
 	TimerSerial_Class(timer_descriptor * descr);
 	~TimerSerial_Class();
 	
-	void Init();
+	bool Init();
 	void Init(timer_descriptor * descr);
 	void deinit();
 	void set_descriptor(timer_descriptor * descr);
@@ -59,6 +60,7 @@ public:
 	void	GetTaskFunction(FUNC_PTR func);
 	void	ChooseAvailableTimerTask(void);
 	void	Remove_task(FUNC_PTR func);
+	int32_t Start_periodic_task(FUNC_PTR func,uint32_t interval);
 	
 
 protected:

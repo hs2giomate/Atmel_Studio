@@ -18,7 +18,7 @@ static void complete_cb_SPI(const struct spi_m_async_descriptor *const io_descr)
 static void error_cb_SPI(const struct spi_m_async_descriptor *const io_descr)
 {
 
-	//ptrSPIAClass->xferDone=true;
+	ptrSPIAClass->xferDone=true;
 
 }
 // default constructor

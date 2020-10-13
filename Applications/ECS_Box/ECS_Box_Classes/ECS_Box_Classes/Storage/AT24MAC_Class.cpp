@@ -23,10 +23,12 @@ AT24MAC_Class::AT24MAC_Class(i2c_m_async_desc *i2c)
 	ptrAT24MACClass=this;
 } //AT24MAC_Class
 
+
 // default destructor
 AT24MAC_Class::~AT24MAC_Class()
 {
 } //~AT24MAC_Class
+
 
 
 bool AT24MAC_Class::Init(void){
@@ -202,4 +204,4 @@ bool AT24MAC_Class::IsReady(void){
 	return isReady;	
 }
 
-AT24MAC_Class	eeprom(&I2C_EEPROM);
+ AT24MAC_Class	eeprom(&I2C_EEPROM);

@@ -36,7 +36,7 @@ struct FRAMMemoryStruct
 
 	union
 	{
-		userParameters			parameters;
+		UserParameters			parameters;
 		uint8_t					ParametersSector[FRAM_MEMORY_SEGMENT_SIZE-sizeof(parameters)];
 	};
 	union
@@ -65,7 +65,7 @@ private:
 	uint32_t	enable;
 	uint8_t		instruction[FRAM_HEADER_SIZE];
 	FRAMMemoryStruct*		memoryAddress;
-	userParameters			appParameters;
+	UserParameters			appParameters;
 	//static SPIClass 	spi0;
 	spi_m_sync_descriptor		*spi_descriptor;
 	SPI_Syn_Class 	spi;
@@ -74,16 +74,16 @@ private:
 public:
 	FRAM_Memory_Class();
 	FRAM_Memory_Class(uint8_t);
-	FRAM_Memory_Class(userParameters*);
+	FRAM_Memory_Class(UserParameters*);
 	FRAM_Memory_Class(spi_m_sync_descriptor *);
 	~FRAM_Memory_Class();
-	void flushConfigurationData( userParameters *data);
-	void flushParameters( userParameters *data);
-	void initializeConfigurationData(userParameters *data);
-	void readConfigurationData(userParameters *data);
-	void readParameters(userParameters *data);
-	userParameters readConfigurationData(userParameters& p);
-	void	Init(userParameters*);
+	void flushConfigurationData( UserParameters *data);
+	void flushParameters( UserParameters *data);
+	void initializeConfigurationData(UserParameters *data);
+	void readConfigurationData(UserParameters *data);
+	void readParameters(UserParameters *data);
+	UserParameters readConfigurationData(UserParameters& p);
+	void	Init(UserParameters*);
 	void	Init();
 	uint8_t	ReadFRAM(void* dest, uint32_t src, uint32_t size);
 

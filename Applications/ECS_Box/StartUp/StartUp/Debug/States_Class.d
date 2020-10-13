@@ -219,6 +219,8 @@ States_Class.d States_Class.o: .././States_Class.cpp .././States_Class.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
@@ -230,6 +232,7 @@ States_Class.d States_Class.o: .././States_Class.cpp .././States_Class.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -257,7 +260,7 @@ States_Class.d States_Class.o: .././States_Class.cpp .././States_Class.h \
  .././PersistenceServices.h .././ErrorAnalyer_Class.h \
  .././GainDefinitions.h .././CRC32_Class.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h .././DataLoger_Class.h \
- .././MemoryStruct_Class.h .././FastStorage_Class.h \
+ .././FlashHandler_Class.h .././FastStorage_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h \
@@ -297,6 +300,7 @@ States_Class.d States_Class.o: .././States_Class.cpp .././States_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/avr/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
  .././ALU_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Interface.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Holt_3593_Class.h \
@@ -309,9 +313,19 @@ States_Class.d States_Class.o: .././States_Class.cpp .././States_Class.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Buffer_Class.h \
  .././PBIT_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h \
- .././CBIT_Class.h .././Error_Labelling_Class.h .././FlapperValve_Class.h
+ .././CBIT_Class.h .././Error_Labelling_Class.h .././TaskHandler_Class.h \
+ .././FlapperValve_Class.h .././FlapperValveDataStruct.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23008_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/TemperatureSensors_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Asyn_Class.h
 
 .././States_Class.h:
 
@@ -759,6 +773,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
+../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
@@ -780,6 +798,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
@@ -841,7 +861,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././DataLoger_Class.h:
 
-.././MemoryStruct_Class.h:
+.././FlashHandler_Class.h:
 
 .././FastStorage_Class.h:
 
@@ -923,6 +943,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
+
 .././ALU_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Interface.h:
@@ -947,6 +969,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
 
+../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Buffer_Class.h:
+
 .././PBIT_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h:
@@ -955,4 +979,24 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././Error_Labelling_Class.h:
 
+.././TaskHandler_Class.h:
+
 .././FlapperValve_Class.h:
+
+.././FlapperValveDataStruct.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23008_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/TemperatureSensors_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Asyn_Class.h:

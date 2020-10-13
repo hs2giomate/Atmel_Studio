@@ -38,7 +38,7 @@ FRAM_Memory_Class::FRAM_Memory_Class(spi_m_sync_descriptor *spi_des)
 
 
 
-FRAM_Memory_Class::FRAM_Memory_Class( userParameters* p){
+FRAM_Memory_Class::FRAM_Memory_Class( UserParameters* p){
 	
 	appParameters=*p;
 	spiPort=0;
@@ -46,7 +46,7 @@ FRAM_Memory_Class::FRAM_Memory_Class( userParameters* p){
 }
 
 
-void	FRAM_Memory_Class::Init(userParameters* p){
+void	FRAM_Memory_Class::Init(UserParameters* p){
 		appParameters=*p;
 		spiPort=0;
 	memoryAddress=0x00;
@@ -75,72 +75,72 @@ void	FRAM_Memory_Class::Init(void){
 	
 }
 
-void FRAM_Memory_Class::flushConfigurationData(userParameters *data)
+void FRAM_Memory_Class::flushConfigurationData(UserParameters *data)
 {
 //	gpio_set_pin_level(LED0,true);
-	userParameters	appData;
+	UserParameters	appData;
 	appData=*data;
 	FramOpen();
 	
 
 	//eraseFlash((uint32_t)&memory->parameters, sizeof(userParameters));
-	WriteAddress((uint8_t*)&appData,(uint32_t)&memoryAddress->parameters, sizeof(userParameters));
+	WriteAddress((uint8_t*)&appData,(uint32_t)&memoryAddress->parameters, sizeof(UserParameters));
 	FramClose();
 	//gpio_set_pin_level(LED0,true);
 }
-void FRAM_Memory_Class::flushParameters(userParameters *data)
+void FRAM_Memory_Class::flushParameters(UserParameters *data)
 {
 	//gpio_set_pin_level(LED0,true);
-	userParameters	appData;
+	UserParameters	appData;
 	appData=*data;
 	FramOpen();
 	
 	//eraseFlash((uint32_t)&memory->parameters, sizeof(userParameters));
-	WriteFRAM((uint32_t)&memoryAddress->parameters, &appData, sizeof(userParameters));
+	WriteFRAM((uint32_t)&memoryAddress->parameters, &appData, sizeof(UserParameters));
 	FramClose();
 	//gpio_set_pin_level(LED0,true);
 }
 
-void FRAM_Memory_Class::readConfigurationData(userParameters *data)
+void FRAM_Memory_Class::readConfigurationData(UserParameters *data)
 {
-	userParameters	appData;
+	UserParameters	appData;
 
 	FramOpen();
-	ReadFRAM(&appData, (uint32_t)&memoryAddress->parameters, sizeof(userParameters));
+	ReadFRAM(&appData, (uint32_t)&memoryAddress->parameters, sizeof(UserParameters));
 	FramClose();
 
-		memcpy(data, &appData, sizeof(userParameters));
+		memcpy(data, &appData, sizeof(UserParameters));
 
 		
 	
 }
-void FRAM_Memory_Class::readParameters(userParameters *framParameters)
+void FRAM_Memory_Class::readParameters(UserParameters *framParameters)
 {
-	userParameters	appData;
+	UserParameters	appData;
 
 	FramOpen();
-	ReadFRAM(&appData, (uint32_t)&memoryAddress->parameters, sizeof(userParameters));
+	ReadFRAM(&appData, (uint32_t)&memoryAddress->parameters, sizeof(UserParameters));
 	FramClose();
 
 	if  ((appData.flapperValveOffset == 46)){
-		memcpy(framParameters, &appData, sizeof(userParameters));
+		memcpy(framParameters, &appData, sizeof(UserParameters));
 	//	gpio_set_pin_level(LED0,true);
 		
 		
 	}
 }
 
-userParameters FRAM_Memory_Class::readConfigurationData(userParameters& p)
+UserParameters FRAM_Memory_Class::readConfigurationData(UserParameters& p)
 {
 	
 	FramOpen();
-	ReadAddress((uint8_t*)&p, (uint32_t)&memoryAddress->parameters, sizeof(userParameters));
+	ReadAddress((uint8_t*)&p, (uint32_t)&memoryAddress->parameters, sizeof(UserParameters));
 	FramClose();
 	return	p;
 
 }
 
-void FRAM_Memory_Class::initializeConfigurationData(userParameters *data){
+void FRAM_Memory_Class::initializeConfigurationData(UserParameters *data){
 	
 	flushConfigurationData(data);
 	return;

@@ -53,6 +53,7 @@ typedef struct
 typedef struct
 	{
 	ConfigurationDataCommons	commons;
+	//bool	flapperValveIsOK[2];
 	//>	Data structure payload
 	float	mSMPS[1];
 	float	bSMPS[1];

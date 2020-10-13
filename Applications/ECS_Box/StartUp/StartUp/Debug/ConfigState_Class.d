@@ -259,7 +259,7 @@ ConfigState_Class.d ConfigState_Class.o: .././ConfigState_Class.cpp \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
- .././Interfaces_Class.h .././DataLoger_Class.h .././MemoryStruct_Class.h \
+ .././Interfaces_Class.h .././DataLoger_Class.h .././FlashHandler_Class.h \
  .././FastStorage_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
@@ -297,6 +297,7 @@ ConfigState_Class.d ConfigState_Class.o: .././ConfigState_Class.cpp \
  ../../../ECS_Box_Classes/ECS_Box_Classes/avr/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h
 
@@ -832,7 +833,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././DataLoger_Class.h:
 
-.././MemoryStruct_Class.h:
+.././FlashHandler_Class.h:
 
 .././FastStorage_Class.h:
 
@@ -907,6 +908,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h:
 

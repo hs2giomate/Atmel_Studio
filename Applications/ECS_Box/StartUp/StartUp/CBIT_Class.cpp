@@ -11,6 +11,7 @@
 // default constructor
 CBIT_Class::CBIT_Class()
 {
+	isOK=true;
 } //CBIT_Class
 
 // default destructor

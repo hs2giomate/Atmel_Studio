@@ -9,7 +9,7 @@
 #include "TimerSerial_Class.h"
 
 TimerSerial_Class*	ptrTimerSerialClass;
-static  timer_task taskArray[TASK_NUMBER];
+static  timer_task taskArray[SERIAL_TASK_NUMBER];
 
 
 
@@ -55,8 +55,11 @@ void TimerSerial_Class::Init(timer_descriptor * descr){
 	set_descriptor(descr);
 	ticks=0;
 }
-void TimerSerial_Class::Init(void){
+bool TimerSerial_Class::Init(void){
+	
 	ticks=0;
+	isOK=Start()==0;
+	return isOK;
 }
 int32_t TimerSerial_Class::set_clock_cycles_per_tick(uint32_t clock_cycles){
 	int32_t	status;
@@ -97,7 +100,10 @@ int32_t TimerSerial_Class::Stop( void){
 	timeout=0;
 	return status;
 }
-
+int32_t TimerSerial_Class::Start_periodic_task(FUNC_PTR func,uint32_t interval){
+	Add_periodic_task(func,interval);
+	return timer_start(timer_descr);
+}
 
 
 
@@ -178,17 +184,16 @@ void	TimerSerial_Class::Remove_task(FUNC_PTR func){
 
 uint32_t	TimerSerial_Class::Get_ticks(void){
 	
-	timer_get_clock_cycles_in_tick(timer_descr,&ticks);
 	return ticks;
 }
 
 void	TimerSerial_Class::ChooseAvailableTimerTask(void){
-	for (i = 0; i < TASK_NUMBER; i++)
+	for ( uint8_t ii = 0; ii < SERIAL_TASK_NUMBER; ii++)
 	{
-			if (taskArray[i].cb==NULL)
+			if (taskArray[ii].cb==NULL)
 			{
 				
-				task=&taskArray[i];
+				task=&taskArray[ii];
 			return;
 				
 			}
@@ -197,12 +202,12 @@ void	TimerSerial_Class::ChooseAvailableTimerTask(void){
 
 }
 void	TimerSerial_Class::GetTaskFunction(FUNC_PTR func){
-	for (i = 0; i < TASK_NUMBER; i++)
+	for (uint8_t ii = 0; ii < SERIAL_TASK_NUMBER; ii++)
 	{
-		if (taskArray[i].cb==(timer_cb_t)func)
+		if (taskArray[ii].cb==(timer_cb_t)func)
 		{
 			
-			task=&taskArray[i];
+			task=&taskArray[ii];
 			return;
 			
 		}

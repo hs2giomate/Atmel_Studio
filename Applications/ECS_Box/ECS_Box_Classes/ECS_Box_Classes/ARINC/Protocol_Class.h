@@ -25,8 +25,9 @@ uint32_t	rawWord;
 
 
 
-class Protocol_Class: public virtual ARINC_Conversions
+class Protocol_Class: private virtual ARINC_Conversions
 {
+
 //functions
 public:
 	virtual ~Protocol_Class();
@@ -35,11 +36,15 @@ public:
 	//virtual uint8_t		Label2Byte(uint32_t)=0;
 	uint8_t   GetActiveLine(void);
 	uint32_t GetDataField(uint32_t label);
+	uint32_t MakeLabel374(uint32_t d,float v);
+	uint32_t MakeEvenParity(uint32_t data);
 protected:
 	//virtual uint8_t		Label2Byte(uint32_t)=0;
 //	friend	class	ARINC_Conversions;
 private:
 	Datagram	datagram;
+	uint32_t value;
+	uint8_t label;
 
 }; //Protocol_Class
 

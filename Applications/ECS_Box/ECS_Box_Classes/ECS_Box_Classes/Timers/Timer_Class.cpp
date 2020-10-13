@@ -7,10 +7,11 @@
 
 
 #include "Timer_Class.h"
-
+#include <utils_list.h>
 Timer_Class*	ptrTimerClass;
 static  timer_task taskArray[TASK_NUMBER];
-static  timer_task countTicks;
+static bool arrayInitiated=false;
+
 static void extern_task_cb(const struct timer_task *const timer_task)
 {
 	ptrTimerClass->handler();
@@ -38,10 +39,10 @@ Timer_Class::Timer_Class( timer_descriptor * descr)
 	timer_descr=descr;
 	ptrTimerClass=this;
 	clockCycles=1024;
-	task=&countTicks;
+
 	//task->cb=task_cb;
 } //Timer_Class
-void	Timer_Class::set_descriptor(timer_descriptor * descr){
+void	Timer_Class::Set_descriptor(timer_descriptor * descr){
 		timer_descr=descr;
 		ptrTimerClass=this;
 }
@@ -53,15 +54,31 @@ Timer_Class::~Timer_Class()
 } //~Timer_Class
 
 
+static void InitArray(){
+	for (int i=1; i<TASK_NUMBER	; i++)
+	{
+		taskArray[i].elem.next = (list_element*)NULL;
+		taskArray[i].cb=NULL;
+		taskArray[i-1].elem.next = &taskArray[i].elem;
+	}
+	arrayInitiated=true;
+		
+}
+
 
 void Timer_Class::Init(timer_descriptor * descr){
-	set_descriptor(descr);
+	Set_descriptor(descr);
 	ticks=0;
 }
-void Timer_Class::Init(void){
+bool Timer_Class::Init(void){
 	ticks=0;
-	add_periodic_task(FUNC_PTR(CountTicks),1);
-	start();
+	if (!arrayInitiated)
+	{
+		InitArray();
+	}
+	//add_periodic_task(FUNC_PTR(CountTicks),1);
+	isOK=start()==ERR_NONE;
+	return isOK;
 }
 int32_t Timer_Class::set_clock_cycles_per_tick(uint32_t clock_cycles){
 	int32_t	status;
@@ -144,10 +161,16 @@ int32_t Timer_Class::Add_task(FUNC_PTR func,uint32_t interval,timer_task_mode mo
 	return status;
 }
 int32_t Timer_Class::Start_periodic_task(FUNC_PTR func,uint32_t interval){
-	 add_periodic_task(func,interval);
-	 return timer_start(timer_descr);
+		int32_t	status;
+	 Add_periodic_task(func,interval);
+	 	if (timer_descr->func->is_timer_started(&timer_descr->device))
+	 	{
+		 	}else{
+		 	status=timer_start(timer_descr);
+	 	}
+	 return status;
 }
-int32_t Timer_Class::add_periodic_task(FUNC_PTR func,uint32_t interval){
+int32_t Timer_Class::Add_periodic_task(FUNC_PTR func,uint32_t interval){
 	int32_t	status;
 	status=Add_task(func,interval,TIMER_TASK_REPEAT);
 		return status;
@@ -189,16 +212,25 @@ uint32_t	Timer_Class::Get_ticks(void){
 int32_t Timer_Class::Start_oneShot_task(FUNC_PTR func,uint32_t interval){
 	int32_t	status;
 	status=Add_task(func,interval,TIMER_TASK_ONE_SHOT);
-	status=timer_start(timer_descr);
+	if (timer_descr->func->is_timer_started(&timer_descr->device))
+	{
+	}else{
+		status=timer_start(timer_descr);
+	}
+	
 	return status;
 }
 void	Timer_Class::ChooseAvailableTimerTask(void){
-	for (i = 0; i < TASK_NUMBER; i++)
-	{
-		if (taskArray[i].cb==NULL)
+	uint8_t j;
+	
+	for (uint8_t ii = 0; ii < TASK_NUMBER; ii++)
+	{	
+				
+		j=ii%TASK_NUMBER;
+		if (taskArray[j].cb==NULL)
 		{
 			
-			task=&taskArray[i];
+			task=&taskArray[j];
 			return;
 			
 		}
@@ -207,21 +239,24 @@ void	Timer_Class::ChooseAvailableTimerTask(void){
 
 }
 void	Timer_Class::GetTaskFunction(FUNC_PTR func){
-	for (i = 0; i < TASK_NUMBER; i++)
+	
+	for (uint8_t ii = 0; ii < TASK_NUMBER; ii++)
 	{
-		if (taskArray[i].cb==(timer_cb_t)func)
+		if (taskArray[ii].cb==(timer_cb_t)func)
 		{
 			
-			task=&taskArray[i];
+			task=&taskArray[ii];
 			return;
 			
 		}
 	}
 
-
+	asm("nop");
 }
 
+Timer_Class temperatureTimer(&TIMER_TEMPERATURES);
 Timer_Class eventTimer(&TIMER_EVENT);
 Timer_Class hvacTimer(&TIMER_HVAC);
 Timer_Class connectionTimer(&TIMER_INTERFACE);
 Timer_Class arincTimer(&TIMER_ARINC);
+

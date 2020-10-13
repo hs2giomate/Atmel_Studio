@@ -206,6 +206,7 @@ LTC2983/LTC2983_Class.d LTC2983/LTC2983_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -215,7 +216,7 @@ LTC2983/LTC2983_Class.d LTC2983/LTC2983_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../LTC2983/LTC2983_configuration_constants.h \
+ ../Timers/Timer_Class.h ../LTC2983/LTC2983_configuration_constants.h \
  ../LTC2983/LTC2983_table_coeffs.h ../LTC2983/LT_SPI.h \
  ../SPI/SPI_Asyn_Class.h ../USBSerial/CDC_Class.h \
  ../../../ALU_Driver/ALU_Driver/usb_start.h \
@@ -267,7 +268,7 @@ LTC2983/LTC2983_Class.d LTC2983/LTC2983_Class.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
  ../avr/pgmspace.h ../USBSerial/Printable.h \
- ../USBSerial/SerialTerminal_Class.h
+ ../USBSerial/SerialTerminal_Class.h ../USBSerial/TimerSerial_Class.h
 
 ../LTC2983/LTC2983_Class.h:
 
@@ -683,6 +684,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
 
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h:
@@ -700,6 +703,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
+
+../Timers/Timer_Class.h:
 
 ../LTC2983/LTC2983_configuration_constants.h:
 
@@ -812,3 +817,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../USBSerial/Printable.h:
 
 ../USBSerial/SerialTerminal_Class.h:
+
+../USBSerial/TimerSerial_Class.h:

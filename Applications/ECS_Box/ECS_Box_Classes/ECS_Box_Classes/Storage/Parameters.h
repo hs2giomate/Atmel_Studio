@@ -18,7 +18,7 @@
 /* User Parameter for Commissioning of the Door                                                                   */
 /************************************************************************/
 
-struct userParameters
+struct UserParameters
 {
 	uint8_t		flapperValveOffset;					/**<	FlapperValveOffset */
 // 	uint16		slowSpeedCurrentLimitStow;			/**<	Current Limitation mAmp */
@@ -62,7 +62,7 @@ struct userParameters
 // 	bool		doorSize;						/**<	Door Size	*/	
 };
 
-typedef struct userParameters	userParameters;
+typedef struct UserParameters	UserParameters;
 
 struct userPreferences
 {
@@ -82,7 +82,7 @@ enum{
 	Size24inch
 };
 
-extern const userParameters		defaultParameters;   /**< user Parameters */
+extern const UserParameters		defaultParameters;   /**< user Parameters */
 extern const userPreferences	defaultPreferences;	/**< user Preferences */
 
 

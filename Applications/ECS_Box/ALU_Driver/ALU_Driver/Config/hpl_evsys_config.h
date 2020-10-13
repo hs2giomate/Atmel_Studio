@@ -152,7 +152,7 @@
 // <0x77=>CCL LUT output 3
 // <id> evsys_evgen_0
 #ifndef CONF_EVGEN_0
-#define CONF_EVGEN_0 94
+#define CONF_EVGEN_0 95
 #endif
 
 // <q> Overrun channel interrupt
@@ -188,7 +188,7 @@
 // <e> Channel 1 settings
 // <id> evsys_channel_setting_1
 #ifndef CONF_EVSYS_CHANNEL_SETTINGS_1
-#define CONF_EVSYS_CHANNEL_SETTINGS_1 0
+#define CONF_EVSYS_CHANNEL_SETTINGS_1 1
 #endif
 
 // <y> Edge detection
@@ -199,7 +199,7 @@
 // <EVSYS_CHANNEL_EDGSEL_BOTH_EDGES_Val"> Event is detected on the rising and falling edge of the signal from event generator
 // <id> evsys_edgsel_1
 #ifndef CONF_EDGSEL_1
-#define CONF_EDGSEL_1 EVSYS_CHANNEL_EDGSEL_NO_EVT_OUTPUT_Val
+#define CONF_EDGSEL_1 EVSYS_CHANNEL_EDGSEL_RISING_EDGE_Val
 #endif
 
 // <y> Path selection
@@ -209,7 +209,7 @@
 // <EVSYS_CHANNEL_PATH_ASYNCHRONOUS_Val"> Asynchronous path
 // <id> evsys_path_1
 #ifndef CONF_PATH_1
-#define CONF_PATH_1 EVSYS_CHANNEL_PATH_SYNCHRONOUS_Val
+#define CONF_PATH_1 EVSYS_CHANNEL_PATH_ASYNCHRONOUS_Val
 #endif
 
 // <o> Event generator
@@ -333,7 +333,7 @@
 // <0x77=>CCL LUT output 3
 // <id> evsys_evgen_1
 #ifndef CONF_EVGEN_1
-#define CONF_EVGEN_1 0
+#define CONF_EVGEN_1 96
 #endif
 
 // <q> Overrun channel interrupt
@@ -5920,7 +5920,7 @@
 // <id> evsys_channel_2
 // <i> Indicates which channel is chosen for user
 #ifndef CONF_CHANNEL_2
-#define CONF_CHANNEL_2 0
+#define CONF_CHANNEL_2 2
 #endif
 
 // <o> Channel selection for PORT event 2

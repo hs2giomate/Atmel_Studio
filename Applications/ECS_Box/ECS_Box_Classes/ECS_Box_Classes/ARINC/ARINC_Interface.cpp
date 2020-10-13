@@ -84,27 +84,28 @@ bool	ARINC_Interface::Init(void){
 		newMessageR2=false;
 		BigCounter.Word32 = 0;     // clear all 8 bytes of the data field.
 		MessageCount=0;
-		ARINCLabel = 0x1D;         // Write ARINC Label
+		octalLabel = 0x1D;         // Write ARINC Label
 		Arate=0;
 		
 		(void)memset(TXBuffer, 0, sizeof(TXBuffer));    // clear the buffer
 			
 		// Setup the Labels
-		HI3593.initReceiver1Labels();     // initial Rec1 labels
+		HI3593.InitReceiver1Labels();     // initial Rec1 labels
 		HI3593.initReceiver2Labels();     // initial Rec2 labels
-		HI3593.MultiByteRead(REC1MEMORY, 32, LabelsArrayTX); // read in all Rec-1 labels into the passed array
-		HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX1); // read in all Rec-2 labels into the passed array
+		HI3593.InitPriorityLabels();
+		//HI3593.MultiByteRead(REC1MEMORY, 32, LabelsArrayRX1); // read in all Rec-1 labels into the passed array
+		//HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX2); // read in all Rec-2 labels into the passed array
 
 		Rec1Parity =0;
 		Rec2Parity =0;
 
-		HI3593.W_CommandValue(REC1CR,RFLIP | PLON | LABREC | Arate | Rec1Parity);  // enable PL1 in the Receiver Control Reg
-		HI3593.W_CommandValue(REC2CR,RFLIP | PLON | LABREC | Arate | Rec2Parity);  // enable PL2 in the Receiver Control Reg
+		//HI3593.W_CommandValue(REC1CR,RFLIP | PLON | LABREC | Arate | Rec1Parity);  // enable PL1 in the Receiver Control Reg
+		//HI3593.W_CommandValue(REC2CR,RFLIP | PLON | LABREC | Arate | Rec2Parity);  // enable PL2 in the Receiver Control Reg
 	}
 	
 	arincTimer.Init();
-	arincTimer.add_periodic_task(FUNC_PTR(blink_LED0),1000);
-	arincTimer.add_periodic_task(FUNC_PTR(TxTimeout),500);
+	arincTimer.Add_periodic_task(FUNC_PTR(blink_LED0),1000);
+	arincTimer.Add_periodic_task(FUNC_PTR(TxTimeout),500);
 	ext_irq_register(ARINCR1Int, Receiver1Int);
 	arincTimer.start();
 	//HI3893.InitPriorityLabels();
@@ -129,22 +130,43 @@ bool	ARINC_Interface::isThereNewMessage(){
 		return false;
 	}
 }
-uint32_t ARINC_Interface::ReadArincBuffer(){
+uint32_t ARINC_Interface::ReadRXBuffer(uint8_t n){
+	
 	usb.println("r\n---!got message!----");
 	cpu_irq_disable();
-	statusRegister= HI3593.R_Register(RXSTATUS_1);                       // Poll Receiver1 status register
-	cpu_irq_enable();
-	if((statusRegister & FFEMPTY) == 0)
-	{
-		cpu_irq_disable();
-		HI3593.ArincRead(RXFIFO_1,RXBuffer );
-		(void)memcpy(receiverBuffer[MessageCount],RXBuffer,g_RXBuffSize);  // copy frame to large array for safe keeping
-		cpu_irq_enable();
-		printARINCData(REC1_HEADER,RXBuffer);
-		CheckMessageCountMax();
-	}
+	                     // Poll Receiver1 status register
 	
-return statusRegister;	
+	for (uint8_t ii = 0; ii <2*RX_LABELS_NUMBER ; ii++)
+	{
+		statusRegister= HI3593.R_Register(RXSTATUS_1+(n-1)*0x20);  
+		if(((statusRegister & FFEMPTY) == 0))
+		{
+				
+			HI3593.ArincRead(RXFIFO_1+(n-1)*0x20,RXBuffer );
+				
+			memcpy(receiverBuffer[MessageCount],RXBuffer,g_RXBuffSize);  // copy frame to large array for safe keeping
+				
+			//		printARINCData(REC1_HEADER,RXBuffer);
+			CheckMessageCountMax();
+				
+		}else{
+			break;
+		}
+	}
+
+	cpu_irq_enable();
+
+		if ((n==1))
+		{
+			newMessageR1=false;
+		}
+		else if (n==2)
+		{
+			newMessageR2=false;
+		}
+
+	
+	return statusRegister;	
 }
 
 uint32_t ARINC_Interface::ReadFIFO1(){
@@ -225,21 +247,23 @@ uint32_t ARINC_Interface::TrasmitSingleLabel(void){
 }
 
 uint32_t ARINC_Interface::TrasmitSingleLabel(uint32_t l){
-	gpio_set_pin_level(LED0,true);
-	ARINCLabel=Label2Byte(l);
-	index=GetIndexTXLabelarray(l,LabelsArrayTX);
+	gpio_set_pin_level(LED0,false);
+	octalLabel=Label2Byte(l);
+	index=GetIndexTXLabelarray(FlipByte(octalLabel),LabelsArrayTX);
 	uint8_t localBuffer[4];
-	memcpy(localBuffer,&transmitBuffer[index][0],4);
+//	memcpy(localBuffer,LabelsArrayTX,4);
+//	memcpy(localBuffer,&transmitBuffer[index][0],4);
+	Uint32FourBytesArray(0x1234561d,localBuffer);
 	PrepareSingleTXBuffer(TXBuffer,LabelsArrayTX);
 	usb.println(" transmitting...");
 	cpu_irq_disable();
-	HI3593.TransmitCommandAndData(TXFIFO,TXBuffer);
+	HI3593.TransmitCommandAndData(TXFIFO,localBuffer);
 	cpu_irq_enable();
 	usb.println(" Transmitted!");
 	usb.println(">");
 	printARINCTXData(TXBuffer);
 	txTimeout=false;
-	gpio_set_pin_level(LED0,false);
+	gpio_set_pin_level(LED0,true);
 	return FourBytesArray2Uint32(TXBuffer);
 }
 
@@ -256,7 +280,7 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 	TxPaused=0;                // start out not paused
 	BigCounter.Word32 = 0;     // clear all 8 bytes of the data field.
 	MessageCount=0;
-	ARINCLabel = 0x1d;         // Write ARINC Label
+	octalLabel = 0x1d;         // Write ARINC Label
 	Arate=0;
 	
 	usb.println("\n\rTransmit & Receive With Labels Mode\n\r");
@@ -271,10 +295,10 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 	//   W_Command(0x4C);  // set all bits in label memory to 1
 	
 	// Setup the Labels
-	HI3593.initReceiver1Labels();     // initial Rec1 labels
+	HI3593.InitReceiver1Labels();     // initial Rec1 labels
 	HI3593.initReceiver2Labels();     // initial Rec2 labels
-	HI3593.MultiByteRead(REC1MEMORY, 32, LabelsArrayTX); // read in all Rec-1 labels into the passed array
-	HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX1); // read in all Rec-2 labels into the passed array
+	HI3593.MultiByteRead(REC1MEMORY, 32, LabelsArrayRX1); // read in all Rec-1 labels into the passed array
+	HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX2); // read in all Rec-2 labels into the passed array
 
 	Rec1Parity =0;
 	Rec2Parity =0;
@@ -292,7 +316,7 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 	TXBuffer[0] = BigCounter.PayLoad[1];
 	TXBuffer[1] = BigCounter.PayLoad[2];
 	TXBuffer[2] = BigCounter.PayLoad[3];
-	TXBuffer[3] = ARINCLabel;            // normal default label
+	TXBuffer[3] = octalLabel;            // normal default label
 	
 	usb.println("\n\r\nPress SW-1 to start initially\n\r\n");
 	usb.println("--- Button Commands ---\n\r");
@@ -453,7 +477,7 @@ void ARINC_Interface::CommandStatus(){
 	TxPaused=0;                // start out not paused
 	BigCounter.Word32 = 0;     // clear all 8 bytes of the data field.
 	MessageCount=0;
-	ARINCLabel = 0x30;         // Write ARINC Label
+	octalLabel = 0x30;         // Write ARINC Label
 	Arate=0;
 	
 	usb.println("\n\rTransmit & Receive Echo Mode\n\r");
@@ -492,7 +516,7 @@ void ARINC_Interface::CommandStatus(){
 	//   W_Command(0x4C);  // set all bits in label memory to 1
 	
 	// Setup the Labels
-	HI3593.initReceiver1Labels();     // initial Rec1 labels
+	HI3593.InitReceiver1Labels();     // initial Rec1 labels
 	HI3593.initReceiver2Labels();     // initial Rec2 labels
 	HI3593.MultiByteRead(REC1MEMORY, 32, LabelsAr1); // read in all Rec-1 labels into the passed array
 	HI3593.MultiByteRead(REC2MEMORY, 32, LabelsAr2); // read in all Rec-2 labels into the passed array
@@ -522,7 +546,7 @@ void ARINC_Interface::CommandStatus(){
 	TXBuffer[0] = BigCounter.PayLoad[1];
 	TXBuffer[1] = BigCounter.PayLoad[2];
 	TXBuffer[2] = BigCounter.PayLoad[3];
-	TXBuffer[3] = ARINCLabel;            // normal default label
+	TXBuffer[3] = octalLabel;            // normal default label
 	
 	usb.println("\n\r\nPress SW-1 to start initially\n\r\n");
 	usb.println("--- Button Commands ---\n\r");
@@ -951,12 +975,12 @@ void	ARINC_Interface::FetchAllMessagesReceiver1(void){
 		cpu_irq_enable();
 		RollMessageCount(1);
 	}
-	for (i = 0; i < 3; i++)
+	for (uint8_t ii = 0; ii < 3; ii++)
 	{
-		if(Status_F & (PL1<<(i)))
+		if(Status_F & (PL1<<(ii)))
 		{
 			cpu_irq_disable();
-			HI3593.ArincRead(RXFIFO_1L1+(4*i),RXBufferPL1 );
+			HI3593.ArincRead(RXFIFO_1L1+(4*ii),RXBufferPL1 );
 			(void)memcpy(receiverBuffer1[MessageCount1],RXBufferPL1,g_RXBuffSize);  // copy frame to large array for safe keeping
 			cpu_irq_enable();
 			RollMessageCount(1);
@@ -979,9 +1003,9 @@ void	ARINC_Interface::FetchAllMessagesReceiver2(void){
 		RollMessageCount(2);
 	}
 
-	for (i = 0; i < 3; i++)
+	for (uint8_t ii = 0; ii < 3; ii++)
 	{
-		if(Status_F & (PL1<<(i)))
+		if(Status_F & (PL1<<(ii)))
 		{
 			cpu_irq_disable();
 			HI3593.ArincRead(RXFIFO_2L1+(4*i),RXBufferPL2 );
@@ -1127,8 +1151,8 @@ void ARINC_Interface::LED_CTL(uint8_t ledNumber, uint8_t OnOff){
 void ARINC_Interface::CheckMessageCountMax(void)
 {
 	MessageCount++;
-	if(MessageCount==MESSAGECOUNTMAX)
-	MessageCount=0;
+	MessageCount=MessageCount%MESSAGECOUNTMAX;
+
 }
 
 uint8_t	ARINC_Interface::RollMessageCount(uint8_t mc){
@@ -1275,10 +1299,10 @@ void ARINC_Interface::CustomMessage(const uint8_t SELFTEST){
 	(void)memset(TXBuffer, 0, sizeof(TXBuffer));    // clear the buffer
 	
 	// Setup the Labels
-	HI3593.initReceiver1Labels();     // initial Rec1 labels
+	HI3593.InitReceiver1Labels();     // initial Rec1 labels
 	HI3593.initReceiver2Labels();     // initial Rec2 labels
-	HI3593.MultiByteRead(REC1MEMORY, 32, LabelsArrayTX); // read in all Rec-1 labels into the passed array
-	HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX1); // read in all Rec-2 labels into the passed array
+	HI3593.MultiByteRead(REC1MEMORY, 32, LabelsArrayRX1); // read in all Rec-1 labels into the passed array
+	HI3593.MultiByteRead(REC2MEMORY, 32, LabelsArrayRX2); // read in all Rec-2 labels into the passed array
 
 	Rec1Parity =0;
 	Rec2Parity =0;
@@ -1460,7 +1484,7 @@ void ARINC_Interface::CustomMessage(const uint8_t SELFTEST){
 		
 		if (newMessageR1)
 		{
-			reading=ReadArincBuffer();
+			reading=ReadRXBuffer();
 			newMessageR1=false;
 		}
 	}
@@ -1477,4 +1501,4 @@ void	ARINC_Interface::xputc(char byte) {
 	usb.write(&p[0],sizeof(p));
 }
 
-ARINC_Interface	arinc;
+ ARINC_Interface	arinc;

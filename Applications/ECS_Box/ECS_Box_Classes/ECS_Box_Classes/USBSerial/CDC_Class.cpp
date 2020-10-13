@@ -98,6 +98,8 @@ void CDC_Class::Init(void){
 
 	delay_ms(200);
 
+	
+
 }
 
 bool CDC_Class::IsEnabled(void){
@@ -180,9 +182,13 @@ void	CDC_Class::clear(void){
 	cdcdf_acm_stop_xfer();
 }
 size_t CDC_Class::write(uint8_t c) {
+	if (connected){
 		while(!txReady);
-	
 		return writeData(&c, 1);
+	}else{
+		return 0;
+	}
+		
 }
 int32_t CDC_Class::writeData(const void *buffer, int32_t size)
 {
@@ -252,4 +258,4 @@ CDC_Class::operator bool()
 	return result;
 }
 
- CDC_Class	usb;
+ 

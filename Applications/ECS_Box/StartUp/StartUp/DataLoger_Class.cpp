@@ -8,7 +8,7 @@
 
 #include "DataLoger_Class.h"
 #include "ConfigurationData.h"
-#include "MemoryStruct_Class.h"
+#include "FlashHandler_Class.h"
 #include "N25Q256_Class.h"
 
 // default constructor
@@ -24,7 +24,7 @@ DataLoger_Class::~DataLoger_Class()
  
 
 uint32_t	DataLoger_Class::WriteConfigurationData(ConfigurationData *cd){
-	uint32_t	add=(uint32_t )(&flashMap->currentConfiguration);
+	uint32_t	add=(uint32_t )(&flashMap->configurationSector);
 	uint32_t	r=qspiFlash.ReadAddress((uint8_t*)PTR_CONFIG_DATA(cd),add,sizeof(dataOnMemory));
 	
 	return	r;

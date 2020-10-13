@@ -40,14 +40,14 @@ FlashMemoryClass::FlashMemoryClass(uint8_t sp){
 
 
 
-FlashMemoryClass::FlashMemoryClass(userParameters* p){
+FlashMemoryClass::FlashMemoryClass(UserParameters* p){
 	
 	appParameters=*p;
 	memoryMap=flashLayout;
 }
 
 
-void	FlashMemoryClass::Init(userParameters* p){
+void	FlashMemoryClass::Init(UserParameters* p){
 		appParameters=*p;
 	memoryMap=0x00;
 	
@@ -89,38 +89,38 @@ void	FlashMemoryClass::Init(void){
 	
 }
 
-void FlashMemoryClass::flushConfigurationData(userParameters *data)
+void FlashMemoryClass::flushConfigurationData(UserParameters *data)
 {
 
-	userParameters	appData;
+	UserParameters	appData;
 	appData=*data;
 	flashOpen();
 //	writeFlash((uint32_t)&memoryMap->parameters,&appData, sizeof(userParameters));
-	WriteAddress((uint8_t*)&appData,(uint32_t)&memoryMap->parameters, sizeof(userParameters));
+	WriteAddress((uint8_t*)&appData,(uint32_t)&memoryMap->parameters, sizeof(UserParameters));
 	flashClose();
 
 }
 
-void FlashMemoryClass::readConfigurationData(userParameters *data)
+void FlashMemoryClass::readConfigurationData(UserParameters *data)
 {
-	userParameters	appData;
+	UserParameters	appData;
 
 	flashOpen();
-	readFlash(&appData, (uint32_t)&memoryMap->parameters, sizeof(userParameters));
+	readFlash(&appData, (uint32_t)&memoryMap->parameters, sizeof(UserParameters));
 	flashClose();
 
 
-		memcpy(data, &appData, sizeof(userParameters));
+		memcpy(data, &appData, sizeof(UserParameters));
 
 		
 	
 }
 
-userParameters FlashMemoryClass::readConfigurationData(userParameters& p)
+UserParameters FlashMemoryClass::readConfigurationData(UserParameters& p)
 {
 	
 	flashOpen();
-	ReadAddress((uint8_t*)&p, (uint32_t)&memoryMap->parameters, sizeof(userParameters));
+	ReadAddress((uint8_t*)&p, (uint32_t)&memoryMap->parameters, sizeof(UserParameters));
 	//readFlash((void*)&p, (uint32_t)&memoryMap->parameters, sizeof(userParameters));
 	flashClose();
 	return	p;
@@ -128,7 +128,7 @@ userParameters FlashMemoryClass::readConfigurationData(userParameters& p)
 }
 
 
-void FlashMemoryClass::initializeConfigurationData(userParameters *data){
+void FlashMemoryClass::initializeConfigurationData(UserParameters *data){
 	garbage=0;
 	flushConfigurationData(data);
 	return;

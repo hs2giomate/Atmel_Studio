@@ -46,7 +46,8 @@ http://store.arduino.cc , and consider a purchase that will help fund their
 ongoing work.
 */
 
-
+#ifndef __LTC2983_CONSTANTS_H__
+#define __LTC2983_CONSTANTS_H__
 
 //**********************************************************************************************************
 // -- SENSOR TYPES --
@@ -305,7 +306,7 @@ ongoing work.
 #define SENSOR_ABOVE        (uint8_t) 0x8
 #define SENSOR_BELOW        (uint8_t) 0x4
 #define ADC_RANGE_ERROR     (uint8_t) 0x2
-#define VALID               (uint8_t) 0x1
+#define VALID_TEMPERATURE               (uint8_t) 0x1
 //**********************************************************************************************************
 // -- ADDRESSES --
 //**********************************************************************************************************
@@ -323,3 +324,4 @@ ongoing work.
 
 #define VOLTAGE                 (uint8_t) 0x01
 #define TEMPERATURE             (uint8_t) 0x02
+#endif //__LTC2983_CLASS_H__

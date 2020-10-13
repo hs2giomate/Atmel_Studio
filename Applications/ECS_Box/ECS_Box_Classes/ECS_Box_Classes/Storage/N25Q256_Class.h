@@ -31,7 +31,7 @@ class N25Q256_Class
 //variables
 public:
 		volatile bool xferDone;
-
+	
 protected:
 private:
 	qspi_sync_descriptor  *ptrQSPIDescriptor;
@@ -73,4 +73,5 @@ private:
 
 }; //N25Q256_Class
 extern	N25Q256_Class	qspiFlash;
+//static N25Q256_Class	qspiFlash(&QSPI_N25Q256);
 #endif //__N25Q256_CLASS_H__

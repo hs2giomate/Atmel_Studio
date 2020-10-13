@@ -17,8 +17,8 @@ class I2C_Asyn_Class: public I2C_ObjectList
 public:
 	volatile bool  txReady;
 	volatile bool  rxReady;
-
-	volatile	bool	ack;
+	bool initiated;
+	volatile	bool	ack,isOK;
 	I2C_Asyn_Class	*ptrClass;
 protected:
 
@@ -34,8 +34,9 @@ public:
 	I2C_Asyn_Class();
 	I2C_Asyn_Class(i2c_m_async_desc *);
 	~I2C_Asyn_Class();
-	uint8_t	Init(void);
-	uint8_t	Init(uint8_t);
+	bool	Init(void);
+	bool	Init(uint8_t);
+	bool	Init(i2c_m_async_desc * i2c_a);
 	
 	void	Set_descriptor(i2c_m_async_desc *);
 	int32_t	Set_slaveaddr(uint8_t add);
@@ -65,5 +66,6 @@ private:
 }; //I2C_Asyn_Class
 
 extern	list_descriptor		i2cList;
+extern I2C_Asyn_Class		i2cFVs;
 
 #endif //__I2C_ASYN_CLASS_H__

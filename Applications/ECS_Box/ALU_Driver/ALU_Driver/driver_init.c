@@ -15,11 +15,10 @@ struct crc_sync_descriptor   CRC_CALC;
 struct spi_m_sync_descriptor SPI_MEMORIES;
 struct spi_m_sync_descriptor SPI_HI3593;
 struct timer_descriptor      TIMER_USB;
-struct timer_descriptor      TIMER_EVENT;
 struct timer_descriptor      TIMER_ARINC;
-struct timer_descriptor      TIMER_HVAC;
 struct timer_descriptor      TIMER_MAINTENANCE;
 struct timer_descriptor      TIMER_INTERFACE;
+struct timer_descriptor      TIMER_EVENT;
 struct can_async_descriptor  CAN_CCU;
 
 struct qspi_sync_descriptor QSPI_N25Q256;
@@ -35,6 +34,10 @@ struct i2c_m_async_desc I2C_EXPANDER;
 struct i2c_m_async_desc I2C_EEPROM;
 
 struct pwm_descriptor LIVE_PULSE;
+
+struct timer_descriptor TIMER_HVAC;
+
+struct timer_descriptor TIMER_TEMPERATURES;
 
 struct wdt_descriptor WATCHDOG;
 
@@ -119,12 +122,39 @@ void EXTERNAL_IRQ_0_init(void)
 
 	gpio_set_pin_function(ARINCR1Int, PINMUX_PC23A_EIC_EXTINT7);
 
+	// Set pin direction to input
+	gpio_set_pin_direction(PB08, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(PB08,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(PB08, PINMUX_PB08A_EIC_EXTINT8);
+
+	// Set pin direction to input
+	gpio_set_pin_direction(PB09, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(PB09,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(PB09, PINMUX_PB09A_EIC_EXTINT9);
+
 	ext_irq_init();
 }
 
 void EVENT_SYSTEM_0_init(void)
 {
 	hri_gclk_write_PCHCTRL_reg(GCLK, EVSYS_GCLK_ID_0, CONF_GCLK_EVSYS_CHANNEL_0_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_gclk_write_PCHCTRL_reg(GCLK, EVSYS_GCLK_ID_1, CONF_GCLK_EVSYS_CHANNEL_1_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 
 	hri_mclk_set_APBBMASK_EVSYS_bit(MCLK);
 
@@ -664,17 +694,22 @@ static void TIMER_USB_init(void)
 	timer_init(&TIMER_USB, TC0, _tc_get_timer());
 }
 
-/**
- * \brief Timer initialization function
- *
- * Enables Timer peripheral, clocks and initializes Timer driver
- */
-static void TIMER_EVENT_init(void)
+void LIVE_PULSE_PORT_init(void)
 {
+}
+
+void LIVE_PULSE_CLOCK_init(void)
+{
+
 	hri_mclk_set_APBAMASK_TC1_bit(MCLK);
 	hri_gclk_write_PCHCTRL_reg(GCLK, TC1_GCLK_ID, CONF_GCLK_TC1_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+}
 
-	timer_init(&TIMER_EVENT, TC1, _tc_get_timer());
+void LIVE_PULSE_init(void)
+{
+	LIVE_PULSE_CLOCK_init();
+	LIVE_PULSE_PORT_init();
+	pwm_init(&LIVE_PULSE, TC1, _tc_get_pwm());
 }
 
 /**
@@ -688,19 +723,6 @@ static void TIMER_ARINC_init(void)
 	hri_gclk_write_PCHCTRL_reg(GCLK, TC2_GCLK_ID, CONF_GCLK_TC2_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 
 	timer_init(&TIMER_ARINC, TC2, _tc_get_timer());
-}
-
-/**
- * \brief Timer initialization function
- *
- * Enables Timer peripheral, clocks and initializes Timer driver
- */
-static void TIMER_HVAC_init(void)
-{
-	hri_mclk_set_APBBMASK_TC3_bit(MCLK);
-	hri_gclk_write_PCHCTRL_reg(GCLK, TC3_GCLK_ID, CONF_GCLK_TC3_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
-
-	timer_init(&TIMER_HVAC, TC3, _tc_get_timer());
 }
 
 /**
@@ -729,22 +751,41 @@ static void TIMER_INTERFACE_init(void)
 	timer_init(&TIMER_INTERFACE, TC5, _tc_get_timer());
 }
 
-void LIVE_PULSE_PORT_init(void)
+/**
+ * \brief Timer initialization function
+ *
+ * Enables Timer peripheral, clocks and initializes Timer driver
+ */
+static void TIMER_EVENT_init(void)
 {
+	hri_mclk_set_APBDMASK_TC6_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TC6_GCLK_ID, CONF_GCLK_TC6_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+
+	timer_init(&TIMER_EVENT, TC6, _tc_get_timer());
 }
 
-void LIVE_PULSE_CLOCK_init(void)
+void TIMER_HVAC_CLOCK_init(void)
 {
-
-	hri_mclk_set_APBDMASK_TC7_bit(MCLK);
-	hri_gclk_write_PCHCTRL_reg(GCLK, TC7_GCLK_ID, CONF_GCLK_TC7_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_mclk_set_APBBMASK_TCC0_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TCC0_GCLK_ID, CONF_GCLK_TCC0_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 }
 
-void LIVE_PULSE_init(void)
+void TIMER_HVAC_init(void)
 {
-	LIVE_PULSE_CLOCK_init();
-	LIVE_PULSE_PORT_init();
-	pwm_init(&LIVE_PULSE, TC7, _tc_get_pwm());
+	TIMER_HVAC_CLOCK_init();
+	timer_init(&TIMER_HVAC, TCC0, _tcc_get_timer());
+}
+
+void TIMER_TEMPERATURES_CLOCK_init(void)
+{
+	hri_mclk_set_APBBMASK_TCC1_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TCC1_GCLK_ID, CONF_GCLK_TCC1_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+}
+
+void TIMER_TEMPERATURES_init(void)
+{
+	TIMER_TEMPERATURES_CLOCK_init();
+	timer_init(&TIMER_TEMPERATURES, TCC1, _tcc_get_timer());
 }
 
 void CDCUSB_PORT_init(void)
@@ -925,6 +966,20 @@ void system_init(void)
 
 	gpio_set_pin_function(CS_FRAM, GPIO_PIN_FUNCTION_OFF);
 
+	// GPIO on PA27
+
+	gpio_set_pin_level(CS_TEMP2,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   true);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(CS_TEMP2, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(CS_TEMP2, GPIO_PIN_FUNCTION_OFF);
+
 	// GPIO on PB07
 
 	// Set pin direction to input
@@ -942,7 +997,7 @@ void system_init(void)
 
 	// GPIO on PB29
 
-	gpio_set_pin_level(CS_SPI_LTC,
+	gpio_set_pin_level(CS_TEMP1,
 	                   // <y> Initial level
 	                   // <id> pad_initial_level
 	                   // <false"> Low
@@ -950,9 +1005,9 @@ void system_init(void)
 	                   true);
 
 	// Set pin direction to output
-	gpio_set_pin_direction(CS_SPI_LTC, GPIO_DIRECTION_OUT);
+	gpio_set_pin_direction(CS_TEMP1, GPIO_DIRECTION_OUT);
 
-	gpio_set_pin_function(CS_SPI_LTC, GPIO_PIN_FUNCTION_OFF);
+	gpio_set_pin_function(CS_TEMP1, GPIO_PIN_FUNCTION_OFF);
 
 	// GPIO on PB31
 
@@ -1047,12 +1102,15 @@ void system_init(void)
 	I2C_EEPROM_init();
 
 	TIMER_USB_init();
-	TIMER_EVENT_init();
+	LIVE_PULSE_init();
+
 	TIMER_ARINC_init();
-	TIMER_HVAC_init();
 	TIMER_MAINTENANCE_init();
 	TIMER_INTERFACE_init();
-	LIVE_PULSE_init();
+	TIMER_EVENT_init();
+	TIMER_HVAC_init();
+
+	TIMER_TEMPERATURES_init();
 
 	CDCUSB_init();
 

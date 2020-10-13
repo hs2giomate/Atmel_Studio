@@ -148,4 +148,4 @@ bool	N25Q256_Class::SelfTest(void){
 	}
 	return	isOK;
 }
-N25Q256_Class	qspiFlash(&QSPI_N25Q256);
+ N25Q256_Class	qspiFlash(&QSPI_N25Q256);

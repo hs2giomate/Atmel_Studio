@@ -15,10 +15,11 @@ int main(void)
 	usb.Init();
 	delay_ms(100);
 	StartLivePulse();
+	LTC2983_test();
 	//QSPIDriverTest();
 	//DateTimeTest();
 //	EEPROM_Test();
-	IO_ExpanderTest();
+//	IO_ExpanderTest();
 		/* Replace with your application code */
 	while (1) {
 		
@@ -106,16 +107,16 @@ uint8_t EEPROM_Test(void){
 void	LTC2983_test(void){
 	LTC2983_Class	LTC(&SPI_TEMP);
 	LTC.Init();
-	LTC.print_title();
-	LTC.configure_channels();
-	LTC.configure_global_parameters();
+//	LTC.print_title();
+	//LTC.configure_channels();
+	//LTC.configure_global_parameters();
 	while (LTC.ready)
 	{
-		 LTC.measure_channel(CHIP_SELECT, 4, TEMPERATURE);      // Ch 4: RTD PT-100
+		// LTC.measure_channel(, 4, TEMPERATURE);      // Ch 4: RTD PT-100
 		 delay_ms(1);
-		 LTC.measure_channel(CHIP_SELECT, 8, TEMPERATURE);      // Ch 8: RTD PT-100
+	//	 LTC.measure_channel(CHIP_SELECT, 8, TEMPERATURE);      // Ch 8: RTD PT-100
 		  delay_ms(1);
-		 LTC.measure_channel(CHIP_SELECT, 15, TEMPERATURE);     // Ch 15: RTD PT-100
+	//	 LTC.measure_channel(CHIP_SELECT, 15, TEMPERATURE);     // Ch 15: RTD PT-100
 		  delay_ms(1);
 	}
 	
@@ -130,7 +131,7 @@ int ARINC_test(void)
 	{
 		ECSBox.SayHello();
 		delay_ms(100);
-		ECSBox.CustomMessage(SELFTEST_OFF);
+		//ECSBox.CustomMessage(SELFTEST_OFF);
 	}
 	return 0;
 }

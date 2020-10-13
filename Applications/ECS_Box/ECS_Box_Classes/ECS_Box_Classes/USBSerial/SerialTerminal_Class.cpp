@@ -7,7 +7,7 @@
 
 
 #include "SerialTerminal_Class.h"
-#include "TimerSerial_Class.h"
+
 #include "CDC_Class.h"
 
 SerialTerminal_Class	*ptrSerialTerminalClass;
@@ -29,6 +29,10 @@ static void USBPlugged(void){
 	}
 	
 }
+static void USBTimerTicks(const struct timer_task *const timer_task)
+{
+	usbTerminalTimer.ticks++;
+}
 
 // default constructor
 SerialTerminal_Class::SerialTerminal_Class()
@@ -44,6 +48,10 @@ SerialTerminal_Class::~SerialTerminal_Class()
 
 void	SerialTerminal_Class::OnInit(void){
 		ext_irq_register(PIN_PC00, USBPlugged);
+		if (usbTerminalTimer.Init())
+		{
+		//	usbTerminalTimer.Start_periodic_task((FUNC_PTR)USBTimerTicks,1);
+		}
 		vbusDetected=gpio_get_pin_level(VBUS_DETECTED);
 		if (vbusDetected)
 		{

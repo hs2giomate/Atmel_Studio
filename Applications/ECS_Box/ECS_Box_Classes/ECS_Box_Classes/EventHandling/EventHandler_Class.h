@@ -10,30 +10,34 @@
 #define __EVENTHANDLER_CLASS_H__
 #include "eDeviceEvent.h"
 
-#define		EVENT_QUEUE_BUFFER	256
-#define		EVENT_QUEUE_MAX		32
+#define		EVENT_QUEUE_BUFFER	128
+#define		EVENT_QUEUE_MAX		16
 extern const int16	sizeOfEventQueue; 
 extern const int16	maxEventCount;
 typedef void (*WaitEventCallbackHandler)(void);
-class EventHandler_Class
+class EventHandler_Class: public event
 {
 //variables
 public:
 	volatile	bool		eventTimeout;
 	WaitEventCallbackHandler	eventHandler;
+	volatile bool isOK;
 protected:
+	
 private:
 	int32	eventsInUse;
 	int32	eventsInUsePeak;
 	int32	eventCollisions;
 	int32	eventEvalCollisions;
 	int32	eventQueueUnderflow;
+	
+	 event*	eventQueue;
 
 //functions
 public:
 	EventHandler_Class();
 	~EventHandler_Class();
-	void Init();
+	bool Init();
 	bool WaitForEvent(event& e, EventClass eventClass, EventType eventType, tick_t timeout= forever);
 	bool WaitForEvent(event& e, uint16 eventClass, uint16 eventType, tick_t timeout= forever);
 	void SendEvent(event& e, contextID receiver);
@@ -48,5 +52,5 @@ private:
 	EventHandler_Class& operator=( const EventHandler_Class &c );
 
 }; //EventHandler_Class
-extern	EventHandler_Class	listener;
+extern 	EventHandler_Class	listener;
 #endif //__EVENTHANDLER_CLASS_H__

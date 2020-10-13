@@ -7,7 +7,7 @@ LTC2983/LT_SPI.d LTC2983/LT_SPI.o: ../LTC2983/LT_SPI.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_newlib_version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_intsup.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../SPI/SPI_Asyn_Class.h ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
@@ -206,6 +206,7 @@ LTC2983/LT_SPI.d LTC2983/LT_SPI.o: ../LTC2983/LT_SPI.cpp \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -215,7 +216,7 @@ LTC2983/LT_SPI.d LTC2983/LT_SPI.o: ../LTC2983/LT_SPI.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../SPI/SPI_Asyn_Class.h ../LTC2983/LTC2983_configuration_constants.h \
+ ../LTC2983/LTC2983_configuration_constants.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
@@ -245,6 +246,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_intsup.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h:
+
+../SPI/SPI_Asyn_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
 
@@ -644,6 +647,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
 
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h:
@@ -661,8 +666,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
-
-../SPI/SPI_Asyn_Class.h:
 
 ../LTC2983/LTC2983_configuration_constants.h:
 

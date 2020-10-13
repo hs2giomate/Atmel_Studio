@@ -7,6 +7,8 @@
 
 
 #include "Holt_3593_Class.h"
+#include "ARINC_Interface.h"
+#include "string.h"
 
 // default constructor
 Holt_3593_Class::Holt_3593_Class()
@@ -30,7 +32,7 @@ Holt_3593_Class::~Holt_3593_Class()
    [3] denotes LabelArray[3] which controls label addr 24-31 decimal.
    Bit 0 controls label addr 24, Bit 1 controls label addr 25, etc. */
    
-unsigned char LabelArray_1[32] = {      // Receiver-1  
+const unsigned char LabelArray_1[32] = {      // Receiver-1  
 // --------------------------------------------------------------- 
 //   [0]     [1]     [2]     [3]     [4]     [5]     [6]     [7]
 // 000-007 008-015 016-023 024-031 032-039 040-047 048-055 056-063 
@@ -39,8 +41,8 @@ unsigned char LabelArray_1[32] = {      // Receiver-1
 // ---------------------------------------------------------------      
 //   [8]     [9]     [10]    [11]    [12]    [13]    [14]    [15]  
 // 064-071 072-079 080-087 088-095 096-103 104-111 112-119 120-127 
-//	 260	   371	  372	 374	375		377
-	 0X0d,   0X9f,   0X5f,   0X3F,   0XdF,   0XFF,   0Xb8,   0X00,
+//	 260	   371	  372	 374	375		377				275
+	 0X0d,   0X9f,   0X5f,   0X3F,   0XdF,   0XFF,   0X00,   0XBD,
 // ---------------------------------------------------------------      
 //   [16]    [17]    [18]    [19]    [20]    [21]    [22]    [23]       
 // 128-135 136-143 144-151 152-159 160-167 168-175 176-183 184-191 
@@ -77,14 +79,21 @@ unsigned char LabelPriority2 [3];
 
 	for (int i=0;i<32;i++)
 	{
-		LabelArray_2[i]=FlipByte(LabelArray_1[i]);
-		LabelArray_1[i]=LabelArray_2[i];
+// 		LabelArray_2[i]=FlipByte(LabelArray_1[i]);
+// 		LabelArray_1[i]=LabelArray_2[i];
+		LabelArray_2[i]=LabelArray_1[i];
+		arinc.LabelsArrayRX1[i]=LabelArray_2[i];
+		arinc.LabelsArrayRX2[i]=LabelArray_2[i];
+		arinc.LabelsArrayTX[i]=LabelArray_2[i];
 	}
 	for (int i=0;i<3;i++)
 	{
-		LabelPriority2[i]=FlipByte(LabelPriority1[i]);
-		LabelPriority1[i]=LabelPriority2[i];
+		//LabelPriority2[i]=FlipByte(LabelPriority1[i]);
+		LabelPriority2[i]=LabelPriority1[i];
 	}
+	//memcpy(arinc.LabelsArrayRX1,LabelArray_1,LABEL_ARRAY_SIZE);	
+//	memcpy(arinc.LabelsArrayRX2,LabelArray_2,LABEL_ARRAY_SIZE);	
+	//memcpy(arinc.LabelsArrayTX,LabelArray_2,LABEL_ARRAY_SIZE);		
 	return	status;
  } 
  
@@ -137,7 +146,7 @@ unsigned char Holt_3593_Class::txrx8bits_8(unsigned char txbyte, unsigned char r
 // ------------------------------------------------------------------
 //  Initilize Receiver 2 labels with contents of array
 // ------------------------------------------------------------------                              */
-void Holt_3593_Class::initReceiver1Labels(void)
+void Holt_3593_Class::InitReceiver1Labels(void)
 {
    
   unsigned char dummy;
@@ -331,8 +340,9 @@ unsigned char Holt_3593_Class::txrx8bits (unsigned char txbyte, unsigned char re
 	open();
    
    transmitCount=4;                                // Standard messages are 4 bytes
-   if(cmd==W_PL1Match || cmd==W_PL2Match)          // if writing PL Match registers send only 3 bytes
+   if(cmd==W_PL1Match || cmd==W_PL2Match){       // if writing PL Match registers send only 3 bytes
       transmitCount--;
+   }
    
    dummy = txrx8bits(cmd, 1);      // Transmit the whole message, ignore return values 
 

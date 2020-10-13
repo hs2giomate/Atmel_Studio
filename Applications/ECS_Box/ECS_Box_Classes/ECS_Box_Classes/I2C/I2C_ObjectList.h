@@ -13,6 +13,7 @@
 #include "hal_i2c_m_async.h"
 struct I2CPointerAndDescriptor
 {
+	struct list_element elem;
 	uint32_t	dummy;
 	i2c_m_async_desc*	i2cDescr;
 	uint32_t		ptrI2CAsynClass;

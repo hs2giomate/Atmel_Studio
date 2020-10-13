@@ -20,10 +20,11 @@ public:
 protected:
 private:
 	uint8_t i,j,k;
-	uint32_t result;
+	uint32_t result,value;
 	//ARINC429Struct	datagram;
 //functions
 public:
+	//friend class Protocol_Class;
 	ARINC_Conversions();
 	~ARINC_Conversions();
 	uint8_t		Octal2Hex(uint32_t);
@@ -36,6 +37,10 @@ public:
 	void		PrepareSingleTXBuffer(uint8_t* buff, uint8_t* src);
 	uint8_t		GetIndexTXLabelarray(uint8_t l,uint8_t* arr);
 	uint32_t	FourBytesArray2Uint32(uint8_t* arr);
+	void		Uint32FourBytesArray(uint32_t data,uint8_t *dest);
+	bool		FindParity(uint32_t x);
+	uint32_t	FloatTwoComplement(float f, uint8_t size);
+
 	//virtual	uint32_t	ReadBufferLabel(uint8_t)=0;
 protected:
 private:

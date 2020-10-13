@@ -208,6 +208,7 @@ USBSerial/SerialTerminal_Class.d USBSerial/SerialTerminal_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -682,6 +683,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 

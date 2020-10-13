@@ -678,7 +678,7 @@ drivers:
       eic_arch_asynch4: true
       eic_arch_asynch5: true
       eic_arch_asynch6: false
-      eic_arch_asynch7: false
+      eic_arch_asynch7: true
       eic_arch_asynch8: true
       eic_arch_asynch9: true
       eic_arch_cksel: Clocked by GCLK
@@ -711,7 +711,7 @@ drivers:
       eic_arch_enable_irq_setting4: true
       eic_arch_enable_irq_setting5: true
       eic_arch_enable_irq_setting6: false
-      eic_arch_enable_irq_setting7: false
+      eic_arch_enable_irq_setting7: true
       eic_arch_enable_irq_setting8: true
       eic_arch_enable_irq_setting9: true
       eic_arch_extinteo0: false
@@ -743,7 +743,7 @@ drivers:
       eic_arch_filten4: true
       eic_arch_filten5: true
       eic_arch_filten6: false
-      eic_arch_filten7: false
+      eic_arch_filten7: true
       eic_arch_filten8: false
       eic_arch_filten9: false
       eic_arch_nmi_ctrl: false
@@ -765,7 +765,7 @@ drivers:
       eic_arch_sense4: Rising-edge detection
       eic_arch_sense5: Rising-edge detection
       eic_arch_sense6: No detection
-      eic_arch_sense7: No detection
+      eic_arch_sense7: Rising-edge detection
       eic_arch_sense8: Rising-edge detection
       eic_arch_sense9: Rising-edge detection
       eic_arch_states0: '3'
@@ -807,6 +807,20 @@ drivers:
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.7
       name: EIC/EXTINT/7
       label: EXTINT/7
+    - identifier: EXTERNAL_IRQ_0:EXTINT/8
+      pad: PB08
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.8
+      name: EIC/EXTINT/8
+      label: EXTINT/8
+    - identifier: EXTERNAL_IRQ_0:EXTINT/9
+      pad: PB09
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.9
+      name: EIC/EXTINT/9
+      label: EXTINT/9
     variant: null
     clocks:
       domain_group:
@@ -831,7 +845,7 @@ drivers:
       evsys_channel_17: No channel output selected
       evsys_channel_18: No channel output selected
       evsys_channel_19: No channel output selected
-      evsys_channel_2: No channel output selected
+      evsys_channel_2: Channel 1
       evsys_channel_20: No channel output selected
       evsys_channel_21: No channel output selected
       evsys_channel_22: No channel output selected
@@ -887,7 +901,7 @@ drivers:
       evsys_channel_8: No channel output selected
       evsys_channel_9: No channel output selected
       evsys_channel_setting_0: true
-      evsys_channel_setting_1: false
+      evsys_channel_setting_1: true
       evsys_channel_setting_10: false
       evsys_channel_setting_11: false
       evsys_channel_setting_12: false
@@ -920,8 +934,8 @@ drivers:
       evsys_channel_setting_9: false
       evsys_edgsel_0: Event is detected on the rising edge of the signal from event
         generator
-      evsys_edgsel_1: No event output when using the resynchronized or synchronous
-        path
+      evsys_edgsel_1: Event is detected on the rising edge of the signal from event
+        generator
       evsys_edgsel_10: No event output when using the resynchronized or synchronous
         path
       evsys_edgsel_11: No event output when using the resynchronized or synchronous
@@ -1014,8 +1028,8 @@ drivers:
       evsys_evd_7: false
       evsys_evd_8: false
       evsys_evd_9: false
-      evsys_evgen_0: TC7 overflow
-      evsys_evgen_1: No event generator
+      evsys_evgen_0: TC7 match/capture 0
+      evsys_evgen_1: TC7 match/capture 1
       evsys_evgen_10: No event generator
       evsys_evgen_11: No event generator
       evsys_evgen_12: No event generator
@@ -1111,7 +1125,7 @@ drivers:
       evsys_ovr_8: false
       evsys_ovr_9: false
       evsys_path_0: Asynchronous path
-      evsys_path_1: Synchronous path
+      evsys_path_1: Asynchronous path
       evsys_path_10: Synchronous path
       evsys_path_11: Synchronous path
       evsys_path_12: Synchronous path
@@ -1544,7 +1558,7 @@ drivers:
     api: HAL:HPL:PORT
     configuration:
       enable_port_input_event_0: true
-      enable_port_input_event_1: false
+      enable_port_input_event_1: true
       enable_port_input_event_2: false
       enable_port_input_event_3: false
       porta_event_action_0: Output register of pin will be set to level of event
@@ -1572,15 +1586,15 @@ drivers:
       portb_input_event_enable_2: false
       portb_input_event_enable_3: false
       portc_event_action_0: Toggle output register of pin on event
-      portc_event_action_1: Output register of pin will be set to level of event
+      portc_event_action_1: Toggle output register of pin on event
       portc_event_action_2: Output register of pin will be set to level of event
       portc_event_action_3: Output register of pin will be set to level of event
       portc_event_pin_identifier_0: 15
-      portc_event_pin_identifier_1: 0
+      portc_event_pin_identifier_1: 15
       portc_event_pin_identifier_2: 0
       portc_event_pin_identifier_3: 0
       portc_input_event_enable_0: true
-      portc_input_event_enable_1: false
+      portc_input_event_enable_1: true
       portc_input_event_enable_2: false
       portc_input_event_enable_3: false
       portd_event_action_0: Output register of pin will be set to level of event
@@ -1841,7 +1855,7 @@ drivers:
       domain_group:
         nodes:
         - name: Core
-          input: Generic clock generator 2
+          input: Generic clock generator 8
           external: false
           external_frequency: 0
         - name: Slow
@@ -1849,7 +1863,7 @@ drivers:
           external: false
           external_frequency: 0
         configuration:
-          core_gclk_selection: Generic clock generator 2
+          core_gclk_selection: Generic clock generator 8
           slow_gclk_selection: Generic clock generator 10
   I2C_EXPANDER:
     user_label: I2C_EXPANDER
@@ -2006,37 +2020,40 @@ drivers:
           external_frequency: 0
         configuration:
           tc_gclk_selection: Generic clock generator 3
-  TIMER_EVENT:
-    user_label: TIMER_EVENT
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TC1::driver_config_definition::Timer::HAL:Driver:Timer
-    functionality: Timer
-    api: HAL:Driver:Timer
+  LIVE_PULSE:
+    user_label: LIVE_PULSE
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TC1::driver_config_definition::PWM::HAL:Driver:PWM
+    functionality: PWM
+    api: HAL:Driver:PWM
     configuration:
+      tc_arch_alock: The Lock Update bit is not affected on overflow/underflow and
+        re-trigger event
       tc_arch_dbgrun: false
       tc_arch_evact: Event action disabled
-      tc_arch_mceo0: false
-      tc_arch_mceo1: false
+      tc_arch_mceo0: true
+      tc_arch_mceo1: true
       tc_arch_ondemand: false
       tc_arch_ovfeo: false
       tc_arch_presync: Reload or reset counter on next GCLK
-      tc_arch_runstdby: false
+      tc_arch_runstdby: true
       tc_arch_tcei: false
       tc_arch_tcinv: false
-      timer_advanced_configuration: false
+      tc_arch_wave_duty_val: 500
+      tc_arch_wave_per_val: 1000000
+      tc_mode: Counter in 32-bit mode
+      tc_prescaler: No division
       timer_event_control: false
-      timer_prescaler: Divide by 8
-      timer_tick: 1000
     optional_signals: []
     variant: null
     clocks:
       domain_group:
         nodes:
         - name: TC
-          input: Generic clock generator 5
+          input: Generic clock generator 4
           external: false
           external_frequency: 0
         configuration:
-          tc_gclk_selection: Generic clock generator 5
+          tc_gclk_selection: Generic clock generator 4
   TIMER_ARINC:
     user_label: TIMER_ARINC
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TC2::driver_config_definition::Timer::HAL:Driver:Timer
@@ -2068,37 +2085,6 @@ drivers:
           external_frequency: 0
         configuration:
           tc_gclk_selection: Generic clock generator 4
-  TIMER_HVAC:
-    user_label: TIMER_HVAC
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TC3::driver_config_definition::Timer::HAL:Driver:Timer
-    functionality: Timer
-    api: HAL:Driver:Timer
-    configuration:
-      tc_arch_dbgrun: false
-      tc_arch_evact: Event action disabled
-      tc_arch_mceo0: false
-      tc_arch_mceo1: false
-      tc_arch_ondemand: false
-      tc_arch_ovfeo: false
-      tc_arch_presync: Reload or reset counter on next GCLK
-      tc_arch_runstdby: false
-      tc_arch_tcei: false
-      tc_arch_tcinv: false
-      timer_advanced_configuration: false
-      timer_event_control: false
-      timer_prescaler: Divide by 4
-      timer_tick: 1000
-    optional_signals: []
-    variant: null
-    clocks:
-      domain_group:
-        nodes:
-        - name: TC
-          input: Generic clock generator 5
-          external: false
-          external_frequency: 0
-        configuration:
-          tc_gclk_selection: Generic clock generator 5
   TIMER_MAINTENANCE:
     user_label: TIMER_MAINTENANCE
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TC4::driver_config_definition::Timer::HAL:Driver:Timer
@@ -2161,40 +2147,127 @@ drivers:
           external_frequency: 0
         configuration:
           tc_gclk_selection: Generic clock generator 6
-  LIVE_PULSE:
-    user_label: LIVE_PULSE
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TC7::driver_config_definition::PWM::HAL:Driver:PWM
-    functionality: PWM
-    api: HAL:Driver:PWM
+  TIMER_EVENT:
+    user_label: TIMER_EVENT
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TC6::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
     configuration:
-      tc_arch_alock: The Lock Update bit is not affected on overflow/underflow and
-        re-trigger event
       tc_arch_dbgrun: false
       tc_arch_evact: Event action disabled
       tc_arch_mceo0: false
       tc_arch_mceo1: false
       tc_arch_ondemand: false
-      tc_arch_ovfeo: true
+      tc_arch_ovfeo: false
       tc_arch_presync: Reload or reset counter on next GCLK
       tc_arch_runstdby: false
       tc_arch_tcei: false
       tc_arch_tcinv: false
-      tc_arch_wave_duty_val: 100
-      tc_arch_wave_per_val: 1000000
-      tc_mode: Counter in 32-bit mode
-      tc_prescaler: No division
-      timer_event_control: true
+      timer_advanced_configuration: false
+      timer_event_control: false
+      timer_prescaler: Divide by 8
+      timer_tick: 1000
     optional_signals: []
     variant: null
     clocks:
       domain_group:
         nodes:
         - name: TC
-          input: Generic clock generator 11
+          input: Generic clock generator 6
           external: false
           external_frequency: 0
         configuration:
-          tc_gclk_selection: Generic clock generator 11
+          tc_gclk_selection: Generic clock generator 6
+  TIMER_HVAC:
+    user_label: TIMER_HVAC
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TCC0::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      arch_tcc_cntsel: An interrupt/event is generated at the beginning of each counter
+        cycle
+      arch_tcc_evact0: Event action disabled
+      arch_tcc_evact1: Event action disabled
+      tcc_arch_cnteo: false
+      tcc_arch_dbgrun: false
+      tcc_arch_mcei0: false
+      tcc_arch_mcei1: false
+      tcc_arch_mcei2: false
+      tcc_arch_mcei3: false
+      tcc_arch_mcei4: false
+      tcc_arch_mcei5: false
+      tcc_arch_mceo0: false
+      tcc_arch_mceo1: false
+      tcc_arch_mceo2: false
+      tcc_arch_mceo3: false
+      tcc_arch_mceo4: false
+      tcc_arch_mceo5: false
+      tcc_arch_ovfeo: false
+      tcc_arch_presync: Reload or reset counter on next GCLK
+      tcc_arch_runstdby: false
+      tcc_arch_tcei0: false
+      tcc_arch_tcei1: false
+      tcc_arch_tceinv0: false
+      tcc_arch_tceinv1: false
+      tcc_arch_trgeo: false
+      timer_advanced_configuration: false
+      timer_event_control: false
+      timer_prescaler: Divide by 2
+      timer_tick: 1000
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TCC
+          input: Generic clock generator 4
+          external: false
+          external_frequency: 0
+        configuration:
+          tcc_gclk_selection: Generic clock generator 4
+  TIMER_TEMPERATURES:
+    user_label: TIMER_TEMPERATURES
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TCC1::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      arch_tcc_cntsel: An interrupt/event is generated at the beginning of each counter
+        cycle
+      arch_tcc_evact0: Event action disabled
+      arch_tcc_evact1: Event action disabled
+      tcc_arch_cnteo: false
+      tcc_arch_dbgrun: false
+      tcc_arch_mcei0: false
+      tcc_arch_mcei1: false
+      tcc_arch_mcei2: false
+      tcc_arch_mcei3: false
+      tcc_arch_mceo0: false
+      tcc_arch_mceo1: false
+      tcc_arch_mceo2: false
+      tcc_arch_mceo3: false
+      tcc_arch_ovfeo: false
+      tcc_arch_presync: Reload or reset counter on next GCLK
+      tcc_arch_runstdby: false
+      tcc_arch_tcei0: false
+      tcc_arch_tcei1: false
+      tcc_arch_tceinv0: false
+      tcc_arch_tceinv1: false
+      tcc_arch_trgeo: false
+      timer_advanced_configuration: false
+      timer_event_control: false
+      timer_prescaler: Divide by 8
+      timer_tick: 1000
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TCC
+          input: Generic clock generator 4
+          external: false
+          external_frequency: 0
+        configuration:
+          tcc_gclk_selection: Generic clock generator 4
   CDCUSB:
     user_label: CDCUSB
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::USB::driver_config_definition::USB.Device::HAL:Driver:USB.Device
@@ -2329,6 +2402,18 @@ pads:
     user_label: INT_LTC2983
     configuration:
       pad_pull_config: Pull-down
+  PB08:
+    name: PB08
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB08
+    mode: Digital input
+    user_label: PB08
+    configuration: null
+  PB09:
+    name: PB09
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB09
+    mode: Digital input
+    user_label: PB09
+    configuration: null
   I2CFV1CHANGED:
     name: PA04
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA04
@@ -2546,11 +2631,18 @@ pads:
     mode: Digital input
     user_label: PB28
     configuration: null
-  CS_SPI_LTC:
+  CS_TEMP1:
     name: PB29
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB29
     mode: Digital output
-    user_label: CS_SPI_LTC
+    user_label: CS_TEMP1
+    configuration:
+      pad_initial_level: High
+  CS_TEMP2:
+    name: PA27
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA27
+    mode: Digital output
+    user_label: CS_TEMP2
     configuration:
       pad_initial_level: High
   SW0:

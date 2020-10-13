@@ -18,7 +18,7 @@ User Parameters
 //#include "applicationClass.h"
 
 
-const userParameters	defaultParameters =
+const UserParameters	defaultParameters =
 {
 	/************************************************************************/
 	/*                                                                      */

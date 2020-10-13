@@ -31,14 +31,30 @@ extern const tick_t	forever;
 
 enum EventClass
 	{
+	kHVACEventClass = 0x200,
+	kALUEventClass=0x400,
 	kErrorEventClass = 0x8000,
 	kCommunicationEventClass = 0x9000,
 	kAnyEventClass = 0xFFFF
 	};
+enum AluEventEnum
+{
+		kALUNotEvent=0,
+		kALUSwitchkEvent,
+		kALUEventCheckCommunication,
+		kALUEventRunHAVAC,
+		kALUEventSimpleStart,
+		kALUEventCheckPheripherals,
+		kALUEventSimpleStop,
+		kALUEventSimpleResume,
+		kALUNumberEvents
+};
 
 enum EventType
 	{
 	kTimeoutEvent = 0x0001,
+	kALUControllerEvent,
+	kHVACEventDoPendingTasks,
 	kSerialDataAvailableEvent,
 	kUARTDataAvailableEvent,
 	kUART0DataAvailableEvent,
@@ -129,11 +145,16 @@ class event
 		tick_t		timestamp;
 		eventData	data;
 		event*		next;
+
+	private:
+		
+		
 	};
 
 inline event::event()
 	:eventClass(kAnyEventClass), eventType(kAnyEventType), timestamp(0), data((uint32)0), next(NULL)
 	{
+		
 	}
 
 inline event::event(EventClass c, EventType t, const eventData& d)

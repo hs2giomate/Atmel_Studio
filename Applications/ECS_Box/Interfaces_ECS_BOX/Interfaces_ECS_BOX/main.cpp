@@ -24,12 +24,12 @@ uint8_t	StartLivePulse(void){
 }
 bool	WriteUserParametersFlash(void){
 
-	userParameters	p=defaultParameters;
-	flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(userParameters));
+	UserParameters	p=defaultParameters;
+	flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(UserParameters));
 	delay_ms(WRITE_DELAY);
 	flash.flushConfigurationData(&p);
 	delay_ms(WRITE_DELAY);
-	userParameters	q;
+	UserParameters	q;
 	q=flash.readConfigurationData(q);
 	if (p.flapperValveOffset==q.flapperValveOffset)
 	{
@@ -45,12 +45,12 @@ bool	WriteUserParametersFlash(void){
 
 bool	WriteUserParametersFram(void){
 
-	userParameters	p=defaultParameters;
+	UserParameters	p=defaultParameters;
 	//flash.eraseFlash((uint32_t)&flashMap->parameters,sizeof(userParameters));
 	
 	fram.flushConfigurationData(&p);
 	delay_ms(WRITE_DELAY);
-	userParameters	q;
+	UserParameters	q;
 	q=fram.readConfigurationData(q);
 	if (p.flapperValveOffset==q.flapperValveOffset)
 	{
@@ -63,14 +63,14 @@ bool	WriteUserParametersFram(void){
 }
 bool	WriteUserParametersEEPROM(void){
 
-	userParameters	p=defaultParameters;
+	UserParameters	p=defaultParameters;
 	//flash.eraseFlash((uint32_t)&flashMap->parameters,sizeof(userParameters));
 	uint32_t add32= (uint32_t)&eepromLayout->parameters;
 	uint8_t  add8=(uint8_t)(0xff&add32);
-	eeprom.WriteAddress((uint8_t*)&p,add8,sizeof(userParameters));
+	eeprom.WriteAddress((uint8_t*)&p,add8,sizeof(UserParameters));
 	delay_ms(WRITE_DELAY);
-	userParameters	q;
-	eeprom.ReadAddress((uint8_t*)&q,add8,sizeof(userParameters));
+	UserParameters	q;
+	eeprom.ReadAddress((uint8_t*)&q,add8,sizeof(UserParameters));
 	if (p.flapperValveOffset==q.flapperValveOffset)
 	{
 		return true;

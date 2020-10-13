@@ -93,9 +93,9 @@ uint8_t ARINC_Conversions::FlipByte(uint8_t byte){
 	return rev;
 }
 uint8_t ARINC_Conversions::GetIndexTXLabelarray(uint8_t l, uint8_t* arr){
-	for (i = 0; i < 32; i++)
+	for (uint8_t ii = 0; ii < 32; ii++)
 	{
-		if (arr[i]==l)
+		if (arr[ii]==l)
 		{
 			return i;
 		}
@@ -106,9 +106,9 @@ uint8_t ARINC_Conversions::GetIndexTXLabelarray(uint8_t l, uint8_t* arr){
 
 void ARINC_Conversions::PrepareSingleTXBuffer(uint8_t* buff, uint8_t* src){
 
-	for (i = 0; i < 4; i++)
+	for (uint8_t ii = 0; ii < 4; ii++)
 	{
-		buff[3-i]=src[i];
+		buff[3-ii]=src[ii];
 	
 		
 	}
@@ -118,10 +118,57 @@ void ARINC_Conversions::PrepareSingleTXBuffer(uint8_t* buff, uint8_t* src){
 uint32_t	ARINC_Conversions::FourBytesArray2Uint32(uint8_t* arr){
 
 		result=0;
-		for (i = 0; i < 4; i++)
+		for (uint8_t ii = 0; ii < 4; ii++)
 		{
-			result|=((uint32_t)arr[i])<<(3-i);
+			result|=((uint32_t)arr[ii])<<(24-ii*8);
 
 		}
 		return result;
 }
+void	ARINC_Conversions::Uint32FourBytesArray(uint32_t data,uint8_t *dest){
+
+	uint8_t d;
+	for (uint8_t ii = 0; ii < 4; ii++)
+	{
+		d=(uint8_t)((data>>(24-ii*8))&(0xff));
+		dest[ii]=d;
+
+	}
+
+}
+uint32_t	ARINC_Conversions::FloatTwoComplement(float f, uint8_t size){
+	
+	if (f>=0)
+	{
+		value=(uint32_t)f;
+	} 
+	else
+	{
+		value=(uint32_t)(-1*f);
+		value=(~value)&((1<<(size))-1);
+		value+=1;
+	}
+	return value;
+}
+
+
+// Function to find the parity
+bool ARINC_Conversions::FindParity(uint32_t x)
+{
+	uint32_t y = x ^ (x >> 1);
+	y = y ^ (y >> 2);
+	y = y ^ (y >> 4);
+	y = y ^ (y >> 8);
+	y = y ^ (y >> 16);
+
+	// Rightmost bit of y holds the parity value
+	// if (y&1) is 1 then parity is odd else even
+	if (y & 1){
+			return 1;
+	}
+
+	return 0;
+}
+
+
+

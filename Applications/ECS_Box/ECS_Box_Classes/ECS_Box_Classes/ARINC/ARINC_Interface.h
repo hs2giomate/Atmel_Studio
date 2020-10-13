@@ -16,6 +16,7 @@
 #include "atmel_start_pins.h"
 #include "Protocol_Class.h"
 #include "ARINC_Conversions.h"
+#include "ARINC_Buffer_Class.h"
 
 #define g_RXBuffSize 4
 #define OFFF OFF
@@ -25,9 +26,8 @@
 #define K_1SEC  1000
 #define TOGGLE 1
 #define DEADLOOP 1
-#define MESSAGECOUNTMAX 64
-#define TX_LABELS_NUMBER 32
-#define RX_LABELS_NUMBER 32
+#define MESSAGECOUNTMAX 32
+
 #define SELFTEST_ON 1
 #define SELFTEST_OFF 0
 #define g_RXBuffSize 4  
@@ -78,34 +78,36 @@ union Buffer32 {
 
 
 
-class ARINC_Interface: public virtual ARINC_Conversions, public Protocol_Class
+class ARINC_Interface: public virtual ARINC_Conversions, public virtual Protocol_Class,public ARINC_Buffer_Class
 {
 //variables
 public:
-	bool	BITRATE0;
-	bool	BITRATE1;
-	bool	BITRATE2;
-	
-	bool	PARITY;
+
 	volatile	bool newMessageR1,newMessageR2, txTimeout;
 	unsigned char TXBuffer [16];                 // Transmit Buffer
 	//const char WelcomeMesg[] = "Holt HI-3593 Demonstration.";
+
+	
+	
+	
+//	Datagram			arincMessage;
+	FUNC_PTR			handler;
+
+protected:
+	 friend class ARINC_Buffer_Class;
+	 
+private:
+	uint8_t DebugArray[16];                        // Global array for 3110 status registers
 	volatile unsigned int g_count100us;          // Global timer tick for delays.
 	volatile int g_tick100us;                    // Timer function
 	volatile char g_ledFlashBool;                // Global LED8 flash enable, YES or NO.
 	unsigned char MessageCount;
 	unsigned char MODES,OPTION;
-	uint8_t DebugArray[16];                        // Global array for 3110 status registers
-	uint8_t receiverBuffer[RX_LABELS_NUMBER][4];             // [# of buffers][16 bytes]
-	uint8_t	transmitBuffer[TX_LABELS_NUMBER][4];
+	bool	BITRATE0;
+	bool	BITRATE1;
+	bool	BITRATE2;
 	
-//	Datagram			arincMessage;
-	FUNC_PTR			handler;
-	uint8_t LabelsArrayTX[TX_LABELS_NUMBER];                // All Rec1 256 labels
-	uint8_t LabelsArrayRX1[RX_LABELS_NUMBER];                // All Rec2 256 labels
-	uint8_t  LabelsArrayRX2[RX_LABELS_NUMBER];                // All Rec2 256 labels
-protected:
-private:
+	bool	PARITY;
 	uint8_t	receiverArray[4];
 	unsigned char RXBuffer[g_RXBuffSize];       // Temp buffer to hold messages data
 	unsigned char RXBufferPL[g_RXBuffSize];     // Temp buffer to hold PL messages data
@@ -120,7 +122,7 @@ private:
 	uint8_t	statusHolt;
 	bool	isOK;
 	Buffer32 BigCounter;
-	uint8_t ARINCLabel;
+	uint8_t octalLabel;
 	uint8_t Arate;
 	uint8_t Rec1Parity;
 	uint8_t Rec2Parity;
@@ -133,27 +135,20 @@ private:
 public:
 	ARINC_Interface();
 	~ARINC_Interface();
-	
-	bool	Init(void);
 	void	SayHello(void);
+	bool	Init(void);
+
 	void	TransmitReceiveWithLabels_Mode(const uint8_t);
-	void	FetchAllMessagesReceiver1(void);
-	void	FetchAllMessagesReceiver2(void);
+
 	void	getRegStatus(void);
 	void	PrintLabelsOnConsole(unsigned char *labelarray);
 	void	FetchAllMessagesAndDisplay(unsigned char *,unsigned char *);
-	void	CheckMessageCountMax(void);
-	void	printARINCTXData(unsigned char *array);
-	bool	ConsoleCommands(char ch);
-	void	ConsoleCommandsHelp(void);
-	void	PrintHexByte(uint8_t);
-	void    HW_RESET(void);
-	void	PrintOctals(uint8_t );
-	void	CustomMessage(const uint8_t);
-	void	space(void);
-	void	xputc(char);
+
+	
+
+
 	uint32_t ReadFIFO1(void);
-	uint32_t	ReadArincBuffer(void);
+	uint32_t	ReadRXBuffer(uint8_t n=1);
 	virtual	uint32_t	ReadBufferLabel(uint8_t);
 	//virtual uint8_t		Label2Byte(uint32_t);
 	uint32_t	ReadBufferLabel(int);
@@ -167,6 +162,7 @@ public:
 protected:
 	
 private:
+	
 	ARINC_Interface( const ARINC_Interface &c );
 	ARINC_Interface& operator=( const ARINC_Interface &c );
 	void CommandStatus( void);
@@ -185,7 +181,21 @@ private:
 	void	crlf(void);
 	void	CE_Low_Holt(void);
 	void	CE_High_Holt(void);
+	void	FetchAllMessagesReceiver1(void);
+	void	FetchAllMessagesReceiver2(void);
+	void	CheckMessageCountMax(void);
+	void	printARINCTXData(unsigned char *array);
+	void    HW_RESET(void);
+	void	PrintOctals(uint8_t );
+	void	CustomMessage(const uint8_t);
+	void	space(void);
+	void	xputc(char);
+	bool	ConsoleCommands(char ch);
+	void	ConsoleCommandsHelp(void);
+	void	PrintHexByte(uint8_t);
 
 }; //ARINC_Interface
 extern	ARINC_Interface arinc;
+
+//static ARINC_Interface	arinc;
 #endif //__ARINC_INTERFACE_H__

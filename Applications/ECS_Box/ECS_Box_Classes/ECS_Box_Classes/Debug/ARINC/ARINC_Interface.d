@@ -206,6 +206,7 @@ ARINC/ARINC_Interface.d ARINC/ARINC_Interface.o: \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -236,7 +237,8 @@ ARINC/ARINC_Interface.d ARINC/ARINC_Interface.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
- ../USBSerial/CDC_Class.h ../../../ALU_Driver/ALU_Driver/usb_start.h \
+ ../ARINC/ARINC_Buffer_Class.h ../USBSerial/CDC_Class.h \
+ ../../../ALU_Driver/ALU_Driver/usb_start.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
  ../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h \
  ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
@@ -272,7 +274,7 @@ ARINC/ARINC_Interface.d ARINC/ARINC_Interface.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
  ../avr/pgmspace.h ../USBSerial/Printable.h \
- ../USBSerial/SerialTerminal_Class.h
+ ../USBSerial/SerialTerminal_Class.h ../USBSerial/TimerSerial_Class.h
 
 ../ARINC/ARINC_Interface.h:
 
@@ -690,6 +692,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
 
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h:
@@ -753,6 +757,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+../ARINC/ARINC_Buffer_Class.h:
 
 ../USBSerial/CDC_Class.h:
 
@@ -831,3 +837,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../USBSerial/Printable.h:
 
 ../USBSerial/SerialTerminal_Class.h:
+
+../USBSerial/TimerSerial_Class.h:

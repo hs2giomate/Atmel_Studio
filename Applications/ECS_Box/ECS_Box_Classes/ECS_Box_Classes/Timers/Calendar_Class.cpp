@@ -338,4 +338,5 @@ uint32_t Calendar_Class::convert_timestamp_to_datetime( uint32_t ts,struct calen
 
 	return ERR_NONE;
 }
-Calendar_Class calendar(&DATETIME_CLOCK);
+
+ Calendar_Class calendar(&DATETIME_CLOCK);

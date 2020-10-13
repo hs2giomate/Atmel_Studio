@@ -195,6 +195,8 @@ EventHandling/EventHandler_Class.d EventHandling/EventHandler_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
@@ -206,6 +208,7 @@ EventHandling/EventHandler_Class.d EventHandling/EventHandler_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -610,6 +613,10 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
+../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
@@ -631,6 +638,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 

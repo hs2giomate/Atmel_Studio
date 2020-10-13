@@ -31,3 +31,26 @@ uint32_t Protocol_Class::GetDataField(uint32_t label){
 
 	return	data;
 }
+uint32_t Protocol_Class::MakeLabel374(uint32_t d,float v){
+	value=d<<10;
+	label=Label2Byte(374);
+	value|=(uint32_t)label;
+	if (v<0)
+	{
+		value|=0x1<<28;
+	}
+	value=MakeEvenParity(value);
+	return value;
+	
+}
+uint32_t Protocol_Class::MakeEvenParity(uint32_t data){
+	if (FindParity(data))
+	{
+		data|=0x01<<31;
+	} 
+	else
+	{
+		
+	}
+	return data;
+}

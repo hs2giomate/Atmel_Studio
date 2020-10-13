@@ -260,9 +260,9 @@ void MCP23017_Class::setupInterruptPin(uint8_t pin, uint8_t mode) {
 
 void MCP23017_Class::SetChangeInterruptAllPins(){
 	setupInterrupts(false,false,HIGH);
-	for (i = 0; i <MCP23017_NUMBER_PINS ; i++)
+	for (uint8_t ii = 0; ii <MCP23017_NUMBER_PINS ; ii++)
 	{
-		setupInterruptPin(i,CHANGE);
+		setupInterruptPin(ii,CHANGE);
 	}
 }
 

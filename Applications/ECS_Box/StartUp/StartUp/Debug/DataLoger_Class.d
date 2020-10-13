@@ -208,6 +208,7 @@ DataLoger_Class.d DataLoger_Class.o: .././DataLoger_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -248,9 +249,10 @@ DataLoger_Class.d DataLoger_Class.o: .././DataLoger_Class.cpp \
  ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
- .././MemoryStruct_Class.h .././ConfigState_Class.h \
+ .././FlashHandler_Class.h .././ConfigState_Class.h \
  .././GAINDefinitions.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h
 
 .././DataLoger_Class.h:
 
@@ -670,6 +672,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
 
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h:
@@ -750,10 +754,12 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
 
-.././MemoryStruct_Class.h:
+.././FlashHandler_Class.h:
 
 .././ConfigState_Class.h:
 
 .././GAINDefinitions.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:

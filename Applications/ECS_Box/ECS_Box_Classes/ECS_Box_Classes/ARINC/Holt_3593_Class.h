@@ -130,7 +130,7 @@ public:
 	void W_CommandValue (uint8_t cmd, uint8_t value);
 	void MultiByteRead(uint8_t,uint8_t count, unsigned char *passedArray);
 	void TransmitCommandAndData(uint8_t cmd, uint8_t *TXBuffer);
-	void initReceiver1Labels(void);
+	void InitReceiver1Labels(void);
 	void initReceiver2Labels(void);
 
 	uint8_t Get_Byte(void);

@@ -79,6 +79,14 @@ static void button_on_PC23_pressed(void)
 {
 }
 
+static void button_on_PB08_pressed(void)
+{
+}
+
+static void button_on_PB09_pressed(void)
+{
+}
+
 /**
  * Example of using EXTERNAL_IRQ_0
  */
@@ -90,6 +98,8 @@ void EXTERNAL_IRQ_0_example(void)
 	ext_irq_register(PIN_PA05, button_on_PA05_pressed);
 	ext_irq_register(PIN_PC22, button_on_PC22_pressed);
 	ext_irq_register(PIN_PC23, button_on_PC23_pressed);
+	ext_irq_register(PIN_PB08, button_on_PB08_pressed);
+	ext_irq_register(PIN_PB09, button_on_PB09_pressed);
 }
 
 /**
@@ -277,31 +287,13 @@ void TIMER_USB_example(void)
 	timer_start(&TIMER_USB);
 }
 
-static struct timer_task TIMER_EVENT_task1, TIMER_EVENT_task2;
-
 /**
- * Example of using TIMER_EVENT.
+ * Example of using LIVE_PULSE.
  */
-static void TIMER_EVENT_task1_cb(const struct timer_task *const timer_task)
+void LIVE_PULSE_example(void)
 {
-}
-
-static void TIMER_EVENT_task2_cb(const struct timer_task *const timer_task)
-{
-}
-
-void TIMER_EVENT_example(void)
-{
-	TIMER_EVENT_task1.interval = 100;
-	TIMER_EVENT_task1.cb       = TIMER_EVENT_task1_cb;
-	TIMER_EVENT_task1.mode     = TIMER_TASK_REPEAT;
-	TIMER_EVENT_task2.interval = 200;
-	TIMER_EVENT_task2.cb       = TIMER_EVENT_task2_cb;
-	TIMER_EVENT_task2.mode     = TIMER_TASK_REPEAT;
-
-	timer_add_task(&TIMER_EVENT, &TIMER_EVENT_task1);
-	timer_add_task(&TIMER_EVENT, &TIMER_EVENT_task2);
-	timer_start(&TIMER_EVENT);
+	pwm_set_parameters(&LIVE_PULSE, 10000, 5000);
+	pwm_enable(&LIVE_PULSE);
 }
 
 static struct timer_task TIMER_ARINC_task1, TIMER_ARINC_task2;
@@ -329,33 +321,6 @@ void TIMER_ARINC_example(void)
 	timer_add_task(&TIMER_ARINC, &TIMER_ARINC_task1);
 	timer_add_task(&TIMER_ARINC, &TIMER_ARINC_task2);
 	timer_start(&TIMER_ARINC);
-}
-
-static struct timer_task TIMER_HVAC_task1, TIMER_HVAC_task2;
-
-/**
- * Example of using TIMER_HVAC.
- */
-static void TIMER_HVAC_task1_cb(const struct timer_task *const timer_task)
-{
-}
-
-static void TIMER_HVAC_task2_cb(const struct timer_task *const timer_task)
-{
-}
-
-void TIMER_HVAC_example(void)
-{
-	TIMER_HVAC_task1.interval = 100;
-	TIMER_HVAC_task1.cb       = TIMER_HVAC_task1_cb;
-	TIMER_HVAC_task1.mode     = TIMER_TASK_REPEAT;
-	TIMER_HVAC_task2.interval = 200;
-	TIMER_HVAC_task2.cb       = TIMER_HVAC_task2_cb;
-	TIMER_HVAC_task2.mode     = TIMER_TASK_REPEAT;
-
-	timer_add_task(&TIMER_HVAC, &TIMER_HVAC_task1);
-	timer_add_task(&TIMER_HVAC, &TIMER_HVAC_task2);
-	timer_start(&TIMER_HVAC);
 }
 
 static struct timer_task TIMER_MAINTENANCE_task1, TIMER_MAINTENANCE_task2;
@@ -412,13 +377,85 @@ void TIMER_INTERFACE_example(void)
 	timer_start(&TIMER_INTERFACE);
 }
 
+static struct timer_task TIMER_EVENT_task1, TIMER_EVENT_task2;
+
 /**
- * Example of using LIVE_PULSE.
+ * Example of using TIMER_EVENT.
  */
-void LIVE_PULSE_example(void)
+static void TIMER_EVENT_task1_cb(const struct timer_task *const timer_task)
 {
-	pwm_set_parameters(&LIVE_PULSE, 10000, 5000);
-	pwm_enable(&LIVE_PULSE);
+}
+
+static void TIMER_EVENT_task2_cb(const struct timer_task *const timer_task)
+{
+}
+
+void TIMER_EVENT_example(void)
+{
+	TIMER_EVENT_task1.interval = 100;
+	TIMER_EVENT_task1.cb       = TIMER_EVENT_task1_cb;
+	TIMER_EVENT_task1.mode     = TIMER_TASK_REPEAT;
+	TIMER_EVENT_task2.interval = 200;
+	TIMER_EVENT_task2.cb       = TIMER_EVENT_task2_cb;
+	TIMER_EVENT_task2.mode     = TIMER_TASK_REPEAT;
+
+	timer_add_task(&TIMER_EVENT, &TIMER_EVENT_task1);
+	timer_add_task(&TIMER_EVENT, &TIMER_EVENT_task2);
+	timer_start(&TIMER_EVENT);
+}
+
+/**
+ * Example of using TIMER_HVAC.
+ */
+struct timer_task TIMER_HVAC_task1, TIMER_HVAC_task2;
+
+static void TIMER_HVAC_task1_cb(const struct timer_task *const timer_task)
+{
+}
+
+static void TIMER_HVAC_task2_cb(const struct timer_task *const timer_task)
+{
+}
+
+void TIMER_HVAC_example(void)
+{
+	TIMER_HVAC_task1.interval = 100;
+	TIMER_HVAC_task1.cb       = TIMER_HVAC_task1_cb;
+	TIMER_HVAC_task1.mode     = TIMER_TASK_REPEAT;
+	TIMER_HVAC_task2.interval = 200;
+	TIMER_HVAC_task2.cb       = TIMER_HVAC_task2_cb;
+	TIMER_HVAC_task2.mode     = TIMER_TASK_REPEAT;
+
+	timer_add_task(&TIMER_HVAC, &TIMER_HVAC_task1);
+	timer_add_task(&TIMER_HVAC, &TIMER_HVAC_task2);
+	timer_start(&TIMER_HVAC);
+}
+
+/**
+ * Example of using TIMER_TEMPERATURES.
+ */
+struct timer_task TIMER_TEMPERATURES_task1, TIMER_TEMPERATURES_task2;
+
+static void TIMER_TEMPERATURES_task1_cb(const struct timer_task *const timer_task)
+{
+}
+
+static void TIMER_TEMPERATURES_task2_cb(const struct timer_task *const timer_task)
+{
+}
+
+void TIMER_TEMPERATURES_example(void)
+{
+	TIMER_TEMPERATURES_task1.interval = 100;
+	TIMER_TEMPERATURES_task1.cb       = TIMER_TEMPERATURES_task1_cb;
+	TIMER_TEMPERATURES_task1.mode     = TIMER_TASK_REPEAT;
+	TIMER_TEMPERATURES_task2.interval = 200;
+	TIMER_TEMPERATURES_task2.cb       = TIMER_TEMPERATURES_task2_cb;
+	TIMER_TEMPERATURES_task2.mode     = TIMER_TASK_REPEAT;
+
+	timer_add_task(&TIMER_TEMPERATURES, &TIMER_TEMPERATURES_task1);
+	timer_add_task(&TIMER_TEMPERATURES, &TIMER_TEMPERATURES_task2);
+	timer_start(&TIMER_TEMPERATURES);
 }
 
 /**

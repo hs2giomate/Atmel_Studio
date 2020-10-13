@@ -94,6 +94,8 @@ hpl\rtc\hpl_rtc.c
 
 hpl\sercom\hpl_sercom.c
 
+hpl\tcc\hpl_tcc.c
+
 hpl\tc\hpl_tc.c
 
 hpl\usb\hpl_usb.c

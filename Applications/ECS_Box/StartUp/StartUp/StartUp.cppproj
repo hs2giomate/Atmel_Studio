@@ -206,6 +206,7 @@
       <Value>../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling</Value>
       <Value>../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander</Value>
       <Value>../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX</Value>
+      <Value>../../../ALU_Driver/ALU_Driver/hpl/tcc</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
   <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -318,6 +319,12 @@
     <Compile Include="FastStorage_Class.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="FlapperValveDataStruct.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FlapperValveDataStruct.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="FlapperValve_Class.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -345,10 +352,10 @@
     <Compile Include="MemoryManagment_Class.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MemoryStruct_Class.cpp">
+    <Compile Include="FlashHandler_Class.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MemoryStruct_Class.h">
+    <Compile Include="FlashHandler_Class.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="PBIT_Class.cpp">
@@ -367,6 +374,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="States_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TaskHandler_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TaskHandler_Class.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
