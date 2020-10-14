@@ -11,6 +11,13 @@
 
 #include <stdint.h>
 #include "ARINC_Conversions.h"
+enum LineStatus
+{
+	NA1=0,
+	LINE1,
+	LINE2,
+	NA2,
+};
 typedef struct  
 {
 struct{
@@ -38,6 +45,7 @@ public:
 	uint32_t GetDataField(uint32_t label);
 	uint32_t MakeLabel374(uint32_t d,float v);
 	uint32_t MakeEvenParity(uint32_t data);
+	uint32_t MakeLabel270(uint32_t d);
 protected:
 	//virtual uint8_t		Label2Byte(uint32_t)=0;
 //	friend	class	ARINC_Conversions;

@@ -10,15 +10,17 @@
 #include "CDC_Class.h"
 #include "States_Class.h"
 #include "ARINC_Interface.h"
-#include "LTC2983_Class.h"
+#include "TemperatureSensors_Class.h"
 #include "MCP23017_Class.h"
 #include "ALU_Class.h"
 #include "Error_Labelling_Class.h"
 #include "Maintenance_Tool.h"
 
+
 // default constructor
 Interfaces_Class::Interfaces_Class()
 {
+	
 } //Interfaces_Class
 
 // default destructor
@@ -26,7 +28,10 @@ Interfaces_Class::~Interfaces_Class()
 {
 } //~Interfaces_Class
 
+CommunicationRequest	Interfaces_Class::request;
+
 bool	Interfaces_Class::Init(){
+	size=sizeof(CommunicationRequest);
 	result=arinc.Init();
 	if (result==0x01)
 	{
@@ -47,6 +52,7 @@ bool	Interfaces_Class::Init(){
 
 CommunicationRequest Interfaces_Class::CheckCommunication(void)
 {
+	event e;
 	CommunicationRequest	r;
 	CheckInternalCommunication();
 	CheckExternalCommunication();
@@ -55,20 +61,47 @@ CommunicationRequest Interfaces_Class::CheckCommunication(void)
 	return	r;
 }
 
+bool	Interfaces_Class::IsCommunicationRequest(void){
+	bool arr[sizeof(CommunicationRequest)];
+	CommunicationRequest r=CheckCommunication();
+	uint8_t result=0;
+	memcpy((void*)arr,(void*)&r,size);
+	for (uint8_t ii = 0; ii < size; ii++)
+	{
+		result|=arr[ii];
+	}
+	return	result>0;
+}
+
 uint32_t Interfaces_Class::CheckInternalCommunication(void)
 {
 	uint32_t	r=0;
 	request.internRequest.I2CExpanderGotMessage=CheckI2CExpander(1);
-	request.internRequest.LTC2983GotMessage=CheckLTC2983();
+	request.internRequest.LTC2983GotMessage=CheckTemperatures();
 	return	0;
 }
 uint32_t Interfaces_Class::CheckExternalCommunication(void)
 {
 	uint32_t	r=0;
 
-	request.externRequest.arinc1GotMessage=arinc.newMessageR1;
-	request.externRequest.arinc1GotMessage=arinc.newMessageR2;
-	request.externRequest.USBGotMessage=CheckUSBInterface();
+
+	if (arinc.newMessageR1)
+	{
+		request.externRequest.arinc1GotMessage=true;
+		alu.PrepareNewTask(kALUTaskReadARINCR1);
+	}
+	if (arinc.newMessageR2)
+	{
+		request.externRequest.arinc2GotMessage=true;
+		alu.PrepareNewTask(kALUTaskReadARINCR2);
+	}
+	if (CheckUSBInterface())
+	{
+		request.externRequest.usbGotMessage=true;
+		//alu.PrepareNewTask(kALUTaskReadARINCR2);
+	}
+	//request.externRequest.arinc1GotMessage=arinc.newMessageR2;
+	
 	return	0;
 }
 bool	Interfaces_Class::CheckI2CExpander(uint8_t add){
@@ -94,34 +127,39 @@ bool	Interfaces_Class::CheckUSBInterface(void){
 		}else{
 						
 		}
-		return	usb.connected;
+		return	usb.rxReady;
 }
 
-bool	Interfaces_Class::CheckLTC2983(void){
-	if (temperatures.conversionFinished)
+bool	Interfaces_Class::CheckTemperatures(void){
+	bool result(false);
+	if (temperatures.IsConversionFinished())
 	{
-		for (i = 0; i <NUMBER_TEMPERATURE_CHANNELS ; i++)
+		
+		temperatures.GetConversionResult();
+		if (temperatures.faultData==VALID_TEMPERATURE)
 		{
-			temperatures.SaveChannelValue(temperatures.activeChannels[i]);
+				alu.PrepareNewTask(kALUTaskUpdateTemperatures);
+				result=true;
 		}
-		temperatures.conversionFinished=0;
+			temperatures.StartOneConversion();
+	
 	} 
 	else
 	{
 	}
-	return	temperatures.conversionFinished;
+	return	result;
 }
 bool	Interfaces_Class::CheckArincInterface(void){
 	if (arinc.newMessageR1||arinc.newMessageR2)
 	{
 		if (arinc.newMessageR1)
 		{
-			arinc.FetchAllMessagesReceiver1();
+			arinc.ReadRXBuffer(1);
 	
 		} 
 		else
 		{
-			arinc.FetchAllMessagesReceiver2();
+			arinc.ReadRXBuffer(2);
 	
 		}
 		
@@ -142,5 +180,5 @@ uint32_t	Interfaces_Class::GetStatus(HVACStatus& s){
 	}
 	return	status.rawStatus;
 }
-
 Interfaces_Class	interfaces;
+//static Interfaces_Class	interfaces;

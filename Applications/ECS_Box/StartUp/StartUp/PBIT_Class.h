@@ -38,5 +38,5 @@ private:
 
 }; //PBIT_Class
 
-extern	PBIT_Class	pBIT;
+static	PBIT_Class	pBit;
 #endif //__PBIT_CLASS_H__

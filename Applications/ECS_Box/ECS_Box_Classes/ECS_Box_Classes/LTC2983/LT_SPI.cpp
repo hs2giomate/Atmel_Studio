@@ -82,16 +82,18 @@ void LT_SPI::spi_transfer_block(uint32_t cs_pin, uint8_t *tx, uint8_t *rx, uint8
 			//while(!spiTemp.xferDone);
 			if (length>4)
 			{
-				spiTemp->read(rx,length); 
-// 				for (uint8_t i=0;i<length;i++)
-// 				{
-// 					//spiTemp.write(tx,1); tx++;
-// 					//while(!spiTemp.xferDone);
-// 					spiTemp->read(rx,1); 
-// 						rx++;	
-// 				}
-// 			
-// 				rx-=length;
+				//spiTemp->read(rx,length); 
+				for (uint8_t i=0;i<length;i++)
+				{
+					//spiTemp.write(tx,1); tx++;
+					//while(!spiTemp.xferDone);
+					spiTemp->read(rx,1); 
+					delay_us(1);
+					while (!spiTemp->xferDone);
+						rx++;	
+				}
+			
+				rx-=length;
 			}
 			else
 			{

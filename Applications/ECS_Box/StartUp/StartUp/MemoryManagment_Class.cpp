@@ -10,13 +10,15 @@
 #include "AT24MAC_Class.h"
 #include "CDC_Class.h"
 
+static	uint8_t	flashBufferStatic[QSPI_ERBLK/1];
+
 // default constructor
 MemoryManagment_Class::MemoryManagment_Class()
 {
 	_currentAddress=0;
 	head=512;
 	tail=0;
-
+	flashBuffer=&flashBufferStatic[0];
 	
 } //MemoryManagment_Class
 

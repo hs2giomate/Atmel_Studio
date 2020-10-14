@@ -169,6 +169,16 @@ uint32_t ConfigState_Class::SetInitialState(){
 		return r;
 	};
 	
+uint32_t	ConfigState_Class::ConvertStatusArincLabel(void){
+	uint32_t s=0;
+	AcknoledgeStatus as=hvac.hvacState->arincStatus;
+	s=((uint32_t)as.statusArinc)|(((uint32_t)as.AC_CMD)<<2)|
+	(((uint32_t)as.PLT_AUTO_FAN)<<3)|(((uint32_t)as.CPG_AUTO_FAN)<<4)
+	//|(((uint32_t)0x1d)<<9)
+	|(((uint32_t)as.statusFV)<<5)|(((uint32_t)as.DEFOG)<<7);
+	return s;
+}	
+	
 uint32_t	ConfigState_Class::GetInitialStatus(HVACStatus& st){
 	HVACStatus	is,hs;
 	uint32_t	s;

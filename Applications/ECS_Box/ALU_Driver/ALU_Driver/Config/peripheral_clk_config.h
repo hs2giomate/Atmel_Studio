@@ -989,7 +989,7 @@
 
 // <i> Select the clock source for CORE.
 #ifndef CONF_GCLK_SERCOM7_CORE_SRC
-#define CONF_GCLK_SERCOM7_CORE_SRC GCLK_PCHCTRL_GEN_GCLK2_Val
+#define CONF_GCLK_SERCOM7_CORE_SRC GCLK_PCHCTRL_GEN_GCLK8_Val
 #endif
 
 // <y> Slow Clock Source
@@ -1029,7 +1029,7 @@
  * \brief SERCOM7's Core Clock frequency
  */
 #ifndef CONF_GCLK_SERCOM7_CORE_FREQUENCY
-#define CONF_GCLK_SERCOM7_CORE_FREQUENCY 48000000
+#define CONF_GCLK_SERCOM7_CORE_FREQUENCY 4000000
 #endif
 
 /**

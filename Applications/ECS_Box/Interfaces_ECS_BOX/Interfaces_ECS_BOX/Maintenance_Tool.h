@@ -153,7 +153,7 @@ private:
 		DeviceInformation	deviceID;
 		bool result,gotAccess,gotCommand,gotTask;
 		uint16	checksum, checksumProvided;
-		userParameters	parameters;
+		UserParameters	parameters;
 		uint8	controllerState;
 		
 		uint8_t		cpuSerial[16];

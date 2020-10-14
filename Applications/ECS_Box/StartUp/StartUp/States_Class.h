@@ -80,14 +80,15 @@ protected:
 private:
 	States_Class( const States_Class &c );
 	States_Class& operator=( const States_Class &c );
+	void	ExecutePeriodicTask(void);
 	bool	readCycleDescription(CycleDescription&, uint8 id);
 
 	void	handleHVACEvent(event& theEvent);
 
 	void	handleStateReset(uint32 flags);
-	void	handleStateInitialize(uint32 flags);
-	void	handleStateResume(uint32 flags);
-	void	handleStateStandbyOFF(uint32 flags);
+	void	StateInitialize(uint32 flags);
+	void	StateResume(uint32 flags);
+	void	StateStandbyOFF(uint32 flags);
 	void	handleStatePrepareStandbyON(uint32 flags);
 	void	handleStateStandbyON(uint32 flags);
 	void	handleStateStandbyReady(uint32 flags);

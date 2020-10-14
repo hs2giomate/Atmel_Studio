@@ -27,7 +27,7 @@ typedef struct EEPROMMemoryStruct
 {
 	
 	uint8_t		status;
-	userParameters			parameters;
+	UserParameters			parameters;
 	//EEpromProperties	properties;
 	uint32_t	crcAppState;
 	HVACState	appState;
@@ -78,6 +78,9 @@ public:
 	uint32_t	ReadFastCRCApplicationState(void);
 	uint32_t	ReadFastApplicationState(HVACState& hs);
 	uint32_t	WriteFastCurrentState(HVACState& hs);
+	uint32_t	ReadFastParameters(UserParameters& up);
+	uint32_t	WriteFastParameters(UserParameters& up);
+	uint32_t	WriteFastDefaultParameters(void);
 protected:
 private:
 	FastStorage_Class( const FastStorage_Class &c );

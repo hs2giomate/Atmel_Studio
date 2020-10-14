@@ -1,10 +1,5 @@
 FlapperValve_Class.d FlapperValve_Class.o: .././FlapperValve_Class.cpp \
- .././FlapperValve_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23017_Class.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h \
- ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
+ .././FlapperValve_Class.h .././FlapperValveDataStruct.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
@@ -165,6 +160,12 @@ FlapperValve_Class.d FlapperValve_Class.o: .././FlapperValve_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hri/hri_usb_e54.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23008_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
  ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h \
  ../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h \
@@ -207,6 +208,7 @@ FlapperValve_Class.d FlapperValve_Class.o: .././FlapperValve_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -216,7 +218,6 @@ FlapperValve_Class.d FlapperValve_Class.o: .././FlapperValve_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h \
@@ -244,19 +245,49 @@ FlapperValve_Class.d FlapperValve_Class.o: .././FlapperValve_Class.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23017_Class.h \
+ .././MemoryManagment_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling/diagnostics.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../ALU_Driver/ALU_Driver/usb_start.h \
+ ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
+ ../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
+ ../../../ALU_Driver/ALU_Driver/Config/usbd_config.h \
+ ../../../ALU_Driver/ALU_Driver/usb/class/cdc/usb_protocol_cdc.h \
+ ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
+ .././PersistenceServices.h ../ApplicationLayer/ConfigurationData.h \
+ ../ApplicationLayer/ConfigurationCommons.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
+ .././ErrorAnalyer_Class.h .././GainDefinitions.h \
+ .././ConfigState_Class.h .././GAINDefinitions.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ .././CRC32_Class.h .././States_Class.h \
+ ../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
+ .././Interfaces_Class.h .././DataLoger_Class.h .././FlashHandler_Class.h \
+ .././FastStorage_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h
 
 .././FlapperValve_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23017_Class.h:
-
-../../../ALU_Driver/ALU_Driver/driver_init.h:
-
-../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
+.././FlapperValveDataStruct.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h:
 
@@ -578,6 +609,18 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h:
 
+../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23008_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
+
+../../../ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
+
 ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h:
@@ -662,6 +705,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
 
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h:
@@ -679,8 +724,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h:
 
@@ -737,3 +780,91 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23017_Class.h:
+
+.././MemoryManagment_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling/diagnostics.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h:
+
+../../../ALU_Driver/ALU_Driver/atmel_start.h:
+
+../../../ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../ALU_Driver/ALU_Driver/usb_start.h:
+
+../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h:
+
+../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h:
+
+../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
+
+../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h:
+
+../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
+
+../../../ALU_Driver/ALU_Driver/Config/usbd_config.h:
+
+../../../ALU_Driver/ALU_Driver/usb/class/cdc/usb_protocol_cdc.h:
+
+../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h:
+
+../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+
+../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h:
+
+../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h:
+
+../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+
+../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
+
+.././PersistenceServices.h:
+
+../ApplicationLayer/ConfigurationData.h:
+
+../ApplicationLayer/ConfigurationCommons.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
+
+.././ErrorAnalyer_Class.h:
+
+.././GainDefinitions.h:
+
+.././ConfigState_Class.h:
+
+.././GAINDefinitions.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+.././CRC32_Class.h:
+
+.././States_Class.h:
+
+../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h:
+
+.././Interfaces_Class.h:
+
+.././DataLoger_Class.h:
+
+.././FlashHandler_Class.h:
+
+.././FastStorage_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
