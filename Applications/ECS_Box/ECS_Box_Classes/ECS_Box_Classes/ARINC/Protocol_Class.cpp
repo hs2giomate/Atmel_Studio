@@ -43,6 +43,16 @@ uint32_t Protocol_Class::MakeLabel374(uint32_t d,float v){
 	return value;
 	
 }
+uint32_t Protocol_Class::MakeLabel270(uint32_t d){
+	
+	value=d<<10;
+	label=Label2Byte(270);
+	value|=(uint32_t)label;
+	value|=(uint32_t)((FlipByte(0x1d)))<<19;
+	value=MakeEvenParity(value);
+	return value;
+	
+}
 uint32_t Protocol_Class::MakeEvenParity(uint32_t data){
 	if (FindParity(data))
 	{

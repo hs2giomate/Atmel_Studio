@@ -39,7 +39,7 @@ enum EventClass
 	};
 enum AluEventEnum
 {
-		kALUNotEvent=0,
+		kALUNotEvent=0x100,
 		kALUSwitchkEvent,
 		kALUEventCheckCommunication,
 		kALUEventRunHAVAC,

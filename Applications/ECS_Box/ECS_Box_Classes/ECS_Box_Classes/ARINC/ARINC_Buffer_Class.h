@@ -13,26 +13,31 @@
 #define TX_LABELS_NUMBER 32
 #define RX_LABELS_NUMBER 32
 #define  COCKPITS_TEMPERATURE 374
+#define  ECS_COMMAND_ACKNOWLEDGE 270
 
 class ARINC_Buffer_Class: private virtual ARINC_Conversions,private virtual Protocol_Class
 {
 //variables
 public:
-	uint8_t LabelsArrayTX[TX_LABELS_NUMBER];                // All Rec1 32 labels
-	uint8_t LabelsArrayRX1[RX_LABELS_NUMBER];                // All Rec2 256 labels
-	uint8_t  LabelsArrayRX2[RX_LABELS_NUMBER];                // All Rec2 256 labels
-	uint8_t receiverBuffer[RX_LABELS_NUMBER][4];             // [# of buffers][16 bytes]
-	uint8_t	transmitBuffer[TX_LABELS_NUMBER][4];
+	uint8_t *LabelsArrayTX;                // All Rec1 32 labels
+	uint8_t *LabelsArrayRX1;                // All Rec2 256 labels
+	uint8_t  *LabelsArrayRX2;                // All Rec2 256 labels
+	uint8_t **receiverBuffer;             // [# of buffers][16 bytes]
+	uint8_t	**transmitBuffer;
 protected:
 private:
 	uint8_t index,octalLabel;
 	uint32_t data;
 	uint8_t	localArray[4];
+	uint8_t	*pointerArrayTX[TX_LABELS_NUMBER];
+	uint8_t	*pointerArrayRX[RX_LABELS_NUMBER];
 //functions
 public:
 	ARINC_Buffer_Class();
 	~ARINC_Buffer_Class();
 	void SaveTemperature(void);
+	void InitBuffer(void);
+	void SaveStatus(uint32_t);
 protected:
 private:
 	ARINC_Buffer_Class( const ARINC_Buffer_Class &c );

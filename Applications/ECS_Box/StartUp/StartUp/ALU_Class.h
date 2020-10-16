@@ -38,7 +38,6 @@ private:
 	uint8_t	activeLine;
 	uint32_t callingTask,currentTask,taskEntryTime;
 	ControllerTask	task;
-	list_descriptor* taskList;
 	bool allTasksDone;
 	
 //functions

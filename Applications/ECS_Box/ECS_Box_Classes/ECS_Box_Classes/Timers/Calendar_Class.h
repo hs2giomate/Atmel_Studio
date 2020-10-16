@@ -92,4 +92,6 @@ private:
 
 
 extern	Calendar_Class	calendar;
+
+
 #endif //__CALENDAR_CLASS_H__

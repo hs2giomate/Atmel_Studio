@@ -239,9 +239,10 @@ bool Maintenance_Tool::handleCommunication(void)
 	}
 	
 uint8_t	Maintenance_Tool::ClearLocalBuffer(void){
-	for (i = 0; i < MAINTENANCE_TOOL_BUFFER_SIZE; i++)
+	for (uint8_t ii = 0; ii < MAINTENANCE_TOOL_BUFFER_SIZE; ii++)
 	{
-		localBuffer[i]=0;
+		localBuffer[ii]=0;
+		i=ii;
 	}
 	return	i;
 }
@@ -330,9 +331,10 @@ bool	Maintenance_Tool::NotifyConnectionAcknowledge(void){
 	//deviceID.cpuSerialNumber=cpuSerial;
 	delay_us(100);
 	usb<<"CPU Serial: ";
-	for (i = 0; i < sizeof(cpuSerial); i++)
+	for (uint8_t ii = 0; ii < sizeof(cpuSerial); ii++)
 	{
-		usb.print(cpuSerial[i],HEX);
+		usb.print(cpuSerial[ii],HEX);
+		i=ii;
 	}
 
 	usb.println();
@@ -862,13 +864,13 @@ bool Maintenance_Tool::ReadParameters(GAINMessageHeader& header){
 // 			r=fram.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
 			uint32_t add32= (uint32_t)&eepromLayout->parameters;
 			uint8_t  add8=(uint8_t)(0xff&add32);
-			r=eeprom.ReadAddress((uint8_t*)&parameters,add8,sizeof(userParameters));
+			r=eeprom.ReadAddress((uint8_t*)&parameters,add8,sizeof(UserParameters));
 			//uint32_t add=(uint32_t)&flashLayout->parameters;
 			//	r=flash.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
 			 if (r>0)
 			 {
 				// delay_us(100);
-				memcpy((uint8_t*)&localBuffer[n+1],(void*)&parameters,sizeof(userParameters));
+				memcpy((uint8_t*)&localBuffer[n+1],(void*)&parameters,sizeof(UserParameters));
 			
 				 usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 				//w= usb.writeData((void*)&parameters,sizeof(userParameters));
@@ -898,13 +900,13 @@ bool Maintenance_Tool::WriteParameters(GAINMessageHeader& header)	{
 		int n=sizeof(GAINMessageHeader)+1;
 		//flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(userParameters));
 			
-		memcpy((uint8_t*)&parameters,&localBuffer[n+1],sizeof(userParameters));
+		memcpy((uint8_t*)&parameters,&localBuffer[n+1],sizeof(UserParameters));
 		//uint32_t add=(uint32_t)&framMemory->parameters;
 		//	uint32_t add=(uint32_t)&flashLayout->parameters;
 		//	delay_ms(WRITE_DELAY);
 		uint32_t add32= (uint32_t)&eepromLayout->parameters;
 		uint8_t  add8=(uint8_t)(0xff&add32);
-		r=eeprom.WriteAddress((uint8_t*)&parameters,add8,sizeof(userParameters));
+		r=eeprom.WriteAddress((uint8_t*)&parameters,add8,sizeof(UserParameters));
 		//r=flash.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
 		//	r=fram.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
 			result=(bool)(r==0);
@@ -1661,9 +1663,9 @@ uint32_t	Maintenance_Tool::SendPeriodicNotifications(void){
 void Maintenance_Tool::GetCPUSerialNumber(uint8_t* buffer)
 {
 	uint32_t add=0x41002018;
-	for (i = 0; i < 4; i++)
+	for (uint8_t ii = 0; ii < 4; ii++)
 	{
-		memcpy(buffer+4*i, (uint8_t*)(add+4*i), 4);
+		memcpy(buffer+4*ii, (uint8_t*)(add+4*ii), 4);
 	}
 
 }

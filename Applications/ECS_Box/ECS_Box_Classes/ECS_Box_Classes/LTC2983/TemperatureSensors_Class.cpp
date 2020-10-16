@@ -29,7 +29,7 @@ static LT_SPI	ltSPI;
 TemperatureSensors_Class::TemperatureSensors_Class()
 {
 } //TemperatureSensors_Class
-TemperatureSensors_Class::TemperatureSensors_Class(spi_m_async_descriptor *SPI_LTC)
+TemperatureSensors_Class::TemperatureSensors_Class(spi_m_sync_descriptor *SPI_LTC)
 {
 		spiLite=&ltSPI;
 		ptrTemperaturesClass=this;
@@ -49,7 +49,7 @@ bool	TemperatureSensors_Class::Init(void){
 	ext_irq_register(PIN_PB08, Converter1Ready);
 	ext_irq_register(PIN_PB09, Converter2Ready);
 	InitModules();
-	currentModule=0; currentChannel=0;
+	currentModule=0; currentChannelIndex=0;
 	isOK=(module[0].isOK)&(module[1].isOK);
 	return isOK;
 }
@@ -66,27 +66,27 @@ void	TemperatureSensors_Class::StartOneConversion(void){
 	converterTimeout=false;
 	converterReady[currentModule]=false;
 	temperatureTimer.Start_oneShot_task((FUNC_PTR)ConversionTimeout,TEMPERATURE_MEASSURE_TIMEOUT);
-	module[currentModule].ConvertAsyncChannelIndex(currentChannel);
+	module[currentModule].ConvertAsyncChannelIndex(currentChannelIndex);
 	
 }
 float TemperatureSensors_Class::GetConversionResult(void){
 	temperatureTimer.Remove_task(FUNC_PTR(ConversionTimeout));
-	lastValue=module[currentModule].GetSingleChannelResultIndex(currentChannel);
+	lastValue=module[currentModule].GetSingleChannelResultIndex(currentChannelIndex);
 	faultData=module[currentModule].fault_data;
 		if (faultData==VALID_TEMPERATURE)
 		{
-			values[currentModule][currentChannel]=lastValue;
+			values[currentModule][currentChannelIndex]=lastValue;
 		}
 		else
 		{
 			lastValue=-999;
 		}
 	
-	currentChannel++;
+	currentChannelIndex++;
 
-	if (currentChannel==NUMBER_TEMPERATURE_CHANNELS)
+	if (currentChannelIndex==NUMBER_TEMPERATURE_CHANNELS)
 	{
-		currentChannel=0;
+		currentChannelIndex=0;
 		currentModule++;
 		if (currentModule==NUMBER_LTC2983_MODULES)
 		{

@@ -163,7 +163,7 @@ uint32_t FlashMemoryClass::coreCalculateCRC32(const void *buffer, uint32_t size)
 
 void FlashMemoryClass::flashOpen(void)
 {
-	garbage=spi.enable();
+	garbage=spi.Enable();
 	
 	
 }
@@ -175,7 +175,7 @@ uint8_t FlashMemoryClass::readFlash(void* dest, uint32_t src, uint32_t size)
 	Send_Byte(((src & 0xFFFFFF) >> 16));
 	Send_Byte(((src & 0xFFFF) >> 8));
 	Send_Byte(src & 0xFF);
-	spi.read((uint8_t *)dest, (uint16_t)size);
+	spi.Read((uint8_t *)dest, (uint16_t)size);
 	CE_High_Flash();
 	return (uint8_t)src;
 }
@@ -207,7 +207,7 @@ void FlashMemoryClass::CE_High_Flash(void)
 uint8_t FlashMemoryClass::Send_Byte(uint8_t byte)
 {
 	//WaitBusy();
-	spi.write(&byte,1);
+	spi.Write(&byte,1);
 	return byte;
 }
 
@@ -215,7 +215,7 @@ uint8_t FlashMemoryClass::Get_Byte(void)
 {
 	uint8_t byte;
 	//WaitBusy();
-	spi.read(&byte,1);
+	spi.Read(&byte,1);
 	
 	return byte;
 }
@@ -375,7 +375,7 @@ uint8_t  FlashMemoryClass::WriteStatusRegister(uint8_t byte){
 
 void FlashMemoryClass::flashClose(void){
 	garbage=0;
-		spi.disable();
+		spi.Disable();
 	}
 void FlashMemoryClass::Sector_Erase(uint32_t Dst)
 {
@@ -414,7 +414,7 @@ uint32_t	FlashMemoryClass::WriteAddress(uint8_t *p,uint32_t addr, uint32_t size)
 	}
 
 
-	w=spi.write(&localBuffer[0],size+4);
+	w=spi.Write(&localBuffer[0],size+4);
 
 	CE_High_Flash();
 	WRDI();
@@ -432,8 +432,8 @@ uint32_t	FlashMemoryClass::ReadAddress(uint8_t *p,uint32_t addr, uint32_t size){
 	instruction[2]=(uint8_t)((addr & 0xFFFF) >> 8);
 	instruction[3]=(uint8_t)(addr&0xFF);
 		
-	uint32_t	r=spi.write(instruction,4);
-	r=spi.read(p,size);
+	uint32_t	r=spi.Write(instruction,4);
+	r=spi.Read(p,size);
 	CE_High_Flash();
 	flashClose();
 	

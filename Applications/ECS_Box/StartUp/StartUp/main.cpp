@@ -21,7 +21,7 @@ void	QSPIDriverTest(void){
 		tx_buffer[i] = (uint8_t)i;
 	}
 	
-	//qspiFlash.Erase();
+	//qspiFlash.Erase();	
 	/* Erase flash memory */
 	uint32_t	flashAddres=0;
 	while (1) {
@@ -65,7 +65,9 @@ void	QSPIDriverTest(void){
 int main(void)
 {
 	atmel_start_init();
-	
+//  	uint32_t p=pwm_enable(&LIVE_PULSE);
+//  	while (1);
+
 	usb.Init();
 	delay_ms(100);
 	usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
@@ -77,7 +79,7 @@ int main(void)
 	usb<<"*** ALU initiated ***"<<NEWLINE;
 	uint8_t	line= alu.GetSelectedAMMC();
 	usb<<"Active line: "<<line<<NEWLINE;
-	if (!pBIT)
+	if (!pBit)
 	{
 		hvac.Stop(0);
 	} 

@@ -186,27 +186,15 @@ void I2C_SHARED_example(void)
 
 /**
  * Example of using SPI_TEMP to write "Hello World" using the IO abstraction.
- *
- * Since the driver is asynchronous we need to use statically allocated memory for string
- * because driver initiates transfer and then returns before the transmission is completed.
- *
- * Once transfer has been completed the tx_cb function will be called.
  */
-
 static uint8_t example_SPI_TEMP[12] = "Hello World!";
-
-static void complete_cb_SPI_TEMP(const struct spi_m_async_descriptor *const io_descr)
-{
-	/* Transfer completed */
-}
 
 void SPI_TEMP_example(void)
 {
 	struct io_descriptor *io;
-	spi_m_async_get_io_descriptor(&SPI_TEMP, &io);
+	spi_m_sync_get_io_descriptor(&SPI_TEMP, &io);
 
-	spi_m_async_register_callback(&SPI_TEMP, SPI_M_ASYNC_CB_XFER, (FUNC_PTR)complete_cb_SPI_TEMP);
-	spi_m_async_enable(&SPI_TEMP);
+	spi_m_sync_enable(&SPI_TEMP);
 	io_write(io, example_SPI_TEMP, 12);
 }
 

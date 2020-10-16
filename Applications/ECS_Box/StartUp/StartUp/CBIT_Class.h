@@ -8,21 +8,18 @@
 
 #ifndef __CBIT_CLASS_H__
 #define __CBIT_CLASS_H__
-typedef struct StatusBits
-{
-	bool	hvacOK;
-};
+#include "ConfigState_Class.h"
 
 class CBIT_Class
 {
 //variables
 public:
-	StatusBits	statusBits;
+	volatile	bool	isOK;
 	
 protected:
 private:
-	volatile	bool	isOK;
 	
+	StatusBits	statusBits;
 
 //functions
 public:
@@ -37,6 +34,6 @@ private:
 
 }; //CBIT_Class
 
-extern	CBIT_Class	cBit;
+static	CBIT_Class	cBit;
 
 #endif //__CBIT_CLASS_H__

@@ -31,6 +31,8 @@ void MCP23008_Class::Init(uint8_t addr) {
 	//ext_irq_register(PIN_PA05,FUNC_PTR(MCPHadChanged));
 }
 bool MCP23008_Class::Init(uint8_t addr,I2C_Asyn_Class *i2c){
+	txBuffer=i2c->txBuffer;
+	rxBuffer=i2c->rxBuffer;
 	i2cAddress=addr;
 	i2cClass=i2c;
 	isOK=i2cClass->isOK;

@@ -19,7 +19,7 @@
 #include "ARINC_Buffer_Class.h"
 
 #define g_RXBuffSize 4
-#define OFFF OFF
+#define OFFF ARINC_OFF
 #define K_1MS  1
 #define K_10MS 10
 #define K_100MS  100
@@ -36,8 +36,8 @@
 #define PARITYODD 0
 #define PARITYEVEN 1
 #define TMODE 1
-#define ON 1
-#define OFF 0
+#define ARINC_ON 1
+#define ARINC_OFF 0
 #define SPACE	0x20
 #define YES	1
 #define	NO	0
@@ -61,8 +61,8 @@
 #define LF 0x0A            // line feed
 #define NEWPAGE 0x0C       // new page (clears the full screen)
 //#define EOF -1             // ** This may need to be commend out for some codewarrior installs if duplicate declared**
-#define XON 0x11           // Flow control ON
-#define XOFF 0x13          // Flow control OFF
+#define XON 0x11           // Flow control ARINC_ON
+#define XOFF 0x13          // Flow control ARINC_OFF
 #define DEFAULT_LABEL 270
 #define DEFAULT_MESSAGE 0x1d5d21
 
@@ -78,7 +78,7 @@ union Buffer32 {
 
 
 
-class ARINC_Interface: public virtual ARINC_Conversions, public virtual Protocol_Class,public ARINC_Buffer_Class
+class ARINC_Interface: private virtual ARINC_Conversions, public virtual Protocol_Class,public ARINC_Buffer_Class
 {
 //variables
 public:
@@ -126,7 +126,7 @@ private:
 	uint8_t Arate;
 	uint8_t Rec1Parity;
 	uint8_t Rec2Parity;
-	uint8_t	i,j,k,index;
+	uint8_t	index;
 	static char Status_F;
 	Holt_3593_Class	HI3593;
 	uint8_t receiverBuffer1[RX_LABELS_NUMBER][4];             // [# of buffers][16 bytes]
@@ -153,10 +153,9 @@ public:
 	//virtual uint8_t		Label2Byte(uint32_t);
 	uint32_t	ReadBufferLabel(int);
 	bool		isThereNewMessage(void);
-	uint32_t	Hex2Octal(uint8_t);
-	char	AtoHex2(char, char);
 	uint32_t TrasmitSingleLabel(void);
-	uint32_t TrasmitSingleLabel(uint32_t l);
+	void	TransmitTXBuffer(void);
+
 	
 
 protected:
@@ -193,6 +192,8 @@ private:
 	bool	ConsoleCommands(char ch);
 	void	ConsoleCommandsHelp(void);
 	void	PrintHexByte(uint8_t);
+	uint32_t TrasmitSingleLabel(uint32_t l);
+	uint8_t TrasmitSingleLabel(uint8_t l);
 
 }; //ARINC_Interface
 extern	ARINC_Interface arinc;

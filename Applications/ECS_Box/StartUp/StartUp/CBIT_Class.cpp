@@ -26,4 +26,3 @@ CBIT_Class::operator bool(){
 	return	isOK;
 }
 
-CBIT_Class	cBit;

@@ -22,8 +22,6 @@ void DATETIME_CLOCK_example(void);
 
 void I2C_SHARED_example(void);
 
-void SPI_TEMP_example(void);
-
 void I2C_EXPANDER_example(void);
 
 void I2C_EEPROM_example(void);

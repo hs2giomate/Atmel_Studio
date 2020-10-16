@@ -10,6 +10,7 @@
 #define __I2C_ASYN_CLASS_H__
 #include "driver_init.h"
 #include "I2C_ObjectList.h"
+#define		I2C_ASYN_BUFFER_SIZE 128
 
 class I2C_Asyn_Class: public I2C_ObjectList
 {
@@ -20,6 +21,8 @@ public:
 	bool initiated;
 	volatile	bool	ack,isOK;
 	I2C_Asyn_Class	*ptrClass;
+	 uint8_t	*txBuffer;
+	 uint8_t	*rxBuffer;
 protected:
 
 private:

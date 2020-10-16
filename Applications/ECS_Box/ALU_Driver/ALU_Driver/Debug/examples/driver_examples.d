@@ -151,12 +151,10 @@ examples/driver_examples.d examples/driver_examples.o: \
  ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi.h \
  ../hal/utils/include/utils.h ../hal/include/hpl_spi_sync.h \
  ../hal/include/hal_i2c_m_sync.h ../hal/include/hpl_i2c_m_sync.h \
- ../hal/include/hal_spi_m_async.h ../hal/include/hpl_spi_m_async.h \
- ../hal/include/hpl_spi_async.h ../hal/include/hal_i2c_m_async.h \
- ../hal/include/hpl_i2c_m_async.h ../hal/include/hpl_i2c_m_sync.h \
- ../hal/include/hal_timer.h ../hal/include/hpl_timer.h \
- ../hpl/tc/hpl_tc_base.h ../hal/include/hpl_pwm.h \
- ../hal/include/hal_pwm.h ../hpl/tcc/hpl_tcc.h \
+ ../hal/include/hal_i2c_m_async.h ../hal/include/hpl_i2c_m_async.h \
+ ../hal/include/hpl_i2c_m_sync.h ../hal/include/hal_timer.h \
+ ../hal/include/hpl_timer.h ../hpl/tc/hpl_tc_base.h \
+ ../hal/include/hpl_pwm.h ../hal/include/hal_pwm.h ../hpl/tcc/hpl_tcc.h \
  ../hal/include/hal_usb_device.h ../hal/include/hpl_usb_device.h \
  ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h \
  ../hal/include/hal_wdt.h ../hal/include/hpl_wdt.h \
@@ -554,12 +552,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../hal/include/hal_i2c_m_sync.h:
 
 ../hal/include/hpl_i2c_m_sync.h:
-
-../hal/include/hal_spi_m_async.h:
-
-../hal/include/hpl_spi_m_async.h:
-
-../hal/include/hpl_spi_async.h:
 
 ../hal/include/hal_i2c_m_async.h:
 

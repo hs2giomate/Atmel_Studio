@@ -8,6 +8,8 @@
 
 #include "SPI_Asyn_Class.h"
 
+static	uint8_t	txStaticBuffer[SPI_ASYN_BUFFER_SIZE];
+static	uint8_t	rxStaticBuffer[SPI_ASYN_BUFFER_SIZE];
  SPI_Asyn_Class* ptrSPIAClass;
 static void complete_cb_SPI(const struct spi_m_async_descriptor *const io_descr)
 {
@@ -45,7 +47,8 @@ void SPI_Asyn_Class::set_descriptor(spi_m_async_descriptor *spi){
 }
 
 void SPI_Asyn_Class::init(){
-
+	txBuffer=txStaticBuffer;
+	rxBuffer=txStaticBuffer;
 	spi_m_async_get_io_descriptor(SPIA, &spio);
 	spi_m_async_register_callback(SPIA, SPI_M_ASYNC_CB_XFER, (FUNC_PTR)(complete_cb_SPI));
 	spi_m_async_register_callback(SPIA, SPI_M_ASYNC_CB_ERROR, (FUNC_PTR)(error_cb_SPI));
@@ -60,7 +63,7 @@ int32_t SPI_Asyn_Class::enable(){
 	return 0;
 }
 
-int32_t  SPI_Asyn_Class::write(const uint8_t * p, int32_t n){
+int32_t  SPI_Asyn_Class::Write(const uint8_t * p, int32_t n){
 
 	while(!xferDone);
 	xferDone=false;
@@ -68,11 +71,12 @@ int32_t  SPI_Asyn_Class::write(const uint8_t * p, int32_t n){
 	 return w;
 	
 }
-int32_t  SPI_Asyn_Class::read(uint8_t * p, int32_t n){
+int32_t  SPI_Asyn_Class::Read(uint8_t * p, int32_t n){
 	while(!xferDone);
 	xferDone=false;
 	int32_t r=io_read(spio,p,(uint16_t)n);
-	while((!xferDone));
+	asm("nop");
+	//while((!xferDone));
 	return  r;
 }
 void SPI_Asyn_Class::disable(void){

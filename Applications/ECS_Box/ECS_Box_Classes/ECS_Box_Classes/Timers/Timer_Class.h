@@ -13,7 +13,7 @@
 
 #include <hal_timer.h>
 
-#define TASK_NUMBER		8
+#define TASK_NUMBER		16
 
 class Timer_Class
 {

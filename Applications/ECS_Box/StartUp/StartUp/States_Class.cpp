@@ -26,13 +26,15 @@ static void HVACTimerTicks(const struct timer_task *const timer_task)
 	hvacTimer.ticks++;
 }
 
+static HVACState staticCurrentState;
 	// default constructor
 States_Class::States_Class(void)
 {
 	ptrStatesClass=this;
 	listener.eventHandler = NULL;
-	hvacState=defaultState;
+	staticCurrentState=defaultState;
 	isOK=false;
+	hvacState=&staticCurrentState;
 }
 
 // default destructor
@@ -46,9 +48,14 @@ bool States_Class::Init(void){
 		hvacTimer.Start_periodic_task(FUNC_PTR(HVACTimerTicks),1);
 	}
 	isOK=temperatures.Init();
-	hvacState.hvacStatus.statusBits.flapValve1=fv1.Init();
-	isOK=hvacState.hvacStatus.statusBits.flapValve1;
-	return isOK;
+	if (isOK)
+	{
+		temperatures.StartOneConversion();
+	}
+	hvacState->hvacStatus.statusBits.flapValve1=fv1.Init();
+	hvacState->hvacStatus.statusBits.flapValve1;
+	//return isOK;
+	return true;
 	
 }
 void States_Class::ControllerResume(uint8_t	operationMode){
@@ -67,9 +74,9 @@ void States_Class::ControllerResume(uint8_t	operationMode){
 				
 			}
 		}
-		if (hvacState.currentState==kHVACStateLeaving)
+		if (hvacState->currentState==kHVACStateLeaving)
 		{
-			prepareStateChangeEvent(hvacState.lastState);
+			prepareStateChangeEvent(hvacState->lastState);
 			
 		} 
 		else
@@ -86,15 +93,13 @@ void States_Class::ControllerResume(uint8_t	operationMode){
 			{
 				if (listener.WaitForEvent(e, kHVACEventClass, kHVACSwitchStateEvent,2))
 				{
-					if (e.data.wordData[0]!=kHVACStateLeaving)
+					handleHVACEvent(e);
+					if (hvacState->currentState==kHVACStateLeaving)
 					{
-						handleHVACEvent(e);
-					}
-					else 
-					{
-						done=true;
-					}
-					
+							done=true;
+							break;
+					} 
+						
 				}
 				else if (listener.WaitForEvent(e, kALUEventClass, kAnyEventType,1)){
 					alu.PrepareNewEvent(kALUEventCheckPheripherals);
@@ -111,7 +116,7 @@ void States_Class::ControllerResume(uint8_t	operationMode){
 
 void States_Class::Start(uint8_t	operationMode)
 	{
-	hvacState.currentState = kHVACStateStart;
+	hvacState->currentState = kHVACStateStart;
 	bool done(false);
 	if (operationMode==0)
 	{
@@ -126,7 +131,7 @@ void States_Class::Start(uint8_t	operationMode)
 
     tick_t	timerValue = 0L;
     bool	isCurrentStateValid = false;
-	memory.ReadFastApplicationState(lastState);
+	memory.ReadFastApplicationState(lastHVACState);
 	
 	if (calendar.WasInterrupted())
 	{
@@ -148,9 +153,9 @@ void States_Class::Start(uint8_t	operationMode)
 	
 
 	//	Check persistent memory
-	if (SetInitialState()<0){
-		SetDefaultState();
-	}
+	//if (SetInitialState()<0){
+	//	SetDefaultState();
+	//}
 
 
 
@@ -203,13 +208,16 @@ void States_Class::Start(uint8_t	operationMode)
 		{
 			if (listener.WaitForEvent(e, kHVACEventClass, kHVACSwitchStateEvent))
 			{
-				if (e.data.wordData[0]!=kHVACStateLeaving)
+		
+				handleHVACEvent(e);
+				if (hvacState->currentState==kHVACStateLeaving)
 				{
-						handleHVACEvent(e);
+						done=true;
+						break;
 				} 
 				else
 				{
-					done=true;
+					
 				}
 			
 			}
@@ -226,6 +234,7 @@ void States_Class::Start(uint8_t	operationMode)
 
 
 }
+
 
 
 void States_Class::setPersistentConfigurationDefaults(void)
@@ -252,78 +261,79 @@ bool States_Class::readCycleDescription(CycleDescription& cycle, uint8 id)
 
 void States_Class::handleHVACEvent(event& e)
 	{
-	if (hvacState.currentState != kHVACStateResume){
-		hvacState.callingState = hvacState.currentState;
+		hvacState->callingState = hvacState->currentState;
+	if (hvacState->currentState != kHVACStateResume){
+		hvacState->currentState = e.data.wordData[0];
+		hvacState->stateFlags = e.data.wordData[1];
+		
 	}else{
-		hvacState.currentState = e.data.wordData[0];
-		hvacState.stateFlags = e.data.wordData[1];
-		hvacState.stateEntryTime = hvacTimer.Get_ticks();
+		hvacState->currentState=hvacState->lastState;
 	}
-
+	hvacState->stateEntryTime = hvacTimer.Get_ticks();
 
 #if __DEBUG__ > 0
 	
 	usb << "handleGAINEvent received: switching from ";
-	usb.write(gainStateDescription[hvacState.callingState]);
+	//usb.write(gainStateDescription[hvacState->callingState]);
 	usb << " to ";
-	usb.write(gainStateDescription[hvacState.currentState]);
-	usb << " (flags == " << hvacState.stateFlags << ')' << NEWLINE;
+	//usb.write(gainStateDescription[hvacState->currentState]);
+	//usb << " (flags == " << hvacState->stateFlags << ')' << NEWLINE;
 	
 #endif
 
 	saveCurrentState();
 
-	switch (hvacState.currentState)
+	switch (hvacState->currentState)
 		{
 		case kHVACStateInitialize:
-			handleStateInitialize(hvacState.stateFlags);
+			StateInitialize(hvacState->stateFlags);
 			break;
 
 		case kHVACStateResume:
-			handleStateResume(hvacState.stateFlags);
+			StateResume(hvacState->stateFlags);
 			break;
 
 		case kHVACStateStandbyOFF:
-			handleStateStandbyOFF(hvacState.stateFlags);
+			StateStandbyOFF(hvacState->stateFlags);
 			break;
 
 		case kHVACStatePrepareStandbyON:
-			handleStatePrepareStandbyON(hvacState.stateFlags);
+			handleStatePrepareStandbyON(hvacState->stateFlags);
 			break;
 
 		case kHVACStateStandbyON:
-			handleStateStandbyON(hvacState.stateFlags);
+			handleStateStandbyON(hvacState->stateFlags);
 			break;
 
 		case kHVACStateStandbyReady:
-			handleStateStandbyReady(hvacState.stateFlags);
+			handleStateStandbyReady(hvacState->stateFlags);
 			break;
 
 		case kHVACStateON:
-			handleStateON(hvacState.stateFlags);
+			handleStateON(hvacState->stateFlags);
 			break;
 
 		case kHVACStateFinished:
-			handleStateFinished(hvacState.stateFlags);
+			handleStateFinished(hvacState->stateFlags);
 			break;
 
 		case kHVACStateStoppedProcess:
-			StateStoppedProcess(hvacState.stateFlags);
+			StateStoppedProcess(hvacState->stateFlags);
 			break;
 
 		case kHVACStateSelfProtect:
-			handleStateSelfProtect(hvacState.stateFlags);
+			handleStateSelfProtect(hvacState->stateFlags);
 			break;
 
 		case kHVACStateError:
-			handleStateError(hvacState.stateFlags);
+			handleStateError(hvacState->stateFlags);
 			break;
 
 		case kHVACStateMaintenance:
-			handleStateMaintenance(hvacState.stateFlags);
+			handleStateMaintenance(hvacState->stateFlags);
 			break;
 		case kHVACStateLeaving:
-			StateLeaving(hvacState.stateFlags);
+			StateLeaving(hvacState->stateFlags);
 		break;
 
 		default:
@@ -333,10 +343,10 @@ void States_Class::handleHVACEvent(event& e)
 	}
 
 
-void States_Class::handleStateInitialize(uint32 flags)
+void States_Class::StateInitialize(uint32 flags)
 	{
 	event	e;
-	hvacState.currentState=kHVACStateInitialize;
+	hvacState->currentState=kHVACStateInitialize;
    	uint16	selfTestResult(kHVACNoError);
 	
 #if __DEBUG__ > 0
@@ -365,7 +375,7 @@ void States_Class::handleStateInitialize(uint32 flags)
 		if (selfTestResult == kHVACNoError)
 		{
 			prepareStateChangeEvent( kHVACStateStandbyOFF);
-			listener.SendEventSelf(e);
+
 		}
 		#endif
 
@@ -382,10 +392,10 @@ void States_Class::handleStateInitialize(uint32 flags)
 	}
 
 
-void States_Class::handleStateResume(uint32 flags)
+void States_Class::StateResume(uint32 flags)
 	{
 	event	e;
-	uint8	currentState(hvacState.currentState);
+	uint8	currentState(hvacState->currentState);
     uint16	selfTestResult(kHVACNoError);
 
 #if __DEBUG__ > 3
@@ -393,21 +403,21 @@ void States_Class::handleStateResume(uint32 flags)
 #endif
 
 #if __DEBUG__ > 3
-	usb << "state.currentState (before) " << hvacState.currentState << newline;
+	usb << "state.currentState (before) " << hvacState->currentState << newline;
 #endif
-	memory.restoreWorkingStateForGAIN(hvacState);
+	//memory.restoreWorkingStateForGAIN(hvacState);
 #if __DEBUG__ > 3
-	usb << "state.currentState (after) " << hvacState.currentState << newline;
+	usb << "state.currentState (after) " << hvacState->currentState << newline;
 #endif
 
 
     //Switch into current state if no error occured
     if(selfTestResult == kHVACNoError)
     {
-        switch (hvacState.currentState)
+        switch (hvacState->currentState)
         {
         case kHVACStateON:
-            prepareStateChangeEvent( hvacState.currentState, true);
+            prepareStateChangeEvent( hvacState->currentState, true);
             break;
 
         case kHVACStateStoppedProcess:
@@ -415,21 +425,22 @@ void States_Class::handleStateResume(uint32 flags)
             break;
 
         default:
-            prepareStateChangeEvent( hvacState.currentState);
+            prepareStateChangeEvent( hvacState->currentState);
             break;
         }
     }
 
-	hvacState.currentState = currentState;
+	hvacState->currentState = currentState;
 
 	listener.CheckEvent();
 	listener.SendEventSelf(e);
 	}
 				
-void States_Class::handleStateStandbyOFF(uint32 flags)
+void States_Class::StateStandbyOFF(uint32 flags)
 	{
 	event	e;
-	hvacState.currentState=kHVACStateStandbyOFF;
+	hvacState->currentState=kHVACStateStandbyOFF;
+	hvacState->arincStatus.statusArinc=OFF;
 	bool	done(false);
 	gotAluEvent=false;
 	gotHVACEvent=false;
@@ -440,12 +451,12 @@ void States_Class::handleStateStandbyOFF(uint32 flags)
 		
 #endif
 
-	hvacState.smpsTemperatureOutOfRangeEventSent = false;
-	hvacState.magnetronTemperatureOutOfRangeEventSent = false;
-	hvacState.exhaustTemperatureOutOfRangeEventSent = false;
+	hvacState->smpsTemperatureOutOfRangeEventSent = false;
+	hvacState->magnetronTemperatureOutOfRangeEventSent = false;
+	hvacState->exhaustTemperatureOutOfRangeEventSent = false;
 
-	hvacState.magnetronFanFailureDetectionTime = forever;
-	
+	hvacState->magnetronFanFailureDetectionTime = forever;
+	listener.eventHandler=&States_Class::CheckEvents;
 	while(!done){
 		gotAluEvent=listener.WaitForEvent(e, kALUEventClass, kAnyEventType,1);
 		if (!gotAluEvent)
@@ -468,7 +479,7 @@ void States_Class::handleStatePrepareStandbyON(uint32 flags)
 	{
 	event	e;
 	bool	done(false);
-	uint32	connectFlags(hvacState.alarmState?kConnectFlagsAlarmOn:0);
+	uint32	connectFlags(hvacState->alarmState?kConnectFlagsAlarmOn:0);
 	   	
 #ifdef __DEBUG__
 	
@@ -476,10 +487,7 @@ void States_Class::handleStatePrepareStandbyON(uint32 flags)
 		
 #endif
 
-	
 	tick_t	leaveDisplayTime = hvacTimer.Get_ticks() + 4000;
-
-	
 
 	listener.SendEventSelf(e);
 	}
@@ -495,11 +503,11 @@ void States_Class::handleStateStandbyON(uint32 flags)
 		
 #endif
 
-	hvacState.latchClosedConfirmPending = false;
-    hvacState.remainingTime = (tick_t)persistentConfiguration.cycle.duration * 1000L;
+	hvacState->latchClosedConfirmPending = false;
+    hvacState->remainingTime = (tick_t)persistentConfiguration.cycle.duration * 1000L;
 
 	
-	hvacState.reedRelayOpen = false;
+	hvacState->reedRelayOpen = false;
 	
 	listener.SendEventSelf(e);
 	}
@@ -560,11 +568,11 @@ void States_Class::handleStateFinished(uint32 flags)
 void States_Class::StateLeaving(uint32 flags)
 {
 	event	e;
-	hvacState.lastState=hvacState.currentState;
-	hvacState.currentState=kHVACStateLeaving;
+	hvacState->lastState=hvacState->callingState;
+	hvacState->currentState=kHVACStateLeaving;
 	
 	saveCurrentState();
-	prepareStateChangeEvent(kHVACStateLeaving,(uint16)hvacState.lastState);
+	//prepareStateChangeEvent(kHVACStateLeaving,(uint16)hvacState->lastState);
 	//bool	done(false);
 	//listener.SendEventSelf(e);
 }
@@ -630,14 +638,14 @@ uint32_t States_Class::handlePowerOnSelftest(void)
 void States_Class::saveCurrentState(void){
 		calendar_date_time	cdt;
 		calendar.GetDateTime(&cdt);
-		hvacState.dateTime=cdt;
-		hvacState.now = calendar.convert_datetime_to_timestamp(&cdt);
-	if (hvacState.currentState!=kHVACStateMaintenance){
-		memory.WriteFastCurrentState(hvacState);
+		hvacState->dateTime=cdt;
+		hvacState->now = calendar.convert_datetime_to_timestamp(&cdt);
+	if (hvacState->currentState!=kHVACStateMaintenance){
+		memory.WriteFastCurrentState(staticCurrentState);
 		//memory.ReadFastApplicationState(lastState);
-		if (hvacState.currentState==0)
+		if (hvacState->currentState==0)
 		{
-			memory.SaveApplicationState(hvacState);
+			memory.SaveApplicationState(staticCurrentState);
 			//delay_ms(100);	
 		}
 		
@@ -664,38 +672,56 @@ void	States_Class::GetCurrentConfiguration(ConfigurationData *cd){
 	cd=&configuration;
 }
 void	States_Class::GetCurrentState(HVACState& hs){
-	hs=hvacState;
+	hs=*hvacState;
 }
 void	States_Class::SetConfigurationData(ConfigurationData& cd){
 	configuration=cd;
 }
 void	States_Class::SetCurrentState(HVACState& hs){
-	hvacState=hs;
+	staticCurrentState=hs;
 }
 void	States_Class::SetCRCConfigData(void){
 	CRC32=memory.CalculateCRC((uint32_t*)PTR_CONFIG_DATA(&factoryDefaultsConfiguration),sizeof(factoryDefaultsConfiguration));
 }
 uint32_t	States_Class::GetStatus(HVACStatus& s){
-	s=hvacState.hvacStatus;
-	return	hvacState.hvacStatus.rawStatus;
+	s=hvacState->hvacStatus;
+	return	hvacState->hvacStatus.rawStatus;
 }
+void States_Class::ExecutePeriodicTask(void){
+	arinc.SaveStatus(ConvertStatusArincLabel());
+}
+
 void States_Class::CheckEvents(void){
 	event e;
+	hvac.ExecutePeriodicTask();
 	if (interfaces.IsCommunicationRequest())
 	{
-		e.eventClass=kALUEventClass;
-		e.eventType=(EventType)kALUEventCheckCommunication;
+		//e.eventClass=kALUEventClass;
+	//	e.eventType=(EventType)kALUEventCheckCommunication;
 		
-	}else if ((hvac.hvacState.currentState==kHVACStateStandbyOFF)&&(alu.tasks->head)){
+	}
+	if ((hvac.hvacState->currentState==kHVACStateStandbyOFF)&&(alu.taskList->head)){
 	
 		e.eventType=kHVACEventDoPendingTasks;
+		listener.SendEventSelf(e);
 
-
-	}else if (alu.arincTXTimeUP){
+	}
+	if (alu.arincTXTimeUP){
+		if ((!alu.IsListedTask(kALUTaskArincTXMessage)))
+		{
+			alu.PrepareNewTask(kALUTaskArincTXMessage);
+		} 
+		else
+		{
 			
+		}
+		
+		e.eventClass=kALUEventClass;
+		e.eventType=kHVACEventDoPendingTasks;
+		listener.SendEventSelf(e);
 	}
 		
-	listener.SendEventSelf(e);
+
 }
 
 

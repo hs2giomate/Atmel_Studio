@@ -40,8 +40,6 @@ hal\src\hal_qspi_sync.c
 
 hal\src\hal_sleep.c
 
-hal\src\hal_spi_m_async.c
-
 hal\src\hal_spi_m_sync.c
 
 hal\src\hal_timer.c

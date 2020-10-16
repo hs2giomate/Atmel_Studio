@@ -206,6 +206,7 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -271,12 +272,14 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/avr/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
@@ -285,7 +288,6 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Interface.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Holt_3593_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Conversions.h \
@@ -294,6 +296,7 @@ main.d main.o: .././main.cpp .././main.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Buffer_Class.h \
  .././ALU_Class.h .././PBIT_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h \
  .././ConfigState_Class.h ../ApplicationLayer/ConfigurationData.h \
@@ -311,13 +314,13 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
- .././Error_Labelling_Class.h .././AMMC_Class.h \
+ .././Error_Labelling_Class.h .././TaskHandler_Class.h .././AMMC_Class.h \
  .././MemoryManagment_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling/diagnostics.h \
  .././PersistenceServices.h .././ErrorAnalyer_Class.h \
  .././GainDefinitions.h .././CRC32_Class.h .././DataLoger_Class.h \
- .././MemoryStruct_Class.h .././FastStorage_Class.h \
+ .././FlashHandler_Class.h .././FastStorage_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h
 
 .././main.h:
@@ -736,6 +739,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
 
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h:
@@ -866,9 +871,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
 
@@ -877,6 +884,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
 
@@ -894,8 +903,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
-
 ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h:
@@ -911,6 +918,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Buffer_Class.h:
 
 .././ALU_Class.h:
 
@@ -956,6 +965,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././Error_Labelling_Class.h:
 
+.././TaskHandler_Class.h:
+
 .././AMMC_Class.h:
 
 .././MemoryManagment_Class.h:
@@ -974,7 +985,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././DataLoger_Class.h:
 
-.././MemoryStruct_Class.h:
+.././FlashHandler_Class.h:
 
 .././FastStorage_Class.h:
 

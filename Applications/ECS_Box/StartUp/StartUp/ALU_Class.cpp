@@ -107,7 +107,7 @@ uint32_t	ALU_Class::RunController(void){
 					break;
 				   }
 			 }
-			arinc.TrasmitSingleLabel();
+			//arinc.TrasmitSingleLabel();
 			ExecutePendingTask();
 			arincTXTimeUP=false;
 	   }
@@ -317,13 +317,18 @@ bool	ALU_Class::ExecutePendingTask(void){
 	list_element *it;
 	ControllerTask tk;
 	uint8_t		highPrio=kALUNumberTasks;
-	while (tasks->head){
+	tk=GetHighPrioTask();
+	if (tk.id!=kALUTaskArincTXMessage)
+	{
+		PrepareNewTask(kALUTaskArincTXMessage);
+	}
+	while (taskList->head){
 		tk=GetHighPrioTask();
 		HandleTasks(tk);
 		RemoveTask(tk);
 	
 	}
-	allTasksDone=~((bool)tasks->head);
+	allTasksDone=~((bool)taskList->head);
 	if (allTasksDone)
 	{
 		PrepareNewEvent(kALUEventSimpleResume);
@@ -337,26 +342,25 @@ void ALU_Class::HandleTasks(ControllerTask& ct)
 	switch (ct.id)
 	{
 		case kALUEventSimpleStart:
-		hvac.Start(0);
+			hvac.Start(0);
 		break;
-
 		case kALUSimpleResume:
-		hvac.ControllerResume(0);
+			hvac.ControllerResume(0);
 		break;
-
 		case kALUSimpleStop:
-		hvac.Stop(0);
+			hvac.Stop(0);
 		break;
 		case kALUTaskCheckCommunication:
-		interfaces.CheckCommunication();
+			interfaces.CheckCommunication();
 		break;
 		case kALUTaskReadARINCR1:
-			arinc.ReadRXBuffer(1);
-			
+			arinc.ReadRXBuffer(1);			
+		break;
+		case kALUTaskArincTXMessage:
+			arinc.TransmitTXBuffer();
 		break;
 		case kALUTaskUpdateTemperatures:
-			arinc.SaveTemperature();
-		
+			arinc.SaveTemperature();		
 		break;
 
 		default:

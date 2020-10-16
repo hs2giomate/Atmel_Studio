@@ -8,9 +8,11 @@
 
 #include "AT24MAC_Class.h"
 #include "stdlib.h"
+#include "string.h"
 
 AT24MAC_Class	*ptrAT24MACClass;
 EEPROMMemoryLayout*   eepromLayout=NULL;
+static  I2C_Asyn_Class	i2cAsync;
 
 // default constructor
 AT24MAC_Class::AT24MAC_Class()
@@ -21,6 +23,7 @@ AT24MAC_Class::AT24MAC_Class(i2c_m_async_desc *i2c)
 {
 	ptrI2CDescr=i2c;
 	ptrAT24MACClass=this;
+	i2ca=&i2cAsync;
 } //AT24MAC_Class
 
 
@@ -42,8 +45,8 @@ void AT24MAC_Class::Init(i2c_m_async_desc *i2c){
 
 void AT24MAC_Class::Init(uint8_t addr ){
 	i2c_addr=addr;
-	i2ca.Set_descriptor(ptrI2CDescr);
-	isReady=i2ca.Init(addr)==0;
+	i2ca->Set_descriptor(ptrI2CDescr);
+	isReady=i2ca->Init(addr)==0;
 }
 
 
@@ -53,33 +56,57 @@ int32_t AT24MAC_Class::Write_byte(uint8_t addr, uint8_t value){
 	uint8_t array[2];
 	array[0]=addr;
 	array[1]=value;
-	uint32_t w= i2ca.Write(array,2);
-	while(!i2ca.txReady);
+	uint32_t w= i2ca->Write(array,2);
+	while(!i2ca->txReady);
 	return	w;
 }
 uint32_t AT24MAC_Class::WriteAddress(uint8_t *p, uint8_t addr, uint8_t size){
 	uint32_t w;
-	for (int i = 0; i < size; i++)
+	uint8_t i;
+	uint8_t	*ptr=p;
+	
+// 	for (int i = 0; i < size; i++)
+// 	{
+// 		while(!IsReady());
+// 		w=Write_byte(addr+i,*p);
+// 		delay_us(1500);
+// 		p++;
+// 	
+// 		while(!AcknolledgePolling());
+// 	}
+	isReady=false;
+	uint8_t array[1+AT24MAC_BUFFER_SIZE],value,size0,addr0=addr;
+	if ( size>AT24MAC_BUFFER_SIZE)
 	{
-		while(!IsReady());
-		w=Write_byte(addr+i,*p);
-		p++;
-		delay_ms(2);
-		while(!AcknolledgePolling());
+		array[0]=addr0;
+		size0=AT24MAC_BUFFER_SIZE-addr%(AT24MAC_BUFFER_SIZE);
+		memcpy((void*)&array[1],ptr,size0);
+		w= i2ca->Write(array,1+size0);
+		while(!i2ca->txReady);
+		ptr+=size0;
+		addr0+=size0;
+		for (i = size0; i <size+1; i+=AT24MAC_BUFFER_SIZE)
+		{
+			array[0]=addr0;
+			memcpy((void*)&array[1],ptr,AT24MAC_BUFFER_SIZE);
+			w= i2ca->Write(array,1+AT24MAC_BUFFER_SIZE);
+			while(!i2ca->txReady);
+			ptr+=AT24MAC_BUFFER_SIZE;
+			addr0+=AT24MAC_BUFFER_SIZE;
+		}
+		
+	} 
+	else
+	{
+		array[0]=addr;
+		memcpy((void*)&array[1],p,size);
+		w= i2ca->Write(array,1+size);
+		//AcknolledgePolling();
+		while(!i2ca->txReady);
 	}
 	
-//	uint8_t array[1+AT24MAC_BUFFER_SIZE],value;
-//	
-// 	isReady=false;
-// 	array[0]=addr;
-// 	for (int i=1;i<size+1;i++)
-// 	{				
-// 		value=*p;
-// 		array[i]=value;
-// 		p++;
-// 	}
-// 	w= i2ca.Write(array,1+size);
-// 	while(!i2ca.txReady);
+	
+	
 	return	w;
 }
 uint32_t AT24MAC_Class::WriteAddress(uint8_t *p, uint16_t addr, uint8_t size){
@@ -97,17 +124,17 @@ int32_t AT24MAC_Class::write_page(uint8_t addr, uint8_t *buffer){
 		buffer++;
 	}
 	//uint8_t cmd=(uint8_t)AT24MAC_WRITE_CMD;
-	return i2ca.Write(frame,17);
+	return i2ca->Write(frame,17);
 }
 
 uint8_t AT24MAC_Class::Read_byte(uint8_t addr){
 
 	uint8_t value;
 	//i2ca.read_cmd(addr,&value);
-	i2ca.Write(&addr,1);
-	while(!i2ca.txReady);
-	i2ca.Read(&value,1);
-	while(!i2ca.rxReady);
+	i2ca->Write(&addr,1);
+	while(!i2ca->txReady);
+	i2ca->Read(&value,1);
+	
 	return value;
 }
 
@@ -115,10 +142,11 @@ uint32_t AT24MAC_Class::ReadAddress(uint8_t *p, uint8_t addr, uint8_t size){
 	
 	uint32_t r;
 	uint8_t	value;
-	i2ca.Write(&addr,1);
-	while(!i2ca.txReady);
-	r= i2ca.Read(p,size);
-	while(!i2ca.rxReady);
+	while(!i2ca->rxReady);
+	i2ca->Write(&addr,1);
+	while(!i2ca->txReady);
+	r= i2ca->Read(p,size);
+	while(!i2ca->rxReady);
 		/*
 	if (size<AT24MAC_BUFFER_SIZE+1)
 	{
@@ -148,7 +176,7 @@ uint32_t AT24MAC_Class::ReadAddress(uint8_t *p, uint8_t addr, uint8_t size){
 }
 uint32_t AT24MAC_Class::ReadAddress(uint8_t *p, uint16_t addr, uint8_t size){
 	uint8_t add=(uint8_t)(0xff&addr);
-	
+	while(!i2ca->rxReady);
 	return ReadAddress(p,add,size);
 }
 bool	AT24MAC_Class::GetAcknowledge(void){
@@ -193,7 +221,7 @@ bool	AT24MAC_Class::SelfTest(void){
 
 bool AT24MAC_Class::IsReady(void){
 
-	if (i2ca.txReady && i2ca.rxReady)
+	if (i2ca->txReady && i2ca->rxReady)
 	{
 		isReady=true;
 	}

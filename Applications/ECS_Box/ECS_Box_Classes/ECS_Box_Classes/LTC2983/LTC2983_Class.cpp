@@ -35,6 +35,8 @@ LTC2983_Class::LTC2983_Class(spi_m_async_descriptor *SPI_LTC){
 	};
 
 bool LTC2983_Class::Init(){
+	rx=spiLT->rxLiteBuffer;
+	tx=spiLT->txLiteBuffer;
 	chipSelect=CS_TEMP1;
 	auxTimer=&hvacTimer;
 	activeChannels[0]=4;
@@ -52,9 +54,12 @@ bool LTC2983_Class::Init(){
 }
 
 bool LTC2983_Class::Init(uint32_t csPin,LT_SPI* spiLite){
+	
 	ptrLTCClass=this;
 	chipSelect=csPin;
 	spiLT=spiLite;
+	rx=spiLT->rxLiteBuffer;
+	tx=spiLT->txLiteBuffer;
 	auxTimer=&hvacTimer;
 	activeChannels[0]=4;
 	activeChannels[1]=8;
@@ -380,8 +385,13 @@ void LTC2983_Class::print_fault_data(uint8_t fault_byte)
 
 uint32_t LTC2983_Class::transfer_four_bytes(uint32_t chip_select, uint8_t ram_read_or_write, uint16_t start_address, uint32_t input_data)
 {
-	uint32_t output_data;
-	uint8_t tx[7], rx[7];
+
+	uint8_t i;
+	
+	for (i = 0; i < LTC2983_SPI_BUFFER_SIZE; i++)
+	{
+		rx[i]=0;
+	}
 
 	tx[0] = ram_read_or_write;
 	tx[1] = highByte(start_address);
@@ -391,26 +401,25 @@ uint32_t LTC2983_Class::transfer_four_bytes(uint32_t chip_select, uint8_t ram_re
 	tx[5] = (uint8_t)(input_data >> 8);
 	tx[6] = (uint8_t) input_data;
 
-	spiLT->spi_transfer_block(chip_select,(uint8_t*)tx,(uint8_t*)rx, 7);
+	spiLT->spi_transfer_block(chip_select,tx,rx, LTC2983_SPI_BUFFER_SIZE);
 
-	output_data = (uint32_t) rx[3] << 24 |
-	(uint32_t) rx[4] << 16 |
-	(uint32_t) rx[5] << 8  |
-	(uint32_t) rx[6];
-
+	output_data = (uint32_t) rx[0] << 24 |
+	(uint32_t) rx[1] << 16 |
+	(uint32_t) rx[2] << 8  |
+	(uint32_t) rx[3];
+	asm("nop");
 	return output_data;
 }
 
 
 uint8_t LTC2983_Class::transfer_byte(uint32_t chip_select, uint8_t ram_read_or_write, uint16_t start_address, uint8_t input_data)
 {
-	uint8_t tx[4], rx[4];
 
 	tx[0] = ram_read_or_write;
 	tx[1] = (uint8_t)(start_address >> 8);
 	tx[2] = (uint8_t)start_address;
 	tx[3] = input_data;
-	spiLT->spi_transfer_block(chip_select, (uint8_t*)tx, (uint8_t*)rx, 4);
+	spiLT->spi_transfer_block(chip_select,tx, rx, 4);
 	return rx[0];
 }
 

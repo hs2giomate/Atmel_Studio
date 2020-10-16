@@ -142,6 +142,7 @@ bool	Interfaces_Class::CheckTemperatures(void){
 				result=true;
 		}
 			temperatures.StartOneConversion();
+			asm("nop");
 	
 	} 
 	else

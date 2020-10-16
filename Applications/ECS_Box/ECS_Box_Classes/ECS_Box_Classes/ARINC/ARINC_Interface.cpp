@@ -74,6 +74,7 @@ bool	ARINC_Interface::Init(void){
 
 	PARITY=false;
 	HW_RESET();
+	InitBuffer();
 	statusHolt=HI3593.Init();
 	if (statusHolt!=TSR_Default){
 		usb.println("\n\rHI-3593 failed to Initilize\n\r");
@@ -188,7 +189,7 @@ uint32_t ARINC_Interface::ReadFIFO1(){
 		// Receiver1 Priority Labels
 		if(Status_F & PL1)
 		{
-			//LED_CTL(LED_5,ON);               // Turn on LED5 for PL1
+			//LED_CTL(LED_5,ARINC_ON);               // Turn on LED5 for PL1
 			cpu_irq_disable();
 			HI3593.ArincRead(RXFIFO_1L1,RXBufferPL );
 			(void)memcpy(receiverBuffer[MessageCount],RXBufferPL,g_RXBuffSize);  // copy frame to large array for safe keeping
@@ -200,7 +201,7 @@ uint32_t ARINC_Interface::ReadFIFO1(){
 		// Receiver1 Priority Label 2
 		if(Status_F & PL2)
 		{
-			//LED_CTL(LED_6,ON);               // Turn on LED6 for PL2
+			//LED_CTL(LED_6,ARINC_ON);               // Turn on LED6 for PL2
 			cpu_irq_disable();
 			HI3593.ArincRead(RXFIFO_1L2,RXBufferPL );
 			(void)memcpy(receiverBuffer[MessageCount],RXBufferPL,g_RXBuffSize);  // copy frame to large array for safe keeping
@@ -211,7 +212,7 @@ uint32_t ARINC_Interface::ReadFIFO1(){
 		// Receiver1 Priority Label 3
 		if(Status_F & PL3)
 		{
-			//LED_CTL(LED_7,ON);               // Turn on LED7 for PL3
+			//LED_CTL(LED_7,ARINC_ON);               // Turn on LED7 for PL3
 			cpu_irq_disable();
 			HI3593.ArincRead(RXFIFO_1L3,RXBufferPL );
 			(void)memcpy(receiverBuffer[MessageCount],RXBufferPL,g_RXBuffSize);  // copy frame to large array for safe keeping
@@ -243,7 +244,7 @@ uint32_t ARINC_Interface::ReadBufferLabel(int label){
 	return (uint32_t)ReadBufferLabel(l);
 }
 uint32_t ARINC_Interface::TrasmitSingleLabel(void){
-	return	TrasmitSingleLabel(DEFAULT_LABEL);
+	return	TrasmitSingleLabel((uint32_t)DEFAULT_LABEL);
 }
 
 uint32_t ARINC_Interface::TrasmitSingleLabel(uint32_t l){
@@ -252,9 +253,9 @@ uint32_t ARINC_Interface::TrasmitSingleLabel(uint32_t l){
 	index=GetIndexTXLabelarray(FlipByte(octalLabel),LabelsArrayTX);
 	uint8_t localBuffer[4];
 //	memcpy(localBuffer,LabelsArrayTX,4);
-//	memcpy(localBuffer,&transmitBuffer[index][0],4);
-	Uint32FourBytesArray(0x1234561d,localBuffer);
-	PrepareSingleTXBuffer(TXBuffer,LabelsArrayTX);
+	memcpy(localBuffer,transmitBuffer[index],4);
+//	Uint32FourBytesArray(0x1234561d,localBuffer);
+//	PrepareSingleTXBuffer(TXBuffer,LabelsArrayTX);
 	usb.println(" transmitting...");
 	cpu_irq_disable();
 	HI3593.TransmitCommandAndData(TXFIFO,localBuffer);
@@ -265,6 +266,38 @@ uint32_t ARINC_Interface::TrasmitSingleLabel(uint32_t l){
 	txTimeout=false;
 	gpio_set_pin_level(LED0,true);
 	return FourBytesArray2Uint32(TXBuffer);
+}
+
+uint8_t ARINC_Interface::TrasmitSingleLabel(uint8_t l){
+	gpio_set_pin_level(LED0,false);
+	index=GetIndexTXLabelarray(l,LabelsArrayTX);
+	uint8_t localBuffer[4];
+	//	memcpy(localBuffer,LabelsArrayTX,4);
+	memcpy(localBuffer,transmitBuffer[index],4);
+	//	Uint32FourBytesArray(0x1234561d,localBuffer);
+	//	PrepareSingleTXBuffer(TXBuffer,LabelsArrayTX);
+//	usb.println(" transmitting...");
+	cpu_irq_disable();
+	HI3593.TransmitCommandAndData(TXFIFO,localBuffer);
+	cpu_irq_enable();
+	//usb.println(" Transmitted!");
+//	usb.println(">");
+	//printARINCTXData(TXBuffer);
+	txTimeout=false;
+	gpio_set_pin_level(LED0,true);
+	return l;
+}
+
+void	ARINC_Interface::TransmitTXBuffer(void){
+	uint8_t i,l;
+	for (i = 0; i <MESSAGECOUNTMAX ; i++)
+	{
+		if (LabelsArrayTX[i]>0)
+		{
+			l=LabelsArrayTX[i];
+			TrasmitSingleLabel(l);
+		}
+	}
 }
 
 void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
@@ -328,9 +361,9 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 	while(gpio_get_pin_level(SW0));
 	while(!gpio_get_pin_level(SW0));
 	delay_ms(K_1SEC);              // blink for 1 sec
-	//g_ledFlashBool=OFF;
+	//g_ledFlashBool=ARINC_OFF;
 	gpio_set_pin_level(LED0,false);
-	//LED_CTL(LED_7,OFF);     // Turn off LED-7. Will use for PL-3 indication
+	//LED_CTL(LED_7,ARINC_OFF);     // Turn off LED-7. Will use for PL-3 indication
 	
 	usb.println("\n\rTransmitting\n\r>");
 	arincTimer.start();
@@ -505,7 +538,7 @@ void ARINC_Interface::CommandStatus(){
 	Arate,    // Arinc speed and if Parity is enabled by the switch
 	TFLIP ))
 	{
-		//LED_CTL(LED_8,ON);              // turn on RED LED if failed
+		//LED_CTL(LED_8,ARINC_ON);              // turn on RED LED if failed
 		usb.println("\n\rHI-3593 failed to initilize\n\r");
 		for(;;);
 	}
@@ -558,9 +591,9 @@ void ARINC_Interface::CommandStatus(){
 	while(gpio_get_pin_level(SW0));
 	while(!gpio_get_pin_level(SW0));
 	delay_ms(K_1SEC);              // blink for 1 sec
-	//g_ledFlashBool=OFF;
+	//g_ledFlashBool=ARINC_OFF;
 	gpio_set_pin_level(LED0,false);
-	//LED_CTL(LED_7,OFF);     // Turn off LED-7. Will use for PL-3 indication
+	//LED_CTL(LED_7,ARINC_OFF);     // Turn off LED-7. Will use for PL-3 indication
 	
 	usb.println("\n\rTransmitting\n\r>");
 	arincTimer.start();
@@ -846,9 +879,9 @@ bool   ARINC_Interface::ConsoleCommands(char ch)
 		{
 			TCRTemp ^= 4;                 // Toggle the TX parity bit
 			if(TCRTemp & 4)
-			usb.println("TX Parity ON\n\r>");
+			usb.println("TX Parity ARINC_ON\n\r>");
 			else
-			usb.println("TX Parity OFF\n\r>");
+			usb.println("TX Parity ARINC_OFF\n\r>");
 			HI3593.W_CommandValue(TCR, TCRTemp);
 		}
 
@@ -1008,7 +1041,7 @@ void	ARINC_Interface::FetchAllMessagesReceiver2(void){
 		if(Status_F & (PL1<<(ii)))
 		{
 			cpu_irq_disable();
-			HI3593.ArincRead(RXFIFO_2L1+(4*i),RXBufferPL2 );
+			HI3593.ArincRead(RXFIFO_2L1+(4*ii),RXBufferPL2 );
 			(void)memcpy(receiverBuffer2[MessageCount2],RXBufferPL2,g_RXBuffSize);  // copy frame to large array for safe keeping
 			cpu_irq_enable();
 			RollMessageCount(2);
@@ -1022,9 +1055,9 @@ void ARINC_Interface::FetchAllMessagesAndDisplay(unsigned char *RXBuff,unsigned 
 {
 	
 	
-	//LED_CTL(LED_5,OFF);     // Turn off PL-1 LED
-//	LED_CTL(LED_6,OFF);     // Turn off PL-2 LED
-//	LED_CTL(LED_7,OFF);     // Turn off PL-3 LED
+	//LED_CTL(LED_5,ARINC_OFF);     // Turn off PL-1 LED
+//	LED_CTL(LED_6,ARINC_OFF);     // Turn off PL-2 LED
+//	LED_CTL(LED_7,ARINC_OFF);     // Turn off PL-3 LED
 	
 	// Recever -1
 	cpu_irq_disable();
@@ -1044,7 +1077,7 @@ void ARINC_Interface::FetchAllMessagesAndDisplay(unsigned char *RXBuff,unsigned 
 	// Receiver1 Priority Labels
 	if(Status_F & PL1)
 	{
-		//LED_CTL(LED_5,ON);               // Turn on LED5 for PL1
+		//LED_CTL(LED_5,ARINC_ON);               // Turn on LED5 for PL1
 		cpu_irq_disable();
 		HI3593.ArincRead(RXFIFO_1L1,RXBuffPL );
 		(void)memcpy(receiverBuffer[MessageCount],RXBuffPL,g_RXBuffSize);  // copy frame to large array for safe keeping
@@ -1056,7 +1089,7 @@ void ARINC_Interface::FetchAllMessagesAndDisplay(unsigned char *RXBuff,unsigned 
 	// Receiver1 Priority Label 2
 	if(Status_F & PL2)
 	{
-		//LED_CTL(LED_6,ON);               // Turn on LED6 for PL2
+		//LED_CTL(LED_6,ARINC_ON);               // Turn on LED6 for PL2
 		cpu_irq_disable();
 		HI3593.ArincRead(RXFIFO_1L2,RXBuffPL );
 		(void)memcpy(receiverBuffer[MessageCount],RXBuffPL,g_RXBuffSize);  // copy frame to large array for safe keeping
@@ -1067,7 +1100,7 @@ void ARINC_Interface::FetchAllMessagesAndDisplay(unsigned char *RXBuff,unsigned 
 	// Receiver1 Priority Label 3
 	if(Status_F & PL3)
 	{
-		//LED_CTL(LED_7,ON);               // Turn on LED7 for PL3
+		//LED_CTL(LED_7,ARINC_ON);               // Turn on LED7 for PL3
 		cpu_irq_disable();
 		HI3593.ArincRead(RXFIFO_1L3,RXBuffPL );
 		(void)memcpy(receiverBuffer[MessageCount],RXBuffPL,g_RXBuffSize);  // copy frame to large array for safe keeping
@@ -1093,7 +1126,7 @@ void ARINC_Interface::FetchAllMessagesAndDisplay(unsigned char *RXBuff,unsigned 
 	// Receiver2 Priority Label 1
 	if(Status_F & PL1)
 	{
-		//LED_CTL(LED_5,ON);               // Turn on LED5 for PL1
+		//LED_CTL(LED_5,ARINC_ON);               // Turn on LED5 for PL1
 		cpu_irq_disable();
 		HI3593.ArincRead(RXFIFO_2L1,RXBuffPL );
 		(void)memcpy(receiverBuffer[MessageCount],RXBuffPL,g_RXBuffSize);  // copy frame to large array for safe keeping
@@ -1104,7 +1137,7 @@ void ARINC_Interface::FetchAllMessagesAndDisplay(unsigned char *RXBuff,unsigned 
 	// Receiver2 Priority Label 2
 	if(Status_F & PL2)
 	{
-		//LED_CTL(LED_6,ON);               // Turn on LED6 for PL2
+		//LED_CTL(LED_6,ARINC_ON);               // Turn on LED6 for PL2
 		cpu_irq_disable();
 		HI3593.ArincRead(RXFIFO_2L2,RXBuffPL );
 		(void)memcpy(receiverBuffer[MessageCount],RXBuffPL,g_RXBuffSize);  // copy frame to large array for safe keeping
@@ -1115,7 +1148,7 @@ void ARINC_Interface::FetchAllMessagesAndDisplay(unsigned char *RXBuff,unsigned 
 	// Receiver2 Priority Label 3
 	if(Status_F & PL3)
 	{                                // Turn on LED7 for PL3
-		//LED_CTL(LED_7,ON);
+		//LED_CTL(LED_7,ARINC_ON);
 		cpu_irq_disable();
 		HI3593.ArincRead(RXFIFO_2L3,RXBuffPL );
 		(void)memcpy(receiverBuffer[MessageCount],RXBuffPL,g_RXBuffSize);  // copy frame to large array for safe keeping

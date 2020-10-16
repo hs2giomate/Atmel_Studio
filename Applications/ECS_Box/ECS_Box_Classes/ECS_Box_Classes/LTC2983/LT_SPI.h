@@ -10,7 +10,7 @@
 #define __LT_SPI_H__
 #include <stdint.h>
 //#include "driver_init.h"
-#include "SPI_Asyn_Class.h"
+#include "SPI_Syn_Class.h"
 
 class LT_SPI
 {
@@ -18,17 +18,20 @@ class LT_SPI
 public:
 	
 	volatile	bool	ready;
+	 SPI_Syn_Class	*spiTemp;
+	  uint8_t	*txLiteBuffer;
+	  uint8_t	*rxLiteBuffer;
 protected:
 private:
-	spi_m_async_descriptor *SPIA;
-	 SPI_Asyn_Class	*spiTemp;
+	spi_m_sync_descriptor *SPIA;
+	
 
 //functions
 public:
 	LT_SPI();
 	~LT_SPI();
 	void init(void);
-	void	set_descriptor(spi_m_async_descriptor *);
+	void	set_descriptor(spi_m_sync_descriptor *);
 	uint8_t	transfer(uint8_t data);
 	void spi_transfer_byte(uint32_t cs_pin,      //!< Chip select pin
 	uint8_t tx,          //!< Byte to be transmitted
@@ -74,6 +77,8 @@ protected:
 private:
 	LT_SPI( const LT_SPI &c );
 	LT_SPI& operator=( const LT_SPI &c );
+	 void Open(uint32_t cs_pin);
+	  void Close(uint32_t cs_pin);
 
 }; //LT_SPI
 

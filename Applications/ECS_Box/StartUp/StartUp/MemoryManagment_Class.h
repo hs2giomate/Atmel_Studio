@@ -14,13 +14,13 @@
 #include "PersistenceServices.h"
 #include "States_Class.h"
 #include "DataLoger_Class.h"
-#include "MemoryStruct_Class.h"
+#include "FlashHandler_Class.h"
 #include "FastStorage_Class.h"
 
 
 
 
-class MemoryManagment_Class: public DataLoger_Class, public PersistenceServices,public FastStorage_Class,public MemoryStruct_Class
+class MemoryManagment_Class: public DataLoger_Class, public PersistenceServices,public FastStorage_Class,public FlashHandler_Class
 {
 //variables
 public:
@@ -39,7 +39,7 @@ private:
 	volatile uint32_t index;
 	MemoryFlashStruct		header;
 	uint32_t	crc32;
-	uint8_t	flashBuffer[QSPI_ERBLK];
+	uint8_t	*flashBuffer;
 	
 //functions
 public:
@@ -70,7 +70,6 @@ private:
 	bool	AddressCheck(uint32_t _addr, uint32_t size);
 		
 }; //MemoryManagment_Class
-
 extern	MemoryManagment_Class	memory;
 
 #endif //__MEMORYMANAGMENT_CLASS_H__

@@ -19,17 +19,19 @@ class TemperatureSensors_Class: private LTC2983_Class
 //variables
 public:
 	volatile bool converterReady[NUMBER_LTC2983_MODULES];
-	volatile bool isOK;
+	volatile bool isOK, converterTimeout;
 	 float	values[NUMBER_LTC2983_MODULES][NUMBER_TEMPERATURE_CHANNELS];
 	 uint8_t faultData;
-	 	float lastValue;
+	 float lastValue;
+		
 protected:
 private:
+	LT_SPI	*spiLite;
 	LTC2983_Class	module[NUMBER_LTC2983_MODULES];
 	uint32_t		csPins[NUMBER_LTC2983_MODULES];
 	spi_m_async_descriptor *SPIA;
-	LT_SPI	spiLT;
-	uint8_t i,j,k,currentModule,currentChannel;
+	
+	uint8_t i,j,k,currentModule,currentChannelIndex;
 
 
 //functions
@@ -51,4 +53,5 @@ private:
 
 }; //TemperatureSensors_Class
 extern TemperatureSensors_Class temperatures;
+/*static TemperatureSensors_Class temperatures(&SPI_TEMP);*/
 #endif //__TEMPERATURESENSORS_CLASS_H__

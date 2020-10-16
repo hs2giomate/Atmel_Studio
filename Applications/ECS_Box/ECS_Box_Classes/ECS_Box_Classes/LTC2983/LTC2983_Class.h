@@ -20,7 +20,7 @@
 //#define CHIP_SELECT CS_SPI_LTC  // Chip select pin
 #define NUMBER_TEMPERATURE_CHANNELS	3
 #define TEMPERATURE_MEASSURE_TIMEOUT	1000
-
+#define	LTC2983_SPI_BUFFER_SIZE		7
 
 
 
@@ -35,9 +35,11 @@ public:
 	uint8_t	channelOnProcess;
 	float	meassuredValues[NUMBER_TEMPERATURE_CHANNELS];
 	bool	isOK;
+	LT_SPI	*spiLT;
+	uint32_t output_data;
 protected:
 private:
-	LT_SPI	*spiLT;
+	uint8_t *tx, *rx;
 	Timer_Class	*auxTimer;
 	uint8_t process_finished,data,i,j,k;
 	

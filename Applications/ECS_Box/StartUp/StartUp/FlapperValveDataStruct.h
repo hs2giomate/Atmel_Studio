@@ -8,6 +8,7 @@
 
 #ifndef __FLAPPERVALVEDATASTRUCT_H__
 #define __FLAPPERVALVEDATASTRUCT_H__
+#include "compiler.h"
 struct CabinSwitch
 {
 	bool	_switch;
@@ -47,9 +48,14 @@ class FlapperValveDataStruct
 //variables
 public:
 	FVDataStruct	fvDataStruct;
+	ControlStatus FillControlStatus(uint8_t v);
+	StatusInputs FillStatusInputs(uint8_t v);
+	
 protected:
 private:
-
+	uint8_t	i,j,k;
+	ControlStatus	controlStatus;
+	StatusInputs	statusInputs;
 //functions
 public:
 	FlapperValveDataStruct();
@@ -58,7 +64,8 @@ protected:
 private:
 	FlapperValveDataStruct( const FlapperValveDataStruct &c );
 	FlapperValveDataStruct& operator=( const FlapperValveDataStruct &c );
-
+	void FillLimitSwitch(uint8_t v);
+	void FillCabinSwitch(uint8_t v);
 }; //FlapperValveDataStruct
 
 #endif //__FLAPPERVALVEDATASTRUCT_H__

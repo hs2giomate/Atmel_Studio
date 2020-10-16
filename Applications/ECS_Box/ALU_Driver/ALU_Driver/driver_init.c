@@ -13,6 +13,7 @@
 
 struct crc_sync_descriptor   CRC_CALC;
 struct spi_m_sync_descriptor SPI_MEMORIES;
+struct spi_m_sync_descriptor SPI_TEMP;
 struct spi_m_sync_descriptor SPI_HI3593;
 struct timer_descriptor      TIMER_USB;
 struct timer_descriptor      TIMER_ARINC;
@@ -26,8 +27,6 @@ struct qspi_sync_descriptor QSPI_N25Q256;
 struct calendar_descriptor DATETIME_CLOCK;
 
 struct i2c_m_sync_desc I2C_SHARED;
-
-struct spi_m_async_descriptor SPI_TEMP;
 
 struct i2c_m_async_desc I2C_EXPANDER;
 
@@ -543,7 +542,7 @@ void SPI_TEMP_CLOCK_init(void)
 void SPI_TEMP_init(void)
 {
 	SPI_TEMP_CLOCK_init();
-	spi_m_async_init(&SPI_TEMP, SERCOM4);
+	spi_m_sync_init(&SPI_TEMP, SERCOM4);
 	SPI_TEMP_PORT_init();
 }
 

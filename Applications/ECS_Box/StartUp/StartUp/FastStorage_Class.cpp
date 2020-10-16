@@ -39,6 +39,13 @@ uint32_t	FastStorage_Class::ReadFastApplicationState(HVACState& hs){
 	r=eeprom.ReadAddress((uint8_t*)handlerAppState,eepromAddress,sizeof(HVACState));
 	return	r;
 }
+uint32_t	FastStorage_Class::ReadFastParameters(UserParameters& up){
+	uint32_t	crc,add32,r;
+	add32=(uint32_t)&eepromMap->parameters;
+	eepromAddress=(uint16_t)(0xffff&add32);
+	r=eeprom.ReadAddress((uint8_t*)&up,eepromAddress,sizeof(UserParameters));
+	return	r;
+}
 uint32_t	FastStorage_Class::GetTimeLogs(calendar_date_time& cdt){
 	uint32_t	add32=(uint32_t)&eepromMap->timeLogs[0];
 	eepromAddress=(uint16_t)(0xffff&add32);
@@ -62,5 +69,19 @@ uint32_t	FastStorage_Class::WriteFastAppState(HVACState& hs,uint32_t add){
 uint32_t	FastStorage_Class::WriteFastCRCAppState(uint32_t crc){
 	uint16_t	add=(uint32_t)&eepromMap->crcAppState;
 	uint32_t	w=eeprom.WriteAddress((uint8_t*)(&crc),(uint16_t)add,sizeof(uint32_t));
+	return	w;
+}
+
+uint32_t	FastStorage_Class::WriteFastParameters(UserParameters& up){
+	uint32_t	add32=(uint32_t)&eepromMap->parameters;
+	uint8_t		add8=(uint8_t)(0xff&&add32);
+	uint32_t	w=eeprom.WriteAddress((uint8_t*)(&up),add8,sizeof(UserParameters));
+	return	w;
+}
+uint32_t	FastStorage_Class::WriteFastDefaultParameters(void){
+	UserParameters up=defaultParameters;
+	uint32_t	add32=(uint32_t)&eepromMap->parameters;
+	uint8_t		add8=(uint8_t)(0xff&&add32);
+	uint32_t	w=eeprom.WriteAddress((uint8_t*)(&up),add8,sizeof(UserParameters));
 	return	w;
 }

@@ -118,12 +118,12 @@ unsigned char LabelPriority2 [3];
  }
  
  void Holt_3593_Class::open(){
-	 	spi.enable();
+	 	spi.Enable();
 		 SS_Low();
  }
   void Holt_3593_Class::close(){
 	    SS_High();
-	  spi.disable();
+	  spi.Disable();
 	
   }
  
@@ -137,7 +137,7 @@ unsigned char Holt_3593_Class::txrx8bits_8(unsigned char txbyte, unsigned char r
   Send_Byte(p)    ;   // write Data Register to begin transfer  
 	  
   if (return_when_done) {  // optional wait for SPIF flag
-    while (!spi.isSPIReady());     
+    while (!spi.IsSPIReady());     
   }
   return rxbyte = txbyte;
   
@@ -190,9 +190,9 @@ unsigned char Holt_3593_Class::FlipByte(unsigned char byte){
 
 uint8_t Holt_3593_Class::Send_Byte(uint8_t byte)
 {
-	while (!spi.isSPIReady()); 
-	spi.write(&byte,1);
-	while (!spi.isSPIReady());  
+	while (!spi.IsSPIReady()); 
+	spi.Write(&byte,1);
+	while (!spi.IsSPIReady());  
 	return byte;
 }
 
@@ -200,9 +200,9 @@ uint8_t Holt_3593_Class::Get_Byte(void)
 {
 	uint8_t byte;
 	
-	while (!spi.isSPIReady());
-	spi.read(&byte,1);
-	while (!spi.isSPIReady());
+	while (!spi.IsSPIReady());
+	spi.Read(&byte,1);
+	while (!spi.IsSPIReady());
 
 
 	
@@ -250,7 +250,7 @@ void Holt_3593_Class::MultiByteRead(uint8_t ReadCommand, uint8_t count, unsigned
    //dummy = Get_Byte();                  // clear SPI status register    
    Send_Byte(ReadCommand);
      
-   while (!spi.isSPIReady());            // wait for SPIF flag assertion    
+   while (!spi.IsSPIReady());            // wait for SPIF flag assertion    
   // dummy = Get_Byte();                  // read/ignore Rx data in Data Reg, resets SPIF                    
    for (ByteCount=0; ByteCount < count; ByteCount++) {
       dummy =Get_Byte(); 
@@ -319,7 +319,7 @@ unsigned char Holt_3593_Class::txrx8bits (unsigned char txbyte, unsigned char re
 	Send_Byte(p);        // write Data Register to begin transfer   
 	//rxbyte = Get_Byte(); 
 	if (return_when_done) {  // optional wait for SPIF flag
-		while (!spi.isSPIReady());      
+		while (!spi.IsSPIReady());      
     }
 
   rxbyte = txbyte;  // get received data byte from Data Register
@@ -365,7 +365,7 @@ void Holt_3593_Class::W_Command (char cmd) {
   //dummy = Get_Byte();               // clear SPI status register    
  
   Send_Byte(p);             // Test Mode SPI Instruction - MASTER RESET CMD 
-  while (!spi.isSPIReady()) {;}      // Wait for data to come back in.
+  while (!spi.IsSPIReady()) {;}      // Wait for data to come back in.
   //dummy = char(Get_Byte());               // read Rx data in Data Reg to reset SPIF 
   close();
 }
@@ -379,11 +379,11 @@ void Holt_3593_Class::W_CommandValue (uint8_t cmd, uint8_t value){
   open();                             // assert the SPI0 /SS strobe
  // dummy = Get_Byte();                           // clear SPI status register    
   Send_Byte(cmd);                             // SPI  command 
-  while (!spi.isSPIReady());    
+  while (!spi.IsSPIReady());    
  // dummy = Get_Byte();                           // read Rx data in Data Reg to reset SPIF
                          // clear SPI status register    
   Send_Byte(value);                           // Reset values     
-  while (!spi.isSPIReady());    
+  while (!spi.IsSPIReady());    
  // dummy = Get_Byte();                           // read Rx data in Data Reg to reset SPIF
 
   close();

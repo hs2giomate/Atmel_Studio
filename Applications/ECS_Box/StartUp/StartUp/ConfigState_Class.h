@@ -13,22 +13,51 @@
 #include "GAINDefinitions.h"
 #include "hpl_calendar.h"
 
+struct StatusBits
+{
+	bool	ventilationFan1;
+	bool	ventilationFan2;
+	bool	scanvengerFan1;
+	bool	flapValve1;
+	bool	flapValve2;
+	bool	heater1;
+	bool	heater2;
+	bool	compressor;
+	bool	condesator;
+};
+
+enum StatusHVACARINC
+{
+	OFF=0,
+	VENT,
+	AUTO,
+	BACKUP,
+};
+
+enum StatusFlapperValve
+{
+	FRESHAIR=0,
+	INTERM,
+	RECYCLE,
+	NBC,
+};
+
+
 typedef struct
 {
-	struct{
-		uint32_t	ventilationFan1:1;
-		uint32_t	ventilationFan2:1;
-		uint32_t	scanvengerFan1:1;
-		uint32_t	flapValve1:1;
-		uint32_t	flapValve2:1;
-		uint32_t	heater1:1;
-		uint32_t	heater2:1;
-		uint32_t	compressor:1;
-		uint32_t	condesator:1;
-	
-	}statusBits;
+	StatusBits	statusBits;
 	uint32_t	rawStatus;
 }HVACStatus;
+struct AcknoledgeStatus
+{
+	StatusHVACARINC	statusArinc;
+	bool	AC_CMD:1;
+	bool	PLT_AUTO_FAN:1;
+	bool	CPG_AUTO_FAN:1;
+	StatusFlapperValve statusFV;
+	bool	DEFOG:1;
+		
+};
 
 typedef struct
 	{
@@ -65,7 +94,9 @@ enum
 	kGAINSMPSTemperatureInRange,
 	};
 
-#pragma pack (4)		
+#pragma pack (4)	
+
+	
 struct HVACState
 	{
 	uint32_t	magic;
@@ -73,10 +104,11 @@ struct HVACState
 	calendar_date_time	dateTime;
 
 	int			build;
-	HVACStatus	status;
+	HVACStatus	hvacStatus;
+	AcknoledgeStatus	arincStatus;
 
 
-
+	uint32_t	lastState;
 	uint32_t	currentState;
 	uint32_t	callingState;			//State where system came from
 	uint32_t	internalCateringState;
@@ -137,7 +169,7 @@ public:
 protected:
 private:
 	ConfigurationData	configuration,defaultsConfiguration;
-	HVACState	lastState,currentState;
+	HVACState	lastHVACState,currentHVACState;
 	uint8_t	i,j,k;
 	
 
@@ -151,6 +183,7 @@ public:
 		uint32_t		GetInitialStatus(HVACStatus& st);
 		void			PrintState(void);
 		void			SetDefaultState(void);
+		uint32_t		ConvertStatusArincLabel(void);
 protected:
 	
 private:
@@ -159,5 +192,7 @@ private:
 	
 
 }; //ConfigState_Class
+
+extern const HVACState  defaultHVACState;
 
 #endif //__CONFIGSTATE_CLASS_H__

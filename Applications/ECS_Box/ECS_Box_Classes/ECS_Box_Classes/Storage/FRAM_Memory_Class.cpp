@@ -175,7 +175,7 @@ uint32_t FRAM_Memory_Class::coreCalculateCRC32(const void *buffer, uint32_t size
 
 void FRAM_Memory_Class::FramOpen(void)
 {
-	spi.enable();
+	spi.Enable();
 	
 	
 }
@@ -194,7 +194,7 @@ uint8_t FRAM_Memory_Class::ReadFRAM(void* dest, uint32_t src, uint32_t size)
 	//Send_Byte(((src & 0xFFFFFF) >> 16));
 	Send_Byte(((src & 0xFFFF) >> 8));
 	Send_Byte(src & 0xFF);
-	spi.read((uint8_t *)dest, (uint16_t)size);
+	spi.Read((uint8_t *)dest, (uint16_t)size);
 	CE_High_FRAM();
 	return (uint8_t)src;
 }
@@ -226,14 +226,14 @@ void FRAM_Memory_Class::CE_High_FRAM(void)
 uint8_t FRAM_Memory_Class::Send_Byte(uint8_t byte)
 {
 	
-	spi.write(&byte,1);
+	spi.Write(&byte,1);
 	return byte;
 }
 
 uint8_t FRAM_Memory_Class::Get_Byte(void)
 {
 	uint8_t byte;
-	spi.read(&byte,1);
+	spi.Read(&byte,1);
 	
 	return byte;
 }
@@ -303,7 +303,7 @@ uint8_t  FRAM_Memory_Class::WriteStatusRegister(uint8_t byte){
 	}
 void FRAM_Memory_Class::FramClose(void){
 	
-		spi.disable();
+		spi.Disable();
 	}
 
 uint32_t	FRAM_Memory_Class::WriteAddress(uint8_t *p,uint16_t addr, uint32_t size){
@@ -323,7 +323,7 @@ uint32_t	FRAM_Memory_Class::WriteAddress(uint8_t *p,uint16_t addr, uint32_t size
 	}
 
 
-	w=spi.write(&localBuffer[0],size+FRAM_HEADER_SIZE);
+	w=spi.Write(&localBuffer[0],size+FRAM_HEADER_SIZE);
 
 	CE_High_FRAM();
 	WRDI();
@@ -339,8 +339,8 @@ uint32_t	FRAM_Memory_Class::ReadAddress(uint8_t *p,uint16_t addr, uint32_t size)
 	instruction[1]=(uint8_t)((addr & 0xFFFF) >> 8);
 	instruction[2]=(uint8_t)(addr&0xFF);
 	
-	uint32_t	r=spi.write(instruction,FRAM_HEADER_SIZE);
-	r=spi.read(p,size);
+	uint32_t	r=spi.Write(instruction,FRAM_HEADER_SIZE);
+	r=spi.Read(p,size);
 	CE_High_FRAM();
 	FramClose();
 	

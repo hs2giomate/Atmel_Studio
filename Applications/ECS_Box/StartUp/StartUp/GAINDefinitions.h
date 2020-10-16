@@ -28,27 +28,30 @@ extern const char* gainStateDescription[];
 /*@{*/
 /** Constants for GAIN internal states
 */
-enum
+enum HVACStatesEnum
 	{
-	kGAINStateReset,
-	kGAINStateInitialize,
-	kGAINStateResume,
-	kGAINStateStandbyOFF,
-	kGAINStatePrepareStandbyON,
-	kGAINStateStandbyON,
-	kGAINStateStandbyReady,
+	kHVACStateStart=300,
+	kHVACStateReset,
+	kHVACStateInitialize,
+	kHVACStateResume,
+
+	kHVACStateStandbyOFF,
+	kHVACStatePrepareStandbyON,
+	kHVACStateStandbyON,
+	kHVACStateStandbyReady,
 	kGAINStateDelayed,
-	kGAINStateInterrupted,
-	kGAINStateON,
-	kGAINStateStoppedProcess,
+	kHVACStateInterrupted,
+	kHVACStateON,
+	kHVACStateStoppedProcess,
 	kGAINStateCleanup,
-	kGAINStateFinished,
+	kHVACStateFinished,
 	kGAINStateKeepHot,
-	kGAINStateSelfProtect,
-	kGAINStateError,
-	kGAINStateMaintenance,		//!< This state allows Maintenance tool to update configuration values or to set them to default.
+	kHVACStateSelfProtect,
+	kHVACStateError,
+	kHVACStateMaintenance,		//!< This state allows Maintenance tool to update configuration values or to set them to default.
 	kGAINStateHMIUpdate,
 	kGAINStateFirmwareUpdate,
+	kHVACStateLeaving,
 	kGAINStateCount
 	};
 /*@}*/
@@ -201,17 +204,14 @@ enum
 #endif
 
 
-enum
-	{
-	kGAINEventClass = 0x200
-	};
 
 /*
 	Constants for Generic GAIN event class types
 */	
 enum
 	{
-	kGAINSwitchStateEvent = 0x200,
+	kHVACSwitchStateEvent = 0x200,
+	
 	kGAINTimerEvent,
 	kGAINResetEvent,
 	kGAINUpdateFirmwareEvent,
@@ -228,6 +228,7 @@ enum
 	kGAINAmbientTemperatureSensorLost,
 	kGAINControllerTemperatureOutOfRange,
 	kGAINControllerTemperatureInRange,
+
 	};
 
 
@@ -285,9 +286,9 @@ typedef struct
 */
 enum
 	{
-	kGAINNoError = 0,
+	kHVACNoError = 0,
 	kGAINGenericError,
-	kGAINErrorIllegalStateTransition,
+	kHVACErrorIllegalStateTransition,
 	kGAINErrorPinProgramming,
 
 	kGAINErrorSafetyRelayFailure,

@@ -64,11 +64,11 @@ class AT24MAC_Class
 //variables
 public:
 	volatile bool isReady;
-	I2C_Asyn_Class	i2ca;
+	
 protected:
 private:
 	i2c_m_async_desc *ptrI2CDescr;
-	
+	I2C_Asyn_Class	*i2ca;
 	
 	uint8_t		i2c_addr;
 	uint8_t		byte;

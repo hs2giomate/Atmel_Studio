@@ -7,8 +7,10 @@
 
 
 #include "I2C_Asyn_Class.h"
-#include "MCP23017_Class.h"
+//#include "MCP23017_Class.h"
 
+static	uint8_t	txStaticBuffer[I2C_ASYN_BUFFER_SIZE];
+static	uint8_t	rxStaticBuffer[I2C_ASYN_BUFFER_SIZE];
 
 
 I2C_Asyn_Class	*ptrI2C_Asyn_Class;
@@ -71,7 +73,8 @@ void	I2C_Asyn_Class::Set_descriptor(i2c_m_async_desc * i2c_a){
 }
 
 bool	I2C_Asyn_Class::Init(void){
-	
+	txBuffer=txStaticBuffer;
+	rxBuffer=txStaticBuffer;
 
 	i2c_m_async_get_io_descriptor(ptrI2CAsynDescr, &I2C_io);
   	uint8_t	ena=(uint8_t)i2c_m_async_enable(ptrI2CAsynDescr);

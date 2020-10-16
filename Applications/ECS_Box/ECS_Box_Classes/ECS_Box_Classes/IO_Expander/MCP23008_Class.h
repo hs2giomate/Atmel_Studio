@@ -47,6 +47,8 @@ protected:
 private:
 	uint8_t	i2cAddress;
 	I2C_Asyn_Class* i2cClass;
+	 uint8_t	*txBuffer;
+	 uint8_t	*rxBuffer;
 //functions
 public:
 	MCP23008_Class();

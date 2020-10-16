@@ -32,8 +32,7 @@ extern "C" {
 #include <hal_spi_m_sync.h>
 
 #include <hal_i2c_m_sync.h>
-
-#include <hal_spi_m_async.h>
+#include <hal_spi_m_sync.h>
 
 #include <hal_i2c_m_async.h>
 #include <hal_spi_m_sync.h>
@@ -68,9 +67,8 @@ extern struct qspi_sync_descriptor QSPI_N25Q256;
 extern struct calendar_descriptor   DATETIME_CLOCK;
 extern struct spi_m_sync_descriptor SPI_MEMORIES;
 
-extern struct i2c_m_sync_desc I2C_SHARED;
-
-extern struct spi_m_async_descriptor SPI_TEMP;
+extern struct i2c_m_sync_desc       I2C_SHARED;
+extern struct spi_m_sync_descriptor SPI_TEMP;
 
 extern struct i2c_m_async_desc      I2C_EXPANDER;
 extern struct spi_m_sync_descriptor SPI_HI3593;
