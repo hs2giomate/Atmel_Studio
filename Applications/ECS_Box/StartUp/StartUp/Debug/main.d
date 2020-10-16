@@ -195,9 +195,6 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
@@ -284,10 +281,9 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Asyn_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Interface.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Holt_3593_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Conversions.h \
@@ -717,12 +713,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
@@ -895,13 +885,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Asyn_Class.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Interface.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Holt_3593_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
 

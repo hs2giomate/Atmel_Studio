@@ -29,7 +29,7 @@ private:
 	LT_SPI	*spiLite;
 	LTC2983_Class	module[NUMBER_LTC2983_MODULES];
 	uint32_t		csPins[NUMBER_LTC2983_MODULES];
-	spi_m_async_descriptor *SPIA;
+	spi_m_sync_descriptor *SPIA;
 	
 	uint8_t i,j,k,currentModule,currentChannelIndex;
 
@@ -38,7 +38,7 @@ private:
 public:
 	TemperatureSensors_Class();
 	~TemperatureSensors_Class();
-	TemperatureSensors_Class(spi_m_async_descriptor *SPI_LTC);
+	TemperatureSensors_Class(spi_m_sync_descriptor *SPI_LTC);
 	bool	Init(void);
 	float GetConversionResult(void);
 	void	StartOneConversion(void);

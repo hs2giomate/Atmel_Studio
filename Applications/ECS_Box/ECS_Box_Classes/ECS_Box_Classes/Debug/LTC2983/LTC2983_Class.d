@@ -195,9 +195,6 @@ LTC2983/LTC2983_Class.d LTC2983/LTC2983_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
@@ -218,7 +215,7 @@ LTC2983/LTC2983_Class.d LTC2983/LTC2983_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
  ../Timers/Timer_Class.h ../LTC2983/LTC2983_configuration_constants.h \
  ../LTC2983/LTC2983_table_coeffs.h ../LTC2983/LT_SPI.h \
- ../SPI/SPI_Asyn_Class.h ../USBSerial/CDC_Class.h \
+ ../SPI/SPI_Syn_Class.h ../USBSerial/CDC_Class.h \
  ../../../ALU_Driver/ALU_Driver/usb_start.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
  ../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h \
@@ -662,12 +659,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
@@ -712,7 +703,7 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../LTC2983/LT_SPI.h:
 
-../SPI/SPI_Asyn_Class.h:
+../SPI/SPI_Syn_Class.h:
 
 ../USBSerial/CDC_Class.h:
 

@@ -134,6 +134,8 @@ bool	ARINC_Interface::isThereNewMessage(){
 uint32_t ARINC_Interface::ReadRXBuffer(uint8_t n){
 	
 	usb.println("r\n---!got message!----");
+	uint8_t receiver[2*RX_LABELS_NUMBER][4];
+	uint8_t	messagesCounter=0;
 	cpu_irq_disable();
 	                     // Poll Receiver1 status register
 	
@@ -145,10 +147,11 @@ uint32_t ARINC_Interface::ReadRXBuffer(uint8_t n){
 				
 			HI3593.ArincRead(RXFIFO_1+(n-1)*0x20,RXBuffer );
 				
-			memcpy(receiverBuffer[MessageCount],RXBuffer,g_RXBuffSize);  // copy frame to large array for safe keeping
+			memcpy(receiver[messagesCounter],RXBuffer,g_RXBuffSize);  // copy frame to large array for safe keeping
 				
 			//		printARINCData(REC1_HEADER,RXBuffer);
-			CheckMessageCountMax();
+		//	CheckMessageCountMax();
+			messagesCounter++;
 				
 		}else{
 			break;
@@ -165,7 +168,10 @@ uint32_t ARINC_Interface::ReadRXBuffer(uint8_t n){
 		{
 			newMessageR2=false;
 		}
-
+	for (uint8_t i = 0; i < messagesCounter; i++)
+	{
+		SortReceivedData(receiver[i]);
+	}
 	
 	return statusRegister;	
 }

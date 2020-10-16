@@ -138,8 +138,13 @@ bool	Interfaces_Class::CheckTemperatures(void){
 		temperatures.GetConversionResult();
 		if (temperatures.faultData==VALID_TEMPERATURE)
 		{
+			if (lastTemperature!=temperatures.values[0][1])
+			{
+				lastTemperature=temperatures.values[0][1];
 				alu.PrepareNewTask(kALUTaskUpdateTemperatures);
 				result=true;
+			}
+				
 		}
 			temperatures.StartOneConversion();
 			asm("nop");

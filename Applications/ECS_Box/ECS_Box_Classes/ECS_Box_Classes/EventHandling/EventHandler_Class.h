@@ -46,10 +46,12 @@ public:
 	void SendEventSelf(EventClass eventClass, EventType eventType, const eventData& data = 0);
 	void SendErrorSelf(uint16_t, const eventData& data = 0 );
 	uint32_t CheckEvent(void);
+
 protected:
 private:
 	EventHandler_Class( const EventHandler_Class &c );
 	EventHandler_Class& operator=( const EventHandler_Class &c );
+	bool	IsEventListed(EventType eventType,EventClass eventClass=kAnyEventClass);
 
 }; //EventHandler_Class
 extern 	EventHandler_Class	listener;

@@ -44,8 +44,6 @@ LTC2983\TemperatureSensors_Class.cpp
 
 main.cpp
 
-SPI\SPI_Asyn_Class.cpp
-
 SPI\SPI_Syn_Class.cpp
 
 Storage\AT24MAC_Class.cpp

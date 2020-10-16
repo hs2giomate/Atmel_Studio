@@ -39,6 +39,8 @@ private:
 	uint32_t callingTask,currentTask,taskEntryTime;
 	ControllerTask	task;
 	bool allTasksDone;
+	uint32_t clk_rate;
+	uint32_t timeout_period;
 	
 //functions
 public:
@@ -48,7 +50,7 @@ public:
 	uint32_t RunController(void);
 	uint32_t Init(void);
 	uint8_t	GetSelectedAMMC(void);
-	int32_t	EnableWatchDog(uint32_t clk_rate  = 1000,uint32_t timeout_period = 4096);
+	int32_t	EnableWatchDog(void);
 	int32_t	FeedWatchDog(void);
 	bool	ValidateCyclus(void);
 	uint32_t SetInitialConfiguration(ConfigurationData& cd);
@@ -66,6 +68,7 @@ private:
 	bool	ExecutePendingTask(void);
 	void HandleTasks(ControllerTask& ct);
 	static void CheckPeriodicTask(void);
+	void	RunPeriodicTasks(void);
 	
 
 

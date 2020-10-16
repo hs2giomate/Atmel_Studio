@@ -46,8 +46,8 @@ void	ARINC_Buffer_Class::InitBuffer(void){
 
 void ARINC_Buffer_Class::SaveTemperature(void){
 	octalLabel=Label2Byte(COCKPITS_TEMPERATURE);
-	index=GetIndexTXLabelarray(FlipByte(octalLabel),LabelsArrayTX);
-	float temperature=temperatures.lastValue;
+	index=GetIndexTXLabelarray(octalLabel,LabelsArrayTX);
+	float temperature=temperatures.values[0][1];
 	data=MakeLabel374(FloatTwoComplement(temperature,15),temperature);
 	Uint32FourBytesArray(data,localArray);
 	memcpy(transmitBuffer[index],localArray,4);
@@ -59,4 +59,21 @@ void ARINC_Buffer_Class::SaveStatus(uint32_t st){
 	data=MakeLabel270(st);
 	Uint32FourBytesArray(data,localArray);
 	memcpy(transmitBuffer[index],localArray,4);
+}
+
+void ARINC_Buffer_Class::SortReceivedData(uint8_t* receiver){
+		uint8_t i,j,l;
+		for (i = 0; i <RX_LABELS_NUMBER ; i++)
+		{
+			if (LabelsArrayRX1[i]>0)
+			{
+			
+					if (receiver[3]==LabelsArrayRX1[i])
+					{
+						memcpy(receiverBuffer[i],receiver,4);
+					}
+			
+	
+			}
+		}
 }

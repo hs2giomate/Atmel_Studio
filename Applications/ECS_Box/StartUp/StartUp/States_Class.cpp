@@ -91,7 +91,7 @@ void States_Class::ControllerResume(uint8_t	operationMode){
 			listener.eventHandler=&States_Class::CheckEvents;
 			while ((cBit.IsOK())&&(!done))
 			{
-				if (listener.WaitForEvent(e, kHVACEventClass, kHVACSwitchStateEvent,2))
+				if (listener.WaitForEvent(e, kHVACEventClass, kHVACSwitchStateEvent,8))
 				{
 					handleHVACEvent(e);
 					if (hvacState->currentState==kHVACStateLeaving)
@@ -101,7 +101,7 @@ void States_Class::ControllerResume(uint8_t	operationMode){
 					} 
 						
 				}
-				else if (listener.WaitForEvent(e, kALUEventClass, kAnyEventType,1)){
+				else if (listener.WaitForEvent(e, kALUEventClass, kAnyEventType,4)){
 					alu.PrepareNewEvent(kALUEventCheckPheripherals);
 					done=true;
 				}
@@ -218,10 +218,16 @@ void States_Class::Start(uint8_t	operationMode)
 				else
 				{
 					
+					
 				}
 			
 			}
 			else{
+				if (listener.WaitForEvent(e, kALUEventClass, kHVACEventDoPendingTasks)){
+					alu.PrepareNewEvent(kALUEventSimpleStart);
+					done=true;
+					break;
+				}
 
 			}
 		}
@@ -458,20 +464,24 @@ void States_Class::StateStandbyOFF(uint32 flags)
 	hvacState->magnetronFanFailureDetectionTime = forever;
 	listener.eventHandler=&States_Class::CheckEvents;
 	while(!done){
-		gotAluEvent=listener.WaitForEvent(e, kALUEventClass, kAnyEventType,1);
+		gotAluEvent=listener.WaitForEvent(e, kALUEventClass, kAnyEventType,16);
 		if (!gotAluEvent)
 		{
-			gotHVACEvent=listener.WaitForEvent(e, kHVACEventClass, kAnyEventType,1);
-			done=gotHVACEvent;
+			gotHVACEvent=listener.WaitForEvent(e, kHVACEventClass, kAnyEventType,8);
+			if ((gotHVACEvent)|(e.eventType==kHVACEventDoPendingTasks))
+			{
+				done=gotHVACEvent;
+			}
+			
 		} 
 		else
 		{
-			prepareStateChangeEvent(kHVACStateLeaving);
+			
 			done=gotAluEvent;
 		}
 	}
 
-
+	prepareStateChangeEvent(kHVACStateLeaving);
 
 	}
 
@@ -701,7 +711,7 @@ void States_Class::CheckEvents(void){
 		
 	}
 	if ((hvac.hvacState->currentState==kHVACStateStandbyOFF)&&(alu.taskList->head)){
-	
+		e.eventClass=kHVACEventClass;
 		e.eventType=kHVACEventDoPendingTasks;
 		listener.SendEventSelf(e);
 

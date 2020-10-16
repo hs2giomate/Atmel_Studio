@@ -43,7 +43,7 @@ private:
 	Timer_Class	*auxTimer;
 	uint8_t process_finished,data,i,j,k;
 	
-	spi_m_async_descriptor *SPIA;
+	spi_m_sync_descriptor *SPIA;
 	
 	float	channelsRawData[NUMBER_TEMPERATURE_CHANNELS];
 	uint32_t raw_conversion_result,raw_data,chipSelect;
@@ -54,7 +54,7 @@ private:
 //functions
 public:
 	LTC2983_Class();
-	LTC2983_Class(spi_m_async_descriptor *);
+	LTC2983_Class(spi_m_sync_descriptor *);
 	~LTC2983_Class();
 	bool IsConverterDone();
 	bool	Init();

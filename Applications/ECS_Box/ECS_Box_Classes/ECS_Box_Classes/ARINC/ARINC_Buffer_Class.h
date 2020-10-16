@@ -38,6 +38,7 @@ public:
 	void SaveTemperature(void);
 	void InitBuffer(void);
 	void SaveStatus(uint32_t);
+	void SortReceivedData(uint8_t* receiver);
 protected:
 private:
 	ARINC_Buffer_Class( const ARINC_Buffer_Class &c );

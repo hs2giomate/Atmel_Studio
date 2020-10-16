@@ -97,7 +97,7 @@ uint8_t ARINC_Conversions::GetIndexTXLabelarray(uint8_t l, uint8_t* arr){
 	{
 		if (arr[ii]==l)
 		{
-			return i;
+			return ii;
 		}
 		
 	}

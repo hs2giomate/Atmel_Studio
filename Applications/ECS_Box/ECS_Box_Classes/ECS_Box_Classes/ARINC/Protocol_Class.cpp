@@ -7,7 +7,7 @@
 
 
 #include "Protocol_Class.h"
-
+#include "stdlib.h"
 
 // virtual destructor
 Protocol_Class::~Protocol_Class()
@@ -32,7 +32,7 @@ uint32_t Protocol_Class::GetDataField(uint32_t label){
 	return	data;
 }
 uint32_t Protocol_Class::MakeLabel374(uint32_t d,float v){
-	value=d<<10;
+	value=d<<12;
 	label=Label2Byte(374);
 	value|=(uint32_t)label;
 	if (v<0)
@@ -48,7 +48,7 @@ uint32_t Protocol_Class::MakeLabel270(uint32_t d){
 	value=d<<10;
 	label=Label2Byte(270);
 	value|=(uint32_t)label;
-	value|=(uint32_t)((FlipByte(0x1d)))<<19;
+	value|=(uint32_t)(((uint8_t)rand()))<<19;
 	value=MakeEvenParity(value);
 	return value;
 	

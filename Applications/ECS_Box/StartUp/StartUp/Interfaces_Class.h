@@ -47,6 +47,7 @@ private:
 	uint32_t result;
 	static CommunicationRequest request;
 	uint8_t	size,j,k;
+	float lastTemperature;
 		
 	
 //functions

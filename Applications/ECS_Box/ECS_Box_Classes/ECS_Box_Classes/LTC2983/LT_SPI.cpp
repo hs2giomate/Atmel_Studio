@@ -147,13 +147,19 @@ void LT_SPI::spi_transfer_block(uint32_t cs_pin, uint8_t *tx, uint8_t *rx, uint8
  void LT_SPI::Open(uint32_t cs_pin){
 	 __DMB();
 	 __disable_irq();
-	 spiTemp->Enable();
+
 	gpio_set_pin_level(cs_pin,false);
+	 delay_us(10);
+	spiTemp->Enable();
+	 delay_us(10);
  }
 
  void LT_SPI::Close(uint32_t cs_pin){
-	 gpio_set_pin_level(cs_pin,false);
+
+	  delay_us(10);
 	 spiTemp->Disable();
+	delay_us(10);
+	gpio_set_pin_level(cs_pin,true);
 	__DMB();
 	__enable_irq();
 	 

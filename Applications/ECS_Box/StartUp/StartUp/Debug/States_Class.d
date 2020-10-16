@@ -221,9 +221,6 @@ States_Class.d States_Class.o: .././States_Class.cpp .././States_Class.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
@@ -324,8 +321,7 @@ States_Class.d States_Class.o: .././States_Class.cpp .././States_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Asyn_Class.h
+ ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h
 
 .././States_Class.h:
 
@@ -777,12 +773,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
@@ -998,5 +988,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Asyn_Class.h:

@@ -73,7 +73,6 @@ C_SRCS +=  \
 ../LTC2983/LT_SPI.cpp \
 ../LTC2983/TemperatureSensors_Class.cpp \
 ../main.cpp \
-../SPI/SPI_Asyn_Class.cpp \
 ../SPI/SPI_Syn_Class.cpp \
 ../Storage/AT24MAC_Class.cpp \
 ../Storage/FlashMemoryClass.cpp \
@@ -119,7 +118,6 @@ LTC2983/LTC2983_Class.o \
 LTC2983/LT_SPI.o \
 LTC2983/TemperatureSensors_Class.o \
 main.o \
-SPI/SPI_Asyn_Class.o \
 SPI/SPI_Syn_Class.o \
 Storage/AT24MAC_Class.o \
 Storage/FlashMemoryClass.o \
@@ -158,7 +156,6 @@ LTC2983/LTC2983_Class.o \
 LTC2983/LT_SPI.o \
 LTC2983/TemperatureSensors_Class.o \
 main.o \
-SPI/SPI_Asyn_Class.o \
 SPI/SPI_Syn_Class.o \
 Storage/AT24MAC_Class.o \
 Storage/FlashMemoryClass.o \
@@ -197,7 +194,6 @@ LTC2983/LTC2983_Class.d \
 LTC2983/LT_SPI.d \
 LTC2983/TemperatureSensors_Class.d \
 main.d \
-SPI/SPI_Asyn_Class.d \
 SPI/SPI_Syn_Class.d \
 Storage/AT24MAC_Class.d \
 Storage/FlashMemoryClass.d \
@@ -236,7 +232,6 @@ LTC2983/LTC2983_Class.d \
 LTC2983/LT_SPI.d \
 LTC2983/TemperatureSensors_Class.d \
 main.d \
-SPI/SPI_Asyn_Class.d \
 SPI/SPI_Syn_Class.d \
 Storage/AT24MAC_Class.d \
 Storage/FlashMemoryClass.d \
@@ -411,13 +406,6 @@ LTC2983/TemperatureSensors_Class.o: ../LTC2983/TemperatureSensors_Class.cpp
 	
 
 ./main.o: .././main.cpp
-	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAME54P20A__ -DDEBUG -DPARTNUMBER=1804  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include" -I"../avr" -I"../utils" -I"../LTC2983" -I"../EEPROM" -I"../I2C" -I"../SPI" -I"../Timers" -I"../USBSerial" -I"../ARINC" -I"../../../ALU_Driver/ALU_Driver/Config" -I"../../../ALU_Driver/ALU_Driver" -I"../../../ALU_Driver/ALU_Driver/examples" -I"../../../ALU_Driver/ALU_Driver/hal/include" -I"../../../ALU_Driver/ALU_Driver/hal/utils/include" -I"../../../ALU_Driver/ALU_Driver/hpl/can" -I"../../../ALU_Driver/ALU_Driver/hpl/cmcc" -I"../../../ALU_Driver/ALU_Driver/hpl/core" -I"../../../ALU_Driver/ALU_Driver/hpl/dmac" -I"../../../ALU_Driver/ALU_Driver/hpl/eic" -I"../../../ALU_Driver/ALU_Driver/hpl/evsys" -I"../../../ALU_Driver/ALU_Driver/hpl/gclk" -I"../../../ALU_Driver/ALU_Driver/hpl/mclk" -I"../../../ALU_Driver/ALU_Driver/hpl/osc32kctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/oscctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/pm" -I"../../../ALU_Driver/ALU_Driver/hpl/port" -I"../../../ALU_Driver/ALU_Driver/hpl/qspi" -I"../../../ALU_Driver/ALU_Driver/hpl/ramecc" -I"../../../ALU_Driver/ALU_Driver/hpl/rtc" -I"../../../ALU_Driver/ALU_Driver/hpl/sercom" -I"../../../ALU_Driver/ALU_Driver/hpl/tc" -I"../../../ALU_Driver/ALU_Driver/hpl/usb" -I"../../../ALU_Driver/ALU_Driver/hri" -I"../../../ALU_Driver/ALU_Driver/usb" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc/device" -I"../../../ALU_Driver/ALU_Driver/usb/device" -I"../Storage" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a" -I"../ErrorHandling" -I"../EventHandling" -I"../EIDE_Utils" -I"../ApplicationLayer" -I"../IO_Expander" -I"../../../ALU_Driver/ALU_Driver/hpl/tcc"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-SPI/SPI_Asyn_Class.o: ../SPI/SPI_Asyn_Class.cpp
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAME54P20A__ -DDEBUG -DPARTNUMBER=1804  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include" -I"../avr" -I"../utils" -I"../LTC2983" -I"../EEPROM" -I"../I2C" -I"../SPI" -I"../Timers" -I"../USBSerial" -I"../ARINC" -I"../../../ALU_Driver/ALU_Driver/Config" -I"../../../ALU_Driver/ALU_Driver" -I"../../../ALU_Driver/ALU_Driver/examples" -I"../../../ALU_Driver/ALU_Driver/hal/include" -I"../../../ALU_Driver/ALU_Driver/hal/utils/include" -I"../../../ALU_Driver/ALU_Driver/hpl/can" -I"../../../ALU_Driver/ALU_Driver/hpl/cmcc" -I"../../../ALU_Driver/ALU_Driver/hpl/core" -I"../../../ALU_Driver/ALU_Driver/hpl/dmac" -I"../../../ALU_Driver/ALU_Driver/hpl/eic" -I"../../../ALU_Driver/ALU_Driver/hpl/evsys" -I"../../../ALU_Driver/ALU_Driver/hpl/gclk" -I"../../../ALU_Driver/ALU_Driver/hpl/mclk" -I"../../../ALU_Driver/ALU_Driver/hpl/osc32kctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/oscctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/pm" -I"../../../ALU_Driver/ALU_Driver/hpl/port" -I"../../../ALU_Driver/ALU_Driver/hpl/qspi" -I"../../../ALU_Driver/ALU_Driver/hpl/ramecc" -I"../../../ALU_Driver/ALU_Driver/hpl/rtc" -I"../../../ALU_Driver/ALU_Driver/hpl/sercom" -I"../../../ALU_Driver/ALU_Driver/hpl/tc" -I"../../../ALU_Driver/ALU_Driver/hpl/usb" -I"../../../ALU_Driver/ALU_Driver/hri" -I"../../../ALU_Driver/ALU_Driver/usb" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc/device" -I"../../../ALU_Driver/ALU_Driver/usb/device" -I"../Storage" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a" -I"../ErrorHandling" -I"../EventHandling" -I"../EIDE_Utils" -I"../ApplicationLayer" -I"../IO_Expander" -I"../../../ALU_Driver/ALU_Driver/hpl/tcc"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

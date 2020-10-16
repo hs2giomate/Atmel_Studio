@@ -89,14 +89,14 @@ void CDC_Class::Init(void){
 	
 	OnInit();
 	cdcdf_acm_register_callback(CDCDF_ACM_CB_STATE_C, (FUNC_PTR)cb_state_c);
-	
+	delay_ms(100);
 		
 	if (connected)
 	{
 		//serial<<"*** USB CDC Driver Version: "<<USBSERIALCLASSVERSION<<"."<<USBSERIALCLASSSUBVERSION<<" ***"<<NEWLINE;
 	}
 
-	delay_ms(200);
+	delay_ms(100);
 
 	
 
@@ -258,4 +258,4 @@ CDC_Class::operator bool()
 	return result;
 }
 
- 
+ CDC_Class	usb;

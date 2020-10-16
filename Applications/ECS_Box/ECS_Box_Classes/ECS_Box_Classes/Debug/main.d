@@ -195,9 +195,6 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
@@ -275,8 +272,8 @@ main.d main.o: .././main.cpp .././main.h \
  ../EIDE_Utils/coreTypes.h ../LTC2983/LTC2983_Class.h \
  ../Timers/Timer_Class.h ../LTC2983/LTC2983_configuration_constants.h \
  ../LTC2983/LTC2983_table_coeffs.h ../LTC2983/LT_SPI.h \
- ../SPI/SPI_Asyn_Class.h ../ARINC/ARINC_Interface.h \
- ../ARINC/Holt_3593_Class.h ../SPI/SPI_Syn_Class.h \
+ ../SPI/SPI_Syn_Class.h ../ARINC/ARINC_Interface.h \
+ ../ARINC/Holt_3593_Class.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
  ../ARINC/Protocol_Class.h ../ARINC/ARINC_Conversions.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h \
@@ -686,12 +683,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
@@ -864,13 +855,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../LTC2983/LT_SPI.h:
 
-../SPI/SPI_Asyn_Class.h:
+../SPI/SPI_Syn_Class.h:
 
 ../ARINC/ARINC_Interface.h:
 
 ../ARINC/Holt_3593_Class.h:
-
-../SPI/SPI_Syn_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
 

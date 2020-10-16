@@ -29,7 +29,7 @@ LTC2983_Class::~LTC2983_Class()
 {
 } //~LTC2983_Class
 
-LTC2983_Class::LTC2983_Class(spi_m_async_descriptor *SPI_LTC){
+LTC2983_Class::LTC2983_Class(spi_m_sync_descriptor *SPI_LTC){
 	ptrLTCClass=this;
 	SPIA=SPI_LTC;
 	};
@@ -386,7 +386,7 @@ void LTC2983_Class::print_fault_data(uint8_t fault_byte)
 uint32_t LTC2983_Class::transfer_four_bytes(uint32_t chip_select, uint8_t ram_read_or_write, uint16_t start_address, uint32_t input_data)
 {
 
-	uint8_t i;
+	uint8_t i,rx2[LTC2983_SPI_BUFFER_SIZE];
 	
 	for (i = 0; i < LTC2983_SPI_BUFFER_SIZE; i++)
 	{
@@ -401,12 +401,12 @@ uint32_t LTC2983_Class::transfer_four_bytes(uint32_t chip_select, uint8_t ram_re
 	tx[5] = (uint8_t)(input_data >> 8);
 	tx[6] = (uint8_t) input_data;
 
-	spiLT->spi_transfer_block(chip_select,tx,rx, LTC2983_SPI_BUFFER_SIZE);
+	spiLT->spi_transfer_block(chip_select,tx,rx2, LTC2983_SPI_BUFFER_SIZE);
 
-	output_data = (uint32_t) rx[0] << 24 |
-	(uint32_t) rx[1] << 16 |
-	(uint32_t) rx[2] << 8  |
-	(uint32_t) rx[3];
+	output_data = (uint32_t) rx2[0] << 24 |
+	(uint32_t) rx2[1] << 16 |
+	(uint32_t) rx2[2] << 8  |
+	(uint32_t) rx2[3];
 	asm("nop");
 	return output_data;
 }

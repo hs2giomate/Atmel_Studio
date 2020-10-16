@@ -178,11 +178,62 @@ bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType
 			//while (!eventTimeout);
 		
 		}
-		eventTimer.Remove_task(FUNC_PTR(EventTimerTask));
+		
 	}
+	eventTimer.Remove_task(FUNC_PTR(EventTimerTask));
 	//eventTimer.stop();
 	return result;
 }
+
+bool	EventHandler_Class::IsEventListed(EventType eventType, EventClass eventClass)
+{
+	bool	result(false);
+	event*	queue;
+	event*	queuePrev(NULL);
+
+	if ((eventsInUse==0))
+	{
+		result = false;
+	}
+	else
+	{
+		queue = (event*)mainThreadEventQueue;
+		while (queue)
+		{
+			#if __DEBUG__  > 4
+			
+			usb << "waitForEvent:\r";
+			usb << "     queue:            " << (void*)queue << newline;
+			usb << "     eventClass:       " << eventClass << newline;
+			usb << "     eventType:        " << eventType << newline;
+			usb << "     queue->class:     " << (uint16)((*queue).eventClass) << newline;
+			usb << "     queue->type:      " << (uint16)((*queue).eventType) << newline;
+			usb << "     queue->timestamp: " << (uint16)((*queue).timestamp) << newline;
+			
+			#endif
+			if (((eventClass == kAnyEventClass)|(queue->eventClass == eventClass)) && (queue->eventType == eventType))
+			{
+
+				result = true;
+				break;
+			}
+			else
+			{
+				queuePrev = queue;
+				queue = queue->next;
+			}
+		}
+
+			
+	
+		
+	}
+
+	
+	//eventTimer.stop();
+	return result;
+}
+
 void EventHandler_Class::SendEvent(event& e, contextID receiver)
 {
 	SendEventSelf(e);
@@ -190,6 +241,65 @@ void EventHandler_Class::SendEvent(event& e, contextID receiver)
 
 void EventHandler_Class::SendEventSelf(const event& e)
 {
+	if (IsEventListed(e.eventType,e.eventClass))
+	{
+		
+	} 
+	else
+	{
+		event*	theEvent(eventQueue);
+		
+		if (theEvent)
+		{
+			eventQueue = eventQueue->next;
+			theEvent->next = NULL;
+			eventsInUse++;
+
+			event*	threadQueue((event*)mainThreadEventQueue);
+			if (threadQueue == NULL)
+			mainThreadEventQueue = theEvent;
+			else
+			{
+				while (threadQueue->next)
+				threadQueue = threadQueue->next;
+				threadQueue->next = theEvent;
+			}
+
+			#if __DEBUG__  > 0
+			if (eventsInUse > eventsInUsePeak)
+			{
+				eventsInUsePeak = eventsInUse;
+				usb << "eventsInUsePeak => " << eventsInUsePeak << newline;
+				
+			}
+			#endif
+
+			(*theEvent).eventClass = e.eventClass;
+			(*theEvent).eventType = e.eventType;
+			(*theEvent).data = e.data;
+			(*theEvent).timestamp = eventTimer.Get_ticks();
+			#if __DEBUG__  > 4
+			
+			usb << "     mainThreadEventQueue: " << (void*)mainThreadEventQueue << newline;
+			usb << "     threadQueue:          " << (void*)threadQueue << newline;
+			usb << "     &theEvent:            " << (void*)theEvent << newline;
+			usb << "     timestamp:            " << (*theEvent).timestamp << newline;
+			
+			#endif
+		}
+		else
+		{
+			#if __DEBUG__  > 0
+			
+			usb << "send event failed!" << newline;
+			usb << "     class:   " << (uint16)e.eventClass << newline;
+			usb << "     type:    " << (uint16)e.eventType << newline;
+			
+			#endif
+			eventQueueUnderflow++;
+		}
+	}
+	
 	#if __DEBUG__  > 4
 
 	usb << "send event:\r";
@@ -197,57 +307,7 @@ void EventHandler_Class::SendEventSelf(const event& e)
 	usb << "     type:    " << (uint16)e.eventType << newline;
 	
 	#endif
-	event*	theEvent(eventQueue);
 	
-	if (theEvent)
-	{
-		eventQueue = eventQueue->next;
-		theEvent->next = NULL;
-		eventsInUse++;
-
-		event*	threadQueue((event*)mainThreadEventQueue);
-		if (threadQueue == NULL)
-		mainThreadEventQueue = theEvent;
-		else
-		{
-			while (threadQueue->next)
-			threadQueue = threadQueue->next;
-			threadQueue->next = theEvent;
-		}
-
-		#if __DEBUG__  > 0
-		if (eventsInUse > eventsInUsePeak)
-		{
-			eventsInUsePeak = eventsInUse;
-			usb << "eventsInUsePeak => " << eventsInUsePeak << newline;
-			
-		}
-		#endif
-
-		(*theEvent).eventClass = e.eventClass;
-		(*theEvent).eventType = e.eventType;
-		(*theEvent).data = e.data;
-		(*theEvent).timestamp = eventTimer.Get_ticks();
-		#if __DEBUG__  > 4
-	
-		usb << "     mainThreadEventQueue: " << (void*)mainThreadEventQueue << newline;
-		usb << "     threadQueue:          " << (void*)threadQueue << newline;
-		usb << "     &theEvent:            " << (void*)theEvent << newline;
-		usb << "     timestamp:            " << (*theEvent).timestamp << newline;
-		
-		#endif
-	}
-	else
-	{
-		#if __DEBUG__  > 0
-		
-		usb << "send event failed!" << newline;
-		usb << "     class:   " << (uint16)e.eventClass << newline;
-		usb << "     type:    " << (uint16)e.eventType << newline;
-		
-		#endif
-		eventQueueUnderflow++;
-	}
 }
 
 void EventHandler_Class::SendEvent(EventClass eventClass, EventType eventType, const eventData& data, contextID receiver)

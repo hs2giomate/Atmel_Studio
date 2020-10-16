@@ -30,6 +30,8 @@ ALU_Class::ALU_Class()
 	
 	//taskList=(list_descriptor*)taskStorage;
 	ptrALUClass=this;
+	clk_rate       = 1000;
+	timeout_period = 4096*256;
 } //ALU_Class
 
 // default destructor
@@ -60,7 +62,7 @@ uint32_t	ALU_Class::Init(void){
 		}
 		else
 		{
-			arincTimer.Start_periodic_task(FUNC_PTR(ARINCTimeUp),50);
+			arincTimer.Start_periodic_task(FUNC_PTR(ARINCTimeUp),500);
 			
 			s=pBit.CheckCurrentStatus(status);
 			if (s>0)
@@ -71,6 +73,7 @@ uint32_t	ALU_Class::Init(void){
 			else
 			{
 				InitTaskArray();
+				EnableWatchDog();
 				PrepareNewEvent(kALUEventSimpleStart);
 				
 			}
@@ -98,11 +101,11 @@ uint32_t	ALU_Class::RunController(void){
 		   listener.eventHandler=&ALU_Class::CheckPeriodicTask;
 		   while (!arincTXTimeUP)
 		   	{
-				   if (listener.WaitForEvent(e, kALUEventClass, kALUControllerEvent,1))
+				   if (listener.WaitForEvent(e, kALUEventClass, kALUControllerEvent,8))
 				   {
 					   HandleControllerEvent(e);
 					   
-				   }else if (listener.WaitForEvent(e, kHVACEventClass, kHVACEventDoPendingTasks,1))
+				   }else if (listener.WaitForEvent(e, kHVACEventClass, kHVACEventDoPendingTasks,8))
 				   {
 					break;
 				   }
@@ -205,7 +208,7 @@ uint8_t	ALU_Class::Run(void){
 	}
 	return line;
 }
-int32_t	ALU_Class::EnableWatchDog(uint32_t clk_rate ,uint32_t timeout_period ){
+int32_t	ALU_Class::EnableWatchDog(void){
 
 	wdt_set_timeout_period(&WATCHDOG, clk_rate, timeout_period);
 	return wdt_enable(&WATCHDOG);
@@ -328,9 +331,11 @@ bool	ALU_Class::ExecutePendingTask(void){
 		RemoveTask(tk);
 	
 	}
+	RunPeriodicTasks();
 	allTasksDone=~((bool)taskList->head);
 	if (allTasksDone)
 	{
+		
 		PrepareNewEvent(kALUEventSimpleResume);
 	}
 	return allTasksDone; 
@@ -371,6 +376,10 @@ void ALU_Class::HandleTasks(ControllerTask& ct)
 
 void ALU_Class::CheckPeriodicTask(void){
 	interfaces.CheckCommunication();
+}
+
+void	ALU_Class::RunPeriodicTasks(void){
+	FeedWatchDog();
 }
 
 

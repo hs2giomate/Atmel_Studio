@@ -60,5 +60,5 @@ private:
 
 }; //CDC_Class
 
-static	CDC_Class	usb;
+extern	CDC_Class	usb;
 #endif //__CDC_CLASS_H__
