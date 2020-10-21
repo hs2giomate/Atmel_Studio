@@ -251,13 +251,15 @@ MemoryManagment_Class.d MemoryManagment_Class.o: \
  .././ErrorAnalyer_Class.h .././GainDefinitions.h \
  .././ConfigState_Class.h .././GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
  .././CRC32_Class.h ../../../ALU_Driver/ALU_Driver/driver_init.h \
  .././States_Class.h \
  ../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
- .././Interfaces_Class.h .././DataLoger_Class.h .././FlashHandler_Class.h \
+ .././Interfaces_Class.h .././HVAC_Commando_Class.h \
+ .././DataLoger_Class.h .././FlashHandler_Class.h \
  .././FastStorage_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
@@ -807,6 +809,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
+
 .././CRC32_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
@@ -822,6 +826,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h:
 
 .././Interfaces_Class.h:
+
+.././HVAC_Commando_Class.h:
 
 .././DataLoger_Class.h:
 

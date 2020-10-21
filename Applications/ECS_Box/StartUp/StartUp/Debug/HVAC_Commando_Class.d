@@ -1,9 +1,6 @@
-IO_Expander/MCP23008_Class.d IO_Expander/MCP23008_Class.o: \
- ../IO_Expander/MCP23008_Class.cpp ../IO_Expander/MCP23008_Class.h \
- ../I2C/I2C_Asyn_Class.h ../../../ALU_Driver/ALU_Driver/driver_init.h \
- ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
+HVAC_Commando_Class.d HVAC_Commando_Class.o: .././HVAC_Commando_Class.cpp \
+ .././HVAC_Commando_Class.h .././ConfigState_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
@@ -164,6 +161,18 @@ IO_Expander/MCP23008_Class.d IO_Expander/MCP23008_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hri/hri_usb_e54.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h \
+ ../ApplicationLayer/ConfigurationData.h \
+ ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Interface.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Holt_3593_Class.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
  ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h \
  ../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h \
@@ -186,8 +195,6 @@ IO_Expander/MCP23008_Class.d IO_Expander/MCP23008_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
- ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
@@ -213,45 +220,36 @@ IO_Expander/MCP23008_Class.d IO_Expander/MCP23008_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../I2C/I2C_ObjectList.h ../EIDE_Utils/Arduino.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Conversions.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\os_defines.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Buffer_Class.h
 
-../IO_Expander/MCP23008_Class.h:
+.././HVAC_Commando_Class.h:
 
-../I2C/I2C_Asyn_Class.h:
+.././ConfigState_Class.h:
 
-../../../ALU_Driver/ALU_Driver/driver_init.h:
-
-../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h:
 
@@ -573,6 +571,32 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h:
 
+../ApplicationLayer/ConfigurationData.h:
+
+../ApplicationLayer/ConfigurationCommons.h:
+
+.././GAINDefinitions.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Interface.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Holt_3593_Class.h:
+
+../../../ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
+
 ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h:
@@ -616,10 +640,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
-
-../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
 
@@ -671,13 +691,19 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
 
-../I2C/I2C_ObjectList.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h:
 
-../EIDE_Utils/Arduino.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h:
+../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib:
+../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Conversions.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h:
 
@@ -685,9 +711,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
 
@@ -695,9 +725,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h:
 
@@ -707,22 +735,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Buffer_Class.h:

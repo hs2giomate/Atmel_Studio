@@ -31,7 +31,7 @@ ALU_Class::ALU_Class()
 	//taskList=(list_descriptor*)taskStorage;
 	ptrALUClass=this;
 	clk_rate       = 1000;
-	timeout_period = 4096*256;
+	timeout_period = 4096*1024;
 } //ALU_Class
 
 // default destructor
@@ -44,6 +44,7 @@ uint32_t	ALU_Class::Init(void){
 	event	e;
 	ptrPbit=&pBit;
 	StartLivePulse();
+		
 	if (hvac.Init())
 	{
 		cBit.isOK=true;
@@ -367,6 +368,9 @@ void ALU_Class::HandleTasks(ControllerTask& ct)
 		case kALUTaskUpdateTemperatures:
 			arinc.SaveTemperature();		
 		break;
+		case kALUTaskUpdateFlapperValves:
+			arinc.SaveFlapperValveAngle();
+		break;
 
 		default:
 		hvac.Stop(0);
@@ -380,6 +384,7 @@ void ALU_Class::CheckPeriodicTask(void){
 
 void	ALU_Class::RunPeriodicTasks(void){
 	FeedWatchDog();
+
 }
 
 

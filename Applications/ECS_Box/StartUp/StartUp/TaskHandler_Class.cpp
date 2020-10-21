@@ -148,10 +148,10 @@ ControllerTask	TaskHandler_Class::GetHighPrioTask(void){
 void	TaskHandler_Class::ChooseAvailableTask(void){
 	for (uint8_t ii = 0; ii < MAXIMUM_TASKS; ii++)
 	{
-		j=ii%MAXIMUM_TASKS;
-		if (taskStorage[j].id==kALUNotTaskEvent)
+	
+		if (taskStorage[ii].id==kALUNotTaskEvent)
 		{			
-			task=&taskStorage[j];
+			task=&taskStorage[ii];
 			return;
 			
 		}

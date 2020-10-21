@@ -22,7 +22,7 @@ PBIT_Class::~PBIT_Class()
 
 uint8_t	PBIT_Class::GetStatus(void){
 	uint8_t	s=0;
-	label371=arinc.ReadBufferLabel(int(371));
+	label371=arinc.ReadBufferLabel(uint32_t(371));
 	datafield=0;
 	datafield=arinc.GetDataField(label371);
 

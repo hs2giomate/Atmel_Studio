@@ -9,6 +9,7 @@
 #include "ARINC_Buffer_Class.h"
 #include "TemperatureSensors_Class.h"
 #include "string.h"
+#include "FlapperValve_Class.h"
 
 static  uint8_t bufferLabelsArrayTX[TX_LABELS_NUMBER];                // All Rec1 32 labels
 static	uint8_t bufferLabelsArrayRX1[RX_LABELS_NUMBER];                // All Rec2 256 labels
@@ -42,6 +43,15 @@ void	ARINC_Buffer_Class::InitBuffer(void){
 		}
 		receiverBuffer=pointerArrayRX;
 		transmitBuffer=pointerArrayTX;
+}
+
+void ARINC_Buffer_Class::SaveFlapperValveAngle(void){
+	octalLabel=Label2Byte(FlapperValveAngle);
+	index=GetIndexTXLabelarray(octalLabel,LabelsArrayTX);
+	uint8_t angle=fv1.GetCurrentAngle();
+	data=MakeTXLabel275(angle);
+	Uint32FourBytesArray(data,localArray);
+	memcpy(transmitBuffer[index],localArray,4);
 }
 
 void ARINC_Buffer_Class::SaveTemperature(void){

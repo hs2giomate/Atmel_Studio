@@ -12,18 +12,19 @@
 #include "ConfigurationData.h"
 #include "GAINDefinitions.h"
 #include "hpl_calendar.h"
+#include "FlapperValveDataStruct.h"
 
 struct StatusBits
 {
-	bool	ventilationFan1;
-	bool	ventilationFan2;
-	bool	scanvengerFan1;
-	bool	flapValve1;
-	bool	flapValve2;
-	bool	heater1;
-	bool	heater2;
-	bool	compressor;
-	bool	condesator;
+	bool	ventilationFan1:1;
+	bool	ventilationFan2:1;
+	bool	scanvengerFan1:1;
+	bool	flapValve1:1;
+	bool	flapValve2:1;
+	bool	heater1:1;
+	bool	heater2:1;
+	bool	compressor:1;
+	bool	condesator:1;
 };
 
 enum StatusHVACARINC
@@ -34,13 +35,7 @@ enum StatusHVACARINC
 	BACKUP,
 };
 
-enum StatusFlapperValve
-{
-	FRESHAIR=0,
-	INTERM,
-	RECYCLE,
-	NBC,
-};
+
 
 
 typedef struct
@@ -171,12 +166,14 @@ private:
 	ConfigurationData	configuration,defaultsConfiguration;
 	HVACState	lastHVACState,currentHVACState;
 	uint8_t	i,j,k;
+	uint32_t acknowledgeStatus,lastAcknowledgeStatus;
 	
 
 //functions
 public:
 	ConfigState_Class();
 	~ConfigState_Class();
+//	virtual	~ConfigState_Class();
 		uint32_t		SetInitialState(void);
 		virtual void	SetCurrentState(HVACState& ) = 0;
 		void			SetFactoryDefaults(uint32_t subPartNumber, bool config, bool cycles);
@@ -184,6 +181,8 @@ public:
 		void			PrintState(void);
 		void			SetDefaultState(void);
 		uint32_t		ConvertStatusArincLabel(void);
+		uint32_t	 GetAcknowledgeStatus(void);
+		bool  IsStatusArinclabelChanged(void);
 protected:
 	
 private:

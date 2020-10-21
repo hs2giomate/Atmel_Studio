@@ -34,7 +34,7 @@ extern "C" {
 #include <hal_i2c_m_sync.h>
 #include <hal_spi_m_sync.h>
 
-#include <hal_i2c_m_async.h>
+#include <hal_i2c_m_sync.h>
 #include <hal_spi_m_sync.h>
 
 #include <hal_i2c_m_async.h>
@@ -70,7 +70,7 @@ extern struct spi_m_sync_descriptor SPI_MEMORIES;
 extern struct i2c_m_sync_desc       I2C_SHARED;
 extern struct spi_m_sync_descriptor SPI_TEMP;
 
-extern struct i2c_m_async_desc      I2C_EXPANDER;
+extern struct i2c_m_sync_desc       I2C_EXPANDER;
 extern struct spi_m_sync_descriptor SPI_HI3593;
 
 extern struct i2c_m_async_desc I2C_EEPROM;
@@ -108,9 +108,9 @@ void SPI_TEMP_PORT_init(void);
 void SPI_TEMP_CLOCK_init(void);
 void SPI_TEMP_init(void);
 
-void I2C_EXPANDER_PORT_init(void);
 void I2C_EXPANDER_CLOCK_init(void);
 void I2C_EXPANDER_init(void);
+void I2C_EXPANDER_PORT_init(void);
 
 void SPI_HI3593_PORT_init(void);
 void SPI_HI3593_CLOCK_init(void);

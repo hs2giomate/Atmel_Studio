@@ -151,7 +151,7 @@ public:
 	uint32_t	ReadRXBuffer(uint8_t n=1);
 	virtual	uint32_t	ReadBufferLabel(uint8_t);
 	//virtual uint8_t		Label2Byte(uint32_t);
-	uint32_t	ReadBufferLabel(int);
+	uint32_t	ReadBufferLabel(uint32_t);
 	bool		isThereNewMessage(void);
 	uint32_t TrasmitSingleLabel(void);
 	void	TransmitTXBuffer(void);

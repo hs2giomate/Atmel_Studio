@@ -221,6 +221,7 @@ FastStorage_Class.d FastStorage_Class.o: .././FastStorage_Class.cpp \
  .././ConfigState_Class.h ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start.h \
@@ -262,7 +263,8 @@ FastStorage_Class.d FastStorage_Class.o: .././FastStorage_Class.cpp \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
- .././Interfaces_Class.h .././DataLoger_Class.h .././FlashHandler_Class.h
+ .././Interfaces_Class.h .././HVAC_Commando_Class.h \
+ .././DataLoger_Class.h .././FlashHandler_Class.h
 
 .././FastStorage_Class.h:
 
@@ -712,6 +714,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
+
 ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h:
@@ -801,6 +805,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h:
 
 .././Interfaces_Class.h:
+
+.././HVAC_Commando_Class.h:
 
 .././DataLoger_Class.h:
 

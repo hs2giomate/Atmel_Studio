@@ -165,7 +165,8 @@ CBIT_Class.d CBIT_Class.o: .././CBIT_Class.cpp .././CBIT_Class.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h
 
 .././CBIT_Class.h:
 
@@ -504,3 +505,5 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:

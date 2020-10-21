@@ -221,6 +221,7 @@ DateTime_Class.d DateTime_Class.o: .././DateTime_Class.cpp \
  .././ConfigState_Class.h ../ApplicationLayer/ConfigurationData.h \
  ../ApplicationLayer/ConfigurationCommons.h .././GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
@@ -705,6 +706,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 .././GAINDefinitions.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
 

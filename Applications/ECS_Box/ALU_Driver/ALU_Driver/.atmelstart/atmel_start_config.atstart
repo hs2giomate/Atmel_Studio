@@ -1867,9 +1867,9 @@ drivers:
           slow_gclk_selection: Generic clock generator 10
   I2C_EXPANDER:
     user_label: I2C_EXPANDER
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM5::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Async
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM5::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
     functionality: I2C
-    api: HAL:Driver:I2C_Master_Async
+    api: HAL:Driver:I2C_Master_Sync
     configuration:
       i2c_master_advanced: false
       i2c_master_arch_dbgstop: Keep running
@@ -1895,16 +1895,16 @@ drivers:
       domain_group:
         nodes:
         - name: Core
-          input: Generic clock generator 2
+          input: Generic clock generator 8
           external: false
           external_frequency: 0
         - name: Slow
-          input: Generic clock generator 6
+          input: Generic clock generator 10
           external: false
           external_frequency: 0
         configuration:
-          core_gclk_selection: Generic clock generator 2
-          slow_gclk_selection: Generic clock generator 6
+          core_gclk_selection: Generic clock generator 8
+          slow_gclk_selection: Generic clock generator 10
   SPI_HI3593:
     user_label: SPI_HI3593
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM6::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync

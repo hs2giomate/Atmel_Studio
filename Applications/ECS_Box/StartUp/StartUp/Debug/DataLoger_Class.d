@@ -249,6 +249,7 @@ DataLoger_Class.d DataLoger_Class.o: .././DataLoger_Class.cpp \
  .././FlashHandler_Class.h .././ConfigState_Class.h \
  .././GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h
 
 .././DataLoger_Class.h:
@@ -752,5 +753,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././GAINDefinitions.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:

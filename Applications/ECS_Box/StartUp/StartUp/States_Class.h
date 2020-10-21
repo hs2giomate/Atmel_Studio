@@ -13,7 +13,8 @@
 #include "ConfigState_Class.h"
 #include "EventHandler_Class.h"
 #include "Interfaces_Class.h"
-
+#include "HVAC_Commando_Class.h"
+#define		CHECK_EVENT_STATE_TIMEOUT 8
 
 
 
@@ -23,7 +24,7 @@ GAINClass behandelt die Ablaufsteuerung eines GAINs
 */
 
 
-class States_Class:  public	ConfigState_Class, public	Interfaces_Class
+class States_Class:  public virtual	ConfigState_Class, public	Interfaces_Class, private virtual HVAC_Commando_Class
 {
 //variables
 public:
@@ -43,7 +44,7 @@ private:
 		uint32_t	minimumPowerBudget;
 		HVACState	lastHVACState;
 		tick_t	powerInterruptDuration;
-		bool	resumeLastStateValid,gotAluEvent,gotHVACEvent;
+		bool	resumeLastStateValid,gotAluEvent,gotHVACEvent, gotAnyEvent;
 		ConfigurationData			configuration;
 		uint32_t	CRC32,readResult,writeResult;
 	
@@ -89,7 +90,7 @@ private:
 	void	StateInitialize(uint32 flags);
 	void	StateResume(uint32 flags);
 	void	StateStandbyOFF(uint32 flags);
-	void	handleStatePrepareStandbyON(uint32 flags);
+	void	StatePrepareStandbyON(uint32 flags);
 	void	handleStateStandbyON(uint32 flags);
 	void	handleStateStandbyReady(uint32 flags);
 
@@ -105,16 +106,20 @@ private:
 	void	handleStateHMIUpdate(uint32 flags);
 	void	prepareNewEvent(event& e, uint16 newState, uint16 data = 0);
 	void	StateLeaving(uint32 flags);
+	void	StateStandbyAUTO(uint32 flags);
+	void	StateStandbyVENT(uint32 flags);
 
 
 
 
-	bool	handleInStateEvent(event& e, tick_t t, bool& done);
+	bool	InStateEvent(event& e, tick_t t, bool& done);
+	bool	InStateEvent(event& e, tick_t t);
 
 	void	prepareStateChangeEvent(uint16 newState, uint16 data = 0);
 
 	uint32_t	handlePowerOnSelftest(void);
 	static void CheckEvents(void);
+	void	StatePrepareStandbyOFF(uint32 flags);
 
 	
 

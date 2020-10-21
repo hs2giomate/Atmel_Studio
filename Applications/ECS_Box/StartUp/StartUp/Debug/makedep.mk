@@ -28,9 +28,7 @@ Error_Labelling_Class.cpp
 
 FastStorage_Class.cpp
 
-FlapperValveDataStruct.cpp
-
-FlapperValve_Class.cpp
+HVAC_Commando_Class.cpp
 
 Interfaces_Class.cpp
 

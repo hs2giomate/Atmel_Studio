@@ -287,7 +287,8 @@ main.d main.o: .././main.cpp .././main.h \
  ../Storage/RingBuffer.h ../Timers/Calendar_Class.h \
  ../Timers/DateTimeLog_Class.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
- ../IO_Expander/MCP23017_Class.h ../EIDE_Utils/Arduino.h
+ ../FlapperValve/MCP23017_Class.h ../I2C/I2C_Sync_Class.h \
+ ../EIDE_Utils/Arduino.h
 
 .././main.h:
 
@@ -893,6 +894,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
-../IO_Expander/MCP23017_Class.h:
+../FlapperValve/MCP23017_Class.h:
+
+../I2C/I2C_Sync_Class.h:
 
 ../EIDE_Utils/Arduino.h:

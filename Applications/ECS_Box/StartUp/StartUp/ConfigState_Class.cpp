@@ -176,8 +176,20 @@ uint32_t	ConfigState_Class::ConvertStatusArincLabel(void){
 	(((uint32_t)as.PLT_AUTO_FAN)<<3)|(((uint32_t)as.CPG_AUTO_FAN)<<4)
 	//|(((uint32_t)0x1d)<<9)
 	|(((uint32_t)as.statusFV)<<5)|(((uint32_t)as.DEFOG)<<7);
+	lastAcknowledgeStatus=acknowledgeStatus;
+	acknowledgeStatus=s;
 	return s;
 }	
+
+uint32_t ConfigState_Class::GetAcknowledgeStatus(void){
+	
+	return acknowledgeStatus;
+}
+bool  ConfigState_Class::IsStatusArinclabelChanged(void){
+	ConvertStatusArincLabel();
+	return lastAcknowledgeStatus!=acknowledgeStatus;
+}
+
 	
 uint32_t	ConfigState_Class::GetInitialStatus(HVACStatus& st){
 	HVACStatus	is,hs;

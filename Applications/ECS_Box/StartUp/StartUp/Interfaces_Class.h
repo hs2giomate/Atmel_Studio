@@ -15,8 +15,8 @@
 struct InternCommunicationRequest
 {
 
-	bool LTC2983GotMessage;
-	bool I2CExpanderGotMessage;
+	bool temperatureSensorsMessage;
+	bool flapperValvesMessage;
 	
 };
 struct ExternCommunicationRequest
@@ -59,7 +59,7 @@ public:
 	uint32_t	CheckInternalCommunication(void);
 	uint32_t	CheckExternalCommunication(void);
 	uint32_t	GetStatus(HVACStatus&);
-	bool	CheckI2CExpander(uint8_t add);
+	bool	CheckFlapperValveInterface(uint8_t add);
 	bool	CheckTemperatures(void);
 	bool CheckUSBInterface(void);
 	bool	CheckArincInterface(void);

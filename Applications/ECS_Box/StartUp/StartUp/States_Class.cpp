@@ -52,8 +52,17 @@ bool States_Class::Init(void){
 	{
 		temperatures.StartOneConversion();
 	}
-	hvacState->hvacStatus.statusBits.flapValve1=fv1.Init();
-	hvacState->hvacStatus.statusBits.flapValve1;
+	if (fv1.Init())
+	{
+		hvacState->hvacStatus.statusBits.flapValve1=true;
+		//alu.PrepareNewTask(kALUTaskUpdateFlapperValves);
+	} 
+	else
+	{
+	}
+	
+	
+
 	//return isOK;
 	return true;
 	
@@ -304,15 +313,24 @@ void States_Class::handleHVACEvent(event& e)
 			break;
 
 		case kHVACStatePrepareStandbyON:
-			handleStatePrepareStandbyON(hvacState->stateFlags);
+			StatePrepareStandbyON(hvacState->stateFlags);
 			break;
 
 		case kHVACStateStandbyON:
 			handleStateStandbyON(hvacState->stateFlags);
 			break;
+		case kHVACStateStandbyAUTO:
+			StateStandbyAUTO(hvacState->stateFlags);
+			break;
+		case kHVACStateStandbyVENT:
+			StateStandbyVENT(hvacState->stateFlags);
+			break;
 
 		case kHVACStateStandbyReady:
 			handleStateStandbyReady(hvacState->stateFlags);
+			break;
+		case kHVACStatePrepareStandbyOFF:
+			StatePrepareStandbyOFF(hvacState->stateFlags);
 			break;
 
 		case kHVACStateON:
@@ -443,64 +461,325 @@ void States_Class::StateResume(uint32 flags)
 	}
 				
 void States_Class::StateStandbyOFF(uint32 flags)
-	{
+{
 	event	e;
 	hvacState->currentState=kHVACStateStandbyOFF;
 	hvacState->arincStatus.statusArinc=OFF;
 	bool	done(false);
-	gotAluEvent=false;
-	gotHVACEvent=false;
-   	
+
 #ifdef __DEBUG__
 	
 	usb << "handleStateStandbyOFF" << NEWLINE;
 		
 #endif
 
-	hvacState->smpsTemperatureOutOfRangeEventSent = false;
-	hvacState->magnetronTemperatureOutOfRangeEventSent = false;
-	hvacState->exhaustTemperatureOutOfRangeEventSent = false;
 
-	hvacState->magnetronFanFailureDetectionTime = forever;
+
+
 	listener.eventHandler=&States_Class::CheckEvents;
 	while(!done){
-		gotAluEvent=listener.WaitForEvent(e, kALUEventClass, kAnyEventType,16);
-		if (!gotAluEvent)
+		if (InStateEvent(e,CHECK_EVENT_STATE_TIMEOUT))
 		{
-			gotHVACEvent=listener.WaitForEvent(e, kHVACEventClass, kAnyEventType,8);
-			if ((gotHVACEvent)|(e.eventType==kHVACEventDoPendingTasks))
-			{
-				done=gotHVACEvent;
+			switch(e.eventClass){
+				case kALUEventClass:
+					switch (e.eventType){
+						case kHVACEventDoPendingTasks:
+							prepareStateChangeEvent(kHVACStateLeaving);
+							done=true;
+						break;
+						default:
+						break;
+					}
+				break;
+				case kHVACEventClass:
+					switch (e.eventType){
+							case kHVACEventDoPendingTasks:
+								prepareStateChangeEvent(kHVACStateLeaving);
+								done=true;
+							break;
+							default:
+							break;
+					}
+		
+				break;
+				case kInterfaceEventClass:
+					switch (e.eventType){
+						case k_AC_CMD_ENABLE_Event:
+							prepareStateChangeEvent(kHVACStatePrepareStandbyON);
+							done=true;
+						break;
+		
+						default:
+						break;
+					}
+		
+				break;
+				default:
+				break;
+					
 			}
+		
+		
+		
+		
 			
 		} 
 		else
 		{
+			done=false;			
+		}
+	}
+
+
+
+}
+	
+void States_Class::StateStandbyAUTO(uint32 flags)
+{
+	event	e;
+	hvacState->currentState=kHVACStateStandbyAUTO;
+	hvacState->arincStatus.statusArinc=AUTO;
+	bool	done(false);
+	gotAluEvent=false;
+	gotHVACEvent=false;
+	
+	#ifdef __DEBUG__
+	
+	usb << "handleStateStandbyOFF" << NEWLINE;
+	
+	#endif
+
+
+
+
+	listener.eventHandler=&States_Class::CheckEvents;
+	while(!done){
+		do
+		{
+				fv1.WriteSetpoint(GetFlapperValveSetpoint());
+		}while(IsNewFlapperValveSetpoint());
+	
+		if (InStateEvent(e,CHECK_EVENT_STATE_TIMEOUT))
+		{
+			switch(e.eventClass){
+				case kALUEventClass:
+					switch (e.eventType){
+						case kHVACEventDoPendingTasks:
+							saveCurrentState();
+							prepareStateChangeEvent(kHVACStateLeaving);
+							done=true;
+						break;
+				
+						default:
+						break;
+					}
+				//done=gotAnyEvent;
+				break;
+				case kHVACEventClass:
+					switch (e.eventType){
+						case kHVACEventDoPendingTasks:
+							saveCurrentState();
+							prepareStateChangeEvent(kHVACStateLeaving);
+							done=true;
+						break;
+						default:
+						break;
+					}
+				
+				break;
+				case kInterfaceEventClass:
+					switch (e.eventType){
 			
-			done=gotAluEvent;
+						case k_AC_CMD_DISABLE_Event:
+							prepareStateChangeEvent(kHVACStatePrepareStandbyOFF);
+							done=true;
+						break;
+						default:
+						break;
+					}
+				
+				break;
+				default:
+				break;
+				
+			}
+			
+			
+			
+			
+			
+		}
+		else
+		{
+			done=false;
 		}
 	}
 
 	prepareStateChangeEvent(kHVACStateLeaving);
 
+}
+
+void States_Class::StateStandbyVENT(uint32 flags)
+{
+	event	e;
+	hvacState->currentState=kHVACStateStandbyVENT;
+	hvacState->arincStatus.statusArinc=VENT;
+	bool	done(false);
+	float cokspitTemperature;
+	uint8_t	coolingRequired;
+
+	
+	#ifdef __DEBUG__
+	
+	usb << "handleStateStandbyOFF" << NEWLINE;
+	
+	#endif
+
+
+
+
+	listener.eventHandler=&States_Class::CheckEvents;
+	while(!done){
+		cokspitTemperature=temperatures.values[0][1];
+		coolingRequired=0x80+(uint8_t)(((uint32_t)((cokspitTemperature*10)-200))&0xff);
+		fv1.WriteSetpoint(coolingRequired);
+		
+		
+		if (InStateEvent(e,CHECK_EVENT_STATE_TIMEOUT))
+		{
+			switch(e.eventClass){
+				case kALUEventClass:
+				switch (e.eventType){
+					case kHVACEventDoPendingTasks:
+					saveCurrentState();
+					prepareStateChangeEvent(kHVACStateLeaving);
+					done=true;
+					break;
+					
+					default:
+					break;
+				}
+				//done=gotAnyEvent;
+				break;
+				case kHVACEventClass:
+				switch (e.eventType){
+					case kHVACEventDoPendingTasks:
+					saveCurrentState();
+					prepareStateChangeEvent(kHVACStateLeaving);
+					done=true;
+					break;
+					default:
+					break;
+				}
+				
+				break;
+				case kInterfaceEventClass:
+				switch (e.eventType){
+					
+					case k_AC_CMD_DISABLE_Event:
+					prepareStateChangeEvent(kHVACStatePrepareStandbyOFF);
+					done=true;
+					break;
+					default:
+					break;
+				}
+				
+				break;
+				default:
+				break;
+				
+			}
+			
+			
+			
+			
+			
+		}
+		else
+		{
+			done=false;
+		}
 	}
 
-void States_Class::handleStatePrepareStandbyON(uint32 flags)
+	prepareStateChangeEvent(kHVACStateLeaving);
+
+}
+
+void States_Class::StatePrepareStandbyON(uint32 flags)
 	{
-	event	e;
-	bool	done(false);
-	uint32	connectFlags(hvacState->alarmState?kConnectFlagsAlarmOn:0);
+	hvacState->lastState=hvacState->currentState;
+	hvacState->currentState=kHVACStatePrepareStandbyON;
+	//uint32	connectFlags(hvacState->alarmState?kConnectFlagsAlarmOn:0);
 	   	
 #ifdef __DEBUG__
 	
-	usb << "handleStatePrepareStandbyON" << NEWLINE;
+	//usb << "handleStatePrepareStandbyON" << NEWLINE;
 		
 #endif
 
-	tick_t	leaveDisplayTime = hvacTimer.Get_ticks() + 4000;
+	//tick_t	leaveDisplayTime = hvacTimer.Get_ticks() + 4000;
+		switch (commando270.statusArinc)
+		{
+			case OFF:
+				prepareStateChangeEvent(kHVACStatePrepareStandbyOFF);
+			/* Your code here */
+			break;
+			case VENT:
+				prepareStateChangeEvent(kHVACStateStandbyVENT);
+			/* Your code here */
+			break;
+			case AUTO :
+				prepareStateChangeEvent(kHVACStateStandbyAUTO);
+			/* Your code here */
+			break;
+			default:
+				prepareStateChangeEvent(kHVACStatePrepareStandbyOFF);
+			/* Your code here */
+			break;
+		}
+	
 
-	listener.SendEventSelf(e);
+
 	}
+	
+void States_Class::StatePrepareStandbyOFF(uint32 flags)
+{
+	
+	hvacState->currentState=kHVACStatePrepareStandbyOFF;
+	//uint32	connectFlags(hvacState->alarmState?kConnectFlagsAlarmOn:0);
+	
+	#ifdef __DEBUG__
+	
+	//usb << "handleStatePrepareStandbyON" << NEWLINE;
+	
+	#endif
+
+	//tick_t	leaveDisplayTime = hvacTimer.Get_ticks() + 4000;
+	switch (hvacState->lastState)
+	{
+		case kHVACStateStandbyOFF:
+		
+		/* Your code here */
+		break;
+		case kHVACStateStandbyVENT:
+			fv1.SetVentilatePosition();
+
+		/* Your code here */
+		break;
+		case kHVACStateStandbyAUTO :
+			fv1.SetOffsetPosition();
+
+		/* Your code here */
+		break;
+		default:
+	
+		/* Your code here */
+		break;
+	}
+	prepareStateChangeEvent(kHVACStateStandbyOFF);
+
+
+}
 
 void States_Class::handleStateStandbyON(uint32 flags)
 	{
@@ -617,12 +896,21 @@ void States_Class::handleStateMaintenance(uint32 flags)
 	listener.SendEventSelf(e);
 	}
 	
-bool States_Class::handleInStateEvent(event& e, tick_t t, bool& done)
+bool States_Class::InStateEvent(event& e, tick_t t, bool& done)
 	{
 	bool	result;
 	done = false;
+	result=listener.WaitForEvent(e,kAnyEventClass,kAnyEventType,t);
+	
 	return result;
 	}
+	
+bool States_Class::InStateEvent(event& e, tick_t t){
+
+	bool result=listener.WaitForEvent(e,kAnyEventClass,kAnyEventType,t);
+	return result;
+
+}
 
 void States_Class::prepareStateChangeEvent(uint16 newState, uint16 data)
 	{
@@ -698,7 +986,33 @@ uint32_t	States_Class::GetStatus(HVACStatus& s){
 	return	hvacState->hvacStatus.rawStatus;
 }
 void States_Class::ExecutePeriodicTask(void){
-	arinc.SaveStatus(ConvertStatusArincLabel());
+	if (IsCommando270Changed())
+	{
+		if (commando270.AC_CMD)
+		{
+			
+			prepareStateChangeEvent(kHVACStatePrepareStandbyON);
+			listener.SendEventSelf(kInterfaceEventClass,k_AC_CMD_ENABLE_Event);
+		} 
+		else
+		{
+			prepareStateChangeEvent(kHVACStatePrepareStandbyOFF);
+			listener.SendEventSelf(kInterfaceEventClass,k_AC_CMD_DISABLE_Event);
+		}
+		
+
+	}
+	if (fv1.IsPositionChanged())
+	{
+		alu.PrepareNewTask(kALUTaskUpdateFlapperValves);
+		hvacState->arincStatus.statusFV=fv1.statusFlapperValve;
+		
+	}
+	if (IsStatusArinclabelChanged())
+	{
+		arinc.SaveStatus(GetAcknowledgeStatus());
+	}
+		
 }
 
 void States_Class::CheckEvents(void){
@@ -711,9 +1025,9 @@ void States_Class::CheckEvents(void){
 		
 	}
 	if ((hvac.hvacState->currentState==kHVACStateStandbyOFF)&&(alu.taskList->head)){
-		e.eventClass=kHVACEventClass;
-		e.eventType=kHVACEventDoPendingTasks;
-		listener.SendEventSelf(e);
+		fv1.ReadActualPosition();
+		alu.PrepareNewTask(kALUTaskUpdateFlapperValves);
+		listener.SendEventSelf(kHVACEventClass,kHVACEventDoPendingTasks);
 
 	}
 	if (alu.arincTXTimeUP){
@@ -725,10 +1039,7 @@ void States_Class::CheckEvents(void){
 		{
 			
 		}
-		
-		e.eventClass=kALUEventClass;
-		e.eventType=kHVACEventDoPendingTasks;
-		listener.SendEventSelf(e);
+		listener.SendEventSelf(kALUEventClass,kHVACEventDoPendingTasks);
 	}
 		
 

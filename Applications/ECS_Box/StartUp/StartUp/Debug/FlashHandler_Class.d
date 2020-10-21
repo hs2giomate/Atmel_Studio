@@ -166,6 +166,7 @@ FlashHandler_Class.d FlashHandler_Class.o: .././FlashHandler_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start.h \
@@ -257,7 +258,8 @@ FlashHandler_Class.d FlashHandler_Class.o: .././FlashHandler_Class.cpp \
  ../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
- .././Interfaces_Class.h .././DataLoger_Class.h .././FastStorage_Class.h \
+ .././Interfaces_Class.h .././HVAC_Commando_Class.h \
+ .././DataLoger_Class.h .././FastStorage_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h \
@@ -602,6 +604,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
 
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
+
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h:
@@ -791,6 +795,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h:
 
 .././Interfaces_Class.h:
+
+.././HVAC_Commando_Class.h:
 
 .././DataLoger_Class.h:
 

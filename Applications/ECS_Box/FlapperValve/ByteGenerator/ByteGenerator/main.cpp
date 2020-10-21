@@ -10,6 +10,9 @@
 #include "CDC_Class.h"
 #include "GPIOConnector_Class.h"
 static	GPIOConnector_Class	gpio;
+uint8_t	processValue=0;
+float	processFloat=0,outputFloat=0,integralError=0;
+uint8_t	SimpleProportionalController(uint8_t sp);
 
 int main(void)
 {
@@ -30,16 +33,61 @@ int main(void)
 		serial<<"Input Value on EXT2: ";
 		serial.println(byte,HEX);
 			
-		byte=gpio.RequestByte();
-		if (byte>0)
-		{
-			gpio.PutByteOnEXT2(byte);
-		} 
-		else
-		{
-			gpio.ClearByteOnEXT2();
-		}
+// 		byte=gpio.RequestByte();
+// 		if (byte>0)
+// 		{
+// 			processValue=byte;
+// 			gpio.PutByteOnEXT2(processValue);
+// 			
+// 		} 
+// 		else
+// 		{
+			while(1){
+				byte=gpio.ReadByteOnEXT2();
+				serial<<"SetpointPosition: ";
+				serial.print(byte,HEX);
+				serial<<"\tActualPosition: ";
+				serial.println(SimpleProportionalController(byte),HEX);
+				gpio.PutByteOnEXT2(processValue);
+				asm("nop");
+				
+			}
+			
+			
+		//}
 		delay_ms(500);
 	
     }
+}
+
+uint8_t	SimpleProportionalController(uint8_t sp){
+	//int proportionalError=(sp-processValue);
+	float errorFloat=float(sp)-processFloat;
+	integralError=errorFloat+integralError;
+	errorFloat=2*errorFloat+integralError/32;
+	float valueFloat  =((errorFloat)/(64));
+	outputFloat=outputFloat+valueFloat;
+	if (outputFloat<0)
+	{
+		processValue=0;
+		processFloat=0;
+		
+	} 
+	else
+	{
+		if (outputFloat>255)
+		{
+			processValue=0xff;
+			processFloat=255;
+		} 
+		else
+		{
+			processValue=(uint8_t)outputFloat;
+			processFloat=outputFloat;
+		}
+	}
+	delay_ms(100);
+	
+	return processValue;
+	
 }

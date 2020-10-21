@@ -239,6 +239,8 @@ void EventHandler_Class::SendEvent(event& e, contextID receiver)
 	SendEventSelf(e);
 }
 
+
+
 void EventHandler_Class::SendEventSelf(const event& e)
 {
 	if (IsEventListed(e.eventType,e.eventClass))

@@ -168,6 +168,7 @@ Interfaces_Class.d Interfaces_Class.o: .././Interfaces_Class.cpp \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/CDC_Class.h \
  ../../../ALU_Driver/ALU_Driver/usb_start.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
@@ -275,6 +276,7 @@ Interfaces_Class.d Interfaces_Class.o: .././Interfaces_Class.cpp \
  .././States_Class.h \
  ../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX/Maintenance_Tool.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
+ .././HVAC_Commando_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Interface.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Holt_3593_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h \
@@ -293,9 +295,10 @@ Interfaces_Class.d Interfaces_Class.o: .././Interfaces_Class.cpp \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23017_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23017_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
  .././ALU_Class.h .././PBIT_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Protocol_Class.h \
@@ -314,7 +317,11 @@ Interfaces_Class.d Interfaces_Class.o: .././Interfaces_Class.cpp \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/AT24MAC_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
- .././Error_Labelling_Class.h .././TaskHandler_Class.h
+ .././Error_Labelling_Class.h .././TaskHandler_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValve_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23017_Class.h
 
 .././Interfaces_Class.h:
 
@@ -658,6 +665,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
 
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
+
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/CDC_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/usb_start.h:
@@ -872,6 +881,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 
+.././HVAC_Commando_Class.h:
+
 ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/ARINC_Interface.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/ARINC/Holt_3593_Class.h:
@@ -908,11 +919,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander/MCP23017_Class.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23017_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h:
 
@@ -955,3 +968,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././Error_Labelling_Class.h:
 
 .././TaskHandler_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValve_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23017_Class.h:

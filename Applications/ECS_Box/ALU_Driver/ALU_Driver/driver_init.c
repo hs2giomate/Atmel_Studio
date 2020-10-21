@@ -28,7 +28,7 @@ struct calendar_descriptor DATETIME_CLOCK;
 
 struct i2c_m_sync_desc I2C_SHARED;
 
-struct i2c_m_async_desc I2C_EXPANDER;
+struct i2c_m_sync_desc I2C_EXPANDER;
 
 struct i2c_m_async_desc I2C_EEPROM;
 
@@ -581,7 +581,7 @@ void I2C_EXPANDER_CLOCK_init(void)
 void I2C_EXPANDER_init(void)
 {
 	I2C_EXPANDER_CLOCK_init();
-	i2c_m_async_init(&I2C_EXPANDER, SERCOM5);
+	i2c_m_sync_init(&I2C_EXPANDER, SERCOM5);
 	I2C_EXPANDER_PORT_init();
 }
 

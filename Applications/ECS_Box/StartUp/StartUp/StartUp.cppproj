@@ -207,6 +207,7 @@
       <Value>../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander</Value>
       <Value>../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX</Value>
       <Value>../../../ALU_Driver/ALU_Driver/hpl/tcc</Value>
+      <Value>../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
   <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -319,19 +320,13 @@
     <Compile Include="FastStorage_Class.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="FlapperValveDataStruct.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="FlapperValveDataStruct.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="FlapperValve_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="FlapperValve_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="GAINDefinitions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HVAC_Commando_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HVAC_Commando_Class.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Interfaces_Class.cpp">

@@ -5,6 +5,7 @@
 
 
 MCP23017_Class	*ptrMCP23017Class;
+static I2C_Sync_Class  i2cStatic;
 
 static void	MCPHadChanged(void){
 	
@@ -16,10 +17,18 @@ MCP23017_Class::MCP23017_Class()
 {
 	ptrMCP23017Class=this;
 } //AT24MAC_Class
-MCP23017_Class::MCP23017_Class(i2c_m_async_desc *i2c)
+MCP23017_Class::MCP23017_Class(i2c_m_async_desc *i2cDes)
 {
-	ptrI2CDescr=i2c;
+	ptrI2CAsynDescr=i2cDes;
 	ptrMCP23017Class=this;
+} //AT24MAC_Class
+
+MCP23017_Class::MCP23017_Class(i2c_m_sync_desc *i2cDes)
+{
+	ptrI2CDescr=i2cDes;
+	ptrMCP23017Class=this;
+	isReady=false;
+	i2c=&i2cStatic;
 } //AT24MAC_Class
 
 // default destructor
@@ -29,22 +38,25 @@ MCP23017_Class::~MCP23017_Class()
 
 void MCP23017_Class::Init(uint8_t addr) {
 	i2c_addr=addr;
-	i2ca.Set_descriptor(ptrI2CDescr);
-	isReady=i2ca.Init(addr)==0;
+	i2c->SetDescriptor(ptrI2CDescr);
+	isReady=i2c->Init(addr)==0;
 	ext_irq_register(PIN_PA04,FUNC_PTR(MCPHadChanged));
 	//ext_irq_register(PIN_PA05,FUNC_PTR(MCPHadChanged));
 }
 void MCP23017_Class::Init(i2c_m_async_desc *i2c){
-	ptrI2CDescr=i2c;
+	ptrI2CAsynDescr=i2c;
 	Init((uint8_t)MCP23017_ADDRESS);
 }
+
 
 /**
  * Initializes the default MCP23017, with 000 for the configurable part of the address
  */
 bool MCP23017_Class::Init(void) {
     Init((uint8_t)MCP23017_ADDRESS);
-	return	SelfTest();	
+	isOK=i2c->isOK;
+	isReady=isOK;
+	return	isOK;	
 }
 /**
  * Bit number associated to a give Pin
@@ -65,13 +77,13 @@ uint8_t MCP23017_Class::regForPin(uint8_t pin, uint8_t portAaddr, uint8_t portBa
 /**
  * Reads a given register
  */
-uint8_t MCP23017_Class::readRegister(uint8_t addr){
+uint8_t MCP23017_Class::ReadRegister(uint8_t addr){
 	// read the current GPINTEN
 	//i2ca.read_cmd(addr,&value);
-	i2ca.Write(&addr,1);
-	while(!i2ca.txReady);
-	i2ca.Read(&registerValue,1);
-	while(!i2ca.rxReady);
+
+	//i2c->ReadCommand(addr,&registerValue,1);
+	i2c->Write(&addr,1);
+	i2c->Read(&registerValue,1);
 	return registerValue;
 }
 
@@ -79,25 +91,29 @@ uint8_t MCP23017_Class::readRegister(uint8_t addr){
 /**
  * Writes a given register
  */
-void MCP23017_Class::writeRegister(uint8_t addr, uint8_t value){
+void MCP23017_Class::WriteRegister(uint8_t addr, uint8_t value){
 	// Write the register
-	isReady=false;
+	//isReady=false;
 	uint8_t array[2];
 	array[0]=addr;
 	array[1]=value;
-	i2ca.Write(array,2);
-	while(!i2ca.txReady);
+	i2c->Write(array,2);
+	//while(!i2ca.txReady);
+}
+uint8_t MCP23017_Class::WriteRegisterB(uint8_t value){
+	WriteRegister(MCP23017_GPIOB,value);
+	return value;
 }
 
 void	MCP23017_Class::SetPortAInput(void){
-	for (i=0;i<8;i++)
+	for (uint8_t i=0;i<8;i++)
 	{
 		pinMode(i,INPUT);
 		pullUp(i,HIGH);
 	}
 }
 void	MCP23017_Class::SetPortBOutput(void){
-	for (i=8;i<16;i++)
+	for (uint8_t i=8;i<16;i++)
 	{
 		pinMode(i,OUTPUT);
 	}
@@ -111,12 +127,12 @@ void MCP23017_Class::updateRegisterBit(uint8_t pin, uint8_t pValue, uint8_t port
 	uint8_t regValue;
 	uint8_t regAddr=regForPin(pin,portAaddr,portBaddr);
 	uint8_t bit=bitForPin(pin);
-	regValue = readRegister(regAddr);
+	regValue = ReadRegister(regAddr);
 
 	// set the value for the particular bit
 	bitWrite(regValue,bit,pValue);
 
-	writeRegister(regAddr,regValue);
+	WriteRegister(regAddr,regValue);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -191,14 +207,14 @@ void MCP23017_Class::digitalWrite(uint8_t pin, uint8_t d) {
 
 	// read the current GPIO output latches
 	uint8_t regAddr=regForPin(pin,MCP23017_OLATA,MCP23017_OLATB);
-	gpio = readRegister(regAddr);
+	gpio = ReadRegister(regAddr);
 
 	// set the pin and direction
 	bitWrite(gpio,bit,d);
 
 	// write the new GPIO
 	regAddr=regForPin(pin,MCP23017_GPIOA,MCP23017_GPIOB);
-	writeRegister(regAddr,gpio);
+	WriteRegister(regAddr,gpio);
 }
 
 void MCP23017_Class::pullUp(uint8_t p, uint8_t d) {
@@ -208,7 +224,7 @@ void MCP23017_Class::pullUp(uint8_t p, uint8_t d) {
 uint8_t MCP23017_Class::digitalRead(uint8_t pin) {
 	uint8_t bit=bitForPin(pin);
 	uint8_t regAddr=regForPin(pin,MCP23017_GPIOA,MCP23017_GPIOB);
-	return (readRegister(regAddr) >> bit) & 0x1;
+	return (ReadRegister(regAddr) >> bit) & 0x1;
 }
 
 /**
@@ -222,18 +238,18 @@ uint8_t MCP23017_Class::digitalRead(uint8_t pin) {
  */
 void MCP23017_Class::setupInterrupts(uint8_t mirroring, uint8_t openDrain, uint8_t polarity){
 	// configure the port A
-	uint8_t ioconfValue=readRegister(MCP23017_IOCONA);
+	uint8_t ioconfValue=ReadRegister(MCP23017_IOCONA);
 	bitWrite(ioconfValue,6,mirroring);
 	bitWrite(ioconfValue,2,openDrain);
 	bitWrite(ioconfValue,1,polarity);
-	writeRegister(MCP23017_IOCONA,ioconfValue);
+	WriteRegister(MCP23017_IOCONA,ioconfValue);
 
 	// Configure the port B
-	ioconfValue=readRegister(MCP23017_IOCONB);
+	ioconfValue=ReadRegister(MCP23017_IOCONB);
 	bitWrite(ioconfValue,6,mirroring);
 	bitWrite(ioconfValue,2,openDrain);
 	bitWrite(ioconfValue,1,polarity);
-	writeRegister(MCP23017_IOCONB,ioconfValue);
+	WriteRegister(MCP23017_IOCONB,ioconfValue);
 }
 
 /**
@@ -270,11 +286,11 @@ uint8_t MCP23017_Class::getLastInterruptPin(){
 	uint8_t intf;
 
 	// try port A
-	intf=readRegister(MCP23017_INTFA);
+	intf=ReadRegister(MCP23017_INTFA);
 	for(int i=0;i<8;i++) if (bitRead(intf,i)) return i;
 
 	// try port B
-	intf=readRegister(MCP23017_INTFB);
+	intf=ReadRegister(MCP23017_INTFB);
 	for(int i=0;i<8;i++) if (bitRead(intf,i)) return i+8;
 
 	return MCP23017_INT_ERR;
@@ -290,32 +306,32 @@ uint8_t	MCP23017_Class::SavePorts(void){
 	return portA;
 }
 void MCP23017_Class::ClearIntRegisters(){
-		readRegister(MCP23017_INTCAPA);
-	readRegister(MCP23017_INTCAPB);
+		ReadRegister(MCP23017_INTCAPA);
+	ReadRegister(MCP23017_INTCAPB);
 }
 uint8_t MCP23017_Class::getLastInterruptPinValue(){
 	uint8_t intPin=getLastInterruptPin();
 	if(intPin!=MCP23017_INT_ERR){
 		uint8_t intcapreg=regForPin(intPin,MCP23017_INTCAPA,MCP23017_INTCAPB);
 		uint8_t bit=bitForPin(intPin);
-		return (readRegister(intcapreg)>>bit) & (0x01);
+		return (ReadRegister(intcapreg)>>bit) & (0x01);
 	}
 
 	return MCP23017_INT_ERR;
 }
 bool	MCP23017_Class::SelfTest(void){
 	SetPortAInput();
-	controlRegisterA=readRegister(MCP23017_GPIOA);
+	controlRegisterA=ReadRegister(MCP23017_GPIOA);
 	SetPortBOutput();
 	SetChangeInterruptAllPins();
 	ClearIntRegisters();
 	hasChanged=false;
 	for (int i = 0; i < 8; i++)
 	{
-		mcp.digitalWrite(8+i,mcp.digitalRead(i));
+		digitalWrite(8+i,digitalRead(i));
 	}
 		
-	controlRegisterB=readRegister(MCP23017_GPIOB);
+	controlRegisterB=ReadRegister(MCP23017_GPIOB);
 	ClearIntRegisters();
 	if (controlRegisterA==controlRegisterB)
 	{

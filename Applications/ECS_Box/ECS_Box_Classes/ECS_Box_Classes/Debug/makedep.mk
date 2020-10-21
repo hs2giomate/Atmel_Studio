@@ -32,9 +32,15 @@ I2C\I2C_Asyn_Class.cpp
 
 I2C\I2C_ObjectList.cpp
 
-IO_Expander\MCP23008_Class.cpp
+I2C\I2C_Sync_Class.cpp
 
-IO_Expander\MCP23017_Class.cpp
+FlapperValve\FlapperValveDataStruct.cpp
+
+FlapperValve\FlapperValve_Class.cpp
+
+FlapperValve\MCP23008_Class.cpp
+
+FlapperValve\MCP23017_Class.cpp
 
 LTC2983\LTC2983_Class.cpp
 

@@ -4,6 +4,7 @@
 #include "driver_init.h"
 #include "utils.h"
 #include "I2C_Asyn_Class.h"
+#include "I2C_Sync_Class.h"
 #include "Arduino.h"
 #define		INPUT		0
 #define		OUTPUT		1
@@ -50,14 +51,16 @@ public:
 	volatile bool isReady,hasChanged;
 	I2C_Asyn_Class	i2ca;
 private:
-	i2c_m_async_desc *ptrI2CDescr;
-	uint8_t	i,j,k;
+	i2c_m_async_desc *ptrI2CAsynDescr;
+	i2c_m_sync_desc *ptrI2CDescr;
+	I2C_Sync_Class*	i2c;
 	uint8_t		i2c_addr,registerValue,regAddress,controlRegisterA,controlRegisterB,portA,portB;
 	bool isOK;
 	//Funcitons
 public:
 	MCP23017_Class();
-	MCP23017_Class(i2c_m_async_desc *i2c);
+	MCP23017_Class(i2c_m_async_desc *i2cDes);
+	MCP23017_Class(i2c_m_sync_desc *i2cDes);
 	~MCP23017_Class();
     void Init(i2c_m_async_desc *i2c);
 	void Init(uint8_t addr);
@@ -80,6 +83,8 @@ public:
 	void	SetPortBOutput(void);
 	uint8_t	SavePorts(void);
 	void SetChangeInterruptAllPins();
+	uint8_t WriteRegisterB(uint8_t value);
+	uint8_t ReadRegister(uint8_t addr);
 	
 private:
     uint8_t i2caddr;
@@ -87,8 +92,8 @@ private:
     uint8_t bitForPin(uint8_t pin);
     uint8_t regForPin(uint8_t pin, uint8_t portAaddr, uint8_t portBaddr);
 
-    uint8_t readRegister(uint8_t addr);
-    void writeRegister(uint8_t addr, uint8_t value);
+    
+    void WriteRegister(uint8_t addr, uint8_t value);
 
     void updateRegisterBit(uint8_t p, uint8_t pValue, uint8_t portAaddr, uint8_t portBaddr);
 	bool	SelfTest(void);

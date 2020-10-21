@@ -43,6 +43,15 @@ struct FVDataStruct
 	uint8_t			setPointPosition;
 	uint8_t			actualPosition;
 };
+enum StatusFlapperValve
+{
+	FRESHAIR=0,
+	INTERM,
+	RECYCLE,
+	NBC,
+};
+
+
 class FlapperValveDataStruct
 {
 //variables
@@ -53,7 +62,6 @@ public:
 	
 protected:
 private:
-	uint8_t	i,j,k;
 	ControlStatus	controlStatus;
 	StatusInputs	statusInputs;
 //functions

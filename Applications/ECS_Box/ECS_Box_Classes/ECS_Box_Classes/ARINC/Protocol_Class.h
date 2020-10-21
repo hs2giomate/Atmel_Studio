@@ -34,6 +34,18 @@ uint32_t	rawWord;
 
 class Protocol_Class: private virtual ARINC_Conversions
 {
+	//Variables
+public:	
+
+private:
+		Datagram	datagram;
+		uint32_t value;
+		uint8_t label;
+		int	counter;
+		uint8_t	testByte;
+	
+	
+	
 
 //functions
 public:
@@ -46,13 +58,13 @@ public:
 	uint32_t MakeLabel374(uint32_t d,float v);
 	uint32_t MakeEvenParity(uint32_t data);
 	uint32_t MakeLabel270(uint32_t d);
+	uint32_t MakeTXLabel275(uint8_t d);
 protected:
 	//virtual uint8_t		Label2Byte(uint32_t)=0;
 //	friend	class	ARINC_Conversions;
 private:
-	Datagram	datagram;
-	uint32_t value;
-	uint8_t label;
+
+	uint8_t WavingValue(void);
 
 }; //Protocol_Class
 

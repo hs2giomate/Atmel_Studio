@@ -15,6 +15,7 @@
 #include "ALU_Class.h"
 #include "Error_Labelling_Class.h"
 #include "Maintenance_Tool.h"
+#include "FlapperValve_Class.h"
 
 
 // default constructor
@@ -76,8 +77,8 @@ bool	Interfaces_Class::IsCommunicationRequest(void){
 uint32_t Interfaces_Class::CheckInternalCommunication(void)
 {
 	uint32_t	r=0;
-	request.internRequest.I2CExpanderGotMessage=CheckI2CExpander(1);
-	request.internRequest.LTC2983GotMessage=CheckTemperatures();
+	request.internRequest.flapperValvesMessage=CheckFlapperValveInterface(1);
+	request.internRequest.temperatureSensorsMessage=CheckTemperatures();
 	return	0;
 }
 uint32_t Interfaces_Class::CheckExternalCommunication(void)
@@ -104,13 +105,14 @@ uint32_t Interfaces_Class::CheckExternalCommunication(void)
 	
 	return	0;
 }
-bool	Interfaces_Class::CheckI2CExpander(uint8_t add){
-		if (mcp.hasChanged)
+bool	Interfaces_Class::CheckFlapperValveInterface(uint8_t add){
+		if (fv1.fv1StatusChanged)
 		{
-			mcp.SavePorts();
-			mcp.hasChanged=false;
+			fv1.ReadActualPosition();
+			alu.PrepareNewTask(kALUTaskUpdateFlapperValves);
+			fv1.fv1StatusChanged=false;
 		}
-		return	mcp.hasChanged;
+		return	fv1.fv1StatusChanged;
 }
 bool	Interfaces_Class::CheckUSBInterface(void){
 		if (usb.connected)

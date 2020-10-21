@@ -8,6 +8,7 @@
 
 #include "Protocol_Class.h"
 #include "stdlib.h"
+#include "math.h"
 
 // virtual destructor
 Protocol_Class::~Protocol_Class()
@@ -43,12 +44,21 @@ uint32_t Protocol_Class::MakeLabel374(uint32_t d,float v){
 	return value;
 	
 }
+uint32_t Protocol_Class::MakeTXLabel275(uint8_t d){
+	value=((uint32_t)d)<<10;
+	label=Label2Byte(275);
+	value|=(uint32_t)label;
+
+	value=MakeEvenParity(value);
+	return value;
+	
+}
 uint32_t Protocol_Class::MakeLabel270(uint32_t d){
 	
 	value=d<<10;
 	label=Label2Byte(270);
 	value|=(uint32_t)label;
-	value|=(uint32_t)(((uint8_t)rand()))<<19;
+	value|=(uint32_t)(((uint8_t)WavingValue()))<<19;
 	value=MakeEvenParity(value);
 	return value;
 	
@@ -63,4 +73,9 @@ uint32_t Protocol_Class::MakeEvenParity(uint32_t data){
 		
 	}
 	return data;
+}
+uint8_t Protocol_Class::WavingValue(void){
+	testByte=int(90*sin(counter*3.141516/(180*200)))+90;
+	counter++;
+	return testByte;
 }

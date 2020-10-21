@@ -32,7 +32,8 @@ extern const tick_t	forever;
 enum EventClass
 	{
 	kHVACEventClass = 0x200,
-	kALUEventClass=0x400,
+	kALUEventClass=0x300,
+	kInterfaceEventClass=0x400,
 	kErrorEventClass = 0x8000,
 	kCommunicationEventClass = 0x9000,
 	kAnyEventClass = 0xFFFF
@@ -55,6 +56,8 @@ enum EventType
 	kTimeoutEvent = 0x0001,
 	kALUControllerEvent,
 	kHVACEventDoPendingTasks,
+	k_AC_CMD_ENABLE_Event,
+	k_AC_CMD_DISABLE_Event,
 	kSerialDataAvailableEvent,
 	kUARTDataAvailableEvent,
 	kUART0DataAvailableEvent,

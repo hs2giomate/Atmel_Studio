@@ -1,5 +1,7 @@
-FlapperValveDataStruct.d FlapperValveDataStruct.o: \
- .././FlapperValveDataStruct.cpp .././FlapperValveDataStruct.h \
+FlapperValve/FlapperValveDataStruct.d \
+ FlapperValve/FlapperValveDataStruct.o: \
+ ../FlapperValve/FlapperValveDataStruct.cpp \
+ ../FlapperValve/FlapperValveDataStruct.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
@@ -161,7 +163,7 @@ FlapperValveDataStruct.d FlapperValveDataStruct.o: \
  ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h
 
-.././FlapperValveDataStruct.h:
+../FlapperValve/FlapperValveDataStruct.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h:
 

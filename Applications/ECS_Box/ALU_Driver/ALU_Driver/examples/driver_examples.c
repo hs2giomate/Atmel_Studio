@@ -198,22 +198,14 @@ void SPI_TEMP_example(void)
 	io_write(io, example_SPI_TEMP, 12);
 }
 
-static uint8_t I2C_EXPANDER_example_str[12] = "Hello World!";
-
-void I2C_EXPANDER_tx_complete(struct i2c_m_async_desc *const i2c)
-{
-}
-
 void I2C_EXPANDER_example(void)
 {
 	struct io_descriptor *I2C_EXPANDER_io;
 
-	i2c_m_async_get_io_descriptor(&I2C_EXPANDER, &I2C_EXPANDER_io);
-	i2c_m_async_enable(&I2C_EXPANDER);
-	i2c_m_async_register_callback(&I2C_EXPANDER, I2C_M_ASYNC_TX_COMPLETE, (FUNC_PTR)I2C_EXPANDER_tx_complete);
-	i2c_m_async_set_slaveaddr(&I2C_EXPANDER, 0x12, I2C_M_SEVEN);
-
-	io_write(I2C_EXPANDER_io, I2C_EXPANDER_example_str, 12);
+	i2c_m_sync_get_io_descriptor(&I2C_EXPANDER, &I2C_EXPANDER_io);
+	i2c_m_sync_enable(&I2C_EXPANDER);
+	i2c_m_sync_set_slaveaddr(&I2C_EXPANDER, 0x12, I2C_M_SEVEN);
+	io_write(I2C_EXPANDER_io, (uint8_t *)"Hello World!", 12);
 }
 
 /**

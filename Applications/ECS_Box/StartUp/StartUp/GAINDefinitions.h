@@ -34,8 +34,10 @@ enum HVACStatesEnum
 	kHVACStateReset,
 	kHVACStateInitialize,
 	kHVACStateResume,
-
+	kHVACStateStandbyVENT,
+	kHVACStateStandbyAUTO,
 	kHVACStateStandbyOFF,
+	kHVACStatePrepareStandbyOFF,
 	kHVACStatePrepareStandbyON,
 	kHVACStateStandbyON,
 	kHVACStateStandbyReady,

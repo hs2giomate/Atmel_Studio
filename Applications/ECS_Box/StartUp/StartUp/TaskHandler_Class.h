@@ -25,6 +25,7 @@ enum ALUTaskEnum
 	kALUSimpleStop,
 	kALUSimpleResume,
 	kALUTaskUpdateTemperatures,
+	kALUTaskUpdateFlapperValves,
 	kALUNumberTasks
 };
 #define MAXIMUM_TASKS	kALUNumberTasks

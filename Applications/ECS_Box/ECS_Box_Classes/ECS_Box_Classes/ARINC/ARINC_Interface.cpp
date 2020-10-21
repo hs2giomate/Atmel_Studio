@@ -231,21 +231,20 @@ uint32_t ARINC_Interface::ReadFIFO1(){
 }
 
 uint32_t ARINC_Interface::ReadBufferLabel(uint8_t label){
-	uint32_t *data;
-	uint8_t	j;
+	uint32_t data;
+
 	for (uint8_t i=0;i<MESSAGECOUNTMAX;i++){
-		j=(MessageCount+i)%MESSAGECOUNTMAX;
-		if (receiverBuffer[j][3]==label)
+		if (receiverBuffer[i][3]==label)
 		{
-			data=(uint32_t*)receiverBuffer[j];
-			return *data;
+			data=FourBytesArray2Uint32(receiverBuffer[i]);
+			return data;
 		}
 		
 	}
 
 	return 0;
 }
-uint32_t ARINC_Interface::ReadBufferLabel(int label){
+uint32_t ARINC_Interface::ReadBufferLabel(uint32_t label){
 	uint8_t	l=Label2Byte((uint32_t)label);
 	return (uint32_t)ReadBufferLabel(l);
 }
