@@ -10,6 +10,8 @@ ApplicationLayer\ConfigurationData.cpp
 
 CBIT_Class.cpp
 
+CondesatorFan_Class.cpp
+
 ConfigState_Class.cpp
 
 CRC32_Class.cpp
@@ -25,6 +27,12 @@ Device_Startup\system_same54.c
 ErrorAnalyer_Class.cpp
 
 Error_Labelling_Class.cpp
+
+EvaporatorAndCondesatorFans_Class.cpp
+
+EvaporatorFanDataStruct_Class.cpp
+
+EvaporatorFan_Class.cpp
 
 FastStorage_Class.cpp
 

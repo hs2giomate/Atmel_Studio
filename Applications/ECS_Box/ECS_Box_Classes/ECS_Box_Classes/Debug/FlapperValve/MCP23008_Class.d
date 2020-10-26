@@ -188,13 +188,13 @@ FlapperValve/MCP23008_Class.d FlapperValve/MCP23008_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
@@ -213,7 +213,7 @@ FlapperValve/MCP23008_Class.d FlapperValve/MCP23008_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../I2C/I2C_ObjectList.h ../EIDE_Utils/Arduino.h \
+ ../I2C/I2C_ObjectList.h ../I2C/I2C_Sync_Class.h ../EIDE_Utils/Arduino.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h \
@@ -621,6 +621,10 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
 
+../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
@@ -630,10 +634,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
 
@@ -672,6 +672,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
 
 ../I2C/I2C_ObjectList.h:
+
+../I2C/I2C_Sync_Class.h:
 
 ../EIDE_Utils/Arduino.h:
 

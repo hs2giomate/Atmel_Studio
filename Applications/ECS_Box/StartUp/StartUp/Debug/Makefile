@@ -43,6 +43,7 @@ C_SRCS +=  \
 ../AMMC_Class.cpp \
 ../ApplicationLayer/ConfigurationData.cpp \
 ../CBIT_Class.cpp \
+../CondesatorFan_Class.cpp \
 ../ConfigState_Class.cpp \
 ../CRC32_Class.cpp \
 ../DataLoger_Class.cpp \
@@ -51,6 +52,9 @@ C_SRCS +=  \
 ../Device_Startup/system_same54.c \
 ../ErrorAnalyer_Class.cpp \
 ../Error_Labelling_Class.cpp \
+../EvaporatorAndCondesatorFans_Class.cpp \
+../EvaporatorFanDataStruct_Class.cpp \
+../EvaporatorFan_Class.cpp \
 ../FastStorage_Class.cpp \
 ../HVAC_Commando_Class.cpp \
 ../Interfaces_Class.cpp \
@@ -74,6 +78,7 @@ ALU_Class.o \
 AMMC_Class.o \
 ApplicationLayer/ConfigurationData.o \
 CBIT_Class.o \
+CondesatorFan_Class.o \
 ConfigState_Class.o \
 CRC32_Class.o \
 DataLoger_Class.o \
@@ -82,6 +87,9 @@ Device_Startup/startup_same54.o \
 Device_Startup/system_same54.o \
 ErrorAnalyer_Class.o \
 Error_Labelling_Class.o \
+EvaporatorAndCondesatorFans_Class.o \
+EvaporatorFanDataStruct_Class.o \
+EvaporatorFan_Class.o \
 FastStorage_Class.o \
 HVAC_Commando_Class.o \
 Interfaces_Class.o \
@@ -98,6 +106,7 @@ ALU_Class.o \
 AMMC_Class.o \
 ApplicationLayer/ConfigurationData.o \
 CBIT_Class.o \
+CondesatorFan_Class.o \
 ConfigState_Class.o \
 CRC32_Class.o \
 DataLoger_Class.o \
@@ -106,6 +115,9 @@ Device_Startup/startup_same54.o \
 Device_Startup/system_same54.o \
 ErrorAnalyer_Class.o \
 Error_Labelling_Class.o \
+EvaporatorAndCondesatorFans_Class.o \
+EvaporatorFanDataStruct_Class.o \
+EvaporatorFan_Class.o \
 FastStorage_Class.o \
 HVAC_Commando_Class.o \
 Interfaces_Class.o \
@@ -122,6 +134,7 @@ ALU_Class.d \
 AMMC_Class.d \
 ApplicationLayer/ConfigurationData.d \
 CBIT_Class.d \
+CondesatorFan_Class.d \
 ConfigState_Class.d \
 CRC32_Class.d \
 DataLoger_Class.d \
@@ -130,6 +143,9 @@ Device_Startup/startup_same54.d \
 Device_Startup/system_same54.d \
 ErrorAnalyer_Class.d \
 Error_Labelling_Class.d \
+EvaporatorAndCondesatorFans_Class.d \
+EvaporatorFanDataStruct_Class.d \
+EvaporatorFan_Class.d \
 FastStorage_Class.d \
 HVAC_Commando_Class.d \
 Interfaces_Class.d \
@@ -146,6 +162,7 @@ ALU_Class.d \
 AMMC_Class.d \
 ApplicationLayer/ConfigurationData.d \
 CBIT_Class.d \
+CondesatorFan_Class.d \
 ConfigState_Class.d \
 CRC32_Class.d \
 DataLoger_Class.d \
@@ -154,6 +171,9 @@ Device_Startup/startup_same54.d \
 Device_Startup/system_same54.d \
 ErrorAnalyer_Class.d \
 Error_Labelling_Class.d \
+EvaporatorAndCondesatorFans_Class.d \
+EvaporatorFanDataStruct_Class.d \
+EvaporatorFan_Class.d \
 FastStorage_Class.d \
 HVAC_Commando_Class.d \
 Interfaces_Class.d \
@@ -212,6 +232,13 @@ ApplicationLayer/ConfigurationData.o: ../ApplicationLayer/ConfigurationData.cpp
 	@echo Finished building: $<
 	
 
+./CondesatorFan_Class.o: .././CondesatorFan_Class.cpp
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAME54P20A__ -DDEBUG -DPARTNUMBER=1804 -D__DEBUG__=1  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include" -I"../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Timers" -I"../../../ECS_Box_Classes/ECS_Box_Classes/SPI" -I"../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983" -I"../../../ECS_Box_Classes/ECS_Box_Classes/I2C" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EEPROM" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ARINC" -I"../../../ECS_Box_Classes/ECS_Box_Classes/avr" -I"../Device_Startup" -I".." -I"../.." -I"../ApplicationLayer" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Storage" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling" -I"../../../ALU_Driver/ALU_Driver/Config" -I"../../../ALU_Driver/ALU_Driver" -I"../../../ALU_Driver/ALU_Driver/examples" -I"../../../ALU_Driver/ALU_Driver/hal/include" -I"../../../ALU_Driver/ALU_Driver/hal/utils/include" -I"../../../ALU_Driver/ALU_Driver/hpl/can" -I"../../../ALU_Driver/ALU_Driver/hpl/cmcc" -I"../../../ALU_Driver/ALU_Driver/hpl/core" -I"../../../ALU_Driver/ALU_Driver/hpl/dmac" -I"../../../ALU_Driver/ALU_Driver/hpl/dsu" -I"../../../ALU_Driver/ALU_Driver/hpl/eic" -I"../../../ALU_Driver/ALU_Driver/hpl/evsys" -I"../../../ALU_Driver/ALU_Driver/hpl/gclk" -I"../../../ALU_Driver/ALU_Driver/hpl/mclk" -I"../../../ALU_Driver/ALU_Driver/hpl/osc32kctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/oscctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/pac" -I"../../../ALU_Driver/ALU_Driver/hpl/pm" -I"../../../ALU_Driver/ALU_Driver/hpl/port" -I"../../../ALU_Driver/ALU_Driver/hpl/qspi" -I"../../../ALU_Driver/ALU_Driver/hpl/ramecc" -I"../../../ALU_Driver/ALU_Driver/hpl/rtc" -I"../../../ALU_Driver/ALU_Driver/hpl/sercom" -I"../../../ALU_Driver/ALU_Driver/hpl/tc" -I"../../../ALU_Driver/ALU_Driver/hpl/usb" -I"../../../ALU_Driver/ALU_Driver/hpl/wdt" -I"../../../ALU_Driver/ALU_Driver/hri" -I"../../../ALU_Driver/ALU_Driver/usb" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc/device" -I"../../../ALU_Driver/ALU_Driver/usb/device" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling" -I"../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander" -I"../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX" -I"../../../ALU_Driver/ALU_Driver/hpl/tcc" -I"../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./ConfigState_Class.o: .././ConfigState_Class.cpp
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
@@ -262,6 +289,27 @@ Device_Startup/system_same54.o: ../Device_Startup/system_same54.c
 	
 
 ./Error_Labelling_Class.o: .././Error_Labelling_Class.cpp
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAME54P20A__ -DDEBUG -DPARTNUMBER=1804 -D__DEBUG__=1  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include" -I"../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Timers" -I"../../../ECS_Box_Classes/ECS_Box_Classes/SPI" -I"../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983" -I"../../../ECS_Box_Classes/ECS_Box_Classes/I2C" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EEPROM" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ARINC" -I"../../../ECS_Box_Classes/ECS_Box_Classes/avr" -I"../Device_Startup" -I".." -I"../.." -I"../ApplicationLayer" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Storage" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling" -I"../../../ALU_Driver/ALU_Driver/Config" -I"../../../ALU_Driver/ALU_Driver" -I"../../../ALU_Driver/ALU_Driver/examples" -I"../../../ALU_Driver/ALU_Driver/hal/include" -I"../../../ALU_Driver/ALU_Driver/hal/utils/include" -I"../../../ALU_Driver/ALU_Driver/hpl/can" -I"../../../ALU_Driver/ALU_Driver/hpl/cmcc" -I"../../../ALU_Driver/ALU_Driver/hpl/core" -I"../../../ALU_Driver/ALU_Driver/hpl/dmac" -I"../../../ALU_Driver/ALU_Driver/hpl/dsu" -I"../../../ALU_Driver/ALU_Driver/hpl/eic" -I"../../../ALU_Driver/ALU_Driver/hpl/evsys" -I"../../../ALU_Driver/ALU_Driver/hpl/gclk" -I"../../../ALU_Driver/ALU_Driver/hpl/mclk" -I"../../../ALU_Driver/ALU_Driver/hpl/osc32kctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/oscctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/pac" -I"../../../ALU_Driver/ALU_Driver/hpl/pm" -I"../../../ALU_Driver/ALU_Driver/hpl/port" -I"../../../ALU_Driver/ALU_Driver/hpl/qspi" -I"../../../ALU_Driver/ALU_Driver/hpl/ramecc" -I"../../../ALU_Driver/ALU_Driver/hpl/rtc" -I"../../../ALU_Driver/ALU_Driver/hpl/sercom" -I"../../../ALU_Driver/ALU_Driver/hpl/tc" -I"../../../ALU_Driver/ALU_Driver/hpl/usb" -I"../../../ALU_Driver/ALU_Driver/hpl/wdt" -I"../../../ALU_Driver/ALU_Driver/hri" -I"../../../ALU_Driver/ALU_Driver/usb" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc/device" -I"../../../ALU_Driver/ALU_Driver/usb/device" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling" -I"../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander" -I"../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX" -I"../../../ALU_Driver/ALU_Driver/hpl/tcc" -I"../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./EvaporatorAndCondesatorFans_Class.o: .././EvaporatorAndCondesatorFans_Class.cpp
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAME54P20A__ -DDEBUG -DPARTNUMBER=1804 -D__DEBUG__=1  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include" -I"../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Timers" -I"../../../ECS_Box_Classes/ECS_Box_Classes/SPI" -I"../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983" -I"../../../ECS_Box_Classes/ECS_Box_Classes/I2C" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EEPROM" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ARINC" -I"../../../ECS_Box_Classes/ECS_Box_Classes/avr" -I"../Device_Startup" -I".." -I"../.." -I"../ApplicationLayer" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Storage" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling" -I"../../../ALU_Driver/ALU_Driver/Config" -I"../../../ALU_Driver/ALU_Driver" -I"../../../ALU_Driver/ALU_Driver/examples" -I"../../../ALU_Driver/ALU_Driver/hal/include" -I"../../../ALU_Driver/ALU_Driver/hal/utils/include" -I"../../../ALU_Driver/ALU_Driver/hpl/can" -I"../../../ALU_Driver/ALU_Driver/hpl/cmcc" -I"../../../ALU_Driver/ALU_Driver/hpl/core" -I"../../../ALU_Driver/ALU_Driver/hpl/dmac" -I"../../../ALU_Driver/ALU_Driver/hpl/dsu" -I"../../../ALU_Driver/ALU_Driver/hpl/eic" -I"../../../ALU_Driver/ALU_Driver/hpl/evsys" -I"../../../ALU_Driver/ALU_Driver/hpl/gclk" -I"../../../ALU_Driver/ALU_Driver/hpl/mclk" -I"../../../ALU_Driver/ALU_Driver/hpl/osc32kctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/oscctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/pac" -I"../../../ALU_Driver/ALU_Driver/hpl/pm" -I"../../../ALU_Driver/ALU_Driver/hpl/port" -I"../../../ALU_Driver/ALU_Driver/hpl/qspi" -I"../../../ALU_Driver/ALU_Driver/hpl/ramecc" -I"../../../ALU_Driver/ALU_Driver/hpl/rtc" -I"../../../ALU_Driver/ALU_Driver/hpl/sercom" -I"../../../ALU_Driver/ALU_Driver/hpl/tc" -I"../../../ALU_Driver/ALU_Driver/hpl/usb" -I"../../../ALU_Driver/ALU_Driver/hpl/wdt" -I"../../../ALU_Driver/ALU_Driver/hri" -I"../../../ALU_Driver/ALU_Driver/usb" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc/device" -I"../../../ALU_Driver/ALU_Driver/usb/device" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling" -I"../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander" -I"../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX" -I"../../../ALU_Driver/ALU_Driver/hpl/tcc" -I"../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./EvaporatorFanDataStruct_Class.o: .././EvaporatorFanDataStruct_Class.cpp
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAME54P20A__ -DDEBUG -DPARTNUMBER=1804 -D__DEBUG__=1  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include" -I"../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Timers" -I"../../../ECS_Box_Classes/ECS_Box_Classes/SPI" -I"../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983" -I"../../../ECS_Box_Classes/ECS_Box_Classes/I2C" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EEPROM" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ARINC" -I"../../../ECS_Box_Classes/ECS_Box_Classes/avr" -I"../Device_Startup" -I".." -I"../.." -I"../ApplicationLayer" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Storage" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling" -I"../../../ALU_Driver/ALU_Driver/Config" -I"../../../ALU_Driver/ALU_Driver" -I"../../../ALU_Driver/ALU_Driver/examples" -I"../../../ALU_Driver/ALU_Driver/hal/include" -I"../../../ALU_Driver/ALU_Driver/hal/utils/include" -I"../../../ALU_Driver/ALU_Driver/hpl/can" -I"../../../ALU_Driver/ALU_Driver/hpl/cmcc" -I"../../../ALU_Driver/ALU_Driver/hpl/core" -I"../../../ALU_Driver/ALU_Driver/hpl/dmac" -I"../../../ALU_Driver/ALU_Driver/hpl/dsu" -I"../../../ALU_Driver/ALU_Driver/hpl/eic" -I"../../../ALU_Driver/ALU_Driver/hpl/evsys" -I"../../../ALU_Driver/ALU_Driver/hpl/gclk" -I"../../../ALU_Driver/ALU_Driver/hpl/mclk" -I"../../../ALU_Driver/ALU_Driver/hpl/osc32kctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/oscctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/pac" -I"../../../ALU_Driver/ALU_Driver/hpl/pm" -I"../../../ALU_Driver/ALU_Driver/hpl/port" -I"../../../ALU_Driver/ALU_Driver/hpl/qspi" -I"../../../ALU_Driver/ALU_Driver/hpl/ramecc" -I"../../../ALU_Driver/ALU_Driver/hpl/rtc" -I"../../../ALU_Driver/ALU_Driver/hpl/sercom" -I"../../../ALU_Driver/ALU_Driver/hpl/tc" -I"../../../ALU_Driver/ALU_Driver/hpl/usb" -I"../../../ALU_Driver/ALU_Driver/hpl/wdt" -I"../../../ALU_Driver/ALU_Driver/hri" -I"../../../ALU_Driver/ALU_Driver/usb" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc/device" -I"../../../ALU_Driver/ALU_Driver/usb/device" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling" -I"../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander" -I"../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX" -I"../../../ALU_Driver/ALU_Driver/hpl/tcc" -I"../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./EvaporatorFan_Class.o: .././EvaporatorFan_Class.cpp
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAME54P20A__ -DDEBUG -DPARTNUMBER=1804 -D__DEBUG__=1  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\ARM\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include" -I"../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Timers" -I"../../../ECS_Box_Classes/ECS_Box_Classes/SPI" -I"../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983" -I"../../../ECS_Box_Classes/ECS_Box_Classes/I2C" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EEPROM" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ARINC" -I"../../../ECS_Box_Classes/ECS_Box_Classes/avr" -I"../Device_Startup" -I".." -I"../.." -I"../ApplicationLayer" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils" -I"../../../ECS_Box_Classes/ECS_Box_Classes/Storage" -I"../../../ECS_Box_Classes/ECS_Box_Classes/ErrorHandling" -I"../../../ALU_Driver/ALU_Driver/Config" -I"../../../ALU_Driver/ALU_Driver" -I"../../../ALU_Driver/ALU_Driver/examples" -I"../../../ALU_Driver/ALU_Driver/hal/include" -I"../../../ALU_Driver/ALU_Driver/hal/utils/include" -I"../../../ALU_Driver/ALU_Driver/hpl/can" -I"../../../ALU_Driver/ALU_Driver/hpl/cmcc" -I"../../../ALU_Driver/ALU_Driver/hpl/core" -I"../../../ALU_Driver/ALU_Driver/hpl/dmac" -I"../../../ALU_Driver/ALU_Driver/hpl/dsu" -I"../../../ALU_Driver/ALU_Driver/hpl/eic" -I"../../../ALU_Driver/ALU_Driver/hpl/evsys" -I"../../../ALU_Driver/ALU_Driver/hpl/gclk" -I"../../../ALU_Driver/ALU_Driver/hpl/mclk" -I"../../../ALU_Driver/ALU_Driver/hpl/osc32kctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/oscctrl" -I"../../../ALU_Driver/ALU_Driver/hpl/pac" -I"../../../ALU_Driver/ALU_Driver/hpl/pm" -I"../../../ALU_Driver/ALU_Driver/hpl/port" -I"../../../ALU_Driver/ALU_Driver/hpl/qspi" -I"../../../ALU_Driver/ALU_Driver/hpl/ramecc" -I"../../../ALU_Driver/ALU_Driver/hpl/rtc" -I"../../../ALU_Driver/ALU_Driver/hpl/sercom" -I"../../../ALU_Driver/ALU_Driver/hpl/tc" -I"../../../ALU_Driver/ALU_Driver/hpl/usb" -I"../../../ALU_Driver/ALU_Driver/hpl/wdt" -I"../../../ALU_Driver/ALU_Driver/hri" -I"../../../ALU_Driver/ALU_Driver/usb" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc" -I"../../../ALU_Driver/ALU_Driver/usb/class/cdc/device" -I"../../../ALU_Driver/ALU_Driver/usb/device" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash" -I"../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a" -I"../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling" -I"../../../ECS_Box_Classes/ECS_Box_Classes/IO_Expander" -I"../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX" -I"../../../ALU_Driver/ALU_Driver/hpl/tcc" -I"../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m4 -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

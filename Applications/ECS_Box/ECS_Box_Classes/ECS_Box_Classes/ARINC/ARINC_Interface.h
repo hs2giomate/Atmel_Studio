@@ -108,7 +108,8 @@ private:
 	bool	BITRATE2;
 	
 	bool	PARITY;
-	uint8_t	receiverArray[4];
+	uint8_t	receiverArray[4],localBuffer[4];
+
 	unsigned char RXBuffer[g_RXBuffSize];       // Temp buffer to hold messages data
 	unsigned char RXBufferPL[g_RXBuffSize];     // Temp buffer to hold PL messages data
 	uint8_t RXBuffer1[g_RXBuffSize];       // Temp buffer to hold messages data

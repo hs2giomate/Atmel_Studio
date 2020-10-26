@@ -140,8 +140,6 @@ static struct _timer_hpl_interface _tc_timer_functions = {
 
 static struct _timer_device *_tc0_dev = NULL;
 
-static struct _pwm_device *_tc1_dev = NULL;
-
 static struct _timer_device *_tc2_dev = NULL;
 
 static struct _timer_device *_tc4_dev = NULL;
@@ -149,6 +147,8 @@ static struct _timer_device *_tc4_dev = NULL;
 static struct _timer_device *_tc5_dev = NULL;
 
 static struct _timer_device *_tc6_dev = NULL;
+
+static struct _pwm_device *_tc7_dev = NULL;
 
 static int8_t         get_tc_index(const void *const hw);
 static void           _tc_init_irq_param(const void *const hw, void *dev);
@@ -483,14 +483,6 @@ void TC0_Handler(void)
 /**
  * \brief TC interrupt handler
  */
-void TC1_Handler(void)
-{
-	tc_pwm_interrupt_handler(_tc1_dev);
-}
-
-/**
- * \brief TC interrupt handler
- */
 void TC2_Handler(void)
 {
 	tc_interrupt_handler(_tc2_dev);
@@ -518,6 +510,14 @@ void TC5_Handler(void)
 void TC6_Handler(void)
 {
 	tc_interrupt_handler(_tc6_dev);
+}
+
+/**
+ * \brief TC interrupt handler
+ */
+void TC7_Handler(void)
+{
+	tc_pwm_interrupt_handler(_tc7_dev);
 }
 
 /**
@@ -550,9 +550,6 @@ static void _tc_init_irq_param(const void *const hw, void *dev)
 	if (hw == TC0) {
 		_tc0_dev = (struct _timer_device *)dev;
 	}
-	if (hw == TC1) {
-		_tc1_dev = (struct _pwm_device *)dev;
-	}
 	if (hw == TC2) {
 		_tc2_dev = (struct _timer_device *)dev;
 	}
@@ -564,6 +561,9 @@ static void _tc_init_irq_param(const void *const hw, void *dev)
 	}
 	if (hw == TC6) {
 		_tc6_dev = (struct _timer_device *)dev;
+	}
+	if (hw == TC7) {
+		_tc7_dev = (struct _pwm_device *)dev;
 	}
 }
 

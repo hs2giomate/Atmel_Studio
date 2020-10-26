@@ -169,7 +169,7 @@ uint32_t ConfigState_Class::SetInitialState(){
 		return r;
 	};
 	
-uint32_t	ConfigState_Class::ConvertStatusArincLabel(void){
+uint32_t	ConfigState_Class::UpdateStatusArincLabel(void){
 	uint32_t s=0;
 	AcknoledgeStatus as=hvac.hvacState->arincStatus;
 	s=((uint32_t)as.statusArinc)|(((uint32_t)as.AC_CMD)<<2)|
@@ -186,7 +186,7 @@ uint32_t ConfigState_Class::GetAcknowledgeStatus(void){
 	return acknowledgeStatus;
 }
 bool  ConfigState_Class::IsStatusArinclabelChanged(void){
-	ConvertStatusArincLabel();
+	UpdateStatusArincLabel();
 	return lastAcknowledgeStatus!=acknowledgeStatus;
 }
 

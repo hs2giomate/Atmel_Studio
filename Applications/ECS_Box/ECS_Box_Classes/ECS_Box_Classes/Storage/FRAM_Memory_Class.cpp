@@ -348,4 +348,4 @@ uint32_t	FRAM_Memory_Class::ReadAddress(uint8_t *p,uint16_t addr, uint32_t size)
 	/*return	(uint32_t)readFlash((void*)p,addr,size);*/
 }
 
-FRAM_Memory_Class fram(&SPI_MEMORIES);
+FRAM_Memory_Class fram(&SPI_HI3593);

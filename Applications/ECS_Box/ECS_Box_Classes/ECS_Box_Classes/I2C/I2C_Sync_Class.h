@@ -27,8 +27,10 @@ private:
 //functions
 public:
 	I2C_Sync_Class();
+	I2C_Sync_Class(i2c_m_sync_desc *);
 	~I2C_Sync_Class();
 	void	SetDescriptor(i2c_m_sync_desc *);
+	int32_t SetSlaveAddress(uint8_t add);
 	bool	Init(uint8_t);
 	bool	Init(void);
 	int32_t Write(uint8_t* buffer, uint16_t lenght);

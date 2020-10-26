@@ -440,4 +440,4 @@ uint32_t	FlashMemoryClass::ReadAddress(uint8_t *p,uint32_t addr, uint32_t size){
 	return	r;
 	/*return	(uint32_t)readFlash((void*)p,addr,size);*/
 }
-FlashMemoryClass	flash(&SPI_MEMORIES);
+FlashMemoryClass	flash(&SPI_HI3593);

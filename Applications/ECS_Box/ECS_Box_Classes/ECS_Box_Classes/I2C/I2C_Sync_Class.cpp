@@ -14,6 +14,10 @@ static	uint8_t	rxI2CStaticBuffer[I2C_SYN_BUFFER_SIZE];
 I2C_Sync_Class::I2C_Sync_Class()
 {
 } //I2C_Sync_Class
+I2C_Sync_Class::I2C_Sync_Class(i2c_m_sync_desc * des)
+{
+	ptrI2CDescr=des;
+} //I2C_Sync_Class
 
 // default destructor
 I2C_Sync_Class::~I2C_Sync_Class()
@@ -42,6 +46,11 @@ bool	I2C_Sync_Class::Init(uint8_t add){
 
 	return isOK;
 }
+
+int32_t I2C_Sync_Class::SetSlaveAddress(uint8_t add){
+	return i2c_m_sync_set_slaveaddr(ptrI2CDescr,(int16_t)add, I2C_M_SEVEN);
+}
+
 int32_t I2C_Sync_Class::Write(uint8_t* buffer, uint16_t lenght){
 	//Irq_Disable();
 	int32_t w= io_write(I2C_io, buffer, lenght);

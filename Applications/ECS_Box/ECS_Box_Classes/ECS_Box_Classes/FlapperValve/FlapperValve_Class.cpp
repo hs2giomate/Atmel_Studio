@@ -121,6 +121,7 @@ uint8_t FlapperValve_Class::InitExpanderArray(uint8_t fvID){
 		currentExpander=&(expanders[i]);
 		currentExpander->Init(i+(fvID-1)*FLAPPER_VALVE_EXPANDERS,&i2cFVs);
 	}
+	return 0;
 }
 
 ControlStatus FlapperValve_Class::ReadControlStatus(void){
@@ -156,7 +157,11 @@ uint8_t FlapperValve_Class::SetVentilatePosition(void){
 	WriteSetpoint(0xff-offset);
 	regulatorTimeout=false;
 	hvacTimer.Start_oneShot_task(FUNC_PTR(RegulatorTimeout),1000*60);
-	while ((!regulatorTimeout)&&(abs(ReadActualPosition()-setpointPosition)>2));
+	while ((!regulatorTimeout)&&(abs(ReadActualPosition()-setpointPosition)>3)){
+			arinc.SaveFlapperValveAngle();
+			delay_ms(50);
+			arinc.TransmitTXBuffer();
+	}
 	hvacTimer.Remove_task(FUNC_PTR(RegulatorTimeout));
 	return actualPosition;
 	

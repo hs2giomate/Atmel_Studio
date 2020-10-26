@@ -9,6 +9,7 @@
 #ifndef __MCP23008_CLASS_H__
 #define __MCP23008_CLASS_H__
 #include "I2C_Asyn_Class.h"
+#include "I2C_Sync_Class.h"
 #include "Arduino.h"
 
 #define		MCP23008_INPUT		1
@@ -18,7 +19,7 @@
 #define		MCP23008_CHANGE		2
 #define		MCP23008_FALLING		3
 //default device address
-#define MCP23008_ADDRESS 0x27
+#define MCP23008_ADDRESS 0x20
 
 //registers (default IOCON.BANK = 0)
 #define MCP23008_IODIRA 0x00
@@ -40,13 +41,12 @@ class MCP23008_Class
 //variables
 public:
 	i2c_m_async_desc *ptrI2CDescr;
-	uint8_t	i,j,k;
 	uint8_t		registerValue,regAddress,controlRegisterA,controlRegisterB,portA,portB;
 	volatile bool  isOK,hasChanged;
 protected:
 private:
 	uint8_t	i2cAddress;
-	I2C_Asyn_Class* i2cClass;
+	I2C_Sync_Class* i2cClass;
 	 uint8_t	*txBuffer;
 	 uint8_t	*rxBuffer;
 //functions
@@ -58,6 +58,7 @@ public:
 	    void Init(uint8_t addr);
 	    bool Init(void);
 		bool Init(uint8_t addr,I2C_Asyn_Class *i2c);
+		bool Init(uint8_t addr,I2C_Sync_Class *i2c);
 
 	    void pinMode(uint8_t p, uint8_t d);
 	    void digitalWrite(uint8_t p, uint8_t d);
@@ -70,24 +71,27 @@ public:
 	    void setupInterruptPin(uint8_t p, uint8_t mode);
 	    uint8_t getLastInterruptPin();
 	    uint8_t getLastInterruptPinValue();
-	    void	SetPortAInput(void);
-	    void	SetPortAOutput(void);
+	    void	SetPortInput(void);
+	    void	SetPortOutput(void);
 	    uint8_t	SavePorts(void);
 	    void SetChangeInterruptAllPins();
 		uint8_t ReadGPIORegister(uint8_t add);
 		uint8_t ReadGPIORegister(void);
 		uint8_t WriteGPIORegister(uint8_t v);
+		bool	ReadDigit(uint8_t pin);
+		bool	WriteDigit(uint8_t pin, bool b);
+		void	SetPortInput(uint8_t inputs);
 protected:
 private:
 	MCP23008_Class( const MCP23008_Class &c );
 	MCP23008_Class& operator=( const MCP23008_Class &c );
-	    uint8_t i2caddr;
+	   
 
 	    uint8_t bitForPin(uint8_t pin);
 	    uint8_t regForPin(uint8_t pin, uint8_t portAaddr, uint8_t portBaddr);
 
 	    uint8_t readRegister(uint8_t addr);
-	    void writeRegister(uint8_t addr, uint8_t value);
+	    uint32_t writeRegister(uint8_t addr, uint8_t value);
 
 	    void updateRegisterBit(uint8_t p, uint8_t pValue, uint8_t portAaddr, uint8_t portBaddr);
 	    bool	SelfTest(void);

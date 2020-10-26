@@ -106,9 +106,10 @@ uint32_t	ALU_Class::RunController(void){
 				   {
 					   HandleControllerEvent(e);
 					   
-				   }else if (listener.WaitForEvent(e, kHVACEventClass, kHVACEventDoPendingTasks,8))
-				   {
-					break;
+				   }else if(listener.WaitForEvent(e, kHVACEventClass, kHVACEventDoPendingTasks,4)){
+					   break;
+				   }else{
+						PrepareNewEvent(kALUEventSimpleResume);
 				   }
 			 }
 			//arinc.TrasmitSingleLabel();

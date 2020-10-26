@@ -47,6 +47,7 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -98,6 +99,7 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.IncludePaths>
@@ -138,6 +140,7 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>

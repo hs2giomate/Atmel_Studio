@@ -274,27 +274,27 @@ uint32_t ARINC_Interface::TrasmitSingleLabel(uint32_t l){
 }
 
 uint8_t ARINC_Interface::TrasmitSingleLabel(uint8_t l){
-	gpio_set_pin_level(LED0,false);
+	
 	index=GetIndexTXLabelarray(l,LabelsArrayTX);
-	uint8_t localBuffer[4];
-	//	memcpy(localBuffer,LabelsArrayTX,4);
-	memcpy(localBuffer,transmitBuffer[index],4);
-	//	Uint32FourBytesArray(0x1234561d,localBuffer);
-	//	PrepareSingleTXBuffer(TXBuffer,LabelsArrayTX);
-//	usb.println(" transmitting...");
-	cpu_irq_disable();
-	HI3593.TransmitCommandAndData(TXFIFO,localBuffer);
-	cpu_irq_enable();
-	//usb.println(" Transmitted!");
-//	usb.println(">");
-	//printARINCTXData(TXBuffer);
-	txTimeout=false;
-	gpio_set_pin_level(LED0,true);
+	
+	if (transmitBuffer[index][3]|transmitBuffer[index][2]|transmitBuffer[index][1]>0)
+	{
+
+			memcpy(localBuffer,transmitBuffer[index],4);
+
+			cpu_irq_disable();
+			HI3593.TransmitCommandAndData(TXFIFO,localBuffer);
+			cpu_irq_enable();
+	}
+
+
+
 	return l;
 }
 
 void	ARINC_Interface::TransmitTXBuffer(void){
 	uint8_t i,l;
+	gpio_set_pin_level(LED0,false);
 	for (i = 0; i <MESSAGECOUNTMAX ; i++)
 	{
 		if (LabelsArrayTX[i]>0)
@@ -303,6 +303,8 @@ void	ARINC_Interface::TransmitTXBuffer(void){
 			TrasmitSingleLabel(l);
 		}
 	}
+	txTimeout=false;
+	gpio_set_pin_level(LED0,true);
 }
 
 void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){

@@ -63,6 +63,10 @@ static void button_on_PC00_pressed(void)
 {
 }
 
+static void button_on_PA03_pressed(void)
+{
+}
+
 static void button_on_PA04_pressed(void)
 {
 }
@@ -94,6 +98,7 @@ void EXTERNAL_IRQ_0_example(void)
 {
 
 	ext_irq_register(PIN_PC00, button_on_PC00_pressed);
+	ext_irq_register(PIN_PA03, button_on_PA03_pressed);
 	ext_irq_register(PIN_PA04, button_on_PA04_pressed);
 	ext_irq_register(PIN_PA05, button_on_PA05_pressed);
 	ext_irq_register(PIN_PC22, button_on_PC22_pressed);
@@ -158,20 +163,6 @@ void DATETIME_CLOCK_example(void)
 	alarm.cal_alarm.mode              = REPEAT;
 
 	calendar_set_alarm(&DATETIME_CLOCK, &alarm, alarm_cb);
-}
-
-/**
- * Example of using SPI_MEMORIES to write "Hello World" using the IO abstraction.
- */
-static uint8_t example_SPI_MEMORIES[12] = "Hello World!";
-
-void SPI_MEMORIES_example(void)
-{
-	struct io_descriptor *io;
-	spi_m_sync_get_io_descriptor(&SPI_MEMORIES, &io);
-
-	spi_m_sync_enable(&SPI_MEMORIES);
-	io_write(io, example_SPI_MEMORIES, 12);
 }
 
 void I2C_SHARED_example(void)
@@ -265,15 +256,6 @@ void TIMER_USB_example(void)
 	timer_add_task(&TIMER_USB, &TIMER_USB_task1);
 	timer_add_task(&TIMER_USB, &TIMER_USB_task2);
 	timer_start(&TIMER_USB);
-}
-
-/**
- * Example of using LIVE_PULSE.
- */
-void LIVE_PULSE_example(void)
-{
-	pwm_set_parameters(&LIVE_PULSE, 10000, 5000);
-	pwm_enable(&LIVE_PULSE);
 }
 
 static struct timer_task TIMER_ARINC_task1, TIMER_ARINC_task2;
@@ -382,6 +364,15 @@ void TIMER_EVENT_example(void)
 	timer_add_task(&TIMER_EVENT, &TIMER_EVENT_task1);
 	timer_add_task(&TIMER_EVENT, &TIMER_EVENT_task2);
 	timer_start(&TIMER_EVENT);
+}
+
+/**
+ * Example of using LIVE_PULSE.
+ */
+void LIVE_PULSE_example(void)
+{
+	pwm_set_parameters(&LIVE_PULSE, 10000, 5000);
+	pwm_enable(&LIVE_PULSE);
 }
 
 /**

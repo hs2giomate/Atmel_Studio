@@ -72,7 +72,7 @@ void ARINC_Buffer_Class::SaveStatus(uint32_t st){
 }
 
 void ARINC_Buffer_Class::SortReceivedData(uint8_t* receiver){
-		uint8_t i,j,l;
+		uint8_t i;
 		for (i = 0; i <RX_LABELS_NUMBER ; i++)
 		{
 			if (LabelsArrayRX1[i]>0)

@@ -465,6 +465,7 @@ void States_Class::StateStandbyOFF(uint32 flags)
 	event	e;
 	hvacState->currentState=kHVACStateStandbyOFF;
 	hvacState->arincStatus.statusArinc=OFF;
+	hvacState->arincStatus.AC_CMD=false;
 	bool	done(false);
 
 #ifdef __DEBUG__
@@ -477,6 +478,10 @@ void States_Class::StateStandbyOFF(uint32 flags)
 
 
 	listener.eventHandler=&States_Class::CheckEvents;
+	if (fv1.IsPositionChanged())
+	{
+		arinc.SaveFlapperValveAngle();
+	}
 	while(!done){
 		if (InStateEvent(e,CHECK_EVENT_STATE_TIMEOUT))
 		{
@@ -539,6 +544,7 @@ void States_Class::StateStandbyAUTO(uint32 flags)
 	event	e;
 	hvacState->currentState=kHVACStateStandbyAUTO;
 	hvacState->arincStatus.statusArinc=AUTO;
+	hvacState->arincStatus.AC_CMD=true;
 	bool	done(false);
 	gotAluEvent=false;
 	gotHVACEvent=false;
@@ -624,6 +630,7 @@ void States_Class::StateStandbyVENT(uint32 flags)
 	event	e;
 	hvacState->currentState=kHVACStateStandbyVENT;
 	hvacState->arincStatus.statusArinc=VENT;
+	hvacState->arincStatus.AC_CMD=true;
 	bool	done(false);
 	float cokspitTemperature;
 	uint8_t	coolingRequired;
@@ -651,9 +658,9 @@ void States_Class::StateStandbyVENT(uint32 flags)
 				case kALUEventClass:
 				switch (e.eventType){
 					case kHVACEventDoPendingTasks:
-					saveCurrentState();
-					prepareStateChangeEvent(kHVACStateLeaving);
-					done=true;
+						saveCurrentState();
+						prepareStateChangeEvent(kHVACStateLeaving);
+						done=true;
 					break;
 					
 					default:
@@ -664,9 +671,9 @@ void States_Class::StateStandbyVENT(uint32 flags)
 				case kHVACEventClass:
 				switch (e.eventType){
 					case kHVACEventDoPendingTasks:
-					saveCurrentState();
-					prepareStateChangeEvent(kHVACStateLeaving);
-					done=true;
+						saveCurrentState();
+						prepareStateChangeEvent(kHVACStateLeaving);
+						done=true;
 					break;
 					default:
 					break;
@@ -677,8 +684,8 @@ void States_Class::StateStandbyVENT(uint32 flags)
 				switch (e.eventType){
 					
 					case k_AC_CMD_DISABLE_Event:
-					prepareStateChangeEvent(kHVACStatePrepareStandbyOFF);
-					done=true;
+						prepareStateChangeEvent(kHVACStatePrepareStandbyOFF);
+						done=true;
 					break;
 					default:
 					break;
@@ -1009,7 +1016,7 @@ void States_Class::ExecutePeriodicTask(void){
 		
 	}
 	if (IsStatusArinclabelChanged())
-	{
+ 	{
 		arinc.SaveStatus(GetAcknowledgeStatus());
 	}
 		

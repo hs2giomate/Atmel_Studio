@@ -180,7 +180,7 @@ public:
 		uint32_t		GetInitialStatus(HVACStatus& st);
 		void			PrintState(void);
 		void			SetDefaultState(void);
-		uint32_t		ConvertStatusArincLabel(void);
+		uint32_t		UpdateStatusArincLabel(void);
 		uint32_t	 GetAcknowledgeStatus(void);
 		bool  IsStatusArinclabelChanged(void);
 protected:

@@ -58,7 +58,7 @@ uint32_t Protocol_Class::MakeLabel270(uint32_t d){
 	value=d<<10;
 	label=Label2Byte(270);
 	value|=(uint32_t)label;
-	value|=(uint32_t)(((uint8_t)WavingValue()))<<19;
+//	value|=(uint32_t)(((uint8_t)WavingValue()))<<19;
 	value=MakeEvenParity(value);
 	return value;
 	

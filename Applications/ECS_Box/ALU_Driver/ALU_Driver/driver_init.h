@@ -29,7 +29,6 @@ extern "C" {
 #include <hal_qspi_sync.h>
 
 #include <hal_calendar.h>
-#include <hal_spi_m_sync.h>
 
 #include <hal_i2c_m_sync.h>
 #include <hal_spi_m_sync.h>
@@ -40,15 +39,15 @@ extern "C" {
 #include <hal_i2c_m_async.h>
 #include <hal_timer.h>
 #include <hpl_tc_base.h>
+#include <hal_timer.h>
+#include <hpl_tc_base.h>
+#include <hal_timer.h>
+#include <hpl_tc_base.h>
+#include <hal_timer.h>
+#include <hpl_tc_base.h>
+#include <hal_timer.h>
+#include <hpl_tc_base.h>
 #include <hal_pwm.h>
-#include <hpl_tc_base.h>
-#include <hal_timer.h>
-#include <hpl_tc_base.h>
-#include <hal_timer.h>
-#include <hpl_tc_base.h>
-#include <hal_timer.h>
-#include <hpl_tc_base.h>
-#include <hal_timer.h>
 #include <hpl_tc_base.h>
 #include <hal_timer.h>
 #include <hpl_tcc.h>
@@ -64,8 +63,7 @@ extern struct crc_sync_descriptor CRC_CALC;
 
 extern struct qspi_sync_descriptor QSPI_N25Q256;
 
-extern struct calendar_descriptor   DATETIME_CLOCK;
-extern struct spi_m_sync_descriptor SPI_MEMORIES;
+extern struct calendar_descriptor DATETIME_CLOCK;
 
 extern struct i2c_m_sync_desc       I2C_SHARED;
 extern struct spi_m_sync_descriptor SPI_TEMP;
@@ -75,12 +73,12 @@ extern struct spi_m_sync_descriptor SPI_HI3593;
 
 extern struct i2c_m_async_desc I2C_EEPROM;
 extern struct timer_descriptor TIMER_USB;
-
-extern struct pwm_descriptor   LIVE_PULSE;
 extern struct timer_descriptor TIMER_ARINC;
 extern struct timer_descriptor TIMER_MAINTENANCE;
 extern struct timer_descriptor TIMER_INTERFACE;
 extern struct timer_descriptor TIMER_EVENT;
+
+extern struct pwm_descriptor LIVE_PULSE;
 
 extern struct timer_descriptor TIMER_HVAC;
 
@@ -95,10 +93,6 @@ void QSPI_N25Q256_init(void);
 
 void DATETIME_CLOCK_CLOCK_init(void);
 void DATETIME_CLOCK_init(void);
-
-void SPI_MEMORIES_PORT_init(void);
-void SPI_MEMORIES_CLOCK_init(void);
-void SPI_MEMORIES_init(void);
 
 void I2C_SHARED_CLOCK_init(void);
 void I2C_SHARED_init(void);

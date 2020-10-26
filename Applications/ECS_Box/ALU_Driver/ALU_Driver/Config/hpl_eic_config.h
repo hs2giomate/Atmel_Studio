@@ -210,21 +210,21 @@
 // <e> Interrupt 3 Settings
 // <id> eic_arch_enable_irq_setting3
 #ifndef CONF_EIC_ENABLE_IRQ_SETTING3
-#define CONF_EIC_ENABLE_IRQ_SETTING3 0
+#define CONF_EIC_ENABLE_IRQ_SETTING3 1
 #endif
 
 // <q> External Interrupt 3 Filter Enable
 // <i> Indicates whether the external interrupt 3 filter is enabled or not
 // <id> eic_arch_filten3
 #ifndef CONF_EIC_FILTEN3
-#define CONF_EIC_FILTEN3 0
+#define CONF_EIC_FILTEN3 1
 #endif
 
 // <q> External Interrupt 3 Debounce Enable
 // <i> Indicates whether the external interrupt 3 debounce is enabled or not
 // <id> eic_arch_debounce_enable3
 #ifndef CONF_EIC_DEBOUNCE_ENABLE3
-#define CONF_EIC_DEBOUNCE_ENABLE3 0
+#define CONF_EIC_DEBOUNCE_ENABLE3 1
 #endif
 
 // <q> External Interrupt 3 Event Output Enable
@@ -244,14 +244,14 @@
 // <i> This defines input sense trigger
 // <id> eic_arch_sense3
 #ifndef CONF_EIC_SENSE3
-#define CONF_EIC_SENSE3 EIC_NMICTRL_NMISENSE_NONE_Val
+#define CONF_EIC_SENSE3 EIC_NMICTRL_NMISENSE_RISE_Val
 #endif
 
 // <q> External Interrupt 3 Asynchronous Edge Detection Mode
 // <i> Indicates the external interrupt 3 detection mode operated synchronously or asynchronousl
 // <id> eic_arch_asynch3
 #ifndef CONF_EIC_ASYNCH3
-#define CONF_EIC_ASYNCH3 0
+#define CONF_EIC_ASYNCH3 1
 #endif
 
 // </e>
@@ -907,7 +907,8 @@
 // </h>
 
 #define CONFIG_EIC_EXTINT_MAP                                                                                          \
-	{0, PIN_PC00}, {4, PIN_PA04}, {5, PIN_PA05}, {6, PIN_PC22}, {7, PIN_PC23}, {8, PIN_PB08}, {9, PIN_PB09},
+	{0, PIN_PC00}, {3, PIN_PA03}, {4, PIN_PA04}, {5, PIN_PA05}, {6, PIN_PC22}, {7, PIN_PC23}, {8, PIN_PB08},           \
+	    {9, PIN_PB09},
 
 // <<< end of configuration section >>>
 

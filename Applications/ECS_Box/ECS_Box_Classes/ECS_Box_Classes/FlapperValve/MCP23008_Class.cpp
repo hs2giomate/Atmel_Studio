@@ -34,9 +34,18 @@ bool MCP23008_Class::Init(uint8_t addr,I2C_Asyn_Class *i2c){
 	txBuffer=i2c->txBuffer;
 	rxBuffer=i2c->rxBuffer;
 	i2cAddress=addr;
+	//i2cClass=i2c;
+	isOK=i2cClass->isOK;
+	return isOK;
+	//ext_irq_register(PIN_PA05,FUNC_PTR(MCPHadChanged));
+}
+bool MCP23008_Class::Init(uint8_t addr,I2C_Sync_Class *i2c){
+	txBuffer=i2c->txBuffer;
+	rxBuffer=i2c->rxBuffer;
+	i2cAddress=addr;
 	i2cClass=i2c;
 	isOK=i2cClass->isOK;
-
+	return isOK;
 	//ext_irq_register(PIN_PA05,FUNC_PTR(MCPHadChanged));
 }
 void MCP23008_Class::Init(i2c_m_async_desc *i2c){
@@ -63,7 +72,7 @@ uint8_t MCP23008_Class::bitForPin(uint8_t pin){
  * Register address, port dependent, for a given PIN
  */
 uint8_t MCP23008_Class::regForPin(uint8_t pin, uint8_t portAaddr, uint8_t portBaddr){
-    return(pin<8) ?portAaddr:portBaddr;
+    return (pin<8)?portAaddr:portBaddr;
 }
 
 
@@ -73,18 +82,19 @@ uint8_t MCP23008_Class::regForPin(uint8_t pin, uint8_t portAaddr, uint8_t portBa
 uint8_t MCP23008_Class::readRegister(uint8_t addr){
 	// read the current GPINTEN
 	//i2ca.read_cmd(addr,&value);
+	i2cClass->SetSlaveAddress(i2cAddress);
 	i2cClass->Write(&addr,1);
-	while(!i2cClass->txReady);
+
 	i2cClass->Read(&registerValue,1);
-	while(!i2cClass->rxReady);
+
 	return registerValue;
 }
 uint8_t MCP23008_Class::ReadGPIORegister(uint8_t add){
-	i2cClass->Set_slaveaddr(add);
+	i2cClass->SetSlaveAddress(i2cAddress);
 	return readRegister(MCP23008_GPIOA);
 }
 uint8_t MCP23008_Class::ReadGPIORegister(void){
-	i2cClass->Set_slaveaddr(i2cAddress);
+	i2cClass->SetSlaveAddress(i2cAddress);
 	return readRegister(MCP23008_GPIOA);
 }
 
@@ -92,31 +102,52 @@ uint8_t MCP23008_Class::ReadGPIORegister(void){
 /**
  * Writes a given register
  */
-void MCP23008_Class::writeRegister(uint8_t addr, uint8_t value){
+uint32_t MCP23008_Class::writeRegister(uint8_t addr, uint8_t value){
 	// Write the register
-
+	i2cClass->SetSlaveAddress(i2cAddress);
 	uint8_t array[2];
 	array[0]=addr;
 	array[1]=value;
-	i2cClass->Write(array,2);
+	return	i2cClass->Write(array,2);
 	//while(!(i2cClass->txReady));
 }
 uint8_t MCP23008_Class::WriteGPIORegister(uint8_t v){
-	i2cClass->Set_slaveaddr(i2cAddress);
+	i2cClass->SetSlaveAddress(i2cAddress);
 	writeRegister(MCP23008_GPIOA,v);
 	return v;
 }
 
 
-void	MCP23008_Class::SetPortAInput(void){
-	for (i=0;i<8;i++)
+void	MCP23008_Class::SetPortInput(void){
+	for (uint8_t i=0;i<8;i++)
 	{
 		pinMode(i,MCP23008_INPUT);
 		pullUp(i,MCP23008_HIGH);
 	}
 }
-void	MCP23008_Class::SetPortAOutput(void){
-	for (i=0;i<8;i++)
+void	MCP23008_Class::SetPortInput(uint8_t inputs){
+	if (inputs>0)
+	{
+		for (uint8_t i=0;i<8;i++)
+		{
+			if (inputs&(0x01<<i))
+			{
+				pinMode(i,MCP23008_INPUT);
+				pullUp(i,MCP23008_HIGH);
+			}else{
+				pinMode(i,MCP23008_OUTPUT);
+			}
+
+		}
+	}
+	else
+	{
+		SetPortOutput();
+	}
+	
+}
+void	MCP23008_Class::SetPortOutput(void){
+	for (uint8_t i=0;i<8;i++)
 	{
 		pinMode(i,MCP23008_OUTPUT);
 	}
@@ -185,12 +216,33 @@ void MCP23008_Class::digitalWrite(uint8_t pin, uint8_t d) {
 	regAddr=regForPin(pin,MCP23008_GPIOA,MCP23008_GPIOA);
 	writeRegister(regAddr,gpio);
 }
+bool MCP23008_Class::WriteDigit(uint8_t pin, bool b) {
+	uint8_t gpio;
+	uint8_t bit=bitForPin(pin);
+
+
+	// read the current GPIO output latches
+	uint8_t regAddr=regForPin(pin,MCP23008_OLATA,MCP23008_OLATA);
+	gpio = readRegister(regAddr);
+
+	// set the pin and direction
+	bitWrite(gpio,bit,b);
+
+	// write the new GPIO
+	regAddr=regForPin(pin,MCP23008_GPIOA,MCP23008_GPIOA);
+	return	writeRegister(regAddr,gpio)==0;
+}
 
 void MCP23008_Class::pullUp(uint8_t p, uint8_t d) {
 	updateRegisterBit(p,d,MCP23008_GPPUA,MCP23008_GPPUA);
 }
 
 uint8_t MCP23008_Class::digitalRead(uint8_t pin) {
+	uint8_t bit=bitForPin(pin);
+	uint8_t regAddr=regForPin(pin,MCP23008_GPIOA,MCP23008_GPIOA);
+	return (readRegister(regAddr) >> bit) & 0x1;
+}
+bool MCP23008_Class::ReadDigit(uint8_t pin) {
 	uint8_t bit=bitForPin(pin);
 	uint8_t regAddr=regForPin(pin,MCP23008_GPIOA,MCP23008_GPIOA);
 	return (readRegister(regAddr) >> bit) & 0x1;

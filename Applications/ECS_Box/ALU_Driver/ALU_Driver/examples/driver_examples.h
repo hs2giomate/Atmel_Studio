@@ -28,8 +28,6 @@ void I2C_EEPROM_example(void);
 
 void TIMER_USB_example(void);
 
-void LIVE_PULSE_example(void);
-
 void TIMER_ARINC_example(void);
 
 void TIMER_MAINTENANCE_example(void);
@@ -37,6 +35,8 @@ void TIMER_MAINTENANCE_example(void);
 void TIMER_INTERFACE_example(void);
 
 void TIMER_EVENT_example(void);
+
+void LIVE_PULSE_example(void);
 
 void TIMER_HVAC_example(void);
 
