@@ -35,9 +35,9 @@ int main(void)
 			delay_ms(DELAY_HEATER_COMMUNICATION);
 			usb<<"Enabling Heater: "<<i<<" .\t";
 			heater.Enable(i);
-			delay_ms(DELAY_HEATER_COMMUNICATION);
-			status= heater.ReadStatus();
-			usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
+// 			delay_ms(DELAY_HEATER_COMMUNICATION);
+// 			status= heater.ReadStatus();
+// 			usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
 			delay_ms(DELAY_HEATER_COMMUNICATION);
 			heater.Disable(i);
 		}
