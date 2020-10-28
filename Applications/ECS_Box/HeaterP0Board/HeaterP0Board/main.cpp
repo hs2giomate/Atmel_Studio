@@ -19,7 +19,7 @@ static void FirmwareAlive(const struct timer_task *const timer_task)
 int main(void)
 {
 	atmel_start_init();
-	uint8_t status;
+	uint8_t status,enableMask;
 
 	usb.Init();
 	delay_ms(100);
@@ -28,18 +28,43 @@ int main(void)
 	uint32_t p=pwm_enable(&LIVE_PULSE);
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareAlive),250);
 	heater.Init();
+	Maintenance_Tool	toolApp;
+	toolApp.Init();
 	while (1)
 	{
+		if (toolApp.IsAppConnected())
+		{
+			if (toolApp.handleCommunication())
+			{
+				enableMask=toolApp.singleTaskMessage.description;
+			} 
+			else
+			{
+				
+			}
+			
+		} 
+		else
+		{
+			enableMask=0xff;
+		}
 		for (uint8_t i = 0; i < 4; i++)
 		{
-			delay_ms(DELAY_HEATER_COMMUNICATION);
-			usb<<"Enabling Heater: "<<i<<" .\t";
-			heater.Enable(i);
-// 			delay_ms(DELAY_HEATER_COMMUNICATION);
-// 			status= heater.ReadStatus();
-// 			usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
-			delay_ms(DELAY_HEATER_COMMUNICATION);
-			heater.Disable(i);
+			if (enableMask&i)
+			{
+				delay_ms(DELAY_HEATER_COMMUNICATION);
+				usb<<"Enabling Heater: "<<i<<" .\t";
+				heater.Enable(i);
+				delay_ms(DELAY_HEATER_COMMUNICATION);
+				status= heater.ReadStatus();
+				usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
+				delay_ms(DELAY_HEATER_COMMUNICATION);
+				heater.Disable(i);
+			} 
+			else
+			{
+			}
+
 		}
 		
 

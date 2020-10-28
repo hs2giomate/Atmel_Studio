@@ -13,6 +13,7 @@
 
 struct IC29_Inputs
 {
+	bool	niAlcHeaterOverTemp;
 	bool	niAlcHeaterRelayFault[4];
 };
 

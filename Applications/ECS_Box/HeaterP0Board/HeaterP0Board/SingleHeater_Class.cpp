@@ -69,7 +69,7 @@ uint8_t SingleHeater_Class::InitExpanderArray(void){
 
 uint8_t	SingleHeater_Class::ReadStatus(void){
 	uint8_t r=expanders[0]->ReadGPIORegister();
-	
+	heaterGPIO.inputs.niAlcHeaterOverTemp=r&0x01;
 	for (uint8_t i = 0; i < 4; i++)
 	{
 		heaterGPIO.inputs.niAlcHeaterRelayFault[i]=r&(0x01<<(i+1));
