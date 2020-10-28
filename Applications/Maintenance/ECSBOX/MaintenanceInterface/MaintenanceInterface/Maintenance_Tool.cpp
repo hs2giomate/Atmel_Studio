@@ -11,6 +11,8 @@
 //#include "FRAM_Memory_Class.h"
 #include "CDC_Class.h"
 #include "TimerSerial_Class.h"
+#include "string.h"
+#include "SingleHeater_Class.h"
 
 
 
@@ -163,14 +165,16 @@ bool Maintenance_Tool::handleCommunication(void)
 	{
 		if (usb.rxReady)
 		{
-			char	input=(char)localBuffer[sizeof(GAINMessageHeader)];
+			int sizeMessage=sizeof(HVACMessageHeader);
+			memcpy(&header,localBuffer,sizeMessage);
+			char	input=(char)(header.command);
 			switch (input){
 				case '<':
 					gotCommand=true;
-					result = handleGAINCommand();
+					result = handleHVACTask();
 				break;
 				case '>':
-					result = handleGAINCommand();
+					result = handleHVACTask();
 				break;
 
 				case '=': //This is something like an alive beacon from MTool. Received every 10 sec
@@ -341,8 +345,8 @@ bool Maintenance_Tool::GAINNotifyControllerState(void)
 
 
 	header.command = kGAINNotifyControllerState;
-	header.selector = 0;
-	header.dataSize = sizeof(GAINControllerPortState);
+// 	header.selector = 0;
+// 	header.dataSize = sizeof(GAINControllerPortState);
 
 // #ifdef MGS_ZST_Revision
 // 	uint32	port(FIO1PIN);
@@ -493,14 +497,15 @@ bool Maintenance_Tool::GAINNotifyTemperatureData(void)
 	GAIN commands
 
 *****/
-bool Maintenance_Tool::handleGAINCommand(void){
-	int n=sizeof(GAINMessageHeader)+1;
-	if ((localBuffer[n]>=kGAINCommandConnect)
-	&& (localBuffer[n]<kGAINNumberOfCommands))
+bool Maintenance_Tool::handleHVACTask(void){
+	int sizeMessage=sizeof(SingleTaskMessage);
+	memcpy(&header,localBuffer,sizeof(HVACMessageHeader));
+
+	if ((header.task>=kGAINCommandConnect)
+	&& (header.task<kGAINNumberOfCommands))
 	{
 		gotTask=true;
 		result=gotTask;
-		header.command=localBuffer[n];
 	} 
 	else
 	{
@@ -510,19 +515,11 @@ bool Maintenance_Tool::handleGAINCommand(void){
 	}
 
 	
-   	
-//    	if (header.dataSize == 0)
-//    		{
-// 		uint16	headerChecksum;
-// 
-// 		usb.readData(&checksum, sizeof(checksum));
-//    		headerChecksum = calculateChecksum(header);
-//    		result = (checksum == headerChecksum);
-//    		}
+
 	
 	if (result)
 		{
-		switch (header.command)
+		switch (header.task)
 			{
 			case kGAINCommandConnect:
 				result = handleGAINCommandConnect( header);
@@ -558,6 +555,17 @@ bool Maintenance_Tool::handleGAINCommand(void){
 			case kGAINCommandReadParameters:
 				result = handleGAINCommandReadParameters( header);
 			break;
+				case kHVACCommandSetHeaters:
+			
+				memcpy(&singleTaskMessage,localBuffer,sizeMessage);
+				
+				singleTaskMessage.description=localBuffer[0x06];
+				result = SetHeaters();
+				break;
+				
+				case kHVACCommandReadHeaterStatus:
+				result = CommandReadHeaterStatus();
+				break;
 			case kGAINCommandSetCycleDictionary:
 				result = handleGAINCommandSetCycleDictionary( header);
 				break;
@@ -585,16 +593,17 @@ bool Maintenance_Tool::handleGAINCommand(void){
 	return result;
 	}
 
-void Maintenance_Tool::notifyGAINCommandReceived( GAINMessageHeader& header, bool result)
+void Maintenance_Tool::notifyGAINCommandReceived( HVACMessageHeader& header, bool result)
 	{
 
+// 
+// 	header.selector = header.command;
+// 	header.command = kGAINNotifyCommandReceived;
+// 	header.dataSize = 0;
 
-	header.selector = header.command;
-	header.command = kGAINNotifyCommandReceived;
-	header.dataSize = 0;
-
-	if (!result)
-		header.selector |= 0x80;
+	if (!result){
+		//	header.selector |= 0x80;
+	}
 
 	checksum = calculateChecksum(header);
 
@@ -602,7 +611,7 @@ void Maintenance_Tool::notifyGAINCommandReceived( GAINMessageHeader& header, boo
 	/*io.writeData(&checksum, sizeof(checksum));*/
 	}
 
-bool Maintenance_Tool::handleGAINCommandConnect( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINCommandConnect( HVACMessageHeader& header)
 	{
 	
 	if (!maintenanceIsConnected)
@@ -626,7 +635,7 @@ bool Maintenance_Tool::handleGAINCommandConnect( GAINMessageHeader& header)
 	return result;
 	}
 
-bool Maintenance_Tool::handleGAINCommandDisconnect( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINCommandDisconnect( HVACMessageHeader& header)
 	{
 
 
@@ -645,22 +654,22 @@ bool Maintenance_Tool::handleGAINCommandDisconnect( GAINMessageHeader& header)
 	return result;
 	}
 
-bool Maintenance_Tool::handleGAINCommandSetNotificationState( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINCommandSetNotificationState( HVACMessageHeader& header)
 	{
 
 
-	bSendNotifications = (header.selector == 1);
+	//bSendNotifications = (header.selector == 1);
 
 	return result;
 	}
 
-bool Maintenance_Tool::handleGAINCommandReset( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINCommandReset( HVACMessageHeader& header)
 	{
 //	controller.reset();
 	return true;
 	}
 
-bool Maintenance_Tool::handleGAINCommandResetNVM( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINCommandResetNVM( HVACMessageHeader& header)
 	{
 	bool	result(true);
 
@@ -706,11 +715,11 @@ bool Maintenance_Tool::handleGAINCommandResetNVM( GAINMessageHeader& header)
 	return result;
 	}
 
-bool Maintenance_Tool::handleGAINCommandSetControllerState( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINCommandSetControllerState( HVACMessageHeader& header)
 	{
 
 
-	bool	result(header.dataSize == sizeof(GAINControllerPortState));
+/*	bool	result(header.dataSize == sizeof(GAINControllerPortState));*/
 // 	uint8	i;
 // 	
 // 	if (result)
@@ -788,7 +797,7 @@ bool Maintenance_Tool::handleGAINCommandSetControllerState( GAINMessageHeader& h
 	return result;
 	}
 
-bool Maintenance_Tool::handleGAINCommandSetConfiguration( GAINMessageHeader& header)	{
+bool Maintenance_Tool::handleGAINCommandSetConfiguration( HVACMessageHeader& header)	{
 	
 // 	bool	result(header.dataSize == sizeof(ConfigurationData));
 // 	
@@ -845,24 +854,24 @@ bool Maintenance_Tool::handleGAINCommandSetConfiguration( GAINMessageHeader& hea
 	return true;
 	}
 
-bool Maintenance_Tool::handleGAINCommandReadParameters(GAINMessageHeader& header){
-	int n=sizeof(GAINMessageHeader)+1;
+bool Maintenance_Tool::handleGAINCommandReadParameters(HVACMessageHeader& header){
+	int n=sizeof(HVACMessageHeader)+1;
 	uint32_t	w,r;
 	
 	 	bool	result(header.command == kGAINCommandReadParameters);
 		if (result){
-			int n=sizeof(GAINMessageHeader)+1;
+			int n=sizeof(HVACMessageHeader)+1;
 // 			uint32_t add=(uint32_t)&framMemory->parameters;
-// 			r=fram.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
+// 			r=fram.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(UserParameters));
 			uint32_t add=(uint32_t)&flashLayout->parameters;
-			r=flash.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
+			r=flash.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(UserParameters));
 			 if (r>0)
 			 {
 				// delay_us(100);
-				memcpy((uint8_t*)&localBuffer[n+1],(void*)&parameters,sizeof(userParameters));
+				memcpy((uint8_t*)&localBuffer[n+1],(void*)&parameters,sizeof(UserParameters));
 				delay_us(1);
 				 usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
-				//w= usb.writeData((void*)&parameters,sizeof(userParameters));
+				//w= usb.writeData((void*)&parameters,sizeof(UserParameters));
 				//w=usb.print("AA");
 				 result=w>0;
 			 } 
@@ -880,20 +889,36 @@ bool Maintenance_Tool::handleGAINCommandReadParameters(GAINMessageHeader& header
 		 return result;
 }
 
-bool Maintenance_Tool::handleGAINCommandWriteParameters(GAINMessageHeader& header)	{
+bool Maintenance_Tool::CommandReadHeaterStatus(){
+	int n=sizeof(SingleTaskMessage);
+	uint32_t	w,r;
+	
+	bool	result(header.command == kGAINCommandReadParameters);
+	if (result){
+			singleTaskMessage.description=heater.ReadStatus();
+			memcpy(localBuffer,(void*)&singleTaskMessage,n);
+			delay_us(1);
+			usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+	}
+	
+	return result;
+}
+
+bool Maintenance_Tool::handleGAINCommandWriteParameters(HVACMessageHeader& header)	{
 
 	uint32_t	w,r;
 	
+	
 	bool	result(header.command == kGAINCommandWriteParameters);
 	if (result){
-		int n=sizeof(GAINMessageHeader)+1;
-		flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(userParameters));
+		int n=sizeof(HVACMessageHeader)+1;
+		flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(UserParameters));
 			
-		memcpy((uint8_t*)&parameters,&localBuffer[n+1],sizeof(userParameters));
+		memcpy((uint8_t*)&parameters,&localBuffer[n+1],sizeof(UserParameters));
 		//uint32_t add=(uint32_t)&framMemory->parameters;
 		uint32_t add=(uint32_t)&flashLayout->parameters;
-		r=flash.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
-		//	r=fram.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(userParameters));
+		r=flash.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(UserParameters));
+		//	r=fram.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(UserParameters));
 			result=(bool)(r==0);
 	
 		
@@ -908,7 +933,29 @@ bool Maintenance_Tool::handleGAINCommandWriteParameters(GAINMessageHeader& heade
 	return result;
 }
 
-bool Maintenance_Tool::handleGAINCommandSetCycleDictionary(GAINMessageHeader& header)
+bool Maintenance_Tool::SetHeaters(void)	{
+
+	uint32_t	w,r;
+	uint8_t	data=0;
+	
+	
+	bool	result(header.task == kHVACCommandSetHeaters);
+	if (result){
+		data=singleTaskMessage.description;
+		
+		
+		}else{
+		// 		 		uint8	i;
+		// 		 		char	ch;
+		//
+		// 		 		for (i=0; i<header.dataSize; i++)
+		// 		 			io >> ch;
+	}
+	
+	return result;
+}
+
+bool Maintenance_Tool::handleGAINCommandSetCycleDictionary(HVACMessageHeader& header)
 	{
 	return true;
 /*
@@ -953,7 +1000,7 @@ bool Maintenance_Tool::handleGAINCommandSetCycleDictionary(GAINMessageHeader& he
 */
 	}
 
-bool Maintenance_Tool::handleGAINCommandSetCycleDescription( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINCommandSetCycleDescription( HVACMessageHeader& header)
 	{
 
 // 	bool	result(header.dataSize == sizeof(CycleDescription));
@@ -1003,7 +1050,7 @@ return	true;
 	}
 
 #ifdef NSD_SUPPORT
-bool Maintenance_Tool::handleGAINCommandSetNSDData( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINCommandSetNSDData( HVACMessageHeader& header)
 	{
 
 // 	bool	result(header.dataSize == sizeof(NSDDataRequest));
@@ -1079,7 +1126,7 @@ bool Maintenance_Tool::handleGAINCommandSetNSDData( GAINMessageHeader& header)
  *
  * \todo
 */
-bool Maintenance_Tool::handleGAINCommandEnableSecondView( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINCommandEnableSecondView( HVACMessageHeader& header)
 {
 // 		io.readData(&GAIN.configuration.commons.hmiView, 1, 1000);
 // 		persistent.writeConfigurationDataArea(GAIN.configuration);
@@ -1095,7 +1142,7 @@ bool Maintenance_Tool::handleGAINQuery(void)
 	{
 
 
-	usb.readData(&header, sizeof(GAINMessageHeader));
+	usb.readData(&header, sizeof(HVACMessageHeader));
 	//usb.readData(&checksumProvided, sizeof(checksumProvided));
    	
 //    	checksum = calculateChecksum(header);
@@ -1144,30 +1191,30 @@ bool Maintenance_Tool::handleGAINQuery(void)
 	return result;
 	}
 
-void Maintenance_Tool::notifyGAINQueryReceived(GAINMessageHeader& header, bool result)
+void Maintenance_Tool::notifyGAINQueryReceived(HVACMessageHeader& header, bool result)
 	{
-    GAINMessageHeader	reply;
+    HVACMessageHeader	reply;
 
 
-	reply.selector = header.command;
-	reply.command = kGAINNotifyQueryReceived;
-	reply.dataSize = 0;
-	if (!result)
-		reply.selector |= 0x80;
-	
+// 	reply.selector = header.command;
+// 	reply.command = kGAINNotifyQueryReceived;
+// 	reply.dataSize = 0;
+	if (!result){
+		//reply.selector |= 0x80;
+	}
 	//checksum = calculateChecksum(reply);
 	usb.writeData(&reply, sizeof(reply));
 	/*io.writeData(&checksum, sizeof(checksum));*/
 	}
 
-bool Maintenance_Tool::handleGAINQueryInfo( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINQueryInfo( HVACMessageHeader& header)
 	{
 	DeviceInformation	connect;
 
 
 	header.command = kGAINQueryInfo;
-	header.selector = kMaintenanceProtocolVersion;
-	header.dataSize = sizeof(DeviceInformation);
+// 	header.selector = kMaintenanceProtocolVersion;
+// 	header.dataSize = sizeof(DeviceInformation);
 
 #if PARTNUMBER == 0xBABE
     connect.partNumber = 0xBABE;
@@ -1197,7 +1244,7 @@ bool Maintenance_Tool::handleGAINQueryInfo( GAINMessageHeader& header)
 // 	checksum = calculateChecksum(header);	
 // 	checksum = calculateChecksum(checksum, header.dataSize, &connect);	
 
-	usb.writeData(&header, sizeof(GAINMessageHeader));
+	usb.writeData(&header, sizeof(HVACMessageHeader));
 	usb.writeData(&connect, sizeof(DeviceInformation));
 /*	io.writeData(&checksum, sizeof(checksum));*/
 
@@ -1205,7 +1252,7 @@ bool Maintenance_Tool::handleGAINQueryInfo( GAINMessageHeader& header)
 	}
 
 #if (kMaintenanceProtocolVersion > 0)
-bool Maintenance_Tool::handleGAINQueryProtocolInfo( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINQueryProtocolInfo( HVACMessageHeader& header)
 	{
 // 	protocolInfoRequestPayload	protocolInfo;
 // 	uint16	checksum;
@@ -1228,7 +1275,7 @@ bool Maintenance_Tool::handleGAINQueryProtocolInfo( GAINMessageHeader& header)
 	}
 #endif
 	
-bool Maintenance_Tool::handleGAINQueryConfiguration( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINQueryConfiguration( HVACMessageHeader& header)
 	{
 
 // 
@@ -1318,7 +1365,7 @@ bool Maintenance_Tool::handleGAINQueryConfiguration( GAINMessageHeader& header)
 	return result;
 	}
 	
-bool Maintenance_Tool::handleGAINQueryParameters( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINQueryParameters( HVACMessageHeader& header)
 {
 
 	
@@ -1408,7 +1455,7 @@ bool Maintenance_Tool::handleGAINQueryParameters( GAINMessageHeader& header)
 	return result;
 }
 
-bool Maintenance_Tool::handleGAINQueryCycleDictionary( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINQueryCycleDictionary( HVACMessageHeader& header)
 	{
 
 /*
@@ -1428,7 +1475,7 @@ bool Maintenance_Tool::handleGAINQueryCycleDictionary( GAINMessageHeader& header
 	return result;
 	}
 
-bool Maintenance_Tool::handleGAINQueryCycleDescription( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINQueryCycleDescription( HVACMessageHeader& header)
 	{
 	return true;
 /*
@@ -1458,7 +1505,7 @@ bool Maintenance_Tool::handleGAINQueryCycleDescription( GAINMessageHeader& heade
 	}
 
 #if (kMaintenanceProtocolVersion == 0)
-bool Maintenance_Tool::handleGAINQueryFaultLog( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINQueryFaultLog( HVACMessageHeader& header)
 	{
 	int16			i;
 	int16			n;
@@ -1527,7 +1574,7 @@ bool Maintenance_Tool::handleGAINQueryFaultLog( GAINMessageHeader& header)
 
 #else
 
-bool Maintenance_Tool::handleGAINQueryFaultLog( GAINMessageHeader& header)
+bool Maintenance_Tool::handleGAINQueryFaultLog( HVACMessageHeader& header)
 	{
 	int16			i;
 	int16			n;
@@ -1600,7 +1647,7 @@ bool Maintenance_Tool::handleGAINQueryFaultLog( GAINMessageHeader& header)
 
 #endif
 
-uint16 Maintenance_Tool::calculateChecksum(const GAINMessageHeader& header)
+uint16 Maintenance_Tool::calculateChecksum(const HVACMessageHeader& header)
 	{
 	checksum=0;
 	
@@ -1654,3 +1701,4 @@ void Maintenance_Tool::GetCPUSerialNumber(uint8_t* buffer)
 	}
 
 }
+ Maintenance_Tool maintenance;

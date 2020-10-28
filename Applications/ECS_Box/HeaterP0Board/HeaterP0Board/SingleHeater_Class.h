@@ -49,6 +49,7 @@ public:
 	uint8_t	ReadStatus(void);
 	uint8_t	Enable(uint8_t indexHeater);
 	uint8_t	Disable(uint8_t indexHeater);
+	uint8_t	SetRelay(uint8_t indexHeater, bool state);
 		
 protected:
 private:
@@ -58,6 +59,6 @@ private:
 	bool SelfTest(void);
 }; //SingleHeater_Class
 
-//extern SingleHeater_Class heater;
+extern SingleHeater_Class heater;
 
 #endif //__SINGLEHEATER_CLASS_H__

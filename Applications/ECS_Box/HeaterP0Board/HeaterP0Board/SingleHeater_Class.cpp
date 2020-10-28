@@ -77,11 +77,16 @@ uint8_t	SingleHeater_Class::ReadStatus(void){
 	return r;
 }
 uint8_t	SingleHeater_Class::Enable(uint8_t indexHeater){
-	enabled=expanders[1]->WriteDigit(indexHeater,true);
+	enabled=expanders[1]->WriteDigit(indexHeater,false);
 	return uint8_t(enabled);
 }
+uint8_t	SingleHeater_Class::SetRelay(uint8_t indexHeater, bool state){
+	enabled=expanders[1]->WriteDigit(indexHeater,!state);
+	return uint8_t(enabled);
+}
+
 uint8_t	SingleHeater_Class::Disable(uint8_t indexHeater){
-	enabled=expanders[1]->WriteDigit(indexHeater,false)?false:true;
+	enabled=expanders[1]->WriteDigit(indexHeater,true)?false:true;
 	return uint8_t(enabled);
 }
 
@@ -91,4 +96,4 @@ bool SingleHeater_Class::SelfTest(void){
 	return true;
 }
 
-//SingleHeater_Class heater;
+SingleHeater_Class heater;

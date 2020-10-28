@@ -208,6 +208,7 @@
             <Value>../../../Interfaces_ECS_BOX/Interfaces_ECS_BOX</Value>
             <Value>../../../ALU_Driver/ALU_Driver/hpl/tcc</Value>
             <Value>../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve</Value>
+            <Value>../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface</Value>
           </ListValues>
         </armgcccpp.compiler.directories.IncludePaths>
         <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -221,7 +222,6 @@
         <armgcccpp.linker.libraries.LibrarySearchPaths>
           <ListValues>
             <Value>%24(ProjectDir)\Device_Startup</Value>
-            <Value>S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver\Debug</Value>
           </ListValues>
         </armgcccpp.linker.libraries.LibrarySearchPaths>
         <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
@@ -243,9 +243,9 @@
         <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
       </ArmGccCpp>
     </ToolchainSettings>
-    <OutputFileName>libStartUp</OutputFileName>
-    <OutputFileExtension>.a</OutputFileExtension>
-    <OutputType>StaticLibrary</OutputType>
+    <OutputFileName>StartUp</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputType>Executable</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ALU_Class.cpp">
@@ -418,6 +418,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Maintenance\ECSBOX\MaintenanceInterface\MaintenanceInterface\MaintenanceInterface.cppproj">
+      <Name>MaintenanceInterface</Name>
+      <Project>{dce6c7e3-ee26-4d79-826b-08594b9ad897}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\ALU_Driver\ALU_Driver\ALU_Driver.cproj">
       <Name>ALU_Driver</Name>
       <Project>{e0042c05-e7ab-4bdc-850a-2b3b2af948cd}</Project>
@@ -426,11 +431,6 @@
     <ProjectReference Include="..\..\ECS_Box_Classes\ECS_Box_Classes\ECS_Box_Objects.cppproj">
       <Name>ECS_Box_Objects</Name>
       <Project>{beb6ad6e-9654-4e0a-aeb3-838ccb975f4f}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Interfaces_ECS_BOX\Interfaces_ECS_BOX\Interfaces_ECS_BOX.cppproj">
-      <Name>Interfaces_ECS_BOX</Name>
-      <Project>{dbaffc46-dff1-4ecc-8d5f-b78a6507d578}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

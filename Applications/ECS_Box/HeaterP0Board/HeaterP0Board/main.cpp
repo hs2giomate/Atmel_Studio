@@ -7,7 +7,8 @@
 
 
 #include "main.h"
-static SingleHeater_Class heater;
+
+static Maintenance_Tool	toolApp;
 #define DELAY_HEATER_COMMUNICATION 100
 
 static void FirmwareAlive(const struct timer_task *const timer_task)
@@ -20,6 +21,7 @@ int main(void)
 {
 	atmel_start_init();
 	uint8_t status,enableMask;
+	bool powerOn;
 
 	usb.Init();
 	delay_ms(100);
@@ -28,7 +30,7 @@ int main(void)
 	uint32_t p=pwm_enable(&LIVE_PULSE);
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareAlive),250);
 	heater.Init();
-	Maintenance_Tool	toolApp;
+	
 	toolApp.Init();
 	while (1)
 	{
@@ -37,35 +39,46 @@ int main(void)
 			if (toolApp.handleCommunication())
 			{
 				enableMask=toolApp.singleTaskMessage.description;
+				
+				for (uint8_t i = 0; i < 4; i++)
+				{
+					powerOn=enableMask&(0x01<<i);
+				//	usb<<"Setting Heater: "<<i<<"to " <<powerOn<<" .\t";
+					heater.SetRelay(i,powerOn);
+					delay_ms(DELAY_HEATER_COMMUNICATION/10);
+// 					status= heater.ReadStatus();
+// 					usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
+// 					delay_ms(DELAY_HEATER_COMMUNICATION/10);
+					
+
+				}
 			} 
 			else
 			{
 				
 			}
+
 			
 		} 
 		else
 		{
 			enableMask=0xff;
-		}
-		for (uint8_t i = 0; i < 4; i++)
-		{
-			if (enableMask&i)
+			for (uint8_t i = 0; i < 4; i++)
 			{
-				delay_ms(DELAY_HEATER_COMMUNICATION);
-				usb<<"Enabling Heater: "<<i<<" .\t";
-				heater.Enable(i);
-				delay_ms(DELAY_HEATER_COMMUNICATION);
-				status= heater.ReadStatus();
-				usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
-				delay_ms(DELAY_HEATER_COMMUNICATION);
-				heater.Disable(i);
-			} 
-			else
-			{
-			}
+			
+					delay_ms(DELAY_HEATER_COMMUNICATION);
+					usb<<"Enabling Heater: "<<i<<" .\t";
+					heater.Enable(i);
+					delay_ms(DELAY_HEATER_COMMUNICATION);
+					status= heater.ReadStatus();
+					usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
+					delay_ms(DELAY_HEATER_COMMUNICATION);
+					heater.Disable(i);
 
+
+			}
 		}
+		
 		
 
 	}

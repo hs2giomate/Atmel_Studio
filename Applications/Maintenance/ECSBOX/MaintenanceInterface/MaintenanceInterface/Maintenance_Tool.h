@@ -17,12 +17,17 @@
 #define MAINTENANCE_TOOL_TIMEOUT	10000
 #define MAINTENANCE_TOOL_BUFFER_SIZE 64
 
-typedef struct
+ struct __attribute__((__packed__)) HVACMessageHeader
 {
-	uint8	command;
-	uint8	selector;
-	uint16	dataSize;
-} GAINMessageHeader;
+	uint32	magic;
+	char	command;
+	uint8_t	task;
+} ;
+struct __attribute__((__packed__)) SingleTaskMessage
+{
+	HVACMessageHeader	header;
+	uint8_t		description;
+};
 
 enum
 {
@@ -63,6 +68,8 @@ enum
     kGAINCommandSetConfiguration,       //!< Used to transmit new configuration data
 	kGAINCommandWriteParameters,	       //!< Used to transmit new configuration data
 	kGAINCommandReadParameters,	       //!< Used to transmit new configuration data
+	kHVACCommandSetHeaters,	       //!< Used to transmit new configuration data
+	kHVACCommandReadHeaterStatus,	       //!< Used to transmit new configuration data
     kGAINCommandSetCycleDictionary,     //!< Not used in 932
     kGAINCommandSetCycleDescription,    //!< Cycle description are presets that can be set in m.tool (power and time)
     kGAINCommandSetControllerState,     //!< Ports (Pins) can be set or reset (for example: cavity led, fans on off...)
@@ -121,6 +128,7 @@ public:
 	volatile uint32_t	ticks;
 	volatile	bool	is_MTPC_Beaming;
 	uint8_t		localBuffer[MAINTENANCE_TOOL_BUFFER_SIZE];
+	SingleTaskMessage	singleTaskMessage;
 protected:
 private:
 		tick_t	nextMaintenanceSyncTime;
@@ -148,12 +156,13 @@ private:
                                         [14] Phase value 1 \n
                                         [15] Phase value 2 \n
                                       */
-		GAINMessageHeader		header;
+		HVACMessageHeader		header;
+		
 		GAINStateNotification	notification;
 		DeviceInformation	deviceID;
 		bool result,gotAccess,gotCommand,gotTask;
 		uint16	checksum, checksumProvided;
-		userParameters	parameters;
+		UserParameters	parameters;
 		uint8	controllerState;
 		
 		uint8_t		cpuSerial[16];
@@ -186,48 +195,52 @@ private:
 	bool	GAINNotifyTemperatureData();
 
 
-	bool	handleGAINCommand();
-	void	notifyGAINCommandReceived( GAINMessageHeader& header, bool result);
+	bool	handleHVACTask();
+	void	notifyGAINCommandReceived( HVACMessageHeader& header, bool result);
 	
-	bool	handleGAINCommandConnect( GAINMessageHeader&);
-	bool	handleGAINCommandDisconnect( GAINMessageHeader&);
-	bool	handleGAINCommandSetNotificationState(GAINMessageHeader&);
-	bool	handleGAINCommandReset( GAINMessageHeader&);
-	bool	handleGAINCommandResetNVM( GAINMessageHeader& header);
-	bool	handleGAINCommandSetControllerState( GAINMessageHeader&);
-	bool	handleGAINCommandSetConfiguration(GAINMessageHeader&);
-	bool	handleGAINCommandSetCycleDictionary(GAINMessageHeader&);
-	bool	handleGAINCommandSetCycleDescription( GAINMessageHeader&);
+	bool	handleGAINCommandConnect( HVACMessageHeader&);
+	bool	handleGAINCommandDisconnect( HVACMessageHeader&);
+	bool	handleGAINCommandSetNotificationState(HVACMessageHeader&);
+	bool	handleGAINCommandReset( HVACMessageHeader&);
+	bool	handleGAINCommandResetNVM( HVACMessageHeader& header);
+	bool	handleGAINCommandSetControllerState( HVACMessageHeader&);
+	bool	handleGAINCommandSetConfiguration(HVACMessageHeader&);
+	bool	handleGAINCommandSetCycleDictionary(HVACMessageHeader&);
+	bool	handleGAINCommandSetCycleDescription( HVACMessageHeader&);
 
-	bool 	handleGAINCommandEnableSecondView( GAINMessageHeader&);
+	bool 	handleGAINCommandEnableSecondView( HVACMessageHeader&);
 
 	bool	handleGAINQuery(void);
-	void	notifyGAINQueryReceived( GAINMessageHeader& header, bool result);
+	void	notifyGAINQueryReceived( HVACMessageHeader& header, bool result);
 
-	bool	handleGAINQueryInfo( GAINMessageHeader&);
+	bool	handleGAINQueryInfo( HVACMessageHeader&);
 #if (kMaintenanceProtocolVersion > 0)
-	bool	handleGAINQueryProtocolInfo( GAINMessageHeader& header);
+	bool	handleGAINQueryProtocolInfo( HVACMessageHeader& header);
 #endif
-	bool	handleGAINQueryConfiguration( GAINMessageHeader&);
-	bool	handleGAINQueryParameters( GAINMessageHeader&);
-	bool	handleGAINQueryCycleDictionary( GAINMessageHeader&);
-	bool	handleGAINQueryCycleDescription( GAINMessageHeader&);
-	bool	handleGAINQueryFaultLog( GAINMessageHeader&);
+	bool	handleGAINQueryConfiguration( HVACMessageHeader&);
+	bool	handleGAINQueryParameters( HVACMessageHeader&);
+	bool	handleGAINQueryCycleDictionary( HVACMessageHeader&);
+	bool	handleGAINQueryCycleDescription( HVACMessageHeader&);
+	bool	handleGAINQueryFaultLog( HVACMessageHeader&);
 #if (kMaintenanceProtocolVersion > 0)
-	bool	handleGAINQueryFaultLogEntry( GAINMessageHeader&, int16 id);
+	bool	handleGAINQueryFaultLogEntry( HVACMessageHeader&, int16 id);
 #endif
 #ifdef NSD_SUPPORT
-	bool	handleGAINCommandSetNSDData(GAINMessageHeader&);
+	bool	handleGAINCommandSetNSDData(HVACMessageHeader&);
 #endif
 
-	bool handleGAINCommandReadParameters(GAINMessageHeader& header);
-	bool handleGAINCommandWriteParameters(GAINMessageHeader& header);
-	uint16	calculateChecksum(const GAINMessageHeader& data);
+	bool handleGAINCommandReadParameters(HVACMessageHeader& header);
+	bool handleGAINCommandWriteParameters(HVACMessageHeader& header);
+	uint16	calculateChecksum(const HVACMessageHeader& data);
 	uint16	calculateChecksum(uint16 checksum, uint16 size, const void* data);
 	void GetCPUSerialNumber(uint8_t* buffer);
+	bool SetHeaters(void);	
+	bool CommandReadHeaterStatus();
 	
 
 }; //Maintenance_Tool
+
+extern   Maintenance_Tool maintenance;
 inline bool Maintenance_Tool::isConnected(void) const
 {
 	return maintenanceIsConnected;
