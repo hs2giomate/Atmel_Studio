@@ -28,6 +28,8 @@ hal\src\hal_gpio.c
 
 hal\src\hal_i2c_m_async.c
 
+hal\src\hal_i2c_m_sync.c
+
 hal\src\hal_init.c
 
 hal\src\hal_io.c
@@ -37,8 +39,6 @@ hal\src\hal_pwm.c
 hal\src\hal_qspi_sync.c
 
 hal\src\hal_sleep.c
-
-hal\src\hal_spi_m_async.c
 
 hal\src\hal_spi_m_sync.c
 
@@ -91,6 +91,8 @@ hpl\ramecc\hpl_ramecc.c
 hpl\rtc\hpl_rtc.c
 
 hpl\sercom\hpl_sercom.c
+
+hpl\tcc\hpl_tcc.c
 
 hpl\tc\hpl_tc.c
 

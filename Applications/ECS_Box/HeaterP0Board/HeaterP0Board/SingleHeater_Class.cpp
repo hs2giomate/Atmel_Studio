@@ -24,7 +24,7 @@ SingleHeater_Class::SingleHeater_Class()
 SingleHeater_Class::SingleHeater_Class(I2C_Sync_Class *i2c)
 {
 	ptrSingleHeaterClass=this;
-	
+	statusChanged=false;
 } //SingleHeater_Class
 
 
@@ -35,7 +35,7 @@ SingleHeater_Class::~SingleHeater_Class()
 
 static void	HeaterStatusChanged(void){
 	
-	ptrSingleHeaterClass->changed=true;
+	ptrSingleHeaterClass->statusChanged=true;
 }
 
 bool SingleHeater_Class::Init(void){
@@ -43,7 +43,7 @@ bool SingleHeater_Class::Init(void){
 		if (i2c->isOK)
 		{
 			
-			//ext_irq_register(PIN_PA04,FUNC_PTR(HeaterStatusChanged));
+			//ext_irq_register(PIN_PA03,FUNC_PTR(HeaterStatusChanged));
 			InitExpanderArray();
 			expanders[0]->SetPortInput();
 			expanders[1]->SetPortOutput();

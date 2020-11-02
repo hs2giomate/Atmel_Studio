@@ -15,7 +15,7 @@ static	MCP23008_Class expandersStatic[EVAPORATOR_AND_CONDESATOR_EXPANDERS];
 EvaporatorAndCondesatorFans_Class*	ptrFansClass;
 static void	FansStatusChanged(void){
 	
-	ptrFansClass->changed=true;
+	ptrFansClass->somethingChanged=true;
 
 
 }
@@ -27,6 +27,8 @@ EvaporatorAndCondesatorFans_Class::EvaporatorAndCondesatorFans_Class()
 	evaporator[0]=&evaporatorFan[0];
 	evaporator[1]=&evaporatorFan[1];
 	condesator=&condesatorFan;
+	ptrFansClass=this;
+	somethingChanged=false;
 	
 } //EvaporatorAndCondesatorFans_Class
 
@@ -40,7 +42,7 @@ bool	EvaporatorAndCondesatorFans_Class::Init(void){
 	if (i2c->isOK)
 	{
 		
-		ext_irq_register(PIN_PA03,FUNC_PTR(FansStatusChanged));
+		//ext_irq_register(PIN_PA03,FUNC_PTR(FansStatusChanged));
 		InitExpanderArray();
 		evaporator[0]->InitEvaporator(0,i2c,expanders);
 		evaporator[1]->InitEvaporator(1,i2c,expanders);
@@ -64,4 +66,4 @@ uint8_t EvaporatorAndCondesatorFans_Class::InitExpanderArray(void){
 	return 0;
 }
 
-//EvaporatorAndCondesatorFans_Class  fans;
+EvaporatorAndCondesatorFans_Class  fans;

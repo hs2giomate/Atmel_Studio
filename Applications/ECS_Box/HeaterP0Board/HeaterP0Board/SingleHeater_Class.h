@@ -32,7 +32,7 @@ class SingleHeater_Class
 {
 //variables
 public:
-	volatile bool isOK,changed;
+	volatile bool isOK,statusChanged;
 	SingleHeaterGPIO heaterGPIO;
 	uint8_t enabled;
 protected:

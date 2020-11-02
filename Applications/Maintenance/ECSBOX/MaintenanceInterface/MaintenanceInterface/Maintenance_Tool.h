@@ -17,17 +17,7 @@
 #define MAINTENANCE_TOOL_TIMEOUT	10000
 #define MAINTENANCE_TOOL_BUFFER_SIZE 64
 
- struct __attribute__((__packed__)) HVACMessageHeader
-{
-	uint32	magic;
-	char	command;
-	uint8_t	task;
-} ;
-struct __attribute__((__packed__)) SingleTaskMessage
-{
-	HVACMessageHeader	header;
-	uint8_t		description;
-};
+
 
 enum
 {
@@ -60,6 +50,7 @@ enum
  * */
 enum
 	{
+	kHVACCommandNotTask=0,	
 	kGAINCommandConnect = 'A',
 	kGAINCommandDisconnect,
     kGAINCommandSetNotificationState,   //!< Only for 919 relevant... implemented by ss
@@ -70,6 +61,8 @@ enum
 	kGAINCommandReadParameters,	       //!< Used to transmit new configuration data
 	kHVACCommandSetHeaters,	       //!< Used to transmit new configuration data
 	kHVACCommandReadHeaterStatus,	       //!< Used to transmit new configuration data
+	kHVACCommandSetEnableFans,	       //!< Used to transmit new configuration data
+	kHVACCommandSetPWMFans,	       //!< Used to transmit new configuration data
     kGAINCommandSetCycleDictionary,     //!< Not used in 932
     kGAINCommandSetCycleDescription,    //!< Cycle description are presets that can be set in m.tool (power and time)
     kGAINCommandSetControllerState,     //!< Ports (Pins) can be set or reset (for example: cavity led, fans on off...)
@@ -79,6 +72,17 @@ enum
     kGAINCommandSetView,                 //!< Enables simplified view or standard view (only 932/933)
 	kGAINNumberOfCommands
 	};
+ struct __attribute__((__packed__)) HVACMessageHeader
+ {
+	 uint32	magic=MAINTENANCE_TOOL_KEYWORD;
+	 char	command;
+	 uint8_t	task=kHVACCommandNotTask;
+ } ;
+ struct __attribute__((__packed__)) SingleTaskMessage
+ {
+	 HVACMessageHeader	header;
+	 uint8_t		description;
+ };
 	
 	typedef struct
 	{
@@ -229,13 +233,15 @@ private:
 	bool	handleGAINCommandSetNSDData(HVACMessageHeader&);
 #endif
 
-	bool handleGAINCommandReadParameters(HVACMessageHeader& header);
-	bool handleGAINCommandWriteParameters(HVACMessageHeader& header);
+	bool	handleGAINCommandReadParameters(HVACMessageHeader& header);
+	bool	handleGAINCommandWriteParameters(HVACMessageHeader& header);
 	uint16	calculateChecksum(const HVACMessageHeader& data);
 	uint16	calculateChecksum(uint16 checksum, uint16 size, const void* data);
-	void GetCPUSerialNumber(uint8_t* buffer);
-	bool SetHeaters(void);	
-	bool CommandReadHeaterStatus();
+	void	 GetCPUSerialNumber(uint8_t* buffer);
+	bool	CommandSetHeaters(void);	
+	bool	CommandReadHeaterStatus();
+	bool	CommandSetEnableFans(void);
+	bool	CommandSetPWMFans(void);
 	
 
 }; //Maintenance_Tool

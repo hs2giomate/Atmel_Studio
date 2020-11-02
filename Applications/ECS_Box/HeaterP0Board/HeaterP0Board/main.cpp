@@ -9,7 +9,8 @@
 #include "main.h"
 
 static Maintenance_Tool	toolApp;
-#define DELAY_HEATER_COMMUNICATION 100
+static SingleTaskMessage singleTask;
+#define DELAY_HEATER_COMMUNICATION 1000
 
 static void FirmwareAlive(const struct timer_task *const timer_task)
 {
@@ -20,13 +21,13 @@ static void FirmwareAlive(const struct timer_task *const timer_task)
 int main(void)
 {
 	atmel_start_init();
-	uint8_t status,enableMask;
+	uint8_t status,enableMask,lastEnableMask;
 	bool powerOn;
 
 	usb.Init();
 	delay_ms(100);
-	usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
-	usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
+// 	usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
+// 	usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
 	uint32_t p=pwm_enable(&LIVE_PULSE);
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareAlive),250);
 	heater.Init();
@@ -38,26 +39,42 @@ int main(void)
 		{
 			if (toolApp.handleCommunication())
 			{
-				enableMask=toolApp.singleTaskMessage.description;
-				
-				for (uint8_t i = 0; i < 4; i++)
+				if (toolApp.singleTaskMessage.header.task==kHVACCommandSetHeaters)
 				{
-					powerOn=enableMask&(0x01<<i);
-				//	usb<<"Setting Heater: "<<i<<"to " <<powerOn<<" .\t";
-					heater.SetRelay(i,powerOn);
-					delay_ms(DELAY_HEATER_COMMUNICATION/10);
-// 					status= heater.ReadStatus();
-// 					usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
-// 					delay_ms(DELAY_HEATER_COMMUNICATION/10);
-					
+					lastEnableMask=enableMask;
+					enableMask=toolApp.singleTaskMessage.description;
+					if (enableMask!=lastEnableMask)
+					{
+						for (uint8_t i = 0; i < 4; i++)
+						{
+							powerOn=enableMask&(0x01<<i);
+							//	usb<<"Setting Heater: "<<i<<"to " <<powerOn<<" .\t";
+							heater.SetRelay(i,powerOn);
+							//delay_ms(DELAY_HEATER_COMMUNICATION/10);
+							// 					status= heater.ReadStatus();
+							// 					usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
+							// 					delay_ms(DELAY_HEATER_COMMUNICATION/10);
+							
 
+						}
+					}
 				}
+				
+
 			} 
 			else
 			{
 				
 			}
-
+			if (heater.statusChanged)
+			{
+				
+				singleTask.description=heater.ReadStatus();
+				memcpy(toolApp.localBuffer,(void*)&singleTask,sizeof(SingleTaskMessage));
+				usb.write(toolApp.localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+				heater.statusChanged=false;
+				
+			}
 			
 		} 
 		else
@@ -66,14 +83,14 @@ int main(void)
 			for (uint8_t i = 0; i < 4; i++)
 			{
 			
-					delay_ms(DELAY_HEATER_COMMUNICATION);
-					usb<<"Enabling Heater: "<<i<<" .\t";
-					heater.Enable(i);
-					delay_ms(DELAY_HEATER_COMMUNICATION);
-					status= heater.ReadStatus();
-					usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
-					delay_ms(DELAY_HEATER_COMMUNICATION);
-					heater.Disable(i);
+// 					delay_ms(1);
+// 					usb<<"Enabling Heater: "<<i<<" .\t";
+// 					heater.Enable(i);
+// 					delay_ms(DELAY_HEATER_COMMUNICATION);
+// 					status= heater.ReadStatus();
+// 					usb<<"Heater "<<i<< " Status :"<<heater.heaterGPIO.inputs.niAlcHeaterRelayFault[i]<<NEWLINE;
+// 					delay_ms(DELAY_HEATER_COMMUNICATION);
+// 					heater.Disable(i);
 
 
 			}

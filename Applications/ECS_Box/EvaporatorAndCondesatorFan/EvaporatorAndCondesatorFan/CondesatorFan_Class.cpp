@@ -59,6 +59,10 @@ uint8_t	CondesatorFan_Class::Enable(void){
 	enabled=expanders[0]->WriteDigit(2,true);
 	return uint8_t(enabled);
 }
+uint8_t	CondesatorFan_Class::SetEnable(bool state){
+	enabled=expanders[0]->WriteDigit(2,state);
+	return uint8_t(enabled);
+}
 uint8_t	CondesatorFan_Class::Disable(void){
 	enabled=expanders[0]->WriteDigit(2,false)?false:true;
 	return uint8_t(enabled);

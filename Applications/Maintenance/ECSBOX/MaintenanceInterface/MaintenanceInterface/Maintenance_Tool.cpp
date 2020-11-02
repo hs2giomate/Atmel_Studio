@@ -13,6 +13,7 @@
 #include "TimerSerial_Class.h"
 #include "string.h"
 #include "SingleHeater_Class.h"
+#include "EvaporatorAndCondesatorFans_Class.h"
 
 
 
@@ -551,20 +552,23 @@ bool Maintenance_Tool::handleHVACTask(void){
 				break;
 			case kGAINCommandWriteParameters:
 				result = handleGAINCommandWriteParameters( header);
-			break;
+				break;
 			case kGAINCommandReadParameters:
 				result = handleGAINCommandReadParameters( header);
-			break;
-				case kHVACCommandSetHeaters:
-			
-				memcpy(&singleTaskMessage,localBuffer,sizeMessage);
-				
-				singleTaskMessage.description=localBuffer[0x06];
-				result = SetHeaters();
+				break;
+			case kHVACCommandSetHeaters:
+				result = CommandSetHeaters();
 				break;
 				
-				case kHVACCommandReadHeaterStatus:
+			case kHVACCommandReadHeaterStatus:
 				result = CommandReadHeaterStatus();
+				break;
+			case kHVACCommandSetEnableFans:
+				result = CommandSetEnableFans();
+				break;
+			
+			case kHVACCommandSetPWMFans:
+				result = CommandSetPWMFans();
 				break;
 			case kGAINCommandSetCycleDictionary:
 				result = handleGAINCommandSetCycleDictionary( header);
@@ -891,14 +895,22 @@ bool Maintenance_Tool::handleGAINCommandReadParameters(HVACMessageHeader& header
 
 bool Maintenance_Tool::CommandReadHeaterStatus(){
 	int n=sizeof(SingleTaskMessage);
-	uint32_t	w,r;
+	SingleTaskMessage	singleTask;
 	
-	bool	result(header.command == kGAINCommandReadParameters);
+	bool	result(header.task == kHVACCommandReadHeaterStatus);
 	if (result){
-			singleTaskMessage.description=heater.ReadStatus();
-			memcpy(localBuffer,(void*)&singleTaskMessage,n);
-			delay_us(1);
-			usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+	
+			singleTask.description=heater.ReadStatus();
+			singleTask.header.task=kHVACCommandReadHeaterStatus;
+			memcpy(localBuffer,(void*)&singleTask,n);
+			
+			//delay_us(1);
+			if (!heater.statusChanged)
+			{
+				usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+			}
+			singleTaskMessage=singleTask;
+			
 	}
 	
 	return result;
@@ -933,12 +945,14 @@ bool Maintenance_Tool::handleGAINCommandWriteParameters(HVACMessageHeader& heade
 	return result;
 }
 
-bool Maintenance_Tool::SetHeaters(void)	{
+bool Maintenance_Tool::CommandSetHeaters(void)	{
 
 	uint32_t	w,r;
 	uint8_t	data=0;
 	
-	
+		memcpy(&singleTaskMessage,localBuffer,sizeof(SingleTaskMessage));
+		
+	//	singleTaskMessage.description=localBuffer[0x06];
 	bool	result(header.task == kHVACCommandSetHeaters);
 	if (result){
 		data=singleTaskMessage.description;
@@ -950,6 +964,64 @@ bool Maintenance_Tool::SetHeaters(void)	{
 		//
 		// 		 		for (i=0; i<header.dataSize; i++)
 		// 		 			io >> ch;
+	}
+	
+	return result;
+}
+
+bool Maintenance_Tool::CommandSetEnableFans(void){
+
+	uint32_t	w,r;
+	uint8_t	data=0;
+	
+	memcpy(&singleTaskMessage,localBuffer,sizeof(SingleTaskMessage));
+	
+	//	singleTaskMessage.description=localBuffer[0x06];
+	bool	result(header.task == kHVACCommandSetEnableFans);
+	if (result){
+		data=singleTaskMessage.description;
+		if ((data&(0x07))>3)
+		{
+			fans.condesator->SetEnable(data&0x04);
+		} 
+		else
+		{
+			fans.evaporator[0]->SetEnable(data&0x01);
+			fans.evaporator[1]->SetEnable(data&0x02);
+		}
+
+		
+	}else{
+
+	}
+	
+	return result;
+}
+
+bool Maintenance_Tool::CommandSetPWMFans(void){
+
+	uint32_t	w,r;
+	uint8_t	data=0;
+	
+	memcpy(&singleTaskMessage,localBuffer,sizeof(SingleTaskMessage));
+	
+	//	singleTaskMessage.description=localBuffer[0x06];
+	bool	result(header.task == kHVACCommandSetPWMFans);
+	if (result){
+		data=singleTaskMessage.description;
+// 		if (data&(0x07)>3)
+// 		{
+// 			fans.condesator->SetEnable()
+// 		}
+// 		else
+// 		{
+			fans.evaporator[0]->SetPWM(data);
+// 			fans.evaporator[1]->SetEnable(data&0x02);
+// 		}
+
+		
+	}else{
+
 	}
 	
 	return result;

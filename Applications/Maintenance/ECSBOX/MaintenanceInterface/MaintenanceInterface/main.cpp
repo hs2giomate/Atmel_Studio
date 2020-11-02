@@ -16,12 +16,12 @@ uint8_t	StartLivePulse(void){
 }
 bool	WriteUserParametersFlash(void){
 
-	userParameters	p=defaultParameters;
-	flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(userParameters));
+	UserParameters	p=defaultParameters;
+	flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(UserParameters));
 	
 	flash.flushConfigurationData(&p);
 	delay_ms(WRITE_DELAY);
-	userParameters	q;
+	UserParameters	q;
 	q=flash.readConfigurationData(q);
 	if (p.flapperValveOffset==q.flapperValveOffset)
 	{
@@ -35,12 +35,12 @@ bool	WriteUserParametersFlash(void){
 
 bool	WriteUserParametersFram(void){
 
-	userParameters	p=defaultParameters;
+	UserParameters	p=defaultParameters;
 	//flash.eraseFlash((uint32_t)&flashMap->parameters,sizeof(userParameters));
 	
 	fram.flushConfigurationData(&p);
 	delay_ms(WRITE_DELAY);
-	userParameters	q;
+	UserParameters	q;
 	q=fram.readConfigurationData(q);
 	if (p.flapperValveOffset==q.flapperValveOffset)
 	{
@@ -67,7 +67,7 @@ int main(void)
 	{
 		if (toolApp.IsAppConnected())
 		{
-			if (toolApp.localBuffer[sizeof(GAINMessageHeader)]==(uint8_t)'f')
+			if (toolApp.localBuffer[sizeof(HVACMessageHeader)]==(uint8_t)'f')
 			{
 				toolApp.NotifyConnectionAcknowledge();
 				toolApp.ClearLocalBuffer();

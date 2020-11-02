@@ -74,13 +74,17 @@ uint8_t	EvaporatorFan_Class::Enable(void){
 	enabled=expanders[0]->WriteDigit(fanNumber,true);
 	return uint8_t(enabled);
 }
+uint8_t	EvaporatorFan_Class::SetEnable(bool state){
+	enabled=expanders[0]->WriteDigit(1-fanNumber,!state);
+	return uint8_t(enabled);
+}
 uint8_t	EvaporatorFan_Class::Disable(void){
 	enabled=expanders[0]->WriteDigit(fanNumber,false)?false:true;
 	return uint8_t(enabled);
 }
 
 uint8_t	EvaporatorFan_Class::SetPWM(uint8_t pwm){
-	pwmValue= expanders[4+fanNumber]->WriteGPIORegister(pwm);
+	pwmValue= expanders[4+fanNumber]->WriteGPIORegister(0xff-pwm);
 	return pwmValue;
 }
 

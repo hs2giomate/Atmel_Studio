@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.ARMGCC.CPP</ToolchainName>
-    <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
+    <ProjectGuid>{e1b3f09d-1c60-4a52-9784-98660e2ceab4}</ProjectGuid>
     <avrdevice>ATSAME54P20A</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -29,14 +29,14 @@
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <EraseKey />
     <AsfFrameworkConfig>
-      <framework-data xmlns="">
+      <framework-data>
         <options />
         <configurations />
         <files />
         <documentation help="" />
         <offline-documentation help="" />
         <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.40.0" />
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
@@ -194,6 +194,7 @@
       <Value>../../../../../ECS_Box/HeaterP0Board/HeaterP0Board</Value>
       <Value>../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve</Value>
       <Value>../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/I2C</Value>
+      <Value>../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
   <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>

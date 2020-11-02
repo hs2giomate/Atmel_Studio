@@ -16,7 +16,7 @@ class EvaporatorAndCondesatorFans_Class: public EvaporatorFan_Class,public Conde
 {
 //variables
 public:
-	volatile bool isOK,changed;
+	volatile bool isOK,somethingChanged;
 	EvaporatorFan_Class*	evaporator[2];
 	CondesatorFan_Class*	condesator;
 protected:
@@ -38,6 +38,6 @@ private:
 
 }; //EvaporatorAndCondesatorFans_Class
 
-//extern EvaporatorAndCondesatorFans_Class  fans;
+extern EvaporatorAndCondesatorFans_Class  fans;
 
 #endif //__EVAPORATORANDCONDESATORFANS_CLASS_H__

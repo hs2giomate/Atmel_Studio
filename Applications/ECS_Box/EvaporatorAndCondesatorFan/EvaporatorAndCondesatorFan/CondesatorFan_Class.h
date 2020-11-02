@@ -42,6 +42,7 @@ public:
 	uint8_t	Enable(void);
 	uint8_t	Disable(void);
 	uint8_t	SetPWM(uint8_t pwm);
+	uint8_t	SetEnable(bool state);
 protected:
 private:
 	CondesatorFan_Class( const CondesatorFan_Class &c );
