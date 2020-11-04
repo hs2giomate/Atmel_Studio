@@ -69,6 +69,19 @@ void EXTERNAL_IRQ_0_init(void)
 	gpio_set_pin_function(VBUS_DETECTED, PINMUX_PC00A_EIC_EXTINT0);
 
 	// Set pin direction to input
+	gpio_set_pin_direction(PB01, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(PB01,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(PB01, PINMUX_PB01A_EIC_EXTINT1);
+
+	// Set pin direction to input
 	gpio_set_pin_direction(PA03, GPIO_DIRECTION_IN);
 
 	gpio_set_pin_pull_mode(PA03,
@@ -703,8 +716,6 @@ static void TIMER_EVENT_init(void)
 
 void LIVE_PULSE_PORT_init(void)
 {
-
-	gpio_set_pin_function(PB01, PINMUX_PB01E_TC7_WO1);
 }
 
 void LIVE_PULSE_CLOCK_init(void)
@@ -953,18 +964,17 @@ void system_init(void)
 
 	// GPIO on PB07
 
-	// Set pin direction to input
-	gpio_set_pin_direction(INT_LTC2983, GPIO_DIRECTION_IN);
+	gpio_set_pin_level(CS_TEMP3,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   true);
 
-	gpio_set_pin_pull_mode(INT_LTC2983,
-	                       // <y> Pull configuration
-	                       // <id> pad_pull_config
-	                       // <GPIO_PULL_OFF"> Off
-	                       // <GPIO_PULL_UP"> Pull-up
-	                       // <GPIO_PULL_DOWN"> Pull-down
-	                       GPIO_PULL_DOWN);
+	// Set pin direction to output
+	gpio_set_pin_direction(CS_TEMP3, GPIO_DIRECTION_OUT);
 
-	gpio_set_pin_function(INT_LTC2983, GPIO_PIN_FUNCTION_OFF);
+	gpio_set_pin_function(CS_TEMP3, GPIO_PIN_FUNCTION_OFF);
 
 	// GPIO on PB29
 

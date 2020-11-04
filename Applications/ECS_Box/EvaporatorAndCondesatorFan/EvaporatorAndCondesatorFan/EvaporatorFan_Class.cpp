@@ -84,7 +84,7 @@ uint8_t	EvaporatorFan_Class::Disable(void){
 }
 
 uint8_t	EvaporatorFan_Class::SetPWM(uint8_t pwm){
-	pwmValue= expanders[4+fanNumber]->WriteGPIORegister(0xff-pwm);
+	pwmValue= expanders[4+fanNumber]->WriteGPIORegister(pwm);
 	return pwmValue;
 }
 

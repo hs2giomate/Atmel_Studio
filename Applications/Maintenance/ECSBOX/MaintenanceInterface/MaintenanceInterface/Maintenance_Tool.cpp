@@ -14,6 +14,9 @@
 #include "string.h"
 #include "SingleHeater_Class.h"
 #include "EvaporatorAndCondesatorFans_Class.h"
+#include "TemperatureSensors_Class.h"
+
+
 
 
 
@@ -239,6 +242,7 @@ bool Maintenance_Tool::handleCommunication(void)
 	}
 	
 uint8_t	Maintenance_Tool::ClearLocalBuffer(void){
+	uint8_t i;
 	for (i = 0; i < MAINTENANCE_TOOL_BUFFER_SIZE; i++)
 	{
 		localBuffer[i]=0;
@@ -326,6 +330,7 @@ bool Maintenance_Tool::GAINNotifyState( uint8 state, uint8 flags)
 	}
 	
 bool	Maintenance_Tool::NotifyConnectionAcknowledge(void){
+	uint8_t i;
 	memcpy(&deviceID.cpuSerialNumber,cpuSerial,sizeof(cpuSerial));
 	//deviceID.cpuSerialNumber=cpuSerial;
 	delay_us(100);
@@ -569,6 +574,9 @@ bool Maintenance_Tool::handleHVACTask(void){
 			
 			case kHVACCommandSetPWMFans:
 				result = CommandSetPWMFans();
+				break;
+			case kHVACCommandReadTemperatures:
+				result = CommandReadTemmperatures();
 				break;
 			case kGAINCommandSetCycleDictionary:
 				result = handleGAINCommandSetCycleDictionary( header);
@@ -915,6 +923,34 @@ bool Maintenance_Tool::CommandReadHeaterStatus(){
 	
 	return result;
 }
+bool Maintenance_Tool::CommandReadTemmperatures(){
+	int n=sizeof(SingleTaskMessage);
+	
+	SingleTaskMessage	singleTask;
+	
+	bool	result(header.task == kHVACCommandReadTemperatures);
+	if (result){
+		
+		singleTask.description=temperatures.faultData;
+		singleTask.header.task=kHVACCommandReadTemperatures;
+		memcpy(localBuffer,(void*)&singleTask,n);
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				memcpy(&localBuffer[n+4*((4*i)+j)],(void*)&temperatures.values[i][j],4);
+			}
+			
+		}
+		
+		usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+		
+		singleTaskMessage=singleTask;
+		
+	}
+	
+	return result;
+}
 
 bool Maintenance_Tool::handleGAINCommandWriteParameters(HVACMessageHeader& header)	{
 
@@ -949,21 +985,27 @@ bool Maintenance_Tool::CommandSetHeaters(void)	{
 
 	uint32_t	w,r;
 	uint8_t	data=0;
+	bool powerOn;
 	
 		memcpy(&singleTaskMessage,localBuffer,sizeof(SingleTaskMessage));
 		
 	//	singleTaskMessage.description=localBuffer[0x06];
 	bool	result(header.task == kHVACCommandSetHeaters);
 	if (result){
-		data=singleTaskMessage.description;
-		
-		
-		}else{
-		// 		 		uint8	i;
-		// 		 		char	ch;
-		//
-		// 		 		for (i=0; i<header.dataSize; i++)
-		// 		 			io >> ch;
+		lastEnableHeaters=enableHeaters;
+		enableHeaters=singleTaskMessage.description;
+		if (enableHeaters!=lastEnableHeaters)
+		{
+			for (uint8_t i = 0; i < 4; i++)
+			{
+				powerOn=enableHeaters&(0x01<<i);
+
+				heater.SetRelay(i,powerOn);
+	
+				
+
+			}
+		}
 	}
 	
 	return result;
@@ -1766,6 +1808,7 @@ uint32_t	Maintenance_Tool::SendPeriodicNotifications(void){
 
 void Maintenance_Tool::GetCPUSerialNumber(uint8_t* buffer)
 {
+	uint8_t i;
 	uint32_t add=0x41002018;
 	for (i = 0; i < 4; i++)
 	{

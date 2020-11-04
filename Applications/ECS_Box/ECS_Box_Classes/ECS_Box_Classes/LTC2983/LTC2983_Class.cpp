@@ -62,8 +62,9 @@ bool LTC2983_Class::Init(uint32_t csPin,LT_SPI* spiLite){
 	tx=spiLT->txLiteBuffer;
 	auxTimer=&hvacTimer;
 	activeChannels[0]=4;
-	activeChannels[1]=8;
-	activeChannels[2]=15;
+	activeChannels[1]=9;
+	activeChannels[2]=14;
+	activeChannels[3]=19;
 	delay_ms(200);
 	temperatureTimer.Init();
 	configure_channels();
@@ -212,13 +213,13 @@ void LTC2983_Class::print_config_channel(uint32_t chip_select, uint8_t channel_n
 	uint32_t raw_data;
 	raw_data = transfer_four_bytes(chip_select, READ_FROM_RAM, start_address, 0);
 
-	usb.print(F("\nChannel Config "));
-	usb.println(channel_number);
+	//usb.print(F("\nChannel Config "));
+//	usb.println(channel_number);
 
 	// 24 LSB's are conversion result
 	
-	usb<<"register value: ";
-	usb.println(raw_data,HEX);
+// 	usb<<"register value: ";
+// 	usb.println(raw_data,HEX);
 	
 }
 void LTC2983_Class::get_result(uint32_t chip_select, uint8_t channel_number, uint8_t channel_output)
@@ -226,8 +227,8 @@ void LTC2983_Class::get_result(uint32_t chip_select, uint8_t channel_number, uin
 	start_address = get_start_address(CONVERSION_RESULT_MEMORY_BASE, channel_number);
 	raw_data = transfer_four_bytes(chip_select, READ_FROM_RAM, start_address, 0);
 
-	usb.print(F("\nChannel "));
-	usb.println(channel_number);
+// 	usb.print(F("\nChannel "));
+// 	usb.println(channel_number);
 
 	// 24 LSB's are conversion result
 	raw_conversion_result = raw_data & 0xFFFFFF;
@@ -292,14 +293,14 @@ void LTC2983_Class::print_conversion_result(uint32_t raw_conversion_result, uint
 	if (channel_output == TEMPERATURE)
 	{
 		scaled_result = float(signed_data) / 1024;
-		usb.print(F("  Temperature = "));
-		usb.println(scaled_result);
+// 		usb.print(F("  Temperature = "));
+// 		usb.println(scaled_result);
 	}
 	else if (channel_output == VOLTAGE)
 	{
 		scaled_result = float(signed_data) / 2097152;
-		usb.print(F("  Direct ADC reading in V = "));
-		usb.println(scaled_result);
+// 		usb.print(F("  Direct ADC reading in V = "));
+// 		usb.println(scaled_result);
 	}
 	
 }
@@ -344,8 +345,8 @@ void LTC2983_Class::read_voltage_or_resistance_results(uint32_t chip_select, uin
 
 	raw_data = transfer_four_bytes(chip_select, READ_FROM_RAM, start_address, 0);
 	voltage_or_resistance_result = (float)raw_data/1024;
-	usb.print(F("  Voltage or resistance = "));
-	usb.println(voltage_or_resistance_result);
+// 	usb.print(F("  Voltage or resistance = "));
+// 	usb.println(voltage_or_resistance_result);
 }
 
 
@@ -353,27 +354,27 @@ void LTC2983_Class::read_voltage_or_resistance_results(uint32_t chip_select, uin
 void LTC2983_Class::print_fault_data(uint8_t fault_byte)
 {
 	//
-	usb.print(F("  FAULT DATA = "));
-	usb.println(fault_byte, BIN);
+// 	usb.print(F("  FAULT DATA = "));
+// 	usb.println(fault_byte, BIN);
 
-	if (fault_byte & SENSOR_HARD_FAILURE)
-	usb.println(F("  - SENSOR HARD FALURE"));
-	if (fault_byte & ADC_HARD_FAILURE)
-	usb.println(F("  - ADC_HARD_FAILURE"));
-	if (fault_byte & CJ_HARD_FAILURE)
-	usb.println(F("  - CJ_HARD_FAILURE"));
-	if (fault_byte & CJ_SOFT_FAILURE)
-	usb.println(F("  - CJ_SOFT_FAILURE"));
-	if (fault_byte & SENSOR_ABOVE)
-	usb.println(F("  - SENSOR_ABOVE"));
-	if (fault_byte & SENSOR_BELOW)
-	usb.println(F("  - SENSOR_BELOW"));
-	if (fault_byte & ADC_RANGE_ERROR)
-	usb.println(F("  - ADC_RANGE_ERROR"));
-	if (!(fault_byte & VALID_TEMPERATURE))
-	usb.println(F("INVALID READING !!!!!!"));
-	if (fault_byte == 0b11111111)
-	usb.println(F("CONFIGURATION ERROR !!!!!!"));
+//	if (fault_byte & SENSOR_HARD_FAILURE)
+//	usb.println(F("  - SENSOR HARD FALURE"));
+//	if (fault_byte & ADC_HARD_FAILURE)
+//	usb.println(F("  - ADC_HARD_FAILURE"));
+//	if (fault_byte & CJ_HARD_FAILURE)
+//	usb.println(F("  - CJ_HARD_FAILURE"));
+//	if (fault_byte & CJ_SOFT_FAILURE)
+//	usb.println(F("  - CJ_SOFT_FAILURE"));
+//	if (fault_byte & SENSOR_ABOVE)
+//	usb.println(F("  - SENSOR_ABOVE"));
+//	if (fault_byte & SENSOR_BELOW)
+//	usb.println(F("  - SENSOR_BELOW"));
+//	if (fault_byte & ADC_RANGE_ERROR)
+//	usb.println(F("  - ADC_RANGE_ERROR"));
+//	if (!(fault_byte & VALID_TEMPERATURE))
+//	usb.println(F("INVALID READING !!!!!!"));
+//	if (fault_byte == 0b11111111)*/
+//	usb.println(F("CONFIGURATION ERROR !!!!!!"));
 }
 
 // *********************
@@ -452,48 +453,63 @@ void LTC2983_Class::configure_channels()
 	
 	uint32_t channel_assignment_data;
 
-	// ----- Channel 2: Assign Sense Resistor -----
-	channel_assignment_data =
-	SENSOR_TYPE__SENSE_RESISTOR |
-	(uint32_t) 0x9C4000 << SENSE_RESISTOR_VALUE_LSB;		// sense resistor - value: 10000.
-	assign_channel(chipSelect, 2, channel_assignment_data);
-	// ----- Channel 4: Assign RTD PT-100 -----
-	channel_assignment_data =
-	SENSOR_TYPE__RTD_PT_100 |
-	RTD_RSENSE_CHANNEL__2 |
-	RTD_NUM_WIRES__2_WIRE |
-	RTD_EXCITATION_MODE__NO_ROTATION_SHARING |
-	RTD_EXCITATION_CURRENT__50UA |
-	RTD_STANDARD__AMERICAN;
-	assign_channel(chipSelect, 4, channel_assignment_data);
-	// ----- Channel 6: Assign Sense Resistor -----
-	channel_assignment_data =
-	SENSOR_TYPE__SENSE_RESISTOR |
-	(uint32_t) 0x9C4000 << SENSE_RESISTOR_VALUE_LSB;		// sense resistor - value: 10000.
-	assign_channel(chipSelect, 6, channel_assignment_data);
-	// ----- Channel 8: Assign RTD PT-100 -----
-	channel_assignment_data =
-	SENSOR_TYPE__RTD_PT_100 |
-	RTD_RSENSE_CHANNEL__6 |
-	RTD_NUM_WIRES__4_WIRE |
-	RTD_EXCITATION_MODE__ROTATION_SHARING |
-	RTD_EXCITATION_CURRENT__50UA |
-	RTD_STANDARD__AMERICAN;
-	assign_channel(chipSelect, 8, channel_assignment_data);
-	// ----- Channel 13: Assign Sense Resistor -----
-	channel_assignment_data =
-	SENSOR_TYPE__SENSE_RESISTOR |
-	(uint32_t) 0x9C4000 << SENSE_RESISTOR_VALUE_LSB;		// sense resistor - value: 10000.
-	assign_channel(chipSelect, 13, channel_assignment_data);
-	// ----- Channel 15: Assign RTD PT-100 -----
-	channel_assignment_data =
-	SENSOR_TYPE__RTD_PT_100 |
-	RTD_RSENSE_CHANNEL__13 |
-	RTD_NUM_WIRES__2_WIRE |
-	RTD_EXCITATION_MODE__NO_ROTATION_SHARING |
-	RTD_EXCITATION_CURRENT__50UA |
-	RTD_STANDARD__AMERICAN;
-	assign_channel(chipSelect, 15, channel_assignment_data);
+	
+	  // ----- Channel 2: Assign Sense Resistor -----
+	  channel_assignment_data =
+	  SENSOR_TYPE__SENSE_RESISTOR |
+	  (uint32_t) 0x9C4000 << SENSE_RESISTOR_VALUE_LSB;		// sense resistor - value: 10000.
+	  assign_channel(chipSelect, 2, channel_assignment_data);
+	  // ----- Channel 4: Assign RTD PT-100 -----
+	  channel_assignment_data =
+	  SENSOR_TYPE__RTD_PT_100 |
+	  RTD_RSENSE_CHANNEL__2 |
+	  RTD_NUM_WIRES__4_WIRE |
+	  RTD_EXCITATION_MODE__ROTATION_SHARING |
+	  RTD_EXCITATION_CURRENT__50UA |
+	  RTD_STANDARD__AMERICAN;
+	  assign_channel(chipSelect, 4, channel_assignment_data);
+	  // ----- Channel 7: Assign Sense Resistor -----
+	  channel_assignment_data =
+	  SENSOR_TYPE__SENSE_RESISTOR |
+	  (uint32_t) 0x9C4000 << SENSE_RESISTOR_VALUE_LSB;		// sense resistor - value: 10000.
+	  assign_channel(chipSelect, 7, channel_assignment_data);
+	  // ----- Channel 9: Assign RTD PT-100 -----
+	  channel_assignment_data =
+	  SENSOR_TYPE__RTD_PT_100 |
+	  RTD_RSENSE_CHANNEL__7 |
+	  RTD_NUM_WIRES__4_WIRE |
+	  RTD_EXCITATION_MODE__ROTATION_SHARING |
+	  RTD_EXCITATION_CURRENT__50UA |
+	  RTD_STANDARD__AMERICAN;
+	  assign_channel(chipSelect, 9, channel_assignment_data);
+	  // ----- Channel 12: Assign Sense Resistor -----
+	  channel_assignment_data =
+	  SENSOR_TYPE__SENSE_RESISTOR |
+	  (uint32_t) 0x9C4000 << SENSE_RESISTOR_VALUE_LSB;		// sense resistor - value: 10000.
+	  assign_channel(chipSelect, 12, channel_assignment_data);
+	  // ----- Channel 14: Assign RTD PT-100 -----
+	  channel_assignment_data =
+	  SENSOR_TYPE__RTD_PT_100 |
+	  RTD_RSENSE_CHANNEL__12 |
+	  RTD_NUM_WIRES__4_WIRE |
+	  RTD_EXCITATION_MODE__ROTATION_SHARING |
+	  RTD_EXCITATION_CURRENT__50UA |
+	  RTD_STANDARD__AMERICAN;
+	  assign_channel(chipSelect, 14, channel_assignment_data);
+	  // ----- Channel 17: Assign Sense Resistor -----
+	  channel_assignment_data =
+	  SENSOR_TYPE__SENSE_RESISTOR |
+	  (uint32_t) 0x9C4000 << SENSE_RESISTOR_VALUE_LSB;		// sense resistor - value: 10000.
+	  assign_channel(chipSelect, 17, channel_assignment_data);
+	  // ----- Channel 19: Assign RTD PT-100 -----
+	  channel_assignment_data =
+	  SENSOR_TYPE__RTD_PT_100 |
+	  RTD_RSENSE_CHANNEL__17 |
+	  RTD_NUM_WIRES__4_WIRE |
+	  RTD_EXCITATION_MODE__ROTATION_SHARING |
+	  RTD_EXCITATION_CURRENT__50UA |
+	  RTD_STANDARD__AMERICAN;
+	  assign_channel(chipSelect, 19, channel_assignment_data);
 
 }
 

@@ -63,6 +63,7 @@ enum
 	kHVACCommandReadHeaterStatus,	       //!< Used to transmit new configuration data
 	kHVACCommandSetEnableFans,	       //!< Used to transmit new configuration data
 	kHVACCommandSetPWMFans,	       //!< Used to transmit new configuration data
+	kHVACCommandReadTemperatures,	       //!< Used to transmit new configuration data
     kGAINCommandSetCycleDictionary,     //!< Not used in 932
     kGAINCommandSetCycleDescription,    //!< Cycle description are presets that can be set in m.tool (power and time)
     kGAINCommandSetControllerState,     //!< Ports (Pins) can be set or reset (for example: cavity led, fans on off...)
@@ -171,7 +172,7 @@ private:
 		
 		uint8_t		cpuSerial[16];
 		uint32_t	xorResult,magic;
-		uint8_t	i,j,k;
+		uint8_t	 lastEnableHeaters,enableHeaters;
 		
 //functions
 public:
@@ -242,6 +243,7 @@ private:
 	bool	CommandReadHeaterStatus();
 	bool	CommandSetEnableFans(void);
 	bool	CommandSetPWMFans(void);
+	bool	CommandReadTemmperatures(void);
 	
 
 }; //Maintenance_Tool
