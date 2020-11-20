@@ -94,8 +94,12 @@ uint8_t MCP23008_Class::ReadGPIORegister(uint8_t add){
 	return readRegister(MCP23008_GPIOA);
 }
 uint8_t MCP23008_Class::ReadGPIORegister(void){
+	uint8_t r;
+	//i2cClass->Irq_Disable();
 	i2cClass->SetSlaveAddress(i2cAddress);
-	return readRegister(MCP23008_GPIOA);
+	r= readRegister(MCP23008_GPIOA);
+	//i2cClass->Irq_Enable();
+	return	r;
 }
 
 
@@ -112,8 +116,11 @@ uint32_t MCP23008_Class::writeRegister(uint8_t addr, uint8_t value){
 	//while(!(i2cClass->txReady));
 }
 uint8_t MCP23008_Class::WriteGPIORegister(uint8_t v){
+	
+//	i2cClass->Irq_Disable();
 	i2cClass->SetSlaveAddress(i2cAddress);
 	writeRegister(MCP23008_GPIOA,v);
+	//i2cClass->Irq_Enable();
 	return v;
 }
 

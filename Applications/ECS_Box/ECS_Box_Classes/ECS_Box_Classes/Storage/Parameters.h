@@ -20,7 +20,8 @@
 
 struct UserParameters
 {
-	uint8_t		flapperValveOffset;					/**<	FlapperValveOffset */
+	uint8_t		flapperValveMinimumPosition;					/**<	FlapperValveOffset */
+	uint8_t		flapperValveStandAloneMinimumPosition;					/**<	FlapperValveOffset */
 // 	uint16		slowSpeedCurrentLimitStow;			/**<	Current Limitation mAmp */
 // 	uint16		fastSpeedCurrentLimitStow;		    /**<	fast speed current limitation*/
 // 	uint16		parkingSpeedCurrentLimitStow;		/**<	fast speed current limitation*/

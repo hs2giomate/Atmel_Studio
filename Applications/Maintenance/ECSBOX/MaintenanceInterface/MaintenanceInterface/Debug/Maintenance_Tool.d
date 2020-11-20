@@ -1,5 +1,5 @@
 Maintenance_Tool.d Maintenance_Tool.o: .././Maintenance_Tool.cpp \
- .././Maintenance_Tool.h \
+ .././Maintenance_Tool.h .././MaintenanceDataHandler.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/utils/include/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
@@ -286,9 +286,39 @@ Maintenance_Tool.d Maintenance_Tool.o: .././Maintenance_Tool.cpp \
  ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFans_Class.h \
  ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFan_Class.h \
  ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFanDataStruct_Class.h \
- ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h
+ ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h \
+ ../../../../../ECS_Box/TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
+ ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h \
+ ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23017_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/MemoryFlash_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/atmel_start.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/usb_start.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/FlashHandler_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigState_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationCommons.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/GAINDefinitions.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/CRC32_Class.h
 
 .././Maintenance_Tool.h:
+
+.././MaintenanceDataHandler.h:
 
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
 
@@ -863,3 +893,59 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFanDataStruct_Class.h:
 
 ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h:
+
+../../../../../ECS_Box/TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h:
+
+../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h:
+
+../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23017_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/MemoryFlash_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/atmel_start.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/usb_start.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/FlashHandler_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigState_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationCommons.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/GAINDefinitions.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/CRC32_Class.h:

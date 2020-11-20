@@ -286,6 +286,7 @@ main.d main.o: .././main.cpp .././main.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
  .././CondesatorFan_Class.h \
  ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Maintenance_Tool.h \
+ ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h
 
@@ -866,6 +867,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././CondesatorFan_Class.h:
 
 ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Maintenance_Tool.h:
+
+../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
 

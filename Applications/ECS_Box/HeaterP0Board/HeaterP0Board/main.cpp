@@ -8,7 +8,7 @@
 
 #include "main.h"
 
-static Maintenance_Tool	toolApp;
+//static Maintenance_Tool	toolApp;
 static SingleTaskMessage singleTask;
 #define DELAY_HEATER_COMMUNICATION 1000
 

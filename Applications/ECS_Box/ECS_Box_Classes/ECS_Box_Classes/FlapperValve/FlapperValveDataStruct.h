@@ -9,22 +9,14 @@
 #ifndef __FLAPPERVALVEDATASTRUCT_H__
 #define __FLAPPERVALVEDATASTRUCT_H__
 #include "compiler.h"
-struct CabinSwitch
-{
-	bool	_switch;
-};
 
-struct LimitSwitch
+struct __attribute__((__packed__)) InputStatus
 {
-	bool	_switch;
-};
-struct ControlStatus
-{
-	CabinSwitch	cabin[2];
-	LimitSwitch	limit[3];
+	bool	cabin[2];
+	bool	limit[3];
 	bool	niAlcFVMotorFault;
 };
-struct StatusInputs
+struct __attribute__((__packed__)) ControlStatus
 {
 	bool	iAlcFvStandAloneOut;
 	bool	niAlcFvClearMoveFault;
@@ -35,13 +27,23 @@ struct StatusInputs
 	bool	iAlcFvFailsToMove;
 	bool	niAlcFvMotorEnable;
 };
-
-struct FVDataStruct
+struct __attribute__((__packed__)) FlapperValveControllerStatus
 {
-	ControlStatus	controlStatus;
-	StatusInputs	statusInputs;
-	uint8_t			setPointPosition;
+	bool	isMoving;
+	bool	isControlling;
+	bool	NBC_Mode;
+	uint8_t	minimunAir;
+
+};
+
+struct __attribute__((__packed__)) FVDataStruct
+{
+	
+	InputStatus	inputStatus;
+	ControlStatus	controlOutputs;
 	uint8_t			actualPosition;
+	uint8_t			setPointPosition;
+	FlapperValveControllerStatus	controllerStatus;
 };
 enum StatusFlapperValve
 {
@@ -51,19 +53,20 @@ enum StatusFlapperValve
 	NBC,
 };
 
+#define STANDALONE 1
 
 class FlapperValveDataStruct
 {
 //variables
 public:
 	FVDataStruct	fvDataStruct;
-	ControlStatus FillControlStatus(uint8_t v);
-	StatusInputs FillStatusInputs(uint8_t v);
+	InputStatus FillInputStatus(uint8_t v);
+	ControlStatus FillControlOutputs(uint8_t v);
 	
 protected:
 private:
-	ControlStatus	controlStatus;
-	StatusInputs	statusInputs;
+	InputStatus	controlStatus;
+	ControlStatus	controlOutputs;
 //functions
 public:
 	FlapperValveDataStruct();

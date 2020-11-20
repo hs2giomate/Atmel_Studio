@@ -8,5 +8,7 @@ Device_Startup\system_same54.c
 
 main.cpp
 
+MaintenanceDataHandler.cpp
+
 Maintenance_Tool.cpp
 

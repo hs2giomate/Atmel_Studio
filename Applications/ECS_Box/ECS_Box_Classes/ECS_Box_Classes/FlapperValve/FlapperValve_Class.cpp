@@ -62,7 +62,7 @@ FlapperValve_Class::~FlapperValve_Class()
 bool	FlapperValve_Class::Init(void){
 	ptrFlapperValveClass=this;
 		UserParameters up=defaultParameters;
-		offset=up.flapperValveOffset;
+		offset=up.flapperValveMinimumPosition;
 // 		if (i2cFVs.initiated==false)
 // 		{
 // 				isOK=I2CFlapperValvesInit();
@@ -124,15 +124,15 @@ uint8_t FlapperValve_Class::InitExpanderArray(uint8_t fvID){
 	return 0;
 }
 
-ControlStatus FlapperValve_Class::ReadControlStatus(void){
+InputStatus FlapperValve_Class::ReadControlStatus(void){
 	value=expanders[0].ReadGPIORegister();
-	controlStatus=FillControlStatus(value);
+	controlStatus=FillInputStatus(value);
 	return controlStatus;
 }
-StatusInputs FlapperValve_Class::ReadStatusInputs(void){
+ControlStatus FlapperValve_Class::ReadStatusInputs(void){
 	value=expanders[1].ReadGPIORegister();
-	statusInputs=FillStatusInputs(value);
-	return statusInputs;
+	controlOutputs=FillControlOutputs(value);
+	return controlOutputs;
 }
 uint8_t FlapperValve_Class::WriteSetpoint(uint8_t sp){
 	//setpointPosition= expanders[2].WriteGPIORegister(sp);
@@ -191,8 +191,8 @@ uint8_t FlapperValve_Class::ReadActualPosition(void){
 	return actualPosition;
 }
 void FlapperValve_Class::UpdateFlapperValveData(){
-	fvData.controlStatus=ReadControlStatus();
-	fvData.statusInputs=ReadStatusInputs();
+	fvData.inputStatus=ReadControlStatus();
+	fvData.controlOutputs=ReadStatusInputs();
 	fvData.actualPosition=ReadActualPosition();
 }
 bool FlapperValve_Class::IsPositionChanged(void){

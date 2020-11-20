@@ -18,7 +18,7 @@
 #define highByte(w) ((uint8_t) ((w) >> 8))
 
 //#define CHIP_SELECT CS_SPI_LTC  // Chip select pin
-#define NUMBER_TEMPERATURE_CHANNELS	3
+#define NUMBER_TEMPERATURE_CHANNELS	4
 #define TEMPERATURE_MEASSURE_TIMEOUT	1000
 #define	LTC2983_SPI_BUFFER_SIZE		7
 

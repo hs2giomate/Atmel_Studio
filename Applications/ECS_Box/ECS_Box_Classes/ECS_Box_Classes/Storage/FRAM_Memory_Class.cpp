@@ -122,7 +122,7 @@ void FRAM_Memory_Class::readParameters(UserParameters *framParameters)
 	ReadFRAM(&appData, (uint32_t)&memoryAddress->parameters, sizeof(UserParameters));
 	FramClose();
 
-	if  ((appData.flapperValveOffset == 46)){
+	if  ((appData.flapperValveMinimumPosition == 46)){
 		memcpy(framParameters, &appData, sizeof(UserParameters));
 	//	gpio_set_pin_level(LED0,true);
 		
