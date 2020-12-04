@@ -75,7 +75,8 @@ uint8_t	EvaporatorFan_Class::Enable(void){
 	return uint8_t(enabled);
 }
 uint8_t	EvaporatorFan_Class::SetEnable(bool state){
-	enabled=expanders[0]->WriteDigit(1-fanNumber,!state);
+	uint8_t fanCorrrection=fanNumber==1?2:1;
+	enabled=expanders[0]->WriteDigit(fanCorrrection,!state);
 	return uint8_t(enabled);
 }
 uint8_t	EvaporatorFan_Class::Disable(void){
@@ -89,5 +90,11 @@ uint8_t	EvaporatorFan_Class::SetPWM(uint8_t pwm){
 }
 
 bool EvaporatorFan_Class::SelfTest(void){
-	return true;
+	bool result;
+	SetEnable(false);
+	SetPWM(MINIMUN_FLOW_AIR);
+	SetEnable(true);
+	ReadStatus();
+	result=evaporatorFansStatus.inputs->niAlcEvaFanExtFault;
+	return result;
 }

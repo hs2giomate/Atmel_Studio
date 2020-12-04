@@ -22,6 +22,9 @@
 #include "FlapperValveController.h"
 #include "Timer_Class.h"
 #include "MemoryFlash_Class.h"
+#include "TemperatureSensors_Class.h"
+#include "EvaporatorAndCondesatorFans_Class.h"
+#include "SingleHeater_Class.h"
 
 void	FramMemoryTest(void);
 void	FlashMemoryTest(void);

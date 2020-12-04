@@ -66,6 +66,7 @@ bool TemperatureSensors_Class::InitModules(void){
 	{
 		module[ii].Init(csPins[ii],spiLite);
 	}
+	return true;
 
 }
 void	TemperatureSensors_Class::StartOneConversion(void){

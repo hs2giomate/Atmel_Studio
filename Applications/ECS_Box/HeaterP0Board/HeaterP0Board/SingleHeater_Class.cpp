@@ -8,7 +8,7 @@
 
 #include "SingleHeater_Class.h"
 SingleHeater_Class*	ptrSingleHeaterClass;
-static I2C_Sync_Class	i2cSharedStatic(&I2C_EXPANDER);
+static I2C_Sync_Class	i2cSharedStatic(&I2C_HEATERS);
 static	MCP23008_Class expandersStatic[SINGLE_HEATER_EXPANDERS];
 
 
@@ -18,13 +18,15 @@ SingleHeater_Class::SingleHeater_Class()
 {
 	ptrSingleHeaterClass=this;
 	i2c=&i2cSharedStatic;
+	heaterStatusChanged=false;
 } //SingleHeater_Class
 
 // default constructor
-SingleHeater_Class::SingleHeater_Class(I2C_Sync_Class *i2c)
+SingleHeater_Class::SingleHeater_Class(I2C_Sync_Class *i2cInput)
 {
+	i2c=i2cInput;
 	ptrSingleHeaterClass=this;
-	statusChanged=false;
+	heaterStatusChanged=false;
 } //SingleHeater_Class
 
 
@@ -35,7 +37,7 @@ SingleHeater_Class::~SingleHeater_Class()
 
 static void	HeaterStatusChanged(void){
 	
-	ptrSingleHeaterClass->statusChanged=true;
+	ptrSingleHeaterClass->heaterStatusChanged=true;
 }
 
 bool SingleHeater_Class::Init(void){
@@ -53,6 +55,7 @@ bool SingleHeater_Class::Init(void){
 		{
 			asm("nop");
 		}
+		isOK=i2c->isOK;
 		return isOK;
 }
 
@@ -76,7 +79,17 @@ uint8_t	SingleHeater_Class::ReadStatus(void){
 	}
 	return r;
 }
-uint8_t	SingleHeater_Class::Enable(uint8_t indexHeater){
+
+uint8_t	SingleHeater_Class::ReadEnableGIPO(void){
+	uint8_t r=expanders[1]->ReadGPIORegister();
+
+	for (uint8_t i = 0; i < 4; i++)
+	{
+		enables[i]=!(r&(0x01<<i));
+	}
+	return r;
+}
+uint8_t	SingleHeater_Class::EnableIndex(uint8_t indexHeater){
 	enabled=expanders[1]->WriteDigit(indexHeater,false);
 	return uint8_t(enabled);
 }
@@ -85,15 +98,47 @@ uint8_t	SingleHeater_Class::SetRelay(uint8_t indexHeater, bool state){
 	return uint8_t(enabled);
 }
 
-uint8_t	SingleHeater_Class::Disable(uint8_t indexHeater){
+uint8_t	SingleHeater_Class::DisableIndex(uint8_t indexHeater){
 	enabled=expanders[1]->WriteDigit(indexHeater,true)?false:true;
 	return uint8_t(enabled);
 }
 
+uint8_t SingleHeater_Class::GetHeaterPowerLevel(void){
+	ReadEnableGIPO();
+	powerLevel=0;
+	uint8_t aux=0;
+	for (uint8_t i = 0; i < 4; i++)
+	{
+		aux=enables[i]?1:0;
+		powerLevel+=aux;
+	}
+	return powerLevel;
+}
 
 
 bool SingleHeater_Class::SelfTest(void){
-	return true;
+	bool result;
+	for (uint8_t i = 0; i < 4; i++)
+	{
+			EnableIndex(i);
+			delay_ms(100);
+			DisableIndex(i);
+			ReadStatus();
+			if (heaterGPIO.inputs.niAlcHeaterRelayFault[i])
+			{
+				result=true;
+			} 
+			else
+			{
+				result=false;
+				break;
+			}
+			
+			
+	}
+	
+
+	return result;
 }
 
 SingleHeater_Class heater;

@@ -9,16 +9,17 @@
 #include "Maintenance_Tool.h"
 #include "FlashMemoryClass.h"
 //#include "FRAM_Memory_Class.h"
-#include "CDC_Class.h"
+
 #include "TimerSerial_Class.h"
 #include "string.h"
 #include "SingleHeater_Class.h"
-#include "EvaporatorAndCondesatorFans_Class.h"
 #include "TemperatureSensors_Class.h"
+#include "FlapperValveController.h"
+#include "MemoryFlash_Class.h"
 
+static bool periodicTask;
 
-
-
+static uint8_t		staticBuffer[MAINTENANCE_TOOL_BUFFER_SIZE];
 
 
 Maintenance_Tool	*ptrMaintenanceTool;
@@ -48,7 +49,7 @@ Maintenance_Tool::Maintenance_Tool()
 	nextMaintenanceSyncTime = 0;
 	nextMaintenanceUsageTimerSyncTime = 0;
 	ticks=0;
-	
+	localBuffer=staticBuffer;
 } //Maintenance_Tool
 
 // default destructor
@@ -64,6 +65,7 @@ bool	Maintenance_Tool::Init(void){
 	ticks=0;
 	interfaceTimer.Init();
 	interfaceTimer.Add_periodic_task((FUNC_PTR)MaintenaceToolTimming,1000);
+	InitCommandHandler(localBuffer);
 	GetCPUSerialNumber(cpuSerial);
 	memcpy(localBuffer,cpuSerial,16);
 	gotAccess=false;
@@ -190,25 +192,6 @@ bool Maintenance_Tool::handleCommunication(void)
 					nextMaintenanceSyncTime = 0;
 					maintenanceIsConnected = true;
 					bSendNotifications = true;
-					// 				if (!maintenanceIsConnected)
-					// 				{
-					// 					/*event	e;*/
-					//
-					// 					nextMaintenanceSyncTime = 0;
-					// 					maintenanceIsConnected = true;
-					// 					bSendNotifications = true;
-					//
-					//
-					//
-					// 					// 				e.eventClass = kGAINEventClass;
-					// 					// 				e.eventType = kGAINMaintenanceConnectionEstablishedEvent;
-					// 					// 				e.data.data = 0;
-					// 					// 				sendEventSelf(e);
-					// 					//
-					// 					// 			#ifdef E_DEVICE
-					// 					// 				corePortsClearPortBit(kPortG, kPortBit2);
-					// 					// 			#endif
-					// 				}
 					result=is_MTPC_Beaming;
 				break;
 				
@@ -520,7 +503,6 @@ bool Maintenance_Tool::handleHVACTask(void){
 		result=usb.rxReady;
 	}
 
-	
 
 	
 	if (result)
@@ -556,10 +538,10 @@ bool Maintenance_Tool::handleHVACTask(void){
 				result = handleGAINCommandSetConfiguration( header);
 				break;
 			case kGAINCommandWriteParameters:
-				result = handleGAINCommandWriteParameters( header);
+				result = CommandWriteParameters();
 				break;
 			case kGAINCommandReadParameters:
-				result = handleGAINCommandReadParameters( header);
+				result = CommandReadParameters();
 				break;
 			case kHVACCommandSetHeaters:
 				result = CommandSetHeaters();
@@ -575,8 +557,21 @@ bool Maintenance_Tool::handleHVACTask(void){
 			case kHVACCommandSetPWMFans:
 				result = CommandSetPWMFans();
 				break;
+			case kHVACCommandRedStatusFans:
+				result = CommandFansStatus();
+				break;
 			case kHVACCommandReadTemperatures:
 				result = CommandReadTemmperatures();
+				break;
+			case kHVACReadPositionFlapperValve:
+				result = CommandReadFlapperData();
+				break;
+				
+			case kHVACCommandFlapperValve:
+				result = CommandSetFlapperValve();
+				break;
+			case kHVACWriteSetpointFlapperValve:
+				result = CommandSetFlapperPosition();
 				break;
 			case kGAINCommandSetCycleDictionary:
 				result = handleGAINCommandSetCycleDictionary( header);
@@ -866,36 +861,32 @@ bool Maintenance_Tool::handleGAINCommandSetConfiguration( HVACMessageHeader& hea
 	return true;
 	}
 
-bool Maintenance_Tool::handleGAINCommandReadParameters(HVACMessageHeader& header){
-	int n=sizeof(HVACMessageHeader)+1;
+bool Maintenance_Tool::CommandReadParameters(){
+	int n=sizeof(HVACMessageHeader);
+	HVACMessageHeader hm;
 	uint32_t	w,r;
 	
-	 	bool	result(header.command == kGAINCommandReadParameters);
+	 	bool	result(header.task == kGAINCommandReadParameters);
 		if (result){
-			int n=sizeof(HVACMessageHeader)+1;
-// 			uint32_t add=(uint32_t)&framMemory->parameters;
-// 			r=fram.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(UserParameters));
+		// 		
 			uint32_t add=(uint32_t)&flashLayout->parameters;
-			r=flash.ReadAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(UserParameters));
-			 if (r>0)
-			 {
-				// delay_us(100);
-				memcpy((uint8_t*)&localBuffer[n+1],(void*)&parameters,sizeof(UserParameters));
-				delay_us(1);
-				 usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
-				//w= usb.writeData((void*)&parameters,sizeof(UserParameters));
-				//w=usb.print("AA");
-				 result=w>0;
-			 } 
-			 else
-			 {
-			 }
+			r=memory.ReadParameters(parameters);
+			 memcpy(localBuffer,(void*)&hm,n);
+			memcpy((uint8_t*)&localBuffer[n],(void*)&parameters,sizeof(UserParameters));
+			if (fvc.dataStruct.controlOutputs.iAlcFvStandAloneOut)
+			{
+				localBuffer[n+sizeof(UserParameters)]=parameters.flapperValveStandAloneMinimumPosition;
+			} 
+			else
+			{
+				localBuffer[n+sizeof(UserParameters)]=parameters.flapperValveMinimumPosition;
+			}
+			w=usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+
+	
+			 
 	 	}else{
-// 		 		uint8	i;
-// 		 		char	ch;
-// 		
-// 		 		for (i=0; i<header.dataSize; i++)
-// 		 			io >> ch;
+
 		 }
 		
 		 return result;
@@ -904,21 +895,47 @@ bool Maintenance_Tool::handleGAINCommandReadParameters(HVACMessageHeader& header
 bool Maintenance_Tool::CommandReadHeaterStatus(){
 	int n=sizeof(SingleTaskMessage);
 	SingleTaskMessage	singleTask;
+	uint8_t	heatersEnabled;
 	
 	bool	result(header.task == kHVACCommandReadHeaterStatus);
 	if (result){
 	
 			singleTask.description=heater.ReadStatus();
+			
 			singleTask.header.task=kHVACCommandReadHeaterStatus;
 			memcpy(localBuffer,(void*)&singleTask,n);
-			
+			heatersEnabled=heater.ReadEnableGIPO();
+			localBuffer[n]=heatersEnabled;
 			//delay_us(1);
-			if (!heater.statusChanged)
+			if (!heater.heaterStatusChanged)
 			{
 				usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 			}
 			singleTaskMessage=singleTask;
 			
+	}
+		return result;
+}
+
+bool Maintenance_Tool::CommandReadFlapperData(){
+	int n=sizeof(SingleTaskMessage);
+	SingleTaskMessage	singleTask;
+	
+	
+	bool	result(header.task == kHVACReadPositionFlapperValve);
+	if (result){
+		
+		fvc.UpdateFlapperValveData();
+		CreateFullBufferMessage(localBuffer,(uint8_t*)&fvc.dataStruct);
+		
+	
+		//delay_us(1);
+	//	if (!(fvc.StatusHadChanged()))
+	//	{
+			usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+//		}
+		singleTaskMessage=singleTask;
+		
 	}
 	
 	return result;
@@ -952,30 +969,27 @@ bool Maintenance_Tool::CommandReadTemmperatures(){
 	return result;
 }
 
-bool Maintenance_Tool::handleGAINCommandWriteParameters(HVACMessageHeader& header)	{
+bool Maintenance_Tool::CommandWriteParameters(void)	{
 
 	uint32_t	w,r;
+		int n=sizeof(HVACMessageHeader);
+		HVACMessageHeader hm;
 	
-	
-	bool	result(header.command == kGAINCommandWriteParameters);
+	bool	result(header.task == kGAINCommandWriteParameters);
 	if (result){
-		int n=sizeof(HVACMessageHeader)+1;
-		flash.eraseFlash((uint32_t)&flashLayout->parameters,sizeof(UserParameters));
+		
 			
-		memcpy((uint8_t*)&parameters,&localBuffer[n+1],sizeof(UserParameters));
-		//uint32_t add=(uint32_t)&framMemory->parameters;
+	
+			
+		memcpy((uint8_t*)&parameters,&localBuffer[n],sizeof(UserParameters));
+	
 		uint32_t add=(uint32_t)&flashLayout->parameters;
-		r=flash.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(UserParameters));
-		//	r=fram.WriteAddress((uint8_t*)&parameters,add,(uint32_t)sizeof(UserParameters));
+		r=memory.SaveParameters(parameters);
 			result=(bool)(r==0);
 	
 		
 	}else{
-		// 		 		uint8	i;
-		// 		 		char	ch;
-		//
-		// 		 		for (i=0; i<header.dataSize; i++)
-		// 		 			io >> ch;
+
 	}
 	
 	return result;
@@ -1011,7 +1025,10 @@ bool Maintenance_Tool::CommandSetHeaters(void)	{
 	return result;
 }
 
-bool Maintenance_Tool::CommandSetEnableFans(void){
+
+	
+
+bool Maintenance_Tool::CommandSetFlapperValve(void){
 
 	uint32_t	w,r;
 	uint8_t	data=0;
@@ -1019,17 +1036,18 @@ bool Maintenance_Tool::CommandSetEnableFans(void){
 	memcpy(&singleTaskMessage,localBuffer,sizeof(SingleTaskMessage));
 	
 	//	singleTaskMessage.description=localBuffer[0x06];
-	bool	result(header.task == kHVACCommandSetEnableFans);
+	bool	result(header.task == kHVACCommandFlapperValve);
 	if (result){
 		data=singleTaskMessage.description;
-		if ((data&(0x07))>3)
+		if ((data&(0x01))>0)
 		{
-			fans.condesator->SetEnable(data&0x04);
-		} 
+			//fvc.fv->SetEnable(true);
+			fvc.StartControlling();
+		}
 		else
 		{
-			fans.evaporator[0]->SetEnable(data&0x01);
-			fans.evaporator[1]->SetEnable(data&0x02);
+			//fvc.fv->SetEnable(false);
+			fvc.StopControlling();
 		}
 
 		
@@ -1040,7 +1058,8 @@ bool Maintenance_Tool::CommandSetEnableFans(void){
 	return result;
 }
 
-bool Maintenance_Tool::CommandSetPWMFans(void){
+
+bool Maintenance_Tool::CommandSetFlapperPosition(void){
 
 	uint32_t	w,r;
 	uint8_t	data=0;
@@ -1048,21 +1067,27 @@ bool Maintenance_Tool::CommandSetPWMFans(void){
 	memcpy(&singleTaskMessage,localBuffer,sizeof(SingleTaskMessage));
 	
 	//	singleTaskMessage.description=localBuffer[0x06];
-	bool	result(header.task == kHVACCommandSetPWMFans);
+	bool	result(header.task == kHVACWriteSetpointFlapperValve);
 	if (result){
 		data=singleTaskMessage.description;
-// 		if (data&(0x07)>3)
-// 		{
-// 			fans.condesator->SetEnable()
-// 		}
-// 		else
-// 		{
-			fans.evaporator[0]->SetPWM(data);
-// 			fans.evaporator[1]->SetEnable(data&0x02);
-// 		}
+		// 		if (data&(0x07)>3)
+		// 		{
+		// 			fans.condesator->SetEnable()
+		// 		}
+		// 		else
+		// 		{
+		if (fvc.controllerEnabled)
+		{
+			fvc.StartControlling(data);
+		}
+			
+		
+		fvc.doPeriodicTask=false;
+		// 			fans.evaporator[1]->SetEnable(data&0x02);
+		// 		}
 
 		
-	}else{
+		}else{
 
 	}
 	
@@ -1816,4 +1841,4 @@ void Maintenance_Tool::GetCPUSerialNumber(uint8_t* buffer)
 	}
 
 }
- Maintenance_Tool maintenance;
+ Maintenance_Tool toolApp;

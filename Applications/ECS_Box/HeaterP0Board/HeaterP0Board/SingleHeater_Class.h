@@ -32,7 +32,7 @@ class SingleHeater_Class
 {
 //variables
 public:
-	volatile bool isOK,statusChanged;
+	volatile bool isOK,heaterStatusChanged;
 	SingleHeaterGPIO heaterGPIO;
 	uint8_t enabled;
 protected:
@@ -40,6 +40,8 @@ private:
 	MCP23008_Class* expanders[SINGLE_HEATER_EXPANDERS];
 	MCP23008_Class* currentExpander;
 	I2C_Sync_Class*	i2c;
+	bool	enables[4];
+	uint8_t	powerLevel;
 //functions
 public:
 	SingleHeater_Class();
@@ -47,9 +49,11 @@ public:
 	~SingleHeater_Class();
 	bool Init(void);
 	uint8_t	ReadStatus(void);
-	uint8_t	Enable(uint8_t indexHeater);
-	uint8_t	Disable(uint8_t indexHeater);
+	uint8_t	EnableIndex(uint8_t indexHeater);
+	uint8_t	DisableIndex(uint8_t indexHeater);
 	uint8_t	SetRelay(uint8_t indexHeater, bool state);
+	uint8_t	ReadEnableGIPO(void);
+	uint8_t GetHeaterPowerLevel(void);
 		
 protected:
 private:

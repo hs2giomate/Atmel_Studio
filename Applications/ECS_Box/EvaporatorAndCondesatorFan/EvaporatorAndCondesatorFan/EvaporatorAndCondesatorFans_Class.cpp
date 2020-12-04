@@ -7,7 +7,7 @@
 
 
 #include "EvaporatorAndCondesatorFans_Class.h"
-static I2C_Sync_Class	i2cSharedStatic(&I2C_EXPANDER);
+static I2C_Sync_Class	i2cSharedStatic(&I2C_FANS);
 static EvaporatorFan_Class	evaporatorFan[2];
 static CondesatorFan_Class	condesatorFan;
 static	MCP23008_Class expandersStatic[EVAPORATOR_AND_CONDESATOR_EXPANDERS];
@@ -52,6 +52,7 @@ bool	EvaporatorAndCondesatorFans_Class::Init(void){
 	else
 	{
 	}
+	isOK=i2c->isOK;
 	return isOK;
 	
 }
@@ -65,5 +66,14 @@ uint8_t EvaporatorAndCondesatorFans_Class::InitExpanderArray(void){
 	}
 	return 0;
 }
+void EvaporatorAndCondesatorFans_Class::GetGPIOSValues(uint8_t * gpios){
+	for (uint8_t  i= 0; i < EVAPORATOR_AND_CONDESATOR_EXPANDERS; i++)
+	{
+		gpios[i]=expanders[i]->ReadGPIORegister();
+	}
+	
+
+}
 
 EvaporatorAndCondesatorFans_Class  fans;
+	

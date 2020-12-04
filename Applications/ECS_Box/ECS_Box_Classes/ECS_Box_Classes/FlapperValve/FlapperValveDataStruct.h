@@ -45,12 +45,12 @@ struct __attribute__((__packed__)) FVDataStruct
 	uint8_t			setPointPosition;
 	FlapperValveControllerStatus	controllerStatus;
 };
-enum StatusFlapperValve
+enum FlapperValveMode
 {
-	FRESHAIR=0,
-	INTERM,
-	RECYCLE,
-	NBC,
+	FRESHAIR_MODE=0,
+	INTERM_MODE,
+	RECYCLE_MODE,
+	NBC_MODE,
 };
 
 #define STANDALONE 1

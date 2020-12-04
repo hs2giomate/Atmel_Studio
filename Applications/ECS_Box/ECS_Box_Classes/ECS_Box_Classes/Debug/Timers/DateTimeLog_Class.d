@@ -195,7 +195,7 @@ Timers/DateTimeLog_Class.d Timers/DateTimeLog_Class.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
- ../Storage/AT24MAC_Class.h ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../Timers/Calendar_Class.h ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
@@ -228,9 +228,6 @@ Timers/DateTimeLog_Class.d Timers/DateTimeLog_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -246,9 +243,7 @@ Timers/DateTimeLog_Class.d Timers/DateTimeLog_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../I2C/I2C_Asyn_Class.h ../I2C/I2C_ObjectList.h ../Storage/Parameters.h \
- ../Timers/Calendar_Class.h ../Storage/N25Q256_Class.h \
- ../../../ALU_Driver/ALU_Driver/atmel_start.h \
+ ../Storage/N25Q256_Class.h ../../../ALU_Driver/ALU_Driver/atmel_start.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ALU_Driver/ALU_Driver/usb_start.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
@@ -660,7 +655,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h:
 
-../Storage/AT24MAC_Class.h:
+../Timers/Calendar_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
 
@@ -728,12 +723,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
@@ -763,14 +752,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
-
-../I2C/I2C_Asyn_Class.h:
-
-../I2C/I2C_ObjectList.h:
-
-../Storage/Parameters.h:
-
-../Timers/Calendar_Class.h:
 
 ../Storage/N25Q256_Class.h:
 

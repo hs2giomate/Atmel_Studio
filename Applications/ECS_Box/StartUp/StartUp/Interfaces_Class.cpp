@@ -21,7 +21,7 @@
 // default constructor
 Interfaces_Class::Interfaces_Class()
 {
-	
+	isOK=false;
 } //Interfaces_Class
 
 // default destructor
@@ -32,23 +32,39 @@ Interfaces_Class::~Interfaces_Class()
 CommunicationRequest	Interfaces_Class::request;
 
 bool	Interfaces_Class::Init(){
+
+	gpio_set_pin_level(LED0,true);
 	size=sizeof(CommunicationRequest);
-	result=arinc.Init();
+	while (!arinc->Init())
+	{
+		delay_ms(200);
+		gpio_toggle_pin_level(LED0);
+	}
+	
+	while (!toolApp->Init())
+	{
+		delay_ms(200);
+		gpio_toggle_pin_level(LED0);
+	}
+	isOK=arinc->isOK;
+	
 	if (result==0x01)
 	{
-		arinc.TrasmitSingleLabel();
-		if (maintenance.IsAppConnected())
-		{
-		} 
-		else
-		{
-		}
+		//arinc.TrasmitSingleLabel();
+// 		if (toolApp.IsAppConnected())
+// 		{
+// 			
+// 		} 
+// 		else
+// 		{
+// 		}
 	} 
 	else
 	{
-		alu.NotifyError(kARINCINnterfaceError,result);
+		//alu.NotifyError(kARINCINnterfaceError,result);
 	}
-	return result;
+	gpio_set_pin_level(LED0,true);
+	return isOK;
 }
 
 CommunicationRequest Interfaces_Class::CheckCommunication(void)

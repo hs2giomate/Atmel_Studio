@@ -1,0 +1,28 @@
+/*
+ * main.h
+ *
+ * Created: 7/20/2020 1:47:35 PM
+ *  Author: GMateusDP
+ */ 
+
+
+#ifndef MAIN_H_
+#define MAIN_H_
+
+#include "atmel_start.h"
+#include "atmel_start_pins.h"
+#include "CDC_Class.h"
+#include "TimerSerial_Class.h"
+#include "Maintenance_Tool.h"
+#include "Parameters.h"
+#include "Maintenance_Tool.h"
+#include "FlapperValveController.h"
+#include "Timer_Class.h"
+#include "MemoryFlash_Class.h"
+#include "TemperatureSensors_Class.h"
+#include "EvaporatorAndCondesatorFans_Class.h"
+#include "SingleHeater_Class.h"
+
+void	FramMemoryTest(void);
+void	FlashMemoryTest(void);
+#endif /* MAIN_H_ */

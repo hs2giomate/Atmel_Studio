@@ -7,14 +7,14 @@
 
 
 #include "SingleFlapperValve_Class.h"
-#include "MCP23017_Class.h"
+//#include "MCP23017_Class.h"
 #include "I2C_Sync_Class.h"
 //#include "MemoryManagment_Class.h"
 #include "Timer_Class.h"
 #include "Parameters.h"
 
 SingleFlapperValve_Class	*ptrSingleFlapperValveClass;
-static I2C_Sync_Class		i2cStatic(&I2C_EXPANDER);
+static I2C_Sync_Class		i2cStatic(&I2C_FLAPPER_VALVE);
 //static MCP23017_Class staticExpander(&I2C_EXPANDER);
 
 static	MCP23008_Class expandersStatic[FLAPPER_VALVE_EXPANDERS];
@@ -25,10 +25,7 @@ static void	Fv1StatusChanged(void){
 
 }
 
-static bool	I2CFlapperValvesInit(void){
-	 bool ok= i2cFVs.Init();
-	 //ptrFlapperValveClass->isOK=ok;
-}
+
 static void	RegulatorTimeout(const struct timer_task *const timer_task){
 	ptrSingleFlapperValveClass->regulatorTimeout=true;
 	asm("nop");
@@ -155,6 +152,13 @@ uint8_t SingleFlapperValve_Class::ClearMoveFault(bool b){
 	return value;
 }
 
+uint8_t SingleFlapperValve_Class::SetInvalidPosition(bool b){
+	value=expanders[1]->ReadGPIORegister();
+	value=b?value|0x04:value&0xfb;
+	value=expanders[1]->WriteGPIORegister(value);
+	return value;
+}
+
 uint8_t SingleFlapperValve_Class::WriteSetpoint(uint8_t sp){
 	setpointPosition= expanders[2]->WriteGPIORegister(sp);
 //	setpointPosition= simpleExpander->WriteRegisterB(sp);
@@ -199,16 +203,19 @@ uint8_t SingleFlapperValve_Class::ReadActualPosition(void){
 	lastPosition=actualPosition;
 //	actualPosition= simpleExpander->ReadRegister(MCP23017_GPIOA);
 	actualPosition= expanders[3]->ReadGPIORegister();
-	if (actualPosition>200)
+	if (actualPosition>FLAPPER_VALVE_MINIMUM_AIR)
 	{
-		statusFlapperValve=RECYCLE;
-	}else if (actualPosition>100)
+		statusFlapperValve=NBC_MODE;
+	}else if (actualPosition>FLAPPER_VALVE_MINIMUM_AIR/2)
 	{
-		statusFlapperValve=INTERM;
+		statusFlapperValve=RECYCLE_MODE;
+	}else if (actualPosition>FLAPPER_VALVE_MINIMUM_AIR/4)
+	{
+		statusFlapperValve=INTERM_MODE;
 	} 
 	else
 	{
-		statusFlapperValve=FRESHAIR;
+		statusFlapperValve=FRESHAIR_MODE;
 	}
 	return actualPosition;
 }
@@ -241,4 +248,4 @@ SingleFlapperValve_Class::operator bool(){
 	return	isOK;
 }
 
- SingleFlapperValve_Class	fv1;
+ //SingleFlapperValve_Class	fv1;

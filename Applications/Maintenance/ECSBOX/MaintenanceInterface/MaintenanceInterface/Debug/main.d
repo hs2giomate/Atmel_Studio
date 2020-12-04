@@ -195,9 +195,6 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
- ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
- ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
- ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -278,8 +275,44 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
- .././Maintenance_Tool.h \
- ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h
+ .././Maintenance_Tool.h .././Commands_Handler.h \
+ .././MaintenanceDataHandler.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
+ ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
+ ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h \
+ ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/MemoryFlash_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/FlashHandler_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigState_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationCommons.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/GAINDefinitions.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/CRC32_Class.h \
+ ../../../../../ECS_Box/TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
+ ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFans_Class.h \
+ ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFan_Class.h \
+ ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFanDataStruct_Class.h \
+ ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h \
+ ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h
 
 .././main.h:
 
@@ -675,12 +708,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
-../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
-
-../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
-
-../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
-
 ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
 ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
@@ -843,4 +870,78 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././Maintenance_Tool.h:
 
+.././Commands_Handler.h:
+
+.././MaintenanceDataHandler.h:
+
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
+
+../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
+
+../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h:
+
+../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/MemoryFlash_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/FlashHandler_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigState_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationCommons.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/GAINDefinitions.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/CRC32_Class.h:
+
+../../../../../ECS_Box/TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h:
+
+../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFans_Class.h:
+
+../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFan_Class.h:
+
+../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFanDataStruct_Class.h:
+
+../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h:
+
+../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:

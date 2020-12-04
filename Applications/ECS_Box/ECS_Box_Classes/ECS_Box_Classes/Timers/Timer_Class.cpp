@@ -10,6 +10,7 @@
 #include <utils_list.h>
 Timer_Class*	ptrTimerClass;
 static  timer_task taskArray[TASK_NUMBER];
+
 static bool arrayInitiated=false;
 
 static void extern_task_cb(const struct timer_task *const timer_task)
@@ -18,7 +19,12 @@ static void extern_task_cb(const struct timer_task *const timer_task)
 }
 static void CountTicks(const struct timer_task *const timer_task)
 {
-	ptrTimerClass->ticks++;
+// 	eventTimer.ticks++;
+// 	hvacTimer.ticks++;
+// 	connectionTimer.ticks++;
+// 	arincTimer.ticks++;
+// 	temperatureTimer.ticks++;
+	
 }
 static void task_cb(const struct timer_task *const timer_task)
 {
@@ -170,6 +176,18 @@ int32_t Timer_Class::Start_periodic_task(FUNC_PTR func,uint32_t interval){
 	 	}
 	 return status;
 }
+
+int32_t Timer_Class::StartCountingTicks(uint32_t interval){
+	int32_t	status;
+	Add_periodic_task(FUNC_PTR(CountTicks),interval);
+	if (timer_descr->func->is_timer_started(&timer_descr->device))
+	{
+		}else{
+		status=timer_start(timer_descr);
+	}
+	return status;
+}
+
 int32_t Timer_Class::Add_periodic_task(FUNC_PTR func,uint32_t interval){
 	int32_t	status;
 	status=Add_task(func,interval,TIMER_TASK_REPEAT);

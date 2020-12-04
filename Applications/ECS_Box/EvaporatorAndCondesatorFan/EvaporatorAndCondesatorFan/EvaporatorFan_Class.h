@@ -12,6 +12,7 @@
 #include "I2C_Sync_Class.h"
 #include "MCP23008_Class.h"
 #define		EVAPORATOR_EXPANDERS	6
+#define MINIMUN_FLOW_AIR 32
 
 class EvaporatorFan_Class: public EvaporatorFanDataStruct_Class
 {

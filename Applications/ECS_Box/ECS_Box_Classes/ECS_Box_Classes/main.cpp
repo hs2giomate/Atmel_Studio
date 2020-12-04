@@ -51,56 +51,56 @@ void usb_test(void){
 }
 uint8_t EEPROM_Test(void){
 	bool	is_corrupted;
-	eeprom.Init();
-	uint8_t addr=AT24MAC_BUFFER_SIZE/2;
+	//eeprom.Init();
+//	uint8_t addr=AT24MAC_BUFFER_SIZE/2;
 	uint8_t	value;
-	usb<<"  Function for testing an i2c EEPROM"<<NEWLINE;
-	/* Replace with your application code */
-		uint8_t tx_buffer[ AT24MAC_BUFFER_SIZE] ;
-		uint8_t rx_buffer[ AT24MAC_BUFFER_SIZE] ;
-	while (1) {
-		for (int i = 0; i < AT24MAC_BUFFER_SIZE ; i++) {
-			tx_buffer[i] = (uint8_t)rand();
-			rx_buffer[i] = (uint8_t)(AT24MAC_BUFFER_SIZE-i);
-		}
-
-		while(!eeprom.IsReady());
-// 		eeprom.WriteAddress(tx_buffer,addr,AT24MAC_BUFFER_SIZE);
-		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++)
-		{
-			while(!eeprom.IsReady());			
-			eeprom.Write_byte(addr+i,tx_buffer[i]);
-			delay_ms(2);
-			while(!eeprom.AcknolledgePolling());
-		}
- 		
-		eeprom.ReadAddress(rx_buffer,addr,AT24MAC_BUFFER_SIZE);	
-// 		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++)
-// 		{
-// 			while(!eeprom.IsReady());// 			rx_buffer[i]=eeprom.Read_byte(addr+i);
+// 	usb<<"  Function for testing an i2c EEPROM"<<NEWLINE;
+// 	/* Replace with your application code */
+// 		uint8_t tx_buffer[ AT24MAC_BUFFER_SIZE] ;
+// 		uint8_t rx_buffer[ AT24MAC_BUFFER_SIZE] ;
+// 	while (1) {
+// 		for (int i = 0; i < AT24MAC_BUFFER_SIZE ; i++) {
+// 			tx_buffer[i] = (uint8_t)rand();
+// 			rx_buffer[i] = (uint8_t)(AT24MAC_BUFFER_SIZE-i);
 // 		}
-
-	
-		is_corrupted = false;
-		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++) {
-			if (tx_buffer[i] != rx_buffer[i]) {
-				is_corrupted = true;
-				usb.print("EEPROM verification failed. Address: ");
-				usb.print(addr,HEX);
-				usb<<" bit :"<<i<<NEWLINE;
-		    	//flashAddress=0;
-			
-				break;
-			}
-		
-		}
-
-		if (!is_corrupted) {
-			usb.print("Write - Read is successful in EEPROM memory  " );
-			usb.println(addr,HEX);
-			addr=(addr+AT24MAC_BUFFER_SIZE)%AT24MAC_MEMORY_SIZE;
-		}
-	}
+// 
+// 		while(!eeprom.IsReady());
+// // 		eeprom.WriteAddress(tx_buffer,addr,AT24MAC_BUFFER_SIZE);
+// 		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++)
+// 		{
+// 			while(!eeprom.IsReady());			
+// 			eeprom.Write_byte(addr+i,tx_buffer[i]);
+// 			delay_ms(2);
+// 			while(!eeprom.AcknolledgePolling());
+// 		}
+//  		
+// 		eeprom.ReadAddress(rx_buffer,addr,AT24MAC_BUFFER_SIZE);	
+// // 		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++)
+// // 		{
+// // 			while(!eeprom.IsReady());// 			rx_buffer[i]=eeprom.Read_byte(addr+i);
+// // 		}
+// 
+// 	
+// 		is_corrupted = false;
+// 		for (int i = 0; i < AT24MAC_BUFFER_SIZE; i++) {
+// 			if (tx_buffer[i] != rx_buffer[i]) {
+// 				is_corrupted = true;
+// 				usb.print("EEPROM verification failed. Address: ");
+// 				usb.print(addr,HEX);
+// 				usb<<" bit :"<<i<<NEWLINE;
+// 		    	//flashAddress=0;
+// 			
+// 				break;
+// 			}
+// 		
+// 		}
+// 
+// 		if (!is_corrupted) {
+// 			usb.print("Write - Read is successful in EEPROM memory  " );
+// 			usb.println(addr,HEX);
+// 			addr=(addr+AT24MAC_BUFFER_SIZE)%AT24MAC_MEMORY_SIZE;
+// 		}
+// 	}
 	return	 value;
 }
 
@@ -122,19 +122,7 @@ void	LTC2983_test(void){
 	
 }
 
-int ARINC_test(void)
-{
-	ARINC_Interface		ECSBox;
-	ECSBox.Init();
-	delay_ms(100);
-	while (1)
-	{
-		ECSBox.SayHello();
-		delay_ms(100);
-		//ECSBox.CustomMessage(SELFTEST_OFF);
-	}
-	return 0;
-}
+
 void	QSPIDriverTest(void){
 		bool is_corrupted = false;
 		uint8_t tx_buffer[QSPI_BUFFER_SIZE] ;
@@ -227,17 +215,17 @@ void	DateTimeTest(void){
 }
 
 void	IO_ExpanderTest(void){
-	mcp.Init();
-	mcp.SetPortAInput();
-	mcp.SetPortBOutput();
-
-	/* Replace with your application code */
-	while (1)
-	{
-		for (int i = 0; i < 8; i++)
-		{
-			mcp.digitalWrite(8+i,mcp.digitalRead(i));
-		}
-		
-	}
+// 	mcp.Init();
+// 	mcp.SetPortAInput();
+// 	mcp.SetPortBOutput();
+// 
+// 	/* Replace with your application code */
+// 	while (1)
+// 	{
+// 		for (int i = 0; i < 8; i++)
+// 		{
+// 			mcp.digitalWrite(8+i,mcp.digitalRead(i));
+// 		}
+// 		
+// 	}
 }

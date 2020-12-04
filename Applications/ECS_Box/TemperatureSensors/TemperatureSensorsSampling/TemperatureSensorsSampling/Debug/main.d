@@ -195,9 +195,6 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
- ../../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
- ../../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
- ../../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -273,6 +270,8 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
  ../../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Maintenance_Tool.h \
+ ../../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Commands_Handler.h \
+ ../../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h \
  ../../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
  ../../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  .././TemperatureSensors_Class.h \
@@ -676,12 +675,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
-../../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
-
-../../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
-
-../../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
-
 ../../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
 ../../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
@@ -831,6 +824,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 ../../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Maintenance_Tool.h:
+
+../../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Commands_Handler.h:
+
+../../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h:
 
 ../../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
 

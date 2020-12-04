@@ -2,16 +2,16 @@ format_version: '2'
 name: ALU_DRIVER
 versions:
   api: '1.0'
-  backend: 1.8.457
-  commit: c39d50a8c7c22fe58c921178843d3cbb666dc04b
+  backend: 1.8.472
+  commit: 605bd5a7663644fb84783aa2b00942b79b0d8955
   content: unknown
   content_pack_name: unknown
   format: '2'
-  frontend: 1.8.457
-  packs_version_avr8: 1.0.1441
+  frontend: 1.8.472
+  packs_version_avr8: 1.0.1443
   packs_version_qtouch: unknown
   packs_version_sam: 1.0.1726
-  version_backend: 1.8.457
+  version_backend: 1.8.472
   version_frontend: ''
 board:
   identifier: SAME54XplainedPro
@@ -1751,8 +1751,8 @@ drivers:
           external_frequency: 0
         configuration:
           rtc_clk_selection: RTC source
-  I2C_SHARED:
-    user_label: I2C_SHARED
+  I2C_HEATERS:
+    user_label: I2C_HEATERS
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM1::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
     functionality: I2C
     api: HAL:Driver:I2C_Master_Sync
@@ -1781,7 +1781,7 @@ drivers:
       domain_group:
         nodes:
         - name: Core
-          input: Generic clock generator 5
+          input: Generic clock generator 2
           external: false
           external_frequency: 0
         - name: Slow
@@ -1789,7 +1789,7 @@ drivers:
           external: false
           external_frequency: 0
         configuration:
-          core_gclk_selection: Generic clock generator 5
+          core_gclk_selection: Generic clock generator 2
           slow_gclk_selection: Generic clock generator 10
   SPI_TEMP:
     user_label: SPI_TEMP
@@ -1835,8 +1835,8 @@ drivers:
         configuration:
           core_gclk_selection: Generic clock generator 5
           slow_gclk_selection: Generic clock generator 10
-  I2C_EXPANDER:
-    user_label: I2C_EXPANDER
+  I2C_FLAPPER_VALVE:
+    user_label: I2C_FLAPPER_VALVE
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM5::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
     functionality: I2C
     api: HAL:Driver:I2C_Master_Sync
@@ -1919,11 +1919,11 @@ drivers:
         configuration:
           core_gclk_selection: Generic clock generator 2
           slow_gclk_selection: Generic clock generator 10
-  I2C_EEPROM:
-    user_label: I2C_EEPROM
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM7::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Async
+  I2C_FANS:
+    user_label: I2C_FANS
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM7::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
     functionality: I2C
-    api: HAL:Driver:I2C_Master_Async
+    api: HAL:Driver:I2C_Master_Sync
     configuration:
       i2c_master_advanced: false
       i2c_master_arch_dbgstop: Keep running
@@ -1934,7 +1934,7 @@ drivers:
       i2c_master_arch_sdahold: 300-600ns hold time
       i2c_master_arch_sexttoen: false
       i2c_master_arch_trise: 215
-      i2c_master_baud_rate: 200000
+      i2c_master_baud_rate: 100000
     optional_signals: []
     variant:
       specification: SDA=0, SCL=1
@@ -1949,7 +1949,7 @@ drivers:
       domain_group:
         nodes:
         - name: Core
-          input: Generic clock generator 8
+          input: Generic clock generator 4
           external: false
           external_frequency: 0
         - name: Slow
@@ -1957,7 +1957,7 @@ drivers:
           external: false
           external_frequency: 0
         configuration:
-          core_gclk_selection: Generic clock generator 8
+          core_gclk_selection: Generic clock generator 4
           slow_gclk_selection: Generic clock generator 10
   TIMER_USB:
     user_label: TIMER_USB
@@ -2520,13 +2520,15 @@ pads:
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA16
     mode: I2C
     user_label: PA16
-    configuration: null
+    configuration:
+      pad_pull_config: Pull-up
   PA17:
     name: PA17
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA17
     mode: I2C
     user_label: PA17
-    configuration: null
+    configuration:
+      pad_pull_config: Pull-up
   CS_FRAM:
     name: PA19
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA19

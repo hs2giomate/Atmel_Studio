@@ -32,6 +32,7 @@ ALU_Class::ALU_Class()
 	ptrALUClass=this;
 	clk_rate       = 1000;
 	timeout_period = 4096*1024;
+	ptrPbit=&pBit;
 } //ALU_Class
 
 // default destructor
@@ -42,30 +43,36 @@ ALU_Class::~ALU_Class()
 uint32_t	ALU_Class::Init(void){
 	uint32_t	s;
 	event	e;
-	ptrPbit=&pBit;
+	
 	StartLivePulse();
 		
 	if (hvac.Init())
 	{
+		gpio_set_pin_level(LED0,true);
 		cBit.isOK=true;
-		hvac.SetCRCConfigData();
-		SetInitialConfiguration(configuration);
-		memory.WriteDefaultState();
-		hvac.SetInitialState();
-		uhr.Init();
-		hvac.saveCurrentState();
-		listener.Init();
+	//	hvac.SetCRCConfigData();
+	//	SetInitialConfiguration(configuration);
+	//	memory.WriteDefaultState();
+	//	hvac.SetInitialState();
+	//	uhr.Init();
+	//	hvac.saveCurrentState();
+		while(!listener.Init()){
+			delay_ms(200);
+			gpio_toggle_pin_level(LED0);
+		}
+	
 		
 		if (!(interfaces.Init()))
 		{
-			NotifyError(kARINCINnterfaceError,s);
+			//NotifyError(kARINCINnterfaceError,s);
 			return s;
 		}
 		else
 		{
 			arincTimer.Start_periodic_task(FUNC_PTR(ARINCTimeUp),500);
 			
-			s=pBit.CheckCurrentStatus(status);
+			//s=pBit.CheckCurrentStatus(status);
+			s=0;
 			if (s>0)
 			{
 				NotifyError(kpBITError,s);
@@ -89,7 +96,7 @@ uint32_t	ALU_Class::Init(void){
 
 	
 
-	  
+	  gpio_set_pin_level(LED0,true);
 	return s;
 }
 

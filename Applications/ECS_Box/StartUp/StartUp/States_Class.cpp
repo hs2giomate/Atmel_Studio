@@ -43,27 +43,34 @@ States_Class::~States_Class()
 } //~States_Class
 
 bool States_Class::Init(void){
+	gpio_set_pin_level(LED0,true);
 	if (hvacTimer.Init())
 	{
 		hvacTimer.Start_periodic_task(FUNC_PTR(HVACTimerTicks),1);
 	}
-	isOK=temperatures.Init();
-	if (isOK)
-	{
-		temperatures.StartOneConversion();
+	while(!fans.Init()){
+		delay_ms(200);
+		gpio_toggle_pin_level(LED0);
+		
 	}
-	if (fv1.Init())
+	while (!fvc.InitController())
 	{
-		hvacState->hvacStatus.statusBits.flapValve1=true;
-		//alu.PrepareNewTask(kALUTaskUpdateFlapperValves);
-	} 
-	else
-	{
+		delay_ms(200);
+		gpio_toggle_pin_level(LED0);
 	}
-	
-	
+	while (!temperatures.Init())
+	{
+		delay_ms(200);
+		gpio_toggle_pin_level(LED0);
+	}
+	temperatures.StartOneConversion();
+	while(!heater.Init()){
+		delay_ms(200);
+		gpio_toggle_pin_level(LED0);
+	}
 
 	//return isOK;
+	gpio_set_pin_level(LED0,true);
 	return true;
 	
 }

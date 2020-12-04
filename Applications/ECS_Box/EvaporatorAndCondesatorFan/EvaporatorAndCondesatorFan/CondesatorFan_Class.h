@@ -12,6 +12,8 @@
 #include "I2C_Sync_Class.h"
 #include "MCP23008_Class.h"
 #define		EVAPORATOR_AND_CONDESATOR_EXPANDERS	7
+#define CONDESATOR_MINIMUN_FLOW_AIR 48
+
 struct IC33_Inputs
 {
 	bool	niAlcCdsFanPwmFault:1;
@@ -43,6 +45,7 @@ public:
 	uint8_t	Disable(void);
 	uint8_t	SetPWM(uint8_t pwm);
 	uint8_t	SetEnable(bool state);
+	bool	IsEnabled(void);
 protected:
 private:
 	CondesatorFan_Class( const CondesatorFan_Class &c );

@@ -13,6 +13,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "MaintenanceInterface", "..\
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "HeaterP0Board", "..\HeaterP0Board\HeaterP0Board\HeaterP0Board.cppproj", "{4172BAD9-872F-4868-AECF-EBA6DE6FBC87}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "TemperatureSensorsSampling", "..\TemperatureSensors\TemperatureSensorsSampling\TemperatureSensorsSampling\TemperatureSensorsSampling.cppproj", "{14242235-C486-4740-BB9C-984A68478543}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -72,6 +74,16 @@ Global
 		{4172BAD9-872F-4868-AECF-EBA6DE6FBC87}.Release|ARM.Build.0 = Release|ARM
 		{4172BAD9-872F-4868-AECF-EBA6DE6FBC87}.Slave|ARM.ActiveCfg = Debug|ARM
 		{4172BAD9-872F-4868-AECF-EBA6DE6FBC87}.Slave|ARM.Build.0 = Debug|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.Debug|ARM.ActiveCfg = Debug|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.Debug|ARM.Build.0 = Debug|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.Master|ARM.ActiveCfg = Debug|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.Master|ARM.Build.0 = Debug|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.NMTMaster|ARM.ActiveCfg = Debug|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.NMTMaster|ARM.Build.0 = Debug|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.Release|ARM.ActiveCfg = Release|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.Release|ARM.Build.0 = Release|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.Slave|ARM.ActiveCfg = Debug|ARM
+		{14242235-C486-4740-BB9C-984A68478543}.Slave|ARM.Build.0 = Debug|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

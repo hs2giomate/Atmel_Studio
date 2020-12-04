@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.ARMGCC.CPP</ToolchainName>
-    <ProjectGuid>{5d153e17-d6ba-4db0-9594-b2973c611061}</ProjectGuid>
+    <ProjectGuid>{31e6e651-8b64-4adc-96ff-45ae9645c184}</ProjectGuid>
     <avrdevice>ATSAME54P20A</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -30,15 +30,15 @@
     <EraseKey />
     <AsfFrameworkConfig>
       <framework-data>
-        <options />
-        <configurations />
-        <files />
-        <documentation help="" />
-        <offline-documentation help="" />
-        <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.34.1" />
-        </dependencies>
-      </framework-data>
+  <options />
+  <configurations />
+  <files />
+  <documentation help="" />
+  <offline-documentation help="" />
+  <dependencies>
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
+  </dependencies>
+</framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
     <avrtoolserialnumber>ATML2748051800004896</avrtoolserialnumber>
@@ -194,6 +194,7 @@
             <Value>../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial</Value>
             <Value>../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface</Value>
             <Value>../../../ECS_Box_Classes/ECS_Box_Classes/Storage</Value>
+            <Value>../../../TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling</Value>
           </ListValues>
         </armgcccpp.compiler.directories.IncludePaths>
         <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>

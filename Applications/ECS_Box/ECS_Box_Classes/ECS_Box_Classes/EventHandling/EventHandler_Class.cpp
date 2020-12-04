@@ -107,8 +107,7 @@ bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType
 		
 			eventTimer.Start_oneShot_task((FUNC_PTR)EventTimerTask,CHECK_EVENT_PERIOD);
 	}
-
-	while (!result && (!eventTimeout))
+	do 
 	{
 		if (eventHandler)
 		{
@@ -128,7 +127,7 @@ bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType
 			usb << "     queue->class:     " << (uint16)((*queue).eventClass) << newline;
 			usb << "     queue->type:      " << (uint16)((*queue).eventType) << newline;
 			usb << "     queue->timestamp: " << (uint16)((*queue).timestamp) << newline;
-		
+			
 			#endif
 			if (((e.eventClass == kAnyEventClass) ||(queue->eventClass == e.eventClass))
 			&& ((e.eventType == kAnyEventType) ||	(queue->eventType == e.eventType)))
@@ -167,19 +166,24 @@ bool	EventHandler_Class::WaitForEvent(event& e, EventClass eventClass, EventType
 			usb << "     got event!" << newline;
 			usb << "     eventClass:       " << e.eventClass << newline;
 			usb << "     eventType:        " << e.eventType << newline;
-		
+			
 			#endif
 			
 		}
 		else
 		{
-	
-		
+			
+			
 			//while (!eventTimeout);
-		
+			
 		}
-		
-	}
+	} while ((!result )&& (!eventTimeout));
+
+// 	while ()
+// 	{
+// 		
+// 		
+// 	}
 	eventTimer.Remove_task(FUNC_PTR(EventTimerTask));
 	//eventTimer.stop();
 	return result;

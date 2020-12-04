@@ -7,7 +7,7 @@
 
 
 #include "main.h"
-static Maintenance_Tool	toolApp;
+//static Maintenance_Tool	toolApp;
 
 static float currentTemperature,lastTemperature;
 

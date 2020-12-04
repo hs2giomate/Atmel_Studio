@@ -11,12 +11,13 @@
 #include "FlapperValveDataStruct.h"
 #include "MCP23008_Class.h"
 
-#include "MCP23017_Class.h"
+//#include "MCP23017_Class.h"
 #define	 FLAPPER_VALVE_EXPANDERS 4
 #define IC_CONTROL_STATUS 00
 #define IC_STATUS_INPUTS 01
 #define IC_SETPOINT_POSITION 02
 #define IC_ACTUAL_POSITION 03
+#define FLAPPER_VALVE_MINIMUM_AIR	218
 // #ifdef SELF_STANDALONE
 //
 // #else
@@ -32,18 +33,18 @@ public:
 	volatile bool isOK,fv1StatusChanged,regulatorTimeout;
 	//I2C_Asyn_Class* i2cClass;
 	FVDataStruct	fvData;
-	StatusFlapperValve statusFlapperValve;
+	FlapperValveMode statusFlapperValve;
 	ControlStatus	controlOutputs;
 	InputStatus  statusInputs;
  
 protected:
 private:
 	I2C_Sync_Class*	i2c;
-	 i2c_m_async_desc*	i2cDescr;
+	 i2c_m_sync_desc*	i2cDescr;
 	 uint8_t	valveID,offset;
 	MCP23008_Class* expanders[FLAPPER_VALVE_EXPANDERS ];
 	MCP23008_Class* currentExpander;
-	MCP23017_Class*	simpleExpander;
+	MCP23008_Class*	simpleExpander;
 
 	
 	uint8_t i,j,k,value,setpointPosition,actualPosition,lastPosition;
@@ -67,6 +68,7 @@ public:
 	uint8_t SetEnable(bool b);
 	uint8_t ClearMoveFault(bool b);
 	uint8_t SetDirection(bool b);
+	uint8_t SetInvalidPosition(bool b);
 	
 protected:
 private:
@@ -76,7 +78,7 @@ private:
 	bool Selftest(void);
 	uint8_t ReadSetpoint();
 }; //FlapperValve_Class
-extern	SingleFlapperValve_Class	fv1;
+//extern	SingleFlapperValve_Class	fv1;
 // static FlapperValve_Class	fv1(1);
 
 #endif //__FLAPPERVALVE_CLASS_H__

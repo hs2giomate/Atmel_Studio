@@ -9,7 +9,7 @@
 #include "DateTimeLog_Class.h"
 #include "math.h"
 #include "time.h"
-#include "AT24MAC_Class.h"
+//#include "AT24MAC_Class.h"
 #include "Calendar_Class.h"
 
 DateTimeLog_Class::DateTimeLog_Class()
@@ -55,19 +55,20 @@ bool	DateTimeLog_Class::WasInterrupted(void){
 
 uint32_t	DateTimeLog_Class::IncrementMemoryStack(){
 	
-	uint32_t r=	eeprom.ReadAddress((uint8_t*)&stackValue,stackAdress,1);
+//	uint32_t r=	ReadAddress((uint8_t*)&stackValue,stackAdress,1);
 	stackValue=(uint16_t)RollStack();
-	r=	eeprom.WriteAddress((uint8_t*)&stackValue,stackAdress,1);
-	return r;
+//	r=	eeprom.WriteAddress((uint8_t*)&stackValue,stackAdress,1);
+	return 0;
 }
  uint8_t DateTimeLog_Class::RollStack(void)
  {
-	 return (uint8_t)(stackValue +1 ) % AT24MAC_BUFFER_SIZE;
+	 //return (uint8_t)(stackValue +1 ) % AT24MAC_BUFFER_SIZE;
+	 return 0;
  }
  
  uint8_t	DateTimeLog_Class::ReadStackValue(void){
 	 uint8_t s;
-	eeprom.ReadAddress(&s,stackAdress,1);
+//	eeprom.ReadAddress(&s,stackAdress,1);
 	 return	s;
  }
  
@@ -83,20 +84,20 @@ uint32_t	DateTimeLog_Class::SaveCurrentDateTime(void){
 	stackValue=ReadStackValue();
 	GetDateTime(&dateTime);
 	handler=(PTR_DATE_TIME)(&dateTime);
-	uint32_t	w= eeprom.WriteAddress((uint8_t*)handler,(uint8_t)(dataTimeLogsAddress+stackValue),(uint8_t)sizeof(lastDateTime));
+//	uint32_t	w= eeprom.WriteAddress((uint8_t*)handler,(uint8_t)(dataTimeLogsAddress+stackValue),(uint8_t)sizeof(lastDateTime));
 	IncrementMemoryStack();
-	return	w;
+	return	0;
 }
 
 uint32_t	DateTimeLog_Class::ReadLastDateTime(void){
 	stackValue=ReadStackValue();
 	handler=(PTR_DATE_TIME)(&lastDateTime);
-	uint32_t r=	eeprom.ReadAddress((uint8_t *)handler,(uint8_t)(dataTimeLogsAddress+stackValue),(uint8_t)sizeof(lastDateTime));
-	return	r;
+//	uint32_t r=	eeprom.ReadAddress((uint8_t *)handler,(uint8_t)(dataTimeLogsAddress+stackValue),(uint8_t)sizeof(lastDateTime));
+	return	0;
 }
 uint32_t	DateTimeLog_Class::ReadDateTime(calendar_date_time *dt){
 	stackValue=ReadStackValue();
 	handler=(PTR_DATE_TIME)(dt);
-	uint32_t r=	eeprom.ReadAddress((uint8_t *)handler,(uint8_t)(dataTimeLogsAddress+stackValue),(uint8_t)sizeof(lastDateTime));
-	return	r;
+//	uint32_t r=	eeprom.ReadAddress((uint8_t *)handler,(uint8_t)(dataTimeLogsAddress+stackValue),(uint8_t)sizeof(lastDateTime));
+	return	0;
 }

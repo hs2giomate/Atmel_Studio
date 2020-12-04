@@ -195,9 +195,6 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -267,28 +264,15 @@ main.d main.o: .././main.cpp .././main.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
  ../avr/pgmspace.h ../USBSerial/Printable.h \
  ../USBSerial/SerialTerminal_Class.h ../USBSerial/TimerSerial_Class.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h ../Storage/AT24MAC_Class.h \
- ../I2C/I2C_Asyn_Class.h ../I2C/I2C_ObjectList.h ../Storage/Parameters.h \
- ../EIDE_Utils/coreTypes.h ../LTC2983/LTC2983_Class.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h ../LTC2983/LTC2983_Class.h \
  ../Timers/Timer_Class.h ../LTC2983/LTC2983_configuration_constants.h \
  ../LTC2983/LTC2983_table_coeffs.h ../LTC2983/LT_SPI.h \
- ../SPI/SPI_Syn_Class.h ../ARINC/ARINC_Interface.h \
- ../ARINC/Holt_3593_Class.h \
- ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
- ../ARINC/Protocol_Class.h ../ARINC/ARINC_Conversions.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
- ../ARINC/ARINC_Buffer_Class.h ../Storage/N25Q256_Class.h \
+ ../SPI/SPI_Syn_Class.h ../Storage/N25Q256_Class.h \
  ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
  ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
  ../Storage/RingBuffer.h ../Timers/Calendar_Class.h \
- ../Timers/DateTimeLog_Class.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
- ../FlapperValve/MCP23017_Class.h ../I2C/I2C_Sync_Class.h \
- ../EIDE_Utils/Arduino.h
+ ../Timers/DateTimeLog_Class.h ../EIDE_Utils/coreTypes.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h
 
 .././main.h:
 
@@ -684,12 +668,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
@@ -836,16 +814,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
 
-../Storage/AT24MAC_Class.h:
-
-../I2C/I2C_Asyn_Class.h:
-
-../I2C/I2C_ObjectList.h:
-
-../Storage/Parameters.h:
-
-../EIDE_Utils/coreTypes.h:
-
 ../LTC2983/LTC2983_Class.h:
 
 ../Timers/Timer_Class.h:
@@ -857,28 +825,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../LTC2983/LT_SPI.h:
 
 ../SPI/SPI_Syn_Class.h:
-
-../ARINC/ARINC_Interface.h:
-
-../ARINC/Holt_3593_Class.h:
-
-../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
-
-../ARINC/Protocol_Class.h:
-
-../ARINC/ARINC_Conversions.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
-
-../ARINC/ARINC_Buffer_Class.h:
 
 ../Storage/N25Q256_Class.h:
 
@@ -892,10 +838,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../Timers/DateTimeLog_Class.h:
 
+../EIDE_Utils/coreTypes.h:
+
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
-
-../FlapperValve/MCP23017_Class.h:
-
-../I2C/I2C_Sync_Class.h:
-
-../EIDE_Utils/Arduino.h:

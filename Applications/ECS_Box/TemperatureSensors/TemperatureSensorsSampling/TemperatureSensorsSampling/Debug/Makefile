@@ -74,20 +74,17 @@ Device_Startup/system_same54.d \
 main.d \
 TemperatureSensors_Class.d
 
-OUTPUT_FILE_PATH +=TemperatureSensorsSampling.elf
+OUTPUT_FILE_PATH +=libTemperatureSensorsSampling.a
 
-OUTPUT_FILE_PATH_AS_ARGS +=TemperatureSensorsSampling.elf
+OUTPUT_FILE_PATH_AS_ARGS +=libTemperatureSensorsSampling.a
 
 ADDITIONAL_DEPENDENCIES:=
 
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 LIB_DEP+=  \
-S:/AtmelStudio/Applications/Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Debug/libMaintenanceInterface.a \
 S:/AtmelStudio/Applications/ECS_Box/ALU_Driver/ALU_Driver/Debug/libALU_Driver.a \
-S:/AtmelStudio/Applications/ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Debug/libECS_Box_Objects.a \
-S:/AtmelStudio/Applications/ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/Debug/libEvaporatorAndCondesatorFan.a \
-S:/AtmelStudio/Applications/ECS_Box/HeaterP0Board/HeaterP0Board/Debug/libHeaterP0Board.a
+S:/AtmelStudio/Applications/ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Debug/libECS_Box_Objects.a
 
 LINKER_SCRIPT_DEP+=  \
 ../Device_Startup/same54p20a_flash.ld \
@@ -146,20 +143,14 @@ endif
 # All Target
 all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
-	@echo Building target: $@
-	@echo Invoking: ARM/GNU Linker : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="TemperatureSensorsSampling.map" -Wl,--start-group -lm -lMaintenanceInterface -lALU_Driver -lECS_Box_Objects -lEvaporatorAndCondesatorFan -lHeaterP0Board  -Wl,--end-group -L"..\\Device_Startup" -L"S:\AtmelStudio\Applications\Maintenance\ECSBOX\MaintenanceInterface\MaintenanceInterface\Debug" -L"S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver\Debug" -L"S:\AtmelStudio\Applications\ECS_Box\ECS_Box_Classes\ECS_Box_Classes\Debug" -L"S:\AtmelStudio\Applications\ECS_Box\EvaporatorAndCondesatorFan\EvaporatorAndCondesatorFan\Debug" -L"S:\AtmelStudio\Applications\ECS_Box\HeaterP0Board\HeaterP0Board\Debug"  -Wl,--gc-sections -mcpu=cortex-m4 -Tsame54p20a_flash.ld  
-	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "TemperatureSensorsSampling.elf" "TemperatureSensorsSampling.bin"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "TemperatureSensorsSampling.elf" "TemperatureSensorsSampling.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O binary "TemperatureSensorsSampling.elf" "TemperatureSensorsSampling.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objdump.exe" -h -S "TemperatureSensorsSampling.elf" > "TemperatureSensorsSampling.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "TemperatureSensorsSampling.elf" "TemperatureSensorsSampling.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-size.exe" "TemperatureSensorsSampling.elf"
-	
-	
 
+$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
+	@echo Building target: $@
+	@echo Invoking: ARM/GNU Archiver : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
+	@echo Finished building target: $@
+	
+	
 
 
 
@@ -168,5 +159,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "TemperatureSensorsSampling.elf" "TemperatureSensorsSampling.a" "TemperatureSensorsSampling.hex" "TemperatureSensorsSampling.bin" "TemperatureSensorsSampling.lss" "TemperatureSensorsSampling.eep" "TemperatureSensorsSampling.map" "TemperatureSensorsSampling.srec"
+	rm -rf "libTemperatureSensorsSampling.elf" "libTemperatureSensorsSampling.a" "libTemperatureSensorsSampling.hex" "libTemperatureSensorsSampling.bin" "libTemperatureSensorsSampling.lss" "libTemperatureSensorsSampling.eep" "libTemperatureSensorsSampling.map" "libTemperatureSensorsSampling.srec"
 	

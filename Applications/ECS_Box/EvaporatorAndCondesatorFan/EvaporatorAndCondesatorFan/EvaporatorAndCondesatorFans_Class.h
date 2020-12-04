@@ -8,8 +8,10 @@
 
 #ifndef __EVAPORATORANDCONDESATORFANS_CLASS_H__
 #define __EVAPORATORANDCONDESATORFANS_CLASS_H__
+
 #include "EvaporatorFan_Class.h"
 #include "CondesatorFan_Class.h"
+
 
 
 class EvaporatorAndCondesatorFans_Class: public EvaporatorFan_Class,public CondesatorFan_Class
@@ -30,6 +32,7 @@ public:
 	EvaporatorAndCondesatorFans_Class();
 	~EvaporatorAndCondesatorFans_Class();
 	bool	Init(void);
+	void GetGPIOSValues(uint8_t * gpios);
 protected:
 private:
 	EvaporatorAndCondesatorFans_Class( const EvaporatorAndCondesatorFans_Class &c );

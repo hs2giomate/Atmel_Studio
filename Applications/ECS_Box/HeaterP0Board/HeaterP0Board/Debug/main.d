@@ -195,9 +195,6 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -274,18 +271,13 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
  .././SingleHeater_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
- ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Maintenance_Tool.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h
 
 .././main.h:
 
@@ -681,12 +673,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
@@ -839,10 +825,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Asyn_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_ObjectList.h:
-
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h:
@@ -856,9 +838,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
-
-../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Maintenance_Tool.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:

@@ -25,11 +25,11 @@ struct qspi_sync_descriptor QSPI_N25Q256;
 
 struct calendar_descriptor DATETIME_CLOCK;
 
-struct i2c_m_sync_desc I2C_SHARED;
+struct i2c_m_sync_desc I2C_HEATERS;
 
-struct i2c_m_sync_desc I2C_EXPANDER;
+struct i2c_m_sync_desc I2C_FLAPPER_VALVE;
 
-struct i2c_m_async_desc I2C_EEPROM;
+struct i2c_m_sync_desc I2C_FANS;
 
 struct pwm_descriptor LIVE_PULSE;
 
@@ -420,7 +420,7 @@ void DATETIME_CLOCK_init(void)
 	calendar_init(&DATETIME_CLOCK, RTC);
 }
 
-void I2C_SHARED_PORT_init(void)
+void I2C_HEATERS_PORT_init(void)
 {
 
 	gpio_set_pin_pull_mode(PA16,
@@ -429,7 +429,7 @@ void I2C_SHARED_PORT_init(void)
 	                       // <GPIO_PULL_OFF"> Off
 	                       // <GPIO_PULL_UP"> Pull-up
 	                       // <GPIO_PULL_DOWN"> Pull-down
-	                       GPIO_PULL_OFF);
+	                       GPIO_PULL_UP);
 
 	gpio_set_pin_function(PA16, PINMUX_PA16C_SERCOM1_PAD0);
 
@@ -439,12 +439,12 @@ void I2C_SHARED_PORT_init(void)
 	                       // <GPIO_PULL_OFF"> Off
 	                       // <GPIO_PULL_UP"> Pull-up
 	                       // <GPIO_PULL_DOWN"> Pull-down
-	                       GPIO_PULL_OFF);
+	                       GPIO_PULL_UP);
 
 	gpio_set_pin_function(PA17, PINMUX_PA17C_SERCOM1_PAD1);
 }
 
-void I2C_SHARED_CLOCK_init(void)
+void I2C_HEATERS_CLOCK_init(void)
 {
 	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM1_GCLK_ID_CORE, CONF_GCLK_SERCOM1_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM1_GCLK_ID_SLOW, CONF_GCLK_SERCOM1_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
@@ -452,11 +452,11 @@ void I2C_SHARED_CLOCK_init(void)
 	hri_mclk_set_APBAMASK_SERCOM1_bit(MCLK);
 }
 
-void I2C_SHARED_init(void)
+void I2C_HEATERS_init(void)
 {
-	I2C_SHARED_CLOCK_init();
-	i2c_m_sync_init(&I2C_SHARED, SERCOM1);
-	I2C_SHARED_PORT_init();
+	I2C_HEATERS_CLOCK_init();
+	i2c_m_sync_init(&I2C_HEATERS, SERCOM1);
+	I2C_HEATERS_PORT_init();
 }
 
 void SPI_TEMP_PORT_init(void)
@@ -515,7 +515,7 @@ void SPI_TEMP_init(void)
 	SPI_TEMP_PORT_init();
 }
 
-void I2C_EXPANDER_PORT_init(void)
+void I2C_FLAPPER_VALVE_PORT_init(void)
 {
 
 	gpio_set_pin_pull_mode(PA23,
@@ -539,7 +539,7 @@ void I2C_EXPANDER_PORT_init(void)
 	gpio_set_pin_function(PA22, PINMUX_PA22D_SERCOM5_PAD1);
 }
 
-void I2C_EXPANDER_CLOCK_init(void)
+void I2C_FLAPPER_VALVE_CLOCK_init(void)
 {
 	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM5_GCLK_ID_CORE, CONF_GCLK_SERCOM5_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM5_GCLK_ID_SLOW, CONF_GCLK_SERCOM5_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
@@ -547,11 +547,11 @@ void I2C_EXPANDER_CLOCK_init(void)
 	hri_mclk_set_APBDMASK_SERCOM5_bit(MCLK);
 }
 
-void I2C_EXPANDER_init(void)
+void I2C_FLAPPER_VALVE_init(void)
 {
-	I2C_EXPANDER_CLOCK_init();
-	i2c_m_sync_init(&I2C_EXPANDER, SERCOM5);
-	I2C_EXPANDER_PORT_init();
+	I2C_FLAPPER_VALVE_CLOCK_init();
+	i2c_m_sync_init(&I2C_FLAPPER_VALVE, SERCOM5);
+	I2C_FLAPPER_VALVE_PORT_init();
 }
 
 void SPI_HI3593_PORT_init(void)
@@ -610,7 +610,7 @@ void SPI_HI3593_init(void)
 	SPI_HI3593_PORT_init();
 }
 
-void I2C_EEPROM_PORT_init(void)
+void I2C_FANS_PORT_init(void)
 {
 
 	gpio_set_pin_pull_mode(PD08,
@@ -634,7 +634,7 @@ void I2C_EEPROM_PORT_init(void)
 	gpio_set_pin_function(PD09, PINMUX_PD09C_SERCOM7_PAD1);
 }
 
-void I2C_EEPROM_CLOCK_init(void)
+void I2C_FANS_CLOCK_init(void)
 {
 	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM7_GCLK_ID_CORE, CONF_GCLK_SERCOM7_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM7_GCLK_ID_SLOW, CONF_GCLK_SERCOM7_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
@@ -642,11 +642,11 @@ void I2C_EEPROM_CLOCK_init(void)
 	hri_mclk_set_APBDMASK_SERCOM7_bit(MCLK);
 }
 
-void I2C_EEPROM_init(void)
+void I2C_FANS_init(void)
 {
-	I2C_EEPROM_CLOCK_init();
-	i2c_m_async_init(&I2C_EEPROM, SERCOM7);
-	I2C_EEPROM_PORT_init();
+	I2C_FANS_CLOCK_init();
+	i2c_m_sync_init(&I2C_FANS, SERCOM7);
+	I2C_FANS_PORT_init();
 }
 
 /**
@@ -1070,15 +1070,15 @@ void system_init(void)
 
 	DATETIME_CLOCK_init();
 
-	I2C_SHARED_init();
+	I2C_HEATERS_init();
 
 	SPI_TEMP_init();
 
-	I2C_EXPANDER_init();
+	I2C_FLAPPER_VALVE_init();
 
 	SPI_HI3593_init();
 
-	I2C_EEPROM_init();
+	I2C_FANS_init();
 
 	TIMER_USB_init();
 	TIMER_ARINC_init();

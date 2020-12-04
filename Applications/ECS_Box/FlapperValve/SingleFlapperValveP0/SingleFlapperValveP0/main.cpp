@@ -29,11 +29,36 @@ int main(void)
 	//	usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
 	pwm_enable(&LIVE_PULSE);
 	delay_ms(200);
-	fv1.Init();
+	memory.Init();
+	memory.WriteDefaultParameters();
+	fvc.InitController();
+
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareAlive),250);
 	//toolApp.Init();
 	while (1)
 	{
+		for (uint8_t i = 0; i < 8; i++)
+		{
+					fvc.StartControlling(0x20 +i*30);
+					while (!fvc.gotSetpoint)
+					{
+						fvc.Control_NBC_StandAlone_Reset();
+					}
+					
+					delay_ms(100);
+					fvc.StopControlling();
+		}
+			for (uint8_t i = 0; i < 8; i++)
+			{
+				fvc.StartControlling(230 -i*30);
+				while (!fvc.gotSetpoint)
+				{
+				fvc.Control_NBC_StandAlone_Reset();
+				}
+				delay_ms(100);
+				fvc.StopControlling();
+			}
+
 		
 // 		if (toolApp.IsAppConnected())
 // 		{

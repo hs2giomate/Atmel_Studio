@@ -30,15 +30,15 @@
     <EraseKey />
     <AsfFrameworkConfig>
       <framework-data>
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
-  </dependencies>
-</framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
+        </dependencies>
+      </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
     <avrtoolserialnumber>ATML2748051800004896</avrtoolserialnumber>
@@ -113,6 +113,7 @@
         <armgcccpp.linker.libraries.LibrarySearchPaths>
           <ListValues>
             <Value>%24(ProjectDir)\Device_Startup</Value>
+            <Value>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin</Value>
           </ListValues>
         </armgcccpp.linker.libraries.LibrarySearchPaths>
         <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
@@ -255,6 +256,7 @@
         <armgcccpp.linker.libraries.LibrarySearchPaths>
           <ListValues>
             <Value>%24(ProjectDir)\Device_Startup</Value>
+            <Value>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin</Value>
           </ListValues>
         </armgcccpp.linker.libraries.LibrarySearchPaths>
         <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
@@ -281,42 +283,6 @@
     <OutputType>StaticLibrary</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ARINC\AMMC_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\AMMC_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\ARINC_Buffer_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\ARINC_Buffer_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\ARINC_Conversions.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\ARINC_Conversions.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\ARINC_Interface.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\ARINC_Interface.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\Holt_3593_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\Holt_3593_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\Protocol_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ARINC\Protocol_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="avr\dtostrf.h">
       <SubType>compile</SubType>
     </Compile>
@@ -389,18 +355,6 @@
     <Compile Include="EventHandling\Event_Class.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="I2C\I2C_Asyn_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="I2C\I2C_Asyn_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="I2C\I2C_ObjectList.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="I2C\I2C_ObjectList.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="I2C\I2C_Sync_Class.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -413,22 +367,10 @@
     <Compile Include="FlapperValve\FlapperValveDataStruct.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="FlapperValve\FlapperValve_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="FlapperValve\FlapperValve_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="FlapperValve\MCP23008_Class.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="FlapperValve\MCP23008_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="FlapperValve\MCP23017_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="FlapperValve\MCP23017_Class.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="LTC2983\LTC2983_Class.cpp">
@@ -459,15 +401,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="SPI\SPI_Syn_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Storage\AT24MAC_Class.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Storage\AT24MAC_Class.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Storage\FlashMemoryClass.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Storage\FlashMemoryClass.h">
@@ -533,6 +466,33 @@
     <Compile Include="USBSerial\SerialTerminal_Class.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="USBSerial\Storage\FlashMemoryClass.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Storage\FlashMemoryClass.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Storage\FRAM_Memory_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Storage\FRAM_Memory_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Storage\N25Q256_Class.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Storage\N25Q256_Class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Storage\Parameters.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Storage\Parameters.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USBSerial\Storage\RingBuffer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="USBSerial\Stream.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -558,7 +518,6 @@
     <Folder Include="Classes" />
     <Folder Include="LTC2983" />
     <Folder Include="I2C" />
-    <Folder Include="ARINC" />
     <Folder Include="ErrorHandling" />
     <Folder Include="CANBUS" />
     <Folder Include="EIDE_Utils" />
@@ -568,6 +527,7 @@
     <Folder Include="Timers" />
     <Folder Include="SPI" />
     <Folder Include="USBSerial" />
+    <Folder Include="USBSerial\Storage\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Device_Startup\same54p20a_flash.ld">

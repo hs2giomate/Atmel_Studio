@@ -21,7 +21,7 @@
 
 
 
-class MemoryFlash_Class: public FlashHandler_Class,private CRC32_Class
+class MemoryFlash_Class: public FlashHandler_Class,public CRC32_Class
 {
 //variables
 public:

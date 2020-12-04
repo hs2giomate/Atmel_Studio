@@ -418,11 +418,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Maintenance\ECSBOX\MaintenanceInterface\MaintenanceInterface\MaintenanceInterface.cppproj">
-      <Name>MaintenanceInterface</Name>
-      <Project>{dce6c7e3-ee26-4d79-826b-08594b9ad897}</Project>
-      <Private>True</Private>
-    </ProjectReference>
     <ProjectReference Include="..\..\ALU_Driver\ALU_Driver\ALU_Driver.cproj">
       <Name>ALU_Driver</Name>
       <Project>{e0042c05-e7ab-4bdc-850a-2b3b2af948cd}</Project>

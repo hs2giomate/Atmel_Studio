@@ -1,3 +1,4 @@
+
 /*
  * main.h
  *
@@ -11,7 +12,8 @@
 #include <atmel_start.h>
 #include "CDC_Class.h"
 #include "Timer_Class.h"
-#include "SingleFlapperValve_Class.h"
+#include "FlapperValveController.h"
+#include "MemoryFlash_Class.h"
 //#include "EvaporatorAndCondesatorFans_Class.h"
 //#include "Maintenance_Tool.h"
 

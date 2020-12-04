@@ -8,7 +8,7 @@
 
 #ifndef __MCP23008_CLASS_H__
 #define __MCP23008_CLASS_H__
-#include "I2C_Asyn_Class.h"
+//#include "I2C_Asyn_Class.h"
 #include "I2C_Sync_Class.h"
 #include "Arduino.h"
 
@@ -40,7 +40,7 @@ class MCP23008_Class
 {
 //variables
 public:
-	i2c_m_async_desc *ptrI2CDescr;
+	
 	uint8_t		registerValue,regAddress,controlRegisterA,controlRegisterB,portA,portB;
 	volatile bool  isOK,hasChanged;
 protected:
@@ -49,15 +49,16 @@ private:
 	I2C_Sync_Class* i2cClass;
 	 uint8_t	*txBuffer;
 	 uint8_t	*rxBuffer;
+	 i2c_m_sync_desc *ptrI2CDescr;
 //functions
 public:
 	MCP23008_Class();
 	MCP23008_Class(uint8_t);
 	~MCP23008_Class();
-	    void Init(i2c_m_async_desc *i2c);
+	    void Init(i2c_m_sync_desc *i2c);
 	    void Init(uint8_t addr);
 	    bool Init(void);
-		bool Init(uint8_t addr,I2C_Asyn_Class *i2c);
+		//bool Init(uint8_t addr,I2C_Asyn_Class *i2c);
 		bool Init(uint8_t addr,I2C_Sync_Class *i2c);
 
 	    void pinMode(uint8_t p, uint8_t d);
