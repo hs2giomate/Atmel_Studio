@@ -40,7 +40,7 @@ InputStatus FlapperValveDataStruct::FillInputStatus(uint8_t v){
 
 ControlStatus FlapperValveDataStruct::FillControlOutputs(uint8_t v){
 	
-	if ( STANDALONE > 0)
+	if ( (STANDALONE > 0 )&(!controlStatus.cabin[1]))
 	{
 		controlOutputs.iAlcFvStandAloneOut=controlStatus.cabin[0];
 	} 

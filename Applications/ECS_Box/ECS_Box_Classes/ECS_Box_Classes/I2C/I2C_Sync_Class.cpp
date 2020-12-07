@@ -52,15 +52,15 @@ int32_t I2C_Sync_Class::SetSlaveAddress(uint8_t add){
 }
 
 int32_t I2C_Sync_Class::Write(uint8_t* buffer, uint16_t lenght){
-	//Irq_Disable();
+	Irq_Disable();
 	int32_t w= io_write(I2C_io, buffer, lenght);
-//	Irq_Enable();
+	Irq_Enable();
 	return w;
 }
 int32_t I2C_Sync_Class::Read(uint8_t* buffer, uint16_t lenght){
-//	Irq_Disable();
+	Irq_Disable();
 	int32_t r= io_read(I2C_io, buffer, lenght);
-//	Irq_Enable();
+	Irq_Enable();
 	return r;
 }
 int32_t I2C_Sync_Class::ReadCommand(uint8_t cmd,uint8_t* buffer, uint16_t lenght){

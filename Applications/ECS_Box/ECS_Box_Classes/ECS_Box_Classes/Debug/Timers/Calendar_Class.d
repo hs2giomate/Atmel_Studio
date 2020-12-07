@@ -195,9 +195,6 @@ Timers/Calendar_Class.d Timers/Calendar_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -242,9 +239,8 @@ Timers/Calendar_Class.d Timers/Calendar_Class.o: \
  ../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h \
  ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
  ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
- ../Storage/RingBuffer.h ../Storage/AT24MAC_Class.h \
- ../I2C/I2C_Asyn_Class.h ../I2C/I2C_ObjectList.h ../Storage/Parameters.h \
- ../EIDE_Utils/coreTypes.h ../Timers/DateTimeLog_Class.h \
+ ../Storage/RingBuffer.h ../Timers/DateTimeLog_Class.h \
+ ../EIDE_Utils/coreTypes.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h
 
 ../Timers/Calendar_Class.h:
@@ -639,12 +635,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
-../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
-
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
@@ -737,16 +727,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../Storage/RingBuffer.h:
 
-../Storage/AT24MAC_Class.h:
-
-../I2C/I2C_Asyn_Class.h:
-
-../I2C/I2C_ObjectList.h:
-
-../Storage/Parameters.h:
+../Timers/DateTimeLog_Class.h:
 
 ../EIDE_Utils/coreTypes.h:
-
-../Timers/DateTimeLog_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:

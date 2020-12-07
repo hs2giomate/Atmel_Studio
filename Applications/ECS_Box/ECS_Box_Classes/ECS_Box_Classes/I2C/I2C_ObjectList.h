@@ -10,12 +10,12 @@
 #define __I2C_OBJECTLIST_H__
 
 #include "utils_list.h"
-#include "hal_i2c_m_async.h"
+#include "hal_i2c_m_sync.h"
 struct I2CPointerAndDescriptor
 {
 	struct list_element elem;
 	uint32_t	dummy;
-	i2c_m_async_desc*	i2cDescr;
+	i2c_m_sync_desc*	i2cDescr;
 	uint32_t		ptrI2CAsynClass;
 };
 typedef struct I2CPointerAndDescriptor I2CPointerAndDescriptor;
@@ -33,9 +33,9 @@ private:
 public:
 	I2C_ObjectList();
 	~I2C_ObjectList();
-	void MakeCoupleKey(i2c_m_async_desc *ptrI2,uint32_t* ptrClass,I2CPointerAndDescriptor& ck);
+	void MakeCoupleKey(i2c_m_sync_desc *ptrI2,uint32_t* ptrClass,I2CPointerAndDescriptor& ck);
 	int AddI2CObject(I2CPointerAndDescriptor& ck );
-	uint32_t GetClassPointer(i2c_m_async_desc*	i2cDescr);
+	uint32_t GetClassPointer(i2c_m_sync_desc*	i2cDescr);
 protected:
 private:
 	I2C_ObjectList( const I2C_ObjectList &c );

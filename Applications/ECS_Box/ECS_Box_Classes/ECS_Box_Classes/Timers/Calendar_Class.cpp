@@ -37,7 +37,7 @@ Calendar_Class::~Calendar_Class()
 } //~Calendar_Class
 
 void	Calendar_Class::Init(void){
-	ptrMemory=&eeprom;
+	ptrMemory=NULL;
 	calendar_enable(ptrCalendar);
 	
 	InitMaxDate();

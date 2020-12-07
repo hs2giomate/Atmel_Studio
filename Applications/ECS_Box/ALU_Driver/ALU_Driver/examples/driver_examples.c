@@ -170,14 +170,14 @@ void DATETIME_CLOCK_example(void)
 	calendar_set_alarm(&DATETIME_CLOCK, &alarm, alarm_cb);
 }
 
-void I2C_SHARED_example(void)
+void I2C_HEATERS_example(void)
 {
-	struct io_descriptor *I2C_SHARED_io;
+	struct io_descriptor *I2C_HEATERS_io;
 
-	i2c_m_sync_get_io_descriptor(&I2C_SHARED, &I2C_SHARED_io);
-	i2c_m_sync_enable(&I2C_SHARED);
-	i2c_m_sync_set_slaveaddr(&I2C_SHARED, 0x12, I2C_M_SEVEN);
-	io_write(I2C_SHARED_io, (uint8_t *)"Hello World!", 12);
+	i2c_m_sync_get_io_descriptor(&I2C_HEATERS, &I2C_HEATERS_io);
+	i2c_m_sync_enable(&I2C_HEATERS);
+	i2c_m_sync_set_slaveaddr(&I2C_HEATERS, 0x12, I2C_M_SEVEN);
+	io_write(I2C_HEATERS_io, (uint8_t *)"Hello World!", 12);
 }
 
 /**
@@ -194,14 +194,14 @@ void SPI_TEMP_example(void)
 	io_write(io, example_SPI_TEMP, 12);
 }
 
-void I2C_EXPANDER_example(void)
+void I2C_FLAPPER_VALVE_example(void)
 {
-	struct io_descriptor *I2C_EXPANDER_io;
+	struct io_descriptor *I2C_FLAPPER_VALVE_io;
 
-	i2c_m_sync_get_io_descriptor(&I2C_EXPANDER, &I2C_EXPANDER_io);
-	i2c_m_sync_enable(&I2C_EXPANDER);
-	i2c_m_sync_set_slaveaddr(&I2C_EXPANDER, 0x12, I2C_M_SEVEN);
-	io_write(I2C_EXPANDER_io, (uint8_t *)"Hello World!", 12);
+	i2c_m_sync_get_io_descriptor(&I2C_FLAPPER_VALVE, &I2C_FLAPPER_VALVE_io);
+	i2c_m_sync_enable(&I2C_FLAPPER_VALVE);
+	i2c_m_sync_set_slaveaddr(&I2C_FLAPPER_VALVE, 0x12, I2C_M_SEVEN);
+	io_write(I2C_FLAPPER_VALVE_io, (uint8_t *)"Hello World!", 12);
 }
 
 /**
@@ -218,22 +218,14 @@ void SPI_HI3593_example(void)
 	io_write(io, example_SPI_HI3593, 12);
 }
 
-static uint8_t I2C_EEPROM_example_str[12] = "Hello World!";
-
-void I2C_EEPROM_tx_complete(struct i2c_m_async_desc *const i2c)
+void I2C_FANS_example(void)
 {
-}
+	struct io_descriptor *I2C_FANS_io;
 
-void I2C_EEPROM_example(void)
-{
-	struct io_descriptor *I2C_EEPROM_io;
-
-	i2c_m_async_get_io_descriptor(&I2C_EEPROM, &I2C_EEPROM_io);
-	i2c_m_async_enable(&I2C_EEPROM);
-	i2c_m_async_register_callback(&I2C_EEPROM, I2C_M_ASYNC_TX_COMPLETE, (FUNC_PTR)I2C_EEPROM_tx_complete);
-	i2c_m_async_set_slaveaddr(&I2C_EEPROM, 0x12, I2C_M_SEVEN);
-
-	io_write(I2C_EEPROM_io, I2C_EEPROM_example_str, 12);
+	i2c_m_sync_get_io_descriptor(&I2C_FANS, &I2C_FANS_io);
+	i2c_m_sync_enable(&I2C_FANS);
+	i2c_m_sync_set_slaveaddr(&I2C_FANS, 0x12, I2C_M_SEVEN);
+	io_write(I2C_FANS_io, (uint8_t *)"Hello World!", 12);
 }
 
 static struct timer_task TIMER_USB_task1, TIMER_USB_task2;

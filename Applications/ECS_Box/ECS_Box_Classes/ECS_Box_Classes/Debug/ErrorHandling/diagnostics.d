@@ -249,9 +249,6 @@ ErrorHandling/diagnostics.d ErrorHandling/diagnostics.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
@@ -769,12 +766,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
 

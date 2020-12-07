@@ -20,11 +20,11 @@ void QSPI_N25Q256_example(void);
 
 void DATETIME_CLOCK_example(void);
 
-void I2C_SHARED_example(void);
+void I2C_HEATERS_example(void);
 
-void I2C_EXPANDER_example(void);
+void I2C_FLAPPER_VALVE_example(void);
 
-void I2C_EEPROM_example(void);
+void I2C_FANS_example(void);
 
 void TIMER_USB_example(void);
 

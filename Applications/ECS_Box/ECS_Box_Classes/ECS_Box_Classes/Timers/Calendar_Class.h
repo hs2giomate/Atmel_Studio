@@ -14,7 +14,7 @@
 #include <utils_assert.h>
 #include <hal_atomic.h>
 #include "N25Q256_Class.h"
-#include "AT24MAC_Class.h"
+//#include "AT24MAC_Class.h"
 #include "string.h"
 #include "DateTimeLog_Class.h"
 
@@ -54,8 +54,8 @@ private:
 	calendar_date_time maxDateTime,compilationDateTime,erasedDateTime,nullDateTime;
 	uint32_t  currentTimestamp,lastTimestamp,maxTimestamp,erasedTimestamp;
 	calendar_descriptor *ptrCalendar;
-	//N25Q256_Class	*ptrMemory;
-	AT24MAC_Class	*ptrMemory;
+	N25Q256_Class	*ptrMemory;
+	//AT24MAC_Class	*ptrMemory;
 //	static AT24MAC_Class	eepromCal;
 	PTR_DATE_TIME	handler;
 	

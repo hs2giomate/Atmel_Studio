@@ -54,6 +54,7 @@ public:
 	int32_t	add_oneShot_task(FUNC_PTR func,uint32_t interval);
 	int32_t Start_oneShot_task(FUNC_PTR func,uint32_t interval);
 	int32_t Start_periodic_task(FUNC_PTR func,uint32_t interval);
+	int32_t StartCountingTicks(uint32_t interval);
 	
 
 	void	GetTaskFunction(FUNC_PTR func);

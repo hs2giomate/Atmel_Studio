@@ -32,7 +32,7 @@ int I2C_ObjectList::AddI2CObject(I2CPointerAndDescriptor& ck ){
 		return ERR_NONE;
 }
 
-void I2C_ObjectList::MakeCoupleKey(i2c_m_async_desc *ptrI2C,uint32_t* ptrClass,I2CPointerAndDescriptor& ck){
+void I2C_ObjectList::MakeCoupleKey(i2c_m_sync_desc *ptrI2C,uint32_t* ptrClass,I2CPointerAndDescriptor& ck){
 		//coupleKey.ptrI2CAsynClass=ptrClass;
 		coupleKey.i2cDescr=ptrI2C;
 		ck=coupleKey;
@@ -50,7 +50,7 @@ void I2C_ObjectList::AddObject(list_descriptor *list,I2CPointerAndDescriptor* nc
 		}
 }
 
-uint32_t I2C_ObjectList::GetClassPointer(i2c_m_async_desc*	i2cDescr){
+uint32_t I2C_ObjectList::GetClassPointer(i2c_m_sync_desc*	i2cDescr){
 		struct list_element *it;
 		//I2CPointerAndDescriptor *it;
 		I2CPointerAndDescriptor *k;

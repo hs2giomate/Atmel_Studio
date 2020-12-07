@@ -30,15 +30,15 @@ void MCP23008_Class::Init(uint8_t addr) {
 	//ext_irq_register(PIN_PA04,FUNC_PTR(MCPHadChanged));
 	//ext_irq_register(PIN_PA05,FUNC_PTR(MCPHadChanged));
 }
-bool MCP23008_Class::Init(uint8_t addr,I2C_Asyn_Class *i2c){
-	txBuffer=i2c->txBuffer;
-	rxBuffer=i2c->rxBuffer;
-	i2cAddress=addr;
-	//i2cClass=i2c;
-	isOK=i2cClass->isOK;
-	return isOK;
-	//ext_irq_register(PIN_PA05,FUNC_PTR(MCPHadChanged));
-}
+// bool MCP23008_Class::Init(uint8_t addr,I2C_Asyn_Class *i2c){
+// 	txBuffer=i2c->txBuffer;
+// 	rxBuffer=i2c->rxBuffer;
+// 	i2cAddress=addr;
+// 	//i2cClass=i2c;
+// 	isOK=i2cClass->isOK;
+// 	return isOK;
+// 	//ext_irq_register(PIN_PA05,FUNC_PTR(MCPHadChanged));
+// }
 bool MCP23008_Class::Init(uint8_t addr,I2C_Sync_Class *i2c){
 	txBuffer=i2c->txBuffer;
 	rxBuffer=i2c->rxBuffer;
@@ -48,7 +48,7 @@ bool MCP23008_Class::Init(uint8_t addr,I2C_Sync_Class *i2c){
 	return isOK;
 	//ext_irq_register(PIN_PA05,FUNC_PTR(MCPHadChanged));
 }
-void MCP23008_Class::Init(i2c_m_async_desc *i2c){
+void MCP23008_Class::Init(i2c_m_sync_desc *i2c){
 	ptrI2CDescr=i2c;
 	Init((uint8_t)MCP23008_ADDRESS);
 }
