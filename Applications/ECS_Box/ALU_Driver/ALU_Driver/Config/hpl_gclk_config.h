@@ -691,7 +691,7 @@
 // <i> Indicates whether generic clock 9 configuration is enabled or not
 // <id> enable_gclk_gen_9
 #ifndef CONF_GCLK_GENERATOR_9_CONFIG
-#define CONF_GCLK_GENERATOR_9_CONFIG 0
+#define CONF_GCLK_GENERATOR_9_CONFIG 1
 #endif
 
 // <h> Generic Clock Generator Control
@@ -708,7 +708,7 @@
 // <i> This defines the clock source for generic clock generator 9
 // <id> gclk_gen_9_oscillator
 #ifndef CONF_GCLK_GEN_9_SOURCE
-#define CONF_GCLK_GEN_9_SOURCE GCLK_GENCTRL_SRC_XOSC1
+#define CONF_GCLK_GEN_9_SOURCE GCLK_GENCTRL_SRC_DPLL1
 #endif
 
 // <q> Run in Standby
@@ -722,14 +722,14 @@
 // <i> Indicates whether Divide Selection is enabled or not
 //<id> gclk_gen_9_div_sel
 #ifndef CONF_GCLK_GEN_9_DIVSEL
-#define CONF_GCLK_GEN_9_DIVSEL 0
+#define CONF_GCLK_GEN_9_DIVSEL 1
 #endif
 
 // <q> Output Enable
 // <i> Indicates whether Output Enable is enabled or not
 // <id> gclk_arch_gen_9_oe
 #ifndef CONF_GCLK_GEN_9_OE
-#define CONF_GCLK_GEN_9_OE 0
+#define CONF_GCLK_GEN_9_OE 1
 #endif
 
 // <q> Output Off Value
@@ -750,7 +750,7 @@
 // <i> Indicates whether Generic Clock Generator Enable is enabled or not
 // <id> gclk_arch_gen_9_enable
 #ifndef CONF_GCLK_GEN_9_GENEN
-#define CONF_GCLK_GEN_9_GENEN 0
+#define CONF_GCLK_GEN_9_GENEN 1
 #endif
 // </h>
 

@@ -114,7 +114,7 @@ int main(void)
 		}
 		else
 		{
-			toolApp.setConnected(false);
+			toolApp.SetConnected(false);
 			//delay_ms(100);
 		}
 		

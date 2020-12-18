@@ -907,8 +907,9 @@
 // </h>
 
 #define CONFIG_EIC_EXTINT_MAP                                                                                          \
-	{0, PIN_PD00}, {1, PIN_PD01}, {2, PIN_PC18}, {3, PIN_PB03}, {4, PIN_PB04}, {5, PIN_PB05}, {6, PIN_PB06},           \
-	    {7, PIN_PB07}, {8, PIN_PB08}, {9, PIN_PB09}, {10, PIN_PB10}, {14, PIN_PB28}, {15, PIN_PB29},
+	{0, PIN_PC00}, {1, PIN_PB01}, {2, PIN_PC18}, {3, PIN_PA03}, {4, PIN_PA04}, {5, PIN_PA05}, {6, PIN_PC22},           \
+	    {7, PIN_PC23}, {8, PIN_PB08}, {9, PIN_PB09}, {10, PIN_PC10}, {11, PIN_PC11}, {12, PIN_PC12}, {13, PIN_PA13},   \
+	    {14, PIN_PA14}, {15, PIN_PC31},
 
 // <<< end of configuration section >>>
 

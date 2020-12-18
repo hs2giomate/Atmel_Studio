@@ -54,6 +54,7 @@ public:
 	uint8_t	SetRelay(uint8_t indexHeater, bool state);
 	uint8_t	ReadEnableGIPO(void);
 	uint8_t GetHeaterPowerLevel(void);
+	void DisableAll(void);
 		
 protected:
 private:
@@ -62,7 +63,7 @@ private:
 	uint8_t InitExpanderArray(void);
 	bool SelfTest(void);
 }; //SingleHeater_Class
-
+static I2C_Sync_Class	i2cSharedStatic(&I2C_HEATERS);
 extern SingleHeater_Class heater;
 
 #endif //__SINGLEHEATER_CLASS_H__

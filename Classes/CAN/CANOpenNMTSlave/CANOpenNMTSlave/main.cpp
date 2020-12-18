@@ -24,7 +24,7 @@ int main(void)
 		cano.Process();
 		delay_us(500);
 		
-		cano.Periodic_Process();
+		cano.Periodic_Process(1000);
 		delay_us(500);
 	}
 }

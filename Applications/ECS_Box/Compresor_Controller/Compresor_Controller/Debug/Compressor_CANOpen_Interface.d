@@ -1,6 +1,6 @@
-USBSerial/Storage/Parameters.d USBSerial/Storage/Parameters.o: \
- ../USBSerial/Storage/Parameters.cpp ../USBSerial/Storage/Parameters.h \
- ../EIDE_Utils/coreTypes.h \
+Compressor_CANOpen_Interface.d Compressor_CANOpen_Interface.o: \
+ .././Compressor_CANOpen_Interface.cpp \
+ .././Compressor_CANOpen_Interface.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
@@ -160,11 +160,72 @@ USBSerial/Storage/Parameters.d USBSerial/Storage/Parameters.o: \
  ../../../ALU_Driver/ALU_Driver/hri/hri_trng_e54.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_usb_e54.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h \
- ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h
+ ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CANOpen_Class.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h \
+ ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h \
+ ../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_delay.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_reset.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_sleep.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_init.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_init.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_io.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_sleep.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_crc_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_crc_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_ext_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_ext_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_evsys.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_evsys.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_qspi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
+ ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
+ ../../../ALU_Driver/ALU_Driver/Config/hpl_usb_config.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_wdt.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_wdt.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Definitions.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Driver_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_SDO_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_CRC16_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Emergency_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_SYNC_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_NMT_Heartbeat_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_PDO_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_HB_Consumer_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_OD_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h
 
-../USBSerial/Storage/Parameters.h:
-
-../EIDE_Utils/coreTypes.h:
+.././Compressor_CANOpen_Interface.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h:
 
@@ -485,3 +546,129 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CANOpen_Class.h:
+
+../../../ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h:
+
+../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h:
+
+../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_delay.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_reset.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_sleep.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_init.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_init.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_io.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_sleep.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_crc_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_crc_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_ext_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_ext_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_evsys.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_evsys.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_qspi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_qspi.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_calendar.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi.h:
+
+../../../ALU_Driver/ALU_Driver/hal/utils/include/utils.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_timer.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_timer.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
+
+../../../ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_usb.h:
+
+../../../ALU_Driver/ALU_Driver/Config/hpl_usb_config.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_wdt.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_wdt.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Definitions.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Driver_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_SDO_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_CRC16_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Emergency_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_SYNC_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_NMT_Heartbeat_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_PDO_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_HB_Consumer_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_OD_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:

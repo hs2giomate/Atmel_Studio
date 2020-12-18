@@ -37,6 +37,8 @@ struct timer_descriptor TIMER_HVAC;
 
 struct timer_descriptor TIMER_TEMPERATURES;
 
+struct timer_descriptor TIMER_CCU;
+
 struct wdt_descriptor WATCHDOG;
 
 /**
@@ -756,6 +758,18 @@ void TIMER_TEMPERATURES_init(void)
 	timer_init(&TIMER_TEMPERATURES, TCC1, _tcc_get_timer());
 }
 
+void TIMER_CCU_CLOCK_init(void)
+{
+	hri_mclk_set_APBCMASK_TCC2_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TCC2_GCLK_ID, CONF_GCLK_TCC2_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+}
+
+void TIMER_CCU_init(void)
+{
+	TIMER_CCU_CLOCK_init();
+	timer_init(&TIMER_CCU, TCC2, _tcc_get_timer());
+}
+
 void CDCUSB_PORT_init(void)
 {
 
@@ -1090,6 +1104,8 @@ void system_init(void)
 	TIMER_HVAC_init();
 
 	TIMER_TEMPERATURES_init();
+
+	TIMER_CCU_init();
 
 	CDCUSB_init();
 

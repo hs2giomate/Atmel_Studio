@@ -20,7 +20,7 @@ class CANOpen_Class: public	CO_Class
 {
 //variables
 public:
-	volatile bool isOK,synchronized;
+	volatile bool isOK,synchronized,slaveIsOperational;
 	
 protected:
 private:
@@ -39,11 +39,13 @@ public:
 	int RunallProcesses();
 	int	Periodic_Process(uint32_t timeDifference=500);
 	bool	StartNMTService(void);
+	int	SetInitialMode(void);
+	bool	StartNMTService(uint8_t nodeId);
 protected:
 private:
 	CANOpen_Class( const CANOpen_Class &c );
 	CANOpen_Class& operator=( const CANOpen_Class &c );
-	int	SetInitialMode(void);
+	
 	void	RedefineMacros(void);
 }; //CANOpen_Class
 

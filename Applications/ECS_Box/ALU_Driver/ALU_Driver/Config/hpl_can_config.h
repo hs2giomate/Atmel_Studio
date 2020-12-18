@@ -13,7 +13,7 @@
 // <i> Enable CAN FD operation
 // <id> can_cccr_fdoe
 #ifndef CONF_CAN1_CCCR_FDOE
-#define CONF_CAN1_CCCR_FDOE 1
+#define CONF_CAN1_CCCR_FDOE 0
 #endif
 
 // <q> Bit Rate Switch Enable
@@ -51,21 +51,21 @@
 // <i> Baud Rate Prescale
 // <id> can_btp_brp
 #ifndef CONF_CAN1_BTP_BRP
-#define CONF_CAN1_BTP_BRP 2
+#define CONF_CAN1_BTP_BRP 1
 #endif
 
 // <o> time segment before sample point <2-256>
 // <i> time segment before sample point
 // <id> can_btp_tseg1
 #ifndef CONF_CAN1_BTP_TSEG1
-#define CONF_CAN1_BTP_TSEG1 13
+#define CONF_CAN1_BTP_TSEG1 11
 #endif
 
 // <o> time segment after sample point <1-128>
 // <i> time segment after sample point
 // <id> can_btp_tseg2
 #ifndef CONF_CAN1_BTP_TSEG2
-#define CONF_CAN1_BTP_TSEG2 2
+#define CONF_CAN1_BTP_TSEG2 4
 #endif
 
 // <o> Data (Re)Syncronization Jump Width <1-128>
@@ -90,21 +90,21 @@
 // <i> Data Baud Rate Prescaler
 // <id> can_dbtp_dbrp
 #ifndef CONF_CAN1_DBTP_DBRP
-#define CONF_CAN1_DBTP_DBRP 2
+#define CONF_CAN1_DBTP_DBRP 1
 #endif
 
 // <o> Fast time segment before sample point <1-32>
 // <i> Fast time segment before sample point
 // <id> can_dbtp_dtseg1
 #ifndef CONF_CAN1_DBTP_DTSEG1
-#define CONF_CAN1_DBTP_DTSEG1 13
+#define CONF_CAN1_DBTP_DTSEG1 11
 #endif
 
 // <o> Data time segment after sample point <1-16>
 // <i> Fast time segment after sample point
 // <id> can_dbtp_dtseg2
 #ifndef CONF_CAN1_DBTP_DTSEG2
-#define CONF_CAN1_DBTP_DTSEG2 2
+#define CONF_CAN1_DBTP_DTSEG2 4
 #endif
 
 // <o> Data (Re)Syncronization Jump Width <1-16>
@@ -300,7 +300,7 @@
 // <i> Indicates whether to not disable CAN error passive interrupt
 // <id> can_ie_ep
 #ifndef CONF_CAN1_IE_EP
-#define CONF_CAN1_IE_EP 0
+#define CONF_CAN1_IE_EP 1
 #endif
 
 // <q> Bus Off

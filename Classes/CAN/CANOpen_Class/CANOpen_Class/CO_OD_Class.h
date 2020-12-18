@@ -11,31 +11,33 @@
 #include "stdint.h"
 #include "CO_Definitions.h"
 
-
+#ifdef __cplusplus
+extern "C" {
+	#endif
 
 /*******************************************************************************
    CANopen DATA DYPES
 *******************************************************************************/
-   typedef unsigned char  bool_t;     /**< bool_t */
-   typedef float          float32_t;  /**< float32_t */
-   typedef long double    float64_t;  /**< float64_t */
-   typedef char           char_t;     /**< char_t */
-   typedef unsigned char  oChar_t;    /**< oChar_t */
-   typedef unsigned char  domain_t;   /**< domain_t */
+//    typedef unsigned char  bool_t;     /**< bool_t */
+//    typedef float          float32_t;  /**< float32_t */
+//    typedef long double    float64_t;  /**< float64_t */
+//    typedef char           char_t;     /**< char_t */
+//    typedef unsigned char  oChar_t;    /**< oChar_t */
+//    typedef unsigned char  domain_t;   /**< domain_t */
 
-   typedef uint8_t      UNSIGNED8;
-   typedef uint16_t     UNSIGNED16;
-   typedef uint32_t     UNSIGNED32;
-   typedef uint64_t     UNSIGNED64;
-   typedef int8_t       INTEGER8;
-   typedef int16_t      INTEGER16;
-   typedef int32_t      INTEGER32;
-   typedef int64_t      INTEGER64;
-   typedef float32_t    REAL32;
-   typedef float64_t    REAL64;
-   typedef char_t       VISIBLE_STRING;
-   typedef oChar_t      OCTET_STRING;
-   typedef domain_t     DOMAIN;
+//    typedef uint8_t      UNSIGNED8;
+//    typedef uint16_t     UNSIGNED16;
+//    typedef uint32_t     UNSIGNED32;
+//    typedef uint64_t     UNSIGNED64;
+//    typedef int8_t       INTEGER8;
+//    typedef int16_t      INTEGER16;
+//    typedef int32_t      INTEGER32;
+//    typedef int64_t      INTEGER64;
+//    typedef float32_t    REAL32;
+//    typedef float64_t    REAL64;
+//    typedef char_t       VISIBLE_STRING;
+//    typedef oChar_t      OCTET_STRING;
+//    typedef domain_t     DOMAIN;
 
 
 /*******************************************************************************
@@ -123,7 +125,7 @@
                UNSIGNED64     U64;
                REAL32         R32;
                REAL64         R64;
-               DOMAIN         domain;
+               DOMAINTT         domain;
                }              OD_testVar_t;
 
 /*2130      */ typedef struct{
@@ -402,4 +404,8 @@ private:
 
 }; //CO_OD
 extern  const CO_OD_entry_t CO_ObjDict[CO_OD_NoOfElements];
+
+#ifdef __cplusplus
+}
+#endif
 #endif //__CO_OD_H__

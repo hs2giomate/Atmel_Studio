@@ -53,6 +53,8 @@ extern "C" {
 #include <hpl_tcc.h>
 #include <hal_timer.h>
 #include <hpl_tcc.h>
+#include <hal_timer.h>
+#include <hpl_tcc.h>
 
 #include "hal_usb_device.h"
 
@@ -83,6 +85,8 @@ extern struct pwm_descriptor LIVE_PULSE;
 extern struct timer_descriptor TIMER_HVAC;
 
 extern struct timer_descriptor TIMER_TEMPERATURES;
+
+extern struct timer_descriptor TIMER_CCU;
 
 extern struct wdt_descriptor       WATCHDOG;
 extern struct can_async_descriptor CAN_CCU;
@@ -123,6 +127,9 @@ void TIMER_HVAC_init(void);
 
 void TIMER_TEMPERATURES_CLOCK_init(void);
 void TIMER_TEMPERATURES_init(void);
+
+void TIMER_CCU_CLOCK_init(void);
+void TIMER_CCU_init(void);
 
 void CDCUSB_CLOCK_init(void);
 void CDCUSB_init(void);

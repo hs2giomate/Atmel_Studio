@@ -7,7 +7,7 @@
 
 
 #include "SerialTerminal_Class.h"
-
+#include "Timer_Class.h"
 #include "CDC_Class.h"
 
 SerialTerminal_Class	*ptrSerialTerminalClass;
@@ -57,8 +57,8 @@ void	SerialTerminal_Class::OnInit(void){
 		{
 			timeout=false;
 			plugged=true;
-			usbTerminalTimer.Add_oneShot_task((FUNC_PTR)USBTimeoutTask,USB_TIMEOUT*60);
-			usbTerminalTimer.Start();
+			usbTerminalTimer.Start_oneShot_task((FUNC_PTR)USBTimeoutTask,USB_TIMEOUT*60);
+		
 			//while ((!usb.IsEnabled())||(!plugged)){
 			while ((!usb.IsEnabled())){
 				if (timeout)
@@ -83,8 +83,8 @@ void	SerialTerminal_Class::OnInit(void){
 void	SerialTerminal_Class::OnPlugged(void){
 	usbTerminalTimer.Stop();
 	usbTerminalTimer.Remove_task();
-	usbTerminalTimer.Add_oneShot_task((FUNC_PTR)USBTimeoutTask,USB_TIMEOUT*40);
-	usbTerminalTimer.Start();
+	usbTerminalTimer.Start_oneShot_task((FUNC_PTR)USBTimeoutTask,USB_TIMEOUT*40);
+
 	while (!connected){
 		if (timeout)
 		{
@@ -125,8 +125,8 @@ bool	SerialTerminal_Class::CheckTerminal(uint32_t size){
 		{
 			usbTerminalTimer.Stop();
 			usbTerminalTimer.Remove_task((FUNC_PTR)USBTimeoutTask);
-			usbTerminalTimer.Add_oneShot_task((FUNC_PTR)USBTimeoutTask,USB_TIMEOUT*size);
-			plugged=usbTerminalTimer.Start()==0;
+			plugged=usbTerminalTimer.Start_oneShot_task((FUNC_PTR)USBTimeoutTask,USB_TIMEOUT*size)==0;
+			
 		}
 		else
 		{

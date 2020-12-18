@@ -10,11 +10,11 @@
 #include "driver_init.h"
 #include "utils.h"
 
-static void button_on_PD00_pressed(void)
+static void button_on_PC00_pressed(void)
 {
 }
 
-static void button_on_PD01_pressed(void)
+static void button_on_PB01_pressed(void)
 {
 }
 
@@ -22,23 +22,23 @@ static void button_on_PC18_pressed(void)
 {
 }
 
-static void button_on_PB03_pressed(void)
+static void button_on_PA03_pressed(void)
 {
 }
 
-static void button_on_PB04_pressed(void)
+static void button_on_PA04_pressed(void)
 {
 }
 
-static void button_on_PB05_pressed(void)
+static void button_on_PA05_pressed(void)
 {
 }
 
-static void button_on_PB06_pressed(void)
+static void button_on_PC22_pressed(void)
 {
 }
 
-static void button_on_PB07_pressed(void)
+static void button_on_PC23_pressed(void)
 {
 }
 
@@ -50,15 +50,27 @@ static void button_on_PB09_pressed(void)
 {
 }
 
-static void button_on_PB10_pressed(void)
+static void button_on_PC10_pressed(void)
 {
 }
 
-static void button_on_PB28_pressed(void)
+static void button_on_PC11_pressed(void)
 {
 }
 
-static void button_on_PB29_pressed(void)
+static void button_on_PC12_pressed(void)
+{
+}
+
+static void button_on_PA13_pressed(void)
+{
+}
+
+static void button_on_PA14_pressed(void)
+{
+}
+
+static void button_on_PC31_pressed(void)
 {
 }
 
@@ -68,19 +80,22 @@ static void button_on_PB29_pressed(void)
 void EXTERNAL_IRQ_0_example(void)
 {
 
-	ext_irq_register(PIN_PD00, button_on_PD00_pressed);
-	ext_irq_register(PIN_PD01, button_on_PD01_pressed);
+	ext_irq_register(PIN_PC00, button_on_PC00_pressed);
+	ext_irq_register(PIN_PB01, button_on_PB01_pressed);
 	ext_irq_register(PIN_PC18, button_on_PC18_pressed);
-	ext_irq_register(PIN_PB03, button_on_PB03_pressed);
-	ext_irq_register(PIN_PB04, button_on_PB04_pressed);
-	ext_irq_register(PIN_PB05, button_on_PB05_pressed);
-	ext_irq_register(PIN_PB06, button_on_PB06_pressed);
-	ext_irq_register(PIN_PB07, button_on_PB07_pressed);
+	ext_irq_register(PIN_PA03, button_on_PA03_pressed);
+	ext_irq_register(PIN_PA04, button_on_PA04_pressed);
+	ext_irq_register(PIN_PA05, button_on_PA05_pressed);
+	ext_irq_register(PIN_PC22, button_on_PC22_pressed);
+	ext_irq_register(PIN_PC23, button_on_PC23_pressed);
 	ext_irq_register(PIN_PB08, button_on_PB08_pressed);
 	ext_irq_register(PIN_PB09, button_on_PB09_pressed);
-	ext_irq_register(PIN_PB10, button_on_PB10_pressed);
-	ext_irq_register(PIN_PB28, button_on_PB28_pressed);
-	ext_irq_register(PIN_PB29, button_on_PB29_pressed);
+	ext_irq_register(PIN_PC10, button_on_PC10_pressed);
+	ext_irq_register(PIN_PC11, button_on_PC11_pressed);
+	ext_irq_register(PIN_PC12, button_on_PC12_pressed);
+	ext_irq_register(PIN_PA13, button_on_PA13_pressed);
+	ext_irq_register(PIN_PA14, button_on_PA14_pressed);
+	ext_irq_register(PIN_PC31, button_on_PC31_pressed);
 }
 
 /**
@@ -95,26 +110,6 @@ void Flash_Mem_SPI_example(void)
 
 	spi_m_sync_enable(&Flash_Mem_SPI);
 	io_write(io, example_Flash_Mem_SPI, 12);
-}
-
-void Fvx_I2C_example(void)
-{
-	struct io_descriptor *Fvx_I2C_io;
-
-	i2c_m_sync_get_io_descriptor(&Fvx_I2C, &Fvx_I2C_io);
-	i2c_m_sync_enable(&Fvx_I2C);
-	i2c_m_sync_set_slaveaddr(&Fvx_I2C, 0x12, I2C_M_SEVEN);
-	io_write(Fvx_I2C_io, (uint8_t *)"Hello World!", 12);
-}
-
-void FANs_I2C_example(void)
-{
-	struct io_descriptor *FANs_I2C_io;
-
-	i2c_m_sync_get_io_descriptor(&FANs_I2C, &FANs_I2C_io);
-	i2c_m_sync_enable(&FANs_I2C);
-	i2c_m_sync_set_slaveaddr(&FANs_I2C, 0x12, I2C_M_SEVEN);
-	io_write(FANs_I2C_io, (uint8_t *)"Hello World!", 12);
 }
 
 void Shared_I2C_example(void)
@@ -141,6 +136,16 @@ void SPI_Temp_example(void)
 	io_write(io, example_SPI_Temp, 12);
 }
 
+void Fvx_I2C_example(void)
+{
+	struct io_descriptor *Fvx_I2C_io;
+
+	i2c_m_sync_get_io_descriptor(&Fvx_I2C, &Fvx_I2C_io);
+	i2c_m_sync_enable(&Fvx_I2C);
+	i2c_m_sync_set_slaveaddr(&Fvx_I2C, 0x12, I2C_M_SEVEN);
+	io_write(Fvx_I2C_io, (uint8_t *)"Hello World!", 12);
+}
+
 /**
  * Example of using SPI_AMMC to write "Hello World" using the IO abstraction.
  */
@@ -153,6 +158,16 @@ void SPI_AMMC_example(void)
 
 	spi_m_sync_enable(&SPI_AMMC);
 	io_write(io, example_SPI_AMMC, 12);
+}
+
+void FANs_I2C_example(void)
+{
+	struct io_descriptor *FANs_I2C_io;
+
+	i2c_m_sync_get_io_descriptor(&FANs_I2C, &FANs_I2C_io);
+	i2c_m_sync_enable(&FANs_I2C);
+	i2c_m_sync_set_slaveaddr(&FANs_I2C, 0x12, I2C_M_SEVEN);
+	io_write(FANs_I2C_io, (uint8_t *)"Hello World!", 12);
 }
 
 void CCu_CAN_tx_callback(struct can_async_descriptor *const descr)

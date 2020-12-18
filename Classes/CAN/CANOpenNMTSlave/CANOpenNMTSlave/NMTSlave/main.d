@@ -188,22 +188,19 @@ main.d main.o: .././main.cpp \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/utils/include/utils_list.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_irq.h \
- ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h \
- ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h \
- ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
- ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
- ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h \
- ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h \
- ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h \
+ ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h \
+ ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi.h \
+ ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/utils/include/utils.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_timer.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_timer.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hpl/tc/hpl_tc_base.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_pwm.h \
+ ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_usb_device.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_usb.h \
@@ -250,15 +247,7 @@ main.d main.o: .././main.cpp \
  ../../../CANOpen_Class/CANOpen_Class/CO_NMT_Heartbeat_Class.h \
  ../../../CANOpen_Class/CANOpen_Class/CO_PDO_Class.h \
  ../../../CANOpen_Class/CANOpen_Class/CO_HB_Consumer_Class.h \
- ../../../CANOpen_Class/CANOpen_Class/CO_OD_Class.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\os_defines.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h
+ ../../../CANOpen_Class/CANOpen_Class/CO_OD_Class.h
 
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/atmel_start.h:
 
@@ -638,25 +627,17 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_irq.h:
 
-../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_spi_m_async.h:
-
-../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_async.h:
-
-../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi.h:
-
-../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/utils/include/utils.h:
-
-../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_async.h:
-
-../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_async.h:
-
-../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_async.h:
+../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_i2c_m_sync.h:
 
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_i2c_m_sync.h:
 
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_spi_m_sync.h:
 
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_m_sync.h:
+
+../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi.h:
+
+../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/utils/include/utils.h:
 
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_spi_sync.h:
 
@@ -669,6 +650,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME54_DFP\1.1.134\include
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_pwm.h:
 
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_pwm.h:
+
+../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hpl/tcc/hpl_tcc.h:
 
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_usb_device.h:
 
@@ -763,19 +746,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../CANOpen_Class/CANOpen_Class/CO_HB_Consumer_Class.h:
 
 ../../../CANOpen_Class/CANOpen_Class/CO_OD_Class.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\os_defines.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h:

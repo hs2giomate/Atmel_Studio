@@ -13,6 +13,7 @@ static	uint8_t	rxI2CStaticBuffer[I2C_SYN_BUFFER_SIZE];
 // default constructor
 I2C_Sync_Class::I2C_Sync_Class()
 {
+	i2c_initiated=false;
 } //I2C_Sync_Class
 I2C_Sync_Class::I2C_Sync_Class(i2c_m_sync_desc * des)
 {
@@ -35,7 +36,7 @@ bool	I2C_Sync_Class::Init(void){
 	i2c_m_sync_get_io_descriptor(ptrI2CDescr, &I2C_io);
 	uint8_t	ena=(uint8_t)i2c_m_sync_enable(ptrI2CDescr);
 	isOK=ena==0;
-	initiated=isOK;
+	i2c_initiated=isOK;
 	return isOK;
 	
 }
@@ -52,15 +53,15 @@ int32_t I2C_Sync_Class::SetSlaveAddress(uint8_t add){
 }
 
 int32_t I2C_Sync_Class::Write(uint8_t* buffer, uint16_t lenght){
-	Irq_Disable();
+//	Irq_Disable();
 	int32_t w= io_write(I2C_io, buffer, lenght);
-	Irq_Enable();
+//	Irq_Enable();
 	return w;
 }
 int32_t I2C_Sync_Class::Read(uint8_t* buffer, uint16_t lenght){
-	Irq_Disable();
+//	Irq_Disable();
 	int32_t r= io_read(I2C_io, buffer, lenght);
-	Irq_Enable();
+//	Irq_Enable();
 	return r;
 }
 int32_t I2C_Sync_Class::ReadCommand(uint8_t cmd,uint8_t* buffer, uint16_t lenght){

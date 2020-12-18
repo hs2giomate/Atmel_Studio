@@ -276,7 +276,7 @@ Commands_Handler.d Commands_Handler.o: .././Commands_Handler.cpp \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h
 
 .././Commands_Handler.h:
 
@@ -834,4 +834,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
-../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:

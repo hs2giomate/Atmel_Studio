@@ -271,8 +271,7 @@ ARINC_Interface.d ARINC_Interface.o: .././ARINC_Interface.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h
+ ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h
 
 .././ARINC_Handler_Class.h:
 
@@ -825,5 +824,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:

@@ -8,6 +8,8 @@ CBIT_Class.cpp
 
 ConfigState_Class.cpp
 
+Cooling_Controller.cpp
+
 Device_Startup\startup_same54.c
 
 Device_Startup\system_same54.c

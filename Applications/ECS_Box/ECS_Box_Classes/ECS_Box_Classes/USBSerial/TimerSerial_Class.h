@@ -71,7 +71,7 @@ private:
 
 }; //Timer_Class
 
-extern	TimerSerial_Class usbTerminalTimer;
-extern	TimerSerial_Class interfaceTimer;
+//extern	TimerSerial_Class usbTerminalTimer;
+//extern	TimerSerial_Class interfaceTimer;
 
 #endif //__TIMER_CLASS_H__

@@ -114,7 +114,10 @@ uint32_t Interfaces_Class::CheckExternalCommunication(void)
 	if (toolApp.IsAppConnected())
 	{
 		toolApp.handleCommunication();
+		isMaintenanceActivated=true;
 		
+	}else{
+		isMaintenanceActivated=false;
 	}
 	//request.externRequest.arinc1GotMessage=arinc.newMessageR2;
 	
@@ -155,15 +158,16 @@ bool	Interfaces_Class::CheckTemperatures(void){
 		temperatures.GetConversionResult();
 		if (temperatures.faultData==VALID_TEMPERATURE)
 		{
-			if (lastTemperature!=temperatures.values[0][1])
+			if (lastTemperature!=temperatures.values[0][3])
 			{
-				lastTemperature=temperatures.values[0][1];
+				lastTemperature=temperatures.values[0][3];
 				alu.PrepareNewTask(kALUTaskUpdateTemperatures);
 				result=true;
 			}
 				
 		}
-			temperatures.StartOneConversion();
+			//temperatures.StartOneConversion();
+		temperatures.StartOneConversion(0,3);
 			asm("nop");
 	
 	} 

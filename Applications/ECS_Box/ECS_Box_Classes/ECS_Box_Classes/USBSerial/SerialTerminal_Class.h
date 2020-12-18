@@ -11,7 +11,8 @@
 #define		SERIALTERMINALCLASSVERSION	0x01
 #define		SERIALTERMINALCLASSSUBVERSION	0x00
 #include "compiler.h"
-#include "TimerSerial_Class.h"
+//#include "TimerSerial_Class.h"
+#include "Timer_Class.h"
 #define USB_TIMEOUT	10
 
 class SerialTerminal_Class

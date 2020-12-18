@@ -161,8 +161,7 @@ USBSerial/SerialTerminal_Class.d USBSerial/SerialTerminal_Class.o: \
  ../../../ALU_Driver/ALU_Driver/hri/hri_usb_e54.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h \
- ../USBSerial/TimerSerial_Class.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../Timers/Timer_Class.h ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
@@ -584,7 +583,7 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h:
 
-../USBSerial/TimerSerial_Class.h:
+../Timers/Timer_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
 

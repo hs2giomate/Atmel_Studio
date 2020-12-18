@@ -12,6 +12,7 @@
 
 static	uint8_t	flashBufferStatic[QSPI_ERBLK/1];
 
+
 // default constructor
 MemoryFlash_Class::MemoryFlash_Class()
 {
@@ -19,6 +20,8 @@ MemoryFlash_Class::MemoryFlash_Class()
 	head=512;
 	tail=0;
 	flashBuffer=&flashBufferStatic[0];
+	
+	stackpointerEventloger=(uint32_t)&flashMap->EventsLogStateSector;
 	
 } //MemoryManagment_Class
 
@@ -172,6 +175,12 @@ uint32_t	MemoryFlash_Class::ReadDeafultApplicationState(HVACState& as){
 	uint32_t	r=qspiFlash.ReadAddress((uint8_t*)handlerAppState,add,sizeof(HVACState));
 	return	r;
 }
+// uint32_t	MemoryFlash_Class::ReadDeaful(HVACState& as){
+// 	handlerAppState=PTR_HVAC_STATE(&as);
+// 	uint32_t	add=(uint32_t )(&flashMap->hvacStateSector.hvacDefaultState);
+// 	uint32_t	r=qspiFlash.ReadAddress((uint8_t*)handlerAppState,add,sizeof(HVACState));
+// 	return	r;
+// }
  uint32_t	MemoryFlash_Class::WriteValidApplicationState(HVACState& hs ){
 	uint32_t w=  WriteCurrentState(hs);
 	crc32=CalculateCRC((uint32_t *)PTR_HVAC_STATE(&hs),sizeof(HVACState));
@@ -198,7 +207,7 @@ uint32_t	MemoryFlash_Class::ReadDeafultApplicationState(HVACState& as){
 
 	 return	r;
  }
-  uint32_t	MemoryFlash_Class::SaveParameters(UserParameters& up){
+ uint32_t	MemoryFlash_Class::SaveParameters(UserParameters& up){
 	  uint32_t	add=(uint32_t)&flashMap->parametersSector;
 	  ParametersSector	*pss=(ParametersSector*)&flashBuffer[0];
 	  uint32_t r=qspiFlash.ReadAddress((uint8_t*)pss,add,QSPI_ERBLK);
@@ -212,6 +221,25 @@ uint32_t	MemoryFlash_Class::ReadDeafultApplicationState(HVACState& as){
 
 	  return	r;
   }
+   uint32_t	MemoryFlash_Class::SaveEventLog(uint8_t *evl){
+	  
+	
+		   if ((stackpointerEventloger+QSPI_ERBLK)>N25Q_FLASH_SIZE)
+		   {
+			   uint32_t	addRef=(uint32_t)&flashMap->EventsLogStateSector;
+			   stackpointerEventloger=addRef;
+		   } 
+		   else
+		   {
+			   
+		   }
+	
+		  stackpointerEventloger+=QSPI_ERBLK;
+		   uint32_t w=qspiFlash.WriteAddress(evl, stackpointerEventloger,QSPI_ERBLK);
+		   return	w;
+
+	 
+   }
 uint32_t	MemoryFlash_Class::SaveApplicationState(HVACState& hs ){
 	  uint32_t w=  SaveCurrentState(hs);
 	  crc32=CalculateCRC((uint32_t *)PTR_HVAC_STATE(&hs),sizeof(HVACState));

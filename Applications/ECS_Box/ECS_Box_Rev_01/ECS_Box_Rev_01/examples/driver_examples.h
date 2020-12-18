@@ -14,11 +14,11 @@ extern "C" {
 
 void EXTERNAL_IRQ_0_example(void);
 
+void Shared_I2C_example(void);
+
 void Fvx_I2C_example(void);
 
 void FANs_I2C_example(void);
-
-void Shared_I2C_example(void);
 
 void CCu_CAN_example(void);
 

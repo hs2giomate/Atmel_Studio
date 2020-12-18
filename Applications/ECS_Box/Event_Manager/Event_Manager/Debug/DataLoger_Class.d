@@ -1,5 +1,11 @@
-VENT_MODE_Controller.d VENT_MODE_Controller.o: \
- .././VENT_MODE_Controller.cpp .././VENT_MODE_Controller.h \
+DataLoger_Class.d DataLoger_Class.o: .././DataLoger_Class.cpp \
+ .././DataLoger_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
+ ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
@@ -160,12 +166,6 @@ VENT_MODE_Controller.d VENT_MODE_Controller.o: \
  ../../../ALU_Driver/ALU_Driver/hri/hri_usb_e54.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h \
- ../../../TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h \
- ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
- ../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h \
  ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h \
  ../../../ALU_Driver/ALU_Driver/Config/hpl_port_config.h \
@@ -212,95 +212,63 @@ VENT_MODE_Controller.d VENT_MODE_Controller.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h \
- ../../../HeaterP0Board/HeaterP0Board/SingleHeater_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\os_defines.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
+ ../../../ALU_Driver/ALU_Driver/usb_start.h \
+ ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
+ ../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h \
+ ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
- ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFans_Class.h \
- ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFan_Class.h \
- ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFanDataStruct_Class.h \
- ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h \
- ../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h \
- ../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
- .././States_Class.h ../../../QSPI_Memory_Handler/ConfigurationData.h \
- ../../../QSPI_Memory_Handler/ConfigurationCommons.h \
- ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Maintenance_Tool.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/CDC_Class.h \
- ../../../ALU_Driver/ALU_Driver/usb_start.h \
- ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h \
- ../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h \
- ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
  ../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h \
  ../../../ALU_Driver/ALU_Driver/usb/usb_includes.h \
  ../../../ALU_Driver/ALU_Driver/Config/usbd_config.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/usb_protocol_cdc.h \
  ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Stream.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\inttypes.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Print.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdarg.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\endian.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_endian.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\select.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_sigset.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timeval.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\timespec.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timespec.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/WString.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
- ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Commands_Handler.h \
- ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h \
- .././ConfigState_Class.h .././GAINDefinitions.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h \
+ ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
+ ../../../QSPI_Memory_Handler/ConfigurationData.h \
+ ../../../QSPI_Memory_Handler/ConfigurationCommons.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h \
+ .././Event_Logger_Struct.h \
+ ../../../QSPI_Memory_Handler/FlashHandler_Class.h \
+ ../../../QSPI_Memory_Handler/ConfigState_Class.h \
+ ../../../QSPI_Memory_Handler/ConfigurationData.h \
+ ../../../QSPI_Memory_Handler/GAINDefinitions.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
- .././Interfaces_Class.h .././HVAC_Commando_Class.h \
- .././HVAC_Controller.h
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
+ ../../../QSPI_Memory_Handler/MemoryFlash_Class.h \
+ ../../../QSPI_Memory_Handler/FlashHandler_Class.h \
+ ../../../QSPI_Memory_Handler/CRC32_Class.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h
 
-.././VENT_MODE_Controller.h:
+.././DataLoger_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h:
+
+../../../ALU_Driver/ALU_Driver/atmel_start.h:
+
+../../../ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
+
+../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h:
 
@@ -622,18 +590,6 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h:
 
-../../../TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
-
-../../../ALU_Driver/ALU_Driver/driver_init.h:
-
-../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h:
-
-../../../ALU_Driver/ALU_Driver/hal/include/hpl_gpio.h:
-
 ../../../ALU_Driver/ALU_Driver/hpl/port/hpl_gpio_base.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/utils_assert.h:
@@ -726,43 +682,23 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
+../../../ALU_Driver/ALU_Driver/usb_start.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h:
+../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h:
+../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h:
+../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h:
-
-../../../HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\os_defines.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h:
 
@@ -776,61 +712,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
-
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
-
-../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFans_Class.h:
-
-../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFan_Class.h:
-
-../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFanDataStruct_Class.h:
-
-../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h:
-
-../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h:
-
-../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
-
-.././States_Class.h:
-
-../../../QSPI_Memory_Handler/ConfigurationData.h:
-
-../../../QSPI_Memory_Handler/ConfigurationCommons.h:
-
-../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Maintenance_Tool.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/CDC_Class.h:
-
-../../../ALU_Driver/ALU_Driver/usb_start.h:
-
-../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm.h:
-
-../../../ALU_Driver/ALU_Driver/usb/device/usbdc.h:
-
-../../../ALU_Driver/ALU_Driver/usb/usb_includes.h:
 
 ../../../ALU_Driver/ALU_Driver/usb/usb_protocol.h:
 
@@ -842,66 +726,44 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ALU_Driver/ALU_Driver/usb/class/cdc/device/cdcdf_acm_desc.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Stream.h:
+../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\inttypes.h:
+../../../ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Print.h:
+../../../ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h:
+../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdarg.h:
+../../../ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\types.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\endian.h:
+../../../QSPI_Memory_Handler/ConfigurationData.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_endian.h:
+../../../QSPI_Memory_Handler/ConfigurationCommons.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\select.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/coreTypes.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_sigset.h:
+.././Event_Logger_Struct.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timeval.h:
+../../../QSPI_Memory_Handler/FlashHandler_Class.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\timespec.h:
+../../../QSPI_Memory_Handler/ConfigState_Class.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timespec.h:
+../../../QSPI_Memory_Handler/ConfigurationData.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/WString.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
-
-../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Commands_Handler.h:
-
-../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h:
-
-.././ConfigState_Class.h:
-
-.././GAINDefinitions.h:
+../../../QSPI_Memory_Handler/GAINDefinitions.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
 
-.././Interfaces_Class.h:
+../../../QSPI_Memory_Handler/MemoryFlash_Class.h:
 
-.././HVAC_Commando_Class.h:
+../../../QSPI_Memory_Handler/FlashHandler_Class.h:
 
-.././HVAC_Controller.h:
+../../../QSPI_Memory_Handler/CRC32_Class.h:
+
+../../../ALU_Driver/ALU_Driver/driver_init.h:

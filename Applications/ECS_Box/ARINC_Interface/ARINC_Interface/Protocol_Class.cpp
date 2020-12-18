@@ -62,6 +62,17 @@ uint32_t Protocol_Class::MakeTXLabel375(uint8_t d){
 	return value;
 	
 }
+uint32_t Protocol_Class::MakeTXLabel372(Command272 c272){
+	value=0;
+	value=((uint32_t)c272.fanSpeed[0])<<10;
+	value|=((uint32_t)c272.fanSpeed[1])<<20;
+	label=Label2Byte(372);
+	value|=(uint32_t)label;
+
+	value=MakeEvenParity(value);
+	return value;
+	
+}
 uint32_t Protocol_Class::MakeLabel270(uint32_t d){
 	
 	value=d<<10;

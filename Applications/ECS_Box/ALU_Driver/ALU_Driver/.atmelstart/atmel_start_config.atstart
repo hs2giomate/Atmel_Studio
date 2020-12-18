@@ -2,16 +2,16 @@ format_version: '2'
 name: ALU_DRIVER
 versions:
   api: '1.0'
-  backend: 1.8.472
+  backend: 1.8.491
   commit: 605bd5a7663644fb84783aa2b00942b79b0d8955
   content: unknown
   content_pack_name: unknown
   format: '2'
-  frontend: 1.8.472
-  packs_version_avr8: 1.0.1443
+  frontend: 1.8.491
+  packs_version_avr8: 1.0.1446
   packs_version_qtouch: unknown
   packs_version_sam: 1.0.1726
-  version_backend: 1.8.472
+  version_backend: 1.8.491
   version_frontend: ''
 board:
   identifier: SAME54XplainedPro
@@ -1289,7 +1289,7 @@ drivers:
       _$freq_output_Generic clock generator 6: 1000000
       _$freq_output_Generic clock generator 7: 8000000
       _$freq_output_Generic clock generator 8: 4000000
-      _$freq_output_Generic clock generator 9: 12000000
+      _$freq_output_Generic clock generator 9: 16000000
       enable_gclk_gen_0: true
       enable_gclk_gen_0__externalclock: 1000000
       enable_gclk_gen_1: true
@@ -1312,7 +1312,7 @@ drivers:
       enable_gclk_gen_7__externalclock: 1000000
       enable_gclk_gen_8: true
       enable_gclk_gen_8__externalclock: 1000000
-      enable_gclk_gen_9: false
+      enable_gclk_gen_9: true
       enable_gclk_gen_9__externalclock: 1000000
       gclk_arch_gen_0_enable: true
       gclk_arch_gen_0_idc: false
@@ -1369,9 +1369,9 @@ drivers:
       gclk_arch_gen_8_oe: true
       gclk_arch_gen_8_oov: false
       gclk_arch_gen_8_runstdby: true
-      gclk_arch_gen_9_enable: false
+      gclk_arch_gen_9_enable: true
       gclk_arch_gen_9_idc: false
-      gclk_arch_gen_9_oe: false
+      gclk_arch_gen_9_oe: true
       gclk_arch_gen_9_oov: false
       gclk_arch_gen_9_runstdby: false
       gclk_gen_0_div: 1
@@ -1408,8 +1408,8 @@ drivers:
       gclk_gen_8_div_sel: false
       gclk_gen_8_oscillator: External Crystal Oscillator 8-48MHz (XOSC1)
       gclk_gen_9_div: 1
-      gclk_gen_9_div_sel: false
-      gclk_gen_9_oscillator: External Crystal Oscillator 8-48MHz (XOSC1)
+      gclk_gen_9_div_sel: true
+      gclk_gen_9_oscillator: Digital Phase Locked Loop (DPLL1)
     optional_signals: []
     variant: null
     clocks:
@@ -1888,7 +1888,7 @@ drivers:
       spi_master_arch_dord: MSB first
       spi_master_arch_ibon: In data stream
       spi_master_arch_runstdby: false
-      spi_master_baud_rate: 100000
+      spi_master_baud_rate: 1000000
       spi_master_character_size: 8 bits
       spi_master_dummybyte: 511
       spi_master_rx_enable: true
@@ -2238,6 +2238,49 @@ drivers:
           external_frequency: 0
         configuration:
           tcc_gclk_selection: Generic clock generator 4
+  TIMER_CCU:
+    user_label: TIMER_CCU
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::TCC2::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      arch_tcc_cntsel: An interrupt/event is generated at the beginning of each counter
+        cycle
+      arch_tcc_evact0: Event action disabled
+      arch_tcc_evact1: Event action disabled
+      tcc_arch_cnteo: false
+      tcc_arch_dbgrun: false
+      tcc_arch_mcei0: false
+      tcc_arch_mcei1: false
+      tcc_arch_mcei2: false
+      tcc_arch_mcei3: false
+      tcc_arch_mceo0: false
+      tcc_arch_mceo1: false
+      tcc_arch_mceo2: false
+      tcc_arch_mceo3: false
+      tcc_arch_ovfeo: false
+      tcc_arch_presync: Reload or reset counter on next GCLK
+      tcc_arch_runstdby: false
+      tcc_arch_tcei0: false
+      tcc_arch_tcei1: false
+      tcc_arch_tceinv0: false
+      tcc_arch_tceinv1: false
+      tcc_arch_trgeo: false
+      timer_advanced_configuration: false
+      timer_event_control: false
+      timer_prescaler: Divide by 8
+      timer_tick: 1000
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TCC
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        configuration:
+          tcc_gclk_selection: Generic clock generator 0
   CDCUSB:
     user_label: CDCUSB
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::USB::driver_config_definition::USB.Device::HAL:Driver:USB.Device
@@ -2300,16 +2343,16 @@ drivers:
     functionality: CAN
     api: HAL:Driver:CAN_Async
     configuration:
-      can_btp_brp: 2
+      can_btp_brp: 1
       can_btp_sjw: 1
-      can_btp_tseg1: 13
-      can_btp_tseg2: 2
+      can_btp_tseg1: 11
+      can_btp_tseg2: 4
       can_cccr_brse: true
-      can_cccr_fdoe: true
-      can_dbtp_dbrp: 2
+      can_cccr_fdoe: false
+      can_dbtp_dbrp: 1
       can_dbtp_dsjw: 1
-      can_dbtp_dtseg1: 13
-      can_dbtp_dtseg2: 2
+      can_dbtp_dtseg1: 11
+      can_dbtp_dtseg2: 4
       can_dbtp_tdc: false
       can_gfc_anfe: Reject
       can_gfc_anfs: Accept in Rx FIFO 0
@@ -2318,7 +2361,7 @@ drivers:
       can_ie_bo: false
       can_ie_do: false
       can_ie_ea: false
-      can_ie_ep: false
+      can_ie_ep: true
       can_ie_ew: false
       can_mrcfg_dqos: Sensitive latency
       can_mrcfg_runstandby: false
@@ -2353,11 +2396,11 @@ drivers:
       domain_group:
         nodes:
         - name: CAN
-          input: Generic clock generator 3
+          input: Generic clock generator 9
           external: false
           external_frequency: 0
         configuration:
-          can_gclk_selection: Generic clock generator 3
+          can_gclk_selection: Generic clock generator 9
 pads:
   VBUS_DETECTED:
     name: PC00

@@ -285,19 +285,21 @@ ALU_Class.d ALU_Class.o: .././ALU_Class.cpp .././ALU_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
  ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Commands_Handler.h \
  ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
  .././Interfaces_Class.h .././HVAC_Commando_Class.h \
+ ../../../ARINC_Interface/ARINC_Interface/ARINC_Handler_Class.h \
+ ../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h \
  .././HVAC_Controller.h .././AUTO_MODE_Controller.h .././VENT_Mode.h \
  ../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h \
  ../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
+ .././Cooling_Controller.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start.h \
@@ -312,12 +314,10 @@ ALU_Class.d ALU_Class.o: .././ALU_Class.cpp .././ALU_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
  .././Error_Labelling_Class.h .././TaskHandler_Class.h \
  ../../../ARINC_Interface/ARINC_Interface/AMMC_Class.h \
- ../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h \
  ../../../QSPI_Memory_Handler/MemoryFlash_Class.h \
  ../../../QSPI_Memory_Handler/FlashHandler_Class.h \
  ../../../QSPI_Memory_Handler/ConfigState_Class.h \
  ../../../QSPI_Memory_Handler/CRC32_Class.h \
- ../../../ARINC_Interface/ARINC_Interface/ARINC_Handler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_class.h
 
 .././ALU_Class.h:
@@ -896,8 +896,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
-
 ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Commands_Handler.h:
 
 ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h:
@@ -911,6 +909,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././Interfaces_Class.h:
 
 .././HVAC_Commando_Class.h:
+
+../../../ARINC_Interface/ARINC_Interface/ARINC_Handler_Class.h:
+
+../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h:
 
 .././HVAC_Controller.h:
 
@@ -927,6 +929,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h:
+
+.././Cooling_Controller.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h:
 
@@ -958,8 +962,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ARINC_Interface/ARINC_Interface/AMMC_Class.h:
 
-../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h:
-
 ../../../QSPI_Memory_Handler/MemoryFlash_Class.h:
 
 ../../../QSPI_Memory_Handler/FlashHandler_Class.h:
@@ -967,7 +969,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../QSPI_Memory_Handler/ConfigState_Class.h:
 
 ../../../QSPI_Memory_Handler/CRC32_Class.h:
-
-../../../ARINC_Interface/ARINC_Interface/ARINC_Handler_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_class.h:

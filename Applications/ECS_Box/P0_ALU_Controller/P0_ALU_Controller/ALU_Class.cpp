@@ -66,7 +66,7 @@ uint32_t	ALU_Class::Init(void){
 		}
 		else
 		{
-			arincTimer.Start_periodic_task(FUNC_PTR(ARINCTimeUp),500);
+			arincTimer.Start_oneShot_task(FUNC_PTR(ARINCTimeUp),500);
 			
 		//	s=pBit.CheckCurrentStatus(status);
 // 			s=0;
@@ -119,6 +119,15 @@ uint32_t	ALU_Class::RunController(void){
 			//arinc.TrasmitSingleLabel();
 			ExecutePendingTask();
 			arincTXTimeUP=false;
+			if (interfaces.isMaintenanceActivated)
+			{
+			} 
+			else
+			{
+				arincTimer.Remove_task(FUNC_PTR(ARINCTimeUp));
+				arincTimer.Start_oneShot_task(FUNC_PTR(ARINCTimeUp),500);
+			}
+			
 	   }
 // 	while (1)
 // 	{
