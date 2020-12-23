@@ -266,10 +266,8 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
- .././SingleHeater_Class.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h .././SingleHeater_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
@@ -815,11 +813,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 .././SingleHeater_Class.h:
 

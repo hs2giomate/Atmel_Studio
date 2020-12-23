@@ -12,7 +12,7 @@
 #include "I2C_Sync_Class.h"
 #include "MCP23008_Class.h"
 #define		EVAPORATOR_AND_CONDESATOR_EXPANDERS	7
-#define CONDESATOR_MINIMUN_FLOW_AIR 48
+#define CONDESATOR_MINIMUN_FLOW_AIR 16
 
 struct IC33_Inputs
 {

@@ -40,7 +40,7 @@ void	Calendar_Class::Init(void){
 	ptrMemory=NULL;
 	calendar_enable(ptrCalendar);
 	
-	InitMaxDate();
+	InitReferenceDates();
 	
 	//memory.ReadAddress((uint8_t*)handler,CALENDER_ADDRESS,QSPI_BUFFER_SIZE);
 	ReadLastDateTime();
@@ -78,6 +78,49 @@ void	Calendar_Class::Init(void){
 	SaveCurrentDateTime();
 	
 }
+
+
+bool	Calendar_Class::Init(calendar_date_time dt_memory){
+
+	calendar_enable(ptrCalendar);
+	
+	InitReferenceDates();
+	lastDateTime=dt_memory;
+	//memory.ReadAddress((uint8_t*)handler,CALENDER_ADDRESS,QSPI_BUFFER_SIZE);
+	lastTimestamp=convert_datetime_to_timestamp(&lastDateTime);
+	
+	maxTimestamp=convert_datetime_to_timestamp(&maxDateTime);
+	erasedTimestamp=convert_datetime_to_timestamp(&erasedDateTime);
+	nullTimestamp=convert_datetime_to_timestamp(&nullDateTime);
+	SetCompilationDateTime();
+	compilationTimestamp=convert_datetime_to_timestamp(&compilationDateTime);
+	if ((lastTimestamp>maxTimestamp)||(lastTimestamp==erasedTimestamp)||(lastTimestamp==nullTimestamp))
+	{
+		SetDateTime(&compilationDateTime);
+	}
+	else
+	{
+		if (lastTimestamp<compilationTimestamp)
+		{
+			SetDateTime(&compilationDateTime);
+		}
+		else
+		{
+			if (lastTimestamp==nullTimestamp)
+			{
+				SetDateTime(&compilationDateTime);
+			}
+			else
+			{
+				SetDateTime(&lastDateTime);
+			}
+			
+		}
+	}
+	enlapsedTime=false;
+	
+	return true;
+}
 void	Calendar_Class::SetSavingAlarm(void){
 	
 	alarm.cal_alarm.datetime.time.sec = 1;
@@ -88,7 +131,7 @@ void	Calendar_Class::SetSavingAlarm(void){
 
 	
 	
-void	Calendar_Class::InitMaxDate(void){
+void	Calendar_Class::InitReferenceDates(void){
 	
 
 		maxDateTime.date.year  = 2050;

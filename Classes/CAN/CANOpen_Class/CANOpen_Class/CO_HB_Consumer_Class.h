@@ -18,7 +18,9 @@ public:
 	CO_CANrxMsg_t *receivedHBMsg;
 protected:
 private:
-	uint8_t	coNode;
+	uint8_t	coNode ;
+	bool	slaveOperational;
+	
 
 //functions
 public:
@@ -35,6 +37,7 @@ public:
         uint32_t                CANdevRxIdxStart);
 
 	void	HB_SetNode(uint8_t);
+	bool	IsSlaveOpeational(void);
 /**
  * Process Heartbeat consumer object.
  *

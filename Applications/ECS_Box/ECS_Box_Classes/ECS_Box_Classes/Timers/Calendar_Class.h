@@ -14,7 +14,7 @@
 #include <utils_assert.h>
 #include <hal_atomic.h>
 #include "N25Q256_Class.h"
-//#include "AT24MAC_Class.h"
+
 #include "string.h"
 #include "DateTimeLog_Class.h"
 
@@ -46,13 +46,12 @@ public:
 	volatile	bool enlapsedTime;
 	calendar_alarm alarm;
 protected:
-	calendar_date_time dateTime,lastDateTime;
-	friend class DateTime_Class;
 	friend class DateTimeLog_Class;
+	calendar_date_time dateTime,lastDateTime;
 	uint32_t  nullTimestamp;
 private:
 	calendar_date_time maxDateTime,compilationDateTime,erasedDateTime,nullDateTime;
-	uint32_t  currentTimestamp,lastTimestamp,maxTimestamp,erasedTimestamp;
+	uint32_t  currentTimestamp,lastTimestamp,maxTimestamp,erasedTimestamp, compilationTimestamp;
 	calendar_descriptor *ptrCalendar;
 	N25Q256_Class	*ptrMemory;
 	//AT24MAC_Class	*ptrMemory;
@@ -66,12 +65,13 @@ public:
 	Calendar_Class(calendar_descriptor *);
 	~Calendar_Class();
 	void Init(void);
+	bool	Init(calendar_date_time dt_memory);
 
 	uint32_t SetTimeStamp(uint32_t);
 	uint32_t	GetDateTime(void);
-	virtual uint32_t	GetDateTime(calendar_date_time *dt);
+	uint32_t	GetDateTime(calendar_date_time *dt);
 	uint32_t	ReadDateTime(calendar_date_time *dt);
-	virtual	uint32_t	convert_datetime_to_timestamp( calendar_date_time *dt);
+	uint32_t	convert_datetime_to_timestamp( calendar_date_time *dt);
 	void		SetSavingAlarm(void);
 	uint8_t		SetCalendarDataAdress(uint8_t);
 protected:
@@ -86,7 +86,7 @@ private:
 	uint32_t	SetTime(calendar_time *p_calendar_time);
 	uint32_t	SetDate(calendar_date *p_calendar_date);
 	uint32_t	SetDateTime(calendar_date_time *cdt);
-	void InitMaxDate(void);
+	void InitReferenceDates(void);
 	
 }; //Calendar_Class
 

@@ -23,7 +23,8 @@
  */
 
 #include "Stream.h"
-#include "TimerSerial_Class.h"
+/*#include "TimerSerial_Class.h"*/
+#include "Timer_Class.h"
 
 #define PARSE_TIMEOUT 1000  // default number of milli-seconds to wait
 

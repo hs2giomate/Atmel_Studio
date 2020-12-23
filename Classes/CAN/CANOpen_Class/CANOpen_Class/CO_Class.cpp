@@ -368,38 +368,25 @@ uint32_t                bitRate)
 			2,                /* number of data bytes */
 			0);
 				
-			err = SYNC_Init(
-			CO->SYNC,
-			CO->em,
-			CO->SDO[0],
-			&CO->NMT->operatingState,
-			OD_COB_ID_SYNCMessage,
-			OD_communicationCyclePeriod,
-			OD_synchronousCounterOverflowValue,
-			CO->CANmodule[0],
-			CO_RXCAN_SYNC,
-			CO->CANmodule[0],
-			CO_TXCAN_SYNC);
 
-			if(err){CO_delete(); return err;}
 	}else{
-			err = SYNC_Init(
-			CO->SYNC,
-			CO->em,
-			CO->SDO[0],
-			&CO->NMT->operatingState,
-			OD_COB_ID_SYNCMessage,
-			OD_communicationCyclePeriod,
-			OD_synchronousCounterOverflowValue,
-			CO->CANmodule[0],
-			CO_RXCAN_SYNC,
-			CO->CANmodule[0],
-			CO_TXCAN_SYNC);
 
-			if(err){CO_delete(); return err;}
 	}
        
+	err = SYNC_Init(
+	CO->SYNC,
+	CO->em,
+	CO->SDO[0],
+	&CO->NMT->operatingState,
+	OD_COB_ID_SYNCMessage,
+	OD_communicationCyclePeriod,
+	OD_synchronousCounterOverflowValue,
+	CO->CANmodule[0],
+	CO_RXCAN_SYNC,
+	CO->CANmodule[0],
+	CO_TXCAN_SYNC);
 
+	if(err){CO_delete(); return err;}
 
 
 
@@ -554,19 +541,13 @@ uint32_t               *timerNext_ms)
 	bool_t NMTisPreOrOperational = false;
 	CO_NMT_reset_cmd_t reset = CO_RESET_NOT;
 	ms50 = 0;
-	if(CO->NMT->operatingState == CO_NMT_PRE_OPERATIONAL || CO->NMT->operatingState == CO_NMT_OPERATIONAL)
-	NMTisPreOrOperational = true;
+	if(CO->NMT->operatingState == CO_NMT_PRE_OPERATIONAL || CO->NMT->operatingState == CO_NMT_OPERATIONAL){
+		
+		NMTisPreOrOperational = true;
+	}
 
-	ms50 += timeDifference_ms;
-	if(ms50 >= 50){
-		ms50 -= 50;
-		//CO_NMT_blinkingProcess50ms();
-	}
-	if(timerNext_ms != NULL){
-		if(*timerNext_ms > 50){
-			*timerNext_ms = 50;
-		}
-	}
+	
+
 
 
 	for(i=0; i<CO_NO_SDO_SERVER; i++){

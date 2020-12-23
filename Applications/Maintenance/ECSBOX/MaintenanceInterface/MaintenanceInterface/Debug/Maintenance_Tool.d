@@ -219,7 +219,7 @@ Maintenance_Tool.d Maintenance_Tool.o: .././Maintenance_Tool.cpp \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/driver_init.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/atmel_start_pins.h \
  ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
@@ -281,7 +281,6 @@ Maintenance_Tool.d Maintenance_Tool.o: .././Maintenance_Tool.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
  ../../../../../ECS_Box/TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
- ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
@@ -747,7 +746,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
-../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 ../../../../../ECS_Box/ALU_Driver/ALU_Driver/driver_init.h:
 
@@ -872,8 +871,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../ECS_Box/TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h:
 
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
-
-../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h:
 

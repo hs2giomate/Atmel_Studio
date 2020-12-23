@@ -9,7 +9,11 @@
 #ifndef CO_DEFINITIONS_H_
 #define CO_DEFINITIONS_H_
 #include "stdint.h"
+#include "compiler.h"
 #include "driver_init.h"
+#ifdef __cplusplus
+extern "C" {
+	#endif
 
 /*******************************************************************************
    FEATURES
@@ -122,8 +126,23 @@ typedef float                   float32_t;  /**< float32_t */
 typedef long double             float64_t;  /**< float64_t */
 typedef char                    char_t;     /**< char_t */
 typedef unsigned char           oChar_t;    /**< oChar_t */
-typedef unsigned char           domain_t;   /**< domain_t */
-//typedef	struct can_async_descriptor CAN_Handler;
+//typedef unsigned char           domain_t;   /**< domain_t */
+typedef	struct can_async_descriptor CAN_Handler;
+
+   typedef uint8_t      UNSIGNED8;
+   typedef uint16_t     UNSIGNED16;
+   typedef uint32_t     UNSIGNED32;
+   typedef uint64_t     UNSIGNED64;
+   typedef int8_t       INTEGER8;
+   typedef int16_t      INTEGER16;
+   typedef int32_t      INTEGER32;
+   typedef int64_t      INTEGER64;
+   typedef float32_t    REAL32;
+   typedef float64_t    REAL64;
+   typedef char_t       VISIBLE_STRING;
+   typedef oChar_t      OCTET_STRING;
+ //  typedef domain_t     DOMAIN;
+   typedef unsigned char     DOMAINTT;
 /** @} */
 
 /**
@@ -856,5 +875,9 @@ typedef struct{
 		CO_trace_t         *trace[CO_NO_TRACE]; /**< Trace object for monitoring variables */
 	#endif
 }CO_t;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* CO_DEFINITIONS_H_ */

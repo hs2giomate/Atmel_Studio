@@ -10,6 +10,7 @@
 #include "ARINC_Handler_Class.h"
 #include "EventHandler_Class.h"
 #include "States_Class.h"
+#include "EvaporatorAndCondesatorFans_Class.h"
 
 // default constructor
 HVAC_Commando_Class::HVAC_Commando_Class()
@@ -23,7 +24,7 @@ HVAC_Commando_Class::~HVAC_Commando_Class()
 
 bool HVAC_Commando_Class::IsCommando270Changed(void){
 	
-	if (lastCommando==UpdateCommando())
+	if (lastCommando==UpdateCommando270())
 	{
 		return false;
 	} 
@@ -34,8 +35,21 @@ bool HVAC_Commando_Class::IsCommando270Changed(void){
 	}
 	return true;
 }
+bool HVAC_Commando_Class::IsCommando272Changed(void){
+	
+	if (lastSpeedCommand==UpdateCommando272())
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+		
+	}
+	return true;
+}
 
-uint32_t HVAC_Commando_Class::UpdateCommando(void){
+uint32_t HVAC_Commando_Class::UpdateCommando270(void){
 	lastCommando=actualCommando;
 	uint32_t value=arinc.ar->ReadBufferLabel((uint32_t)270);
 	commando270.AC_CMD=(bool)((value>>12)&0x01);
@@ -43,6 +57,23 @@ uint32_t HVAC_Commando_Class::UpdateCommando(void){
 	commando270.statusFV=(FlapperValveMode)((value>>15)&0x03);
 	actualCommando=value;
 	return actualCommando;
+}
+uint32_t HVAC_Commando_Class::UpdateCommando272(void){
+	lastSpeedCommand=fansSpeedCommand;
+	uint32_t value=arinc.ar->ReadBufferLabel((uint32_t)272);
+	command272.fanSpeed[0]=(value&0x3fc00)>>10;
+	command272.fanSpeed[1]=(value&0xff00000)>>10;
+	fansSpeedCommand=value;
+	
+	return fansSpeedCommand;
+}
+void HVAC_Commando_Class::UpdateCommando372(void){
+
+	command372.fanSpeed[0]=fans.evaporator[0]->ReadPWM();
+	command372.fanSpeed[1]=fans.evaporator[1]->ReadPWM();
+
+	
+	
 }
 uint32_t HVAC_Commando_Class::GetCommando270(void){
 	return actualCommando;
@@ -113,6 +144,14 @@ void	HVAC_Commando_Class::HandleCommands(void){
 			
 			break;
 			
+		}
+		if (IsCommando272Changed())
+		{
+			
+		} 
+		else
+		{
+			arinc.ar->SaveFansSpeed(command372);
 		}
 	//	arinc.ar->SaveStatus(actualCommando);
 		

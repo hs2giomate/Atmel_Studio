@@ -262,7 +262,7 @@ LTC2983/LTC2983_Class.d LTC2983/LTC2983_Class.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h \
  ../avr/pgmspace.h ../USBSerial/Printable.h \
- ../USBSerial/SerialTerminal_Class.h ../USBSerial/TimerSerial_Class.h
+ ../USBSerial/SerialTerminal_Class.h
 
 ../LTC2983/LTC2983_Class.h:
 
@@ -799,5 +799,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../USBSerial/Printable.h:
 
 ../USBSerial/SerialTerminal_Class.h:
-
-../USBSerial/TimerSerial_Class.h:

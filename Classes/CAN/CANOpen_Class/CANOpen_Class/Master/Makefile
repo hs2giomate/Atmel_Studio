@@ -148,7 +148,7 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 LIB_DEP+=  \
-S:/AtmelStudio/Applications/ECS_Box/ALU_Driver/ALU_Driver/Master/libALU_Driver.a
+S:/AtmelStudio/Applications/ECS_Box/ALU_Driver/ALU_Driver/Debug/libALU_Driver.a
 
 LINKER_SCRIPT_DEP+=  \
 ../Device_Startup/same54p20a_flash.ld \

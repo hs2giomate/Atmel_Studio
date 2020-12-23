@@ -42,6 +42,8 @@ void TIMER_HVAC_example(void);
 
 void TIMER_TEMPERATURES_example(void);
 
+void TIMER_CCU_example(void);
+
 void WATCHDOG_example(void);
 
 void CAN_CCU_example(void);

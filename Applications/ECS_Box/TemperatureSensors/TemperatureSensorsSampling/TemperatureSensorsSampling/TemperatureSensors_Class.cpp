@@ -55,6 +55,7 @@ bool	TemperatureSensors_Class::Init(void){
 	ext_irq_register(PIN_PB09, Converter2Ready);
 	ext_irq_register(PIN_PB01, Converter3Ready);
 	InitModules();
+	converterReady[0]=true;converterReady[1]=true;converterReady[3]=true;
 	currentModule=0; currentChannelIndex=0;
 	isOK=(module[0].isOK)&(module[1].isOK)&(module[2].isOK);
 	return isOK;
@@ -71,6 +72,14 @@ bool TemperatureSensors_Class::InitModules(void){
 }
 void	TemperatureSensors_Class::StartOneConversion(void){
 	converterTimeout=false;
+	converterReady[currentModule]=false;
+	temperatureTimer.Start_oneShot_task((FUNC_PTR)ConversionTimeout,TEMPERATURE_MEASSURE_TIMEOUT);
+	module[currentModule].ConvertAsyncChannelIndex(currentChannelIndex);
+	
+}
+void	TemperatureSensors_Class::StartOneConversion(uint8_t mod,uint8_t sen){
+	converterTimeout=false;
+	currentModule=mod; currentChannelIndex=sen;
 	converterReady[currentModule]=false;
 	temperatureTimer.Start_oneShot_task((FUNC_PTR)ConversionTimeout,TEMPERATURE_MEASSURE_TIMEOUT);
 	module[currentModule].ConvertAsyncChannelIndex(currentChannelIndex);

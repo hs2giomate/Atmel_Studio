@@ -26,6 +26,7 @@
 #include "TemperatureSensors_Class.h"
 #include "EvaporatorAndCondesatorFans_Class.h"
 #include "SingleHeater_Class.h"
+#include "Event_Logger_Class.h"
 
 
 

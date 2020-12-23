@@ -10,9 +10,10 @@
 #define __MEMORYSTRUCT_CLASS_H__
 #include "ConfigState_Class.h"
 #include "Parameters.h"
+#include "N25Q256_Class.h"
 #define		FLASH_SUBSECTOR_ERASE 4*1024
 
-struct      FlashPartition {
+struct __attribute__((__packed__))  FlashPartition {
 	bool supported;
 	bool supportedMan;
 	bool sfdpAvailable;
@@ -22,21 +23,21 @@ struct      FlashPartition {
 	uint32_t capacity;
 	uint32_t eraseTime;
 };
-struct HeaderSector
+struct __attribute__((__packed__)) HeaderSector
 {
 	uint32_t		status;
 	uint32_t		stack;
 	FlashPartition			logDetails;
 	uint8_t			partitionSector[FLASH_SUBSECTOR_ERASE- sizeof(FlashPartition)-8];
 };
-struct ParametersSector
+struct __attribute__((__packed__)) ParametersSector
 {
 	UserParameters			parameters;
 	UserParameters			defaultParameters;
 	uint8_t					ParametersSector[FLASH_SUBSECTOR_ERASE-2*sizeof(UserParameters)];
 };
 
-struct ConfigurationSector
+struct __attribute__((__packed__)) ConfigurationSector
 {
 	ConfigurationData			defaultConfiguration;
 	ConfigurationData			lastConfiguracion;
@@ -46,13 +47,13 @@ struct ConfigurationSector
 	uint8_t		configurationDataSector[FLASH_SUBSECTOR_ERASE- 3*sizeof(ConfigurationData)-4];
 };
 
-struct ECSSector
+struct __attribute__((__packed__)) ECSSector
 {
 	ECSConfiguration		aluState;
 	uint8_t		ecsSector[FLASH_SUBSECTOR_ERASE-sizeof(ECSConfiguration)];
 };
 
-struct HVACStateSector
+struct __attribute__((__packed__)) HVACStateSector
 {
 	PowerLevel			powerLevel;
 	HVACState		hvacDefaultState;
@@ -61,7 +62,15 @@ struct HVACStateSector
 	uint8_t		stateSector[FLASH_SUBSECTOR_ERASE-sizeof(PowerLevel)-2*sizeof(HVACState)-4];
 };
 
-struct MemoryFlashStruct
+struct __attribute__((__packed__)) EventLoggerSector
+{
+	calendar_date_time	compilationTime;
+	calendar_date_time	lastDateTime;
+	uint32_t		stackPointerEventLogger;
+	uint8_t		stateSector[1*FLASH_SUBSECTOR_ERASE-2*sizeof(calendar_date_time)-4];
+};
+
+struct __attribute__((__packed__)) MemoryFlashStruct
 {
 	union
 	{
@@ -83,6 +92,10 @@ struct MemoryFlashStruct
 	{
 		HVACStateSector hvacStateSector;
 	};
+ 	union
+ 	{
+ 		EventLoggerSector EventsLogStateSector;
+ 	};
 
 };
 

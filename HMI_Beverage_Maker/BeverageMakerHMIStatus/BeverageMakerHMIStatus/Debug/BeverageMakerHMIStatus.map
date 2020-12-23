@@ -1,0 +1,1836 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3.o)
+                              LedStateMachine.o (__addsf3)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3.o) (__addsf3x)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3.o)
+                              LedStateMachine.o (__divsf3)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3x.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3.o) (__divsf3x)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fixunssfsi.o)
+                              LedStateMachine.o (__fixunssfsi)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(floatsisf.o)
+                              LedStateMachine.o (__floatunsisf)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_inf.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o) (__fp_inf)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_nan.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o) (__fp_nan)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscA.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o) (__fp_pscA)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscB.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o) (__fp_pscB)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_round.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3.o) (__fp_round)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_split3.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o) (__fp_split3)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_zero.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o) (__fp_zero)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3.o)
+                              LedStateMachine.o (__mulsf3)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3x.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3.o) (__mulsf3x)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(sin.o)
+                              LedStateMachine.o (sin)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_rempio2.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(sin.o) (__fp_rempio2)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_sinus.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(sin.o) (__fp_sinus)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_mpack.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_rempio2.o) (__fp_mpack_finite)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powsodd.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_sinus.o) (__fp_powsodd)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powser.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powsodd.o) (__fp_powser)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+                              LedStateMachine.o (gButtonStates_Array)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+                              LedStateMachine.o (systemInitialisation)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (ledResetHold)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o) (gLedIndicators)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (lowPowerInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (manualResetDetectInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (proximitySensorInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+                              LedStateMachine.o (pscCommandManager)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (pscSetLastReasonForReset)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o) (pscHALTProcessDataFromPsc)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (pscI2cInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o) (gc10msTick)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (quadInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (rstInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o) (rs485testEnable)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (spiInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (adcInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (beepInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (CLKSYS_PLL_Config)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o) (dspInverseEnable)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (esfInit)
+S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+                              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o) (hmiI2cInit)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+                              LedStateMachine.o (__udivmodsi4)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+                              C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o (exit)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+                              LedStateMachine.o (__tablejump2__)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+                              LedStateMachine.o (__do_copy_data)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+                              LedStateMachine.o (__do_clear_bss)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+                              main.o (__do_global_ctors)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+                              main.o (__do_global_dtors)
+
+Allocating common symbols
+Common symbol       size              file
+
+gc100msTick_AmbientLight
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+gAdcDiscardSamples  0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+gWriteBuffer        0xa               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+gc100msTick_Local   0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+OldQuad             0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+gc10msCount         0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gTemp               0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+gc250msTick         0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gcSubSecondCnt      0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gbLeftOn            0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+PBDatOld            0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+PB1                 0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+gc100msTick         0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gProxTestEnabled    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+StepCount           0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+gCheckForFlashEraseNextSector
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+QDir                0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+gc1sTick            0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+externalFlashMemSuccessCount
+                    0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+PB0                 0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+gc1sCount           0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gOnOffButton        0x5               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+gcLastTimeHere_250ms
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gAmbientLightTestEnabled
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+gcMinuteTimer       0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gReadVerifyPending  0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+gcmsTick_QuadDecoder
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+gLowPowerTestEnabled
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+gAdcChannel         0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+gdw_LocalmsTimeCount
+                    0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gProxTestState      0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+gc100msCount        0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gHmiI2c             0xd               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+gc10ms_rs485TestInterval
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+gcSecondTimer       0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gSequenceCount      0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+externalFlashMemFailedCount
+                    0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+glastSequenceCountWrittenToFlash
+                    0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+gc10msTick          0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gdwSecondsAlive     0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gQuadTestEnabled    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+gcTwoSecondTimer    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gMarkLastHmiI2cActivity
+                    0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+gWaitingForLoopBack
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+gMarkLastI2cActivity
+                    0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+gProxResult         0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+gdwSeconds_DisplayUpdate
+                    0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+gFlashTestAddr      0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+gcColumnDrvNum      0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+QuadCount           0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+gLineColour         0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+gLastReasonForReset
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+gButtonStates_Array
+                    0xa               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+gRs485testEnabled   0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+gcLastTimeHere_100ms
+                    0x1               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+gPscI2c             0xd0              S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+gdw_msTimeCount     0x4               S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+
+Discarded input sections
+
+ .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+ .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+ .text          0x00000000        0x0 LedStateMachine.o
+ .data          0x00000000        0x0 LedStateMachine.o
+ .bss           0x00000000        0x0 LedStateMachine.o
+ .bss._ZL12gcLedIcIndex
+                0x00000000        0x1 LedStateMachine.o
+ .bss._ZL16gc10msTick_Local
+                0x00000000        0x1 LedStateMachine.o
+ .rodata._ZL27BUTTON_DEBOUNCE_INTERVAL_MS
+                0x00000000        0x2 LedStateMachine.o
+ .rodata._ZL32BTN_STATE_PUBLIC_INTERVAL_MIN_MS
+                0x00000000        0x2 LedStateMachine.o
+ .text          0x00000000        0x0 main.o
+ .data          0x00000000        0x0 main.o
+ .bss           0x00000000        0x0 main.o
+ .bss._ZL12gcLedIcIndex
+                0x00000000        0x1 main.o
+ .bss._ZL16gc10msTick_Local
+                0x00000000        0x1 main.o
+ .rodata._ZL27BUTTON_DEBOUNCE_INTERVAL_MS
+                0x00000000        0x2 main.o
+ .rodata._ZL32BTN_STATE_PUBLIC_INTERVAL_MIN_MS
+                0x00000000        0x2 main.o
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3x.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3x.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3x.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fixunssfsi.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fixunssfsi.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fixunssfsi.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(floatsisf.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(floatsisf.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(floatsisf.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_inf.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_inf.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_inf.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_nan.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_nan.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_nan.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscA.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscA.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscA.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscB.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscB.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscB.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_round.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_round.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_round.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_split3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_split3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_split3.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_zero.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_zero.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_zero.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3x.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3x.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3x.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(sin.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(sin.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(sin.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_rempio2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_rempio2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_rempio2.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_sinus.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_sinus.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_sinus.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_mpack.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_mpack.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_mpack.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powsodd.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powsodd.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powsodd.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powser.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powser.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powser.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .rodata.BUTTON_DEBOUNCE_INTERVAL_MS
+                0x00000000        0x2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .rodata.BTN_STATE_PUBLIC_INTERVAL_MIN_MS
+                0x00000000        0x2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .rodata.gc_BtnRowToPinNumMap_Array
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .bss.gcLedIcIndex
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .bss.gc10msTick_Local
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .rodata.BUTTON_DEBOUNCE_INTERVAL_MS
+                0x00000000        0x2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .rodata.BTN_STATE_PUBLIC_INTERVAL_MIN_MS
+                0x00000000        0x2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .text.ledSetIndicatorIntensity
+                0x00000000      0x110 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .text.ledSetIndicatorOff
+                0x00000000       0x22 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .text.ledSetButtonOff
+                0x00000000       0x22 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .bss.gcLedIcIndex
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .bss.gc10msTick_Local
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .text.proxManager
+                0x00000000      0x1e2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .text.proxWriteDataByte
+                0x00000000       0x34 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .data.gProxResult_Old.3800
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .bss.gcLedIcIndex
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .bss.gc10msTick_Local
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .rodata.BUTTON_DEBOUNCE_INTERVAL_MS
+                0x00000000        0x2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .rodata.BTN_STATE_PUBLIC_INTERVAL_MIN_MS
+                0x00000000        0x2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .bss.gcLedIcIndex
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .bss.gc10msTick_Local
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .text.pscSetHmiSupplyVoltageAdcResult
+                0x00000000       0x3c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .text.pscSetTemperatureAdcResult
+                0x00000000       0x3c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .text.pscSetVccAdcResult
+                0x00000000       0x3c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .text.pscOnExternalFlashResult
+                0x00000000       0x72 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .bss.gcLedIcIndex
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .bss.gc10msTick_Local
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .text.pscHALT_GetSequenceCount
+                0x00000000       0x22 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .rodata.SLAVE_ADDRESS
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .rodata.gcQuarterSecond_PartCount
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .rodata.gcTenthSecond_PartCount
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .data.QDat     0x00000000        0x4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .data.gQuadCount_Old
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .text.quadManager
+                0x00000000       0xa0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .text.quadUpdate
+                0x00000000      0x17e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .data.gSendData
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .text.rs485testManager
+                0x00000000       0xe2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .text.SpiTransfer
+                0x00000000       0x3c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .text.adcAdvanceToNextChannel
+                0x00000000       0x2a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .text.adcOnResult
+                0x00000000       0x60 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .text.adcManager
+                0x00000000       0x78 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .text.adcTestAmbientLight
+                0x00000000       0x68 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .bss.resultOnDisplay.3819
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .bss.gAmbientLightResult_Old.3818
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .text.beepOn   0x00000000       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .text.CLKSYS_XOSC_Config
+                0x00000000       0x3a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .text.CLKSYS_Disable
+                0x00000000       0x40 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .text.CLKSYS_RTC_ClockSource_Enable
+                0x00000000       0x30 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .text.CLKSYS_XOSC_FailureDetection_Enable
+                0x00000000       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .text.CLKSYS_Configuration_Lock
+                0x00000000       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspShowVerticalLine
+                0x00000000       0x6c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ COMMON         0x00000000        0x5 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .bss.gcLedIcIndex
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .bss.gc10msTick_Local
+                0x00000000        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .rodata.gFlashStartAddr
+                0x00000000        0x4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .text.CS_Flash_Enable
+                0x00000000       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .text.CS_Flash_Disable
+                0x00000000       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .text.esfHALTtestManage
+                0x00000000      0x2b4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .text.FlashMultiRead
+                0x00000000       0xa2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .text.FlashSetWriteEnableLatch
+                0x00000000       0x1e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .text.FlashPageWrite
+                0x00000000       0xb2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .text.FlashSectorErase
+                0x00000000       0x7e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .text.IsFlashBusy
+                0x00000000       0x42 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .text          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .data          0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .bss           0x00000000        0x0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .rodata.gdwBaudSetting
+                0x00000000        0x4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00100000         xr
+data             0x00802000         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000006         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+user_signatures  0x00850000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+LOAD LedStateMachine.o
+LOAD main.o
+START GROUP
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a
+LOAD S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a
+END GROUP
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a
+START GROUP
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a
+LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libc.a
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6\libatxmega384d3.a
+END GROUP
+                0x00100000                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x100000
+                0x0000ffa0                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
+                0x00010000                __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x00000006]                __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x00000400                __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x00000400                __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x00000400                __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x427a
+ *(.vectors)
+ .vectors       0x00000000      0x1c8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+ .progmem.gcc_sw_table._ZN15LedStateMachine12HandleStatesEh
+                0x000001c8       0x12 LedStateMachine.o
+ .progmem.gcc_fplib
+                0x000001da       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_sinus.o)
+                0x000001f8                . = ALIGN (0x2)
+                0x000001f8                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000001f8       0x2c linker stubs
+ *(.trampolines*)
+                0x00000224                __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+ *(.progmem*)
+                0x00000224                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000224                __ctors_start = .
+ *(.ctors)
+ .ctors         0x00000224        0x2 main.o
+                0x00000226                __ctors_end = .
+                0x00000226                __dtors_start = .
+ *(.dtors)
+ .dtors         0x00000226        0x2 main.o
+                0x00000228                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000228        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+                0x00000228                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000228       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000238       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_copy_data.o)
+                0x00000238                __do_copy_data
+ .init4         0x00000252       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_clear_bss.o)
+                0x00000252                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ .init6         0x00000262       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_ctors.o)
+                0x00000262                __do_global_ctors
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000282        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+ *(.init9)
+ *(.text)
+ .text          0x0000028a        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+                0x0000028a                __vector_38
+                0x0000028a                __vector_104
+                0x0000028a                __vector_22
+                0x0000028a                __vector_63
+                0x0000028a                __vector_28
+                0x0000028a                __vector_67
+                0x0000028a                __vector_1
+                0x0000028a                __vector_32
+                0x0000028a                __vector_75
+                0x0000028a                __vector_71
+                0x0000028a                __vector_91
+                0x0000028a                __vector_34
+                0x0000028a                __vector_62
+                0x0000028a                __vector_77
+                0x0000028a                __vector_102
+                0x0000028a                __vector_24
+                0x0000028a                __vector_55
+                0x0000028a                __vector_69
+                0x0000028a                __vector_81
+                0x0000028a                __vector_90
+                0x0000028a                __bad_interrupt
+                0x0000028a                __vector_72
+                0x0000028a                __vector_6
+                0x0000028a                __vector_110
+                0x0000028a                __vector_31
+                0x0000028a                __vector_92
+                0x0000028a                __vector_35
+                0x0000028a                __vector_78
+                0x0000028a                __vector_74
+                0x0000028a                __vector_39
+                0x0000028a                __vector_107
+                0x0000028a                __vector_3
+                0x0000028a                __vector_105
+                0x0000028a                __vector_98
+                0x0000028a                __vector_23
+                0x0000028a                __vector_68
+                0x0000028a                __vector_30
+                0x0000028a                __vector_73
+                0x0000028a                __vector_45
+                0x0000028a                __vector_25
+                0x0000028a                __vector_93
+                0x0000028a                __vector_61
+                0x0000028a                __vector_11
+                0x0000028a                __vector_54
+                0x0000028a                __vector_99
+                0x0000028a                __vector_13
+                0x0000028a                __vector_17
+                0x0000028a                __vector_19
+                0x0000028a                __vector_56
+                0x0000028a                __vector_7
+                0x0000028a                __vector_49
+                0x0000028a                __vector_41
+                0x0000028a                __vector_86
+                0x0000028a                __vector_100
+                0x0000028a                __vector_101
+                0x0000028a                __vector_64
+                0x0000028a                __vector_88
+                0x0000028a                __vector_109
+                0x0000028a                __vector_43
+                0x0000028a                __vector_27
+                0x0000028a                __vector_5
+                0x0000028a                __vector_113
+                0x0000028a                __vector_33
+                0x0000028a                __vector_76
+                0x0000028a                __vector_47
+                0x0000028a                __vector_52
+                0x0000028a                __vector_37
+                0x0000028a                __vector_95
+                0x0000028a                __vector_103
+                0x0000028a                __vector_96
+                0x0000028a                __vector_89
+                0x0000028a                __vector_108
+                0x0000028a                __vector_4
+                0x0000028a                __vector_44
+                0x0000028a                __vector_82
+                0x0000028a                __vector_106
+                0x0000028a                __vector_51
+                0x0000028a                __vector_9
+                0x0000028a                __vector_2
+                0x0000028a                __vector_21
+                0x0000028a                __vector_15
+                0x0000028a                __vector_66
+                0x0000028a                __vector_36
+                0x0000028a                __vector_79
+                0x0000028a                __vector_58
+                0x0000028a                __vector_70
+                0x0000028a                __vector_83
+                0x0000028a                __vector_29
+                0x0000028a                __vector_60
+                0x0000028a                __vector_40
+                0x0000028a                __vector_85
+                0x0000028a                __vector_94
+                0x0000028a                __vector_8
+                0x0000028a                __vector_26
+                0x0000028a                __vector_48
+                0x0000028a                __vector_112
+                0x0000028a                __vector_111
+                0x0000028a                __vector_80
+                0x0000028a                __vector_84
+                0x0000028a                __vector_57
+                0x0000028a                __vector_53
+                0x0000028a                __vector_10
+                0x0000028a                __vector_50
+                0x0000028a                __vector_16
+                0x0000028a                __vector_59
+                0x0000028a                __vector_18
+                0x0000028a                __vector_97
+                0x0000028a                __vector_20
+                0x0000028a                __vector_42
+                0x0000028a                __vector_87
+                0x0000028a                __vector_65
+                0x0000028e                . = ALIGN (0x2)
+ *(.text.*)
+ .text._ZN15LedStateMachineC2Ev
+                0x0000028e       0x64 LedStateMachine.o
+                0x0000028e                _ZN15LedStateMachineC2Ev
+                0x0000028e                _ZN15LedStateMachineC1Ev
+ .text._ZN15LedStateMachineD2Ev
+                0x000002f2       0x1c LedStateMachine.o
+                0x000002f2                _ZN15LedStateMachineD2Ev
+                0x000002f2                _ZN15LedStateMachineD1Ev
+ .text._ZN15LedStateMachine4InitEv
+                0x0000030e       0x3e LedStateMachine.o
+                0x0000030e                _ZN15LedStateMachine4InitEv
+ .text._ZN15LedStateMachine15RunPeriodicTaskEv
+                0x0000034c       0x32 LedStateMachine.o
+                0x0000034c                _ZN15LedStateMachine15RunPeriodicTaskEv
+ .text._ZN15LedStateMachine10StandbyOffEv
+                0x0000037e       0xac LedStateMachine.o
+                0x0000037e                _ZN15LedStateMachine10StandbyOffEv
+ .text._ZN15LedStateMachine17WhiteBarIntensityEh
+                0x0000042a       0x42 LedStateMachine.o
+                0x0000042a                _ZN15LedStateMachine17WhiteBarIntensityEh
+ .text._ZN15LedStateMachine15WhiteBarPulsingEv
+                0x0000046c      0x10e LedStateMachine.o
+                0x0000046c                _ZN15LedStateMachine15WhiteBarPulsingEv
+ .text._ZN15LedStateMachine24LeftButtonGreenIntensityEh
+                0x0000057a       0x2a LedStateMachine.o
+                0x0000057a                _ZN15LedStateMachine24LeftButtonGreenIntensityEh
+ .text._ZN15LedStateMachine25LedLeftButtonGreenPulsingEv
+                0x000005a4      0x10e LedStateMachine.o
+                0x000005a4                _ZN15LedStateMachine25LedLeftButtonGreenPulsingEv
+ .text._ZN15LedStateMachine7HeatingEv
+                0x000006b2       0xb6 LedStateMachine.o
+                0x000006b2                _ZN15LedStateMachine7HeatingEv
+ .text._ZN15LedStateMachine24BlueBarDarkSpotScrollingEv
+                0x00000768      0x1ea LedStateMachine.o
+                0x00000768                _ZN15LedStateMachine24BlueBarDarkSpotScrollingEv
+ .text._ZN15LedStateMachine7FillingEv
+                0x00000952       0x3a LedStateMachine.o
+                0x00000952                _ZN15LedStateMachine7FillingEv
+ .text._ZN15LedStateMachine5ReadyEv
+                0x0000098c       0x88 LedStateMachine.o
+                0x0000098c                _ZN15LedStateMachine5ReadyEv
+ .text._ZN15LedStateMachine11WaitNoWaterEv
+                0x00000a14       0x56 LedStateMachine.o
+                0x00000a14                _ZN15LedStateMachine11WaitNoWaterEv
+ .text._ZN15LedStateMachine19WaitOverTemperatureEv
+                0x00000a6a       0x56 LedStateMachine.o
+                0x00000a6a                _ZN15LedStateMachine19WaitOverTemperatureEv
+ .text._ZN15LedStateMachine9WaitStateEv
+                0x00000ac0      0x192 LedStateMachine.o
+                0x00000ac0                _ZN15LedStateMachine9WaitStateEv
+ .text._ZN15LedStateMachine13FaultLowWaterEv
+                0x00000c52       0x7c LedStateMachine.o
+                0x00000c52                _ZN15LedStateMachine13FaultLowWaterEv
+ .text._ZN15LedStateMachine21FaultOvertemeperatureEv
+                0x00000cce       0x7c LedStateMachine.o
+                0x00000cce                _ZN15LedStateMachine21FaultOvertemeperatureEv
+ .text._ZN15LedStateMachine13FaultDrainageEv
+                0x00000d4a       0x7c LedStateMachine.o
+                0x00000d4a                _ZN15LedStateMachine13FaultDrainageEv
+ .text._ZN15LedStateMachine12HandleStatesEh
+                0x00000dc6       0xb0 LedStateMachine.o
+                0x00000dc6                _ZN15LedStateMachine12HandleStatesEh
+ .text._ZN15LedStateMachine9RunManualEv
+                0x00000e76       0x6c LedStateMachine.o
+                0x00000e76                _ZN15LedStateMachine9RunManualEv
+ .text.main     0x00000ee2       0x1a main.o
+                0x00000ee2                main
+ .text._Z41__static_initialization_and_destruction_0ii
+                0x00000efc       0x52 main.o
+ .text._GLOBAL__sub_I_main
+                0x00000f4e       0x1a main.o
+ .text._GLOBAL__sub_D_main
+                0x00000f68       0x1a main.o
+ .text.avr-libc.fplib
+                0x00000f82        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3.o)
+                0x00000f82                __subsf3
+                0x00000f84                __addsf3
+ .text.avr-libc.fplib
+                0x00000f90       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(addsf3x.o)
+                0x00000fb2                __addsf3x
+ .text.avr-libc.fplib
+                0x0000105c        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3.o)
+                0x0000105c                __divsf3
+ .text.avr-libc.fplib
+                0x00001064       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(divsf3x.o)
+                0x00001084                __divsf3x
+                0x0000108a                __divsf3_pse
+ .text.avr-libc.fplib
+                0x00001140       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fixunssfsi.o)
+                0x00001140                __fixunssfsi
+ .text.avr-libc.fplib
+                0x0000119e       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(floatsisf.o)
+                0x0000119e                __floatunsisf
+                0x000011a2                __floatsisf
+ .text.avr-libc.fplib
+                0x00001218        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_inf.o)
+                0x00001218                __fp_inf
+ .text.avr-libc.fplib
+                0x00001224        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_nan.o)
+                0x00001224                __fp_nan
+ .text.avr-libc.fplib
+                0x0000122a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscA.o)
+                0x0000122a                __fp_pscA
+ .text.avr-libc.fplib
+                0x00001238        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_pscB.o)
+                0x00001238                __fp_pscB
+ .text.avr-libc.fplib
+                0x00001246       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_round.o)
+                0x00001246                __fp_round
+ .text.avr-libc.fplib
+                0x00001268       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_split3.o)
+                0x00001268                __fp_split3
+                0x00001278                __fp_splitA
+ .text.avr-libc.fplib
+                0x000012ac        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_zero.o)
+                0x000012ac                __fp_zero
+                0x000012ae                __fp_szero
+ .text.avr-libc.fplib
+                0x000012ba        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3.o)
+                0x000012ba                __mulsf3
+ .text.avr-libc.fplib
+                0x000012c2       0xd2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(mulsf3x.o)
+                0x000012e0                __mulsf3x
+                0x000012e6                __mulsf3_pse
+ .text.avr-libc.fplib
+                0x00001394       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(sin.o)
+                0x00001394                sin
+ .text.avr-libc.fplib
+                0x000013a4       0x56 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_rempio2.o)
+                0x000013a8                __fp_rempio2
+ .text.avr-libc.fplib
+                0x000013fa       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_sinus.o)
+                0x000013fa                __fp_sinus
+ .text.avr-libc.fplib
+                0x00001422       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_mpack.o)
+                0x00001422                __fp_mpack
+                0x00001426                __fp_mpack_finite
+ .text.avr-libc.fplib
+                0x0000143e       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powsodd.o)
+                0x0000143e                __fp_powsodd
+ .text.avr-libc.fplib
+                0x00001466       0x4e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega6\libm.a(fp_powser.o)
+                0x00001466                __fp_powser
+ .text.btnInitButtons
+                0x000014b4       0x6a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+                0x000014b4                btnInitButtons
+ .text.btnReleaseKeyboardAllColumn
+                0x0000151e       0x2a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .text.btnDriveButtonColumn
+                0x00001548       0x7c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .text.btnCheckWhichButtonsActive
+                0x000015c4       0xb4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .text.btnColumnAndRowToBtnNum
+                0x00001678       0x28 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .text.btnUpdateButtonState
+                0x000016a0       0x68 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .text.btnDebounceButton
+                0x00001708      0x110 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .text.btnManageButtonScan
+                0x00001818       0x32 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+                0x00001818                btnManageButtonScan
+ .text.btnIsButtonActiveOnRow
+                0x0000184a       0x4c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .text.btnIsOnOffButtonActive
+                0x00001896       0x32 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .text.EnableInterrupts
+                0x000018c8       0x12 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .text.systemInitialisation
+                0x000018da       0x92 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+                0x000018da                systemInitialisation
+ .text.cpuClockInit
+                0x0000196c       0x4e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .text.watchdogInit
+                0x000019ba       0x10 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .text.delayAfterPowerOnReset
+                0x000019ca       0x60 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .text.delayAfterExternalHardwareReset
+                0x00001a2a       0x60 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .text.ledResetHold
+                0x00001a8a       0x2c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x00001a8a                ledResetHold
+ .text.ledDriverInit
+                0x00001ab6       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x00001ab6                ledDriverInit
+ .text.ledSetAllIndicatorColour
+                0x00001ad0       0x3c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x00001ad0                ledSetAllIndicatorColour
+ .text.ledSetIndicatorColour
+                0x00001b0c      0x110 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x00001b0c                ledSetIndicatorColour
+ .text.ledSetAllButtonColour
+                0x00001c1c       0x42 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x00001c1c                ledSetAllButtonColour
+ .text.ledSetButtonColour
+                0x00001c5e       0x50 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x00001c5e                ledSetButtonColour
+ .text.ledSetLeftButtonColour
+                0x00001cae      0x198 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x00001cae                ledSetLeftButtonColour
+ .text.ledSetLeftButtonColourInt
+                0x00001e46      0x19c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x00001e46                ledSetLeftButtonColourInt
+ .text.ledSetCentreButtonColour
+                0x00001fe2       0xf8 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x00001fe2                ledSetCentreButtonColour
+ .text.ledSetRightButtonColour
+                0x000020da       0xf2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x000020da                ledSetRightButtonColour
+ .text.ledSetProgressSegmentColour
+                0x000021cc      0x17a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x000021cc                ledSetProgressSegmentColour
+ .text.ledIndexToRegisterCache
+                0x00002346       0x74 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .text.ledManager
+                0x000023ba       0x70 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                0x000023ba                ledManager
+ .text.lowPowerInit
+                0x0000242a       0x2c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+                0x0000242a                lowPowerInit
+ .text.lowPowerTestEnable
+                0x00002456       0x42 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+                0x00002456                lowPowerTestEnable
+ .text.manualResetDetectInit
+                0x00002498       0x24 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+                0x00002498                manualResetDetectInit
+ .text.manageManualResetDetect
+                0x000024bc       0x32 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+                0x000024bc                manageManualResetDetect
+ .text.proximitySensorInit
+                0x000024ee       0x24 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+                0x000024ee                proximitySensorInit
+ .text.proxTestEnable
+                0x00002512       0x3a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+                0x00002512                proxTestEnable
+ .text.pscCommandManager
+                0x0000254c       0x1c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+                0x0000254c                pscCommandManager
+ .text.EnableInterrupts
+                0x00002568       0x12 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .text.DisableInterrupts
+                0x0000257a       0x12 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .text.pscSetSecondsAlive
+                0x0000258c       0x48 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+                0x0000258c                pscSetSecondsAlive
+ .text.pscSetLastReasonForReset
+                0x000025d4       0x34 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+                0x000025d4                pscSetLastReasonForReset
+ .text.pscSetSequenceCount
+                0x00002608       0x48 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+                0x00002608                pscSetSequenceCount
+ .text.pscSetPublicButtonState
+                0x00002650       0x86 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+                0x00002650                pscSetPublicButtonState
+ .text.pscHALTProcessDataFromPsc
+                0x000026d6       0x2e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+                0x000026d6                pscHALTProcessDataFromPsc
+ .text.pscHALTProcessCmd
+                0x00002704      0x146 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .text.pscHALTprogressBarStep
+                0x0000284a       0x72 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+                0x0000284a                pscHALTprogressBarStep
+ .text.pscHALTdisplay
+                0x000028bc       0x42 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .text.pscHALTIndicatorsColourIndex
+                0x000028fe       0x62 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .text.pscHALTButtonsColourIndex
+                0x00002960       0x62 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .text.pscI2cInit
+                0x000029c2       0x2e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+                0x000029c2                pscI2cInit
+ .text.pscI2cIsCommandPendingProcessing
+                0x000029f0       0xf6 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+                0x000029f0                pscI2cIsCommandPendingProcessing
+ .text.pscI2cReadCommandData
+                0x00002ae6       0x72 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+                0x00002ae6                pscI2cReadCommandData
+ .text.__vector_12
+                0x00002b58       0x6a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+                0x00002b58                __vector_12
+ .text.pscI2cInitialiseDriver
+                0x00002bc2       0x60 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text.pscI2cInitialiseModule
+                0x00002c22       0x3a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text.pscI2cInterruptHandler
+                0x00002c5c      0x102 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text.pscI2cAddressMatchHandler
+                0x00002d5e       0xfc S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text.pscI2cStopHandler
+                0x00002e5a       0x78 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text.pscI2cDataHandler
+                0x00002ed2       0x4e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text.pscI2cWriteHandler
+                0x00002f20       0xc6 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text.pscI2cGetTxBuffer
+                0x00002fe6       0x12 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+                0x00002fe6                pscI2cGetTxBuffer
+ .text.pscI2cReadHandler
+                0x00002ff8       0xce S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text.pscI2cTransactionFinished
+                0x000030c6       0x38 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .text.mainTimerInit
+                0x000030fe       0x46 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+                0x000030fe                mainTimerInit
+ .text.__vector_14
+                0x00003144       0xd0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+                0x00003144                __vector_14
+ .text.mainTimerService
+                0x00003214      0x134 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+                0x00003214                mainTimerService
+ .text.quadInit
+                0x00003348       0x24 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+                0x00003348                quadInit
+ .text.quadTestEnable
+                0x0000336c       0x36 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+                0x0000336c                quadTestEnable
+ .text.rstInit  0x000033a2       0x26 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+                0x000033a2                rstInit
+ .text.rstGetLastReasonForReset
+                0x000033c8       0x12 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+                0x000033c8                rstGetLastReasonForReset
+ .text.rs485testInit
+                0x000033da       0x82 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+                0x000033da                rs485testInit
+ .text.rs485testEnable
+                0x0000345c       0x3a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+                0x0000345c                rs485testEnable
+ .text.spiInit  0x00003496       0x48 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+                0x00003496                spiInit
+ .text.adcInit  0x000034de       0x70 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+                0x000034de                adcInit
+ .text.adcReadCalibrationByte
+                0x0000354e       0x48 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .text.adcSetupForNextChannel
+                0x00003596       0xae S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .text.adcAmbientLightTestEnable
+                0x00003644       0x36 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+                0x00003644                adcAmbientLightTestEnable
+ .text.beepInit
+                0x0000367a       0x60 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+                0x0000367a                beepInit
+ .text.beepOff  0x000036da       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .text.CCPWrite
+                0x000036f4       0x58 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+                0x000036f4                CCPWrite
+ .text.CLKSYS_PLL_Config
+                0x0000374c       0x30 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+                0x0000374c                CLKSYS_PLL_Config
+ .text.CLKSYS_Prescalers_Config
+                0x0000377c       0x2e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+                0x0000377c                CLKSYS_Prescalers_Config
+ .text.CLKSYS_Main_ClockSource_Select
+                0x000037aa       0x44 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+                0x000037aa                CLKSYS_Main_ClockSource_Select
+ .text.dspSetContrast
+                0x000037ee       0x22 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspInverseEnable
+                0x00003810       0x16 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+                0x00003810                dspInverseEnable
+ .text.dspInverseDisable
+                0x00003826       0x16 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+                0x00003826                dspInverseDisable
+ .text.dspSetStartLine
+                0x0000383c       0x32 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspWriteByteToDisplay
+                0x0000386e       0x30 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspSetPage
+                0x0000389e       0x32 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspSetColumn
+                0x000038d0       0x4a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspResetHold
+                0x0000391a       0x2e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+                0x0000391a                dspResetHold
+ .text.dspInit  0x00003948       0xb8 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+                0x00003948                dspInit
+ .text.dspOn    0x00003a00       0x1e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+                0x00003a00                dspOn
+ .text.dspPowerOnHighVoltage
+                0x00003a1e       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspOff   0x00003a38       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+                0x00003a38                dspOff
+ .text.dspPowerOffHighVoltage
+                0x00003a52       0x1a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.initSsd1309
+                0x00003a6c       0xb8 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspWriteData
+                0x00003b24       0x48 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspWriteCommand
+                0x00003b6c       0x48 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspBlackWhiteHalf
+                0x00003bb4       0x5c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.dspErase
+                0x00003c10       0x58 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+                0x00003c10                dspErase
+ .text.dspWritePage
+                0x00003c68       0x40 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .text.esfInit  0x00003ca8       0x2a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+                0x00003ca8                esfInit
+ .text.esfTestRestart
+                0x00003cd2       0x40 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+                0x00003cd2                esfTestRestart
+ .text.hmiI2cInit
+                0x00003d12       0x50 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+                0x00003d12                hmiI2cInit
+ .text.hmiI2cReady
+                0x00003d62       0xf0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+                0x00003d62                hmiI2cReady
+ .text.hmiI2cWrite
+                0x00003e52       0x3a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+                0x00003e52                hmiI2cWrite
+ .text.hmiI2cWriteRead
+                0x00003e8c       0xa4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+                0x00003e8c                hmiI2cWriteRead
+ .text.__vector_46
+                0x00003f30       0xce S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+                0x00003f30                __vector_46
+ .text.hmiI2cArbitrationLostBusErrorHandler
+                0x00003ffe       0x50 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .text.hmiI2cWriteHandler
+                0x0000404e       0xc6 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .text.i2cFormatSlaveAddressRead
+                0x00004114       0x2a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .text.i2cFormatSlaveAddressWrite
+                0x0000413e       0x24 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .text.hmiI2cReadHandler
+                0x00004162       0x80 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .text.hmiI2cTransactionFinished
+                0x000041e2       0x20 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+ .text.libgcc.div
+                0x00004202       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_udivmodsi4.o)
+                0x00004202                __udivmodsi4
+ .text.libgcc   0x00004246       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_tablejump2.o)
+                0x00004246                __tablejump2__
+                0x00004256                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00004256        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+                0x00004256                _exit
+                0x00004256                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ .fini6         0x00004256       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_dtors.o)
+                0x00004256                __do_global_dtors
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00004276        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega6\libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000427a                _etext = .
+
+.data           0x00802000      0x1d0 load address 0x0000427a
+                0x00802000                PROVIDE (__data_start, .)
+ *(.data)
+ *(.data*)
+ .data.gLedIndicators
+                0x00802000       0x42 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+                0x00802000                gLedIndicators
+ .data.gLedButtonsLeftAndCtr
+                0x00802042       0x42 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+                0x00802042                gLedButtonsLeftAndCtr
+ .data.gLedButtonsCtrAndRight
+                0x00802084       0x42 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+                0x00802084                gLedButtonsCtrAndRight
+ .data.gLedProgressBar
+                0x008020c6      0x108 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+                0x008020c6                gLedProgressBar
+ *(.gnu.linkonce.d*)
+ *(.rodata)
+ *(.rodata*)
+ .rodata.gcBtnColumnToPinNumMap_Array
+                0x008021ce        0x2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ *(.gnu.linkonce.r*)
+                0x008021d0                . = ALIGN (0x2)
+                0x008021d0                _edata = .
+                0x008021d0                PROVIDE (__data_end, .)
+
+.bss            0x008021d0      0x188
+                0x008021d0                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss._ZL11timedicrete
+                0x008021d0        0x4 LedStateMachine.o
+ .bss._ZL19ledIndexProgressBar
+                0x008021d4        0x1 LedStateMachine.o
+ .bss._ZL10stateIndex
+                0x008021d5        0x1 LedStateMachine.o
+ .bss._ZL3hmi   0x008021d6       0x3a main.o
+ .bss.gcLedIcIndex
+                0x00802210        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .bss.gc10msTick_Local
+                0x00802211        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ *(COMMON)
+ COMMON         0x00802212       0x10 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+                0x00802212                gOnOffButton
+                0x00802217                gcColumnDrvNum
+                0x00802218                gButtonStates_Array
+ COMMON         0x00802222        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+                0x00802222                gLowPowerTestEnabled
+ COMMON         0x00802223        0xe S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+                0x00802223                gWriteBuffer
+                0x0080222d                gc100msTick_Local
+                0x0080222e                gProxTestEnabled
+                0x0080222f                gProxTestState
+                0x00802230                gProxResult
+ COMMON         0x00802231        0x4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+                0x00802231                gSequenceCount
+ COMMON         0x00802235       0xd4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+                0x00802235                gMarkLastI2cActivity
+                0x00802239                gPscI2c
+ COMMON         0x00802309       0x19 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+                0x00802309                gc10msCount
+                0x0080230a                gc250msTick
+                0x0080230b                gcSubSecondCnt
+                0x0080230c                gc100msTick
+                0x0080230d                gc1sTick
+                0x0080230e                gc1sCount
+                0x0080230f                gcLastTimeHere_250ms
+                0x00802310                gcMinuteTimer
+                0x00802311                gdw_LocalmsTimeCount
+                0x00802315                gc100msCount
+                0x00802316                gcSecondTimer
+                0x00802317                gc10msTick
+                0x00802318                gdwSecondsAlive
+                0x0080231c                gcTwoSecondTimer
+                0x0080231d                gcLastTimeHere_100ms
+                0x0080231e                gdw_msTimeCount
+ COMMON         0x00802322        0x9 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+                0x00802322                OldQuad
+                0x00802323                PBDatOld
+                0x00802324                PB1
+                0x00802325                StepCount
+                0x00802326                QDir
+                0x00802327                PB0
+                0x00802328                gcmsTick_QuadDecoder
+                0x00802329                gQuadTestEnabled
+                0x0080232a                QuadCount
+ COMMON         0x0080232b        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+                0x0080232b                gLastReasonForReset
+ COMMON         0x0080232c        0x4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+                0x0080232c                gc10ms_rs485TestInterval
+                0x0080232d                gWaitingForLoopBack
+                0x0080232e                gLineColour
+                0x0080232f                gRs485testEnabled
+ COMMON         0x00802330        0x1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+                0x00802330                gTemp
+ COMMON         0x00802331        0x4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+                0x00802331                gc100msTick_AmbientLight
+                0x00802332                gAdcDiscardSamples
+                0x00802333                gAmbientLightTestEnabled
+                0x00802334                gAdcChannel
+ COMMON         0x00802335       0x12 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+                0x00802335                gCheckForFlashEraseNextSector
+                0x00802336                externalFlashMemSuccessCount
+                0x0080233a                gReadVerifyPending
+                0x0080233b                externalFlashMemFailedCount
+                0x0080233f                glastSequenceCountWrittenToFlash
+                0x00802343                gFlashTestAddr
+ COMMON         0x00802347       0x11 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+                0x00802347                gHmiI2c
+                0x00802354                gMarkLastHmiI2cActivity
+                0x00802358                PROVIDE (__bss_end, .)
+                0x0000427a                __data_load_start = LOADADDR (.data)
+                0x0000444a                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00802358        0x0
+                [!provide]                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                [!provide]                PROVIDE (__noinit_end, .)
+                0x00802358                _end = .
+                [!provide]                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x30
+ *(.comment)
+ .comment       0x00000000       0x30 LedStateMachine.o
+                                 0x31 (size before relaxing)
+ .comment       0x00000030       0x31 main.o
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .comment       0x00000030       0x31 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+
+.note.gnu.avr.deviceinfo
+                0x00000000       0x40
+ .note.gnu.avr.deviceinfo
+                0x00000000       0x40 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x7a0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0xc0 LedStateMachine.o
+ .debug_aranges
+                0x000000c0       0x38 main.o
+ .debug_aranges
+                0x000000f8       0x68 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .debug_aranges
+                0x00000160       0x48 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .debug_aranges
+                0x000001a8       0x98 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .debug_aranges
+                0x00000240       0x18 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .debug_aranges
+                0x00000258       0x28 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .debug_aranges
+                0x00000280       0x28 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .debug_aranges
+                0x000002a8       0x38 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .debug_aranges
+                0x000002e0       0x20 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .debug_aranges
+                0x00000300       0x68 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .debug_aranges
+                0x00000368       0x50 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .debug_aranges
+                0x000003b8       0x88 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .debug_aranges
+                0x00000440       0x30 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .debug_aranges
+                0x00000470       0x38 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .debug_aranges
+                0x000004a8       0x28 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .debug_aranges
+                0x000004d0       0x30 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .debug_aranges
+                0x00000500       0x28 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .debug_aranges
+                0x00000528       0x58 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .debug_aranges
+                0x00000580       0x30 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .debug_aranges
+                0x000005b0       0x60 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .debug_aranges
+                0x00000610       0xb8 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .debug_aranges
+                0x000006c8       0x68 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .debug_aranges
+                0x00000730       0x70 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0xae65
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000     0x2803 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+ .debug_info    0x00002803      0xabe LedStateMachine.o
+ .debug_info    0x000032c1      0x56c main.o
+ .debug_info    0x0000382d      0x5ff S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .debug_info    0x00003e2c      0xa58 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .debug_info    0x00004884      0xaf2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .debug_info    0x00005376      0x238 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .debug_info    0x000055ae      0x2ad S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .debug_info    0x0000585b      0x2ad S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .debug_info    0x00005b08      0x3ee S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .debug_info    0x00005ef6      0x10e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .debug_info    0x00006004      0x438 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .debug_info    0x0000643c      0x46c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .debug_info    0x000068a8      0x6d0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .debug_info    0x00006f78      0x8c9 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .debug_info    0x00007841      0x3e4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .debug_info    0x00007c25      0x10c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .debug_info    0x00007d31      0x41b S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .debug_info    0x0000814c      0x320 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .debug_info    0x0000846c      0x84f S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .debug_info    0x00008cbb      0x934 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .debug_info    0x000095ef      0x534 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .debug_info    0x00009b23      0x7a6 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .debug_info    0x0000a2c9      0x595 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .debug_info    0x0000a85e      0x607 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+
+.debug_abbrev   0x00000000     0x46b3
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000     0x25e4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+ .debug_abbrev  0x000025e4      0x26b LedStateMachine.o
+ .debug_abbrev  0x0000284f      0x1c6 main.o
+ .debug_abbrev  0x00002a15      0x1e4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .debug_abbrev  0x00002bf9      0x145 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .debug_abbrev  0x00002d3e      0x1dd S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .debug_abbrev  0x00002f1b       0xac S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .debug_abbrev  0x00002fc7       0xe6 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .debug_abbrev  0x000030ad       0xd7 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .debug_abbrev  0x00003184      0x159 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .debug_abbrev  0x000032dd       0x89 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .debug_abbrev  0x00003366       0xf3 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .debug_abbrev  0x00003459      0x118 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .debug_abbrev  0x00003571      0x214 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .debug_abbrev  0x00003785      0x122 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .debug_abbrev  0x000038a7      0x14a S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .debug_abbrev  0x000039f1       0xae S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .debug_abbrev  0x00003a9f      0x10f S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .debug_abbrev  0x00003bae       0xf7 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .debug_abbrev  0x00003ca5      0x23d S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .debug_abbrev  0x00003ee2      0x115 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .debug_abbrev  0x00003ff7      0x130 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .debug_abbrev  0x00004127      0x1bf S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .debug_abbrev  0x000042e6      0x1da S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .debug_abbrev  0x000044c0      0x1f3 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+
+.debug_line     0x00000000     0x4e65
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000      0x34f C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+ .debug_line    0x0000034f      0x791 LedStateMachine.o
+ .debug_line    0x00000ae0      0x1c4 main.o
+ .debug_line    0x00000ca4      0x3ae S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .debug_line    0x00001052      0x311 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .debug_line    0x00001363      0x7b1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .debug_line    0x00001b14       0xd2 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+ .debug_line    0x00001be6      0x14d S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .debug_line    0x00001d33      0x150 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .debug_line    0x00001e83      0x325 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .debug_line    0x000021a8       0xfb S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .debug_line    0x000022a3      0x304 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .debug_line    0x000025a7      0x40f S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .debug_line    0x000029b6      0x514 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .debug_line    0x00002eca      0x23c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .debug_line    0x00003106      0x2c1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .debug_line    0x000033c7      0x12c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .debug_line    0x000034f3      0x222 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .debug_line    0x00003715      0x160 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .debug_line    0x00003875      0x355 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .debug_line    0x00003bca      0x16f S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .debug_line    0x00003d39      0x259 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .debug_line    0x00003f92      0x60f S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .debug_line    0x000045a1      0x4cf S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .debug_line    0x00004a70      0x3f5 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+
+.debug_frame    0x00000000     0x18dc
+ *(.debug_frame)
+ .debug_frame   0x00000000      0x2f4 LedStateMachine.o
+ .debug_frame   0x000002f4       0x94 main.o
+ .debug_frame   0x00000388      0x168 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .debug_frame   0x000004f0       0xd4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .debug_frame   0x000005c4      0x224 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .debug_frame   0x000007e8       0x54 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .debug_frame   0x0000083c       0x54 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .debug_frame   0x00000890       0x98 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .debug_frame   0x00000928       0x34 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .debug_frame   0x0000095c      0x160 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .debug_frame   0x00000abc       0xfc S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .debug_frame   0x00000bb8      0x22c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .debug_frame   0x00000de4       0x90 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .debug_frame   0x00000e74       0x94 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .debug_frame   0x00000f08       0x54 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .debug_frame   0x00000f5c       0x74 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .debug_frame   0x00000fd0       0x54 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .debug_frame   0x00001024      0x11c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .debug_frame   0x00001140       0x74 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .debug_frame   0x000011b4      0x13c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .debug_frame   0x000012f0      0x294 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .debug_frame   0x00001584      0x168 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .debug_frame   0x000016ec      0x1f0 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+
+.debug_str      0x00000000     0x5f1e
+ *(.debug_str)
+ .debug_str     0x00000000     0x1a53 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/XMEGAD_DFP/1.1.63/gcc/dev/atxmega384d3/avrxmega6/crtatxmega384d3.o
+ .debug_str     0x00001a53      0x936 LedStateMachine.o
+                                0x9c8 (size before relaxing)
+ .debug_str     0x00002389       0x7a main.o
+                                0x84c (size before relaxing)
+ .debug_str     0x00002403      0x461 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+                                0x5a2 (size before relaxing)
+ .debug_str     0x00002864      0x6e6 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+                                0x97e (size before relaxing)
+ .debug_str     0x00002f4a      0x81e S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+                                0xb9d (size before relaxing)
+ .debug_str     0x00003768      0x1f3 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIcInit_pca9955.o)
+                                0x48c (size before relaxing)
+ .debug_str     0x0000395b       0x4f S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+                                0x350 (size before relaxing)
+ .debug_str     0x000039aa       0x49 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+                                0x35b (size before relaxing)
+ .debug_str     0x000039f3      0x1e3 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+                                0x506 (size before relaxing)
+ .debug_str     0x00003bd6       0x26 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+                                0x23a (size before relaxing)
+ .debug_str     0x00003bfc      0x1e3 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+                                0x4b8 (size before relaxing)
+ .debug_str     0x00003ddf      0x323 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+                                0x5a9 (size before relaxing)
+ .debug_str     0x00004102      0x476 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+                                0x686 (size before relaxing)
+ .debug_str     0x00004578      0x19f S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+                                0x725 (size before relaxing)
+ .debug_str     0x00004717       0xb3 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+                                0x3d5 (size before relaxing)
+ .debug_str     0x000047ca       0x55 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+                                0x1da (size before relaxing)
+ .debug_str     0x0000481f      0x1a6 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+                                0x4d8 (size before relaxing)
+ .debug_str     0x000049c5       0xf4 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+                                0x34d (size before relaxing)
+ .debug_str     0x00004ab9      0x5ae S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+                                0x959 (size before relaxing)
+ .debug_str     0x00005067      0x105 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+                                0x7a7 (size before relaxing)
+ .debug_str     0x0000516c      0x38c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+                                0x747 (size before relaxing)
+ .debug_str     0x000054f8      0x498 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+                                0x7bb (size before relaxing)
+ .debug_str     0x00005990      0x1a9 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+                                0x521 (size before relaxing)
+ .debug_str     0x00005b39      0x3e5 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+                                0x659 (size before relaxing)
+
+.debug_loc      0x00000000     0x3141
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x64e LedStateMachine.o
+ .debug_loc     0x0000064e       0xf9 main.o
+ .debug_loc     0x00000747      0x2dc S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .debug_loc     0x00000a23      0x16f S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .debug_loc     0x00000b92      0x47c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .debug_loc     0x0000100e       0x83 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .debug_loc     0x00001091       0x83 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .debug_loc     0x00001114      0x113 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .debug_loc     0x00001227       0x3b S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .debug_loc     0x00001262      0x2cf S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .debug_loc     0x00001531      0x1f6 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .debug_loc     0x00001727      0x4b1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .debug_loc     0x00001bd8      0x10c S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .debug_loc     0x00001ce4      0x113 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .debug_loc     0x00001df7       0x76 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .debug_loc     0x00001e6d       0xcb S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .debug_loc     0x00001f38       0x83 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .debug_loc     0x00001fbb      0x232 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .debug_loc     0x000021ed       0xb1 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .debug_loc     0x0000229e      0x27b S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .debug_loc     0x00002519      0x535 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .debug_loc     0x00002a4e      0x2bf S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .debug_loc     0x00002d0d      0x434 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000      0x618
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0xb0 LedStateMachine.o
+ .debug_ranges  0x000000b0       0x28 main.o
+ .debug_ranges  0x000000d8       0x58 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(buttons.o)
+ .debug_ranges  0x00000130       0x38 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(initialise.o)
+ .debug_ranges  0x00000168       0x88 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(ledDriverIc_pca9955.o)
+ .debug_ranges  0x000001f0       0x18 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(lowPower.o)
+ .debug_ranges  0x00000208       0x18 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(manualResetDetect.o)
+ .debug_ranges  0x00000220       0x28 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(proxSensor.o)
+ .debug_ranges  0x00000248       0x10 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscCommand.o)
+ .debug_ranges  0x00000258       0x58 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscEvent.o)
+ .debug_ranges  0x000002b0       0x40 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscHALTCommand.o)
+ .debug_ranges  0x000002f0       0x78 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(pscI2c.o)
+ .debug_ranges  0x00000368       0x20 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(mainTimer.o)
+ .debug_ranges  0x00000388       0x28 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(quadDecoder.o)
+ .debug_ranges  0x000003b0       0x18 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(reset.o)
+ .debug_ranges  0x000003c8       0x20 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(rs485test.o)
+ .debug_ranges  0x000003e8       0x18 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(spi.o)
+ .debug_ranges  0x00000400       0x48 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(adc.o)
+ .debug_ranges  0x00000448       0x20 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(beeper.o)
+ .debug_ranges  0x00000468       0x50 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(clock.o)
+ .debug_ranges  0x000004b8       0xa8 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(display.o)
+ .debug_ranges  0x00000560       0x58 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(externalFlashMem.o)
+ .debug_ranges  0x000005b8       0x60 S:\AtmelStudio\HMI_Beverage_Maker\LightBar(19May)\Debug\libBevMakerHmi.a(hmiI2c.o)
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(BeverageMakerHMIStatus.elf elf32-avr)
+LOAD linker stubs

@@ -44,6 +44,7 @@ private:
 	uint32_t	memoryCapacity;
 	bool			is_corrupted,isOK;
 	uint8_t		status;
+	
 	_qspi_command cmd;
 	uint32_t	currentAddress;
 	

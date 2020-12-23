@@ -20,10 +20,10 @@
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
     <ResetRule>0</ResetRule>
     <eraseonlaunchrule>0</eraseonlaunchrule>
@@ -175,6 +175,7 @@
             <Value>../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve</Value>
             <Value>../../ECS_Box_Classes/ECS_Box_Classes/USBSerial</Value>
             <Value>../../ECS_Box_Classes/ECS_Box_Classes/I2C</Value>
+            <Value>../../ECS_Box_Classes/ECS_Box_Classes/Timers</Value>
           </ListValues>
         </armgcccpp.compiler.directories.IncludePaths>
         <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>

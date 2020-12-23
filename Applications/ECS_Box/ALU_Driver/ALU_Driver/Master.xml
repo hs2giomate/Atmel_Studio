@@ -47,6 +47,7 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -104,6 +105,7 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -145,6 +147,7 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
+      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>

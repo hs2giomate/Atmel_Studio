@@ -8,7 +8,7 @@
 
 #include "SingleHeater_Class.h"
 SingleHeater_Class*	ptrSingleHeaterClass;
-static I2C_Sync_Class	i2cSharedStatic(&I2C_HEATERS);
+
 static	MCP23008_Class expandersStatic[SINGLE_HEATER_EXPANDERS];
 
 
@@ -97,6 +97,12 @@ uint8_t	SingleHeater_Class::SetRelay(uint8_t indexHeater, bool state){
 	enabled=expanders[1]->WriteDigit(indexHeater,!state);
 	return uint8_t(enabled);
 }
+void SingleHeater_Class::DisableAll(void){
+	for (uint8_t i = 0; i < 4; i++)
+	{
+		DisableIndex(i);
+	}
+}
 
 uint8_t	SingleHeater_Class::DisableIndex(uint8_t indexHeater){
 	enabled=expanders[1]->WriteDigit(indexHeater,true)?false:true;
@@ -120,24 +126,23 @@ bool SingleHeater_Class::SelfTest(void){
 	bool result;
 	for (uint8_t i = 0; i < 4; i++)
 	{
-			EnableIndex(i);
-			delay_ms(100);
-			DisableIndex(i);
-			ReadStatus();
-			if (heaterGPIO.inputs.niAlcHeaterRelayFault[i])
-			{
-				result=true;
-			} 
-			else
-			{
-				result=false;
-				break;
-			}
+		EnableIndex(i);
+		delay_ms(100);
+		DisableIndex(i);
+		ReadStatus();
+		if (heaterGPIO.inputs.niAlcHeaterRelayFault[i])
+		{
+			result=true;
+		} 
+		else
+		{
+			result=false;
+			break;
+		}
 			
 			
 	}
 	
-
 	return result;
 }
 

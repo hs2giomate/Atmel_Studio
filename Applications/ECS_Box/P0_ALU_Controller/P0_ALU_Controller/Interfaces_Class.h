@@ -39,7 +39,7 @@ class Interfaces_Class
 {
 //variables
 public:
-	volatile bool isOK;
+	volatile bool isOK,isMaintenanceActivated;
 protected:
 private:
 	HVACState	hvacState;

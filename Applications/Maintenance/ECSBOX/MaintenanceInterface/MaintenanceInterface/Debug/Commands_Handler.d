@@ -276,7 +276,11 @@ Commands_Handler.d Commands_Handler.o: .././Commands_Handler.cpp \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
+ ../../../../../ECS_Box/FlapperValve/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller.h \
+ ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h \
+ ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h
 
 .././Commands_Handler.h:
 
@@ -835,3 +839,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
+
+../../../../../ECS_Box/FlapperValve/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller.h:
+
+../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h:
+
+../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:

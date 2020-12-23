@@ -38,8 +38,14 @@ void	ARINC_Buffer_Class::InitBuffer(void){
 	LabelsArrayRX2=&bufferLabelsArrayRX2[0];
 		for (uint8_t i = 0; i < TX_LABELS_NUMBER; i++)
 		{
+			for (uint8_t j = 0; j < 4; j++)
+			{
+				bufferReceiverBuffer[i][j]=0;
+				bufferTransmitBuffer[i][j]=0;
+			}
 			pointerArrayRX[i]=bufferReceiverBuffer[i];
 			pointerArrayTX[i]=bufferTransmitBuffer[i];
+			
 		}
 		receiverBuffer=pointerArrayRX;
 		transmitBuffer=pointerArrayTX;
@@ -54,6 +60,21 @@ void ARINC_Buffer_Class::SaveFlapperValveAngle(uint8_t angle){
 			Uint32FourBytesArray(data,localArray);
 			memcpy(transmitBuffer[index],localArray,4);
 	} 
+	else
+	{
+	}
+
+}
+
+void ARINC_Buffer_Class::SaveFansSpeed(Command272 c272){
+	octalLabel=Label2Byte(FANS_SPEED_CALLBACK);
+	index=GetIndexTXLabelarray(octalLabel,LabelsArrayTX);
+	if (index<0x20)
+	{
+		data=MakeTXLabel372(c272);
+		Uint32FourBytesArray(data,localArray);
+		memcpy(transmitBuffer[index],localArray,4);
+	}
 	else
 	{
 	}

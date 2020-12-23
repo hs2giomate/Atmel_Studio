@@ -13,7 +13,7 @@
 
 #include <hal_timer.h>
 
-#define TASK_NUMBER		16
+#define TASK_NUMBER		32
 
 class Timer_Class
 {
@@ -31,6 +31,7 @@ private:
 	Timer_Class	*    prtTimer;
 	uint32_t	 clockCycles;
 	timer_task*			task;
+	uint8_t		lastTaskIndex;
 	
 
 //functions
@@ -43,9 +44,9 @@ public:
 	void Init(timer_descriptor * descr);
 	void deinit();
 	void Set_descriptor(timer_descriptor * descr);
-	int32_t start(uint32_t);
-	int32_t start(void);
-	int32_t stop();
+	int32_t Start(uint32_t);
+	int32_t Start(void);
+	int32_t Stop();
 	volatile void	setTimeout();
 	int32_t set_clock_cycles_per_tick(uint32_t clock_cycles);
 	void setOneShotTimer(uint32_t interval);
@@ -57,8 +58,7 @@ public:
 	int32_t StartCountingTicks(uint32_t interval);
 	
 
-	void	GetTaskFunction(FUNC_PTR func);
-	void	ChooseAvailableTimerTask(void);
+	
 	void	Remove_task(void);
 	void	Remove_task(FUNC_PTR func);
 	uint32_t	Get_ticks(void);
@@ -69,13 +69,27 @@ protected:
 private:
 	Timer_Class( const Timer_Class &c );
 	Timer_Class& operator=( const Timer_Class &c );
+	void	ChooseAvailableTimerTask(FUNC_PTR func);
+	void	GetTaskFunction(FUNC_PTR func);
+	void	ChooseAvailableTimerTask(void);
 
 }; //Timer_Class
+// 
+// extern	Timer_Class eventTimer;
+static Timer_Class temperatureTimer(&TIMER_TEMPERATURES);
+static Timer_Class eventTimer(&TIMER_EVENT);
+static Timer_Class hvacTimer(&TIMER_HVAC);
+static Timer_Class connectionTimer(&TIMER_INTERFACE);
+static Timer_Class arincTimer(&TIMER_ARINC);
+static Timer_Class usbTerminalTimer(&TIMER_USB);
+static Timer_Class interfaceTimer(&TIMER_MAINTENANCE);
+static Timer_Class canoTimer(&TIMER_CCU);
 
-extern	Timer_Class eventTimer;
-extern	Timer_Class hvacTimer;
-extern	Timer_Class	connectionTimer;
-extern	Timer_Class	arincTimer;
-extern	Timer_Class	temperatureTimer;
+//static	Timer_Class hvacTimer;
+// extern	Timer_Class	connectionTimer;
+// extern	Timer_Class	arincTimer;
+// extern	Timer_Class	temperatureTimer;
+// extern	Timer_Class usbTerminalTimer;
+// extern	Timer_Class interfaceTimer;
 
 #endif //__TIMER_CLASS_H__

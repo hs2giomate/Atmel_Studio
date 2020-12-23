@@ -131,9 +131,6 @@ private:
 	bool	CommandReadHeaterStatus();
 
 	bool	CommandReadTemmperatures(void);
-	bool	CommandSetFlapperValve(void);
-	bool	CommandReadFlapperData();
-	bool	CommandSetFlapperPosition(void);
 	
 
 }; //Maintenance_Tool

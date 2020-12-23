@@ -219,7 +219,7 @@ Maintenance_Tool.d Maintenance_Tool.o: .././Maintenance_Tool.cpp \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
  S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver/driver_init.h \
  S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver/atmel_start_pins.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
@@ -269,7 +269,6 @@ Maintenance_Tool.d Maintenance_Tool.o: .././Maintenance_Tool.cpp \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/FlashMemoryClass.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
  ../../../HeaterP0Board/HeaterP0Board/SingleHeater_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h \
@@ -281,7 +280,6 @@ Maintenance_Tool.d Maintenance_Tool.o: .././Maintenance_Tool.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
  ../../../TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
@@ -747,7 +745,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver/driver_init.h:
 
@@ -849,8 +847,6 @@ S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver/atmel_start_pins.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
-
 ../../../HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h:
@@ -872,8 +868,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h:
 

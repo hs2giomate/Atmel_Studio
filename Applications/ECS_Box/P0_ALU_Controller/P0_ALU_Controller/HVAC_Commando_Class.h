@@ -9,16 +9,19 @@
 #ifndef __HVAC_COMMANDO_CLASS_H__
 #define __HVAC_COMMANDO_CLASS_H__
 #include "ConfigState_Class.h"
+#include "ARINC_Handler_Class.h";
 
 class HVAC_Commando_Class: private virtual ConfigState_Class
 {
 //variables
 public:
 	AcknoledgeStatus commando270;
+	Command272	command272,command372;
+	
 protected:
 private:
 	
-	uint32_t actualCommando, lastCommando;
+	uint32_t actualCommando, lastCommando,fansSpeedCommand, lastSpeedCommand;
 	uint8_t	flapperValveSetpoint,lastflapperValveSetpoint;
 	float	lastTemperatureSetpoint, temperatureSetpoint, errorTemperature;
 	
@@ -34,13 +37,16 @@ public:
 	 uint8_t GetFlapperValveSetpoint(void);
 	 void	HandleCommands(void);
 	 float UpadateTemperatureSetpoint(void);
+	 bool IsCommando272Changed(void);
+	 void UpdateCommando372(void);
+	 uint32_t UpdateCommando272(void);
 
 	 
 protected:
 private:
 	HVAC_Commando_Class( const HVAC_Commando_Class &c );
 	HVAC_Commando_Class& operator=( const HVAC_Commando_Class &c );
-	 uint32_t UpdateCommando(void);
+	 uint32_t UpdateCommando270(void);
 	 uint8_t UpadateFlapperValveSetpoint(void);
 
 }; //HVAC_Commando_Class

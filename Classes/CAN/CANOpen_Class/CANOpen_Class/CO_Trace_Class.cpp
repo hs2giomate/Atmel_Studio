@@ -42,8 +42,8 @@ static uint32_t printPointCsvUnsigned(char *s, uint32_t size, uint32_t timeStamp
 }
 static uint32_t printPointBinary(char *s, uint32_t size, uint32_t timeStamp, int32_t value) {
     if(size < 8) return 0;
-    ptrCODriverClass->CO_memcpySwap4(s, &timeStamp);
-    ptrCODriverClass->CO_memcpySwap4(s+4, &value);
+    canopen->CO_memcpySwap4(s, &timeStamp);
+    canopen->CO_memcpySwap4(s+4, &value);
     return 8;
 }
 static uint32_t printPointSvgStart(char *s, uint32_t size, uint32_t timeStamp, int32_t value) {
@@ -112,14 +112,14 @@ static void findVariable(CO_trace_t *trace) {
 
     /* find mapped variable, if map available */
     if(!err && (index != 0 || subIndex != 0)) {
-        uint32_t entryNo = ptrCODriverClass->CO_OD_find( index);
+        uint32_t entryNo = canopen->CO_OD_find( index);
 
         if(index >= 0x1000 && entryNo != 0xFFFF && subIndex <= trace->SDO->OD[entryNo].maxSubIndex) {
-            OdDataPtr = ptrCODriverClass->CO_OD_getDataPointer( entryNo, subIndex);
+            OdDataPtr = canopen->CO_OD_getDataPointer( entryNo, subIndex);
         }
 
         if(OdDataPtr != NULL) {
-            uint32_t len = ptrCODriverClass->CO_OD_getLength( entryNo, subIndex);
+            uint32_t len = canopen->CO_OD_getLength( entryNo, subIndex);
 
             if(len < dataLen) {
                 dataLen = len;
@@ -443,8 +443,8 @@ void CO_Trace_Class::CO_trace_init(
         trace->enabled = false;
     }
 
-    ptrCODriverClass->CO_OD_configure( idx_OD_traceConfig, CO_ODF_traceConfig, (void*)trace, 0, 0);
-    ptrCODriverClass->CO_OD_configure( idx_OD_trace, CO_ODF_trace, (void*)trace, 0, 0);
+    canopen->CO_OD_configure( idx_OD_traceConfig, CO_ODF_traceConfig, (void*)trace, 0, 0);
+    canopen->CO_OD_configure( idx_OD_trace, CO_ODF_trace, (void*)trace, 0, 0);
 }
 
 

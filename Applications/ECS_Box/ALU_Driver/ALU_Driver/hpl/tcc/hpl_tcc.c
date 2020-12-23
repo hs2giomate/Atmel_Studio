@@ -70,7 +70,7 @@ static struct tcc_cfg *_get_tcc_cfg(void *hw);
 /**
  * \brief Array of TCC configurations
  */
-static struct tcc_cfg _cfgs[2] = {
+static struct tcc_cfg _cfgs[3] = {
     {(void *)TCC0,
      TCC0_0_IRQn,
      CONF_TCC0_CTRLA,
@@ -98,6 +98,20 @@ static struct tcc_cfg _cfgs[2] = {
      0,
      0,
      CONF_TCC1_PER},
+
+    {(void *)TCC2,
+     TCC2_0_IRQn,
+     CONF_TCC2_CTRLA,
+     CONF_TCC2_CTRLB,
+     CONF_TCC2_DBGCTRL,
+     CONF_TCC2_EVCTRL,
+     CONF_TCC2_CC0,
+     CONF_TCC2_CC1,
+     CONF_TCC2_CC2,
+     0,
+     0,
+     0,
+     CONF_TCC2_PER},
 };
 /* Renamed access REG name PERB -> PERBUF */
 #define hri_tcc_write_PERB_reg hri_tcc_write_PERBUF_reg
@@ -110,6 +124,8 @@ static struct tcc_cfg _cfgs[2] = {
 static struct _timer_device *_tcc0_dev = NULL;
 
 static struct _timer_device *_tcc1_dev = NULL;
+
+static struct _timer_device *_tcc2_dev = NULL;
 
 /**
  * \brief Set of pointer to hal_timer helper functions
@@ -135,6 +151,9 @@ static void _tcc_init_irq_param(const void *const hw, void *dev)
 	}
 	if (hw == TCC1) {
 		_tcc1_dev = (struct _timer_device *)dev;
+	}
+	if (hw == TCC2) {
+		_tcc2_dev = (struct _timer_device *)dev;
 	}
 }
 /**
@@ -278,6 +297,14 @@ void TCC0_0_Handler(void)
 void TCC1_0_Handler(void)
 {
 	tcc_interrupt_handler(_tcc1_dev);
+}
+
+/**
+ * \brief TCC interrupt handler
+ */
+void TCC2_0_Handler(void)
+{
+	tcc_interrupt_handler(_tcc2_dev);
 }
 
 static struct tcc_cfg *_get_tcc_cfg(void *hw)

@@ -14,6 +14,7 @@
 #define  FLAPPER_VALVE_UNLOCK_TIMEOUT	500
 #define  FLAPPER_VALVE_CLOSING_TIMEOUT	200
 #define FLAPPER_VALVE_CONTROL_LIMIT	4
+#define FLAPPER_VALVE_POSITIONS_BUFFER 16
 
 
 
@@ -22,7 +23,7 @@ class FlapperValveController: public  SingleFlapperValve_Class
 //variables
 public:
 	volatile bool timeoutFlapperValveController, flapperValveIsMoving, doPeriodicTask,controllerEnabled,timeoutKeepControlling,isOK;
-	SingleFlapperValve_Class* fv;
+	SingleFlapperValve_Class* singlefv;
 	FVDataStruct	dataStruct;
 	volatile bool	unLockTimeout,fullClosedTimeout,gotSetpoint,resetTimeout;
 protected:
@@ -36,13 +37,19 @@ private:
 	volatile uint8_t *ptrTask;
 	uint8_t	maximumPosition, standAlonePosition,currentMaximum;
 	UserParameters	parameters;
+	uint8_t valve_ID;
+	uint8_t	*positions[FLAPPER_VALVE_QUANTITY];
+	FlapperValveController *partner;
+	bool bool_result;
 	
 
 //functions
 public:
 	FlapperValveController();
 	~FlapperValveController();
+	void SetPartner(FlapperValveController *part);
 	bool InitController();
+	bool InitController(uint8_t valve_id);
 	uint8_t	StopMotor();
 	uint8_t	StartMotor();
 	uint8_t	StartControlling(uint8_t sp);
@@ -64,6 +71,8 @@ public:
 	bool IsInvalidPosition(void);
 	bool SetRemoteNBCMode(bool st);
 	bool	IsNBCMode(void);
+	bool	IsFlapperMoving(void);
+
 	
 	
 protected:
@@ -80,6 +89,9 @@ private:
 	uint8_t	KeepControlling(uint8_t restart=0);
 	bool	IsStandAloneMode(void);
 	bool Selftest(void);
+	bool CheckIsClosing(void);
+	void	RemoveTimeoutTask(void);
+	void	FillPositionsFIFO(uint8_t cp);
 	
 	
 	void ResetValvePosition(void);	

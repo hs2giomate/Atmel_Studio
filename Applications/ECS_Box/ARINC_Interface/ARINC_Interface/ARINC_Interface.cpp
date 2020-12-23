@@ -109,7 +109,7 @@ bool	ARINC_Interface::Init(void){
 	arincTimer.Add_periodic_task(FUNC_PTR(blink_LED0),1000);
 	arincTimer.Add_periodic_task(FUNC_PTR(TxTimeout),500);
 	ext_irq_register(ARINCR1Int, Receiver1Int);
-	arincTimer.start();
+	arincTimer.Start();
 	//HI3893.InitPriorityLabels();
 	return isOK;
 }
@@ -134,13 +134,13 @@ bool	ARINC_Interface::isThereNewMessage(){
 }
 uint32_t ARINC_Interface::ReadRXBuffer(uint8_t n){
 	
-	usb.println("r\n---!got message!----");
+	//usb.println("r\n---!got message!----");
 	uint8_t receiver[2*RX_LABELS_NUMBER][4];
 	uint8_t	messagesCounter=0;
-	cpu_irq_disable();
+	//cpu_irq_disable();
 	                     // Poll Receiver1 status register
 	
-	for (uint8_t ii = 0; ii <2*RX_LABELS_NUMBER ; ii++)
+	for (uint8_t ii = 0; ii <RX_LABELS_NUMBER ; ii++)
 	{
 		statusRegister= HI3593.R_Register(RXSTATUS_1+(n-1)*0x20);  
 		if(((statusRegister & FFEMPTY) == 0))
@@ -159,7 +159,7 @@ uint32_t ARINC_Interface::ReadRXBuffer(uint8_t n){
 		}
 	}
 
-	cpu_irq_enable();
+//	cpu_irq_enable();
 
 		if ((n==1))
 		{
@@ -264,24 +264,33 @@ uint32_t ARINC_Interface::TrasmitSingleLabel(void){
 }
 
 uint32_t ARINC_Interface::TrasmitSingleLabel(uint32_t l){
+	
 	gpio_set_pin_level(LED0,false);
 	octalLabel=Label2Byte(l);
 	index=GetIndexTXLabelarray(FlipByte(octalLabel),LabelsArrayTX);
 	uint8_t localBuffer[4];
 //	memcpy(localBuffer,LabelsArrayTX,4);
 	memcpy(localBuffer,transmitBuffer[index],4);
-//	Uint32FourBytesArray(0x1234561d,localBuffer);
-//	PrepareSingleTXBuffer(TXBuffer,LabelsArrayTX);
-	usb.println(" transmitting...");
-	cpu_irq_disable();
-	HI3593.TransmitCommandAndData(TXFIFO,localBuffer);
-	cpu_irq_enable();
-	usb.println(" Transmitted!");
-	usb.println(">");
-	printARINCTXData(TXBuffer);
-	txTimeout=false;
-	gpio_set_pin_level(LED0,true);
-	return FourBytesArray2Uint32(TXBuffer);
+	if ((localBuffer[0]==0)&(localBuffer[2]==0)&(localBuffer[1]==0))
+	{
+		return 0;
+	} 
+	else
+	{
+			memcpy(localBuffer,transmitBuffer[index],4);
+		
+			//usb.println(" transmitting...");
+			cpu_irq_disable();
+			HI3593.TransmitCommandAndData(TXFIFO,localBuffer);
+			cpu_irq_enable();
+			//usb.println(" Transmitted!");
+		//	usb.println(">");
+			printARINCTXData(TXBuffer);
+			txTimeout=false;
+			gpio_set_pin_level(LED0,true);
+			return FourBytesArray2Uint32(TXBuffer);
+	}
+
 }
 
 uint8_t ARINC_Interface::TrasmitSingleLabel(uint8_t l){
@@ -293,9 +302,9 @@ uint8_t ARINC_Interface::TrasmitSingleLabel(uint8_t l){
 
 			memcpy(localBuffer,transmitBuffer[index],4);
 
-			cpu_irq_disable();
+			//cpu_irq_disable();
 			HI3593.TransmitCommandAndData(TXFIFO,localBuffer);
-			cpu_irq_enable();
+			//cpu_irq_enable();
 	}
 
 
@@ -310,6 +319,7 @@ void	ARINC_Interface::TransmitTXBuffer(void){
 	{
 		if (LabelsArrayTX[i]>0)
 		{
+			
 			l=LabelsArrayTX[i];
 			TrasmitSingleLabel(l);
 		}
@@ -384,7 +394,7 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 	//LED_CTL(LED_7,ARINC_OFF);     // Turn off LED-7. Will use for PL-3 indication
 	
 	usb.println("\n\rTransmitting\n\r>");
-	arincTimer.start();
+	arincTimer.Start();
 	
 	for(;;) {     // TEST Transmit loop
 			ch=(char)usb.read();
@@ -509,7 +519,7 @@ void ARINC_Interface::TransmitReceiveWithLabels_Mode(const uint8_t SELFTEST){
 		
 		
 	} // loop
-	arincTimer.stop();
+	arincTimer.Stop();
 }  // Transmit Mode End
 
 
@@ -614,7 +624,7 @@ void ARINC_Interface::CommandStatus(){
 	//LED_CTL(LED_7,ARINC_OFF);     // Turn off LED-7. Will use for PL-3 indication
 	
 	usb.println("\n\rTransmitting\n\r>");
-	arincTimer.start();
+	arincTimer.Start();
 	
 	for(;;) {     // TEST Transmit loop
 		ch=(char)usb.read();
@@ -739,7 +749,7 @@ void ARINC_Interface::CommandStatus(){
 		
 		
 	} // loop
-	arincTimer.stop();
+	arincTimer.Stop();
 }  // Transmit Mode End
 
 

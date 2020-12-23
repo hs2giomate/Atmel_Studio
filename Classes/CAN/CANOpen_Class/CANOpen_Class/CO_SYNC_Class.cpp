@@ -70,7 +70,7 @@ static CO_SDO_abortCode_t CO_ODF_1005(CO_ODF_arg_t *ODF_arg){
     CO_SDO_abortCode_t ret = CO_SDO_AB_NONE;
 
     SYNC = (CO_SYNC_t*) ODF_arg->object;
-    value =ptrCODriverClass->CO_getUint32(ODF_arg->data);
+    value =canopen->CO_getUint32(ODF_arg->data);
 
     if(!ODF_arg->reading){
         uint8_t configureSyncProducer = 0;
@@ -103,7 +103,7 @@ static CO_SDO_abortCode_t CO_ODF_1005(CO_ODF_arg_t *ODF_arg){
                     SYNC->counter = 0U;
                     SYNC->timer = 0U;
                 }
-                SYNC->CANtxBuff = ptrCODriverClass->CAN_Tx_BufferInit(
+                SYNC->CANtxBuff = canopen->CAN_Tx_BufferInit(
                    
                         SYNC->CANdevTxIdx,      /* index of specific buffer inside CAN module */
                         SYNC->COB_ID,           /* CAN identifier */
@@ -116,7 +116,7 @@ static CO_SDO_abortCode_t CO_ODF_1005(CO_ODF_arg_t *ODF_arg){
                 SYNC->isProducer = false;
             }
 
-            ptrCODriverClass->CAN_Rx_BufferInit(
+            canopen->CAN_Rx_BufferInit(
                     SYNC->CANdevRxIdx,      /* rx buffer index */
                     SYNC->COB_ID,           /* CAN identifier */
                     0x7FF,                  /* mask */
@@ -141,7 +141,7 @@ static CO_SDO_abortCode_t CO_ODF_1006(CO_ODF_arg_t *ODF_arg){
     CO_SDO_abortCode_t ret = CO_SDO_AB_NONE;
 
     SYNC = (CO_SYNC_t*) ODF_arg->object;
-    value = ptrCODriverClass->CO_getUint32(ODF_arg->data);
+    value = canopen->CO_getUint32(ODF_arg->data);
 
     if(!ODF_arg->reading){
         /* period transition from 0 to something */
@@ -191,7 +191,7 @@ static CO_SDO_abortCode_t CO_ODF_1019(CO_ODF_arg_t *ODF_arg){
                 len = 1U;
             }
 
-            SYNC->CANtxBuff =ptrCODriverClass->CAN_Tx_BufferInit(
+            SYNC->CANtxBuff =canopen->CAN_Tx_BufferInit(
              
                     SYNC->CANdevTxIdx,      /* index of specific buffer inside CAN module */
                     SYNC->COB_ID,           /* CAN identifier */
@@ -254,12 +254,12 @@ CO_ReturnError_t CO_SYNC_Class::SYNC_Init(
     SYNC->CANdevRxIdx = CANdevRxIdx;
 
     /* Configure Object dictionary entry at index 0x1005, 0x1006 and 0x1019 */
-    ptrCODriverClass->CO_OD_configure( OD_H1005_COBID_SYNC,        CO_ODF_1005, (void*)SYNC, 0, 0);
-    ptrCODriverClass->CO_OD_configure( OD_H1006_COMM_CYCL_PERIOD,  CO_ODF_1006, (void*)SYNC, 0, 0);
-    ptrCODriverClass->CO_OD_configure( OD_H1019_SYNC_CNT_OVERFLOW, CO_ODF_1019, (void*)SYNC, 0, 0);
+    canopen->CO_OD_configure( OD_H1005_COBID_SYNC,        CO_ODF_1005, (void*)SYNC, 0, 0);
+    canopen->CO_OD_configure( OD_H1006_COMM_CYCL_PERIOD,  CO_ODF_1006, (void*)SYNC, 0, 0);
+    canopen->CO_OD_configure( OD_H1019_SYNC_CNT_OVERFLOW, CO_ODF_1019, (void*)SYNC, 0, 0);
 
     /* configure SYNC CAN reception */
-    ptrCODriverClass->CAN_Rx_BufferInit(
+    canopen->CAN_Rx_BufferInit(
             CANdevRxIdx,            /* rx buffer index */
             SYNC->COB_ID,           /* CAN identifier */
             0x7FF,                  /* mask */
@@ -270,7 +270,7 @@ CO_ReturnError_t CO_SYNC_Class::SYNC_Init(
     /* configure SYNC CAN transmission */
     SYNC->CANdevTx = CANdevTx;
     SYNC->CANdevTxIdx = CANdevTxIdx;
-    SYNC->CANtxBuff =  ptrCODriverClass->CAN_Tx_BufferInit(
+    SYNC->CANtxBuff =  canopen->CAN_Tx_BufferInit(
             CANdevTxIdx,            /* index of specific buffer inside CAN module */
             SYNC->COB_ID,           /* CAN identifier */
             0,                      /* rtr */
@@ -310,7 +310,7 @@ uint8_t CO_SYNC_Class::CO_SYNC_process(
                 ret = 1;
                 SYNC->CANrxToggle = SYNC->CANrxToggle ? false : true;
                 SYNC->CANtxBuff->data[0] = SYNC->counter;
-                ptrCODriverClass->CAN_Send(SYNC->CANtxBuff);
+                canopen->CAN_Send(SYNC->CANtxBuff);
             }
         }
 
@@ -332,7 +332,7 @@ uint8_t CO_SYNC_Class::CO_SYNC_process(
 
         /* Verify timeout of SYNC */
         if(SYNC->periodTime && SYNC->timer > SYNC->periodTimeoutTime && *SYNC->operatingState == CO_NMT_OPERATIONAL)
-             ptrCODriverClass->EM_ErrorReport(SYNC->em, CO_EM_SYNC_TIME_OUT, CO_EMC_COMMUNICATION, SYNC->timer);
+             canopen->EM_ErrorReport(SYNC->em, CO_EM_SYNC_TIME_OUT, CO_EMC_COMMUNICATION, SYNC->timer);
     }
     else {
         SYNC->CANrxNew = false;
@@ -340,7 +340,7 @@ uint8_t CO_SYNC_Class::CO_SYNC_process(
 
     /* verify error from receive function */
     if(SYNC->receiveError != 0U){
-        ptrCODriverClass->EM_ErrorReport(SYNC->em, CO_EM_SYNC_LENGTH, CO_EMC_SYNC_DATA_LENGTH, (uint32_t)SYNC->receiveError);
+        canopen->EM_ErrorReport(SYNC->em, CO_EM_SYNC_LENGTH, CO_EMC_SYNC_DATA_LENGTH, (uint32_t)SYNC->receiveError);
         SYNC->receiveError = 0U;
     }
 

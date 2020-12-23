@@ -36,74 +36,78 @@ int main(void)
 	usb.Init();
 	//StartLivePulse();
 	delay_ms(200);
+	memory.Init();
+	memory.WriteDefaultParameters();
 	bool isOK=temperatures.Init();
 	if (isOK)
 	{
 		temperatures.StartOneConversion();
 	}
 	gpio_set_pin_level(LED0,true);
-	while (!fvc.InitController())
+	while (!fv.Init())
 	{
 		delay_ms(200);
 		gpio_toggle_pin_level(LED0);
 	}
-	while(!fans.Init()){
-		delay_ms(200);
-		gpio_toggle_pin_level(LED0);
-		
-	}
-	fans.condesator->SetEnable(false);
-	fans.evaporator[0]->SetEnable(false);
-	fans.evaporator[1]->SetEnable(false);
-	
-	while(!heater.Init()){
-		delay_ms(200);
-		gpio_toggle_pin_level(LED0);
-	}
-	heater.DisableIndex(0);
-	heater.DisableIndex(1);
-	heater.DisableIndex(2);
-	heater.DisableIndex(3);
+// 	while(!fans.Init()){
+// 		delay_ms(200);
+// 		gpio_toggle_pin_level(LED0);
+// 		
+// 	}
+// 	fans.condesator->SetEnable(false);
+// 	fans.evaporator[0]->SetEnable(false);
+// 	fans.evaporator[1]->SetEnable(false);
+// 	
+// 	while(!heater.Init()){
+// 		delay_ms(200);
+// 		gpio_toggle_pin_level(LED0);
+// 	}
+// 	heater.DisableIndex(0);
+// 	heater.DisableIndex(1);
+// 	heater.DisableIndex(2);
+// 	heater.DisableIndex(3);
 
 	//hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareIsAlive),2500);
 	uint8_t localSetpoint=210;
 	uint8_t localPosition;
-
+	fv.fv1->StartControlling(220);
+	fv.fv2->StartControlling(220);
 	
 	toolApp.Init();
-	memory.Init();
-	memory.WriteDefaultParameters();
 
-	fvc.UpdateFlapperValveData();
-	fvc.fv->SetEnable(false);
-	fvc.fv->SetInvalidPosition(false);
-	fvc.fv->ClearMoveFault(false);
-	delay_ms(100);
-	fvc.fv->SetInvalidPosition(true);
-	if (fvc.dataStruct.controlOutputs.niAlcFvMotorEnable)
-	{
-		fvc.fv->SetEnable(false);
-	}
 	
-	fvc.fv->ClearMoveFault(true);
-	fvc.fv->WriteSetpoint(localSetpoint);
-	fvc.fv->SetDirection(false);
-	if (fvc.fv->ReadActualPosition()>localSetpoint)
-	{
-		fvc.fv->SetDirection(true);
-	} 
-	else
-	{
-		fvc.fv->SetDirection(false);
-	}
-		hvacTimer.Start_oneShot_task(FUNC_PTR(FirmwareIsAlive),5000);
-			fvc.fv->SetEnable(true);
-	localPosition=fvc.fv->ReadActualPosition();
-	while ((abs(localPosition-localSetpoint)>6)&(!localtimeout))
-	{
-		localPosition=fvc.fv->ReadActualPosition();
-	}
-	fvc.fv->SetEnable(false);
+	
+
+// 	fvc.UpdateFlapperValveData();
+// 	fvc.fv->SetEnable(false);
+// 	fvc.fv->SetInvalidPosition(false);
+// 	fvc.fv->ClearMoveFault(false);
+// 	delay_ms(100);
+// 	fvc.fv->SetInvalidPosition(true);
+// 	if (fvc.dataStruct.controlOutputs.niAlcFvMotorEnable)
+// 	{
+// 		fvc.fv->SetEnable(false);
+// 	}
+// 	
+// 	fvc.fv->ClearMoveFault(true);
+// 	fvc.fv->WriteSetpoint(localSetpoint);
+// 	fvc.fv->SetDirection(false);
+// 	if (fvc.fv->ReadActualPosition()>localSetpoint)
+// 	{
+// 		fvc.fv->SetDirection(true);
+// 	} 
+// 	else
+// 	{
+// 		fvc.fv->SetDirection(false);
+// 	}
+// 		hvacTimer.Start_oneShot_task(FUNC_PTR(FirmwareIsAlive),5000);
+// 			fvc.fv->SetEnable(true);
+// 	localPosition=fvc.fv->ReadActualPosition();
+// 	while ((abs(localPosition-localSetpoint)>6)&(!localtimeout))
+// 	{
+// 		localPosition=fvc.fv->ReadActualPosition();
+// 	}
+// 	fvc.fv->SetEnable(false);
 
 	while (1)
 	{
@@ -117,24 +121,12 @@ int main(void)
 			toolApp.setConnected(false);
 			//delay_ms(100);
 		}
+	//	delay_ms(10);
 		
-		if ((fvc.IsInvalidPosition())&(!fvc.flapperValveIsMoving))
+		while ((!fv.fv1->gotSetpoint)|(!fv.fv2->gotSetpoint))
 		{
-			if (errorCounter<10)
-			{
-				errorCounter++;
-				fvc.Control_NBC_StandAlone_Reset();
-			} 
-			else
-			{
-				fvc.InitController();
-				errorCounter=0;
-			}
-			
-		} 
-		else
-		{
-			fvc.Control_NBC_StandAlone_Reset();
+			fv.fv1->Control_NBC_StandAlone_Reset();
+			fv.fv2->Control_NBC_StandAlone_Reset();
 		}
 		if (temperatures.IsConversionFinished())
 		{
@@ -154,12 +146,11 @@ int main(void)
 			}
 			temperatures.StartOneConversion();
 			asm("nop");
-			
 		}
-		//delay_ms(10);
+			//delay_ms(10);
 		
 // 		fvc1.fv->ClearMoveFault(true);
-// 		fvc1.fv->SetDirection(true);
+//		fvc1.fv->SetDirection(true);
 // 		fvc1.fv->SetEnable(true);
 // 		for (uint8_t j = 1; j <0xff; j++)
 // 		{
@@ -188,7 +179,8 @@ int main(void)
 // 			delay_ms(10);
 // 		}
 // 		fvc1.fv->SetEnable(false);
-// 		delay_ms(500		
+// 		delay_ms(500	
+//		}
 	}
 
 	

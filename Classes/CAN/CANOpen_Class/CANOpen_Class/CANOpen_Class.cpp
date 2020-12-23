@@ -81,15 +81,26 @@ int	CANOpen_Class::Periodic_Process(uint32_t timeDifference){
 
 bool	CANOpen_Class::StartNMTService(void){
 	bool operational=false;
-	while ((!operational))
-	{
+//	while ((!operational))
+//	{
 		CO_sendNMTcommand(1,2);
 		delay_ms(100);
 		operational=(ptrCO->HBcons->monitoredNodes[2].NMTstate==5);
-	}
+//0	}
 	return	operational;
 }
 
+bool	CANOpen_Class::StartNMTService(uint8_t nodeId){
+	bool localOperational=false;
+// 	while ((!localOperational))
+// 	{
+		CO_sendNMTcommand(1,nodeId);
+		delay_ms(100);
+		localOperational=(ptrCO->HBcons->monitoredNodes[nodeId].NMTstate==5);
+		slaveIsOperational=localOperational;
+//	}
+	return	localOperational;
+}
 void	CANOpen_Class::RedefineMacros(void){
 			#undef CO_NO_NMT_MASTER               
 			#undef CCS_DOWNLOAD_INITIATE           

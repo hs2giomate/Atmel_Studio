@@ -41,6 +41,7 @@ private:
 	MemoryFlashStruct		header;
 	uint32_t	crc32;
 	uint8_t	*flashBuffer;
+	uint32_t	stackpointerEventloger;
 	
 	
 //functions
@@ -62,6 +63,7 @@ public:
 	uint32_t	SaveCRCAppState(uint32_t crc);
 	uint32_t	SaveCurrentState(HVACState& hs);
 	  uint32_t	SaveParameters(UserParameters& up);
+	    uint32_t	SaveEventLog(uint8_t *evl);
 protected:
 private:
 	MemoryFlash_Class( const MemoryFlash_Class &c );

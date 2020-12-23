@@ -10,6 +10,7 @@
 #include "CO_Driver_Class.h"
 
 CO_SDO_Class	*ptrCOSDOClass;
+CO_SDO_t *SDO;
 
 // default constructor
 CO_SDO_Class::CO_SDO_Class()
@@ -227,11 +228,11 @@ static void CO_SDO_receive(void *object, const CO_CANrxMsg_t *msg){
     CO_SDO_abortCode_t ret = CO_SDO_AB_NONE;
 
     nodeId = (uint8_t*) ODF_arg->object;
-    value = ptrCODriverClass->CO_getUint32(ODF_arg->data);
+    value = canopen->CO_getUint32(ODF_arg->data);
 
     /* if SDO reading Object dictionary 0x1200, add nodeId to the value */
     if((ODF_arg->reading) && (ODF_arg->subIndex > 0U)){
-        ptrCODriverClass->CO_setUint32(ODF_arg->data, value + *nodeId);
+        canopen->CO_setUint32(ODF_arg->data, value + *nodeId);
     }
 
     return ret;
@@ -294,7 +295,7 @@ CO_ReturnError_t CO_SDO_Class::CO_SDO_init(
 
     /* Configure Object dictionary entry at index 0x1200 */
     if(ObjDictIndex_SDOServerParameter == OD_H1200_SDO_SERVER_PARAM){
-        ptrCODriverClass->CO_OD_configure( ObjDictIndex_SDOServerParameter, CO_ODF_1200, (void*)&SDO->nodeId, 0U, 0U);
+        canopen->CO_OD_configure( ObjDictIndex_SDOServerParameter, CO_ODF_1200, (void*)&SDO->nodeId, 0U, 0U);
     }
 
     if((COB_IDClientToServer & 0x80000000) != 0 || (COB_IDServerToClient & 0x80000000) != 0 ){
@@ -303,7 +304,7 @@ CO_ReturnError_t CO_SDO_Class::CO_SDO_init(
         COB_IDServerToClient = 0;
     }
     /* configure SDO server CAN reception */
-  ptrCODriverClass->CAN_Rx_BufferInit(
+  canopen->CAN_Rx_BufferInit(
             CANdevRxIdx,            /* rx buffer index */
             COB_IDClientToServer,   /* CAN identifier */
             0x7FF,                  /* mask */
@@ -313,7 +314,7 @@ CO_ReturnError_t CO_SDO_Class::CO_SDO_init(
 	//printf("Config_SDO_recieve");
     /* configure SDO server CAN transmission */
     SDO->CANdevTx = CANdevTx;
-    SDO->CANtxBuff = ptrCODriverClass->CAN_Tx_BufferInit(
+    SDO->CANtxBuff = canopen->CAN_Tx_BufferInit(
             CANdevTxIdx,            /* index of specific buffer inside CAN module */
             COB_IDServerToClient,   /* CAN identifier */
             0,                      /* rtr */
@@ -344,7 +345,7 @@ void CO_SDO_Class::CO_OD_configure(
 {
     uint32_t entryNo;
 
-    entryNo = ptrCODriverClass->CO_OD_find(index);
+    entryNo = canopen->CO_OD_find(index);
     if(entryNo < 0xFFFFU){
         CO_OD_extension_t *ext = &SDO->ODExtensions[entryNo];
         uint8_t maxSubIndex = SDO->OD[entryNo].maxSubIndex;
@@ -710,10 +711,10 @@ static void CO_SDO_abort(CO_SDO_t *SDO,uint32_t code){
     SDO->CANtxBuff->data[1] = SDO->ODF_arg.index & 0xFF;
     SDO->CANtxBuff->data[2] = (SDO->ODF_arg.index>>8) & 0xFF;
     SDO->CANtxBuff->data[3] = SDO->ODF_arg.subIndex;
-   ptrCODriverClass->CO_memcpySwap4(&SDO->CANtxBuff->data[4], &code);
+   canopen->CO_memcpySwap4(&SDO->CANtxBuff->data[4], &code);
     SDO->state = CO_SDO_ST_IDLE;
     SDO->CANrxNew = false;
-    ptrCODriverClass->CAN_Send(SDO->CANtxBuff);
+    canopen->CAN_Send(SDO->CANtxBuff);
 }
 
 
@@ -1386,7 +1387,7 @@ int8_t CO_SDO_Class::CO_SDO_process(
             }
 
             /* send response */
-             ptrCODriverClass->CAN_Send(SDO->CANtxBuff);
+             canopen->CAN_Send(SDO->CANtxBuff);
 
             /* Set timerNext_ms to 0 to inform OS to call this function again without delay. */
             if(timerNext_ms != NULL){
@@ -1417,7 +1418,7 @@ int8_t CO_SDO_Class::CO_SDO_process(
     /* free buffer and send message */
     SDO->CANrxNew = false;
     if(sendResponse) {
-        ptrCODriverClass->CAN_Send(SDO->CANtxBuff);
+        canopen->CAN_Send(SDO->CANtxBuff);
     }
 
     if(SDO->state != CO_SDO_ST_IDLE){

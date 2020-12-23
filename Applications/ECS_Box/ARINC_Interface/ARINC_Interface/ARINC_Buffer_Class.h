@@ -15,6 +15,7 @@
 #define  COCKPITS_TEMPERATURE 374
 #define  ECS_COMMAND_ACKNOWLEDGE 270
 #define  FlapperValveAngle 375
+#define  FANS_SPEED_CALLBACK 372
 
 class ARINC_Buffer_Class: private virtual ARINC_Conversions,private virtual Protocol_Class
 {
@@ -41,6 +42,7 @@ public:
 	void SaveStatus(uint32_t);
 	void SortReceivedData(uint8_t* receiver);
 	void SaveFlapperValveAngle(uint8_t);
+	void SaveFansSpeed(Command272 c272);
 protected:
 private:
 	ARINC_Buffer_Class( const ARINC_Buffer_Class &c );

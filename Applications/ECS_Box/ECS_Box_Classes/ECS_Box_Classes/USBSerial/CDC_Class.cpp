@@ -7,7 +7,8 @@
 
 
 #include "CDC_Class.h"
-#include "TimerSerial_Class.h"
+/*#include "TimerSerial_Class.h"*/
+#include "Timer_Class.h"
 
 CDC_Class	*ptrCDCClass;
 

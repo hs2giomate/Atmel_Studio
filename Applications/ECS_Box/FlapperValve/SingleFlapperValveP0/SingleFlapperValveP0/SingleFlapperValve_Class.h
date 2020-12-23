@@ -18,6 +18,7 @@
 #define IC_SETPOINT_POSITION 02
 #define IC_ACTUAL_POSITION 03
 #define FLAPPER_VALVE_MINIMUM_AIR	218
+#define FLAPPER_VALVE_QUANTITY	2
 // #ifdef SELF_STANDALONE
 //
 // #else
@@ -54,7 +55,8 @@ public:
 	SingleFlapperValve_Class(uint8_t _iD);
 	~SingleFlapperValve_Class();
 	bool	Init(void);
-	void UpdateFlapperValveData();
+	bool	Init(uint8_t valve_id);
+
 	ControlStatus ReadControlStatus(void);
 	InputStatus ReadStatusInputs(void);
 	uint8_t WriteSetpoint(uint8_t sp);
@@ -77,6 +79,7 @@ private:
 	uint8_t InitExpanderArray(uint8_t fvID);
 	bool Selftest(void);
 	uint8_t ReadSetpoint();
+		void UpdateFlapperValveData();
 }; //FlapperValve_Class
 //extern	SingleFlapperValve_Class	fv1;
 // static FlapperValve_Class	fv1(1);

@@ -582,10 +582,12 @@ void States_Class::StateAUTO(uint32 flags)
 
 	if (hvacState->lastState!=kHVACStateStandbyAUTO)
 	{
-// 		fans.evaporator[0]->SetPWM(MINIMUN_FLOW_AIR);
-// 		fans.evaporator[0]->SetEnable(true);
-		fans.condesator->SetPWM(MINIMUN_FLOW_AIR);
-		fans.condesator->SetEnable(true);
+ 		fans.evaporator[0]->SetPWM(EVAPORATOR_MINIMUN_FLOW_AIR);
+		fans.evaporator[0]->SetEnable(true);
+		fans.evaporator[1]->SetPWM(EVAPORATOR_MINIMUN_FLOW_AIR);
+		fans.evaporator[1]->SetEnable(true);
+	//	fans.condesator->SetPWM(MINIMUN_FLOW_AIR);
+	//	fans.condesator->SetEnable(true);
 	}
 		
 	listener.eventHandler=&States_Class::CheckEvents;
@@ -629,17 +631,22 @@ void States_Class::StateAUTO(uint32 flags)
 							
 					case k_AC_CMD_DISABLE_Event:
 					prepareStateChangeEvent(kHVACStatePrepareStandbyOFF);
-				//	fans.evaporator[0]->SetEnable(false);
+					fans.evaporator[0]->SetEnable(false);
+					fans.evaporator[1]->SetEnable(false);
 					fans.condesator->SetEnable(false);
 					done=true;
 					break;
 					case k_AC_VENT_Event:
 					prepareStateChangeEvent(kHVACStateStandbyVENT);
+						fans.evaporator[0]->SetPWM(EVAPORATOR_MINIMUN_FLOW_AIR);
+						fans.evaporator[1]->SetPWM(EVAPORATOR_MINIMUN_FLOW_AIR);
+						fans.condesator->SetPWM(CONDESATOR_MINIMUN_FLOW_AIR);
 					done=true;
 					break;
 					case k_AC_OFF_Event:
 					prepareStateChangeEvent(kHVACStateStandbyOFF);
-				//	fans.evaporator[0]->SetEnable(false);
+					fans.evaporator[0]->SetEnable(false);
+					fans.evaporator[1]->SetEnable(false);
 					fans.condesator->SetEnable(false);
 					done=true;
 					break;
@@ -690,22 +697,48 @@ void States_Class::StateVENT(uint32 flags)
 // 	fans.evaporator[0]->SetPWM(MINIMUN_FLOW_AIR);
 // 	fans.evaporator[0]->SetEnable(true);
 	listener.eventHandler=&States_Class::CheckEvents;
-	fans.condesator->ReadStatus();
-	if ((fans.condesator->condesatorStatus.niAlcCdsFanExtFault))
+	fans.evaporator[0]->ReadStatus();
+	fans.evaporator[1]->ReadStatus();
+	if ((fans.evaporator[0]->evaporatorFansStatus.inputs->niAlcEvaFanExtFault))
 	{
-			if (fans.condesator->IsEnabled())
+		for ( uint8_t i= 0; i < 2; i++)
+		{
+			if (fans.evaporator[i]->IsEnabled())
 			{
 			}
 			else
 			{
-				fans.condesator->SetEnable(true);
+				fans.evaporator[i]->SetEnable(true);
 			}
+		}
+			
+			
 
 	}else{
 
 	}
 	while(!done){
 		 OperateTemperatureBySetpoint(0);
+		 if (IsCommando272Changed())
+		 {
+			 fans.evaporator[0]->SetPWM(command272.fanSpeed[0]);
+			  fans.evaporator[1]->SetPWM(command272.fanSpeed[0]);
+		 } 
+		 else
+		 {
+			 for (uint8_t i = 0; i < 2; i++)
+			 {
+				 	if ((fans.evaporator[i]->ReadPWM())!=command272.fanSpeed[i])
+				 	{
+					 	fans.evaporator[i]->SetPWM(command272.fanSpeed[0]);
+				 	}
+				 	else
+				 	{
+				 	}
+			 }
+	
+			// UpdateCommando372();
+		 }
 		
 		
 		if (InStateEvent(e,CHECK_EVENT_STATE_TIMEOUT))
@@ -746,6 +779,9 @@ void States_Class::StateVENT(uint32 flags)
 							break;
 						case k_AC_AUTO_Event:
 							prepareStateChangeEvent(kHVACStateStandbyAUTO);
+								fans.evaporator[0]->SetPWM(EVAPORATOR_MINIMUN_FLOW_AIR);
+								fans.evaporator[1]->SetPWM(EVAPORATOR_MINIMUN_FLOW_AIR);
+								fans.condesator->SetPWM(CONDESATOR_MINIMUN_FLOW_AIR);
 							done=true;
 							break;
 						case k_AC_OFF_Event:
@@ -1072,6 +1108,8 @@ void States_Class::ExecutePeriodicTask(void){
  	{
 		arinc.ar->SaveStatus(GetAcknowledgeStatus());
 	}
+	UpdateCommando372();
+	arinc.ar->SaveFansSpeed(command372);
 	HandleCommands();
 }
 
@@ -1090,7 +1128,7 @@ void States_Class::CheckEvents(void){
 		listener.SendEventSelf(kHVACEventClass,kHVACEventDoPendingTasks);
 
 	}
-	if (alu.arincTXTimeUP){
+	if ((alu.arincTXTimeUP)&(!interfaces.isMaintenanceActivated)){
 		if ((!alu.IsListedTask(kALUTaskArincTXMessage)))
 		{
 			alu.PrepareNewTask(kALUTaskArincTXMessage);

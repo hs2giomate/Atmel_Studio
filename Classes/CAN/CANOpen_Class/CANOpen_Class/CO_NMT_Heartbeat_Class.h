@@ -35,7 +35,7 @@ class CO_NMT_Heartbeat_Class
 public:
 protected:
 private:
-	 CO_NMT_t               *NMT;
+	
 //functions
 public:
 	CO_NMT_Heartbeat_Class();

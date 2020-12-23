@@ -9,7 +9,7 @@
 #include "TimerSerial_Class.h"
 
 TimerSerial_Class*	ptrTimerSerialClass;
-static  timer_task taskArray[SERIAL_TASK_NUMBER];
+static  timer_task taskSerialArray[SERIAL_TASK_NUMBER];
 
 
 
@@ -190,24 +190,24 @@ uint32_t	TimerSerial_Class::Get_ticks(void){
 void	TimerSerial_Class::ChooseAvailableTimerTask(void){
 	for ( uint8_t ii = 0; ii < SERIAL_TASK_NUMBER; ii++)
 	{
-			if (taskArray[ii].cb==NULL)
+			if (taskSerialArray[ii].cb==NULL)
 			{
 				
-				task=&taskArray[ii];
+				task=&taskSerialArray[ii];
 			return;
 				
 			}
 	}
-	task=&taskArray[0];
+	task=&taskSerialArray[0];
 
 }
 void	TimerSerial_Class::GetTaskFunction(FUNC_PTR func){
 	for (uint8_t ii = 0; ii < SERIAL_TASK_NUMBER; ii++)
 	{
-		if (taskArray[ii].cb==(timer_cb_t)func)
+		if (taskSerialArray[ii].cb==(timer_cb_t)func)
 		{
 			
-			task=&taskArray[ii];
+			task=&taskSerialArray[ii];
 			return;
 			
 		}
@@ -217,6 +217,6 @@ void	TimerSerial_Class::GetTaskFunction(FUNC_PTR func){
 }
 
 
-TimerSerial_Class usbTerminalTimer(&TIMER_USB);
-TimerSerial_Class interfaceTimer(&TIMER_MAINTENANCE);
+//TimerSerial_Class usbTerminalTimer(&TIMER_USB);
+//TimerSerial_Class interfaceTimer(&TIMER_MAINTENANCE);
 

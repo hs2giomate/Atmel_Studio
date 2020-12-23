@@ -19,6 +19,7 @@ protected:
 private:
 	SingleTaskMessage	singleTaskMessage;
 	uint8_t		*usbMessageBuffer;
+	FullBufferMessage message64;
 
 //functions
 public:
@@ -28,6 +29,9 @@ public:
 	bool	CommandSetPWMFans(void);
 	void InitCommandHandler(uint8_t * buffer);
 	bool CommandFansStatus(void);
+	bool CommandReadFlapperData(void);
+	bool  CommandSetFlapperPosition(void);
+	bool  CommandSetFlapperValve(void);
 protected:
 private:
 	Commands_Handler( const Commands_Handler &c );

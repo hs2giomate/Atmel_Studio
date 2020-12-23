@@ -97,7 +97,7 @@ static void CO_RPDOconfigCom(CO_RPDO_t* RPDO, uint32_t COB_IDUsedByRPDO){
         RPDO->valid = false;
         RPDO->CANrxNew[0] = RPDO->CANrxNew[1] = false;
     }
-    r = ptrCODriverClass->CAN_Rx_BufferInit(
+    r = canopen->CAN_Rx_BufferInit(
             RPDO->CANdevRxIdx,      /* rx buffer index */
             ID,                     /* CAN identifier */
             0x7FF,                  /* mask */
@@ -141,7 +141,7 @@ static void CO_TPDOconfigCom(CO_TPDO_t* TPDO, uint32_t COB_IDUsedByTPDO, uint8_t
         TPDO->valid = false;
     }
 
-    TPDO->CANtxBuff = ptrCODriverClass->CAN_Tx_BufferInit(
+    TPDO->CANtxBuff = canopen->CAN_Tx_BufferInit(
             TPDO->CANdevTxIdx,         /* index of specific buffer inside CAN module */
             ID,                        /* CAN identifier */
             0,                         /* rtr */
@@ -219,27 +219,27 @@ static uint32_t CO_PDOfindMap(
     }
 
     /* find object in Object Dictionary */
-    entryNo = ptrCODriverClass->CO_OD_find( index);
+    entryNo = canopen->CO_OD_find( index);
 
     /* Does object exist in OD? */
     if(entryNo == 0xFFFF || subIndex > SDO->OD[entryNo].maxSubIndex)
         return CO_SDO_AB_NOT_EXIST;   /* Object does not exist in the object dictionary. */
 
-    attr = ptrCODriverClass->CO_OD_getAttribute( entryNo, subIndex);
+    attr = canopen->CO_OD_getAttribute( entryNo, subIndex);
     /* Is object Mappable for RPDO? */
     if(R_T==0 && !((attr&CO_ODA_RPDO_MAPABLE) && (attr&CO_ODA_WRITEABLE))) return CO_SDO_AB_NO_MAP;   /* Object cannot be mapped to the PDO. */
     /* Is object Mappable for TPDO? */
     if(R_T!=0 && !((attr&CO_ODA_TPDO_MAPABLE) && (attr&CO_ODA_READABLE))) return CO_SDO_AB_NO_MAP;   /* Object cannot be mapped to the PDO. */
 
     /* is size of variable big enough for map */
-    objectLen = ptrCODriverClass->CO_OD_getLength( entryNo, subIndex);
+    objectLen = canopen->CO_OD_getLength( entryNo, subIndex);
     if(objectLen < dataLen) return CO_SDO_AB_NO_MAP;   /* Object cannot be mapped to the PDO. */
 
     /* mark multibyte variable */
     *pIsMultibyteVar = (attr&CO_ODA_MB_VALUE) ? 1 : 0;
 
     /* pointer to data */
-    *ppData = (uint8_t*) (ptrCODriverClass->CO_OD_getDataPointer( entryNo, subIndex));
+    *ppData = (uint8_t*) (canopen->CO_OD_getDataPointer( entryNo, subIndex));
 #ifdef CO_BIG_ENDIAN
     /* skip unused MSB bytes */
     if(*pIsMultibyteVar){
@@ -297,7 +297,7 @@ static uint32_t CO_RPDOconfigMap(CO_RPDO_t* RPDO, uint8_t noOfMappedObjects){
                 &MBvar);
         if(ret){
             length = 0;
-           ptrCODriverClass->EM_ErrorReport(RPDO->em, CO_EM_PDO_WRONG_MAPPING, CO_EMC_PROTOCOL_ERROR, map);
+           canopen->EM_ErrorReport(RPDO->em, CO_EM_PDO_WRONG_MAPPING, CO_EMC_PROTOCOL_ERROR, map);
             break;
         }
 
@@ -364,7 +364,7 @@ static uint32_t CO_TPDOconfigMap(CO_TPDO_t* TPDO, uint8_t noOfMappedObjects){
                 &MBvar);
         if(ret){
             length = 0;
-            ptrCODriverClass->EM_ErrorReport(TPDO->em, CO_EM_PDO_WRONG_MAPPING, CO_EMC_PROTOCOL_ERROR, map);
+            canopen->EM_ErrorReport(TPDO->em, CO_EM_PDO_WRONG_MAPPING, CO_EMC_PROTOCOL_ERROR, map);
             break;
         }
 
@@ -721,8 +721,8 @@ CO_ReturnError_t CO_PDO_Class::CO_RPDO_init(
     RPDO->restrictionFlags = restrictionFlags;
 
     /* Configure Object dictionary entry at index 0x1400+ and 0x1600+ */
-    ptrCODriverClass->CO_OD_configure( idx_RPDOCommPar, CO_ODF_RPDOcom, (void*)RPDO, 0, 0);
-    ptrCODriverClass->CO_OD_configure( idx_RPDOMapPar, CO_ODF_RPDOmap, (void*)RPDO, 0, 0);
+    canopen->CO_OD_configure( idx_RPDOCommPar, CO_ODF_RPDOcom, (void*)RPDO, 0, 0);
+    canopen->CO_OD_configure( idx_RPDOMapPar, CO_ODF_RPDOmap, (void*)RPDO, 0, 0);
 
     /* configure communication and mapping */
     RPDO->CANrxNew[0] = RPDO->CANrxNew[1] = false;
@@ -769,8 +769,8 @@ CO_ReturnError_t CO_PDO_Class::CO_TPDO_init(
     TPDO->restrictionFlags = restrictionFlags;
 
     /* Configure Object dictionary entry at index 0x1800+ and 0x1A00+ */
-    ptrCODriverClass->CO_OD_configure( idx_TPDOCommPar, CO_ODF_TPDOcom, (void*)TPDO, 0, 0);
-    ptrCODriverClass->CO_OD_configure( idx_TPDOMapPar, CO_ODF_TPDOmap, (void*)TPDO, 0, 0);
+    canopen->CO_OD_configure( idx_TPDOCommPar, CO_ODF_TPDOcom, (void*)TPDO, 0, 0);
+    canopen->CO_OD_configure( idx_TPDOMapPar, CO_ODF_TPDOmap, (void*)TPDO, 0, 0);
 
     /* configure communication and mapping */
     TPDO->CANdevTx = CANdevTx;
@@ -863,7 +863,7 @@ uint32_t CO_PDO_Class::CO_TPDOsend(CO_TPDO_t *TPDO){
 
     TPDO->sendRequest = 0;
 
-    return   ptrCODriverClass->CAN_Send( TPDO->CANtxBuff);
+    return   canopen->CAN_Send( TPDO->CANtxBuff);
 }
 
 //#define RPDO_CALLS_EXTENSION

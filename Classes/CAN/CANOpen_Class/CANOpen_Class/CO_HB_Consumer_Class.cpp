@@ -11,7 +11,7 @@
 #include "CO_Emergency_Class.h"
 
 CO_HB_Consumer_Class	*ptrHBConsumerClass;
-
+CO_HBconsNode_t         *ptrMonitoredNodes;
 
 static void CO_HBcons_receive(void *object,const CO_CANrxMsg_t *msg){
 	CO_HBconsNode_t *HBconsNode;
@@ -24,6 +24,8 @@ static void CO_HBcons_receive(void *object,const CO_CANrxMsg_t *msg){
 		HBconsNode->NMTstate = msg->data[0];
 		HBconsNode->CANrxNew = true;
 	}
+	
+	
 }
 static void CO_HBcons_monitoredNodeConfig(
 CO_HBconsumer_t        *HBcons,
@@ -36,23 +38,24 @@ uint32_t                HBconsTime)
 
 	if(idx >= HBcons->numberOfMonitoredNodes) return;
 
-	NodeID = (uint32_t)((HBconsTime>>16)&0xFF);
+//	NodeID = (uint32_t)((HBconsTime>>16)&0xFF);
+	NodeID = (uint32_t)(idx);
 	monitoredNode = &HBcons->monitoredNodes[idx];
 	monitoredNode->time = (uint32_t)HBconsTime;
 	monitoredNode->NMTstate = 0;
 	monitoredNode->monStarted = false;
-	COB_ID = (uint32_t)idx + 0x700;
+//	COB_ID = (uint32_t)idx + 0x700;
 	// 	/* is channel used */
-// 	if(NodeID && monitoredNode->time){
-// 		COB_ID = NodeID + 0x700;
-// 	}
-// 	else{
-// 		COB_ID = 0;
-// 		monitoredNode->time = 0;
-// 	}
+	if(NodeID && monitoredNode->time){
+		COB_ID = NodeID + 0x700;
+	}
+	else{
+		COB_ID = 0;
+		monitoredNode->time = 0;
+	}
 
 	/* configure Heartbeat consumer CAN reception */
-	ptrCODriverClass->CAN_Rx_BufferInit(
+	canopen->CAN_Rx_BufferInit(
 	HBcons->CANdevRxIdxStart + idx,
 	COB_ID,
 	0x7FF,
@@ -66,7 +69,7 @@ static CO_SDO_abortCode_t CO_ODF_1016(CO_ODF_arg_t *ODF_arg){
 	CO_SDO_abortCode_t ret = CO_SDO_AB_NONE;
 
 	HBcons = (CO_HBconsumer_t*) ODF_arg->object;
-	value =ptrCODriverClass->CO_getUint32(ODF_arg->data);
+	value =canopen->CO_getUint32(ODF_arg->data);
 
 	if(!ODF_arg->reading){
 		uint8_t NodeID;
@@ -107,6 +110,7 @@ static CO_SDO_abortCode_t CO_ODF_1016(CO_ODF_arg_t *ODF_arg){
 // default constructor
 CO_HB_Consumer_Class::CO_HB_Consumer_Class()
 {
+	ptrHBConsumerClass=this;
 } //CO_HB_Consumer_Class
 
 // default destructor
@@ -127,7 +131,7 @@ CO_CANmodule_t         *CANdevRx,
 uint32_t                CANdevRxIdxStart)
 {
 	uint8_t i;
-
+	ptrMonitoredNodes=monitoredNodes;
 	/* verify arguments */
 	if(HBcons==NULL || em==NULL || SDO==NULL || HBconsTime==NULL ||
 	monitoredNodes==NULL || CANdevRx==NULL){
@@ -152,7 +156,7 @@ uint32_t                CANdevRxIdxStart)
 	
 
 	/* Configure Object dictionary entry at index 0x1016 */
-	ptrCODriverClass->CO_OD_configure( OD_H1016_CONSUMER_HB_TIME, CO_ODF_1016, (void*)HBcons, 0, 0);
+	canopen->CO_OD_configure( OD_H1016_CONSUMER_HB_TIME, CO_ODF_1016, (void*)HBcons, 0, 0);
 
 	return CO_ERROR_NO;
 }
@@ -189,12 +193,12 @@ uint32_t                timeDifference_ms)
 
 				if(monitoredNode->monStarted){
 					if(monitoredNode->timeoutTimer >= monitoredNode->time){
-						ptrCODriverClass->EM_ErrorReport(HBcons->em, CO_EM_HEARTBEAT_CONSUMER, CO_EMC_HEARTBEAT, i);
+						canopen->EM_ErrorReport(HBcons->em, CO_EM_HEARTBEAT_CONSUMER, CO_EMC_HEARTBEAT, i);
 						monitoredNode->NMTstate = 0;
 					}
 					else if(monitoredNode->NMTstate == 0){
 						/* there was a bootup message */
-						ptrCODriverClass->EM_ErrorReport(HBcons->em, CO_EM_HB_CONSUMER_REMOTE_RESET, CO_EMC_HEARTBEAT, i);
+						canopen->EM_ErrorReport(HBcons->em, CO_EM_HB_CONSUMER_REMOTE_RESET, CO_EMC_HEARTBEAT, i);
 					}
 				}
 				if(monitoredNode->NMTstate != CO_NMT_OPERATIONAL)
@@ -217,4 +221,9 @@ uint32_t                timeDifference_ms)
 
 void	CO_HB_Consumer_Class::HB_SetNode(uint8_t nd){
 	coNode=nd;
+}
+ bool CO_HB_Consumer_Class::IsSlaveOpeational(void){
+	 
+	slaveOperational=(ptrMonitoredNodes[2].NMTstate==5);
+	return slaveOperational;
 }

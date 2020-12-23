@@ -17,7 +17,7 @@ class Maintenance_Tool: private virtual MaintenanceDataHandler, private Commands
 //variables
 public:
 	volatile uint32_t	ticks;
-	volatile	bool	is_MTPC_Beaming;
+	volatile	bool	is_MTPC_Beaming,gotAccess;
 	
 	
 protected:
@@ -51,7 +51,7 @@ private:
 		
 		GAINStateNotification	notification;
 		DeviceInformation	deviceID;
-		bool result,gotAccess,gotCommand,gotTask;
+		bool result,gotCommand,gotTask;
 		uint16	checksum, checksumProvided;
 		UserParameters	parameters;
 		uint8	controllerState;
@@ -67,8 +67,8 @@ public:
 	Maintenance_Tool();
 	~Maintenance_Tool();
 		bool	Init(void);
-		bool	isConnected(void) const;
-		void	setConnected(bool );
+		bool	IsConnected(void) const;
+		void	SetConnected(bool );
 		bool	handlePeriodicTask(uint8 state, uint8 flags);
 		bool	handleCommunication(void);
 		void	updateAnalogueValue(uint8 idx, float value);
@@ -141,7 +141,7 @@ private:
 extern   Maintenance_Tool toolApp;
 
 
-inline bool Maintenance_Tool::isConnected(void) const
+inline bool Maintenance_Tool::IsConnected(void) const
 {
 	return maintenanceIsConnected;
 }
