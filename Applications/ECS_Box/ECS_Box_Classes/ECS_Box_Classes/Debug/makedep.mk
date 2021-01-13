@@ -48,14 +48,6 @@ USBSerial\Print.cpp
 
 USBSerial\SerialTerminal_Class.cpp
 
-USBSerial\Storage\FlashMemoryClass.cpp
-
-USBSerial\Storage\FRAM_Memory_Class.cpp
-
-USBSerial\Storage\N25Q256_Class.cpp
-
-USBSerial\Storage\Parameters.cpp
-
 USBSerial\Stream.cpp
 
 USBSerial\TimerSerial_Class.cpp

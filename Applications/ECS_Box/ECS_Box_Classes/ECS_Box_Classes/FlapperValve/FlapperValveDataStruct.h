@@ -33,11 +33,12 @@ struct __attribute__((__packed__)) FlapperValveControllerStatus
 	bool	isControlling;
 	bool	NBC_Mode;
 	uint8_t	minimunAir;
+//	uint8_t	position;
 
 };
 
 struct __attribute__((__packed__)) FVDataStruct
-{
+	{
 	
 	InputStatus	inputStatus;
 	ControlStatus	controlOutputs;

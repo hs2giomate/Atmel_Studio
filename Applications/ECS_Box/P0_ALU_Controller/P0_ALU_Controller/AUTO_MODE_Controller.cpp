@@ -11,12 +11,14 @@
 #include "SingleHeater_Class.h"
 #include "FlapperValveController.h"
 #include "States_Class.h"
+#include "EvaporatorAndCondesatorFans_Class.h"
 
 // default constructor
 AUTO_MODE_Controller::AUTO_MODE_Controller()
 {
-	heatersPower=0;
+	heatersRequestPower=0;
 	evaFanSpeed=0;
+	heatingMode=true;
 	
 } //VENT_MODE_Controller
 
@@ -27,10 +29,10 @@ AUTO_MODE_Controller::~AUTO_MODE_Controller()
 
 
 void AUTO_MODE_Controller::ControlTemperatureSetpoint(uint8_t opt){
-	if (hvac.temperingTimeout)
-	{
+// 	if (hvac.temperingTimeout)
+// 	{
 		cabinCurrentTemperature=temperatures.values[0][3];
-		if (abs(lastCabinTemperature-cabinCurrentTemperature)>1/2)
+		if (abs(lastCabinTemperature-cabinCurrentTemperature)>1/4)
 		{
 			lastCabinTemperature=cabinCurrentTemperature;
 			if (cabinCurrentTemperature>0)
@@ -42,12 +44,13 @@ void AUTO_MODE_Controller::ControlTemperatureSetpoint(uint8_t opt){
 				if (abs(errorTemperature)>tolerance)
 				{
 					
-					heatersPower=heater.GetHeaterPowerLevel();
+					heatersRequestPower=heater.GetHeaterPowerLevel();
+					currentPower=heatersRequestPower;
 					if (errorTemperature>0)
 					{
-						if (heatersPower>3)
+						if (heatersRequestPower>3)
 						{
-							heatersPower=4;
+							heatersRequestPower=4;
 							if (opt==1)
 							{
 								StepFlapperValve(1);
@@ -57,8 +60,9 @@ void AUTO_MODE_Controller::ControlTemperatureSetpoint(uint8_t opt){
 						else
 						{
 							
-							heatersPower++;
+							heatersRequestPower++;
 							automaticHeatingMode=true;
+							
 						
 							
 						}
@@ -66,9 +70,10 @@ void AUTO_MODE_Controller::ControlTemperatureSetpoint(uint8_t opt){
 					}
 					else
 					{
-						if (heatersPower<1)
+						if (heatersRequestPower<1)
 						{
-							heatersPower=0;
+							heatersRequestPower=0;
+						
 							if (opt==1)
 							{
 								StepFlapperValve(-1);
@@ -77,17 +82,118 @@ void AUTO_MODE_Controller::ControlTemperatureSetpoint(uint8_t opt){
 						}
 						else
 						{
-							heatersPower--;
+							heatersRequestPower--;
 							automaticHeatingMode=false;
 							
 						}
 						
 					}
-					if (lastPower!=heatersPower)
+					if (automaticHeatingMode!=heatingMode)
 					{
-						lastPower=heatersPower;
-						SetHeaterDriver(heatersPower);
+						changedMode=true;
+					} 
+					else
+					{
+						changedMode=false;
 					}
+					if (temperingTimeout|true)
+					{
+						if (heatersRequestPower>currentPower)
+						{
+							if (temperingTimeout)
+							{
+									if ((lastPower!=heatersRequestPower)|temperingTimeout)
+									{
+										lastPower=heatersRequestPower;
+										lastControlTemperature=cabinCurrentTemperature;
+										lastMode=heatingMode;
+										heatingMode=true;
+										SetHeaterDriver(heatersRequestPower);
+									}
+							} 
+							else
+							{
+							}
+// 							if (currentPower>0)
+// 							{
+// 								if ((cabinCurrentTemperature>lastControlTemperature+1/1)|changedMode|temperingTimeout|true)
+// 								{
+// 											if (lastPower!=heatersPower)
+// 											{
+// 												lastPower=heatersPower;
+// 												lastControlTemperature=cabinCurrentTemperature;
+// 													lastMode=heatingMode;
+// 													heatingMode=true;
+// 												SetHeaterDriver(heatersPower);
+// 											}
+// 								} 
+// 								else
+// 								{
+// 						
+// 								}
+// 							} 
+// 							else
+// 							{
+// 										if ((lastPower!=heatersPower)|temperingTimeout)
+// 										{
+// 											lastPower=heatersPower;
+// 											lastControlTemperature=cabinCurrentTemperature;
+// 													lastMode=heatingMode;
+// 													heatingMode=true;
+// 											SetHeaterDriver(heatersPower);
+// 										}
+// 							}
+						} 
+						else
+						{
+							if (heatersRequestPower<currentPower)
+							{
+								if (currentPower<4)
+								{
+									if (((lastControlTemperature-1/2)>cabinCurrentTemperature)|temperingTimeout)
+									{
+										if ((lastPower!=heatersRequestPower)|temperingTimeout)
+										{
+											lastPower=heatersRequestPower;
+											lastControlTemperature=cabinCurrentTemperature;
+													lastMode=heatingMode;
+													heatingMode=false;
+											SetHeaterDriver(heatersRequestPower);
+										}
+									}
+									else
+									{
+									}
+								}
+								else
+								{
+									if (lastPower!=heatersRequestPower)
+									{
+										lastPower=heatersRequestPower;
+										lastControlTemperature=cabinCurrentTemperature;
+										lastMode=heatingMode;
+										heatingMode=false;
+										SetHeaterDriver(heatersRequestPower);
+									}
+								}
+							}
+							
+						}
+					
+					} 
+					else
+					{
+					}
+					if (heatersRequestPower==0)
+					{
+						hvac.Control_Cooler(errorTemperature);
+					}
+					else
+					{
+						fans.condesator->SetPWM(CONDESATOR_MINIMUN_FLOW_AIR);
+					}
+			
+				
 					
 					
 				}
@@ -96,7 +202,7 @@ void AUTO_MODE_Controller::ControlTemperatureSetpoint(uint8_t opt){
 				}
 			}
 
-		}
+		/*}*/
 	}
 	
 	

@@ -471,6 +471,9 @@
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
       <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
+      <Value>../../../ECS_Box_Classes/ECS_Box_Classes/I2C</Value>
+      <Value>../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial</Value>
+      <Value>../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>

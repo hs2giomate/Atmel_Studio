@@ -30,7 +30,7 @@ class CO_SDO_Class: public	CO_CRC16_Class
 public:
 protected:
 private:
-	CO_SDO_t *SDO;
+	
 //functions
 public:
 	CO_SDO_Class();

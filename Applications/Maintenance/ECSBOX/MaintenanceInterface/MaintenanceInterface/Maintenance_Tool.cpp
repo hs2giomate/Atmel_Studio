@@ -917,29 +917,7 @@ bool Maintenance_Tool::CommandReadHeaterStatus(){
 		return result;
 }
 
-bool Maintenance_Tool::CommandReadFlapperData(){
-	int n=sizeof(SingleTaskMessage);
-	SingleTaskMessage	singleTask;
-	
-	
-	bool	result(header.task == kHVACReadPositionFlapperValve);
-	if (result){
-		
-		fvc.UpdateFlapperValveData();
-		CreateFullBufferMessage(localBuffer,(uint8_t*)&fvc.dataStruct);
-		
-	
-		//delay_us(1);
-	//	if (!(fvc.StatusHadChanged()))
-	//	{
-			usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
-//		}
-		singleTaskMessage=singleTask;
-		
-	}
-	
-	return result;
-}
+
 bool Maintenance_Tool::CommandReadTemmperatures(){
 	int n=sizeof(SingleTaskMessage);
 	
@@ -1028,71 +1006,10 @@ bool Maintenance_Tool::CommandSetHeaters(void)	{
 
 	
 
-bool Maintenance_Tool::CommandSetFlapperValve(void){
-
-	uint32_t	w,r;
-	uint8_t	data=0;
-	
-	memcpy(&singleTaskMessage,localBuffer,sizeof(SingleTaskMessage));
-	
-	//	singleTaskMessage.description=localBuffer[0x06];
-	bool	result(header.task == kHVACCommandFlapperValve);
-	if (result){
-		data=singleTaskMessage.description;
-		if ((data&(0x01))>0)
-		{
-			//fvc.fv->SetEnable(true);
-			fvc.StartControlling();
-		}
-		else
-		{
-			//fvc.fv->SetEnable(false);
-			fvc.StopControlling();
-		}
-
-		
-	}else{
-
-	}
-	
-	return result;
-}
 
 
-bool Maintenance_Tool::CommandSetFlapperPosition(void){
 
-	uint32_t	w,r;
-	uint8_t	data=0;
-	
-	memcpy(&singleTaskMessage,localBuffer,sizeof(SingleTaskMessage));
-	
-	//	singleTaskMessage.description=localBuffer[0x06];
-	bool	result(header.task == kHVACWriteSetpointFlapperValve);
-	if (result){
-		data=singleTaskMessage.description;
-		// 		if (data&(0x07)>3)
-		// 		{
-		// 			fans.condesator->SetEnable()
-		// 		}
-		// 		else
-		// 		{
-		if (fvc.controllerEnabled)
-		{
-			fvc.StartControlling(data);
-		}
-			
-		
-		fvc.doPeriodicTask=false;
-		// 			fans.evaporator[1]->SetEnable(data&0x02);
-		// 		}
 
-		
-		}else{
-
-	}
-	
-	return result;
-}
 
 bool Maintenance_Tool::handleGAINCommandSetCycleDictionary(HVACMessageHeader& header)
 	{

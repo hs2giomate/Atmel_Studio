@@ -12,7 +12,7 @@
 #include "I2C_Sync_Class.h"
 #include "MCP23008_Class.h"
 #define		EVAPORATOR_EXPANDERS	6
-#define MINIMUN_FLOW_AIR 32
+#define EVAPORATOR_MINIMUN_FLOW_AIR 12
 
 class EvaporatorFan_Class: public EvaporatorFanDataStruct_Class
 {
@@ -20,6 +20,8 @@ class EvaporatorFan_Class: public EvaporatorFanDataStruct_Class
 public:
 	volatile bool evaporatorchanged;
 	bool enabled,isOK;
+	uint8_t	faults;
+
 	
 
 protected:
@@ -40,6 +42,8 @@ public:
 	uint8_t	Disable(void);
 	uint8_t	SetPWM(uint8_t pwm);
 	uint8_t	SetEnable(bool state);
+	uint8_t	ReadPWM(void);
+	bool IsEnabled(void);
 	
 protected:
 private:

@@ -14,31 +14,31 @@
 
 
 
-struct IC33_Outputs
+struct __attribute__((__packed__)) IC33_Outputs
 {
 	bool	iAlcCdsFanEnable:1;
 	bool	niAlcEvaFan2Enable:1;
 	bool	niAlcEvaFan1Enable:1;
 };
-struct IC33_GPIO
+struct __attribute__((__packed__)) IC33_GPIO
 {
 
 	IC33_Outputs outputs;
 	
 };
-struct IC36_Inputs
+struct __attribute__((__packed__)) IC36_Inputs
 {
 	bool	iAlcEvaFanPwmFault:1;
 	bool	niAlcEvaFanEnableFault:1;
 	bool	niAlcEvaFanExtFault:1;
 
 };
-struct  IC36_GPIO
+struct __attribute__((__packed__))  IC36_GPIO
 {
 	IC36_Inputs	inputs[NUMBER_FANS];
 
 };
-struct EvaporatorGPIO
+struct __attribute__((__packed__)) EvaporatorGPIO
 {
 	IC33_GPIO	ic33gpio;
 	IC36_GPIO	ic36gpio;

@@ -41,13 +41,15 @@ private:
 	MCP23008_Class* currentExpander;
 	I2C_Sync_Class*	i2c;
 	bool	enables[4];
-	uint8_t	powerLevel;
+	uint8_t	powerLevel,heater_id;
+	
 //functions
 public:
 	SingleHeater_Class();
 	SingleHeater_Class(I2C_Sync_Class *i2c);
 	~SingleHeater_Class();
 	bool Init(void);
+	bool Init(uint8_t id);
 	uint8_t	ReadStatus(void);
 	uint8_t	EnableIndex(uint8_t indexHeater);
 	uint8_t	DisableIndex(uint8_t indexHeater);

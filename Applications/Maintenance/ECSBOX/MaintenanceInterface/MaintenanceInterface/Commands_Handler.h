@@ -20,6 +20,7 @@ private:
 	SingleTaskMessage	singleTaskMessage;
 	uint8_t		*usbMessageBuffer;
 	FullBufferMessage message64;
+	uint8_t	data_fans_array[3];
 
 //functions
 public:

@@ -159,6 +159,17 @@ void	MCP23008_Class::SetPortOutput(void){
 		pinMode(i,MCP23008_OUTPUT);
 	}
 }
+void	MCP23008_Class::SetPortOutput(uint8_t out){
+	
+	for (uint8_t i=0;i<8;i++)
+	{
+		if (out&(0x01<<i))
+		{
+			pinMode(i,MCP23008_OUTPUT);
+		}
+		
+	}
+}
 /**
  * Helper to update a single bit of an A/B register.
  * - Reads the current register value

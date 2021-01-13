@@ -8,7 +8,7 @@
 
 #include "main.h"
 
-#define		DELAY_TIME_REQUEST 100
+#define		DELAY_TIME_REQUEST 10
 //static Maintenance_Tool	toolApp;
 //static EvaporatorAndCondesatorFans_Class fans;
 
@@ -30,14 +30,14 @@ int main(void)
 	pwm_enable(&LIVE_PULSE);
 	fans.Init();
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareAlive),250);
-	toolApp.Init();
+//	toolApp.Init();
 	while (1)
 	{
 		
-		if (toolApp.IsAppConnected())
-		{
-			if (toolApp.handleCommunication())
-			{
+// 		if (toolApp.IsAppConnected())
+// 		{
+// 			if (toolApp.handleCommunication())
+// 			{
 // 				if (toolApp.singleTaskMessage.header.task==kHVACCommandSetHeaters)
 // 				{
 // 					lastEnableMask=enableMask;
@@ -60,11 +60,11 @@ int main(void)
 // 				}
 				
 
-			}
-			else
-			{
-				
-			}
+// 			}
+// 			else
+// 			{
+// 				
+// 			}
 // 			if (heater.statusChanged)
 // 			{
 // 				
@@ -75,7 +75,7 @@ int main(void)
 // 				
 // 			}
 			
-		}
+/*		}*/
 		
 		for (uint8_t j = 0; j <0xff; j++)
 		{
@@ -90,8 +90,8 @@ int main(void)
 				delay_ms(DELAY_TIME_REQUEST);
 				status= fans.evaporator[i]->SetPWM(j);
 			//	usb<<"Evaporator Fan "<<i<< " SetPoint :"<<status<<" .\t";
-				delay_ms(DELAY_TIME_REQUEST);
-				fans.evaporator[i]->Disable();
+			//	delay_ms(DELAY_TIME_REQUEST);
+			//	fans.evaporator[i]->Disable();
 			//	usb<<" EvaporatorFan "<<i<< " Disabled"<<NEWLINE;
 			
 			}
@@ -105,9 +105,41 @@ int main(void)
 			status= fans.condesator->SetPWM(j);
 		//	usb<<"Condesator SetPoint :"<<status<<" .\t";
 			delay_ms(DELAY_TIME_REQUEST);
-			fans.condesator->Disable();
+		//	fans.condesator->Disable();
 		//	usb<<"Condesator Disabled"<<NEWLINE;
 		}
+		for (uint8_t j = 0xff; j >0; j--)
+		{
+			for (uint8_t i = 0; i < 2; i++)
+			{
+				delay_ms(DELAY_TIME_REQUEST);
+				//	usb<<"Enabling Evaporator Fan: "<<i<<" .\t";
+				fans.evaporator[i]->Enable();
+				delay_ms(DELAY_TIME_REQUEST);
+				status= fans.evaporator[i]->ReadStatus();
+				//	usb<<"Evaporator Fan "<<i<< " Status :"<<status<<" .\t";
+				delay_ms(DELAY_TIME_REQUEST);
+				status= fans.evaporator[i]->SetPWM(j);
+				//	usb<<"Evaporator Fan "<<i<< " SetPoint :"<<status<<" .\t";
+				//	delay_ms(DELAY_TIME_REQUEST);
+				//	fans.evaporator[i]->Disable();
+				//	usb<<" EvaporatorFan "<<i<< " Disabled"<<NEWLINE;
+				
+			}
+			delay_ms(DELAY_TIME_REQUEST);
+			//	usb<<NEWLINE<<"Enabling Condesator .\t";
+			fans.condesator->Enable();
+			delay_ms(DELAY_TIME_REQUEST);
+			status= fans.condesator->ReadStatus();
+			//	usb<<"Condesator  Status :"<<status<<" .\t";
+			delay_ms(DELAY_TIME_REQUEST);
+			status= fans.condesator->SetPWM(j);
+			//	usb<<"Condesator SetPoint :"<<status<<" .\t";
+			delay_ms(DELAY_TIME_REQUEST);
+			//	fans.condesator->Disable();
+			//	usb<<"Condesator Disabled"<<NEWLINE;
+		}
+
 
 		
 

@@ -28,6 +28,7 @@ public:
 		volatile bool condesatorchanged;
 		bool enabled,isOK;
 		IC33_Inputs		condesatorStatus;
+		uint8_t faults;
 protected:
 private:
 	uint8_t	pwmValue;

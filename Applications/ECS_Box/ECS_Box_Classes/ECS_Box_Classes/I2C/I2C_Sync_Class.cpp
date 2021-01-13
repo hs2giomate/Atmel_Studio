@@ -34,8 +34,19 @@ bool	I2C_Sync_Class::Init(void){
 	rxBuffer=txI2CStaticBuffer;
 
 	i2c_m_sync_get_io_descriptor(ptrI2CDescr, &I2C_io);
-	uint8_t	ena=(uint8_t)i2c_m_sync_enable(ptrI2CDescr);
-	isOK=ena==0;
+	enabled=(uint8_t)i2c_m_sync_enable(ptrI2CDescr);
+	isOK=enabled==0;
+	if (isOK)
+	{
+		
+	} 
+	else
+	{
+		i2c_m_sync_disable(ptrI2CDescr);
+		enabled=(uint8_t)i2c_m_sync_enable(ptrI2CDescr);
+		isOK=enabled==0;
+	}
+	
 	i2c_initiated=isOK;
 	return isOK;
 	

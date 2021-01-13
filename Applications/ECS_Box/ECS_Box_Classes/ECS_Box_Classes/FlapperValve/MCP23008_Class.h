@@ -82,6 +82,7 @@ public:
 		bool	ReadDigit(uint8_t pin);
 		bool	WriteDigit(uint8_t pin, bool b);
 		void	SetPortInput(uint8_t inputs);
+		void	SetPortOutput(uint8_t out);
 protected:
 private:
 	MCP23008_Class( const MCP23008_Class &c );

@@ -44,6 +44,7 @@ public:
 	void	StartOneConversion(void);
 	bool	IsConversionFinished();
 	bool SetModuleReady(uint8_t);
+	void	StartOneConversion(uint8_t mod,uint8_t sen);
 protected:
 private:
 	TemperatureSensors_Class( const TemperatureSensors_Class &c );

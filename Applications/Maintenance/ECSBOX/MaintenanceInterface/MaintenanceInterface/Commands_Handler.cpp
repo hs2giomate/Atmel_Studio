@@ -87,26 +87,31 @@ uint8_t Commands_Handler::SetEnableFan1(uint8_t data){
 bool Commands_Handler::CommandSetPWMFans(void){
 
 	uint32_t	w,r;
-	uint8_t	data=0;
 	
-	memcpy(&singleTaskMessage,usbMessageBuffer,sizeof(SingleTaskMessage));
+	uint8_t		*data=data_fans_array;
 	
+	
+	//memcpy(&singleTaskMessage,usbMessageBuffer,sizeof(SingleTaskMessage));
+	memcpy(&message64,usbMessageBuffer,64);
 	//	singleTaskMessage.description=localBuffer[0x06];
-	bool	result(singleTaskMessage.header.task == 	kHVACCommandSetPWMFans);
+	bool	result(message64.header.task ==	kHVACCommandSetPWMFans);
 	if (result){
-		data=singleTaskMessage.description;
-		if (data>0)
+		data=message64.content;
+		if (data[0]>0)
 		{
-			fans.evaporator[0]->SetPWM(data);
-			fans.evaporator[1]->SetPWM(data);
-			fans.condesator->SetPWM(data);
+			fans.evaporator[0]->SetPWM(data[0]);
+			
 		}
-		else
-		{
+
+		if (data[1]>0){
+			fans.evaporator[1]->SetPWM(data[1]);
+		}
+		if (data[2]>0){
+			fans.condesator->SetPWM(data[2]);
 		}
 
 		
-		}else{
+		
 
 	}
 	
@@ -208,6 +213,7 @@ bool Commands_Handler::CommandReadFlapperData(void){
 				fv.fvx[i]->UpdateFlapperValveData();	
 				fvds[i]= fv.fvx[i]->dataStruct;
 		}
+		
 		#ifdef DEBUG
 			uint8_t sizeStruct=sizeof(fvds);
 		#endif
