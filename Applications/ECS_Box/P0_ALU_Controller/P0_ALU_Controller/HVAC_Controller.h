@@ -12,12 +12,13 @@
 #include "AUTO_MODE_Controller.h"
 #include "VENT_Mode.h"
 #include "FlapperValveController.h"
+#include "Cooling_Controller.h"
 
-class HVAC_Controller: public AUTO_MODE_Controller, public  VENT_Mode
+class HVAC_Controller: public AUTO_MODE_Controller, public  VENT_Mode, public Cooling_Controller
 {
 //variables
 public:
-	volatile bool temperingTimeout;
+	
 protected:
 private:
 	FlapperValveMode flapperValveMode, lastFlapperValveMode;
@@ -35,6 +36,7 @@ protected:
 private:
 	HVAC_Controller( const HVAC_Controller &c );
 	HVAC_Controller& operator=( const HVAC_Controller &c );
+	void	SetFlapperValveDiscretePosition(FlapperValveMode fvm);
 
 }; //HVAC_Controller
 

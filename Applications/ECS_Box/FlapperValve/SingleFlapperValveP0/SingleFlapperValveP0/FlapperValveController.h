@@ -72,6 +72,7 @@ public:
 	bool SetRemoteNBCMode(bool st);
 	bool	IsNBCMode(void);
 	bool	IsFlapperMoving(void);
+	bool	IsStandAloneMode(void);
 
 	
 	
@@ -87,7 +88,7 @@ private:
 	uint8_t CommandNBC_Mode(void);
 	
 	uint8_t	KeepControlling(uint8_t restart=0);
-	bool	IsStandAloneMode(void);
+	
 	bool Selftest(void);
 	bool CheckIsClosing(void);
 	void	RemoveTimeoutTask(void);

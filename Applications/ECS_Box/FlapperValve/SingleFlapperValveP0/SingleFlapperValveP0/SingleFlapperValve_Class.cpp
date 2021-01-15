@@ -17,7 +17,7 @@ SingleFlapperValve_Class	*ptrSingleFlapperValveClass;
 static I2C_Sync_Class		i2cStatic(&I2C_FLAPPER_VALVE);
 //static MCP23017_Class staticExpander(&I2C_EXPANDER);
 
-static	MCP23008_Class expandersStatic[FLAPPER_VALVE_EXPANDERS];
+static	MCP23008_Class expandersStatic[FLAPPER_VALVE_QUANTITY][FLAPPER_VALVE_EXPANDERS];
 
 static void	Fv1StatusChanged(void){
 	
@@ -60,15 +60,21 @@ SingleFlapperValve_Class::~SingleFlapperValve_Class()
 
 
 bool	SingleFlapperValve_Class::Init(void){
-	
+	if (i2c->i2c_initiated)
+	{
+	} 
+	else
+	{
 		i2c->Init();
+	}
+		
 
 		if (i2c->isOK)
 		{
 		//	ext_irq_register(PIN_PA04,FUNC_PTR(Fv1StatusChanged));
 			InitExpanderArray(valveID);
 			expanders[0]->SetPortInput();
-			expanders[1]->SetPortInput(0x80);
+			expanders[1]->SetPortInput(0x82);
 			expanders[2]->SetPortOutput();
 			expanders[3]->SetPortInput();
 							
@@ -76,40 +82,19 @@ bool	SingleFlapperValve_Class::Init(void){
 		isOK=i2c->isOK;
 		
 		return isOK;
-	
-// 		if (simpleExpander->isReady==false)
-// 		{
-// 				simpleExpander->Init();
-// 				simpleExpander->SetPortAInput();
-// 				simpleExpander->SetPortBOutput();
-// 		}
-// 
-// 		if (simpleExpander->isReady)
-// 		{
-// 			if (valveID==1)
-// 			{
-// 				ext_irq_register(PIN_PA04,FUNC_PTR(Fv1StatusChanged));
-// 			}
-// 			else if  (valveID==2)
-// 			{
-// 				ext_irq_register(PIN_PA05,FUNC_PTR(Fv2StatusChanged));
-// 			}
-// 		//	InitExpanderArray(valveID);
-// 			isOK=Selftest();
-// 		}
-// 		else
-// 		{
-// 			asm("nop");
-// 		}
-// 		return isOK;	
 
 
+}
+
+bool	SingleFlapperValve_Class::Init(uint8_t valve_id){
+	valveID=valve_id;
+	return Init();
 }
 uint8_t SingleFlapperValve_Class::InitExpanderArray(uint8_t fvID){
 	
 	for (int i = 0; i < FLAPPER_VALVE_EXPANDERS; i++)
 	{
-		currentExpander=&(expandersStatic[i]);
+		currentExpander=&(expandersStatic[valveID][i]);
 		
 		currentExpander->Init(MCP23008_ADDRESS+i+(fvID)*FLAPPER_VALVE_EXPANDERS,i2c);
 		expanders[i]=currentExpander;
@@ -134,7 +119,7 @@ uint8_t SingleFlapperValve_Class::WriteControlStatus(uint8_t controlByte){
 
 uint8_t SingleFlapperValve_Class::SetEnable(bool b){
 	value=expanders[1]->ReadGPIORegister();
-	value=b?value&0xfe:value|0x01;
+	value=b?value|0x01:value&0xfe;
 	controlOutputs.niAlcFvMotorEnable=b;
 	value=expanders[1]->WriteGPIORegister(value);
 	return value;

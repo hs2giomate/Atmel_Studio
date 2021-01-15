@@ -280,7 +280,28 @@ Commands_Handler.d Commands_Handler.o: .././Commands_Handler.cpp \
  ../../../../../ECS_Box/FlapperValve/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller.h \
  ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h \
  ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
- ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/MemoryFlash_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/atmel_start.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/driver_init.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/usb_start.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/FlashHandler_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigState_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationCommons.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/GAINDefinitions.h \
+ ../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/CRC32_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/FlashMemoryClass.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h
 
 .././Commands_Handler.h:
 
@@ -847,3 +868,45 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h:
 
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/FlapperValve/FlapperValveDataStruct.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/MemoryFlash_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/atmel_start.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/driver_init.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/usb_start.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash/n25q256a/n25q256a.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash/spi_nor_flash.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/spi_nor_flash_main.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/Config/conf_spi_nor_flash.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/RingBuffer.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/FlashHandler_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigState_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationCommons.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/GAINDefinitions.h:
+
+../../../../../ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/CRC32_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/FlashMemoryClass.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h:

@@ -9,6 +9,7 @@
 #ifndef __VENT_MODE_CONTROLLER_H__
 #define __VENT_MODE_CONTROLLER_H__
 #include "compiler.h"
+//#include "Cooling_Controller.h"
 
 #define		FLAPPER_VALVE_STEP    8
 
@@ -18,11 +19,13 @@ class AUTO_MODE_Controller
 //variables
 public:
 	bool automaticHeatingMode;
+	volatile bool temperingTimeout;
 protected:
 private:
-	float cabinCurrentTemperature,setpointTemperature,errorTemperature, lastCabinTemperature;
-	uint8_t	heatersPower,evaFanSpeed,currentAngle, lastPower;
+	float cabinCurrentTemperature,setpointTemperature,errorTemperature, lastCabinTemperature,lastControlTemperature;
+	uint8_t	heatersRequestPower,evaFanSpeed,currentAngle, lastPower,currentPower;
 	uint8_t	tolerance;
+	bool	heatingMode,changedMode,lastMode;
 //functions
 public:
 	AUTO_MODE_Controller();

@@ -11,6 +11,8 @@
 #include "EvaporatorAndCondesatorFans_Class.h"
 #include "CDC_Class.h"
 #include "Dual_Flapper_Valve_Controller.h"
+#include "MemoryFlash_Class.h"
+#include "FlashMemoryClass.h"
 
 // default constructor
 Commands_Handler::Commands_Handler()
@@ -145,17 +147,24 @@ bool  Commands_Handler::CommandSetFlapperValve(void){
 	if (result){
 		for (int i = 0; i < FLAPPER_VALVE_QUANTITY; i++)
 		{
-			data=message64.content[i];
-			if ((data&(0x01))>0)
+			if (flapper.valve[i]->isOK)
 			{
-				//fvc.fv->SetEnable(true);
-				fv.fvx[i]->StartControlling() ;
-			}
+				data=message64.content[i];
+				if ((data&(0x01))>0)
+				{
+					//fvc.fv->SetEnable(true);
+					flapper.valve[i]->StartControlling() ;
+				}
+				else
+				{
+					//fvc.fv->SetEnable(false);
+					flapper.valve[i]->StopControlling();
+				}
+			} 
 			else
 			{
-				//fvc.fv->SetEnable(false);
-				fv.fvx[i]->StopControlling();
 			}
+			
 		}
 	
 
@@ -179,15 +188,22 @@ bool  Commands_Handler::CommandSetFlapperPosition(void){
 	if (result){
 		for ( int i = 0; i < FLAPPER_VALVE_QUANTITY; i++)
 		{
-			data=message64.content[i];
-
-			if (fv.fvx[i]->controllerEnabled)
+			if (flapper.valve[i]->isOK)
 			{
-				fv.fvx[i]->StartControlling(data);
+				data=message64.content[i];
+
+				if (flapper.valve[i]->controllerEnabled)
+				{
+					flapper.valve[i]->StartControlling(data);
+				}
+				
+				
+				flapper.valve[i]->doPeriodicTask=false;
+			} 
+			else
+			{
 			}
 			
-			
-			fv.fvx[i]->doPeriodicTask=false;
 		}
 		
 		// 			fans.evaporator[1]->SetEnable(data&0x02);
@@ -210,8 +226,15 @@ bool Commands_Handler::CommandReadFlapperData(void){
 		
 		for (int i = 0; i < FLAPPER_VALVE_QUANTITY; i++)
 		{
-				fv.fvx[i]->UpdateFlapperValveData();	
-				fvds[i]= fv.fvx[i]->dataStruct;
+			if (flapper.valve[i]->isOK)
+			{
+				flapper.valve[i]->UpdateFlapperValveData();
+				fvds[i]= flapper.valve[i]->dataStruct;
+			} 
+			else
+			{
+			}
+				
 		}
 		
 		#ifdef DEBUG
@@ -225,6 +248,63 @@ bool Commands_Handler::CommandReadFlapperData(void){
 		usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 
 		
+	}
+	
+	return result;
+}
+
+bool Commands_Handler::CommandReadParameters(){
+	int n=sizeof(HVACMessageHeader);
+	HVACMessageHeader hm;
+
+	memcpy(&singleTaskMessage,usbMessageBuffer,sizeof(SingleTaskMessage));
+	bool	result(singleTaskMessage.header.task == kGAINCommandReadParameters);
+	if (result){
+		//
+		uint32_t add=(uint32_t)&flashLayout->parameters;
+		memory.ReadParameters(parameters);
+		memcpy(usbMessageBuffer,(void*)&hm,n);
+		memcpy((uint8_t*)&usbMessageBuffer[n],(void*)&parameters,sizeof(UserParameters));
+		is_stand_alone=flapper.IsStandAlone();
+		if (is_stand_alone)
+		{
+			usbMessageBuffer[n+sizeof(UserParameters)]=parameters.flapperValveStandAloneMinimumPosition;
+		}
+		else
+		{
+			usbMessageBuffer[n+sizeof(UserParameters)]=parameters.flapperValveMinimumPosition;
+		}
+		usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+
+		
+		
+		}else{
+
+	}
+	
+	return result;
+}
+bool Commands_Handler::CommandWriteParameters(void){
+
+	uint32_t	w,r;
+	int n=sizeof(HVACMessageHeader);
+	HVACMessageHeader hm;
+	memcpy(&singleTaskMessage,usbMessageBuffer,sizeof(SingleTaskMessage));
+	
+	bool	result(singleTaskMessage.header.task == kGAINCommandWriteParameters);
+	if (result){
+		
+		
+		
+		
+		memcpy((uint8_t*)&parameters,&usbMessageBuffer[n],sizeof(UserParameters));
+		uint32_t add=(uint32_t)&flashLayout->parameters;
+		r=memory.SaveParameters(parameters);
+		result=(bool)(r==0);
+		
+		
+		}else{
+
 	}
 	
 	return result;

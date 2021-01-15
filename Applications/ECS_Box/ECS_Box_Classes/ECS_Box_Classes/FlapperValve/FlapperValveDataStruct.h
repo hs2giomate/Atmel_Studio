@@ -18,7 +18,7 @@ struct __attribute__((__packed__)) InputStatus
 };
 struct __attribute__((__packed__)) ControlStatus
 {
-	bool	iAlcFvStandAloneOut;
+	bool	iAlcFvStandAloneOut;			//received[12]
 	bool	niAlcFvClearMoveFault;
 	bool	iAlcFvMoveTimer;
 	bool	iFvMotorPhaset;
@@ -33,6 +33,7 @@ struct __attribute__((__packed__)) FlapperValveControllerStatus
 	bool	isControlling;
 	bool	NBC_Mode;
 	uint8_t	minimunAir;
+	bool	is_flapper_OK;
 //	uint8_t	position;
 
 };
@@ -54,7 +55,7 @@ enum FlapperValveMode
 	NBC_MODE,
 };
 
-#define STANDALONE 1
+#define STANDALONE 0
 
 class FlapperValveDataStruct
 {

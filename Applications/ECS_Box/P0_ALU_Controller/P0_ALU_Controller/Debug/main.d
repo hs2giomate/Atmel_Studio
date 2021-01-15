@@ -267,9 +267,8 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
- ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
+ ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
@@ -302,12 +301,15 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
  .././Interfaces_Class.h .././HVAC_Commando_Class.h \
+ ../../../ARINC_Interface/ARINC_Interface/ARINC_Handler_Class.h \
+ ../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h \
  .././HVAC_Controller.h .././AUTO_MODE_Controller.h .././VENT_Mode.h \
  ../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h \
  ../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
+ .././Cooling_Controller.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Storage/N25Q256_Class.h \
  ../../../ALU_Driver/ALU_Driver/spi_nor_flash_main.h \
@@ -316,7 +318,6 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
  .././Error_Labelling_Class.h .././TaskHandler_Class.h \
  ../../../ARINC_Interface/ARINC_Interface/AMMC_Class.h \
- ../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h \
  ../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
  ../../../QSPI_Memory_Handler/MemoryFlash_Class.h \
  ../../../QSPI_Memory_Handler/FlashHandler_Class.h \
@@ -327,7 +328,13 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFan_Class.h \
  ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFanDataStruct_Class.h \
  ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h \
- ../../../HeaterP0Board/HeaterP0Board/SingleHeater_Class.h
+ ../../../HeaterP0Board/HeaterP0Board/SingleHeater_Class.h \
+ ../../../Event_Manager/Event_Manager/Event_Logger_Class.h \
+ ../../../Event_Manager/Event_Manager/DateTime_Logger.h \
+ ../../../Event_Manager/Event_Manager/DataLoger_Class.h \
+ ../../../Event_Manager/Event_Manager/Event_Logger_Struct.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h
 
 .././main.h:
 
@@ -867,11 +874,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
-
-../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
 
@@ -943,6 +948,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././HVAC_Commando_Class.h:
 
+../../../ARINC_Interface/ARINC_Interface/ARINC_Handler_Class.h:
+
+../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h:
+
 .././HVAC_Controller.h:
 
 .././AUTO_MODE_Controller.h:
@@ -958,6 +967,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h:
+
+.././Cooling_Controller.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h:
 
@@ -976,8 +987,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././TaskHandler_Class.h:
 
 ../../../ARINC_Interface/ARINC_Interface/AMMC_Class.h:
-
-../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h:
 
 ../../../FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h:
 
@@ -1000,3 +1009,15 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h:
 
 ../../../HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:
+
+../../../Event_Manager/Event_Manager/Event_Logger_Class.h:
+
+../../../Event_Manager/Event_Manager/DateTime_Logger.h:
+
+../../../Event_Manager/Event_Manager/DataLoger_Class.h:
+
+../../../Event_Manager/Event_Manager/Event_Logger_Struct.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h:

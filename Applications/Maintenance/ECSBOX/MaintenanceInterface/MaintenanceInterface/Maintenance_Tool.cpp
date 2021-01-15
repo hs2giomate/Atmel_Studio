@@ -94,8 +94,8 @@ bool	Maintenance_Tool::IsAppConnected(void){
 				gotAccess=true;
 				result=true;
 				is_MTPC_Beaming=true;
-				setConnected(true);
-				return	result;
+			//	setConnected(true);
+				return	handleCommunication();
 			}
 			else
 			{
@@ -861,36 +861,7 @@ bool Maintenance_Tool::handleGAINCommandSetConfiguration( HVACMessageHeader& hea
 	return true;
 	}
 
-bool Maintenance_Tool::CommandReadParameters(){
-	int n=sizeof(HVACMessageHeader);
-	HVACMessageHeader hm;
-	uint32_t	w,r;
-	
-	 	bool	result(header.task == kGAINCommandReadParameters);
-		if (result){
-		// 		
-			uint32_t add=(uint32_t)&flashLayout->parameters;
-			r=memory.ReadParameters(parameters);
-			 memcpy(localBuffer,(void*)&hm,n);
-			memcpy((uint8_t*)&localBuffer[n],(void*)&parameters,sizeof(UserParameters));
-			if (fvc.dataStruct.controlOutputs.iAlcFvStandAloneOut)
-			{
-				localBuffer[n+sizeof(UserParameters)]=parameters.flapperValveStandAloneMinimumPosition;
-			} 
-			else
-			{
-				localBuffer[n+sizeof(UserParameters)]=parameters.flapperValveMinimumPosition;
-			}
-			w=usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 
-	
-			 
-	 	}else{
-
-		 }
-		
-		 return result;
-}
 
 bool Maintenance_Tool::CommandReadHeaterStatus(){
 	int n=sizeof(SingleTaskMessage);
@@ -947,31 +918,7 @@ bool Maintenance_Tool::CommandReadTemmperatures(){
 	return result;
 }
 
-bool Maintenance_Tool::CommandWriteParameters(void)	{
 
-	uint32_t	w,r;
-		int n=sizeof(HVACMessageHeader);
-		HVACMessageHeader hm;
-	
-	bool	result(header.task == kGAINCommandWriteParameters);
-	if (result){
-		
-			
-	
-			
-		memcpy((uint8_t*)&parameters,&localBuffer[n],sizeof(UserParameters));
-	
-		uint32_t add=(uint32_t)&flashLayout->parameters;
-		r=memory.SaveParameters(parameters);
-			result=(bool)(r==0);
-	
-		
-	}else{
-
-	}
-	
-	return result;
-}
 
 bool Maintenance_Tool::CommandSetHeaters(void)	{
 

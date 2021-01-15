@@ -51,7 +51,7 @@ private:
 		
 		GAINStateNotification	notification;
 		DeviceInformation	deviceID;
-		bool result,gotAccess,gotCommand,gotTask;
+		bool result,gotAccess,gotCommand,gotTask,is_stand_alone;
 		uint16	checksum, checksumProvided;
 		UserParameters	parameters;
 		uint8	controllerState;
@@ -122,8 +122,8 @@ private:
 	bool	handleGAINCommandSetNSDData(HVACMessageHeader&);
 #endif
 
-	bool	CommandReadParameters();
-	bool	CommandWriteParameters(void);
+//	bool	CommandReadParameters();
+//	bool	CommandWriteParameters(void);
 	uint16	calculateChecksum(const HVACMessageHeader& data);
 	uint16	calculateChecksum(uint16 checksum, uint16 size, const void* data);
 	void	 GetCPUSerialNumber(uint8_t* buffer);

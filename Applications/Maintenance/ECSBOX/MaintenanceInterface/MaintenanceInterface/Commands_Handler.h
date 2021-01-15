@@ -21,6 +21,8 @@ private:
 	uint8_t		*usbMessageBuffer;
 	FullBufferMessage message64;
 	uint8_t	data_fans_array[3];
+	UserParameters	parameters;
+	bool is_stand_alone;
 
 //functions
 public:
@@ -33,6 +35,8 @@ public:
 	bool CommandReadFlapperData(void);
 	bool  CommandSetFlapperPosition(void);
 	bool  CommandSetFlapperValve(void);
+	bool CommandReadParameters(void);
+	bool CommandWriteParameters(void);
 protected:
 private:
 	Commands_Handler( const Commands_Handler &c );

@@ -41,6 +41,7 @@ static void	HeaterStatusChanged(void){
 }
 
 bool SingleHeater_Class::Init(void){
+	heater_id=0;
 		i2c->Init();
 		if (i2c->isOK)
 		{
@@ -58,6 +59,33 @@ bool SingleHeater_Class::Init(void){
 		isOK=i2c->isOK;
 		return isOK;
 }
+bool SingleHeater_Class::Init(uint8_t id){
+	heater_id=id;
+	if (i2c->i2c_initiated)
+	{
+		i2c->Init();
+	} 
+	else
+	{
+		
+	}
+	
+	if (i2c->isOK)
+	{
+		
+		//ext_irq_register(PIN_PA03,FUNC_PTR(HeaterStatusChanged));
+		InitExpanderArray();
+		expanders[0]->SetPortInput();
+		expanders[1]->SetPortOutput();
+		isOK=SelfTest();
+	}
+	else
+	{
+		asm("nop");
+	}
+	isOK=i2c->isOK;
+	return isOK;
+}
 
 uint8_t SingleHeater_Class::InitExpanderArray(void){
 	
@@ -65,7 +93,7 @@ uint8_t SingleHeater_Class::InitExpanderArray(void){
 	{
 		expanders[i]=&expandersStatic[i];
 		currentExpander=(expanders[i]);
-		currentExpander->Init(i|MCP23008_ADDRESS,i2c);
+		currentExpander->Init(i|MCP23008_ADDRESS|(2*heater_id),i2c);
 	}
 	
 }

@@ -286,7 +286,6 @@ AUTO_MODE_Controller.d AUTO_MODE_Controller.o: \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/pgmspace.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/Printable.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h \
  ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Commands_Handler.h \
  ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h \
  .././ConfigState_Class.h .././GAINDefinitions.h \
@@ -294,7 +293,18 @@ AUTO_MODE_Controller.d AUTO_MODE_Controller.o: \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/EventHandler_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/EventHandling/eDeviceEvent.h \
  .././Interfaces_Class.h .././HVAC_Commando_Class.h \
- .././HVAC_Controller.h .././VENT_Mode.h
+ ../../../ARINC_Interface/ARINC_Interface/ARINC_Handler_Class.h \
+ ../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h \
+ ../../../ARINC_Interface/ARINC_Interface/Holt_3593_Class.h \
+ ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
+ ../../../ARINC_Interface/ARINC_Interface/Protocol_Class.h \
+ ../../../ARINC_Interface/ARINC_Interface/ARINC_Conversions.h \
+ ../../../ARINC_Interface/ARINC_Interface/ARINC_Buffer_Class.h \
+ .././HVAC_Controller.h .././VENT_Mode.h .././Cooling_Controller.h \
+ ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFans_Class.h \
+ ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFan_Class.h \
+ ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFanDataStruct_Class.h \
+ ../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h
 
 .././AUTO_MODE_Controller.h:
 
@@ -872,8 +882,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/SerialTerminal_Class.h:
 
-../../../ECS_Box_Classes/ECS_Box_Classes/USBSerial/TimerSerial_Class.h:
-
 ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/Commands_Handler.h:
 
 ../../../../Maintenance/ECSBOX/MaintenanceInterface/MaintenanceInterface/MaintenanceDataHandler.h:
@@ -892,6 +900,30 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././HVAC_Commando_Class.h:
 
+../../../ARINC_Interface/ARINC_Interface/ARINC_Handler_Class.h:
+
+../../../ARINC_Interface/ARINC_Interface/ARINC_Interface.h:
+
+../../../ARINC_Interface/ARINC_Interface/Holt_3593_Class.h:
+
+../../../ALU_Driver/ALU_Driver/atmel_start_pins.h:
+
+../../../ARINC_Interface/ARINC_Interface/Protocol_Class.h:
+
+../../../ARINC_Interface/ARINC_Interface/ARINC_Conversions.h:
+
+../../../ARINC_Interface/ARINC_Interface/ARINC_Buffer_Class.h:
+
 .././HVAC_Controller.h:
 
 .././VENT_Mode.h:
+
+.././Cooling_Controller.h:
+
+../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFans_Class.h:
+
+../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFan_Class.h:
+
+../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/EvaporatorFanDataStruct_Class.h:
+
+../../../EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h:

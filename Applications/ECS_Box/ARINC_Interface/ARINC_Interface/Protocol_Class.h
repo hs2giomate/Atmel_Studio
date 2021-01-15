@@ -29,6 +29,11 @@ struct{
 }bit;
 uint32_t	rawWord;
 }Datagram;
+struct Command272
+{
+	uint8_t label;
+	uint8_t	fanSpeed[2];
+};
 
 
 
@@ -60,6 +65,7 @@ public:
 	uint32_t MakeLabel270(uint32_t d);
 	uint32_t MakeTXLabel275(uint8_t d);
 	uint32_t MakeTXLabel375(uint8_t d);
+	uint32_t MakeTXLabel372(Command272 c272);
 protected:
 	//virtual uint8_t		Label2Byte(uint32_t)=0;
 //	friend	class	ARINC_Conversions;

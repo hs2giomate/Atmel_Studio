@@ -17,11 +17,13 @@ class I2C_Sync_Class
 public:
 		uint8_t	*txBuffer;
 		uint8_t	*rxBuffer;
-		volatile	bool initiated,isOK;
+		volatile	bool i2c_initiated,isOK;
 protected:
 private:
 	io_descriptor *I2C_io;
 	i2c_m_sync_desc *ptrI2CDescr;
+	uint8_t	enabled;
+	
 	//I2C_Sync_Class*  i2c;
 
 //functions

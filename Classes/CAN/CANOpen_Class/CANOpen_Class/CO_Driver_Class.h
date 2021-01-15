@@ -104,6 +104,6 @@ private:
 
 }; //CO_Driver_Class
 
-extern CO_Driver_Class		*ptrCODriverClass;
+extern CO_Driver_Class		*canopen;
 
 #endif //__CO_DRIVER_CLASS_H__

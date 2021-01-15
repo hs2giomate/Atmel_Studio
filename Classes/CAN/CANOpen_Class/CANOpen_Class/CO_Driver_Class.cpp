@@ -9,14 +9,15 @@
 #include "CO_Driver_Class.h"
 #include "string.h"
 
-CO_Driver_Class		*ptrCODriverClass;
+CO_Driver_Class		*canopen;
+
 
 static void CO_rx_callback(struct can_async_descriptor *const descr)
 {
-	ptrCODriverClass->receivedCOMsg.data=ptrCODriverClass->co_rx_buffer_64;
-	can_async_read(descr, &(ptrCODriverClass->receivedCOMsg));
-	ptrCODriverClass->ProcessInterrupt_Rx();
-	ptrCODriverClass->receivedRxCOCallback=true;
+	canopen->receivedCOMsg.data=canopen->co_rx_buffer_64;
+	can_async_read(descr, &(canopen->receivedCOMsg));
+	canopen->ProcessInterrupt_Rx();
+	canopen->receivedRxCOCallback=true;
 // 	if(ptrCODriver->RxFifo_Callback_CanModule_p != NULL)
 // 	{
 // 		ProcessInterrupt_Rx();
@@ -26,15 +27,15 @@ static void CO_rx_callback(struct can_async_descriptor *const descr)
 static void CO_IRQ_Error_Callback(struct can_async_descriptor *const descr)
 {
 
-	ptrCODriverClass->HalCanErrorCode= hri_can_read_IR_reg(descr->dev.hw);
-	ptrCODriverClass->receivedIntCOCallback=true;
+	canopen->HalCanErrorCode= hri_can_read_IR_reg(descr->dev.hw);
+	canopen->receivedIntCOCallback=true;
 }
 
 
 static void CO_tx_callback(struct can_async_descriptor *const descr)
 {
 	(void)descr;
-	ptrCODriverClass->receivedtxCOCallback=true;
+	canopen->receivedtxCOCallback=true;
 	
 }
 
@@ -42,7 +43,7 @@ static void CO_tx_callback(struct can_async_descriptor *const descr)
 CO_Driver_Class::CO_Driver_Class()
 {
 	RxFifo_Callback_CanModule_p = NULL;
-	ptrCODriverClass=this;
+	canopen=this;
 } //CO_Driver_Class
 
 // default destructor

@@ -19,7 +19,7 @@ int main(void)
 
 	memory.Init();
 	memory.WriteDefaultParameters();
-	fv.Init();
+	flapper.Init();
 
 	//toolApp.Init();
 	while (1)
@@ -31,31 +31,31 @@ int main(void)
 		
 		for (uint8_t i = 1; i < 8; i++)
 		{
-			fv.fv1->StartControlling(i*32);
-			fv.fv2->StartControlling(i*32);
-			while ((!fv.fv1->gotSetpoint)|(!fv.fv2->gotSetpoint))
+			flapper.valve1->StartControlling(i*32);
+			flapper.valve2->StartControlling(i*32);
+			while ((!flapper.valve1->gotSetpoint)|(!flapper.valve2->gotSetpoint))
 			{
-				fv.fv1->Control_NBC_StandAlone_Reset();
-				fv.fv2->Control_NBC_StandAlone_Reset();
+				flapper.valve1->Control_NBC_StandAlone_Reset();
+				flapper.valve2->Control_NBC_StandAlone_Reset();
 			}
 		
 			delay_ms(100);
-			fv.fv1->StopControlling();
-			fv.fv2->StopControlling();
+			flapper.valve1->StopControlling();
+			flapper.valve2->StopControlling();
 		}
 		delay_ms(1000);
    		for (uint8_t i = 1; i < 8; i++)
 		{
-			fv.fv1->StartControlling(255-i*32);
-			fv.fv2->StartControlling(255-i*32);
-			while ((!fv.fv1->gotSetpoint)|(!fv.fv2->gotSetpoint))
+			flapper.valve1->StartControlling(255-i*32);
+			flapper.valve2->StartControlling(255-i*32);
+			while ((!flapper.valve1->gotSetpoint)|(!flapper.valve2->gotSetpoint))
 			{
-				fv.fv1->Control_NBC_StandAlone_Reset();
-				fv.fv2->Control_NBC_StandAlone_Reset();
+				flapper.valve1->Control_NBC_StandAlone_Reset();
+				flapper.valve2->Control_NBC_StandAlone_Reset();
 			}
 			delay_ms(100);
-			fv.fv1->StopControlling();
-			fv.fv2->StopControlling();
+			flapper.valve1->StopControlling();
+			flapper.valve2->StopControlling();
 		
 		}
 	delay_ms(1000);

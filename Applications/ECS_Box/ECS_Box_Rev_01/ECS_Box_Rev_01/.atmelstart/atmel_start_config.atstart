@@ -2,16 +2,16 @@ format_version: '2'
 name: ECS_Box_Rev_01
 versions:
   api: '1.0'
-  backend: 1.7.360
-  commit: 1e07622763d149970fd8808a8f12ff3b1e84e0d7
+  backend: 1.8.491
+  commit: 605bd5a7663644fb84783aa2b00942b79b0d8955
   content: unknown
   content_pack_name: unknown
   format: '2'
-  frontend: 1.7.360
-  packs_version_avr8: 1.0.1415
+  frontend: 1.8.491
+  packs_version_avr8: 1.0.1446
   packs_version_qtouch: unknown
-  packs_version_sam: 1.0.1622
-  version_backend: 1.7.360
+  packs_version_sam: 1.0.1726
+  version_backend: 1.8.491
   version_frontend: ''
 board:
   identifier: SAME54XplainedPro
@@ -686,14 +686,14 @@ drivers:
       eic_arch_tickon: The sampling rate is EIC clock
     optional_signals:
     - identifier: EXTERNAL_IRQ_0:EXTINT/0
-      pad: PD00
+      pad: PC00
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.0
       name: EIC/EXTINT/0
       label: EXTINT/0
     - identifier: EXTERNAL_IRQ_0:EXTINT/1
-      pad: PD01
+      pad: PB01
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.1
@@ -707,35 +707,35 @@ drivers:
       name: EIC/EXTINT/2
       label: EXTINT/2
     - identifier: EXTERNAL_IRQ_0:EXTINT/3
-      pad: PB03
+      pad: PA03
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.3
       name: EIC/EXTINT/3
       label: EXTINT/3
     - identifier: EXTERNAL_IRQ_0:EXTINT/4
-      pad: PB04
+      pad: PA04
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.4
       name: EIC/EXTINT/4
       label: EXTINT/4
     - identifier: EXTERNAL_IRQ_0:EXTINT/5
-      pad: PB05
+      pad: PA05
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.5
       name: EIC/EXTINT/5
       label: EXTINT/5
     - identifier: EXTERNAL_IRQ_0:EXTINT/6
-      pad: PB06
+      pad: PC22
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.6
       name: EIC/EXTINT/6
       label: EXTINT/6
     - identifier: EXTERNAL_IRQ_0:EXTINT/7
-      pad: PB07
+      pad: PC23
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.7
@@ -756,21 +756,42 @@ drivers:
       name: EIC/EXTINT/9
       label: EXTINT/9
     - identifier: EXTERNAL_IRQ_0:EXTINT/10
-      pad: PB10
+      pad: PC10
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.10
       name: EIC/EXTINT/10
       label: EXTINT/10
+    - identifier: EXTERNAL_IRQ_0:EXTINT/11
+      pad: PC11
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.11
+      name: EIC/EXTINT/11
+      label: EXTINT/11
+    - identifier: EXTERNAL_IRQ_0:EXTINT/12
+      pad: PC12
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.12
+      name: EIC/EXTINT/12
+      label: EXTINT/12
+    - identifier: EXTERNAL_IRQ_0:EXTINT/13
+      pad: PA13
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.13
+      name: EIC/EXTINT/13
+      label: EXTINT/13
     - identifier: EXTERNAL_IRQ_0:EXTINT/14
-      pad: PB28
+      pad: PA14
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.14
       name: EIC/EXTINT/14
       label: EXTINT/14
     - identifier: EXTERNAL_IRQ_0:EXTINT/15
-      pad: PB29
+      pad: PC31
       mode: Enabled
       configuration: null
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.15
@@ -792,6 +813,22 @@ drivers:
     functionality: System
     api: HAL:HPL:GCLK
     configuration:
+      $input: 32768
+      $input_id: 32kHz Ultra Low Power Internal Oscillator (OSCULP32K)
+      RESERVED_InputFreq: 32768
+      RESERVED_InputFreq_id: 32kHz Ultra Low Power Internal Oscillator (OSCULP32K)
+      _$freq_output_Generic clock generator 0: 12000000
+      _$freq_output_Generic clock generator 1: 48000000
+      _$freq_output_Generic clock generator 10: 32768
+      _$freq_output_Generic clock generator 11: 32768
+      _$freq_output_Generic clock generator 2: 3000000
+      _$freq_output_Generic clock generator 3: 32768
+      _$freq_output_Generic clock generator 4: 12000000
+      _$freq_output_Generic clock generator 5: 12000000
+      _$freq_output_Generic clock generator 6: 12000000
+      _$freq_output_Generic clock generator 7: 12000000
+      _$freq_output_Generic clock generator 8: 12000000
+      _$freq_output_Generic clock generator 9: 12000000
       enable_gclk_gen_0: true
       enable_gclk_gen_0__externalclock: 1000000
       enable_gclk_gen_1: true
@@ -922,6 +959,11 @@ drivers:
     functionality: System
     api: HAL:HPL:MCLK
     configuration:
+      $input: 12000000
+      $input_id: Generic clock generator 0
+      RESERVED_InputFreq: 12000000
+      RESERVED_InputFreq_id: Generic clock generator 0
+      _$freq_output_CPU: 12000000
       cpu_clock_source: Generic clock generator 0
       cpu_div: '1'
       enable_cpu_clock: true
@@ -945,6 +987,11 @@ drivers:
     functionality: System
     api: HAL:HPL:OSC32KCTRL
     configuration:
+      $input: 32768
+      $input_id: 32kHz Ultra Low Power Internal Oscillator (OSCULP32K)
+      RESERVED_InputFreq: 32768
+      RESERVED_InputFreq_id: 32kHz Ultra Low Power Internal Oscillator (OSCULP32K)
+      _$freq_output_RTC source: 1024
       enable_osculp32k: true
       enable_rtc_source: false
       enable_xosc32k: true
@@ -973,6 +1020,15 @@ drivers:
     functionality: System
     api: HAL:HPL:OSCCTRL
     configuration:
+      $input: 32768
+      $input_id: 32kHz External Crystal Oscillator (XOSC32K)
+      RESERVED_InputFreq: 32768
+      RESERVED_InputFreq_id: 32kHz External Crystal Oscillator (XOSC32K)
+      _$freq_output_Digital Frequency Locked Loop (DFLL48M): 48000000
+      _$freq_output_Digital Phase Locked Loop (DPLL0): 47985664
+      _$freq_output_Digital Phase Locked Loop (DPLL1): 47985664
+      _$freq_output_External Crystal Oscillator 8-48MHz (XOSC0): 12000000
+      _$freq_output_External Crystal Oscillator 8-48MHz (XOSC1): 12000000
       dfll_arch_bplckc: false
       dfll_arch_calibration: false
       dfll_arch_ccdis: true
@@ -1122,7 +1178,7 @@ drivers:
       domain_group: null
   Flash_Mem_SPI:
     user_label: Flash_Mem_SPI
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM0::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM2::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
     functionality: SPI
     api: HAL:Driver:SPI_Master_Sync
     configuration:
@@ -1141,95 +1197,15 @@ drivers:
     variant:
       specification: TXPO=0, RXPO=2
       required_signals:
-      - name: SERCOM0/PAD/0
-        pad: PA04
-        label: MOSI
-      - name: SERCOM0/PAD/1
-        pad: PA05
-        label: SCK
-      - name: SERCOM0/PAD/2
-        pad: PA06
-        label: MISO
-    clocks:
-      domain_group:
-        nodes:
-        - name: Core
-          input: Generic clock generator 0
-          external: false
-          external_frequency: 0
-        - name: Slow
-          input: Generic clock generator 3
-          external: false
-          external_frequency: 0
-        configuration:
-          core_gclk_selection: Generic clock generator 0
-          slow_gclk_selection: Generic clock generator 3
-  Fvx_I2C:
-    user_label: Fvx_I2C
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM1::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
-    functionality: I2C
-    api: HAL:Driver:I2C_Master_Sync
-    configuration:
-      i2c_master_advanced: false
-      i2c_master_arch_dbgstop: Keep running
-      i2c_master_arch_inactout: Disabled
-      i2c_master_arch_lowtout: false
-      i2c_master_arch_mexttoen: false
-      i2c_master_arch_runstdby: false
-      i2c_master_arch_sdahold: 300-600ns hold time
-      i2c_master_arch_sexttoen: false
-      i2c_master_arch_trise: 215
-      i2c_master_baud_rate: 100000
-    optional_signals: []
-    variant:
-      specification: SDA=0, SCL=1
-      required_signals:
-      - name: SERCOM1/PAD/0
-        pad: PA16
-        label: SDA
-      - name: SERCOM1/PAD/1
-        pad: PA17
-        label: SCL
-    clocks:
-      domain_group:
-        nodes:
-        - name: Core
-          input: Generic clock generator 0
-          external: false
-          external_frequency: 0
-        - name: Slow
-          input: Generic clock generator 3
-          external: false
-          external_frequency: 0
-        configuration:
-          core_gclk_selection: Generic clock generator 0
-          slow_gclk_selection: Generic clock generator 3
-  FANs_I2C:
-    user_label: FANs_I2C
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM2::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
-    functionality: I2C
-    api: HAL:Driver:I2C_Master_Sync
-    configuration:
-      i2c_master_advanced: false
-      i2c_master_arch_dbgstop: Keep running
-      i2c_master_arch_inactout: Disabled
-      i2c_master_arch_lowtout: false
-      i2c_master_arch_mexttoen: false
-      i2c_master_arch_runstdby: false
-      i2c_master_arch_sdahold: 300-600ns hold time
-      i2c_master_arch_sexttoen: false
-      i2c_master_arch_trise: 215
-      i2c_master_baud_rate: 100000
-    optional_signals: []
-    variant:
-      specification: SDA=0, SCL=1
-      required_signals:
       - name: SERCOM2/PAD/0
         pad: PA09
-        label: SDA
+        label: MOSI
       - name: SERCOM2/PAD/1
         pad: PA08
-        label: SCL
+        label: SCK
+      - name: SERCOM2/PAD/2
+        pad: PA10
+        label: MISO
     clocks:
       domain_group:
         nodes:
@@ -1246,7 +1222,7 @@ drivers:
           slow_gclk_selection: Generic clock generator 3
   Shared_I2C:
     user_label: Shared_I2C
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM4::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM3::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
     functionality: I2C
     api: HAL:Driver:I2C_Master_Sync
     configuration:
@@ -1264,11 +1240,11 @@ drivers:
     variant:
       specification: SDA=0, SCL=1
       required_signals:
-      - name: SERCOM4/PAD/0
-        pad: PA13
+      - name: SERCOM3/PAD/0
+        pad: PA17
         label: SDA
-      - name: SERCOM4/PAD/1
-        pad: PA12
+      - name: SERCOM3/PAD/1
+        pad: PA16
         label: SCL
     clocks:
       domain_group:
@@ -1286,6 +1262,90 @@ drivers:
           slow_gclk_selection: Generic clock generator 3
   SPI_Temp:
     user_label: SPI_Temp
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM4::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
+    functionality: SPI
+    api: HAL:Driver:SPI_Master_Sync
+    configuration:
+      spi_master_advanced: false
+      spi_master_arch_cpha: Sample input on leading edge
+      spi_master_arch_cpol: SCK is low when idle
+      spi_master_arch_dbgstop: Keep running
+      spi_master_arch_dord: MSB first
+      spi_master_arch_ibon: In data stream
+      spi_master_arch_runstdby: false
+      spi_master_baud_rate: 50000
+      spi_master_character_size: 8 bits
+      spi_master_dummybyte: 511
+      spi_master_rx_enable: true
+    optional_signals: []
+    variant:
+      specification: TXPO=0, RXPO=2
+      required_signals:
+      - name: SERCOM4/PAD/0
+        pad: PB27
+        label: MOSI
+      - name: SERCOM4/PAD/1
+        pad: PB26
+        label: SCK
+      - name: SERCOM4/PAD/2
+        pad: PB28
+        label: MISO
+    clocks:
+      domain_group:
+        nodes:
+        - name: Core
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Slow
+          input: Generic clock generator 3
+          external: false
+          external_frequency: 0
+        configuration:
+          core_gclk_selection: Generic clock generator 0
+          slow_gclk_selection: Generic clock generator 3
+  Fvx_I2C:
+    user_label: Fvx_I2C
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM5::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
+    functionality: I2C
+    api: HAL:Driver:I2C_Master_Sync
+    configuration:
+      i2c_master_advanced: false
+      i2c_master_arch_dbgstop: Keep running
+      i2c_master_arch_inactout: Disabled
+      i2c_master_arch_lowtout: false
+      i2c_master_arch_mexttoen: false
+      i2c_master_arch_runstdby: false
+      i2c_master_arch_sdahold: 300-600ns hold time
+      i2c_master_arch_sexttoen: false
+      i2c_master_arch_trise: 215
+      i2c_master_baud_rate: 100000
+    optional_signals: []
+    variant:
+      specification: SDA=0, SCL=1
+      required_signals:
+      - name: SERCOM5/PAD/0
+        pad: PA23
+        label: SDA
+      - name: SERCOM5/PAD/1
+        pad: PA22
+        label: SCL
+    clocks:
+      domain_group:
+        nodes:
+        - name: Core
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        - name: Slow
+          input: Generic clock generator 3
+          external: false
+          external_frequency: 0
+        configuration:
+          core_gclk_selection: Generic clock generator 0
+          slow_gclk_selection: Generic clock generator 3
+  SPI_AMMC:
+    user_label: SPI_AMMC
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM6::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
     functionality: SPI
     api: HAL:Driver:SPI_Master_Sync
@@ -1306,13 +1366,13 @@ drivers:
       specification: TXPO=0, RXPO=3
       required_signals:
       - name: SERCOM6/PAD/0
-        pad: PC16
+        pad: PC04
         label: MOSI
       - name: SERCOM6/PAD/1
-        pad: PC17
+        pad: PC05
         label: SCK
       - name: SERCOM6/PAD/3
-        pad: PC15
+        pad: PC07
         label: MISO
     clocks:
       domain_group:
@@ -1328,36 +1388,32 @@ drivers:
         configuration:
           core_gclk_selection: Generic clock generator 0
           slow_gclk_selection: Generic clock generator 3
-  SPI_AMMC:
-    user_label: SPI_AMMC
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM7::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
-    functionality: SPI
-    api: HAL:Driver:SPI_Master_Sync
+  FANs_I2C:
+    user_label: FANs_I2C
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM7::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
+    functionality: I2C
+    api: HAL:Driver:I2C_Master_Sync
     configuration:
-      spi_master_advanced: false
-      spi_master_arch_cpha: Sample input on leading edge
-      spi_master_arch_cpol: SCK is low when idle
-      spi_master_arch_dbgstop: Keep running
-      spi_master_arch_dord: MSB first
-      spi_master_arch_ibon: In data stream
-      spi_master_arch_runstdby: false
-      spi_master_baud_rate: 50000
-      spi_master_character_size: 8 bits
-      spi_master_dummybyte: 511
-      spi_master_rx_enable: true
+      i2c_master_advanced: false
+      i2c_master_arch_dbgstop: Keep running
+      i2c_master_arch_inactout: Disabled
+      i2c_master_arch_lowtout: false
+      i2c_master_arch_mexttoen: false
+      i2c_master_arch_runstdby: false
+      i2c_master_arch_sdahold: 300-600ns hold time
+      i2c_master_arch_sexttoen: false
+      i2c_master_arch_trise: 215
+      i2c_master_baud_rate: 100000
     optional_signals: []
     variant:
-      specification: TXPO=0, RXPO=2
+      specification: SDA=0, SCL=1
       required_signals:
       - name: SERCOM7/PAD/0
         pad: PD08
-        label: MOSI
+        label: SDA
       - name: SERCOM7/PAD/1
         pad: PD09
-        label: SCK
-      - name: SERCOM7/PAD/2
-        pad: PD10
-        label: MISO
+        label: SCL
     clocks:
       domain_group:
         nodes:
@@ -1510,95 +1566,89 @@ pads:
     mode: Digital output
     user_label: iUcNoFailure
     configuration: null
-  niAlcFansStatusChanged:
-    name: PB04
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB04
+  SpareInterrupt0:
+    name: PA03
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA03
     mode: Digital input
-    user_label: niAlcFansStatusChanged
+    user_label: SpareInterrupt0
     configuration: null
-  iAclCcuStatusChanged:
-    name: PB05
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB05
-    mode: Digital input
-    user_label: iAclCcuStatusChanged
-    configuration: null
-  iAlcTempSensInt0:
+  SpareOutput3:
     name: PD00
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD00
-    mode: Digital input
-    user_label: iAlcTempSensInt0
+    mode: Digital output
+    user_label: SpareOutput3
+    configuration: null
+  niAlcTempSensSpiSs2:
+    name: PB07
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB07
+    mode: Digital output
+    user_label: niAlcTempSensSpiSs2
     configuration: null
   iAlcTempSensInt1:
-    name: PD01
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD01
+    name: PB08
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB08
     mode: Digital input
     user_label: iAlcTempSensInt1
     configuration: null
-  niAlcMiscInStatusChanged:
-    name: PB06
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB06
+  iAlcTempSensInt2:
+    name: PB09
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB09
     mode: Digital input
-    user_label: niAlcMiscInStatusChanged
-    configuration: null
-  iAclHeater2StatusChanged:
-    name: PB07
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB07
-    mode: Digital input
-    user_label: iAclHeater2StatusChanged
+    user_label: iAlcTempSensInt2
     configuration: null
   iAclFv1StatusChanged:
-    name: PB08
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB08
+    name: PA04
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA04
     mode: Digital input
     user_label: iAclFv1StatusChanged
     configuration: null
   iAclFv2StatusChanged:
-    name: PB09
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB09
+    name: PA05
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA05
     mode: Digital input
     user_label: iAclFv2StatusChanged
     configuration: null
-  FlashMem_MOSI:
-    name: PA04
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA04
-    mode: Digital output
-    user_label: FlashMem_MOSI
-    configuration: null
-  FlashMem_SCK:
-    name: PA05
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA05
-    mode: Digital output
-    user_label: FlashMem_SCK
-    configuration: null
-  FlashMem_MISO:
-    name: PA06
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA06
-    mode: Digital input
-    user_label: FlashMem_MISO
-    configuration: null
-  iAlcCcuCanStdby:
+  iAlcSpiAMMCMosi:
     name: PC04
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC04
     mode: Digital output
-    user_label: iAlcCcuCanStdby
+    user_label: iAlcSpiAMMCMosi
     configuration: null
-  iAclHeaterI2cScl:
+  iAlcSpiAiAlcSpiAMMCScl:
+    name: PC05
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC05
+    mode: Digital output
+    user_label: iAlcSpiAiAlcSpiAMMCScl
+    configuration: null
+  SpareOutput0:
+    name: PC06
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC06
+    mode: Digital output
+    user_label: SpareOutput0
+    configuration: null
+  iAlcSpiAMMCMiso:
+    name: PC07
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC07
+    mode: Digital input
+    user_label: iAlcSpiAMMCMiso
+    configuration: null
+  iAlcSpiMemSck:
     name: PA08
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA08
-    mode: I2C
-    user_label: iAclHeaterI2cScl
+    mode: Digital output
+    user_label: iAlcSpiMemSck
     configuration: null
-  iAclHeaterI2cSda:
+  iAlcSpiMemMosi:
     name: PA09
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA09
-    mode: I2C
-    user_label: iAclHeaterI2cSda
+    mode: Digital output
+    user_label: iAlcSpiMemMosi
     configuration: null
-  nAlcReset:
-    name: PB10
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB10
+  iAlcSpiMemMiso:
+    name: PA10
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA10
     mode: Digital input
-    user_label: nAlcReset
+    user_label: iAlcSpiMemMiso
     configuration: null
   iAlcCcuCanTxd:
     name: PB12
@@ -1612,77 +1662,139 @@ pads:
     mode: Peripheral IO
     user_label: iAlcCcuCanRxd
     configuration: null
-  iAlcSpiAMMCMosi:
+  TestPinOverHeat1:
+    name: PB14
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB14
+    mode: Digital output
+    user_label: TestPinOverHeat1
+    configuration: null
+  TestPinOverHeat2:
+    name: PB15
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB15
+    mode: Digital output
+    user_label: TestPinOverHeat2
+    configuration: null
+  iAlcFansI2cSda:
     name: PD08
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD08
-    mode: Digital output
-    user_label: iAlcSpiAMMCMosi
+    mode: I2C
+    user_label: iAlcFansI2cSda
     configuration: null
-  iAlcSpiAMMCSck:
+  iAlcFansI2cScl:
     name: PD09
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD09
-    mode: Digital output
-    user_label: iAlcSpiAMMCSck
-    configuration: null
-  iAlcSpiAMMCMiso:
-    name: PD10
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD10
-    mode: Digital input
-    user_label: iAlcSpiAMMCMiso
-    configuration: null
-  iAlcTempSensSPIMiso:
-    name: PC15
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC15
-    mode: Digital input
-    user_label: iAlcTempSensSPIMiso
-    configuration: null
-  iAlcMiscIncI2cScl:
-    name: PA12
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA12
     mode: I2C
-    user_label: iAlcMiscIncI2cScl
+    user_label: iAlcFansI2cScl
     configuration: null
-  iAlcFMiscIncI2cSda:
+  niAlcSPIFramCs:
+    name: PD11
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PD11
+    mode: Digital output
+    user_label: niAlcSPIFramCs
+    configuration: null
+  SpareInterrupt1:
+    name: PC10
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC10
+    mode: Digital input
+    user_label: SpareInterrupt1
+    configuration: null
+  SpareInterrupt2:
+    name: PC11
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC11
+    mode: Digital input
+    user_label: SpareInterrupt2
+    configuration: null
+  SpareInterrupt3:
+    name: PC12
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC12
+    mode: Digital input
+    user_label: SpareInterrupt3
+    configuration: null
+  iAlcCcuCanStdby:
+    name: PC13
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC13
+    mode: Digital output
+    user_label: iAlcCcuCanStdby
+    configuration: null
+  niAmmcSpiSs:
+    name: PC14
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC14
+    mode: Digital output
+    user_label: niAmmcSpiSs
+    configuration:
+      pad_initial_level: High
+  iAclSharedI2CChanged:
     name: PA13
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA13
-    mode: I2C
-    user_label: iAlcFMiscIncI2cSda
+    mode: Digital input
+    user_label: iAclSharedI2CChanged
     configuration: null
-  iAlcFvxI2cSda:
+  niAlcFansStatusChanged:
+    name: PA14
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA14
+    mode: Digital input
+    user_label: niAlcFansStatusChanged
+    configuration:
+      pad_pull_config: Pull-down
+  iAlcSharedI2cSda:
     name: PA16
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA16
     mode: I2C
-    user_label: iAlcFvxI2cSda
+    user_label: iAlcSharedI2cSda
     configuration: null
-  iAlcFvxI2cScl:
+  iAlcSharedI2cScl:
     name: PA17
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA17
     mode: I2C
-    user_label: iAlcFvxI2cScl
+    user_label: iAlcSharedI2cScl
     configuration: null
-  iAlcTempSensSPIMosi:
-    name: PC16
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC16
-    mode: Digital output
-    user_label: iAlcTempSensSPIMosi
-    configuration: null
-  iAlcTempSensSPISck:
-    name: PC17
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC17
-    mode: Digital output
-    user_label: iAlcTempSensSPISck
-    configuration: null
-  iAlcTempSensInt2:
+  SW0:
     name: PC18
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC18
     mode: Digital input
-    user_label: iAlcTempSensInt2
+    user_label: SW0
     configuration: null
   iMaintUsbId:
     name: PC19
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC19
     mode: Digital input
     user_label: iMaintUsbId
+    configuration: null
+  iAmmcInt1:
+    name: PC22
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC22
+    mode: Digital input
+    user_label: iAmmcInt1
+    configuration: null
+  iAmmcInt2:
+    name: PC23
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC23
+    mode: Digital input
+    user_label: iAmmcInt2
+    configuration: null
+  SpareOutput1:
+    name: PB16
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB16
+    mode: Digital output
+    user_label: SpareOutput1
+    configuration: null
+  SpareOutput2:
+    name: PB17
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB17
+    mode: Digital output
+    user_label: SpareOutput2
+    configuration: null
+  iAlcFvI2cScl:
+    name: PA22
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA22
+    mode: I2C
+    user_label: iAlcFvI2cScl
+    configuration: null
+  iAlcFvI2cSda:
+    name: PA23
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA23
+    mode: I2C
+    user_label: iAlcFvI2cSda
     configuration: null
   iMaintUsbDm:
     name: PA24
@@ -1708,60 +1820,59 @@ pads:
     mode: Digital output
     user_label: XOUT
     configuration: null
-  niAlcSPIFlashCs:
+  iAlcSpiTempSck:
     name: PB26
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB26
     mode: Digital output
-    user_label: niAlcSPIFlashCs
-    configuration:
-      pad_initial_level: High
-  niAlcSPIFramCs:
+    user_label: iAlcSpiTempSck
+    configuration: null
+  iAlcSpiTempMosi:
     name: PB27
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB27
     mode: Digital output
-    user_label: niAlcSPIFramCs
+    user_label: iAlcSpiTempMosi
     configuration: null
-  iAmmcInt1:
+  iAlcSpiTempMiso:
     name: PB28
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB28
     mode: Digital input
-    user_label: iAmmcInt1
-    configuration: null
-  iAmmcInt2:
-    name: PB29
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB29
-    mode: Digital input
-    user_label: iAmmcInt2
-    configuration: null
-  niAmmcSpiSs:
-    name: PC25
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC25
-    mode: Digital output
-    user_label: niAmmcSpiSs
-    configuration:
-      pad_initial_level: High
-  niAlcTempSensSpiSs2:
-    name: PC26
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC26
-    mode: Digital output
-    user_label: niAlcTempSensSpiSs2
-    configuration: null
-  niAlcTempSensSpiSs1:
-    name: PC27
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC27
-    mode: Digital output
-    user_label: niAlcTempSensSpiSs1
+    user_label: iAlcSpiTempMiso
     configuration: null
   niAlcTempSensSpiSs0:
-    name: PC28
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC28
+    name: PB29
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB29
     mode: Digital output
     user_label: niAlcTempSensSpiSs0
     configuration: null
-  iAclHeater1StatusChanged:
-    name: PB03
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB03
-    mode: Digital input
-    user_label: iAclHeater1StatusChanged
+  niAlcTempSensSpiSs1:
+    name: PA27
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA27
+    mode: Digital output
+    user_label: niAlcTempSensSpiSs1
     configuration: null
+  niAlcSPIFlashCs:
+    name: PC30
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC30
+    mode: Digital output
+    user_label: niAlcSPIFlashCs
+    configuration: null
+  nAlcReset:
+    name: PC31
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC31
+    mode: Digital input
+    user_label: nAlcReset
+    configuration: null
+  iAlcTempSensInt3:
+    name: PB01
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB01
+    mode: Digital input
+    user_label: iAlcTempSensInt3
+    configuration: null
+  niAnaInSpiSS:
+    name: PB02
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PB02
+    mode: Digital input
+    user_label: niAnaInSpiSS
+    configuration:
+      pad_pull_config: Pull-up
 toolchain_options: []

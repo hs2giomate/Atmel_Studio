@@ -10,7 +10,8 @@
 #include "FlashMemoryClass.h"
 //#include "FRAM_Memory_Class.h"
 
-#include "TimerSerial_Class.h"
+/*#include "TimerSerial_Class.h"*/
+#include "Timer_Class.h"
 #include "string.h"
 #include "SingleHeater_Class.h"
 #include "TemperatureSensors_Class.h"
@@ -24,10 +25,12 @@ static uint8_t		staticBuffer[MAINTENANCE_TOOL_BUFFER_SIZE];
 
 Maintenance_Tool	*ptrMaintenanceTool;
 
-static void MaintenaceToolTimming( const struct timer_task *const timer_task)
+static void MaintenaceToolTimeout( const struct timer_task *const timer_task)
 {
 		
-	ptrMaintenanceTool->ticks++;		
+	ptrMaintenanceTool->ticks++;
+	toolApp.gotAccess=false;
+	
 
 }
 
@@ -64,7 +67,7 @@ Maintenance_Tool::~Maintenance_Tool()
 bool	Maintenance_Tool::Init(void){
 	ticks=0;
 	interfaceTimer.Init();
-	interfaceTimer.Add_periodic_task((FUNC_PTR)MaintenaceToolTimming,1000);
+	//interfaceTimer.Add_periodic_task((FUNC_PTR)MaintenaceToolTimeout,1000);
 	InitCommandHandler(localBuffer);
 	GetCPUSerialNumber(cpuSerial);
 	memcpy(localBuffer,cpuSerial,16);
@@ -94,7 +97,8 @@ bool	Maintenance_Tool::IsAppConnected(void){
 				gotAccess=true;
 				result=true;
 				is_MTPC_Beaming=true;
-				setConnected(true);
+		
+				SetConnected(true);
 				return	result;
 			}
 			else
@@ -114,13 +118,14 @@ bool	Maintenance_Tool::IsAppConnected(void){
 	return	result;
 }
 
-void Maintenance_Tool::setConnected(bool isConnected)
+void Maintenance_Tool::SetConnected(bool isConnected)
 	{
 		maintenanceIsConnected = isConnected;
 		if (isConnected)
 		{
-			
-			interfaceTimer.Start_oneShot_task((FUNC_PTR)MaintenaceToolPCBeaming,60*1000);
+			interfaceTimer.Stop();
+			interfaceTimer.Remove_task((FUNC_PTR)MaintenaceToolTimeout);
+			interfaceTimer.Start_oneShot_task((FUNC_PTR)MaintenaceToolTimeout,60*1000);
 			//usbTimer.Start();
 				
 				

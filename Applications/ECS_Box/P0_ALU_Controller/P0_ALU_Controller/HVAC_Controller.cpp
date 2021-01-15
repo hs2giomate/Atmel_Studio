@@ -35,8 +35,9 @@ uint8_t HVAC_Controller::SetHeaterDriver(uint8_t heatPower){
 	{
 			if (AdjustFanSpeed(heatPower))
 			{
-				timeoutValueTempering=automaticHeatingMode?10000:5000;
+				timeoutValueTempering=automaticHeatingMode?5000:2000;
 				staticTemperingTimeout=false;
+				hvacTimer.Remove_task(FUNC_PTR(HeaterTemperingTimeout));
 				hvacTimer.Start_oneShot_task(FUNC_PTR(HeaterTemperingTimeout),timeoutValueTempering);
 				for (uint8_t i = 0; i < 4; i++)
 				{
@@ -57,8 +58,9 @@ uint8_t HVAC_Controller::SetHeaterDriver(uint8_t heatPower){
 	} 
 	else
 	{
-		temperingTimeout=staticTemperingTimeout;
+		
 	}
+	temperingTimeout=staticTemperingTimeout;
 
 	return heatPower;
 }
@@ -66,16 +68,18 @@ uint8_t HVAC_Controller::SetHeaterDriver(uint8_t heatPower){
 bool	HVAC_Controller::AdjustFanSpeed(uint8_t heatPower){
 	if (heatPower>0)
 	{
-		//	fans.evaporator[0]->SetPWM(heatersPower*64-1);
-		fans.condesator->SetPWM(heatPower*64-1);
+			fans.evaporator[0]->SetPWM(heatPower*16+EVAPORATOR_MINIMUN_FLOW_AIR);
+			fans.evaporator[1]->SetPWM(heatPower*16+EVAPORATOR_MINIMUN_FLOW_AIR);
+	//	fans.condesator->SetPWM(heatPower*64-1);
 	}
 	else
 	{
-		//fans.evaporator[0]->SetPWM(MINIMUN_FLOW_AIR);
-		fans.condesator->SetPWM(MINIMUN_FLOW_AIR);
+		fans.evaporator[0]->SetPWM(EVAPORATOR_MINIMUN_FLOW_AIR);
+		fans.evaporator[1]->SetPWM(EVAPORATOR_MINIMUN_FLOW_AIR);
+	//	fans.condesator->SetPWM(EVAPORATOR_MINIMUN_FLOW_AIR);
 	}
-	//fans.evaporator[0]->ReadStatus();
-	fans.condesator->ReadStatus();
+	fans.evaporator[1]->ReadStatus();
+//	fans.condesator->ReadStatus();
 	//return fans.evaporator[0]->evaporatorFansStatus.inputs->iAlcEvaFanPwmFault;
 	return fans.condesator->condesatorStatus.niAlcCdsFanExtFault;
 }
@@ -98,31 +102,36 @@ uint8_t	HVAC_Controller::OperateFlapperValve(FlapperValveMode fvm){
 		} 
 		else
 		{
-			switch (flapperValveMode)
-			{
-				case FRESHAIR_MODE:
-				fvc.StartControlling(0);
-				
-				break;
-				case INTERM_MODE:
-				fvc.StartControlling(FLAPPER_VALVE_MINIMUM_AIR/2);
-				break;
-				case RECYCLE_MODE:
-				fvc.StartControlling(FLAPPER_VALVE_MINIMUM_AIR);
-				break;
-				case NBC_MODE:
-				fvc.SetRemoteNBCMode(true);
-				break;
-				default:
-				fvc.StartControlling(FLAPPER_VALVE_MINIMUM_AIR);
-				break;
-			}
+			
 		}
 		
 		
 	}else{
 		flapperValveAngle=fvc.GetCurrentPosition();
 	}
+	SetFlapperValveDiscretePosition(flapperValveMode);
 	hvac.hvacState->arincStatus.statusFV=flapperValveMode;
 	return flapperValveAngle;
+}
+
+void	HVAC_Controller::SetFlapperValveDiscretePosition(FlapperValveMode fvm){
+	switch (fvm)
+	{
+		case FRESHAIR_MODE:
+		fvc.StartControlling(0);
+		
+		break;
+		case INTERM_MODE:
+		fvc.StartControlling(FLAPPER_VALVE_MINIMUM_AIR/2);
+		break;
+		case RECYCLE_MODE:
+		fvc.StartControlling(FLAPPER_VALVE_MINIMUM_AIR);
+		break;
+		case NBC_MODE:
+		fvc.SetRemoteNBCMode(true);
+		break;
+		default:
+		fvc.StartControlling(FLAPPER_VALVE_MINIMUM_AIR);
+		break;
+	}
 }

@@ -12,37 +12,58 @@
 #include "MemoryFlash_Class.h"
 
 
-FlapperValveController	*ptrFlapperValveController;
+static uint8_t  position_array_static[FLAPPER_VALVE_QUANTITY][FLAPPER_VALVE_POSITIONS_BUFFER];
 
-static SingleFlapperValve_Class fvStatic(0);
+FlapperValveController	*ptrFlapperValveController[FLAPPER_VALVE_QUANTITY];
 
-static void TimeoutFlapperValveController(const struct timer_task *const timer_task)
+static SingleFlapperValve_Class fvStatic[FLAPPER_VALVE_QUANTITY];
+
+static void TimeoutFlapperValve1Controller(const struct timer_task *const timer_task)
 {
-	ptrFlapperValveController->timeoutFlapperValveController=true;
+	ptrFlapperValveController[0]->timeoutFlapperValveController=true;
 	//ptrFlapperValveController->timeoutKeepControlling=true;
-		ptrFlapperValveController->unLockTimeout=true;
+		ptrFlapperValveController[0]->unLockTimeout=true;
 	
 }
-static void TimeoutFlapperValveFullyClossed(const struct timer_task *const timer_task)
+static void TimeoutFlapperValve2Controller(const struct timer_task *const timer_task)
+{
+	ptrFlapperValveController[1]->timeoutFlapperValveController=true;
+	//ptrFlapperValveController->timeoutKeepControlling=true;
+	ptrFlapperValveController[1]->unLockTimeout=true;
+	
+}
+static void TimeoutFlapperValve1FullyClossed(const struct timer_task *const timer_task)
 {
 	//	ptrFlapperValveController->timeoutFlapperValveController=true;
 	//ptrFlapperValveController->timeoutKeepControlling=true;
-	ptrFlapperValveController->fullClosedTimeout=true;
+	ptrFlapperValveController[0]->fullClosedTimeout=true;
+	
+}
+static void TimeoutFlapperValve2FullyClossed(const struct timer_task *const timer_task)
+{
+	//	ptrFlapperValveController->timeoutFlapperValveController=true;
+	//ptrFlapperValveController->timeoutKeepControlling=true;
+	ptrFlapperValveController[1]->fullClosedTimeout=true;
 	
 }
 
-static void ResetValveTimeout(const struct timer_task *const timer_task)
+static void ResetValve1Timeout(const struct timer_task *const timer_task)
 {
 
-	ptrFlapperValveController->resetTimeout=true;
+	ptrFlapperValveController[0]->resetTimeout=true;
+}
+static void ResetValve2Timeout(const struct timer_task *const timer_task)
+{
+
+	ptrFlapperValveController[1]->resetTimeout=true;
 }
 
 
 // default constructor
 FlapperValveController::FlapperValveController()
 {
-	fv=&fvStatic;
-	ptrFlapperValveController=this;
+	singlefv=&fvStatic[0];
+//	ptrFlapperValveController=this;
 	doPeriodicTask=false;
 	isControlling=false;
 	gotSetpoint=false;
@@ -64,19 +85,32 @@ FlapperValveController::~FlapperValveController()
 {
 } //~FlapperValveController
 
-bool FlapperValveController::InitController(){
-	fv=&fvStatic;
-	if (fv->Init())
+bool FlapperValveController::InitController(void){
+	ptrFlapperValveController[0]=this;
+	singlefv=&fvStatic[0];
+		positions[0]=position_array_static[0];
+	if (singlefv->Init())
 	{
 		isOK=Selftest();
 	}
 	return	isOK;	
 }
+bool FlapperValveController::InitController(uint8_t valve_id){
+	ptrFlapperValveController[valve_id]=this;
+		valve_ID=valve_id;
+		singlefv=&fvStatic[valve_id];
+		positions[valve_id]=position_array_static[valve_id];
+		if (singlefv->Init(valve_id))
+		{
+			isOK=Selftest();
+		}
+		return	isOK;
+}
 void FlapperValveController::GetExitPointer(uint8_t ptr){
 	ptrTask=&ptr;
 }
 bool FlapperValveController::IsEnabled(){
-	return	fv->controlOutputs.niAlcFvMotorEnable==true;
+	return	singlefv->controlOutputs.niAlcFvMotorEnable==true;
 }
 
 
@@ -94,22 +128,22 @@ bool	FlapperValveController::CalculateDirection(){
 	
 }
 bool	FlapperValveController::StatusHadChanged(){
-	return	fv->fv1StatusChanged;
+	return	singlefv->fv1StatusChanged;
 }
 
 uint8_t FlapperValveController::StartMovingOnDirection(){
 
 	lastPosition=currentPosition;
 //	floatLastPosition=(float)lastPosition;
-	if (fv->controlOutputs.niAlcFvMotorEnable)
+	if (singlefv->controlOutputs.niAlcFvMotorEnable)
 	{
-		fv->SetEnable(false);
+		singlefv->SetEnable(false);
 		delay_ms(10);
 	} 
 	else
 	{
 	}
-	fv->SetDirection(CalculateDirection());
+	singlefv->SetDirection(CalculateDirection());
 	StartMotor();
 	return 0;
 }
@@ -163,7 +197,18 @@ bool FlapperValveController::Control_NBC_StandAlone_Reset(void){
 	} 
 	else
 	{
-		Control_NBC_StandAlone();
+		if (dataStruct.controlOutputs.iAlcFvFailsToMove)
+		{
+			singlefv->ClearMoveFault(false);
+			delay_us(10);
+			singlefv->ClearMoveFault(true);
+		} 
+		else
+		{
+			Control_NBC_StandAlone();
+		}
+
+		
 	}
 	return resetTimeout;
 }
@@ -221,16 +266,45 @@ bool FlapperValveController::Control_NBC_StandAlone(void){
 }
 
 bool	FlapperValveController::IsStandAloneMode(){
+	
 	bool result=false;
-	if ((dataStruct.controlOutputs.iAlcFvStandAloneOut)&(!dataStruct.inputStatus.cabin[1]))
+	if (partner->isOK)
 	{
-		result=true;
+			result=partner->dataStruct.controlOutputs.iAlcFvStandAloneOut;
 	} 
 	else
 	{
-		result=false;
+		result=true;
 	}
+
+
 	return result;
+}
+
+
+
+void FlapperValveController::SetPartner(FlapperValveController *part){
+	partner=part;
+}
+bool FlapperValveController::CheckIsClosing(void){
+		if ((((setpoint<6)&(currentPosition<6))|((setpoint>250)&(currentPosition>245)))&((!closing)&(flapperValveIsMoving)))
+		{
+			if (valve_ID==0)
+			{
+				hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValve1FullyClossed),FLAPPER_VALVE_CLOSING_TIMEOUT);
+			} 
+			else
+			{
+				hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValve2FullyClossed),FLAPPER_VALVE_CLOSING_TIMEOUT);
+			}
+		
+			fullClosedTimeout=false;
+			gotSetpoint=false;
+			closing=true;
+			unLockTimeout=true;
+		}
+		return closing;
+	
 }
 
 uint8_t FlapperValveController::ControlMovement(){
@@ -244,19 +318,10 @@ uint8_t FlapperValveController::ControlMovement(){
 		else
 		{
 			
-		//	currentPosition=fv->ReadActualPosition();
-			if ((((setpoint<6)&(currentPosition<6))|((setpoint>250)&(currentPosition>245)))&((!closing)&(flapperValveIsMoving)))
-			{
-				hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValveFullyClossed),FLAPPER_VALVE_CLOSING_TIMEOUT);
-				fullClosedTimeout=false;
-				gotSetpoint=false;
-				closing=true;
-				unLockTimeout=true;
-			}
-			//floatCurrentPosition=(float)currentPosition;
+			CheckIsClosing();
 			if ((abs(currentPosition-setpoint)>tolerance)|(closing))
 			{
-				if (flapperValveIsMoving)
+				if (IsFlapperMoving())
 				{
 					if (closing)
 					{
@@ -279,7 +344,7 @@ uint8_t FlapperValveController::ControlMovement(){
 						if (lastDirection!=CalculateDirection())
 						{
 							StopMotor();
-							hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValveController));
+							RemoveTimeoutTask();
 							keepControlling=true;
 						}
 						else
@@ -375,32 +440,40 @@ void FlapperValveController::ResetValvePosition(void){
 		
 		localSetpoint=currentMaximum;
 		
-		fv->SetEnable(false);
-		fv->SetInvalidPosition(false);
-		fv->ClearMoveFault(false);
+		singlefv->SetEnable(false);
+		singlefv->SetInvalidPosition(false);
+		singlefv->ClearMoveFault(false);
 		delay_ms(100);
-		if (fv->ReadActualPosition()>localSetpoint)
+		if (singlefv->ReadActualPosition()>localSetpoint)
 		{
-			fv->SetDirection(true);
+			singlefv->SetDirection(true);
 		}
 		else
 		{
-			fv->SetDirection(false);
+			singlefv->SetDirection(false);
 		}
-		fv->SetInvalidPosition(true);
-		fv->ClearMoveFault(true);
-		fv->WriteSetpoint(localSetpoint);
+		singlefv->SetInvalidPosition(true);
+		singlefv->ClearMoveFault(true);
+		singlefv->WriteSetpoint(localSetpoint);
 		
-		currentPosition=fv->ReadActualPosition();
+		currentPosition=singlefv->ReadActualPosition();
 		
 		resetTimeout=false;
-		hvacTimer.Start_oneShot_task(FUNC_PTR(ResetValveTimeout),1000);
-				fv->SetEnable(true);
+		if (valve_ID==0)
+		{
+			hvacTimer.Start_oneShot_task(FUNC_PTR(ResetValve1Timeout),1000);
+		} 
+		else
+		{
+			hvacTimer.Start_oneShot_task(FUNC_PTR(ResetValve2Timeout),1000);
+		}
+	
+				singlefv->SetEnable(true);
 		while ((abs(currentPosition-localSetpoint)>6)&(!resetTimeout))
 		{			gpio_toggle_pin_level(LED0);
-			currentPosition=fv->ReadActualPosition();
+			currentPosition=singlefv->ReadActualPosition();
 		}
-		fv->SetEnable(false);
+		singlefv->SetEnable(false);
 		gpio_set_pin_level(LED0,pinLevel);
 	} 
 	else
@@ -451,11 +524,38 @@ bool FlapperValveController::SetRemoteNBCMode(bool st){
 
 
 uint8_t	FlapperValveController::StopMotor(){
-	fv->SetEnable(false);
+	singlefv->SetEnable(false);
 	flapperValveIsMoving=false;
 	
 	return 0;
 }
+
+bool FlapperValveController::IsFlapperMoving(void){
+	bool_result=true;
+	if (flapperValveIsMoving)
+	{
+		for (uint8_t i = 0; i < FLAPPER_VALVE_POSITIONS_BUFFER-1; i++)
+		{
+			if (positions[valve_ID][i]==positions[valve_ID][i+1])
+			{
+				bool_result=false;
+			}
+			else
+			{
+				bool_result=true;
+				break;
+			}
+			
+		}
+		flapperValveIsMoving&=bool_result;
+	} 
+	else
+	{
+	}
+	return flapperValveIsMoving;
+	
+}
+
 void	FlapperValveController::StopValveAtLimit(void){
 		if (closing)
 		{
@@ -463,8 +563,17 @@ void	FlapperValveController::StopValveAtLimit(void){
 		}
 	
 		StopMotor();
-		hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValveController));
-		hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValveFullyClossed));
+		if (valve_ID==0)
+		{
+					hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValve1Controller));
+					hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValve1FullyClossed));
+		} 
+		else
+		{
+					hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValve2Controller));
+					hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValve2FullyClossed));
+		}
+	
 		timeoutFlapperValveController=false;
 		timeoutKeepControlling=false;
 		unLockTimeout=false;
@@ -474,7 +583,7 @@ void	FlapperValveController::StopValveAtLimit(void){
 
 void FlapperValveController::StopValveinBetween(void){
 		StopMotor();
-		hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValveController));
+		RemoveTimeoutTask();
 		timeoutFlapperValveController=false;
 		paused=false;
 		timeoutKeepControlling=false;
@@ -489,14 +598,14 @@ uint8_t	FlapperValveController::CorrectTolerance(uint8_t sp){
 	return tolerance;
 }
 uint8_t	FlapperValveController::StartMotor(){
-	if (fv->controlOutputs.niAlcFvMotorEnable)
+	if (singlefv->controlOutputs.niAlcFvMotorEnable)
 	{
-		fv->SetEnable(false);
+		singlefv->SetEnable(false);
 		delay_ms(10);
 	}
 	
 		
-	fv->SetEnable(true);
+	singlefv->SetEnable(true);
 	flapperValveIsMoving=true;
 	return 0;
 }
@@ -519,7 +628,15 @@ uint8_t	FlapperValveController::StartControlling(uint8_t sp){
 		keepControlling=false;
 		controllerEnabled=true;
 		unLockTimeout=false;
-		hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValveController),FLAPPER_VALVE_TIMEOUT);
+		if (valve_ID==0)
+		{
+			hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValve1Controller),FLAPPER_VALVE_TIMEOUT);
+		} 
+		else
+		{
+			hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValve2Controller),FLAPPER_VALVE_TIMEOUT);
+		}
+		
 		isControlling=true;
 		StartMovingOnDirection();
 	//	while(!gotSetpoint&(!doPeriodicTask)){
@@ -572,7 +689,7 @@ uint8_t FlapperValveController::VerifySetpoint(uint8_t sp){
 	
 }
 uint8_t FlapperValveController::UpdateFlapperValvePosition(void){
-	currentPosition=fv->ReadActualPosition();
+	currentPosition=singlefv->ReadActualPosition();
 	//floatCurrentPosition=(float)currentPosition;
 	return currentPosition;
 }
@@ -596,15 +713,18 @@ uint8_t	FlapperValveController::KeepControlling(uint8_t restart){
 }
 
 void	FlapperValveController::UpdateFlapperValveData(void){
-	currentPosition=fv->ReadActualPosition();
+	currentPosition=singlefv->ReadActualPosition();
+	//dataStruct.controllerStatus.position=currentPosition;
 	dataStruct.actualPosition=currentPosition;
 	dataStruct.setPointPosition=setpoint;
-	dataStruct.inputStatus=fv->ReadStatusInputs();
-	dataStruct.controlOutputs=fv->ReadControlStatus();
+	dataStruct.inputStatus=singlefv->ReadStatusInputs();
+	dataStruct.controlOutputs=singlefv->ReadControlStatus();
 	
 	dataStruct.controllerStatus.isMoving=flapperValveIsMoving;
 	dataStruct.controllerStatus.isControlling=isControlling;
 	dataStruct.controllerStatus.NBC_Mode=NBC_Activated;
+	dataStruct.controllerStatus.is_flapper_OK=isOK;
+	
 	if (standAloneActivated)
 	{
 		currentMaximum=0xff-parameters.flapperValveStandAloneMinimumPosition;
@@ -613,41 +733,69 @@ void	FlapperValveController::UpdateFlapperValveData(void){
 	{
 		currentMaximum=0xff-parameters.flapperValveMinimumPosition;
 	}
+	FillPositionsFIFO(currentPosition);
+}
+void FlapperValveController::FillPositionsFIFO(uint8_t cp){
+	for (uint8_t i = 0; i < FLAPPER_VALVE_POSITIONS_BUFFER-1; i++)
+	{
+		positions[valve_ID][FLAPPER_VALVE_POSITIONS_BUFFER-1-i]=positions[valve_ID][FLAPPER_VALVE_POSITIONS_BUFFER-2-i];
+	}
+	positions[valve_ID][0]=cp;
 }
 
 uint8_t	 FlapperValveController::GetCurrentPosition(){
-	return fv->ReadActualPosition();
+	return singlefv->ReadActualPosition();
 }
+
 bool	FlapperValveController::Selftest(void){
 		uint8_t localSetpoint=180;
 		parameters=defaultParameters;
 		uint8_t localPosition;
 	UpdateFlapperValveData();
-	fv->SetEnable(false);
-	fv->SetInvalidPosition(false);
-	fv->ClearMoveFault(false);
+	singlefv->SetEnable(false);
+	singlefv->SetInvalidPosition(false);
+	singlefv->ClearMoveFault(false);
 	delay_ms(10);
-	fv->ClearMoveFault(true);
-	fv->WriteSetpoint(localSetpoint);
-	fv->SetDirection(false);
-	if (fv->ReadActualPosition()>localSetpoint)
+	singlefv->ClearMoveFault(true);
+	singlefv->WriteSetpoint(localSetpoint);
+	singlefv->SetDirection(false);
+	if (singlefv->ReadActualPosition()>localSetpoint)
 	{
-		fv->SetDirection(true);
+		singlefv->SetDirection(true);
 	}
 	else
 	{
-		fv->SetDirection(false);
+		singlefv->SetDirection(false);
 	}
-	hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValveController),10000);
-	fv->SetEnable(true);
-	localPosition=fv->ReadActualPosition();	timeoutFlapperValveController=false;
-	while ((abs(localPosition-localSetpoint)>6)&(!timeoutFlapperValveController))
+		if (valve_ID==0)
+		{
+			hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValve1Controller),FLAPPER_VALVE_TIMEOUT);
+		}
+		else
+		{
+			hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValve2Controller),FLAPPER_VALVE_TIMEOUT);
+		}
+	singlefv->SetEnable(true);
+	localPosition=singlefv->ReadActualPosition();	timeoutFlapperValveController=false;
+	while ((abs(localPosition-localSetpoint)>12)&(!timeoutFlapperValveController))
 	{
-		localPosition=fv->ReadActualPosition();
+		localPosition=singlefv->ReadActualPosition();
 	}
-	hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValveController));
-	fv->SetEnable(false);
+	RemoveTimeoutTask();
+
+	singlefv->SetEnable(false);
 	return !timeoutFlapperValveController;
+}
+
+void	FlapperValveController::RemoveTimeoutTask(void){
+	if (valve_ID==0)
+	{
+		hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValve1Controller));
+	}
+	else
+	{
+		hvacTimer.Remove_task(FUNC_PTR(TimeoutFlapperValve2Controller));
+	}
 }
 
 FlapperValveController fvc;

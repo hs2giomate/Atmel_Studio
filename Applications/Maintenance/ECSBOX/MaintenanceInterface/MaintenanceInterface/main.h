@@ -18,13 +18,12 @@
 #include "Maintenance_Tool.h"
 #include "Parameters.h"
 #include "Maintenance_Tool.h"
-#include "SingleFlapperValve_Class.h"
-#include "FlapperValveController.h"
 #include "Timer_Class.h"
 #include "MemoryFlash_Class.h"
 #include "TemperatureSensors_Class.h"
 #include "EvaporatorAndCondesatorFans_Class.h"
 #include "SingleHeater_Class.h"
+#include "Dual_Flapper_Valve_Controller.h"
 
 void	FramMemoryTest(void);
 void	FlashMemoryTest(void);

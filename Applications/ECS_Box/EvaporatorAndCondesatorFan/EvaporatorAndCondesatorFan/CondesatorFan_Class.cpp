@@ -52,8 +52,8 @@ uint8_t	CondesatorFan_Class::ReadStatus(void){
 	condesatorStatus.niAlcCdsFanExtFault=r&(0x01<<(4));
 	condesatorStatus.niAlcCdsFanEnableFault=r&(0x02<<(4));
 	condesatorStatus.niAlcCdsFanPwmFault=r&(0x04<<(4));
-	
-	return r;
+	faults=r&(0x07<<(4));
+	return faults;
 }
 uint8_t	CondesatorFan_Class::Enable(void){
 	enabled=expanders[0]->WriteDigit(2,true);
@@ -61,7 +61,7 @@ uint8_t	CondesatorFan_Class::Enable(void){
 }
 uint8_t	CondesatorFan_Class::SetEnable(bool state){
 	enabled=expanders[0]->WriteDigit(0,!state);
-
+	
 	return uint8_t(enabled);
 }
 uint8_t	CondesatorFan_Class::Disable(void){
@@ -70,7 +70,7 @@ uint8_t	CondesatorFan_Class::Disable(void){
 }
 bool CondesatorFan_Class::IsEnabled(void){
 	uint8_t value=expanders[0]->ReadGPIORegister();
-	enabled=!(value&0x01);
+	enabled=(value&0x01);
 	return enabled;
 }
 
@@ -83,8 +83,14 @@ uint8_t	CondesatorFan_Class::SetPWM(uint8_t pwm){
 bool CondesatorFan_Class::SelfTest(void){
 		bool result;
 		SetEnable(false);
-		SetPWM(CONDESATOR_MINIMUN_FLOW_AIR);
-	//	SetEnable(true);
+		SetPWM(0xff);
+		SetEnable(true);
+		for (uint8_t i = 0xff; i >CONDESATOR_MINIMUN_FLOW_AIR ; i--)
+		{
+			SetPWM(i);
+			delay_us(10);
+		}
+
 		ReadStatus();
 // 		delay_ms(6*1000);
 // 		SetEnable(false);
