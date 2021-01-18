@@ -10,7 +10,7 @@
 
 //static Maintenance_Tool	toolApp;
 //static SingleTaskMessage singleTask;
-#define DELAY_HEATER_COMMUNICATION 1000
+#define DELAY_HEATER_COMMUNICATION 100
 
 static void FirmwareAlive(const struct timer_task *const timer_task)
 {
@@ -91,7 +91,7 @@ int main(void)
 			{
 			
 					delay_ms(1);
-					usb<<"Enabling Heater: "<<i<<" .\t";
+                                                                  					usb<<"Enabling Heater: "<<i<<" .\t";
 					heater.EnableIndex(i);
 					delay_ms(DELAY_HEATER_COMMUNICATION);
 					status= heater.ReadStatus();

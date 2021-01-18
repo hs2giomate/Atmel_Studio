@@ -13,6 +13,7 @@
 #include "Dual_Flapper_Valve_Controller.h"
 #include "MemoryFlash_Class.h"
 #include "FlashMemoryClass.h"
+#include "HEATERS_HANDLER.h"
 
 // default constructor
 Commands_Handler::Commands_Handler()
@@ -305,6 +306,52 @@ bool Commands_Handler::CommandWriteParameters(void){
 		
 		}else{
 
+	}
+	
+	return result;
+}
+bool Commands_Handler::CommandReadHeaterStatus(){
+
+	memcpy(&singleTaskMessage,usbMessageBuffer,sizeof(SingleTaskMessage));
+	bool	result(singleTaskMessage.header.task == kHVACCommandReadHeaterStatus);
+	if (result){
+		
+		heaters.ReadAllGPIOs(heater_data_array);
+		
+		CreateFullBufferMessage(usbMessageBuffer,heater_data_array);
+		usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+		
+	}
+	return result;
+}
+bool Commands_Handler::CommandSetHeaters(void){
+
+
+	
+	memcpy(&singleTaskMessage,usbMessageBuffer,sizeof(SingleTaskMessage));
+	
+	//	singleTaskMessage.description=localBuffer[0x06];
+	bool	result(singleTaskMessage.header.task == kHVACCommandSetHeaters);
+	if (result){
+		lastEnableHeaters=enableHeaters;
+		enableHeaters=singleTaskMessage.description;
+		if (enableHeaters!=lastEnableHeaters)
+		{
+			for (uint8_t j = 0; j < 2; j++)
+			{
+				for (uint8_t i = 0; i < 4; i++)
+				{
+					powerOn=enableHeaters&(0x01<<(i+4*j));
+					heaters.module[j]->SetRelay(i,powerOn);
+
+			
+					
+					
+
+				}
+			}
+			
+		}
 	}
 	
 	return result;

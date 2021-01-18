@@ -77,10 +77,10 @@ int main(void)
 	fans.evaporator[0]->SetEnable(false);
 	fans.evaporator[1]->SetEnable(false);
 // 	
-// 	while(!heater.Init()){
-// 		delay_ms(200);
-// 		gpio_toggle_pin_level(LED0);
-// 	}
+	while(!heaters.Init()){
+		delay_ms(DELAY_ERROR);
+		gpio_toggle_pin_level(LED0);
+	}
 // 	heater.DisableIndex(0);
 // 	heater.DisableIndex(1);
 // 	heater.DisableIndex(2);

@@ -19,18 +19,22 @@ public:
 	bool volatile	 isOK;
 protected:
 private:
-	
+
+	MCP23008_Class *heater_expanders;
+	uint8_t	heater_data_array[4];
 
 //functions
 public:
 	HEATERS_HANDLER();
 	~HEATERS_HANDLER();
 	bool Init(void);
+	void	ReadAllGPIOs(uint8_t *buffer);
 	
 protected:
 private:
 	HEATERS_HANDLER( const HEATERS_HANDLER &c );
 	HEATERS_HANDLER& operator=( const HEATERS_HANDLER &c );
+	void InitHeaterExpanders(void);
 
 }; //HEATERS_HANDLER
 

@@ -863,30 +863,7 @@ bool Maintenance_Tool::handleGAINCommandSetConfiguration( HVACMessageHeader& hea
 
 
 
-bool Maintenance_Tool::CommandReadHeaterStatus(){
-	int n=sizeof(SingleTaskMessage);
-	SingleTaskMessage	singleTask;
-	uint8_t	heatersEnabled;
-	
-	bool	result(header.task == kHVACCommandReadHeaterStatus);
-	if (result){
-	
-			singleTask.description=heater.ReadStatus();
-			
-			singleTask.header.task=kHVACCommandReadHeaterStatus;
-			memcpy(localBuffer,(void*)&singleTask,n);
-			heatersEnabled=heater.ReadEnableGIPO();
-			localBuffer[n]=heatersEnabled;
-			//delay_us(1);
-			if (!heater.heaterStatusChanged)
-			{
-				usb.write(localBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
-			}
-			singleTaskMessage=singleTask;
-			
-	}
-		return result;
-}
+
 
 
 bool Maintenance_Tool::CommandReadTemmperatures(){
@@ -920,35 +897,6 @@ bool Maintenance_Tool::CommandReadTemmperatures(){
 
 
 
-bool Maintenance_Tool::CommandSetHeaters(void)	{
-
-	uint32_t	w,r;
-	uint8_t	data=0;
-	bool powerOn;
-	
-		memcpy(&singleTaskMessage,localBuffer,sizeof(SingleTaskMessage));
-		
-	//	singleTaskMessage.description=localBuffer[0x06];
-	bool	result(header.task == kHVACCommandSetHeaters);
-	if (result){
-		lastEnableHeaters=enableHeaters;
-		enableHeaters=singleTaskMessage.description;
-		if (enableHeaters!=lastEnableHeaters)
-		{
-			for (uint8_t i = 0; i < 4; i++)
-			{
-				powerOn=enableHeaters&(0x01<<i);
-
-				heater.SetRelay(i,powerOn);
-	
-				
-
-			}
-		}
-	}
-	
-	return result;
-}
 
 
 	

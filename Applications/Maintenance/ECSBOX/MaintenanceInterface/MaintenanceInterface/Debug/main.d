@@ -308,10 +308,11 @@ main.d main.o: .././main.cpp .././main.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
  ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h \
- ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h \
  ../../../../../ECS_Box/FlapperValve/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller.h \
  ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h \
- ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h
+ ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
+ ../../../../../ECS_Box/Dual_Heater_P0/Dual_Heater_P0/HEATERS_HANDLER.h \
+ ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h
 
 .././main.h:
 
@@ -935,10 +936,12 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../../../../../ECS_Box/EvaporatorAndCondesatorFan/EvaporatorAndCondesatorFan/CondesatorFan_Class.h:
 
-../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:
-
 ../../../../../ECS_Box/FlapperValve/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller.h:
 
 ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/FlapperValveController.h:
 
 ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h:
+
+../../../../../ECS_Box/Dual_Heater_P0/Dual_Heater_P0/HEATERS_HANDLER.h:
+
+../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:

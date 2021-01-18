@@ -127,8 +127,7 @@ private:
 	uint16	calculateChecksum(const HVACMessageHeader& data);
 	uint16	calculateChecksum(uint16 checksum, uint16 size, const void* data);
 	void	 GetCPUSerialNumber(uint8_t* buffer);
-	bool	CommandSetHeaters(void);	
-	bool	CommandReadHeaterStatus();
+	
 
 	bool	CommandReadTemmperatures(void);
 	

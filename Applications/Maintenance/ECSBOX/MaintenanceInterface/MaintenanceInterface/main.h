@@ -22,8 +22,9 @@
 #include "MemoryFlash_Class.h"
 #include "TemperatureSensors_Class.h"
 #include "EvaporatorAndCondesatorFans_Class.h"
-#include "SingleHeater_Class.h"
+
 #include "Dual_Flapper_Valve_Controller.h"
+#include "HEATERS_HANDLER.h"
 
 void	FramMemoryTest(void);
 void	FlashMemoryTest(void);

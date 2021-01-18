@@ -23,27 +23,38 @@ Dual_Flapper_Valve_Controller::~Dual_Flapper_Valve_Controller()
 bool Dual_Flapper_Valve_Controller::Init(){
 	for (uint8_t i = 0; i < FLAPPER_VALVE_QUANTITY; i++)
 	{
-		fvx[i]=&staticFVController[i];
-		fvx[i]->InitController(i);
-		fvx[i]->SetPartner(fvx[1-i]);
+		valve[i]=&staticFVController[i];
+		valve[i]->InitController(i);
+		valve[i]->SetPartner(valve[1-i]);
 	
 	}
-	fv1=fvx[0]; 
-	fv2=fvx[1]; 
-	return (fv1->isOK)&(fv2->isOK);
+	for (uint8_t i = 0; i < FLAPPER_VALVE_QUANTITY; i++)
+	{
+		
+		valve[i]->SetPartner(valve[1-i]);
+		
+	}
+	valve1=valve[0]; 
+	valve2=valve[1]; 
+	return (valve1->isOK)|(valve2->isOK);
 }
 
 bool Dual_Flapper_Valve_Controller::IsPartnerOK(uint8_t partner_id){
 	boolResult=false;
 	if (partner_id==0)
 	{
-		boolResult=	!fv2->dataStruct.controlOutputs.iAlcFvStandAloneOut;
+		boolResult=	!valve2->dataStruct.controlOutputs.iAlcFvStandAloneOut;
 	} 
 	else
 	{
-		boolResult=	!fv1->dataStruct.controlOutputs.iAlcFvStandAloneOut;
+		boolResult=	!valve1->dataStruct.controlOutputs.iAlcFvStandAloneOut;
 	}
 	return boolResult;
 }
 
-Dual_Flapper_Valve_Controller fv;
+bool Dual_Flapper_Valve_Controller::IsStandAlone(void){
+	is_stand_alone=valve1->IsStandAloneMode()|valve2->IsStandAloneMode();
+	return is_stand_alone;
+}
+
+Dual_Flapper_Valve_Controller flapper;

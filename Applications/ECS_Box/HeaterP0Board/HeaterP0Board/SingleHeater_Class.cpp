@@ -59,22 +59,21 @@ bool SingleHeater_Class::Init(void){
 		isOK=i2c->isOK;
 		return isOK;
 }
-bool SingleHeater_Class::Init(uint8_t id){
+bool SingleHeater_Class::Init(uint8_t id,MCP23008_Class *heater_expanders){
 	heater_id=id;
 	if (i2c->i2c_initiated)
 	{
-		i2c->Init();
-	} 
-	else
-	{
 		
+	} 
+	else{
+		i2c->Init();
 	}
 	
 	if (i2c->isOK)
 	{
 		
 		//ext_irq_register(PIN_PA03,FUNC_PTR(HeaterStatusChanged));
-		InitExpanderArray();
+		InitExpanderArray(heater_expanders);
 		expanders[0]->SetPortInput();
 		expanders[1]->SetPortOutput();
 		isOK=SelfTest();
@@ -98,6 +97,17 @@ uint8_t SingleHeater_Class::InitExpanderArray(void){
 	
 }
 
+uint8_t SingleHeater_Class::InitExpanderArray(MCP23008_Class *heater_expanders){
+	
+	for (int i = 0; i < SINGLE_HEATER_EXPANDERS; i++)
+	{
+		expanders[i]=&heater_expanders[2*heater_id+i];
+		currentExpander=(expanders[i]);
+		currentExpander->Init(i|MCP23008_ADDRESS|(2*heater_id),i2c);
+	}
+	
+}
+
 uint8_t	SingleHeater_Class::ReadStatus(void){
 	uint8_t r=expanders[0]->ReadGPIORegister();
 	heaterGPIO.inputs.niAlcHeaterOverTemp=r&0x01;
@@ -106,6 +116,15 @@ uint8_t	SingleHeater_Class::ReadStatus(void){
 		heaterGPIO.inputs.niAlcHeaterRelayFault[i]=r&(0x01<<(i+1));
 	}
 	return r;
+}
+void	SingleHeater_Class::ReadGPIOs(uint8_t *buffer){
+
+	for (uint8_t i = 0; i < 2; i++)
+	{
+		buffer[i]=expanders[i]->ReadGPIORegister();
+		
+	}
+	
 }
 
 uint8_t	SingleHeater_Class::ReadEnableGIPO(void){

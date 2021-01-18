@@ -74,9 +74,9 @@ Device_Startup/system_same54.d \
 HEATERS_HANDLER.d \
 main.d
 
-OUTPUT_FILE_PATH +=Dual_Heater_P0.elf
+OUTPUT_FILE_PATH +=libDual_Heater_P0.a
 
-OUTPUT_FILE_PATH_AS_ARGS +=Dual_Heater_P0.elf
+OUTPUT_FILE_PATH_AS_ARGS +=libDual_Heater_P0.a
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -144,20 +144,14 @@ endif
 # All Target
 all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
-	@echo Building target: $@
-	@echo Invoking: ARM/GNU Linker : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="Dual_Heater_P0.map" -Wl,--start-group -lm -lALU_Driver -lECS_Box_Objects -lHeaterP0Board  -Wl,--end-group -L"..\\Device_Startup" -L"S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver\Debug" -L"S:\AtmelStudio\Applications\ECS_Box\ECS_Box_Classes\ECS_Box_Classes\Debug" -L"S:\AtmelStudio\Applications\ECS_Box\HeaterP0Board\HeaterP0Board\Debug"  -Wl,--gc-sections -mcpu=cortex-m4 -Tsame54p20a_flash.ld  
-	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "Dual_Heater_P0.elf" "Dual_Heater_P0.bin"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "Dual_Heater_P0.elf" "Dual_Heater_P0.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O binary "Dual_Heater_P0.elf" "Dual_Heater_P0.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objdump.exe" -h -S "Dual_Heater_P0.elf" > "Dual_Heater_P0.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "Dual_Heater_P0.elf" "Dual_Heater_P0.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-size.exe" "Dual_Heater_P0.elf"
-	
-	
 
+$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
+	@echo Building target: $@
+	@echo Invoking: ARM/GNU Archiver : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
+	@echo Finished building target: $@
+	
+	
 
 
 
@@ -166,5 +160,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "Dual_Heater_P0.elf" "Dual_Heater_P0.a" "Dual_Heater_P0.hex" "Dual_Heater_P0.bin" "Dual_Heater_P0.lss" "Dual_Heater_P0.eep" "Dual_Heater_P0.map" "Dual_Heater_P0.srec"
+	rm -rf "libDual_Heater_P0.elf" "libDual_Heater_P0.a" "libDual_Heater_P0.hex" "libDual_Heater_P0.bin" "libDual_Heater_P0.lss" "libDual_Heater_P0.eep" "libDual_Heater_P0.map" "libDual_Heater_P0.srec"
 	

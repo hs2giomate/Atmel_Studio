@@ -16,12 +16,12 @@ class Dual_Flapper_Valve_Controller: public FlapperValveController
 {
 //variables
 public:
-FlapperValveController	*fv1;
-FlapperValveController	*fv2;
-FlapperValveController	*fvx[FLAPPER_VALVE_QUANTITY];
+FlapperValveController	*valve1;
+FlapperValveController	*valve2;
+FlapperValveController	*valve[FLAPPER_VALVE_QUANTITY];
 protected:
 private:
-
+	bool is_stand_alone;
 	bool  boolResult;
 //functions
 public:
@@ -29,6 +29,9 @@ public:
 	~Dual_Flapper_Valve_Controller();
 	bool Init(void);
 	bool IsPartnerOK(uint8_t partner_id);
+	bool IsStandAlone(void);
+		
+	
 	
 protected:
 private:
@@ -37,6 +40,6 @@ private:
 
 }; //Dual_Flapper_Valve_Controller
 
-extern Dual_Flapper_Valve_Controller fv;
+extern Dual_Flapper_Valve_Controller flapper;
 
 #endif //__DUAL_FLAPPER_VALVE_CONTROLLER_H__

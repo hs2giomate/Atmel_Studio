@@ -9,7 +9,9 @@
 #ifndef __COMMANDS_HANDLER_H__
 #define __COMMANDS_HANDLER_H__
 
+#define HEATER_DATA_SIZE	4
 #include "MaintenanceDataHandler.h"
+
 
 class Commands_Handler: private virtual MaintenanceDataHandler
 {
@@ -21,8 +23,11 @@ private:
 	uint8_t		*usbMessageBuffer;
 	FullBufferMessage message64;
 	uint8_t	data_fans_array[3];
+	uint8_t	heater_data_array[HEATER_DATA_SIZE];
 	UserParameters	parameters;
 	bool is_stand_alone;
+	uint8_t	 lastEnableHeaters,enableHeaters;
+	bool powerOn;
 
 //functions
 public:
@@ -37,6 +42,8 @@ public:
 	bool  CommandSetFlapperValve(void);
 	bool CommandReadParameters(void);
 	bool CommandWriteParameters(void);
+	bool	CommandSetHeaters(void);
+	bool	CommandReadHeaterStatus();
 protected:
 private:
 	Commands_Handler( const Commands_Handler &c );
