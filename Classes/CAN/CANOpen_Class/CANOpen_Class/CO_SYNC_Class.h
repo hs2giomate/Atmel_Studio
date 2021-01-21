@@ -17,6 +17,9 @@ class CO_SYNC_Class
 public:
 protected:
 private:
+	CO_CANtx_t *tx_buffer;
+	uint8_t node_ID;
+	
 
 //functions
 public:
@@ -73,6 +76,7 @@ uint8_t CO_SYNC_process(
         CO_SYNC_t              *SYNC,
         uint32_t                timeDifference_us,
         uint32_t                ObjDict_synchronousWindowLength);
+		uint8_t		Send_SYNC_Signal(void);
 protected:
 private:
 	CO_SYNC_Class( const CO_SYNC_Class &c );

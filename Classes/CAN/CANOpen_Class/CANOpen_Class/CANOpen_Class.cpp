@@ -39,7 +39,7 @@ int	CANOpen_Class::Init(uint8_t node){
 	
 	if (err==0)
 	{
-	
+		canopen_driver->canopen_ready=true;
 		err=(CO_ReturnError_t)SetInitialMode();
 		if (node==1)
 		{
@@ -73,6 +73,7 @@ int	CANOpen_Class::Periodic_Process(uint32_t timeDifference){
 		syncWas=CO_process_SYNC_RPDO(timeDifference);
 		CO_process_TPDO(syncWas,timeDifference);
 		CAN_Polling_Tx();
+		
 	}
 	
 	return	int(syncWas);

@@ -244,7 +244,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclient_setup(
 
     /* configure SDO client CAN reception, if differs. */
     if(SDO_C->COB_IDClientToServerPrev != idCtoS || SDO_C->COB_IDServerToClientPrev != idStoC) {
-        canopen->CAN_Rx_BufferInit(
+        canopen_driver->CAN_Rx_BufferInit(
             
                 SDO_C->CANdevRxIdx,         /* rx buffer index */
                 (uint32_t)idStoC,           /* CAN identifier */
@@ -254,7 +254,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclient_setup(
                 CO_SDOclient_receive);      /* this function will process received message */
 
         /* configure SDO client CAN transmission */
-        SDO_C->CANtxBuff = canopen->CAN_Tx_BufferInit(
+        SDO_C->CANtxBuff = canopen_driver->CAN_Tx_BufferInit(
        
                 SDO_C->CANdevTxIdx,         /* index of specific buffer inside CAN module */
                 (uint32_t)idCtoS,           /* CAN identifier */
@@ -276,8 +276,8 @@ static void CO_SDOclient_abort(CO_SDOclient_t *SDO_C, uint32_t code){
     SDO_C->CANtxBuff->data[1] = SDO_C->index & 0xFF;
     SDO_C->CANtxBuff->data[2] = (SDO_C->index>>8) & 0xFF;
     SDO_C->CANtxBuff->data[3] = SDO_C->subIndex;
-     canopen->CO_memcpySwap4(&SDO_C->CANtxBuff->data[4], &code);
-     canopen->CAN_Send(SDO_C->CANtxBuff);
+     canopen_driver->CO_memcpySwap4(&SDO_C->CANtxBuff->data[4], &code);
+     canopen_driver->CAN_Send(SDO_C->CANtxBuff);
     SDO_C->state = SDO_STATE_NOTDEFINED;
     SDO_C->CANrxNew = false;
 }
@@ -364,13 +364,13 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientDownloadInitiate(
         /* segmented transfer */
         SDO_C->CANtxBuff->data[0] = 0x21;
         len = dataSize;
-        canopen->CO_memcpySwap4(&SDO_C->CANtxBuff->data[4], &len);
+        canopen_driver->CO_memcpySwap4(&SDO_C->CANtxBuff->data[4], &len);
     }
 
     /* empty receive buffer, reset timeout timer and send message */
     SDO_C->CANrxNew = false;
     SDO_C->timeoutTimer = 0;
-     canopen->CAN_Send( SDO_C->CANtxBuff);
+     canopen_driver->CAN_Send( SDO_C->CANtxBuff);
 
     return CO_SDOcli_ok_communicationEnd;
 }
@@ -404,7 +404,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientDownload(
         }
 
         /* init ODF_arg */
-        *pSDOabortCode =canopen->CO_SDO_initTransfer( SDO_C->index, SDO_C->subIndex);
+        *pSDOabortCode =canopen_driver->CO_SDO_initTransfer( SDO_C->index, SDO_C->subIndex);
         if((*pSDOabortCode) != CO_SDO_AB_NONE){
             return CO_SDOcli_endedWithServerAbort;
         }
@@ -413,7 +413,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientDownload(
         SDO_C->SDO->ODF_arg.data = SDO_C->buffer;
 
         /* write data to the Object dictionary */
-        *pSDOabortCode = canopen->CO_SDO_writeOD( SDO_C->bufferSize);
+        *pSDOabortCode = canopen_driver->CO_SDO_writeOD( SDO_C->bufferSize);
         if((*pSDOabortCode) != CO_SDO_AB_NONE){
             return CO_SDOcli_endedWithServerAbort;
         }
@@ -429,7 +429,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientDownload(
         /* ABORT */
         if (SDO_C->CANrxData[0] == (SCS_ABORT<<5)){
             SDO_C->state = SDO_STATE_NOTDEFINED;
-            canopen->CO_memcpySwap4(pSDOabortCode , &SDO_C->CANrxData[4]);
+            canopen_driver->CO_memcpySwap4(pSDOabortCode , &SDO_C->CANrxData[4]);
             SDO_C->CANrxNew = false;
             return CO_SDOcli_endedWithServerAbort;
         }
@@ -628,7 +628,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientDownload(
                 SDO_C->CANtxBuff->data[0] |= 1;
             }
             /* Send next SDO message */
-             canopen->CAN_Send(SDO_C->CANtxBuff);
+             canopen_driver->CAN_Send(SDO_C->CANtxBuff);
             SDO_C->state = SDO_STATE_DOWNLOAD_RESPONSE;
             break;
         }
@@ -665,7 +665,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientDownload(
 
             /*  tx data */
             SDO_C->timeoutTimer = 0;
-             canopen->CAN_Send( SDO_C->CANtxBuff);
+             canopen_driver->CAN_Send( SDO_C->CANtxBuff);
 
             break;
         }
@@ -675,7 +675,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientDownload(
 
             uint32_t tmp16;
 
-            tmp16 = canopen->crc16_ccitt((unsigned char *)SDO_C->buffer, (unsigned int)SDO_C->bufferSize, 0);
+            tmp16 = canopen_driver->crc16_ccitt((unsigned char *)SDO_C->buffer, (unsigned int)SDO_C->bufferSize, 0);
 
             SDO_C->CANtxBuff->data[1] = (uint8_t) tmp16;
             SDO_C->CANtxBuff->data[2] = (uint8_t) (tmp16>>8);
@@ -684,7 +684,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientDownload(
             SDO_C->state = SDO_STATE_BLOCKDOWNLOAD_CRC_ACK;
             /*  tx data */
             SDO_C->timeoutTimer = 0;
-             canopen->CAN_Send(SDO_C->CANtxBuff);
+             canopen_driver->CAN_Send(SDO_C->CANtxBuff);
 
             break;
         }
@@ -770,7 +770,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUploadInitiate(
     SDO_C->CANrxNew = false;
     SDO_C->timeoutTimer = 0;
     SDO_C->timeoutTimerBLOCK =0;
-    canopen->CAN_Send( SDO_C->CANtxBuff);
+    canopen_driver->CAN_Send( SDO_C->CANtxBuff);
 
     return CO_SDOcli_ok_communicationEnd;
 }
@@ -808,7 +808,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
         }
 
         /* init ODF_arg */
-        *pSDOabortCode = canopen->CO_SDO_initTransfer( SDO_C->index, SDO_C->subIndex);
+        *pSDOabortCode = canopen_driver->CO_SDO_initTransfer( SDO_C->index, SDO_C->subIndex);
         if((*pSDOabortCode) != CO_SDO_AB_NONE){
             return CO_SDOcli_endedWithServerAbort;
         }
@@ -819,7 +819,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
             SDO_C->SDO->ODF_arg.dataLength = SDO_C->bufferSize;
 
         /* read data from the Object dictionary */
-        *pSDOabortCode = canopen->CO_SDO_readOD( SDO_C->bufferSize);
+        *pSDOabortCode = canopen_driver->CO_SDO_readOD( SDO_C->bufferSize);
         if((*pSDOabortCode) != CO_SDO_AB_NONE){
             return CO_SDOcli_endedWithServerAbort;
         }
@@ -845,7 +845,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
         if (SDO_C->CANrxData[0] == (SCS_ABORT<<5)){
             SDO_C->state = SDO_STATE_NOTDEFINED;
             SDO_C->CANrxNew = false;
-            canopen->CO_memcpySwap4(pSDOabortCode , &SDO_C->CANrxData[4]);
+            canopen_driver->CO_memcpySwap4(pSDOabortCode , &SDO_C->CANrxData[4]);
             return CO_SDOcli_endedWithServerAbort;
         }
         switch (SDO_C->state){
@@ -950,7 +950,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
                     /*  set length */
                     if(SDO_C->CANrxData[0]&0x02){
                         uint32_t len;
-                        canopen->CO_memcpySwap4(&len, &SDO_C->CANrxData[4]);
+                        canopen_driver->CO_memcpySwap4(&len, &SDO_C->CANrxData[4]);
                         SDO_C->dataSize = len;
                     }
                     else{
@@ -1038,9 +1038,9 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
                     SDO_C->state = SDO_STATE_BLOCKUPLOAD_BLOCK_END;
                     if (SDO_C->crcEnabled){
                         uint32_t tmp16;
-                        canopen->CO_memcpySwap2(&tmp16, &SDO_C->CANrxData[1]);
+                        canopen_driver->CO_memcpySwap2(&tmp16, &SDO_C->CANrxData[1]);
 
-                        if (tmp16 != canopen->crc16_ccitt((unsigned char *)SDO_C->buffer, (unsigned int)SDO_C->dataSizeTransfered, 0)){
+                        if (tmp16 != canopen_driver->crc16_ccitt((unsigned char *)SDO_C->buffer, (unsigned int)SDO_C->dataSizeTransfered, 0)){
                             *pSDOabortCode = CO_SDO_AB_CRC;
                             SDO_C->state = SDO_STATE_ABORT;
                         }
@@ -1102,7 +1102,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
         /*  SEGMENTED UPLOAD */
         case SDO_STATE_UPLOAD_REQUEST:{
             SDO_C->CANtxBuff->data[0] = (CCS_UPLOAD_SEGMENT<<5) | (SDO_C->toggle & 0x10);
-            canopen->CAN_Send( SDO_C->CANtxBuff);
+            canopen_driver->CAN_Send( SDO_C->CANtxBuff);
 
             SDO_C->state = SDO_STATE_UPLOAD_RESPONSE;
             SDO_C->toggle = ~SDO_C->toggle;
@@ -1117,7 +1117,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
 
             /*  header */
             SDO_C->CANtxBuff->data[0] = (CCS_UPLOAD_BLOCK<<5) | 0x03;
-            canopen->CAN_Send( SDO_C->CANtxBuff);
+            canopen_driver->CAN_Send( SDO_C->CANtxBuff);
 
             break;
         }
@@ -1133,7 +1133,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
             SDO_C->state = SDO_STATE_BLOCKUPLOAD_BLOCK_CRC;
 
             SDO_C->CANtxBuff->data[2] = SDO_C->block_blksize;
-           canopen->CAN_Send( SDO_C->CANtxBuff);
+           canopen_driver->CAN_Send( SDO_C->CANtxBuff);
 
             break;
         }
@@ -1172,7 +1172,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
                 SDO_C->state = SDO_STATE_BLOCKUPLOAD_INPROGRES;
             }
             SDO_C->CANtxBuff->data[2] = SDO_C->block_blksize;
-            canopen->CAN_Send( SDO_C->CANtxBuff);
+            canopen_driver->CAN_Send( SDO_C->CANtxBuff);
 
             break;
         }
@@ -1180,7 +1180,7 @@ CO_SDOclient_return_t CO_SDO_Master::CO_SDOclientUpload(
         case SDO_STATE_BLOCKUPLOAD_BLOCK_END:{
             SDO_C->CANtxBuff->data[0] = (CCS_UPLOAD_BLOCK<<5) | 0x01;
 
-            canopen->CAN_Send(SDO_C->CANtxBuff);
+            canopen_driver->CAN_Send(SDO_C->CANtxBuff);
 
             *pDataSize = SDO_C->dataSizeTransfered;
 

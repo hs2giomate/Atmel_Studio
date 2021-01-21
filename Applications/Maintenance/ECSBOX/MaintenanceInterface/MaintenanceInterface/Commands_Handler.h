@@ -28,6 +28,7 @@ private:
 	bool is_stand_alone;
 	uint8_t	 lastEnableHeaters,enableHeaters;
 	bool powerOn;
+	uint8_t data_byte;
 
 //functions
 public:
@@ -44,6 +45,8 @@ public:
 	bool CommandWriteParameters(void);
 	bool	CommandSetHeaters(void);
 	bool	CommandReadHeaterStatus();
+	bool CommandSetScavenge(void);
+	bool CommandReadScavengeStatus(void);
 protected:
 private:
 	Commands_Handler( const Commands_Handler &c );

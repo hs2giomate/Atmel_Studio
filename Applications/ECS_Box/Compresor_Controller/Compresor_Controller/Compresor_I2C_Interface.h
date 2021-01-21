@@ -9,7 +9,7 @@
 #ifndef __COMPRESOR_I2C_INTERFACE_H__
 #define __COMPRESOR_I2C_INTERFACE_H__
 
-#define COMPRESOR_MCP23008_ADDRESS 0x24
+#define COMPRESOR_MCP23008_ADDRESS 0x25
 
 #include "compiler.h"
 #include "MCP23008_Class.h"
@@ -48,13 +48,20 @@ protected:
 private:
 	
 	I2C_Sync_Class*	i2c;
-	bool  isOK;
+	bool  isOK,enabled;
 
 //functions
 public:
 	Compresor_I2C_Interface();
 	~Compresor_I2C_Interface();
+	
 	bool	InitExpander(void);
+		uint8_t	ReadStatus(void);
+		uint8_t	SetEnable(bool state);
+		uint8_t	SetRelay(bool state);
+		uint8_t	SetClutch(bool state);
+		bool IsEnabled(void);
+		bool* IsEnabledPointer(void);
 protected:
 private:
 	Compresor_I2C_Interface( const Compresor_I2C_Interface &c );

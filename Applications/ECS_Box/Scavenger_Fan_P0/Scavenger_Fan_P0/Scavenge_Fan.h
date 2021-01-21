@@ -49,5 +49,5 @@ private:
 	bool SelfTest();
 
 }; //Scavenge_Fan
-
+extern Scavenge_Fan scavenge;
 #endif //__SCAVENGE_FAN_H__

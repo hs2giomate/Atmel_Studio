@@ -36,7 +36,7 @@ class CO_Driver_Class: public CO_Emergency_Class,public	CO_NMT_Heartbeat_Class, 
 //variables
 public:
 	volatile uint32_t HalCanErrorCode;
-	volatile	bool	receivedRxCOCallback,receivedtxCOCallback,receivedIntCOCallback;
+	volatile	bool	receivedRxCOCallback,receivedtxCOCallback,receivedIntCOCallback,canopen_ready;
 	uint8_t co_rx_buffer_64[64];
 	can_message receivedCOMsg;
 	CO_CANmodule_t* RxFifo_Callback_CanModule_p;
@@ -57,6 +57,7 @@ private:
 	uint32_t i;
 	CO_CANmodule_t         *CAN_Module;
 	can_filter  CO_Filter;
+	
 //functions
 public:
 	CO_Driver_Class();
@@ -104,6 +105,6 @@ private:
 
 }; //CO_Driver_Class
 
-extern CO_Driver_Class		*canopen;
+extern CO_Driver_Class		*canopen_driver;
 
 #endif //__CO_DRIVER_CLASS_H__

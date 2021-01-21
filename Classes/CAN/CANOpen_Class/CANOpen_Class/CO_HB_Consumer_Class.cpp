@@ -55,7 +55,7 @@ uint32_t                HBconsTime)
 	}
 
 	/* configure Heartbeat consumer CAN reception */
-	canopen->CAN_Rx_BufferInit(
+	canopen_driver->CAN_Rx_BufferInit(
 	HBcons->CANdevRxIdxStart + idx,
 	COB_ID,
 	0x7FF,
@@ -69,7 +69,7 @@ static CO_SDO_abortCode_t CO_ODF_1016(CO_ODF_arg_t *ODF_arg){
 	CO_SDO_abortCode_t ret = CO_SDO_AB_NONE;
 
 	HBcons = (CO_HBconsumer_t*) ODF_arg->object;
-	value =canopen->CO_getUint32(ODF_arg->data);
+	value =canopen_driver->CO_getUint32(ODF_arg->data);
 
 	if(!ODF_arg->reading){
 		uint8_t NodeID;
@@ -156,7 +156,7 @@ uint32_t                CANdevRxIdxStart)
 	
 
 	/* Configure Object dictionary entry at index 0x1016 */
-	canopen->CO_OD_configure( OD_H1016_CONSUMER_HB_TIME, CO_ODF_1016, (void*)HBcons, 0, 0);
+	canopen_driver->CO_OD_configure( OD_H1016_CONSUMER_HB_TIME, CO_ODF_1016, (void*)HBcons, 0, 0);
 
 	return CO_ERROR_NO;
 }
@@ -193,12 +193,12 @@ uint32_t                timeDifference_ms)
 
 				if(monitoredNode->monStarted){
 					if(monitoredNode->timeoutTimer >= monitoredNode->time){
-						canopen->EM_ErrorReport(HBcons->em, CO_EM_HEARTBEAT_CONSUMER, CO_EMC_HEARTBEAT, i);
+						canopen_driver->EM_ErrorReport(HBcons->em, CO_EM_HEARTBEAT_CONSUMER, CO_EMC_HEARTBEAT, i);
 						monitoredNode->NMTstate = 0;
 					}
 					else if(monitoredNode->NMTstate == 0){
 						/* there was a bootup message */
-						canopen->EM_ErrorReport(HBcons->em, CO_EM_HB_CONSUMER_REMOTE_RESET, CO_EMC_HEARTBEAT, i);
+						canopen_driver->EM_ErrorReport(HBcons->em, CO_EM_HB_CONSUMER_REMOTE_RESET, CO_EMC_HEARTBEAT, i);
 					}
 				}
 				if(monitoredNode->NMTstate != CO_NMT_OPERATIONAL)

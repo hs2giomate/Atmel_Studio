@@ -17,7 +17,7 @@ class I2C_Sync_Class
 public:
 		uint8_t	*txBuffer;
 		uint8_t	*rxBuffer;
-		volatile	bool i2c_initiated,isOK;
+		volatile	bool initiated,isOK;
 protected:
 private:
 	io_descriptor *I2C_io;
@@ -48,5 +48,6 @@ private:
 	void	Irq_Enable(void);
 
 }; //I2C_Sync_Class
+static I2C_Sync_Class	i2cSharedStatic(&I2C_HEATERS);
 
 #endif //__I2C_SYNC_CLASS_H__

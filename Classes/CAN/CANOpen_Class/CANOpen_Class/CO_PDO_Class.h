@@ -18,7 +18,9 @@ class CO_PDO_Class
 public:
 protected:
 private:
-
+	CO_CANtx_t *tx_buffer;
+	CO_CANtx_t *rx_buffer;
+	uint8_t node_ID;
 //functions
 public:
 	CO_PDO_Class();
@@ -65,6 +67,9 @@ void CO_TPDO_process(
         bool_t                  syncWas,
         uint32_t                timeDifference_us);
 	uint8_t CO_TPDOisCOS(CO_TPDO_t *TPDO);
+	
+	uint32_t Send_Simple_Run_Command(uint8_t *data ,uint8_t );
+	void Send_TPDO( CO_TPDO_t    *TPDO);
 protected:
 private:
 	CO_PDO_Class( const CO_PDO_Class &c );

@@ -142,7 +142,7 @@ CO_ReturnError_t CO_Emergency_Class::EM_Init(
     /* configure emergency message CAN transmission */
     emPr->CANdev = CANdev;
     emPr->CANdev->em = (void*)em; /* update pointer inside CAN device. */
-    emPr->CANtxBuff =canopen->CAN_Tx_BufferInit(
+    emPr->CANtxBuff =canopen_driver->CAN_Tx_BufferInit(
             CANdevTxIdx,        /* index of specific buffer inside CAN module */
             CANidTxEM,          /* CAN identifier */
             0,                  /* rtr */
@@ -174,7 +174,7 @@ void CO_Emergency_Class::EM_process(
     uint8_t errorRegister;
 
     /* verify errors from driver and other */
-   canopen->CAN_VerifyErrors();
+   canopen_driver->CAN_VerifyErrors();
     if(em->wrongErrorReport != 0U){
         EM_ErrorReport(em, CO_EM_WRONG_ERROR_REPORT, CO_EMC_SOFTWARE_INTERNAL, (uint32_t)em->wrongErrorReport);
         em->wrongErrorReport = 0U;
@@ -241,7 +241,7 @@ void CO_Emergency_Class::EM_process(
         }
 
         /* send CAN message */
-        canopen->CAN_Send(emPr->CANtxBuff);
+        canopen_driver->CAN_Send(emPr->CANtxBuff);
     }
 
     return;

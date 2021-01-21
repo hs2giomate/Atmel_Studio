@@ -13,7 +13,7 @@ static	uint8_t	rxI2CStaticBuffer[I2C_SYN_BUFFER_SIZE];
 // default constructor
 I2C_Sync_Class::I2C_Sync_Class()
 {
-	i2c_initiated=false;
+	initiated=false;
 } //I2C_Sync_Class
 I2C_Sync_Class::I2C_Sync_Class(i2c_m_sync_desc * des)
 {
@@ -47,7 +47,7 @@ bool	I2C_Sync_Class::Init(void){
 		isOK=enabled==0;
 	}
 	
-	i2c_initiated=isOK;
+	initiated=isOK;
 	return isOK;
 	
 }

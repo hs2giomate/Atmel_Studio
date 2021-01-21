@@ -5,10 +5,12 @@
 * Author: GMateusDP
 */
 
-
+#include "Compresor_Controller.h"
 #include "Compressor_CANOpen_Interface.h"
 static	CANOpen_Class canoStatic(&CAN_CCU);
+static	uint8_t local_tx_data[8];
 static bool syncCANOpenTimeoutStatic=false;
+static uint16_t local_speed;
 
 static void CANOpen_Sync_Timeout(const struct timer_task *const timer_task)
 {
@@ -29,6 +31,8 @@ Compressor_CANOpen_Interface::~Compressor_CANOpen_Interface()
 } //~Compressor_Can_Interface
 
 bool	Compressor_CANOpen_Interface::InitCANOpen(void){
+	tx_can_buffer=local_tx_data;
+	speed=&local_speed;
 	syncCANOpenTimeout=&syncCANOpenTimeoutStatic;
 	timeDifference_ms=CCU_PROCESS_TIME_DIFFERENCE;
 	cano=&canoStatic;
@@ -58,7 +62,7 @@ int	Compressor_CANOpen_Interface::Comporesor_Process(void){
 // 		if(CO->NMT->operatingState == CO_NMT_PRE_OPERATIONAL || CO->NMT->operatingState == CO_NMT_OPERATIONAL)
 // 		NMTisPreOrOperational = true;
 
-		reset = Process(1000);
+		reset =cano->Process(1000);
 
 	
 
@@ -69,12 +73,22 @@ void Compressor_CANOpen_Interface::Periodic_Task(void){
 	
 	if (syncCANOpenTimeoutStatic)
 	{
-		Comporesor_Process();
-		if (ptrCO->CANmodule[0]->CANnormal)
+		//Comporesor_Process();
+		if ( cano->ptrCO->CANmodule[0]->CANnormal)
 		{
-				syncWas=CO_process_SYNC_RPDO(timeDifference_ms);
-				CO_process_TPDO(syncWas,timeDifference_ms);
-				CAN_Polling_Tx();
+				syncWas=cano->Send_SYNC_Signal();
+				is_enabled=ccu.IsEnabled();
+				if ((is_enabled))
+				{
+					Convert_Uint16_Array(*speed,tx_can_buffer);
+					
+				}else{
+					
+					Convert_Uint16_Array(0,tx_can_buffer);
+				}
+				cano->Send_Simple_Run_Command(tx_can_buffer,CCU_CANOPEN_NODE);
+			//	cano->CO_process_TPDO(syncWas,timeDifference_ms);
+			//	cano->CAN_Polling_Tx();
 		} 
 		else
 		{
@@ -86,5 +100,28 @@ void Compressor_CANOpen_Interface::Periodic_Task(void){
 	{
 	}
 
+}
+
+void	Compressor_CANOpen_Interface::Convert_Uint16_Array(uint16_t sp, uint8_t * arr){
+	for (uint8_t i = 0; i < 8; i++)
+	{
+		if (i<2)
+		{
+			local_tx_data[i]=(uint8_t)(((*speed)>>8*i)&0x00ff);
+		}else{
+			local_tx_data[i]=0;
+		}
+		
+	}
+	arr=local_tx_data;
+}
+
+bool Compressor_CANOpen_Interface::Set_CAN_Enable(bool *st){
+	enable=st;
+	return  *enable;
+}
+
+void	Compressor_CANOpen_Interface::Set_Motor_Speed(uint16_t sp){
+	*speed=sp;
 }
 

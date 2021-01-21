@@ -86,7 +86,7 @@
 
 extern  CO_t *CO;
 
-class CO_Class: public CO_Driver_Class
+class CO_Class: public CO_Driver_Class, public CO_OD_Class
 {
 //variables
 public:
@@ -104,6 +104,7 @@ private:
 		CO_ReturnError_t err;
 		CO_CANtx_t *NMTM_txBuff;
 		uint8_t	coNode;
+		uint32_t *timer_next;
 		
 //functions
 public:
@@ -129,7 +130,7 @@ void CO_delete(void);
 
 
 
-CO_NMT_reset_cmd_t Process(uint32_t                timeDifference_ms=1,
+CO_NMT_reset_cmd_t Process(uint32_t                timeDifference_ms=1000,
       uint32_t               *timerNext_ms=NULL);
 
 
@@ -139,6 +140,7 @@ bool_t CO_process_SYNC_RPDO(uint32_t                timeDifference_us);
 
 void CO_process_TPDO( bool_t                  syncWas,
         uint32_t                timeDifference_us);
+	//	CO_NMT_reset_cmd_t Process(uint32_t                timeDifference_ms);
 
 protected:
 private:

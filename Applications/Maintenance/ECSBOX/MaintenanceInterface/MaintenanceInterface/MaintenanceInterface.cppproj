@@ -215,6 +215,7 @@
       <Value>../../../../../ECS_Box/QSPI_Memory_Handler</Value>
       <Value>../../../../../ECS_Box/FlapperValve/Dual_Flapper_Valve_Controller/Dual_Flapper_Valve_Controller</Value>
       <Value>../../../../../ECS_Box/Dual_Heater_P0/Dual_Heater_P0</Value>
+      <Value>../../../../../ECS_Box/Scavenger_Fan_P0/Scavenger_Fan_P0</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
   <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>
@@ -336,6 +337,11 @@
     <ProjectReference Include="..\..\..\..\ECS_Box\QSPI_Memory_Handler\QSPI_Memory_Handler.cppproj">
       <Name>QSPI_Memory_Handler</Name>
       <Project>{f57df86d-c489-45df-bf45-a098b1975d5d}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\ECS_Box\Scavenger_Fan_P0\Scavenger_Fan_P0\Scavenger_Fan_P0.cppproj">
+      <Name>Scavenger_Fan_P0</Name>
+      <Project>{c37f18b8-0285-44b3-aeb3-548d772eda11}</Project>
       <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ECS_Box\TemperatureSensors\TemperatureSensorsSampling\TemperatureSensorsSampling\TemperatureSensorsSampling.cppproj">

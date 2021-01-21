@@ -303,7 +303,8 @@ Commands_Handler.d Commands_Handler.o: .././Commands_Handler.cpp \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Storage/Parameters.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h \
  ../../../../../ECS_Box/Dual_Heater_P0/Dual_Heater_P0/HEATERS_HANDLER.h \
- ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h
+ ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h \
+ ../../../../../ECS_Box/Scavenger_Fan_P0/Scavenger_Fan_P0/Scavenge_Fan.h
 
 .././Commands_Handler.h:
 
@@ -916,3 +917,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../ECS_Box/Dual_Heater_P0/Dual_Heater_P0/HEATERS_HANDLER.h:
 
 ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:
+
+../../../../../ECS_Box/Scavenger_Fan_P0/Scavenger_Fan_P0/Scavenge_Fan.h:

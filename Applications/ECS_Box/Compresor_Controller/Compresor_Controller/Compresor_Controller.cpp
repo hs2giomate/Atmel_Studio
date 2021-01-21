@@ -24,6 +24,7 @@ bool Compresor_Controller::Init(void){
 	{
 		if (InitCANOpen())
 		{
+			canopen_driver->canopen_ready=true;
 			isOK=true;
 		} 
 		else

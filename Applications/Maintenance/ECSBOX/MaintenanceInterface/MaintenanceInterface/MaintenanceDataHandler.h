@@ -69,6 +69,10 @@ enum
 	kHVACCommandFlapperValve,	       //!< Used to transmit new configuration data
 	kHVACWriteSetpointFlapperValve,	       //!< Used to transmit new configuration data
 	kHVACCommandRedStatusFans,	       //!< Used to transmit new configuration data
+	
+	kHVACCommandReadScavengeStatus,	       //!< Used to transmit new configuration data
+	kHVACCommandSetScavenge,	       //!< Used to transmit new configuration data
+	
     kGAINCommandSetCycleDictionary,     //!< Not used in 932
     kGAINCommandSetCycleDescription,    //!< Cycle description are presets that can be set in m.tool (power and time)
     kGAINCommandSetControllerState,     //!< Ports (Pins) can be set or reset (for example: cavity led, fans on off...)

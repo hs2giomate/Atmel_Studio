@@ -99,7 +99,7 @@ CO_ReturnError_t CO_NMT_Heartbeat_Class::NMT_Init(
     NMT->ptrState             = NULL;
 
     /* configure NMT CAN reception */
-   canopen->CAN_Rx_BufferInit(
+   canopen_driver->CAN_Rx_BufferInit(
       
             NMT_rxIdx,          /* rx buffer index */
             CANidRxNMT,         /* CAN identifier */
@@ -110,7 +110,7 @@ CO_ReturnError_t CO_NMT_Heartbeat_Class::NMT_Init(
 
     /* configure HB CAN transmission */
     NMT->HB_CANdev = HB_CANdev;
-    NMT->HB_TXbuff =canopen->CAN_Tx_BufferInit(
+    NMT->HB_TXbuff =canopen_driver->CAN_Tx_BufferInit(
              HB_txIdx,           /* index of specific buffer inside CAN module */
             CANidTxHB,          /* CAN identifier */
             0,                  /* rtr */
@@ -192,7 +192,7 @@ CO_NMT_reset_cmd_t CO_NMT_Heartbeat_Class::NMT_Process(
         NMT->HBproducerTimer = 0;
 
         NMT->HB_TXbuff->data[0] = NMT->operatingState;
-        canopen->CAN_Send(NMT->HB_TXbuff);
+        canopen_driver->CAN_Send(NMT->HB_TXbuff);
 
         if(NMT->operatingState == CO_NMT_INITIALIZING){
             if(HBtime > NMT->firstHBTime) NMT->HBproducerTimer = HBtime - NMT->firstHBTime;
@@ -219,7 +219,7 @@ CO_NMT_reset_cmd_t CO_NMT_Heartbeat_Class::NMT_Process(
 
     /* CAN passive flag */
     CANpassive = 0;
-    if(canopen->EM_IsError(NMT->emPr->em, CO_EM_CAN_TX_BUS_PASSIVE) || canopen->EM_IsError(NMT->emPr->em, CO_EM_CAN_RX_BUS_PASSIVE))
+    if(canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_CAN_TX_BUS_PASSIVE) || canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_CAN_RX_BUS_PASSIVE))
         CANpassive = 1;
 
 
@@ -232,16 +232,16 @@ CO_NMT_reset_cmd_t CO_NMT_Heartbeat_Class::NMT_Process(
 
 
     /* CANopen red ERROR LED (DR 303-3) */
-    if(canopen->EM_IsError(NMT->emPr->em, CO_EM_CAN_TX_BUS_OFF))
+    if(canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_CAN_TX_BUS_OFF))
         NMT->LEDredError = 1;
 
-    else if(canopen->EM_IsError(NMT->emPr->em, CO_EM_SYNC_TIME_OUT))
+    else if(canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_SYNC_TIME_OUT))
         NMT->LEDredError = NMT->LEDtripleFlash;
 
-    else if(canopen->EM_IsError(NMT->emPr->em, CO_EM_HEARTBEAT_CONSUMER) || canopen->EM_IsError(NMT->emPr->em, CO_EM_HB_CONSUMER_REMOTE_RESET))
+    else if(canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_HEARTBEAT_CONSUMER) || canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_HB_CONSUMER_REMOTE_RESET))
         NMT->LEDredError = NMT->LEDdoubleFlash;
 
-    else if(CANpassive ||  canopen->EM_IsError(NMT->emPr->em, CO_EM_CAN_BUS_WARNING))
+    else if(CANpassive ||  canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_CAN_BUS_WARNING))
         NMT->LEDredError = NMT->LEDsingleFlash;
 
     else if(errorRegister)
@@ -264,9 +264,9 @@ CO_NMT_reset_cmd_t CO_NMT_Heartbeat_Class::NMT_Process(
                 else if(errorBehavior[1] == 2){
                     NMT->operatingState = CO_NMT_STOPPED;
                 }
-                else if( canopen->EM_IsError(NMT->emPr->em, CO_EM_CAN_TX_BUS_OFF)
-                     ||  canopen->EM_IsError(NMT->emPr->em, CO_EM_HEARTBEAT_CONSUMER)
-                     ||  canopen->EM_IsError(NMT->emPr->em, CO_EM_HB_CONSUMER_REMOTE_RESET))
+                else if( canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_CAN_TX_BUS_OFF)
+                     ||  canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_HEARTBEAT_CONSUMER)
+                     ||  canopen_driver->EM_IsError(NMT->emPr->em, CO_EM_HB_CONSUMER_REMOTE_RESET))
                 {
                     if(errorBehavior[0] == 0){
                         NMT->operatingState = CO_NMT_PRE_OPERATIONAL;

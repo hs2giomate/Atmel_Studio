@@ -60,7 +60,7 @@ SingleFlapperValve_Class::~SingleFlapperValve_Class()
 
 
 bool	SingleFlapperValve_Class::Init(void){
-	if (i2c->i2c_initiated)
+	if (i2c->initiated)
 	{
 	} 
 	else

@@ -50,7 +50,7 @@ uint8_t	Scavenge_Fan::ReadStatus(void){
 	scavengeData.tempFault=r&(0x01<<(7));
 	scavengeData.SPDFault=r&(0x01<<(6));
 	scavengeData.relayFault=r&(0x01<<(4));
-	return r&0xF0;
+	return r;
 	
 }
 uint8_t	Scavenge_Fan::SetEnable(bool state){
@@ -76,3 +76,4 @@ bool Scavenge_Fan::SelfTest(){
 	}
 	return bool_result;
 }
+Scavenge_Fan scavenge;

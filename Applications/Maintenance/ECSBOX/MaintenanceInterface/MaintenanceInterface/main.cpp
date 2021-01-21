@@ -7,7 +7,7 @@
 
 
 #include "main.h"
-#define DELAY_ERROR	50
+#define DELAY_ERROR	100
 //static FlapperValveController	fvc;
 static float currentTemperature,lastTemperature;
 bool localtimeout=false;
@@ -30,9 +30,10 @@ static void FirmwareIsAlive(const struct timer_task *const timer_task)
 	{
 		is_running=true;
 		last_count=counter_running;
+		gpio_toggle_pin_level(LED0);
 		
 	}
-	gpio_toggle_pin_level(LED0);
+	
 	localtimeout=true;
 }
 
@@ -80,7 +81,10 @@ int main(void)
 	while(!heaters.Init()){
 		delay_ms(DELAY_ERROR);
 		gpio_toggle_pin_level(LED0);
-	}
+			}	while(!scavenge.Init()){
+		delay_ms(DELAY_ERROR);
+		gpio_toggle_pin_level(LED0);
+	}	scavenge.SetEnable(false);				
 // 	heater.DisableIndex(0);
 // 	heater.DisableIndex(1);
 // 	heater.DisableIndex(2);

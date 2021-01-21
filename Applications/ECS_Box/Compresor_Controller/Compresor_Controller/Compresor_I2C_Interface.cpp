@@ -21,7 +21,7 @@ Compresor_I2C_Interface::~Compresor_I2C_Interface()
 } //~Compresor_I2C_Interface
 
 bool Compresor_I2C_Interface::InitExpander(void){
-	if (i2c->i2c_initiated)
+	if (i2c->initiated)
 	{
 	} 
 	else
@@ -33,8 +33,8 @@ bool Compresor_I2C_Interface::InitExpander(void){
 	{
 		expander=&expandersCompresorStatic;
 		expander->Init(COMPRESOR_MCP23008_ADDRESS,i2c);
-		//expander->SetPortInput(0xf0);
-		expander->SetPortOutput();
+		expander->SetPortInput(0xf0);
+	//	expander->SetPortOutput();
 		isOK=SelfTest();
 	}
 	else
@@ -43,6 +43,41 @@ bool Compresor_I2C_Interface::InitExpander(void){
 	}
 	isOK=i2c->isOK;
 		return isOK;
+}
+
+uint8_t	Compresor_I2C_Interface::ReadStatus(void){
+	uint8_t r=expander->ReadGPIORegister();
+	
+	return r;
+	
+}
+uint8_t	Compresor_I2C_Interface::SetEnable(bool state){
+
+	enabled=expander->WriteDigit(0,state);
+	return uint8_t(enabled);
+}
+uint8_t	Compresor_I2C_Interface::SetRelay(bool state){
+
+	enabled=expander->WriteDigit(1,!state);
+	return uint8_t(enabled);
+}
+uint8_t	Compresor_I2C_Interface::SetClutch(bool state){
+
+	enabled=expander->WriteDigit(2,!state);
+	return uint8_t(enabled);
+}
+
+bool Compresor_I2C_Interface::IsEnabled(void){
+
+	uint8_t value=expander->ReadGPIORegister();
+	enabled=(value&0x01);
+	return enabled;
+}
+bool* Compresor_I2C_Interface::IsEnabledPointer(void){
+
+	uint8_t value=expander->ReadGPIORegister();
+	enabled=(value&0x01);
+	return &enabled;
 }
 
 bool Compresor_I2C_Interface::SelfTest(void){

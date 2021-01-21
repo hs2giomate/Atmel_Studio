@@ -550,6 +550,13 @@ bool Maintenance_Tool::handleHVACTask(void){
 			case kHVACCommandReadHeaterStatus:
 				result = CommandReadHeaterStatus();
 				break;
+			case kHVACCommandSetScavenge:
+				result = CommandSetScavenge();
+				break;
+				
+			case kHVACCommandReadScavengeStatus:
+				result = CommandReadScavengeStatus();
+				break;
 			case kHVACCommandSetEnableFans:
 				result = CommandSetEnableFans();
 				break;

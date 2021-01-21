@@ -8,6 +8,9 @@
 
 #include "CO_SYNC_Class.h"
 #include "CO_Driver_Class.h"
+#include "string.h"
+
+static CO_CANtx_t local_sync_tx_buffer;
 
 // default constructor
 CO_SYNC_Class::CO_SYNC_Class()
@@ -70,7 +73,7 @@ static CO_SDO_abortCode_t CO_ODF_1005(CO_ODF_arg_t *ODF_arg){
     CO_SDO_abortCode_t ret = CO_SDO_AB_NONE;
 
     SYNC = (CO_SYNC_t*) ODF_arg->object;
-    value =canopen->CO_getUint32(ODF_arg->data);
+    value =canopen_driver->CO_getUint32(ODF_arg->data);
 
     if(!ODF_arg->reading){
         uint8_t configureSyncProducer = 0;
@@ -103,7 +106,7 @@ static CO_SDO_abortCode_t CO_ODF_1005(CO_ODF_arg_t *ODF_arg){
                     SYNC->counter = 0U;
                     SYNC->timer = 0U;
                 }
-                SYNC->CANtxBuff = canopen->CAN_Tx_BufferInit(
+                SYNC->CANtxBuff = canopen_driver->CAN_Tx_BufferInit(
                    
                         SYNC->CANdevTxIdx,      /* index of specific buffer inside CAN module */
                         SYNC->COB_ID,           /* CAN identifier */
@@ -116,7 +119,7 @@ static CO_SDO_abortCode_t CO_ODF_1005(CO_ODF_arg_t *ODF_arg){
                 SYNC->isProducer = false;
             }
 
-            canopen->CAN_Rx_BufferInit(
+            canopen_driver->CAN_Rx_BufferInit(
                     SYNC->CANdevRxIdx,      /* rx buffer index */
                     SYNC->COB_ID,           /* CAN identifier */
                     0x7FF,                  /* mask */
@@ -141,7 +144,7 @@ static CO_SDO_abortCode_t CO_ODF_1006(CO_ODF_arg_t *ODF_arg){
     CO_SDO_abortCode_t ret = CO_SDO_AB_NONE;
 
     SYNC = (CO_SYNC_t*) ODF_arg->object;
-    value = canopen->CO_getUint32(ODF_arg->data);
+    value = canopen_driver->CO_getUint32(ODF_arg->data);
 
     if(!ODF_arg->reading){
         /* period transition from 0 to something */
@@ -191,7 +194,7 @@ static CO_SDO_abortCode_t CO_ODF_1019(CO_ODF_arg_t *ODF_arg){
                 len = 1U;
             }
 
-            SYNC->CANtxBuff =canopen->CAN_Tx_BufferInit(
+            SYNC->CANtxBuff =canopen_driver->CAN_Tx_BufferInit(
              
                     SYNC->CANdevTxIdx,      /* index of specific buffer inside CAN module */
                     SYNC->COB_ID,           /* CAN identifier */
@@ -228,11 +231,18 @@ CO_ReturnError_t CO_SYNC_Class::SYNC_Init(
     }
 
     /* Configure object variables */
-    SYNC->isProducer = (COB_ID_SYNCMessage&0x40000000L) ? true : false;
+	#ifdef MASTER
+	 SYNC->isProducer =  true;
+	#else
+	 SYNC->isProducer =  false;
+	#endif
+ 
+	// SYNC->isProducer = (COB_ID_SYNCMessage&0x40000000L) ? true : false;
     SYNC->COB_ID = COB_ID_SYNCMessage&0x7FF;
 
     SYNC->periodTime = communicationCyclePeriod;
-    SYNC->periodTimeoutTime = communicationCyclePeriod / 2 * 3;
+  //  SYNC->periodTimeoutTime = communicationCyclePeriod / 2 * 3;
+	  SYNC->periodTimeoutTime = communicationCyclePeriod / 1 * 3;
     /* overflow? */
     if(SYNC->periodTimeoutTime < communicationCyclePeriod) SYNC->periodTimeoutTime = 0xFFFFFFFFL;
 
@@ -254,12 +264,12 @@ CO_ReturnError_t CO_SYNC_Class::SYNC_Init(
     SYNC->CANdevRxIdx = CANdevRxIdx;
 
     /* Configure Object dictionary entry at index 0x1005, 0x1006 and 0x1019 */
-    canopen->CO_OD_configure( OD_H1005_COBID_SYNC,        CO_ODF_1005, (void*)SYNC, 0, 0);
-    canopen->CO_OD_configure( OD_H1006_COMM_CYCL_PERIOD,  CO_ODF_1006, (void*)SYNC, 0, 0);
-    canopen->CO_OD_configure( OD_H1019_SYNC_CNT_OVERFLOW, CO_ODF_1019, (void*)SYNC, 0, 0);
+    canopen_driver->CO_OD_configure( OD_H1005_COBID_SYNC,        CO_ODF_1005, (void*)SYNC, 0, 0);
+    canopen_driver->CO_OD_configure( OD_H1006_COMM_CYCL_PERIOD,  CO_ODF_1006, (void*)SYNC, 0, 0);
+    canopen_driver->CO_OD_configure( OD_H1019_SYNC_CNT_OVERFLOW, CO_ODF_1019, (void*)SYNC, 0, 0);
 
     /* configure SYNC CAN reception */
-    canopen->CAN_Rx_BufferInit(
+    canopen_driver->CAN_Rx_BufferInit(
             CANdevRxIdx,            /* rx buffer index */
             SYNC->COB_ID,           /* CAN identifier */
             0x7FF,                  /* mask */
@@ -270,13 +280,15 @@ CO_ReturnError_t CO_SYNC_Class::SYNC_Init(
     /* configure SYNC CAN transmission */
     SYNC->CANdevTx = CANdevTx;
     SYNC->CANdevTxIdx = CANdevTxIdx;
-    SYNC->CANtxBuff =  canopen->CAN_Tx_BufferInit(
+    SYNC->CANtxBuff =  canopen_driver->CAN_Tx_BufferInit(
             CANdevTxIdx,            /* index of specific buffer inside CAN module */
             SYNC->COB_ID,           /* CAN identifier */
             0,                      /* rtr */
             len,                    /* number of data bytes */
             0);                     /* synchronous message flag bit */
-
+			
+	memcpy(&local_sync_tx_buffer,SYNC->CANtxBuff,sizeof(CO_CANtx_t));
+		tx_buffer=&local_sync_tx_buffer;    
     return CO_ERROR_NO;
 }
 
@@ -310,7 +322,7 @@ uint8_t CO_SYNC_Class::CO_SYNC_process(
                 ret = 1;
                 SYNC->CANrxToggle = SYNC->CANrxToggle ? false : true;
                 SYNC->CANtxBuff->data[0] = SYNC->counter;
-                canopen->CAN_Send(SYNC->CANtxBuff);
+                canopen_driver->CAN_Send(SYNC->CANtxBuff);
             }
         }
 
@@ -332,7 +344,7 @@ uint8_t CO_SYNC_Class::CO_SYNC_process(
 
         /* Verify timeout of SYNC */
         if(SYNC->periodTime && SYNC->timer > SYNC->periodTimeoutTime && *SYNC->operatingState == CO_NMT_OPERATIONAL)
-             canopen->EM_ErrorReport(SYNC->em, CO_EM_SYNC_TIME_OUT, CO_EMC_COMMUNICATION, SYNC->timer);
+             canopen_driver->EM_ErrorReport(SYNC->em, CO_EM_SYNC_TIME_OUT, CO_EMC_COMMUNICATION, SYNC->timer);
     }
     else {
         SYNC->CANrxNew = false;
@@ -340,9 +352,15 @@ uint8_t CO_SYNC_Class::CO_SYNC_process(
 
     /* verify error from receive function */
     if(SYNC->receiveError != 0U){
-        canopen->EM_ErrorReport(SYNC->em, CO_EM_SYNC_LENGTH, CO_EMC_SYNC_DATA_LENGTH, (uint32_t)SYNC->receiveError);
+        canopen_driver->EM_ErrorReport(SYNC->em, CO_EM_SYNC_LENGTH, CO_EMC_SYNC_DATA_LENGTH, (uint32_t)SYNC->receiveError);
         SYNC->receiveError = 0U;
     }
 
     return ret;
 }
+
+uint8_t CO_SYNC_Class::Send_SYNC_Signal(void){
+	return 	(uint8_t)canopen_driver->CAN_Send(tx_buffer);
+}
+
+

@@ -7,7 +7,7 @@
 
 
 #include "EvaporatorAndCondesatorFans_Class.h"
-static I2C_Sync_Class	i2cSharedStatic(&I2C_FANS);
+static I2C_Sync_Class	i2cFansStatic(&I2C_FANS);
 static EvaporatorFan_Class	evaporatorFan[2];
 static CondesatorFan_Class	condesatorFan;
 static	MCP23008_Class expandersStatic[EVAPORATOR_AND_CONDESATOR_EXPANDERS];
@@ -23,7 +23,7 @@ static void	FansStatusChanged(void){
 // default constructor
 EvaporatorAndCondesatorFans_Class::EvaporatorAndCondesatorFans_Class()
 {
-	i2c=&i2cSharedStatic;
+	i2c=&i2cFansStatic;
 	evaporator[0]=&evaporatorFan[0];
 	evaporator[1]=&evaporatorFan[1];
 	condesator=&condesatorFan;

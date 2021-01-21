@@ -1,6 +1,6 @@
 Compressor_CANOpen_Interface.d Compressor_CANOpen_Interface.o: \
- .././Compressor_CANOpen_Interface.cpp \
- .././Compressor_CANOpen_Interface.h \
+ .././Compressor_CANOpen_Interface.cpp .././Compresor_Controller.h \
+ .././Compresor_I2C_Interface.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
@@ -161,7 +161,8 @@ Compressor_CANOpen_Interface.d Compressor_CANOpen_Interface.o: \
  ../../../ALU_Driver/ALU_Driver/hri/hri_usb_e54.h \
  ../../../ALU_Driver/ALU_Driver/hri/hri_wdt_e54.h \
  ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h \
- ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CANOpen_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h \
  ../../../ALU_Driver/ALU_Driver/driver_init.h \
  ../../../ALU_Driver/ALU_Driver/atmel_start_pins.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_gpio.h \
@@ -212,6 +213,36 @@ Compressor_CANOpen_Interface.d Compressor_CANOpen_Interface.o: \
  ../../../ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
+ ../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\os_defines.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
+ ../../../HeaterP0Board/HeaterP0Board/SingleHeater_Class.h \
+ .././Compressor_CANOpen_Interface.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CANOpen_Class.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Class.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Definitions.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Driver_Class.h \
@@ -225,7 +256,9 @@ Compressor_CANOpen_Interface.d Compressor_CANOpen_Interface.o: \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_OD_Class.h \
  ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h
 
-.././Compressor_CANOpen_Interface.h:
+.././Compresor_Controller.h:
+
+.././Compresor_I2C_Interface.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/compiler.h:
 
@@ -547,7 +580,9 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 
 ../../../ALU_Driver/ALU_Driver/hal/utils/include/err_codes.h:
 
-../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CANOpen_Class.h:
+../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve/MCP23008_Class.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/I2C/I2C_Sync_Class.h:
 
 ../../../ALU_Driver/ALU_Driver/driver_init.h:
 
@@ -648,6 +683,66 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can.h:
 
 ../../../ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h:
+
+../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils/Arduino.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\stdlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cstdlib:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\c++config.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\os_defines.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\arm-none-eabi\thumb\v7e-m\bits\cpu_defines.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\math.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\cmath:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\bits\cpp_type_traits.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\c++\6.3.1\ext\type_traits.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h:
+
+../../../HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:
+
+.././Compressor_CANOpen_Interface.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CANOpen_Class.h:
 
 ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Class.h:
 

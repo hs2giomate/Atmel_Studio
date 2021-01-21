@@ -61,7 +61,7 @@ bool SingleHeater_Class::Init(void){
 }
 bool SingleHeater_Class::Init(uint8_t id,MCP23008_Class *heater_expanders){
 	heater_id=id;
-	if (i2c->i2c_initiated)
+	if (i2c->initiated)
 	{
 		
 	} 

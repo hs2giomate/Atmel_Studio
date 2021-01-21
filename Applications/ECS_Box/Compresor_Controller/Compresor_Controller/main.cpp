@@ -16,24 +16,47 @@ int main(void)
 	atmel_start_init();
 	
 	ccu.Init();
-	uint8_t i = 0;
+	ccu.Set_CAN_Enable(ccu.IsEnabledPointer());
+	ccu.SetEnable(false);
+	bool  timeout;
 	/* Replace with your application code */
 	while (1)
 	{
-		if (ccu.IsSlaveOpeational())
-		{
-			ccu.Periodic_Task();
-		} 
-		else
+// 		if (ccu.IsSlaveOpeational())
+// 		{
+// 			ccu.Periodic_Task();
+// 		} 
+// 		else
+// 		{
+// 			ccu.Periodic_Task();
+// 			
+// 				
+// 		}
+		ccu.SetEnable(true);
+		
+		for (int dir = 1; dir > -2; dir=dir-2)
 		{
 			
-			
+			for (uint16_t i = (1-dir)*0x7fff; i < (dir+1)*0x7fff; i=i+dir*1)
+			//for (uint16_t i = 0; i <0xffff ; i++)
+			{
+				ccu.Set_Motor_Speed(i);
+				timeout=*ccu.syncCANOpenTimeout;
+				while (!timeout)
+				{
+					gpio_set_pin_level(LED0,false);
+					timeout=*ccu.syncCANOpenTimeout;
+				}
+				ccu.Periodic_Task();
+				gpio_set_pin_level(LED0,true);
+			}
+				
 				
 		}
-		ccu.expander->WriteGPIORegister(i);
-		delay_ms(10);
+		ccu.SetEnable(true);
+		delay_ms(1000);
 		
-		i++;
+	
 // 
 // 		cano.Process();
 // 		delay_ms(1);

@@ -392,11 +392,14 @@ class CO_OD_Class
 public:
 protected:
 private:
+	uint32_t entry_No;
+	uint16_t temperature,voltaje;
 
 //functions
 public:
 	CO_OD_Class();
 	~CO_OD_Class();
+	void Pass_Temperature_To_voltage(void);
 protected:
 private:
 	CO_OD_Class( const CO_OD_Class &c );

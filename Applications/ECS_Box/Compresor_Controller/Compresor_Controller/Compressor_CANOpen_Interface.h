@@ -19,14 +19,17 @@ class Compressor_CANOpen_Interface: public CANOpen_Class
 {
 //variables
 public:
-	
+	volatile	bool *syncCANOpenTimeout;
 protected:
 private:
 	CANOpen_Class	*cano;
-	bool boolResult;
+	bool *enable;
+	bool boolResult,is_enabled;
 	int int_result,syncWas;
 	uint32_t timeDifference_ms;
-	volatile	bool *syncCANOpenTimeout;
+	
+	uint16_t	*speed;
+	uint8_t		*tx_can_buffer;
 //functions
 public:
 	Compressor_CANOpen_Interface();
@@ -35,10 +38,13 @@ public:
 	bool	InitCANOpen(void);
 	int	Comporesor_Process(void);
 	void	Periodic_Task(void);
+	bool	Set_CAN_Enable(bool *st);
+	void	Set_Motor_Speed(uint16_t sp);
 protected:
 private:
 	Compressor_CANOpen_Interface( const Compressor_CANOpen_Interface &c );
 	Compressor_CANOpen_Interface& operator=( const Compressor_CANOpen_Interface &c );
+	void	Convert_Uint16_Array(uint16_t sp, uint8_t * arr);
 
 }; //Compressor_Can_Interface
 

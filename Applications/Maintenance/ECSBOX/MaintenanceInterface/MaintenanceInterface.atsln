@@ -23,6 +23,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SingleFlapperValveP0", "..\
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Dual_Heater_P0", "..\..\..\ECS_Box\Dual_Heater_P0\Dual_Heater_P0\Dual_Heater_P0.cppproj", "{2799D222-5C1C-46C1-BBDD-212A99992F4A}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Scavenger_Fan_P0", "..\..\..\ECS_Box\Scavenger_Fan_P0\Scavenger_Fan_P0\Scavenger_Fan_P0.cppproj", "{C37F18B8-0285-44B3-AEB3-548D772EDA11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -132,6 +134,16 @@ Global
 		{2799D222-5C1C-46C1-BBDD-212A99992F4A}.Release|ARM.Build.0 = Release|ARM
 		{2799D222-5C1C-46C1-BBDD-212A99992F4A}.Slave|ARM.ActiveCfg = Debug|ARM
 		{2799D222-5C1C-46C1-BBDD-212A99992F4A}.Slave|ARM.Build.0 = Debug|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Debug|ARM.ActiveCfg = Debug|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Debug|ARM.Build.0 = Debug|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Master|ARM.ActiveCfg = Debug|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Master|ARM.Build.0 = Debug|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.NMTMaster|ARM.ActiveCfg = Debug|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.NMTMaster|ARM.Build.0 = Debug|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Release|ARM.ActiveCfg = Release|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Release|ARM.Build.0 = Release|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Slave|ARM.ActiveCfg = Debug|ARM
+		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Slave|ARM.Build.0 = Debug|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

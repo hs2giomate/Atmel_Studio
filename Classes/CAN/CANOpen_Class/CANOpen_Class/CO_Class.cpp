@@ -49,6 +49,7 @@ CO_Class::CO_Class()
 	ptrCO = CO;
 	coCanDescr=NULL;
 	CO_memoryUsed=sizeof(COO);
+	timer_next=NULL;
 } //CO_Class
 
 // default destructor
@@ -582,6 +583,10 @@ uint32_t               *timerNext_ms)
 	return reset;
 }
 
+// CO_NMT_reset_cmd_t CO_Class::Process(uint32_t                timeDifference_ms){
+// 	return Process(timeDifference_ms,timer_next);
+// }
+
 
 /******************************************************************************/
 bool_t CO_Class::CO_process_SYNC_RPDO(uint32_t                timeDifference_us)
@@ -614,7 +619,20 @@ uint32_t                timeDifference_us)
 
 	/* Verify PDO Change Of State and process PDOs */
 	for(i=0; i<CO_NO_TPDO; i++){
-		if(!CO->TPDO[i]->sendRequest) CO->TPDO[i]->sendRequest = CO_TPDOisCOS(CO->TPDO[i]);
-		CO_TPDO_process(CO->TPDO[i], CO->SYNC, syncWas, timeDifference_us);
+		if(!CO->TPDO[i]->sendRequest){ 
+			CO->TPDO[i]->sendRequest = CO_TPDOisCOS(CO->TPDO[i]);
+		}
+		#ifdef  MASTER
+			CO_TPDO_process(CO->TPDO[i], CO->SYNC, syncWas, timeDifference_us);
+		#else
+		if (syncWas)
+		{
+			CO_TPDO_process(CO->TPDO[i], CO->SYNC, syncWas, timeDifference_us);
+			//Send_TPDO(CO->TPDO[i]);
+		}
+			
+		
+#endif
+		
 	}
 }

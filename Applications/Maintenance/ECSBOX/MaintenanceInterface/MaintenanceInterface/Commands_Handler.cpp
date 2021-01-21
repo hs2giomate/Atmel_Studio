@@ -14,6 +14,7 @@
 #include "MemoryFlash_Class.h"
 #include "FlashMemoryClass.h"
 #include "HEATERS_HANDLER.h"
+#include "Scavenge_Fan.h"
 
 // default constructor
 Commands_Handler::Commands_Handler()
@@ -352,6 +353,37 @@ bool Commands_Handler::CommandSetHeaters(void){
 			}
 			
 		}
+	}
+	
+	return result;
+}
+bool Commands_Handler::CommandReadScavengeStatus(void){
+
+	memcpy(&singleTaskMessage,usbMessageBuffer,sizeof(SingleTaskMessage));
+	bool	result(singleTaskMessage.header.task == kHVACCommandReadScavengeStatus);
+	if (result){
+		data_byte=scavenge.ReadStatus();
+	
+		
+		CreateFullBufferMessage(usbMessageBuffer,&data_byte);
+		usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+		
+	}
+	return result;
+}
+bool Commands_Handler::CommandSetScavenge(void){
+
+
+	
+	memcpy(&singleTaskMessage,usbMessageBuffer,sizeof(SingleTaskMessage));
+	
+	//	singleTaskMessage.description=localBuffer[0x06];
+	bool	result(singleTaskMessage.header.task == kHVACCommandSetScavenge);
+	if (result){
+		data_byte=singleTaskMessage.description;
+		powerOn=(data_byte&(0x02))>0;
+		scavenge.SetEnable(powerOn);
+	
 	}
 	
 	return result;
