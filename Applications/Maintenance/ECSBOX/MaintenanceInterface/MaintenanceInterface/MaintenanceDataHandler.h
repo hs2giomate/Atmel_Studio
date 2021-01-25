@@ -73,6 +73,9 @@ enum
 	kHVACCommandReadScavengeStatus,	       //!< Used to transmit new configuration data
 	kHVACCommandSetScavenge,	       //!< Used to transmit new configuration data
 	
+		kHVACCommandReadCompressorStatus,	       //!< Used to transmit new configuration data
+		kHVACCommandSetCompressor,	       //!< Used to transmit new configuration data
+		kHVACCommandSetpointCompressor,	       //!< Used to transmit new configuration data
     kGAINCommandSetCycleDictionary,     //!< Not used in 932
     kGAINCommandSetCycleDescription,    //!< Cycle description are presets that can be set in m.tool (power and time)
     kGAINCommandSetControllerState,     //!< Ports (Pins) can be set or reset (for example: cavity led, fans on off...)

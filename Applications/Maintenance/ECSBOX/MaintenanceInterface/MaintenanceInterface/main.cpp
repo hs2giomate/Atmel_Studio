@@ -53,7 +53,7 @@ int main(void)
 {
 	bool gotNewTemperature=false;
 	atmel_start_init();
-	usb.Init();
+	
 	//StartLivePulse();
 	delay_ms(200);
 	memory.Init();
@@ -79,12 +79,11 @@ int main(void)
 	fans.evaporator[1]->SetEnable(false);
 // 	
 	while(!heaters.Init()){
-		delay_ms(DELAY_ERROR);
-		gpio_toggle_pin_level(LED0);
+		delay_ms(DELAY_ERROR);		gpio_toggle_pin_level(LED0);
 			}	while(!scavenge.Init()){
 		delay_ms(DELAY_ERROR);
 		gpio_toggle_pin_level(LED0);
-	}	scavenge.SetEnable(false);				
+	}	scavenge.SetEnable(false);		while(!ccu.Init()){		delay_ms(DELAY_ERROR);		gpio_toggle_pin_level(LED0);	}	ccu.SetEnable(false);				usb.Init();			
 // 	heater.DisableIndex(0);
 // 	heater.DisableIndex(1);
 // 	heater.DisableIndex(2);
@@ -143,6 +142,8 @@ int main(void)
 			temperatures.StartOneConversion();
 			asm("nop");
 		}
+		
+		ccu.Periodic_Task();
 		counter_running++;
 			//delay_ms(10);
 		

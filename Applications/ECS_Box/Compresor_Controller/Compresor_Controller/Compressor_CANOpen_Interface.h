@@ -12,7 +12,7 @@
 #include "CANOpen_Class.h"
 #include "Timer_Class.h"
 #define NMT_MASTER_NODE	1
-#define CCU_CANOPEN_NODE 2
+
 #define CCU_PROCESS_TIME_DIFFERENCE 1
 
 class Compressor_CANOpen_Interface: public CANOpen_Class
@@ -30,6 +30,7 @@ private:
 	
 	uint16_t	*speed;
 	uint8_t		*tx_can_buffer;
+	uint16_t current_speed, setpoint_speed;
 //functions
 public:
 	Compressor_CANOpen_Interface();
@@ -40,6 +41,7 @@ public:
 	void	Periodic_Task(void);
 	bool	Set_CAN_Enable(bool *st);
 	void	Set_Motor_Speed(uint16_t sp);
+	uint16_t GetCurrentSpeed(void){return current_speed;};
 protected:
 private:
 	Compressor_CANOpen_Interface( const Compressor_CANOpen_Interface &c );

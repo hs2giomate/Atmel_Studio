@@ -25,6 +25,10 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Dual_Heater_P0", "..\..\..\
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Scavenger_Fan_P0", "..\..\..\ECS_Box\Scavenger_Fan_P0\Scavenger_Fan_P0\Scavenger_Fan_P0.cppproj", "{C37F18B8-0285-44B3-AEB3-548D772EDA11}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Compresor_Controller", "..\..\..\ECS_Box\Compresor_Controller\Compresor_Controller\Compresor_Controller.cppproj", "{77D56E04-B9D9-4798-A3A6-347F9822A089}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CANOpen_Class", "..\..\..\..\Classes\CAN\CANOpen_Class\CANOpen_Class\CANOpen_Class.cppproj", "{A19EFDF3-F37A-49D6-8BC0-1774108432B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -144,6 +148,26 @@ Global
 		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Release|ARM.Build.0 = Release|ARM
 		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Slave|ARM.ActiveCfg = Debug|ARM
 		{C37F18B8-0285-44B3-AEB3-548D772EDA11}.Slave|ARM.Build.0 = Debug|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.Debug|ARM.ActiveCfg = Debug|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.Debug|ARM.Build.0 = Debug|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.Master|ARM.ActiveCfg = Debug|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.Master|ARM.Build.0 = Debug|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.NMTMaster|ARM.ActiveCfg = Debug|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.NMTMaster|ARM.Build.0 = Debug|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.Release|ARM.ActiveCfg = Release|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.Release|ARM.Build.0 = Release|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.Slave|ARM.ActiveCfg = Debug|ARM
+		{77D56E04-B9D9-4798-A3A6-347F9822A089}.Slave|ARM.Build.0 = Debug|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Debug|ARM.Build.0 = Debug|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Master|ARM.ActiveCfg = Master|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Master|ARM.Build.0 = Master|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.NMTMaster|ARM.ActiveCfg = NMTMaster|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.NMTMaster|ARM.Build.0 = NMTMaster|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Release|ARM.ActiveCfg = Release|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Release|ARM.Build.0 = Release|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Slave|ARM.ActiveCfg = Slave|ARM
+		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Slave|ARM.Build.0 = Slave|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

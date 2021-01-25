@@ -44,10 +44,11 @@ int main(void)
 				timeout=*ccu.syncCANOpenTimeout;
 				while (!timeout)
 				{
-					gpio_set_pin_level(LED0,false);
+					//gpio_set_pin_level(LED0,false);
 					timeout=*ccu.syncCANOpenTimeout;
 				}
 				ccu.Periodic_Task();
+	
 				gpio_set_pin_level(LED0,true);
 			}
 				

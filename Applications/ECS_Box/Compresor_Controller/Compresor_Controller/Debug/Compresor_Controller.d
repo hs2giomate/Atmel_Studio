@@ -254,7 +254,8 @@ Compresor_Controller.d Compresor_Controller.o: \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_PDO_Class.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_HB_Consumer_Class.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_OD_Class.h \
- ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h
+ ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Driver_Class.h
 
 .././Compresor_Controller.h:
 
@@ -767,3 +768,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_OD_Class.h:
 
 ../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Timer_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Driver_Class.h:

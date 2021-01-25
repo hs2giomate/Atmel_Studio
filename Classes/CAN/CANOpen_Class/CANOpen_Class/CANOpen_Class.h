@@ -35,7 +35,7 @@ public:
 	CANOpen_Class();
 	~CANOpen_Class();
 	CANOpen_Class(can_async_descriptor  *descr);
-	int	Init(uint8_t node=NMT_NODE);
+	int	Init_CO_CLASS(uint8_t node=NMT_NODE);
 	int RunallProcesses();
 	int	Periodic_Process(uint32_t timeDifference=500);
 	bool	StartNMTService(void);

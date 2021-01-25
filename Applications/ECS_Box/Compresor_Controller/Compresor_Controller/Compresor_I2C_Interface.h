@@ -43,12 +43,13 @@ class Compresor_I2C_Interface
 //variables
 public:
 	Compresor_Status compresor_Status;
-	MCP23008_Class	*expander;
+	
 protected:
 private:
 	
 	I2C_Sync_Class*	i2c;
 	bool  isOK,enabled;
+	MCP23008_Class	*expander[2];
 
 //functions
 public:
@@ -62,6 +63,7 @@ public:
 		uint8_t	SetClutch(bool state);
 		bool IsEnabled(void);
 		bool* IsEnabledPointer(void);
+		uint8_t	ReadPressureLimits(void);
 protected:
 private:
 	Compresor_I2C_Interface( const Compresor_I2C_Interface &c );

@@ -57,6 +57,7 @@ private:
 	uint32_t i;
 	CO_CANmodule_t         *CAN_Module;
 	can_filter  CO_Filter;
+	uint8_t slave_node;
 	
 //functions
 public:
@@ -89,6 +90,8 @@ public:
 		void                   *object,
 		void                  (*pFunct)(void *object, const CO_CANrxMsg_t *message));
 		void CAN_Polling_Tx(void);
+		uint8_t Set_Slave_Node(uint8_t sn);
+		uint8_t Get_Slave_ID(void){return slave_node;}
 
 protected:
 private:

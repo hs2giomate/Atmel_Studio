@@ -15,6 +15,9 @@
 #include "FlashMemoryClass.h"
 #include "HEATERS_HANDLER.h"
 #include "Scavenge_Fan.h"
+#include "Compresor_Controller.h"
+#include "TemperatureSensors_Class.h"
+
 
 // default constructor
 Commands_Handler::Commands_Handler()
@@ -384,6 +387,69 @@ bool Commands_Handler::CommandSetScavenge(void){
 		powerOn=(data_byte&(0x02))>0;
 		scavenge.SetEnable(powerOn);
 	
+	}
+	
+	return result;
+}
+
+bool Commands_Handler::CommandReadCompressorStatus(void){
+
+	memcpy(&singleTaskMessage,usbMessageBuffer,sizeof(SingleTaskMessage));
+	bool	result(singleTaskMessage.header.task == kHVACCommandReadCompressorStatus);
+	if (result){
+		ccu.GetCompressorStatus(compressor_data_array);
+		memcpy(&compressor_data_array[4],(void*)&temperatures.values[0][0],4);
+		memcpy(&compressor_data_array[8],(void*)&temperatures.values[0][1],4);
+		CreateFullBufferMessage(usbMessageBuffer,compressor_data_array);
+		usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+		
+	}
+	return result;
+}
+bool Commands_Handler::CommandSetCompressor(void){
+	
+	memcpy(&message64,usbMessageBuffer,64);
+	
+	//	singleTaskMessage.description=localBuffer[0x06];
+	bool	result(message64.header.task == kHVACCommandSetCompressor);
+	if (result){
+		
+		data_byte=message64.content[0] ;
+		compressor_speed=message64.content[1]*256+message64.content[2];
+		if ((data_byte&0x01)>0)
+		{
+			if (ccu.IsEnabled())
+			{
+			//	memcpy(&compressor_speed,&message64.content[1],2);
+				if ( compressor_speed>0)
+				{
+					ccu.Set_Motor_Speed(compressor_speed);
+				} 
+				else
+				{
+					ccu.SetEnable(false);
+				}
+			} 
+			else
+			{
+				ccu.SetEnable(true);
+			}
+		}else{
+			if (ccu.IsEnabled())
+			{
+				ccu.SetEnable(false);
+			} 
+			else
+			{
+			//	memcpy(&compressor_speed,&message64.content[1],2);
+				if ( compressor_speed>0)
+				{
+					ccu.Set_Motor_Speed(compressor_speed);
+				}
+			}
+		}
+	
+		
 	}
 	
 	return result;

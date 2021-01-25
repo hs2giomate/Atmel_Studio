@@ -28,7 +28,7 @@ CANOpen_Class::~CANOpen_Class()
 {
 } //~CANOpen_Class
 
-int	CANOpen_Class::Init(uint8_t node){
+int	CANOpen_Class::Init_CO_CLASS(uint8_t node){
 	coNode=node;
 	if (node==1)
 	{

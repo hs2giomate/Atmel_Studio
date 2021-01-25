@@ -304,7 +304,27 @@ Commands_Handler.d Commands_Handler.o: .././Commands_Handler.cpp \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/SPI/SPI_Syn_Class.h \
  ../../../../../ECS_Box/Dual_Heater_P0/Dual_Heater_P0/HEATERS_HANDLER.h \
  ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h \
- ../../../../../ECS_Box/Scavenger_Fan_P0/Scavenger_Fan_P0/Scavenge_Fan.h
+ ../../../../../ECS_Box/Scavenger_Fan_P0/Scavenger_Fan_P0/Scavenge_Fan.h \
+ ../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compresor_Controller.h \
+ ../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compresor_I2C_Interface.h \
+ ../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compressor_CANOpen_Interface.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\canopen_class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Definitions.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Driver_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SDO_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_CRC16_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Emergency_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SYNC_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_NMT_Heartbeat_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_PDO_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_HB_Consumer_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_OD_Class.h \
+ ../../../../../ECS_Box/TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h
 
 .././Commands_Handler.h:
 
@@ -919,3 +939,43 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:
 
 ../../../../../ECS_Box/Scavenger_Fan_P0/Scavenger_Fan_P0/Scavenge_Fan.h:
+
+../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compresor_Controller.h:
+
+../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compresor_I2C_Interface.h:
+
+../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compressor_CANOpen_Interface.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\canopen_class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Definitions.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Driver_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SDO_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_CRC16_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Emergency_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SYNC_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_NMT_Heartbeat_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_PDO_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_HB_Consumer_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_OD_Class.h:
+
+../../../../../ECS_Box/TemperatureSensors/TemperatureSensorsSampling/TemperatureSensorsSampling/TemperatureSensors_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h:

@@ -36,7 +36,7 @@ bool	Compressor_CANOpen_Interface::InitCANOpen(void){
 	syncCANOpenTimeout=&syncCANOpenTimeoutStatic;
 	timeDifference_ms=CCU_PROCESS_TIME_DIFFERENCE;
 	cano=&canoStatic;
-	int_result=cano->Init(NMT_MASTER_NODE);
+	int_result=cano->Init_CO_CLASS(NMT_MASTER_NODE);
 	if (int_result==0)
 	{
 	//	cano->SetInitialMode();
@@ -77,6 +77,16 @@ void Compressor_CANOpen_Interface::Periodic_Task(void){
 		if ( cano->ptrCO->CANmodule[0]->CANnormal)
 		{
 				syncWas=cano->Send_SYNC_Signal();
+				if (syncWas==0)
+				{
+					//cano->Pass_Temperature_To_voltage();
+					memcpy((void*)&current_speed,(void*)CO_OD_RAM.voltage,2);
+				//	current_speed=(uint16_t)(CO_OD_RAM.voltage)
+				} 
+				else
+				{
+					memcpy((void*)&current_speed,(void*)CO_OD_RAM.voltage,2);
+				}
 				is_enabled=ccu.IsEnabled();
 				if ((is_enabled))
 				{
@@ -84,7 +94,7 @@ void Compressor_CANOpen_Interface::Periodic_Task(void){
 					
 				}else{
 					
-					Convert_Uint16_Array(0,tx_can_buffer);
+					Convert_Uint16_Array(*speed,tx_can_buffer);
 				}
 				cano->Send_Simple_Run_Command(tx_can_buffer,CCU_CANOPEN_NODE);
 			//	cano->CO_process_TPDO(syncWas,timeDifference_ms);
@@ -94,7 +104,7 @@ void Compressor_CANOpen_Interface::Periodic_Task(void){
 		{
 		}
 			syncCANOpenTimeoutStatic=false;
-			canoTimer.Start_oneShot_task(FUNC_PTR(CANOpen_Sync_Timeout),1000);
+			canoTimer.Start_oneShot_task(FUNC_PTR(CANOpen_Sync_Timeout),100);
 	} 
 	else
 	{

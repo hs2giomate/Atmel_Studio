@@ -26,6 +26,7 @@
 #include "Dual_Flapper_Valve_Controller.h"
 #include "HEATERS_HANDLER.h"
 #include "Scavenge_Fan.h"
+#include "Compresor_Controller.h"
 
 void	FramMemoryTest(void);
 void	FlashMemoryTest(void);

@@ -8,6 +8,7 @@
 
 #include "CO_Driver_Class.h"
 #include "string.h"
+#include "CO_OD_Class.h"
 
 CO_Driver_Class		*canopen_driver;
 
@@ -244,7 +245,10 @@ void CO_Driver_Class::CANmodule_Disable(void){
 	//can_async_register_callback(canDescr, CAN_ASYNC_IRQ_CB, (FUNC_PTR)CO_IRQ_Error_Callback);
 	//can_async_disable(CAN_Module->CANBaseDescriptor);
 }
-
+uint8_t CO_Driver_Class::Set_Slave_Node(uint8_t sn){
+	slave_node=sn;
+	return slave_node;
+}
 
 /******************************************************************************/
 uint32_t CO_Driver_Class::CANrxMsg_ReadIdent(struct can_message *msg){
@@ -501,7 +505,7 @@ void CO_Driver_Class::CAN_VerifyErrors(void){
 void CO_Driver_Class::ProcessInterrupt_Rx(void)
 {
 
-	
+	msgMatched = false;
 
 	ConvertCANMsg2CORxMsg(receivedCOMsg,&CANmessage);
 	MsgBuff=CAN_Module->rxArray;
@@ -523,6 +527,17 @@ void CO_Driver_Class::ProcessInterrupt_Rx(void)
 	{
 			//printf("  %X", CANmessage.ident);
 			MsgBuff->pFunct(MsgBuff->object, &CANmessage);
+	}else{
+		
+		if (CANmessage.ident==(CO_CAN_ID_TPDO_1+CCU_CANOPEN_NODE))
+	//	if (CANmessage.ident==(CO_CAN_ID_TPDO_1+2))
+		{
+			memcpy((void*)CO_OD_RAM.voltage,(void*)CANmessage.data,2);
+			//CO_OD_RAM.temperature=
+		}
+		else
+		{
+		}
 	}
 
 	//TODO filters handing

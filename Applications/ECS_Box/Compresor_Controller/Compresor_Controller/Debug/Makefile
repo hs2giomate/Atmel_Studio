@@ -84,9 +84,9 @@ Device_Startup/startup_same54.d \
 Device_Startup/system_same54.d \
 main.d
 
-OUTPUT_FILE_PATH +=Compresor_Controller.elf
+OUTPUT_FILE_PATH +=libCompresor_Controller.a
 
-OUTPUT_FILE_PATH_AS_ARGS +=Compresor_Controller.elf
+OUTPUT_FILE_PATH_AS_ARGS +=libCompresor_Controller.a
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -168,20 +168,14 @@ endif
 # All Target
 all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
-$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
-	@echo Building target: $@
-	@echo Invoking: ARM/GNU Linker : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="Compresor_Controller.map" -Wl,--start-group -lm -lCANOpen_Class -lALU_Driver -lECS_Box_Objects  -Wl,--end-group -L"..\\Device_Startup" -L"S:\AtmelStudio\Classes\CAN\CANOpen_Class\CANOpen_Class\Debug" -L"S:\AtmelStudio\Applications\ECS_Box\ALU_Driver\ALU_Driver\Debug" -L"S:\AtmelStudio\Applications\ECS_Box\ECS_Box_Classes\ECS_Box_Classes\Debug"  -Wl,--gc-sections -mcpu=cortex-m4 -Tsame54p20a_flash.ld  
-	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "Compresor_Controller.elf" "Compresor_Controller.bin"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "Compresor_Controller.elf" "Compresor_Controller.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O binary "Compresor_Controller.elf" "Compresor_Controller.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objdump.exe" -h -S "Compresor_Controller.elf" > "Compresor_Controller.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "Compresor_Controller.elf" "Compresor_Controller.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-size.exe" "Compresor_Controller.elf"
-	
-	
 
+$(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
+	@echo Building target: $@
+	@echo Invoking: ARM/GNU Archiver : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
+	@echo Finished building target: $@
+	
+	
 
 
 
@@ -190,5 +184,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "Compresor_Controller.elf" "Compresor_Controller.a" "Compresor_Controller.hex" "Compresor_Controller.bin" "Compresor_Controller.lss" "Compresor_Controller.eep" "Compresor_Controller.map" "Compresor_Controller.srec"
+	rm -rf "libCompresor_Controller.elf" "libCompresor_Controller.a" "libCompresor_Controller.hex" "libCompresor_Controller.bin" "libCompresor_Controller.lss" "libCompresor_Controller.eep" "libCompresor_Controller.map" "libCompresor_Controller.srec"
 	
