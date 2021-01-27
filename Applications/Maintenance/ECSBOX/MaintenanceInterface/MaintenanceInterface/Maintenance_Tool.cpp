@@ -543,6 +543,9 @@ bool Maintenance_Tool::handleHVACTask(void){
 			case kGAINCommandReadParameters:
 				result = CommandReadParameters();
 				break;
+			case kHVACCommandReadDataLog:
+				result = CommandReadDataLogger();
+				break;
 			case kHVACCommandSetHeaters:
 				result = CommandSetHeaters();
 				break;
@@ -556,6 +559,13 @@ bool Maintenance_Tool::handleHVACTask(void){
 				
 			case kHVACCommandReadScavengeStatus:
 				result = CommandReadScavengeStatus();
+				break;
+			case kHVACCommandSetCompressor:
+				result = CommandSetCompressor();
+				break;
+				
+			case kHVACCommandReadCompressorStatus:
+				result = CommandReadCompressorStatus();
 				break;
 			case kHVACCommandSetEnableFans:
 				result = CommandSetEnableFans();

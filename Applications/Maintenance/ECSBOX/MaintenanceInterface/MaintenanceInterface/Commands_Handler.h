@@ -10,6 +10,7 @@
 #define __COMMANDS_HANDLER_H__
 
 #define HEATER_DATA_SIZE	4
+#define COMPRESSOR_DATA_SIZE	12
 #include "MaintenanceDataHandler.h"
 
 
@@ -24,11 +25,17 @@ private:
 	FullBufferMessage message64;
 	uint8_t	data_fans_array[3];
 	uint8_t	heater_data_array[HEATER_DATA_SIZE];
+	uint8_t	compressor_data_array[COMPRESSOR_DATA_SIZE];
 	UserParameters	parameters;
 	bool is_stand_alone;
 	uint8_t	 lastEnableHeaters,enableHeaters;
 	bool powerOn;
 	uint8_t data_byte;
+	uint16_t compressor_speed;
+	uint32_t read_result,write_result;
+	uint32_t memory_flash_address;
+	DataLogMessage  dataLogMessage;
+	
 
 //functions
 public:
@@ -47,6 +54,9 @@ public:
 	bool	CommandReadHeaterStatus();
 	bool CommandSetScavenge(void);
 	bool CommandReadScavengeStatus(void);
+	bool CommandSetCompressor(void);
+	bool CommandReadCompressorStatus(void);
+	bool CommandReadDataLogger(void);
 protected:
 private:
 	Commands_Handler( const Commands_Handler &c );

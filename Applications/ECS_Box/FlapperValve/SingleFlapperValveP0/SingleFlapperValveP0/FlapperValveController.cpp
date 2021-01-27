@@ -767,6 +767,7 @@ bool	FlapperValveController::Selftest(void){
 	{
 		singlefv->SetDirection(false);
 	}
+	
 		if (valve_ID==0)
 		{
 			hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValve1Controller),FLAPPER_VALVE_TIMEOUT);

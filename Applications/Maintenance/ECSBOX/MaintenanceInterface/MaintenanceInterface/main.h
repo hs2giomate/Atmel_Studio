@@ -27,6 +27,7 @@
 #include "HEATERS_HANDLER.h"
 #include "Scavenge_Fan.h"
 #include "Compresor_Controller.h"
+#include "Event_Logger_Class.h"
 
 void	FramMemoryTest(void);
 void	FlashMemoryTest(void);

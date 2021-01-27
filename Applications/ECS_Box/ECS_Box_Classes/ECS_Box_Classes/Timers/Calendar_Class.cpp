@@ -177,6 +177,7 @@ void	Calendar_Class::SetCompilationDateTime(void){
 		compilationDateTime.time.hour = (((__TIME__[0]-'0')*10) + (__TIME__[1]-'0'));
 		compilationDateTime.time.min  = (((__TIME__[3]-'0')*10) + (__TIME__[4]-'0'));
 		compilationDateTime.time.sec  = (((__TIME__[6]-'0')*10) + (__TIME__[7]-'0'));
+		compiled_time=__TIME__;
 	}
 	
 

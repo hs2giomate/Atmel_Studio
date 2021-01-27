@@ -38,6 +38,7 @@ public:
 	void	SetStackValue(uint32_t stk);
 	uint32_t StackEventEntry(Event_Log_Entry *ent);
 	bool	IsStackFull(void);
+	uint32_t StackEventEntry(Event_Log_Entry *ent, uint8_t len);
 protected:
 private:
 	DataLoger_Class( const DataLoger_Class &c );

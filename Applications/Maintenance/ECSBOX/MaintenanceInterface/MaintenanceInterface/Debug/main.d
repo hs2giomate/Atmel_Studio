@@ -313,7 +313,31 @@ main.d main.o: .././main.cpp .././main.h \
  ../../../../../ECS_Box/FlapperValve/SingleFlapperValveP0/SingleFlapperValveP0/SingleFlapperValve_Class.h \
  ../../../../../ECS_Box/Dual_Heater_P0/Dual_Heater_P0/HEATERS_HANDLER.h \
  ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h \
- ../../../../../ECS_Box/Scavenger_Fan_P0/Scavenger_Fan_P0/Scavenge_Fan.h
+ ../../../../../ECS_Box/Scavenger_Fan_P0/Scavenger_Fan_P0/Scavenge_Fan.h \
+ ../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compresor_Controller.h \
+ ../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compresor_I2C_Interface.h \
+ ../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compressor_CANOpen_Interface.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\canopen_class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Definitions.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Driver_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SDO_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_CRC16_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Emergency_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SYNC_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_NMT_Heartbeat_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_PDO_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_HB_Consumer_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_OD_Class.h \
+ ../../../../../ECS_Box/Event_Manager/Event_Manager/Event_Logger_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
+ ../../../../../ECS_Box/Event_Manager/Event_Manager/DateTime_Logger.h \
+ ../../../../../ECS_Box/Event_Manager/Event_Manager/DataLoger_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h \
+ ../../../../../ECS_Box/Event_Manager/Event_Manager/Event_Logger_Struct.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h
 
 .././main.h:
 
@@ -948,3 +972,51 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../ECS_Box/HeaterP0Board/HeaterP0Board/SingleHeater_Class.h:
 
 ../../../../../ECS_Box/Scavenger_Fan_P0/Scavenger_Fan_P0/Scavenge_Fan.h:
+
+../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compresor_Controller.h:
+
+../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compresor_I2C_Interface.h:
+
+../../../../../ECS_Box/Compresor_Controller/Compresor_Controller/Compressor_CANOpen_Interface.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\canopen_class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Definitions.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Driver_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SDO_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_CRC16_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Emergency_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SYNC_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_NMT_Heartbeat_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_PDO_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_HB_Consumer_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_OD_Class.h:
+
+../../../../../ECS_Box/Event_Manager/Event_Manager/Event_Logger_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
+
+../../../../../ECS_Box/Event_Manager/Event_Manager/DateTime_Logger.h:
+
+../../../../../ECS_Box/Event_Manager/Event_Manager/DataLoger_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h:
+
+../../../../../ECS_Box/Event_Manager/Event_Manager/Event_Logger_Struct.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h:

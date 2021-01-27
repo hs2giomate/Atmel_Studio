@@ -44,7 +44,7 @@ struct __attribute__((__packed__)) ConfigurationSector
 	ConfigurationData			currentConfiguration;
 	ConfigurationData			updatedConfiguration;
 	uint32_t					crcConfigData;
-	uint8_t		configurationDataSector[FLASH_SUBSECTOR_ERASE- 3*sizeof(ConfigurationData)-4];
+	uint8_t		configurationDataSector[FLASH_SUBSECTOR_ERASE- 4*sizeof(ConfigurationData)-4];
 };
 
 struct __attribute__((__packed__)) ECSSector
@@ -113,7 +113,7 @@ private:
 	ConfigurationData	configuration;
 	PTR_CONFIG_DATA		handlerConfigData;
 	PTR_HVAC_STATE	handlerAppState;
-	uint32_t	flashAddress;
+	uint32_t	flashAddress,read_result,write_result;
 //functions
 public:
 	FlashHandler_Class();
@@ -135,6 +135,7 @@ public:
 	uint32_t	ReadDefaultParameters(UserParameters& up);
 	uint32_t	WriteDefaultParameters(void);
 	uint32_t	ReadParameters(UserParameters& up);
+	uint32_t	ReadEventLogSector(uint32_t add, uint8_t *buffer);
 protected:
 private:
 	FlashHandler_Class( const FlashHandler_Class &c );

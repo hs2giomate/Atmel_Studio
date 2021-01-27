@@ -17,6 +17,7 @@
 #include "Scavenge_Fan.h"
 #include "Compresor_Controller.h"
 #include "TemperatureSensors_Class.h"
+#include "Event_Logger_Class.h"
 
 
 // default constructor
@@ -238,6 +239,7 @@ bool Commands_Handler::CommandReadFlapperData(void){
 			} 
 			else
 			{
+				fvds[i]= flapper.valve[i]->dataStruct;
 			}
 				
 		}
@@ -286,6 +288,59 @@ bool Commands_Handler::CommandReadParameters(){
 		}else{
 
 	}
+	
+	return result;
+}
+
+bool Commands_Handler::CommandReadDataLogger(){
+	//	usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+
+	memcpy(&dataLogMessage,usbMessageBuffer,sizeof(DataLogMessage));
+	bool	result(dataLogMessage.header.task == kHVACCommandReadDataLog);
+	if (result){
+			uint32_t add=*logger.memory_event_stack;
+			
+			if (add>=dataLogMessage.address)
+			{
+				memory_flash_address= dataLogMessage.address;
+				uint8_t memory_block[QSPI_ERBLK];
+				//	CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&add);
+				//	usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+				/*	uint32_t add=*logger.memory_event_stack;*/
+				
+				read_result=memory.ReadEventLogSector(memory_flash_address,memory_block);
+				if (read_result==0)
+				{
+					CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&memory_flash_address);
+					usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+					delay_ms(100);
+					write_result=usb.write(memory_block,QSPI_ERBLK);
+					result=write_result==0;
+					
+					
+				}
+				else
+				{
+					memory_flash_address=0;
+					CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&memory_flash_address);
+					usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+					result=false;
+					
+				}
+			} 
+			else
+			{
+				memory_flash_address=0;
+				CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&add);
+				usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+				result=false;
+			}
+			
+			
+		}
+		
+
+
 	
 	return result;
 }

@@ -16,7 +16,7 @@ int main(void)
 {
 	atmel_start_init();
 	delay_ms(1000);
-	cano.Init(1);
+	cano.Init_CO_CLASS(1);
 	/* Replace with your application code */
     while (1) 
     {

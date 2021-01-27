@@ -56,14 +56,24 @@ int main(void)
 	
 	//StartLivePulse();
 	delay_ms(200);
-	memory.Init();
-	memory.WriteDefaultParameters();
+	logger.Init();
+	while(!memory.Init()){
+		delay_ms(DELAY_ERROR);
+		gpio_toggle_pin_level(LED0);
+	}
+	if (memory.initiated)
+	{
+		memory.WriteDefaultParameters();
+		logger.SaveEvent("Info:Memory Started");
+	}
+
+	
 	bool isOK=temperatures.Init();
 	if (isOK)
 	{
 		temperatures.StartOneConversion();
 	}
-	gpio_set_pin_level(LED0,true);
+ 	gpio_set_pin_level(LED0,true);
 	while (!flapper.Init())
 	{
 		delay_ms(DELAY_ERROR);
@@ -83,11 +93,14 @@ int main(void)
 			}	while(!scavenge.Init()){
 		delay_ms(DELAY_ERROR);
 		gpio_toggle_pin_level(LED0);
-	}	scavenge.SetEnable(false);		while(!ccu.Init()){		delay_ms(DELAY_ERROR);		gpio_toggle_pin_level(LED0);	}	ccu.SetEnable(false);				usb.Init();			
-// 	heater.DisableIndex(0);
-// 	heater.DisableIndex(1);
-// 	heater.DisableIndex(2);
-// 	heater.DisableIndex(3);
+	}	scavenge.SetEnable(false);
+	while(!ccu.Init()){
+		delay_ms(DELAY_ERROR);
+		gpio_toggle_pin_level(LED0);
+	}
+	ccu.SetEnable(false);
+				usb.Init();			
+
 
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareIsAlive),1000);
 	uint8_t localSetpoint=210;
@@ -123,28 +136,33 @@ int main(void)
 			flapper.valve1->Control_NBC_StandAlone_Reset();
 			flapper.valve2->Control_NBC_StandAlone_Reset();
 	//	}
-		if (temperatures.IsConversionFinished())
+		if (temperatures.isOK)
 		{
-			
-			temperatures.GetConversionResult();
-			if (temperatures.faultData==VALID_TEMPERATURE)
+			if (temperatures.IsConversionFinished())
 			{
-				lastTemperature=currentTemperature;
-				currentTemperature=temperatures.lastValue;
-				if (lastTemperature!=currentTemperature)
+			
+				temperatures.GetConversionResult();
+				if (temperatures.faultData==VALID_TEMPERATURE)
 				{
+					lastTemperature=currentTemperature;
+					currentTemperature=temperatures.lastValue;
+					if (lastTemperature!=currentTemperature)
+					{
 					
-					gotNewTemperature=true;
+						gotNewTemperature=true;
 					
-				}
+					}
 				
+				}
+				temperatures.StartOneConversion();
+				asm("nop");
 			}
-			temperatures.StartOneConversion();
-			asm("nop");
 		}
+		
 		
 		ccu.Periodic_Task();
 		counter_running++;
+		logger.SaveEventIndexResult("Running  like crazy!!!",(uint8_t)counter_running,0);
 			//delay_ms(10);
 		
 // 		fvc1.fv->ClearMoveFault(true);

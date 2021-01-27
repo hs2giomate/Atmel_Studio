@@ -10,14 +10,19 @@
 #include "ConfigurationData.h"
 #include "FlashHandler_Class.h"
 #include "MemoryFlash_Class.h"
+#include "Event_Logger_Class.h"
 
 
 static uint8_t staticEventLogs[QSPI_ERBLK];
+static uint32_t local_memory_event_stack;
 
 // default constructor
 DataLoger_Class::DataLoger_Class()
 {
 	stackPointer=&staticEventLogs[0];
+	logger.memory_event_stack=&local_memory_event_stack;
+	logger.event_buffer_arrray=staticEventLogs;
+	
 } //DataLoger_Class
 
 // default destructor
@@ -54,8 +59,9 @@ uint32_t DataLoger_Class::StackEventEntry(Event_Log_Entry *ent){
 	
 	if (IsStackFull())
 	{
-		memory.SaveEventLog(&staticEventLogs[0]);
+		local_memory_event_stack=memory.SaveEventLog(staticEventLogs);
 		SetStackValue(0);
+		memset(staticEventLogs,0,QSPI_ERBLK);
 		
 	} 
 	else
@@ -66,9 +72,26 @@ uint32_t DataLoger_Class::StackEventEntry(Event_Log_Entry *ent){
 	stackValue+=sizeof(Event_Log_Entry);
 	return stackValue;
 }
+uint32_t DataLoger_Class::StackEventEntry(Event_Log_Entry *ent, uint8_t len){
+	
+	if (IsStackFull())
+	{
+		local_memory_event_stack=memory.SaveEventLog(staticEventLogs);
+		SetStackValue(0);
+		memset(staticEventLogs,0,QSPI_ERBLK);
+		
+	}
+	else
+	{
+		
+	}
+	memcpy(&stackPointer[stackValue],ent,12+len);
+	stackValue+=12+len;
+	return stackValue;
+}
 
 bool	DataLoger_Class::IsStackFull(void){
-	if ((stackPointer+(sizeof(Event_Log_Entry))>&staticEventLogs[QSPI_ERBLK-1]))
+	if (stackValue+(sizeof(Event_Log_Entry))>QSPI_ERBLK)
 	{
 		return true;
 	} 

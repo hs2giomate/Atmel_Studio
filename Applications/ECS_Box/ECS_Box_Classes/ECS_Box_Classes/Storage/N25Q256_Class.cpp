@@ -122,14 +122,15 @@ bool	N25Q256_Class::WaitOnBusy(void){
 		return	(status&(0x01))==0;
 }
 bool	N25Q256_Class::SelfTest(void){
-	currentAddress=2*QSPI_ERBLK;
-// 	for (uint32_t i = 0; i <QSPI_ERBLK ; i++) {
-// 		tx_buffer[i] = (uint8_t)rand();
-// 		rx_buffer[i] = (uint8_t)(QSPI_BUFFER_SIZE-i);
-// 	}	uint8_t	testRXBuffer[QSPI_ERBLK];
+	uint8_t	testRXBuffer[QSPI_ERBLK];
 	uint8_t	testTXBuffer[QSPI_ERBLK];
-	ReadAddress(testTXBuffer,currentAddress,QSPI_ERBLK);
-	WaitOnBusy();
+	currentAddress=20*QSPI_ERBLK;
+	for (uint32_t i = 0; i <QSPI_ERBLK ; i++) {
+		testTXBuffer[i] = (uint8_t)rand();
+		testRXBuffer[i] = (uint8_t)(QSPI_BUFFER_SIZE-i);
+	}
+	//ReadAddress(testTXBuffer,currentAddress,QSPI_ERBLK);
+	//WaitOnBusy();
 	Erase(currentAddress);
 	WaitOnBusy();
 	WriteAddress(testTXBuffer,currentAddress,QSPI_ERBLK);

@@ -9,6 +9,8 @@
 #include "CO_HB_Consumer_Class.h"
 #include "CO_Driver_Class.h"
 #include "CO_Emergency_Class.h"
+#include "CO_OD_Class.h"
+#include "string.h"
 
 CO_HB_Consumer_Class	*ptrHBConsumerClass;
 CO_HBconsNode_t         *ptrMonitoredNodes;
@@ -24,6 +26,7 @@ static void CO_HBcons_receive(void *object,const CO_CANrxMsg_t *msg){
 		HBconsNode->NMTstate = msg->data[0];
 		HBconsNode->CANrxNew = true;
 	}
+	
 	
 	
 }

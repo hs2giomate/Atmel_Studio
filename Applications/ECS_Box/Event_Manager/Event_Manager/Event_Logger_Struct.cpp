@@ -20,11 +20,11 @@ Event_Logger_Struct::~Event_Logger_Struct()
 } //~Event_Logger_Struct
 
 void	Event_Logger_Struct::ChopStringDescription(uint8_t* str){
-	RemoveSpaces((char *)str);
+	//RemoveSpaces((char *)str);
 	sizeText=strlen((char *)str);
 	if (sizeText>44)
 	{
-		str[44]='\0';
+		str[44]=END__OF_ENTRY;
 	} 
 	else
 	{
@@ -41,7 +41,7 @@ void Event_Logger_Struct::RemoveSpaces(char *str)
 	// is not space, then place it at index 'count++'
 	for (int i = 0; str[i]; i++){
 		if (str[i] != ' '){
-			str[count++] = str[i]; // here count is
+			str[count++] = str[i+1]; // here count is
 		}
 	}
 	
@@ -55,11 +55,11 @@ uint8_t Event_Logger_Struct::FindSemiColon(uint8_t *str)
 	
 	// Traverse the given string. If current character
 	// is not space, then place it at index 'count++'
-	for (int i = 0; strlen((char *)str); i++){
+	for (uint8_t i = 0; str[i]; i++){
 		if (str[i] == ':'){
 			return i;
 		}
 	}
 	
-	return strlen((char *)str);
+	return 0;
 }

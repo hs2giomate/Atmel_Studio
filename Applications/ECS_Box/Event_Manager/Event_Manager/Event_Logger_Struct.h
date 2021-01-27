@@ -9,11 +9,14 @@
 #ifndef __EVENT_LOGGER_STRUCT_H__
 #define __EVENT_LOGGER_STRUCT_H__
 #include "compiler.h"
+#define  DESCRIPTION_LENGHT_TEXT	64-12-1
+#define END__OF_ENTRY			0x0a
 struct __attribute__((__packed__))  Event_Log_Entry
 {
 	uint32_t	timestamp;
-	uint8_t		code[16];
-	char		description[44];
+	uint8_t		code[8];
+	char		description[DESCRIPTION_LENGHT_TEXT];
+	uint8_t		endline=END__OF_ENTRY;
 };
 
 
@@ -26,6 +29,7 @@ public:
 protected:
 private:
 	uint8_t	sizeText;
+	
 
 //functions
 public:

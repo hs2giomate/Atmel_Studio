@@ -24,6 +24,7 @@
 
 
 #include "Event_Logger_Class.h"
+#include "SingleHeater_Class.h"
 
 
 

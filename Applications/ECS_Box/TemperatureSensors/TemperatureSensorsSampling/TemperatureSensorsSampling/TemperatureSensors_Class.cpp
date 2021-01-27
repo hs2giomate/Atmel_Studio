@@ -7,6 +7,10 @@
 
 
 #include "TemperatureSensors_Class.h"
+#include "Event_Logger_Class.h"
+
+
+
 static TemperatureSensors_Class	*ptrTemperaturesClass;
 
 static void Converter1Ready(void){
@@ -50,6 +54,14 @@ TemperatureSensors_Class::~TemperatureSensors_Class()
 bool	TemperatureSensors_Class::Init(void){
 	spiLite->set_descriptor(SPIA);
 	spiLite->init();
+	if (spiLite->ready)
+	{
+		logger.SaveEvent("SPI Temperatures Started");
+	} 
+	else
+	{
+		logger.SaveEvent("SPI Temperatures Failed");
+	}
 	ptrTemperaturesClass=this;
 	ext_irq_register(PIN_PB08, Converter1Ready);
 	ext_irq_register(PIN_PB09, Converter2Ready);
@@ -66,6 +78,8 @@ bool TemperatureSensors_Class::InitModules(void){
 	for (uint8_t  ii = 0; ii < NUMBER_LTC2983_MODULES; ii++)
 	{
 		module[ii].Init(csPins[ii],spiLite);
+		logger.SaveEventIndexResult("Module ",ii,(uint8_t)(!isOK));
+
 	}
 	return true;
 

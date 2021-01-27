@@ -324,7 +324,16 @@ Commands_Handler.d Commands_Handler.o: .././Commands_Handler.cpp \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_Class.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_configuration_constants.h \
  ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h \
- ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h \
+ ../../../../../ECS_Box/Event_Manager/Event_Manager/Event_Logger_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h \
+ ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
+ ../../../../../ECS_Box/Event_Manager/Event_Manager/DateTime_Logger.h \
+ ../../../../../ECS_Box/Event_Manager/Event_Manager/DataLoger_Class.h \
+ ../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h \
+ ../../../../../ECS_Box/Event_Manager/Event_Manager/Event_Logger_Struct.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h
 
 .././Commands_Handler.h:
 
@@ -979,3 +988,21 @@ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_OD_Class.h:
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LTC2983_table_coeffs.h:
 
 ../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/LTC2983/LT_SPI.h:
+
+../../../../../ECS_Box/Event_Manager/Event_Manager/Event_Logger_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h:
+
+../../../../../ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
+
+../../../../../ECS_Box/Event_Manager/Event_Manager/DateTime_Logger.h:
+
+../../../../../ECS_Box/Event_Manager/Event_Manager/DataLoger_Class.h:
+
+../../../../../ECS_Box/QSPI_Memory_Handler/ConfigurationData.h:
+
+../../../../../ECS_Box/Event_Manager/Event_Manager/Event_Logger_Struct.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h:

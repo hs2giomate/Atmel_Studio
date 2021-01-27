@@ -9,6 +9,7 @@
 #include "MemoryFlash_Class.h"
 //#include "AT24MAC_Class.h"
 #include "CDC_Class.h"
+#include "Event_Logger_Class.h"
 
 static	uint8_t	flashBufferStatic[QSPI_ERBLK/1];
 
@@ -22,6 +23,7 @@ MemoryFlash_Class::MemoryFlash_Class()
 	flashBuffer=&flashBufferStatic[0];
 	
 	stackpointerEventloger=(uint32_t)&flashMap->EventsLogStateSector;
+	initiated=false;
 	
 } //MemoryManagment_Class
 
@@ -35,15 +37,19 @@ MemoryFlash_Class::~MemoryFlash_Class()
 bool	MemoryFlash_Class::Init(uint32_t flashChipSize){
 		if (qspiFlash.Init())
 		{
-			usb<<"Flash Memory SelfTest PASSED"<<NEWLINE;
+			logger.SaveEvent("Flash Memory SelfTest PASSED");
+			initiated=true;
+			//usb<<"Flash Memory SelfTest PASSED"<<NEWLINE;
 		} 
 		else
 		{
-			usb<<"Flash Memory SelfTest FAILED"<<NEWLINE;
+			logger.SaveEvent("Flash Memory SelfTest FAILED");
+			initiated=false;
+			//usb<<"Flash Memory SelfTest FAILED"<<NEWLINE;
 		}
 				
 		SetChipID(flashChipSize);
-		return true;
+		return initiated;
 }
 
 uint32_t MemoryFlash_Class::GetNextAvailableAddress(uint16_t size) {
@@ -221,7 +227,7 @@ uint32_t	MemoryFlash_Class::ReadDeafultApplicationState(HVACState& as){
 
 	  return	r;
   }
-   uint32_t	MemoryFlash_Class::SaveEventLog(uint8_t *evl){
+ uint32_t	MemoryFlash_Class::SaveEventLog(uint8_t *evl){
 	  
 	
 		   if ((stackpointerEventloger+QSPI_ERBLK)>N25Q_FLASH_SIZE)
@@ -235,7 +241,18 @@ uint32_t	MemoryFlash_Class::ReadDeafultApplicationState(HVACState& as){
 		   }
 	
 		  stackpointerEventloger+=QSPI_ERBLK;
+		  qspiFlash.Erase(stackpointerEventloger);
+		  qspiFlash.WaitOnBusy();
 		   uint32_t w=qspiFlash.WriteAddress(evl, stackpointerEventloger,QSPI_ERBLK);
+		    qspiFlash.WaitOnBusy();
+		   if (w==0)
+		   {
+			   return stackpointerEventloger;
+		   } 
+		   else
+		   {
+			   return (uint32_t)&flashMap->EventsLogStateSector+QSPI_ERBLK;
+		   }
 		   return	w;
 
 	 

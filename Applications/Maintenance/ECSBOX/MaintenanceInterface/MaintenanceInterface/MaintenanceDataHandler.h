@@ -76,6 +76,7 @@ enum
 		kHVACCommandReadCompressorStatus,	       //!< Used to transmit new configuration data
 		kHVACCommandSetCompressor,	       //!< Used to transmit new configuration data
 		kHVACCommandSetpointCompressor,	       //!< Used to transmit new configuration data
+	kHVACCommandReadDataLog,	       //!< Used to transmit new configuration data
     kGAINCommandSetCycleDictionary,     //!< Not used in 932
     kGAINCommandSetCycleDescription,    //!< Cycle description are presets that can be set in m.tool (power and time)
     kGAINCommandSetControllerState,     //!< Ports (Pins) can be set or reset (for example: cavity led, fans on off...)
@@ -96,6 +97,11 @@ enum
 	 HVACMessageHeader	header;
 	 uint8_t		description;
  };
+  struct __attribute__((__packed__)) DataLogMessage
+  {
+	  HVACMessageHeader	header;
+	  uint32_t		address;
+  };
   struct __attribute__((__packed__)) FullBufferMessage
   {
 	  HVACMessageHeader	header;

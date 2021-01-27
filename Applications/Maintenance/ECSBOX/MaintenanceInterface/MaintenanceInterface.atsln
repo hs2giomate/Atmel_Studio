@@ -29,6 +29,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Compresor_Controller", "..\
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CANOpen_Class", "..\..\..\..\Classes\CAN\CANOpen_Class\CANOpen_Class\CANOpen_Class.cppproj", "{A19EFDF3-F37A-49D6-8BC0-1774108432B7}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Event_Manager", "..\..\..\ECS_Box\Event_Manager\Event_Manager\Event_Manager.cppproj", "{1FAF35E7-7976-4654-9C26-384AD65579A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -168,6 +170,16 @@ Global
 		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Release|ARM.Build.0 = Release|ARM
 		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Slave|ARM.ActiveCfg = Slave|ARM
 		{A19EFDF3-F37A-49D6-8BC0-1774108432B7}.Slave|ARM.Build.0 = Slave|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.Debug|ARM.ActiveCfg = Debug|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.Debug|ARM.Build.0 = Debug|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.Master|ARM.ActiveCfg = Debug|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.Master|ARM.Build.0 = Debug|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.NMTMaster|ARM.ActiveCfg = Debug|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.NMTMaster|ARM.Build.0 = Debug|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.Release|ARM.ActiveCfg = Release|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.Release|ARM.Build.0 = Release|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.Slave|ARM.ActiveCfg = Debug|ARM
+		{1FAF35E7-7976-4654-9C26-384AD65579A4}.Slave|ARM.Build.0 = Debug|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

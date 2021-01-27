@@ -7,6 +7,8 @@
 
 #include "main.h"
 #define		DELAY_TIME_REQUEST 100
+bool dir=false;
+uint32_t counter=0;
 //static Maintenance_Tool	toolApp;
 //static EvaporatorAndCondesatorFans_Class fans;
 //static SingleFlapperValve_Class fv(0);
@@ -37,28 +39,41 @@ int main(void)
 	//toolApp.Init();
 	while (1)
 	{
-		for (uint8_t i = 0; i < 8; i++)
-		{
-					fvc.StartControlling(0x20 +i*30);
-					while (!fvc.gotSetpoint)
-					{
-						fvc.Control_NBC_StandAlone_Reset();
-					}
-					
-					delay_ms(100);
-					fvc.StopControlling();
-		}
-			for (uint8_t i = 0; i < 8; i++)
-			{
-				fvc.StartControlling(230 -i*30);
-				while (!fvc.gotSetpoint)
-				{
-				fvc.Control_NBC_StandAlone_Reset();
-				}
-				delay_ms(100);
-				fvc.StopControlling();
-			}
-
+// 		for (uint8_t i = 0; i < 8; i++)
+// 		{
+// 					fvc.StartControlling(0x20 +i*30);
+// 					while (!fvc.gotSetpoint)
+// 					{
+// 						fvc.Control_NBC_StandAlone_Reset();
+// 					}
+// 					
+// 					delay_ms(100);
+// 					fvc.StopControlling();
+// 		}
+// 			for (uint8_t i = 0; i < 8; i++)
+// 			{
+// 				fvc.StartControlling(230 -i*30);
+// 				while (!fvc.gotSetpoint)
+// 				{
+// 				fvc.Control_NBC_StandAlone_Reset();
+// 				}
+// 				delay_ms(100);
+// 				fvc.StopControlling();
+// 			}
+fvc.singlefv->SetDirection(dir);
+fvc.singlefv->SetEnable(true);
+while(counter<0x8fff){
+	fvc.singlefv->ReadActualPosition();
+	counter++;
+}
+counter=0;
+fvc.singlefv->SetEnable(false);
+while(counter<0x4ff){
+	fvc.singlefv->ReadActualPosition();
+	counter++;
+}
+counter=0;
+dir=!dir;
 		
 // 		if (toolApp.IsAppConnected())
 // 		{

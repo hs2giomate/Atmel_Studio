@@ -57,6 +57,7 @@ private:
 	//AT24MAC_Class	*ptrMemory;
 //	static AT24MAC_Class	eepromCal;
 	PTR_DATE_TIME	handler;
+	char *compiled_time;
 	
 
 //functions

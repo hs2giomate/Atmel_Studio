@@ -38,6 +38,18 @@ uint32_t	FlashHandler_Class::ReadParameters(UserParameters& up){
 	uint32_t	r=ReadParameters(up,add);
 	return	r;
 }
+uint32_t	FlashHandler_Class::ReadEventLogSector(uint32_t add, uint8_t *buffer){
+	if (add>(uint32_t)&flashMap->EventsLogStateSector)
+	{
+		read_result=qspiFlash.ReadAddress(buffer,add,64);
+	} 
+	else
+	{
+		read_result=1;
+	}
+
+	return	read_result;
+}
 uint32_t	FlashHandler_Class::ReadLastConfigurationData(ConfigurationData& cd){
 	uint32_t	add=(uint32_t)&flashMap->configurationSector.lastConfiguracion;
 	uint32_t	r=ReadConfigurationData(cd,add);
