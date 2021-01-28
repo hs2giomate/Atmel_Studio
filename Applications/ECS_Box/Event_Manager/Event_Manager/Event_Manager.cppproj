@@ -20,26 +20,42 @@
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
     <ResetRule>0</ResetRule>
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <EraseKey />
     <AsfFrameworkConfig>
-      <framework-data xmlns="">
+      <framework-data>
         <options />
         <configurations />
         <files />
         <documentation help="" />
         <offline-documentation help="" />
         <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.40.0" />
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
+    <avrtoolserialnumber>ATML2748051800004896</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x61840300</avrdeviceexpectedsignature>
+    <avrtoolinterface>SWD</avrtoolinterface>
+    <com_atmel_avrdbg_tool_edbg>
+      <ToolOptions>
+        <InterfaceProperties>
+          <SwdClock>2000000</SwdClock>
+        </InterfaceProperties>
+        <InterfaceName>SWD</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.edbg</ToolType>
+      <ToolNumber>ATML2748051800004896</ToolNumber>
+      <ToolName>EDBG</ToolName>
+    </com_atmel_avrdbg_tool_edbg>
+    <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -177,6 +193,8 @@
             <Value>../../../ECS_Box_Classes/ECS_Box_Classes/EIDE_Utils</Value>
             <Value>../../../ECS_Box_Classes/ECS_Box_Classes/Timers</Value>
             <Value>../../../ECS_Box_Classes/ECS_Box_Classes/FlapperValve</Value>
+            <Value>../../../HeaterP0Board/HeaterP0Board</Value>
+            <Value>../../../ECS_Box_Classes/ECS_Box_Classes/I2C</Value>
           </ListValues>
         </armgcccpp.compiler.directories.IncludePaths>
         <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>
@@ -274,6 +292,11 @@
     <ProjectReference Include="..\..\ECS_Box_Classes\ECS_Box_Classes\ECS_Box_Objects.cppproj">
       <Name>ECS_Box_Objects</Name>
       <Project>{beb6ad6e-9654-4e0a-aeb3-838ccb975f4f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HeaterP0Board\HeaterP0Board\HeaterP0Board.cppproj">
+      <Name>HeaterP0Board</Name>
+      <Project>{4172bad9-872f-4868-aecf-eba6de6fbc87}</Project>
       <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\QSPI_Memory_Handler\QSPI_Memory_Handler.cppproj">

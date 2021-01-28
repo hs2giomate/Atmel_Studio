@@ -28,6 +28,7 @@ public:
 	 uint32_t    currentAddress;
 	 RingBuffer	ringBuffer;
 	 ECSConfiguration	appState;
+	 bool initiated;
 protected:
 private:
 	PTR_CTR_STATE	handlerCtrState;
