@@ -1753,7 +1753,7 @@ drivers:
           rtc_clk_selection: RTC source
   I2C_HEATERS:
     user_label: I2C_HEATERS
-    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM1::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM3::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
     functionality: I2C
     api: HAL:Driver:I2C_Master_Sync
     configuration:
@@ -1771,26 +1771,26 @@ drivers:
     variant:
       specification: SDA=0, SCL=1
       required_signals:
-      - name: SERCOM1/PAD/0
-        pad: PA16
-        label: SDA
-      - name: SERCOM1/PAD/1
+      - name: SERCOM3/PAD/0
         pad: PA17
+        label: SDA
+      - name: SERCOM3/PAD/1
+        pad: PA16
         label: SCL
     clocks:
       domain_group:
         nodes:
         - name: Core
-          input: Generic clock generator 2
+          input: Generic clock generator 0
           external: false
           external_frequency: 0
         - name: Slow
-          input: Generic clock generator 10
+          input: Generic clock generator 3
           external: false
           external_frequency: 0
         configuration:
-          core_gclk_selection: Generic clock generator 2
-          slow_gclk_selection: Generic clock generator 10
+          core_gclk_selection: Generic clock generator 0
+          slow_gclk_selection: Generic clock generator 3
   SPI_TEMP:
     user_label: SPI_TEMP
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::SERCOM4::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
@@ -2563,15 +2563,13 @@ pads:
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA16
     mode: I2C
     user_label: PA16
-    configuration:
-      pad_pull_config: Pull-up
+    configuration: null
   PA17:
     name: PA17
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA17
     mode: I2C
     user_label: PA17
-    configuration:
-      pad_pull_config: Pull-up
+    configuration: null
   CS_FRAM:
     name: PA19
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA19

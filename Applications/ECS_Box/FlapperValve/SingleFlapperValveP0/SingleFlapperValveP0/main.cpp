@@ -33,7 +33,7 @@ int main(void)
 	delay_ms(200);
 	memory.Init();
 	memory.WriteDefaultParameters();
-	fvc.InitController();
+	fvc.InitController(0);
 
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareAlive),250);
 	//toolApp.Init();

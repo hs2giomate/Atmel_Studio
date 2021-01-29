@@ -104,6 +104,48 @@ void Event_Logger_Class::SaveEvent(uint8_t* text){
 
 }
 
+void Event_Logger_Class::SaveInstationLog(void){
+	
+	uint8_t text[]="Initialization Finished";
+	
+	cal->GetDateTime(&currentDateTime);
+	
+	memcpy(&entry.code,info_text,8);
+
+	text_length=(uint8_t)strlen((char*)text);
+	if (text_length>DESCRIPTION_LENGHT_TEXT)
+	{
+		ChopStringDescription(text);
+		memcpy(&entry.description,text,DESCRIPTION_LENGHT_TEXT);
+		text_length=DESCRIPTION_LENGHT_TEXT;
+	}
+	else
+	{
+		memcpy(&entry.description,text,(uint32_t)text_length);
+		entry.description[text_length]=END__OF_ENTRY;
+	}
+	
+	currentTimestamp= cal->convert_datetime_to_timestamp(&currentDateTime);
+	if (currentTimestamp>0)
+	{
+		entry.timestamp=currentTimestamp;
+	}
+	else
+	{
+		entry.timestamp=0xffffffff;
+	}
+	
+	StackEventEntry(&entry,0xff);
+	
+
+}
+
+uint32_t Event_Logger_Class::GetCurrentTimeStamp(void){
+	cal->GetDateTime(&currentDateTime);
+	currentTimestamp= cal->convert_datetime_to_timestamp(&currentDateTime);
+	return currentTimestamp;
+}
+
 void Event_Logger_Class::SaveEventIndexResult(char *text,uint8_t index, uint8_t result){
 	task_result	=(TaskResult)result;
 

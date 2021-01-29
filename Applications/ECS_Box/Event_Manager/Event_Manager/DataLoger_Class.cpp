@@ -73,20 +73,37 @@ uint32_t DataLoger_Class::StackEventEntry(Event_Log_Entry *ent){
 	return stackValue;
 }
 uint32_t DataLoger_Class::StackEventEntry(Event_Log_Entry *ent, uint8_t len){
-	
-	if (IsStackFull())
+	if (len==0xff)
 	{
-		local_memory_event_stack=memory.SaveEventLog(staticEventLogs);
-		SetStackValue(0);
-		memset(staticEventLogs,0,QSPI_ERBLK);
+		uint8_t length;
+		uint8_t text[]="Initialization Finished";
+		
+		length=(uint8_t)strlen((char*)text);
+		
+			memcpy(&stackPointer[stackValue],ent,12+length+1);
+			local_memory_event_stack=memory.SaveEventLog(staticEventLogs);
+			SetStackValue(0);
+			memset(staticEventLogs,0,QSPI_ERBLK);
 		
 	}
 	else
 	{
+		if (IsStackFull())
+		{
+			local_memory_event_stack=memory.SaveEventLog(staticEventLogs);
+			SetStackValue(0);
+			memset(staticEventLogs,0,QSPI_ERBLK);
+			
+		}
+		else
+		{
+			
+		}
+		memcpy(&stackPointer[stackValue],ent,12+len);
+		stackValue+=12+len;
 		
 	}
-	memcpy(&stackPointer[stackValue],ent,12+len);
-	stackValue+=12+len;
+	
 	return stackValue;
 }
 

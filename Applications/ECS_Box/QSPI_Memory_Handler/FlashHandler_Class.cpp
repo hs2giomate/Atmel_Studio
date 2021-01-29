@@ -41,7 +41,9 @@ uint32_t	FlashHandler_Class::ReadParameters(UserParameters& up){
 uint32_t	FlashHandler_Class::ReadEventLogSector(uint32_t add, uint8_t *buffer){
 	if (add>(uint32_t)&flashMap->EventsLogStateSector)
 	{
-		read_result=qspiFlash.ReadAddress(buffer,add,64);
+		read_result=qspiFlash.ReadAddress(buffer,add,QSPI_ERBLK);
+		qspiFlash.WaitOnBusy();
+		
 	} 
 	else
 	{

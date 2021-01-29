@@ -13,10 +13,19 @@
 #include "DataLoger_Class.h"
 #include "Event_Logger_Struct.h"
 #include "time.h"
+
+enum TaskResult
+{
+	SUCCESS=0,
+	FAILLED,
+	ABORT
+};
 class Event_Logger_Class:  public Calendar_Class, private Event_Logger_Struct, private DataLoger_Class
 {
 //variables
 public:
+	uint32_t *memory_event_stack;
+	uint8_t *event_buffer_arrray;
 protected:
 private:
 	Calendar_Class* cal;
@@ -27,6 +36,12 @@ private:
 	Event_Log_Entry	entry;
 	uint8_t	semiColonPosition;
 	uint32_t stackLocalArray,currentTimestamp;
+	TaskResult task_result;
+	char *logger_text;
+	char *logger_module;
+	char *logger_number;
+	uint8_t *info_text;
+	uint8_t  text_length;
 	
 
 //functions
@@ -35,6 +50,10 @@ public:
 	~Event_Logger_Class();
 	bool Init();
 	void SaveEvent(uint8_t* text);
+	void SaveEvent(char const *text);
+	void SaveEventIndexResult(char *text,uint8_t index, uint8_t result);
+	uint32_t GetCurrentTimeStamp(void);
+	void SaveInstationLog(void);
 protected:
 private:
 	Event_Logger_Class( const Event_Logger_Class &c );

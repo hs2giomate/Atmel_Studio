@@ -19,6 +19,7 @@
 #include "TemperatureSensors_Class.h"
 #include "Event_Logger_Class.h"
 
+static uint8_t  local_memory_block[QSPI_ERBLK];
 
 // default constructor
 Commands_Handler::Commands_Handler()
@@ -33,6 +34,7 @@ Commands_Handler::~Commands_Handler()
 
 void Commands_Handler::InitCommandHandler(uint8_t * buffer){
 	usbMessageBuffer=buffer;
+	memory_block=local_memory_block;
 }
 
 bool Commands_Handler::CommandSetEnableFans(void){
@@ -303,7 +305,7 @@ bool Commands_Handler::CommandReadDataLogger(){
 			if (add>=dataLogMessage.address)
 			{
 				memory_flash_address= dataLogMessage.address;
-				uint8_t memory_block[QSPI_ERBLK];
+				
 				//	CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&add);
 				//	usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 				/*	uint32_t add=*logger.memory_event_stack;*/
@@ -311,7 +313,11 @@ bool Commands_Handler::CommandReadDataLogger(){
 				read_result=memory.ReadEventLogSector(memory_flash_address,memory_block);
 				if (read_result==0)
 				{
-					CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&memory_flash_address);
+					
+					memcpy(logger_buffer,(uint8_t*)&memory_flash_address,4);
+					ucontroller_timestamp=logger.GetCurrentTimeStamp();
+					memcpy((uint8_t*)&logger_buffer[4],(uint8_t*)&ucontroller_timestamp,4);
+					CreateFullBufferMessage(usbMessageBuffer,logger_buffer);
 					usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 					delay_ms(100);
 					write_result=usb.write(memory_block,QSPI_ERBLK);

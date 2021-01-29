@@ -34,7 +34,10 @@ private:
 	uint16_t compressor_speed;
 	uint32_t read_result,write_result;
 	uint32_t memory_flash_address;
+	uint32_t ucontroller_timestamp;
+	uint8_t logger_buffer[8];
 	DataLogMessage  dataLogMessage;
+	uint8_t *memory_block;
 	
 
 //functions

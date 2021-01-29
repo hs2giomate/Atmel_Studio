@@ -114,7 +114,7 @@ int main(void)
 	
 
 
-
+	logger.SaveInstationLog();
 
 	while (1)
 	{
@@ -162,7 +162,11 @@ int main(void)
 		
 		ccu.Periodic_Task();
 		counter_running++;
-		logger.SaveEventIndexResult("Running  like crazy!!!",(uint8_t)counter_running,0);
+		if (counter_running%0x100==0)
+		{
+			logger.SaveEventIndexResult("Running  like crazy!!!",(uint8_t)counter_running,0);
+		}
+		
 			//delay_ms(10);
 		
 // 		fvc1.fv->ClearMoveFault(true);
