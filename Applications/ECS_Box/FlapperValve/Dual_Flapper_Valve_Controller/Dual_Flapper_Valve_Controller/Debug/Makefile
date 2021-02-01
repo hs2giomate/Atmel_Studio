@@ -85,6 +85,7 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 LIB_DEP+=  \
 S:/AtmelStudio/Applications/ECS_Box/ALU_Driver/ALU_Driver/Debug/libALU_Driver.a \
 S:/AtmelStudio/Applications/ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Debug/libECS_Box_Objects.a \
+S:/AtmelStudio/Applications/ECS_Box/Event_Manager/Event_Manager/Debug/libEvent_Manager.a \
 S:/AtmelStudio/Applications/ECS_Box/QSPI_Memory_Handler/Debug/libQSPI_Memory_Handler.a \
 S:/AtmelStudio/Applications/ECS_Box/QSPI_Memory_Handler/Debug/libQSPI_Memory_Handler.a
 
