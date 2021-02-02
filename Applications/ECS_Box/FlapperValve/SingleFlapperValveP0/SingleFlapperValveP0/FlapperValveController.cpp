@@ -76,6 +76,7 @@ FlapperValveController::FlapperValveController()
 	standAloneMode=false;
 	resetTimeout=false;
 	standAloneReturning=false;
+	partner=NULL;
 	
 	
 } //FlapperValveController
@@ -268,14 +269,22 @@ bool FlapperValveController::Control_NBC_StandAlone(void){
 bool	FlapperValveController::IsStandAloneMode(){
 	
 	bool result=false;
-	if (partner->isOK)
+	if (partner!=NULL)
 	{
+		if (partner->isOK)
+		{
 			result=partner->dataStruct.controlOutputs.iAlcFvStandAloneOut;
+		}
+		else
+		{
+			result=true;
+		}
 	} 
 	else
 	{
 		result=true;
 	}
+	
 
 
 	return result;
@@ -595,6 +604,10 @@ void FlapperValveController::StopValveinBetween(void){
 uint8_t	FlapperValveController::CorrectTolerance(uint8_t sp){
 	float floatTolerance=FLAPPER_VALVE_CONTROL_LIMIT*((abs(127-sp)-128))/256;
 	tolerance=(uint8_t)floatTolerance;
+	if (tolerance<1)
+	{
+		tolerance=0x01;
+	}
 	return tolerance;
 }
 uint8_t	FlapperValveController::StartMotor(){

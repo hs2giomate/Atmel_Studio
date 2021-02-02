@@ -25,55 +25,64 @@ int main(void)
 	atmel_start_init();
 	uint8_t position;
 
-	usb.Init();
-	delay_ms(100);
-	//	usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
-	//	usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
-	pwm_enable(&LIVE_PULSE);
-	delay_ms(200);
+// 	usb.Init();
+// 	delay_ms(100);
+// 	//	usb<<NEWLINE<<NEWLINE<<"*** StartUp Algorithmen Test ***"<<NEWLINE;
+// 	//	usb<<"*** Date:  "<<__DATE__<<" Time: "<<__TIME__<<NEWLINE<<NEWLINE;
+// 	pwm_enable(&LIVE_PULSE);
+// 	delay_ms(200);
 	memory.Init();
+	UserParameters  local_parameters=defaultParameters;
 	memory.WriteDefaultParameters();
-	fvc.InitController(0);
+	memory.SaveParameters(local_parameters);
+	while(!fvc.InitController(1))
+	{
+		gpio_toggle_pin_level(LED0);
+		delay_ms(100);
+	}
 
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareAlive),250);
 	//toolApp.Init();
 	while (1)
 	{
-// 		for (uint8_t i = 0; i < 8; i++)
-// 		{
-// 					fvc.StartControlling(0x20 +i*30);
-// 					while (!fvc.gotSetpoint)
-// 					{
-// 						fvc.Control_NBC_StandAlone_Reset();
-// 					}
-// 					
-// 					delay_ms(100);
-// 					fvc.StopControlling();
+			for (uint8_t i = 0; i < 8; i++)
+			{
+				fvc.StartControlling(0x20 +i*30);
+				while (!fvc.gotSetpoint)
+				{
+					fvc.Control_NBC_StandAlone_Reset();
+				}
+						
+				delay_ms(1000);
+				//	fvc.StopControlling();
+			}
+	
+		for (uint8_t i = 0; i < 8; i++)
+		{
+			fvc.StartControlling(230 -i*30);
+			while (!fvc.gotSetpoint)
+			{
+				fvc.Control_NBC_StandAlone_Reset();
+			}
+			delay_ms(1000);
+			//fvc.StopControlling();
+		}
+
+		
+// 		fvc.singlefv->SetDirection(dir);
+// 		fvc.singlefv->SetEnable(true);
+// 		while(counter<0x8fff){
+// 			fvc.singlefv->ReadActualPosition();
+// 			counter++;
 // 		}
-// 			for (uint8_t i = 0; i < 8; i++)
-// 			{
-// 				fvc.StartControlling(230 -i*30);
-// 				while (!fvc.gotSetpoint)
-// 				{
-// 				fvc.Control_NBC_StandAlone_Reset();
-// 				}
-// 				delay_ms(100);
-// 				fvc.StopControlling();
-// 			}
-fvc.singlefv->SetDirection(dir);
-fvc.singlefv->SetEnable(true);
-while(counter<0x8fff){
-	fvc.singlefv->ReadActualPosition();
-	counter++;
-}
-counter=0;
-fvc.singlefv->SetEnable(false);
-while(counter<0x4ff){
-	fvc.singlefv->ReadActualPosition();
-	counter++;
-}
-counter=0;
-dir=!dir;
+// 		counter=0;
+// 		fvc.singlefv->SetEnable(false);
+// 		while(counter<0x4ff){
+// 			fvc.singlefv->ReadActualPosition();
+// 			counter++;
+// 		}
+// 		counter=0;
+// 		dir=!dir;
 		
 // 		if (toolApp.IsAppConnected())
 // 		{

@@ -26,6 +26,7 @@ class Event_Logger_Class:  public Calendar_Class, private Event_Logger_Struct, p
 public:
 	uint32_t *memory_event_stack;
 	uint8_t *event_buffer_arrray;
+	uint32_t *event_buffer_arrray_stack;
 protected:
 private:
 	Calendar_Class* cal;
@@ -42,6 +43,7 @@ private:
 	char *logger_number;
 	uint8_t *info_text;
 	uint8_t  text_length;
+	
 	
 
 //functions

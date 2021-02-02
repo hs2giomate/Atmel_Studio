@@ -11,6 +11,7 @@
 
 #define HEATER_DATA_SIZE	4
 #define COMPRESSOR_DATA_SIZE	12
+#define EVENT_LOGGER_MASK 0xaaaa0000
 #include "MaintenanceDataHandler.h"
 
 
@@ -38,6 +39,10 @@ private:
 	uint8_t logger_buffer[8];
 	DataLogMessage  dataLogMessage;
 	uint8_t *memory_block;
+	uint32_t *last_logger_array_stack;
+	uint32_t current_logger_stack_value;
+	uint32_t logger_data_buffer_temp_size;
+	
 	
 
 //functions

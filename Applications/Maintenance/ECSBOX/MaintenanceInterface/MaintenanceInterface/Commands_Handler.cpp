@@ -20,11 +20,12 @@
 #include "Event_Logger_Class.h"
 
 static uint8_t  local_memory_block[QSPI_ERBLK];
+static uint32_t local_last_read_stack;
 
 // default constructor
 Commands_Handler::Commands_Handler()
 {
-	
+	last_logger_array_stack=&local_last_read_stack;
 } //Commands_Handler
 
 // default destructor
@@ -321,6 +322,7 @@ bool Commands_Handler::CommandReadDataLogger(){
 					usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 					delay_ms(100);
 					write_result=usb.write(memory_block,QSPI_ERBLK);
+					local_last_read_stack=*logger.event_buffer_arrray_stack;
 					result=write_result==0;
 					
 					
@@ -328,7 +330,7 @@ bool Commands_Handler::CommandReadDataLogger(){
 				else
 				{
 					memory_flash_address=0;
-					CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&memory_flash_address);
+					CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&add);
 					usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 					result=false;
 					
@@ -336,10 +338,45 @@ bool Commands_Handler::CommandReadDataLogger(){
 			} 
 			else
 			{
-				memory_flash_address=0;
-				CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&add);
-				usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
-				result=false;
+				current_logger_stack_value=*logger.event_buffer_arrray_stack;
+				if (current_logger_stack_value>local_last_read_stack)
+				{
+					logger_data_buffer_temp_size=current_logger_stack_value-local_last_read_stack;
+					memory_flash_address=(logger_data_buffer_temp_size)&(0xffff);
+					memory_flash_address|=EVENT_LOGGER_MASK;
+					memcpy(logger_buffer,(uint8_t*)&memory_flash_address,4);
+					ucontroller_timestamp=logger.GetCurrentTimeStamp();
+					memcpy((uint8_t*)&logger_buffer[4],(uint8_t*)&ucontroller_timestamp,4);
+					CreateFullBufferMessage(usbMessageBuffer,logger_buffer);
+					usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+					delay_ms(100);
+					write_result=usb.write(&logger.event_buffer_arrray[local_last_read_stack],logger_data_buffer_temp_size);
+					
+					if (write_result==0)
+					{
+						result=true;
+						memset(&logger.event_buffer_arrray[local_last_read_stack],0,logger_data_buffer_temp_size);
+						*logger.event_buffer_arrray_stack=local_last_read_stack;
+					} 
+					else
+					{
+						local_last_read_stack=*logger.event_buffer_arrray_stack;
+						result=false;
+					}
+					
+				}
+				else
+				{
+						memory_flash_address=0;
+						CreateFullBufferMessage(usbMessageBuffer,(uint8_t*)&add);
+						usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
+						result=false;
+				}
+				
+				
+				
+				
+			
 			}
 			
 			
