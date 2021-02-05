@@ -12,6 +12,7 @@
 //#include "MemoryManagment_Class.h"
 #include "Timer_Class.h"
 #include "Parameters.h"
+#include "Event_Logger_Class.h"
 
 SingleFlapperValve_Class	*ptrSingleFlapperValveClass;
 static I2C_Sync_Class		i2cStatic(&I2C_FLAPPER_VALVE);
@@ -66,6 +67,14 @@ bool	SingleFlapperValve_Class::Init(void){
 	else
 	{
 		i2c->Init();
+		if (i2c->isOK)
+		{
+			logger.SaveEvent("I2C Flapper Valve Success");
+		} 
+		else
+		{
+			logger.SaveEvent("I2C Flapper Valve Failed");
+		}
 	}
 		
 
@@ -77,7 +86,10 @@ bool	SingleFlapperValve_Class::Init(void){
 			expanders[1]->SetPortInput(0x82);
 			expanders[2]->SetPortOutput();
 			expanders[3]->SetPortInput();
+			
 							
+		}else{
+			
 		}
 		isOK=i2c->isOK;
 		

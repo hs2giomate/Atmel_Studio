@@ -10,7 +10,7 @@
 #define __COMMANDS_HANDLER_H__
 
 #define HEATER_DATA_SIZE	4
-#define COMPRESSOR_DATA_SIZE	12
+#define COMPRESSOR_DATA_SIZE	14
 #define EVENT_LOGGER_MASK 0xaaaa0000
 #include "MaintenanceDataHandler.h"
 
@@ -26,7 +26,7 @@ private:
 	FullBufferMessage message64;
 	uint8_t	data_fans_array[3];
 	uint8_t	heater_data_array[HEATER_DATA_SIZE];
-	uint8_t	compressor_data_array[COMPRESSOR_DATA_SIZE];
+	uint8_t	*compressor_data_array;
 	UserParameters	parameters;
 	bool is_stand_alone;
 	uint8_t	 lastEnableHeaters,enableHeaters;

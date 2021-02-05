@@ -296,7 +296,7 @@ void MCP23008_Class::setupInterrupts(uint8_t mirroring, uint8_t openDrain, uint8
 void MCP23008_Class::setupInterruptPin(uint8_t pin, uint8_t mode) {
 
 	// set the pin interrupt control (0 means change, 1 means compare against given value);
-	updateRegisterBit(pin,(mode!=MCP23008_CHANGE),MCP23008_INTCONA,MCP23008_INTCONA);
+	updateRegisterBit(pin,mode!=MCP23008_CHANGE,MCP23008_INTCONA,MCP23008_INTCONA);
 	// if the mode is not CHANGE, we need to set up a default value, different value triggers interrupt
 
 	// In a RISING interrupt the default value is 0, interrupt is triggered when the pin goes to 1.
@@ -313,6 +313,17 @@ void MCP23008_Class::SetChangeInterruptAllPins(){
 	for (uint8_t ii = 0; ii <MCP23008_NUMBER_PINS ; ii++)
 	{
 		setupInterruptPin(ii,MCP23008_CHANGE);
+	}
+}
+void MCP23008_Class::SetChangeInterruptPins(uint8_t mask){
+	setupInterrupts(false,false,MCP23008_HIGH);
+	for (uint8_t ii = 0; ii <MCP23008_NUMBER_PINS ; ii++)
+	{
+		if (mask&(0x01<<ii))
+		{
+			setupInterruptPin(ii,MCP23008_CHANGE);
+		}
+		
 	}
 }
 

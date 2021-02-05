@@ -667,7 +667,7 @@ drivers:
     configuration:
       eic_arch_asynch0: true
       eic_arch_asynch1: true
-      eic_arch_asynch10: false
+      eic_arch_asynch10: true
       eic_arch_asynch11: false
       eic_arch_asynch12: false
       eic_arch_asynch13: false
@@ -684,7 +684,7 @@ drivers:
       eic_arch_cksel: Clocked by GCLK
       eic_arch_debounce_enable0: true
       eic_arch_debounce_enable1: true
-      eic_arch_debounce_enable10: false
+      eic_arch_debounce_enable10: true
       eic_arch_debounce_enable11: false
       eic_arch_debounce_enable12: false
       eic_arch_debounce_enable13: false
@@ -700,7 +700,7 @@ drivers:
       eic_arch_debounce_enable9: true
       eic_arch_enable_irq_setting0: true
       eic_arch_enable_irq_setting1: true
-      eic_arch_enable_irq_setting10: false
+      eic_arch_enable_irq_setting10: true
       eic_arch_enable_irq_setting11: false
       eic_arch_enable_irq_setting12: false
       eic_arch_enable_irq_setting13: false
@@ -739,7 +739,7 @@ drivers:
       eic_arch_filten14: false
       eic_arch_filten15: false
       eic_arch_filten2: false
-      eic_arch_filten3: true
+      eic_arch_filten3: false
       eic_arch_filten4: true
       eic_arch_filten5: true
       eic_arch_filten6: false
@@ -835,6 +835,13 @@ drivers:
       definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.9
       name: EIC/EXTINT/9
       label: EXTINT/9
+    - identifier: EXTERNAL_IRQ_0:EXTINT/10
+      pad: PC10
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::optional_signal_definition::EIC.EXTINT.10
+      name: EIC/EXTINT/10
+      label: EXTINT/10
     variant: null
     clocks:
       domain_group:
@@ -2408,6 +2415,12 @@ pads:
     mode: Digital input
     user_label: VBUS_DETECTED
     configuration: null
+  CPU_RUNNING:
+    name: PC02
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC02
+    mode: Digital output
+    user_label: CPU_RUNNING
+    configuration: null
   PA03:
     name: PA03
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PA03
@@ -2532,6 +2545,12 @@ pads:
     mode: I2C
     user_label: PD09
     configuration: null
+  PC10:
+    name: PC10
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC10
+    mode: Digital input
+    user_label: PC10
+    configuration: null
   CAN_STDBY:
     name: PC13
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC13
@@ -2582,6 +2601,12 @@ pads:
     definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC18
     mode: Digital output
     user_label: LED0
+    configuration: null
+  USB_ID:
+    name: PC19
+    definition: Atmel:SAME54_Drivers:0.0.1::SAME54P20A-AU::pad::PC19
+    mode: Digital output
+    user_label: USB_ID
     configuration: null
   ARINCR2Int:
     name: PC22

@@ -8,10 +8,14 @@
 
 #ifndef __CO_DRIVER_CLASS_H__
 #define __CO_DRIVER_CLASS_H__
+#include "compiler.h"
+#include "stdint.h"
 #include "CO_Definitions.h"
+#include "interface.h"
 
 
 #define CO_LITTLE_ENDIAN
+
 #include "CO_SDO_Class.h"
 #include "CO_Emergency_Class.h"
 #include "CO_SYNC_Class.h"
@@ -41,6 +45,10 @@ public:
 	can_message receivedCOMsg;
 	CO_CANmodule_t* RxFifo_Callback_CanModule_p;
 	can_message msgHeader;
+	uint8_t		*error_flags_array;
+	int16_t	current_IQFilt,current_IDFilt;
+	uint16_t	*compressor_temperatures;
+	
 protected:
 private:
 	can_async_descriptor  *canDescr;
@@ -52,12 +60,15 @@ private:
 	bool_t msgMatched;
 	CO_CANrx_t *MsgBuff;
 	uint8_t            data[64];
+
 	CO_CANrxMsg_t	CANmessage;
 	uint32_t index;
 	uint32_t i;
 	CO_CANmodule_t         *CAN_Module;
 	can_filter  CO_Filter;
 	uint8_t slave_node;
+	tagSTATUSFLAGS	*status_flags;
+	tagERRORFLAGS	*error_flags;
 	
 //functions
 public:

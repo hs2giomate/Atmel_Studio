@@ -182,11 +182,11 @@
           <AcmeProjectActionInfo Action="File" Source="spi_nor_flash/spi_nor_flash.c" IsConfig="false" Hash="TCraZft50OJXeOYtNzasUw" />
           <AcmeProjectActionInfo Action="File" Source="spi_nor_flash/spi_nor_flash.h" IsConfig="false" Hash="k5fsJwmFou4udJsMuAaH3g" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="SkxY4rrpNlF8ZOxT/ec55Q" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="hF2n5cxxb2wu59oJIMP5Vg" />
           <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="3zcJ3fwBCd5/K10+uVAzfg" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="zNlTKbeVcIx7aUxZx5mobg" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="91xiw5tPc5bGZCLyESzfug" />
           <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="sKbanuw5XV05PnwpOk/xBg" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="941QNw7Gzxw9PvPhwGccmA" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="RERt+I8dOguPOdsIuYQtOQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_pwm.h" IsConfig="false" Hash="RXcBZcci/7vXKRJKNIq/Kw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_timer.h" IsConfig="false" Hash="K2YzTAjvQcI6vN6u/xP3HQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_calendar.h" IsConfig="false" Hash="E2gwBBatdcqZegUjH8HtWg" />
@@ -202,7 +202,7 @@
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_async.h" IsConfig="false" Hash="tBfmk3BN3Q1WbYVoWDbsJw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart_sync.h" IsConfig="false" Hash="Yj+PoPxG2CqDOy5XoIWkwg" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_calendar.c" IsConfig="false" Hash="lYVRpDSx+np+02xVeQ9HHQ" />
-          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_ext_irq.c" IsConfig="false" Hash="nJMRz+ocPiuEB5lN+ArUeA" />
+          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_ext_irq.c" IsConfig="false" Hash="oLJd41hL2eBUEY0iqTwCUg" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_pwm.c" IsConfig="false" Hash="ZFJmg7/0rhQ6JMKyxuk9kw" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_spi_m_sync.c" IsConfig="false" Hash="Q0IudnTEWeoIkfQIoYIqxA" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_timer.c" IsConfig="false" Hash="I69OxE1eectXiNlD5JcXBQ" />
@@ -215,7 +215,7 @@
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_init.c" IsConfig="false" Hash="F7LWnw98uHRWlYdUayZdJQ" />
           <AcmeProjectActionInfo Action="File" Source="hpl/dmac/hpl_dmac.c" IsConfig="false" Hash="RW/GgakK2RoVdDBtrCxYaA" />
           <AcmeProjectActionInfo Action="File" Source="hpl/dsu/hpl_dsu.c" IsConfig="false" Hash="B8T8Ohu2RwPjnpt/yRdg5w" />
-          <AcmeProjectActionInfo Action="File" Source="hpl/eic/hpl_eic.c" IsConfig="false" Hash="NPe8s5tb58rlU1rgOFtxsg" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/eic/hpl_eic.c" IsConfig="false" Hash="fNugTfs5GyHT4NSfpaeyJg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/evsys/hpl_evsys.c" IsConfig="false" Hash="YFXyIZne7hxDvOF/5YjFTg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/gclk/hpl_gclk.c" IsConfig="false" Hash="5XO/19EedZQ0lq6yB8UTWQ" />
           <AcmeProjectActionInfo Action="File" Source="hpl/gclk/hpl_gclk_base.h" IsConfig="false" Hash="VnaHvu/VnbGvOxrehrp2mQ" />
@@ -247,7 +247,7 @@
           <AcmeProjectActionInfo Action="File" Source="config/hpl_can_config.h" IsConfig="true" Hash="HAJ/2Gf75OxD0xwhS9A6Gw" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_cmcc_config.h" IsConfig="true" Hash="bmtxQ8rLloaRtAo2HeXZRQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_dmac_config.h" IsConfig="true" Hash="BRm2aHhlYqJV1cLnrYiZAg" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_eic_config.h" IsConfig="true" Hash="D8SVuH0VcXByfJgRIi9J3w" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_eic_config.h" IsConfig="true" Hash="Ktjsi3XNr/lcBdpEmXuUVQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_evsys_config.h" IsConfig="true" Hash="4SKdqnpiTlBd8LZeRKlM6Q" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_gclk_config.h" IsConfig="true" Hash="4to9x/6cwpKMQPFGM64v2A" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_mclk_config.h" IsConfig="true" Hash="rFy+pgVSojYF+DZnJ6X/og" />
@@ -320,7 +320,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -372,7 +371,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.IncludePaths>
@@ -413,7 +411,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -470,7 +467,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -528,7 +524,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -570,7 +565,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -631,7 +625,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -689,7 +682,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -731,7 +723,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -793,7 +784,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -851,7 +841,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -893,7 +882,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -955,7 +943,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -1013,7 +1000,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -1055,7 +1041,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -1117,7 +1102,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
@@ -1175,7 +1159,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -1217,7 +1200,6 @@
       <Value>../usb/device</Value>
       <Value>../spi_nor_flash</Value>
       <Value>../spi_nor_flash/n25q256a</Value>
-      <Value>%24(PackRepoDir)\atmel\SAME54_DFP\1.1.134\include</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>

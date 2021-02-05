@@ -21,6 +21,7 @@
 
 static uint8_t  local_memory_block[QSPI_ERBLK];
 static uint32_t local_last_read_stack;
+uint8_t	local_compressor_data_array[COMPRESSOR_CONTROLLER_DATA_SIZE];
 
 // default constructor
 Commands_Handler::Commands_Handler()
@@ -36,6 +37,7 @@ Commands_Handler::~Commands_Handler()
 void Commands_Handler::InitCommandHandler(uint8_t * buffer){
 	usbMessageBuffer=buffer;
 	memory_block=local_memory_block;
+	compressor_data_array=local_compressor_data_array;
 }
 
 bool Commands_Handler::CommandSetEnableFans(void){
@@ -496,8 +498,8 @@ bool Commands_Handler::CommandReadCompressorStatus(void){
 	bool	result(singleTaskMessage.header.task == kHVACCommandReadCompressorStatus);
 	if (result){
 		ccu.GetCompressorStatus(compressor_data_array);
-		memcpy(&compressor_data_array[4],(void*)&temperatures.values[0][0],4);
-		memcpy(&compressor_data_array[8],(void*)&temperatures.values[0][1],4);
+		memcpy(&compressor_data_array[16],(void*)&temperatures.values[0][0],4);
+		memcpy(&compressor_data_array[20],(void*)&temperatures.values[0][1],4);
 		CreateFullBufferMessage(usbMessageBuffer,compressor_data_array);
 		usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 		

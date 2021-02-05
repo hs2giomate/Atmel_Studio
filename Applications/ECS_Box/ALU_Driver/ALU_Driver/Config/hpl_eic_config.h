@@ -217,7 +217,7 @@
 // <i> Indicates whether the external interrupt 3 filter is enabled or not
 // <id> eic_arch_filten3
 #ifndef CONF_EIC_FILTEN3
-#define CONF_EIC_FILTEN3 1
+#define CONF_EIC_FILTEN3 0
 #endif
 
 // <q> External Interrupt 3 Debounce Enable
@@ -553,7 +553,7 @@
 // <e> Interrupt 10 Settings
 // <id> eic_arch_enable_irq_setting10
 #ifndef CONF_EIC_ENABLE_IRQ_SETTING10
-#define CONF_EIC_ENABLE_IRQ_SETTING10 0
+#define CONF_EIC_ENABLE_IRQ_SETTING10 1
 #endif
 
 // <q> External Interrupt 10 Filter Enable
@@ -567,7 +567,7 @@
 // <i> Indicates whether the external interrupt 10 debounce is enabled or not
 // <id> eic_arch_debounce_enable10
 #ifndef CONF_EIC_DEBOUNCE_ENABLE10
-#define CONF_EIC_DEBOUNCE_ENABLE10 0
+#define CONF_EIC_DEBOUNCE_ENABLE10 1
 #endif
 
 // <q> External Interrupt 10 Event Output Enable
@@ -594,7 +594,7 @@
 // <i> Indicates the external interrupt 10 detection mode operated synchronously or asynchronousl
 // <id> eic_arch_asynch10
 #ifndef CONF_EIC_ASYNCH10
-#define CONF_EIC_ASYNCH10 0
+#define CONF_EIC_ASYNCH10 1
 #endif
 
 // </e>
@@ -908,7 +908,7 @@
 
 #define CONFIG_EIC_EXTINT_MAP                                                                                          \
 	{0, PIN_PC00}, {1, PIN_PB01}, {3, PIN_PA03}, {4, PIN_PA04}, {5, PIN_PA05}, {6, PIN_PC22}, {7, PIN_PC23},           \
-	    {8, PIN_PB08}, {9, PIN_PB09},
+	    {8, PIN_PB08}, {9, PIN_PB09}, {10, PIN_PC10},
 
 // <<< end of configuration section >>>
 

@@ -10,6 +10,7 @@
 #include "math.h"
 #include "Timer_Class.h"
 #include "MemoryFlash_Class.h"
+#include "Event_Logger_Class.h"
 
 
 static uint8_t  position_array_static[FLAPPER_VALVE_QUANTITY][FLAPPER_VALVE_POSITIONS_BUFFER];
@@ -104,6 +105,7 @@ bool FlapperValveController::InitController(uint8_t valve_id){
 		if (singlefv->Init(valve_id))
 		{
 			isOK=Selftest();
+			logger.SaveEventIndexResult("Flapper Valve ",valve_id+1,isOK);
 		}
 		return	isOK;
 }
@@ -764,6 +766,7 @@ bool	FlapperValveController::Selftest(void){
 		uint8_t localSetpoint=180;
 		parameters=defaultParameters;
 		uint8_t localPosition;
+		bool must_be_tested=true;
 	UpdateFlapperValveData();
 	singlefv->SetEnable(false);
 	singlefv->SetInvalidPosition(false);
@@ -772,14 +775,7 @@ bool	FlapperValveController::Selftest(void){
 	singlefv->ClearMoveFault(true);
 	singlefv->WriteSetpoint(localSetpoint);
 	singlefv->SetDirection(false);
-	if (singlefv->ReadActualPosition()>localSetpoint)
-	{
-		singlefv->SetDirection(true);
-	}
-	else
-	{
-		singlefv->SetDirection(false);
-	}
+
 	
 		if (valve_ID==0)
 		{
@@ -789,17 +785,60 @@ bool	FlapperValveController::Selftest(void){
 		{
 			hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValve2Controller),FLAPPER_VALVE_TIMEOUT);
 		}
-	singlefv->SetEnable(true);
-	localPosition=singlefv->ReadActualPosition();	timeoutFlapperValveController=false;
-	while ((abs(localPosition-localSetpoint)>12)&(!timeoutFlapperValveController))
-	{
-		localPosition=singlefv->ReadActualPosition();
+	
+	localPosition=singlefv->ReadActualPosition();			
+	if ((abs(localPosition-localSetpoint)<(12+1)))
+	{
+		if (valve_ID==0)
+		{
+			localSetpoint-=64;
+			must_be_tested=true;
+		} 
+		else
+		{
+			localSetpoint=localPosition;
+			must_be_tested=false;
+		}
+		
+	}else{
+		if (valve_ID==1)
+		{
+			localSetpoint=localPosition;
+			must_be_tested=false;
+			
+		} 
+		else
+		{
+		}
 	}
-	RemoveTimeoutTask();
+	timeoutFlapperValveController=false;
+	if (must_be_tested)
+	{
+		if (localPosition>localSetpoint)
+		{
+			singlefv->SetDirection(true);
+		}
+		else
+		{
+			singlefv->SetDirection(false);
+		}
+		
+		singlefv->SetEnable(true);
+		while ((abs(localPosition-localSetpoint)>12)&(!timeoutFlapperValveController))
+		{
+			localPosition=singlefv->ReadActualPosition();
+		}
+		RemoveTimeoutTask();
 
-	singlefv->SetEnable(false);
+		singlefv->SetEnable(false);
+	} 
+	else
+	{
+	}
+	
 	return !timeoutFlapperValveController;
 }
+
 
 void	FlapperValveController::RemoveTimeoutTask(void){
 	if (valve_ID==0)

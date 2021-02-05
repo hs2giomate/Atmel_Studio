@@ -321,6 +321,7 @@ main.d main.o: .././main.cpp .././main.h \
  s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Class.h \
  s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Definitions.h \
  s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Driver_Class.h \
+ s:\atmelstudio\classes\can\canopen_class\canopen_class\interface.h \
  s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SDO_Class.h \
  s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_CRC16_Class.h \
  s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Emergency_Class.h \
@@ -986,6 +987,8 @@ s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Class.h:
 s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Definitions.h:
 
 s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_Driver_Class.h:
+
+s:\atmelstudio\classes\can\canopen_class\canopen_class\interface.h:
 
 s:\atmelstudio\classes\can\canopen_class\canopen_class\CO_SDO_Class.h:
 

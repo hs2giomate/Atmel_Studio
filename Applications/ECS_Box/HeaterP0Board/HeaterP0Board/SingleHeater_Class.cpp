@@ -7,6 +7,7 @@
 
 
 #include "SingleHeater_Class.h"
+#include "Event_Logger_Class.h"
 SingleHeater_Class*	ptrSingleHeaterClass;
 
 static	MCP23008_Class expandersStatic[SINGLE_HEATER_EXPANDERS];
@@ -49,6 +50,7 @@ bool SingleHeater_Class::Init(void){
 			//ext_irq_register(PIN_PA03,FUNC_PTR(HeaterStatusChanged));
 			InitExpanderArray();
 			expanders[0]->SetPortInput();
+			expanders[0]->SetChangeInterruptPins(0xff);
 			expanders[1]->SetPortOutput();
 			isOK=SelfTest();
 		}
@@ -142,6 +144,7 @@ uint8_t	SingleHeater_Class::EnableIndex(uint8_t indexHeater){
 }
 uint8_t	SingleHeater_Class::SetRelay(uint8_t indexHeater, bool state){
 	enabled=expanders[1]->WriteDigit(indexHeater,!state);
+	logger.SaveEventIndexResult("Heater ",indexHeater+1,state);
 	return uint8_t(enabled);
 }
 void SingleHeater_Class::DisableAll(void){
@@ -174,7 +177,7 @@ bool SingleHeater_Class::SelfTest(void){
 	for (uint8_t i = 0; i < 4; i++)
 	{
 		EnableIndex(i);
-		delay_ms(100);
+		delay_ms(50);
 		DisableIndex(i);
 		ReadStatus();
 		if (heaterGPIO.inputs.niAlcHeaterRelayFault[i])

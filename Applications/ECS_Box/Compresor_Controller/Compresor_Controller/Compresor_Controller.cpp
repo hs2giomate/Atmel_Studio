@@ -49,6 +49,10 @@ void Compresor_Controller::GetCompressorStatus(uint8_t *arr){
 	current_speed=GetCurrentSpeed();
 	memcpy(&data_array[1],&current_speed,2);
 	data_array[3]=ReadPressureLimits();
-	memcpy(arr,data_array,4);
+	memcpy(&data_array[4],(void*)canopen_driver->error_flags_array,2);
+	memcpy(&data_array[6],(void*)&canopen_driver->current_IQFilt,2);
+	memcpy(&data_array[8],(void*)&canopen_driver->current_IDFilt,2);
+	memcpy(&data_array[10],(void*)canopen_driver->compressor_temperatures,6);
+	memcpy(arr,data_array,16);
 }
 Compresor_Controller ccu;

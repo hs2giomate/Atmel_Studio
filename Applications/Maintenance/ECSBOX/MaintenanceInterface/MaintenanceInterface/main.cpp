@@ -31,6 +31,7 @@ static void FirmwareIsAlive(const struct timer_task *const timer_task)
 		is_running=true;
 		last_count=counter_running;
 		gpio_toggle_pin_level(LED0);
+		gpio_toggle_pin_level(CPU_RUNNING);
 		
 	}
 	
@@ -51,6 +52,7 @@ uint8_t	StartLivePulse(void){
 
 int main(void)		
 {
+	gpio_set_pin_level(CPU_RUNNING,false);
 	bool gotNewTemperature=false;
 	atmel_start_init();
 	
@@ -66,7 +68,9 @@ int main(void)
 		memory.WriteDefaultParameters();
 		logger.SaveEvent("Info:Memory Started");
 	}
-
+	while(!heaters.Init()){
+		delay_ms(DELAY_ERROR);		gpio_toggle_pin_level(LED0);
+	}
 	
 	bool isOK=temperatures.Init();
 	if (isOK)
@@ -88,9 +92,7 @@ int main(void)
 	fans.evaporator[0]->SetEnable(false);
 	fans.evaporator[1]->SetEnable(false);
 // 	
-	while(!heaters.Init()){
-		delay_ms(DELAY_ERROR);		gpio_toggle_pin_level(LED0);
-			}	while(!scavenge.Init()){
+	while(!scavenge.Init()){
 		delay_ms(DELAY_ERROR);
 		gpio_toggle_pin_level(LED0);
 	}	scavenge.SetEnable(false);
@@ -99,7 +101,7 @@ int main(void)
 		gpio_toggle_pin_level(LED0);
 	}
 	ccu.SetEnable(false);
-				usb.Init();			
+				usb.Init();	gpio_set_pin_level(USB_ID,false);			
 
 
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareIsAlive),1000);
@@ -162,9 +164,9 @@ int main(void)
 		
 		ccu.Periodic_Task();
 		counter_running++;
-		if (counter_running%0x100==0)
+		if (counter_running==0)
 		{
-			logger.SaveEventIndexResult("Running  like crazy!!!",(uint8_t)counter_running,0);
+			logger.SaveEventIndexResult("Running  like crazy!!!: ",(uint8_t)counter_running,true);
 		}
 		
 			//delay_ms(10);

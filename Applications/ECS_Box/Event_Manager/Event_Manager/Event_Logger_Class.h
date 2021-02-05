@@ -54,8 +54,11 @@ public:
 	void SaveEvent(uint8_t* text);
 	void SaveEvent(char const *text);
 	void SaveEventIndexResult(char *text,uint8_t index, uint8_t result);
+	void SaveEventIndexResult(char *text,uint8_t index, bool rb);
 	uint32_t GetCurrentTimeStamp(void);
 	void SaveInstationLog(void);
+	void SaveEventIndexEnable(char *text,uint8_t index, bool res);
+	void SaveEventGPIOValue(char *text,uint8_t *gpio_array,uint8_t size);
 protected:
 private:
 	Event_Logger_Class( const Event_Logger_Class &c );

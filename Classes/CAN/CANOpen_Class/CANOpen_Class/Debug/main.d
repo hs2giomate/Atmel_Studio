@@ -238,8 +238,9 @@ main.d main.o: .././main.cpp \
  .././CANOpen_Class.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/driver_init.h \
  .././CO_Class.h .././CO_Definitions.h .././CO_Driver_Class.h \
- .././CO_SDO_Class.h .././CO_CRC16_Class.h .././CO_Emergency_Class.h \
- .././CO_SYNC_Class.h .././CO_NMT_Heartbeat_Class.h .././CO_PDO_Class.h \
+ .././interface.h .././CO_SDO_Class.h .././CO_CRC16_Class.h \
+ .././CO_Emergency_Class.h .././CO_SYNC_Class.h \
+ .././CO_NMT_Heartbeat_Class.h .././CO_PDO_Class.h \
  .././CO_HB_Consumer_Class.h .././CO_OD_Class.h
 
 ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/atmel_start.h:
@@ -723,6 +724,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././CO_Definitions.h:
 
 .././CO_Driver_Class.h:
+
+.././interface.h:
 
 .././CO_SDO_Class.h:
 

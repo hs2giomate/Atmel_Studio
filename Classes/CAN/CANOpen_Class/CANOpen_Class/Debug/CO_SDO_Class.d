@@ -210,8 +210,9 @@ CO_SDO_Class.d CO_SDO_Class.o: .././CO_SDO_Class.cpp .././CO_SDO_Class.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hal_can_async.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_can.h \
  ../../../../../Applications/ECS_Box/ALU_Driver/ALU_Driver/hal/include/hpl_can_async.h \
- .././CO_CRC16_Class.h .././CO_Driver_Class.h .././CO_Emergency_Class.h \
- .././CO_SYNC_Class.h .././CO_NMT_Heartbeat_Class.h .././CO_PDO_Class.h \
+ .././CO_CRC16_Class.h .././CO_Driver_Class.h .././interface.h \
+ .././CO_Emergency_Class.h .././CO_SYNC_Class.h \
+ .././CO_NMT_Heartbeat_Class.h .././CO_PDO_Class.h \
  .././CO_HB_Consumer_Class.h
 
 .././CO_SDO_Class.h:
@@ -641,6 +642,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\Atmel\SAME54_DFP\1.1.134\include
 .././CO_CRC16_Class.h:
 
 .././CO_Driver_Class.h:
+
+.././interface.h:
 
 .././CO_Emergency_Class.h:
 

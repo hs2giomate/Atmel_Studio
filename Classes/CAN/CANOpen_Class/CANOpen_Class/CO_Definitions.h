@@ -16,7 +16,7 @@ extern "C" {
 	#endif
 	
 	
-	#define CCU_CANOPEN_NODE 2
+	#define CCU_CANOPEN_NODE 3
 
 /*******************************************************************************
    FEATURES

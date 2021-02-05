@@ -95,6 +95,10 @@ static void button_on_PB09_pressed(void)
 {
 }
 
+static void button_on_PC10_pressed(void)
+{
+}
+
 /**
  * Example of using EXTERNAL_IRQ_0
  */
@@ -110,6 +114,7 @@ void EXTERNAL_IRQ_0_example(void)
 	ext_irq_register(PIN_PC23, button_on_PC23_pressed);
 	ext_irq_register(PIN_PB08, button_on_PB08_pressed);
 	ext_irq_register(PIN_PB09, button_on_PB09_pressed);
+	ext_irq_register(PIN_PC10, button_on_PC10_pressed);
 }
 
 /**
