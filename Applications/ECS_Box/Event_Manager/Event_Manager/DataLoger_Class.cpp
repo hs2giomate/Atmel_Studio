@@ -22,6 +22,7 @@ DataLoger_Class::DataLoger_Class()
 	stackPointer=&staticEventLogs[0];
 	logger.memory_event_stack=&local_memory_event_stack;
 	logger.event_buffer_arrray=staticEventLogs;
+	logger.event_buffer_arrray_stack=&stackValue;
 	
 } //DataLoger_Class
 

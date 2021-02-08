@@ -194,7 +194,7 @@ void Event_Logger_Class::SaveEventGPIOValue(char *text,uint8_t *gpio_array,uint8
 	logger_number="0x12345678";
 	for (uint8_t i = 0; i < size; i++)
 	{
-		itoa(gpio_array[i],&logger_number[2*(i+1)],16);
+		utoa(gpio_array[i],&logger_number[2*(i+1)],16);
 		
 	}
 	strcpy(logger_text,text);

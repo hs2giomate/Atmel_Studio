@@ -246,6 +246,7 @@ Compressor_CANOpen_Interface.d Compressor_CANOpen_Interface.o: \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Class.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Definitions.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Driver_Class.h \
+ ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/interface.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_SDO_Class.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_CRC16_Class.h \
  ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Emergency_Class.h \
@@ -749,6 +750,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Definitions.h:
 
 ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_Driver_Class.h:
+
+../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/interface.h:
 
 ../../../../../Classes/CAN/CANOpen_Class/CANOpen_Class/CO_SDO_Class.h:
 

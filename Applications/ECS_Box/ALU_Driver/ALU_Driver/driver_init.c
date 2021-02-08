@@ -174,6 +174,19 @@ void EXTERNAL_IRQ_0_init(void)
 
 	gpio_set_pin_function(PB09, PINMUX_PB09A_EIC_EXTINT9);
 
+	// Set pin direction to input
+	gpio_set_pin_direction(PC10, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(PC10,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(PC10, PINMUX_PC10A_EIC_EXTINT10);
+
 	ext_irq_init();
 }
 
@@ -1019,6 +1032,20 @@ void system_init(void)
 
 	gpio_set_pin_function(SW0, GPIO_PIN_FUNCTION_OFF);
 
+	// GPIO on PC02
+
+	gpio_set_pin_level(CPU_RUNNING,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(CPU_RUNNING, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(CPU_RUNNING, GPIO_PIN_FUNCTION_OFF);
+
 	// GPIO on PC13
 
 	gpio_set_pin_level(CAN_STDBY,
@@ -1074,6 +1101,20 @@ void system_init(void)
 	gpio_set_pin_direction(LED0, GPIO_DIRECTION_OUT);
 
 	gpio_set_pin_function(LED0, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PC19
+
+	gpio_set_pin_level(USB_ID,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(USB_ID, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(USB_ID, GPIO_PIN_FUNCTION_OFF);
 
 	CRC_CALC_init();
 	EXTERNAL_IRQ_0_init();

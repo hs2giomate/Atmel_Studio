@@ -132,6 +132,15 @@ bool Compressor_CANOpen_Interface::Set_CAN_Enable(bool *st){
 }
 
 void	Compressor_CANOpen_Interface::Set_Motor_Speed(uint16_t sp){
-	*speed=sp;
+	if (sp>7000)
+	{
+		*speed=7000;
+	} 
+	else
+	{
+		*speed=sp;
+	}
+	
+	
 }
 

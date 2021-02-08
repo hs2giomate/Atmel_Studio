@@ -11,6 +11,10 @@
 #include "CO_OD_Class.h"
 
 CO_Driver_Class		*canopen_driver;
+static tagSTATUSFLAGS	local_status_flags;
+static tagERRORFLAGS	local_error_flags;
+static uint8_t		local_error_flags_array[2];
+static uint16_t	local_compressor_temperatures[3];
 
 
 static void CO_rx_callback(struct can_async_descriptor *const descr)
@@ -50,6 +54,8 @@ CO_Driver_Class::CO_Driver_Class()
 	RxFifo_Callback_CanModule_p = NULL;
 	canopen_driver=this;
 	canopen_ready=false;
+	status_flags=&local_status_flags;
+	error_flags_array=local_error_flags_array;
 } //CO_Driver_Class
 
 CO_Driver_Class::~CO_Driver_Class()
@@ -226,6 +232,7 @@ CO_ReturnError_t CO_Driver_Class::CANmodule_init(
 		return CO_ERROR_HAL;
 	}
 	CAN_Module=CANmodule;
+	compressor_temperatures=local_compressor_temperatures;
 	return CO_ERROR_NO;
 }
 
@@ -532,11 +539,41 @@ void CO_Driver_Class::ProcessInterrupt_Rx(void)
 		if (CANmessage.ident==(CO_CAN_ID_TPDO_1+CCU_CANOPEN_NODE))
 	//	if (CANmessage.ident==(CO_CAN_ID_TPDO_1+2))
 		{
-			memcpy((void*)CO_OD_RAM.voltage,(void*)CANmessage.data,2);
+			memcpy((void*)CO_OD_RAM.voltage,(void*)&CANmessage.data[6],2);
+// 			error_flags->b.ptfault_mot=CANmessage.data[32];
+// 			error_flags->b.ptfault_pwr=CANmessage.data[33];
+// 			error_flags->b.ptfault_hs=CANmessage.data[34];
+// 			error_flags->b.ptfault_atru=CANmessage.data[35];
+// 			
+// 				//error_flags->b.ptfault_mot=CANmessage.data[32];
+// 				error_flags->b.faulta=CANmessage.data[37];
+// 				error_flags->b.faultb=CANmessage.data[38];
+// 				error_flags->b.undervoltage=CANmessage.data[39];
+// 				
+// 					error_flags->b.overvoltage=CANmessage.data[40];
+// 					error_flags->b.overcurrent=CANmessage.data[41];
+// 					error_flags->b.overheat=CANmessage.data[42];
+// 					error_flags->b.overheat_motor=CANmessage.data[43];
+// 					
+// 						error_flags->b.overheat_trafo=CANmessage.data[44];
+// 						error_flags->b.disabled=CANmessage.data[45];
+// 						error_flags->b.crc_bad=CANmessage.data[46];
+// 						error_flags->b.sync_fault=CANmessage.data[47];
+			memcpy(error_flags_array,(void*)&CANmessage.data[4],2);
 			//CO_OD_RAM.temperature=
 		}
 		else
 		{
+			if (CANmessage.ident==(CO_CAN_ID_TPDO_2+CCU_CANOPEN_NODE)){
+				memcpy((void*)&current_IQFilt,(void*)&CANmessage.data[0],2);
+				memcpy((void*)&current_IDFilt,(void*)&CANmessage.data[2],2);
+			}else{
+				if (CANmessage.ident==(CO_CAN_ID_TPDO_4+CCU_CANOPEN_NODE)){
+						memcpy((void*)&compressor_temperatures[0],(void*)&CANmessage.data[0],2);
+						memcpy((void*)&compressor_temperatures[1],(void*)&CANmessage.data[4],2);
+						memcpy((void*)&compressor_temperatures[2],(void*)&CANmessage.data[6],2);
+				}
+			}
 		}
 	}
 

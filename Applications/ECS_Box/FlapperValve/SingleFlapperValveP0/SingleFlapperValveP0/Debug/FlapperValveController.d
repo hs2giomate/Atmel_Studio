@@ -269,7 +269,26 @@ FlapperValveController.d FlapperValveController.o: \
  ../../../../QSPI_Memory_Handler/ConfigurationCommons.h \
  ../../../../QSPI_Memory_Handler/GAINDefinitions.h \
  ../../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h \
- ../../../../QSPI_Memory_Handler/CRC32_Class.h
+ ../../../../QSPI_Memory_Handler/CRC32_Class.h \
+ ../../../../Event_Manager/Event_Manager/Event_Logger_Class.h \
+ ../../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h \
+ ../../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h \
+ ../../../../Event_Manager/Event_Manager/DateTime_Logger.h \
+ ../../../../Event_Manager/Event_Manager/DataLoger_Class.h \
+ ../../../../QSPI_Memory_Handler/ConfigurationData.h \
+ ../../../../Event_Manager/Event_Manager/Event_Logger_Struct.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\endian.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_endian.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\select.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_sigset.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timeval.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\timespec.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timespec.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h
 
 .././FlapperValveController.h:
 
@@ -812,3 +831,41 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../../../../ALU_Driver/ALU_Driver/hal/include/hpl_calendar.h:
 
 ../../../../QSPI_Memory_Handler/CRC32_Class.h:
+
+../../../../Event_Manager/Event_Manager/Event_Logger_Class.h:
+
+../../../../ECS_Box_Classes/ECS_Box_Classes/Timers/Calendar_Class.h:
+
+../../../../ECS_Box_Classes/ECS_Box_Classes/Timers/DateTimeLog_Class.h:
+
+../../../../Event_Manager/Event_Manager/DateTime_Logger.h:
+
+../../../../Event_Manager/Event_Manager/DataLoger_Class.h:
+
+../../../../QSPI_Memory_Handler/ConfigurationData.h:
+
+../../../../Event_Manager/Event_Manager/Event_Logger_Struct.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\time.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\time.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\endian.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_endian.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\select.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_sigset.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timeval.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\timespec.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timespec.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h:

@@ -101,7 +101,7 @@ int main(void)
 		gpio_toggle_pin_level(LED0);
 	}
 	ccu.SetEnable(false);
-				usb.Init();	gpio_set_pin_level(USB_ID,false);			
+				usb.Init();	gpio_set_pin_level(USB_ID,true);			
 
 
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareIsAlive),1000);

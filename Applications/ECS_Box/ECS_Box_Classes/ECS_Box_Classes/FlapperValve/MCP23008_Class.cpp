@@ -275,10 +275,10 @@ bool MCP23008_Class::ReadDigit(uint8_t pin) {
  * If you are connecting the INTA/B pin to arduino 2/3, you should configure the interupt handling as FALLING with
  * the default configuration.
  */
-void MCP23008_Class::setupInterrupts(uint8_t mirroring, uint8_t openDrain, uint8_t polarity){
+void MCP23008_Class::setupConfigurationRegister(uint8_t mirroring, uint8_t openDrain, uint8_t polarity){
 	// configure the port A
 	uint8_t ioconfValue=readRegister(MCP23008_IOCONA);
-	bitWrite(ioconfValue,6,mirroring);
+//	bitWrite(ioconfValue,6,mirroring);
 	bitWrite(ioconfValue,2,openDrain);
 	bitWrite(ioconfValue,1,polarity);
 	writeRegister(MCP23008_IOCONA,ioconfValue);
@@ -301,7 +301,7 @@ void MCP23008_Class::setupInterruptPin(uint8_t pin, uint8_t mode) {
 
 	// In a RISING interrupt the default value is 0, interrupt is triggered when the pin goes to 1.
 	// In a FALLING interrupt the default value is 1, interrupt is triggered when pin goes to 0.
-	updateRegisterBit(pin,(mode==MCP23008_FALLING),MCP23008_DEFVALA,MCP23008_DEFVALA);
+//	updateRegisterBit(pin,(mode==MCP23008_FALLING),MCP23008_DEFVALA,MCP23008_DEFVALA);
 
 	// enable the pin for interrupt
 	updateRegisterBit(pin,MCP23008_HIGH,MCP23008_GPINTENA,MCP23008_GPINTENA);
@@ -309,14 +309,14 @@ void MCP23008_Class::setupInterruptPin(uint8_t pin, uint8_t mode) {
 }
 
 void MCP23008_Class::SetChangeInterruptAllPins(){
-	setupInterrupts(false,false,MCP23008_HIGH);
+	setupConfigurationRegister(false,false,MCP23008_HIGH);
 	for (uint8_t ii = 0; ii <MCP23008_NUMBER_PINS ; ii++)
 	{
 		setupInterruptPin(ii,MCP23008_CHANGE);
 	}
 }
 void MCP23008_Class::SetChangeInterruptPins(uint8_t mask){
-	setupInterrupts(false,false,MCP23008_HIGH);
+	
 	for (uint8_t ii = 0; ii <MCP23008_NUMBER_PINS ; ii++)
 	{
 		if (mask&(0x01<<ii))
@@ -325,6 +325,7 @@ void MCP23008_Class::SetChangeInterruptPins(uint8_t mask){
 		}
 		
 	}
+	setupConfigurationRegister(false,false,MCP23008_HIGH);
 }
 
 uint8_t MCP23008_Class::getLastInterruptPin(){

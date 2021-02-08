@@ -50,7 +50,7 @@ bool SingleHeater_Class::Init(void){
 			//ext_irq_register(PIN_PA03,FUNC_PTR(HeaterStatusChanged));
 			InitExpanderArray();
 			expanders[0]->SetPortInput();
-			expanders[0]->SetChangeInterruptPins(0xff);
+			expanders[0]->SetChangeInterruptPins(0x1f);
 			expanders[1]->SetPortOutput();
 			isOK=SelfTest();
 		}
@@ -77,6 +77,7 @@ bool SingleHeater_Class::Init(uint8_t id,MCP23008_Class *heater_expanders){
 		//ext_irq_register(PIN_PA03,FUNC_PTR(HeaterStatusChanged));
 		InitExpanderArray(heater_expanders);
 		expanders[0]->SetPortInput();
+		expanders[0]->SetChangeInterruptPins(0x1f);
 		expanders[1]->SetPortOutput();
 		isOK=SelfTest();
 	}

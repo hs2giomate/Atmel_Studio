@@ -115,8 +115,10 @@ extern char* itoa(int value, char*string, int radix)
             sp = string;
 
 
-            while (tp > tmp)
+            while (tp > &tmp[0]){
                 *sp++ = *--tp;
+				asm("nop");
+			}
             *sp = 0;
 
             return string;
