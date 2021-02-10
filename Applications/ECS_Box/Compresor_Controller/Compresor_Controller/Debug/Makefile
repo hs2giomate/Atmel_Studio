@@ -93,7 +93,7 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 LIB_DEP+=  \
-S:/AtmelStudio/Classes/CAN/CANOpen_Class/CANOpen_Class/Debug/libCANOpen_Class.a \
+S:/AtmelStudio/Classes/CAN/CANOpen_Class/CANOpen_Class/NMTMaster/libCANOpen_Class.a \
 S:/AtmelStudio/Applications/ECS_Box/ALU_Driver/ALU_Driver/Debug/libALU_Driver.a \
 S:/AtmelStudio/Applications/ECS_Box/ECS_Box_Classes/ECS_Box_Classes/Debug/libECS_Box_Objects.a
 

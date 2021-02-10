@@ -67,14 +67,8 @@ bool	SingleFlapperValve_Class::Init(void){
 	else
 	{
 		i2c->Init();
-		if (i2c->isOK)
-		{
-			logger.SaveEvent("I2C Flapper Valve Success");
-		} 
-		else
-		{
-			logger.SaveEvent("I2C Flapper Valve Failed");
-		}
+		logger.SaveEventIndexEnable("I2C Flapper Valve ", valveID,i2c->isOK);
+
 	}
 		
 
@@ -83,7 +77,9 @@ bool	SingleFlapperValve_Class::Init(void){
 		//	ext_irq_register(PIN_PA04,FUNC_PTR(Fv1StatusChanged));
 			InitExpanderArray(valveID);
 			expanders[0]->SetPortInput();
+			expanders[0]->SetChangeInterruptPins(0xf9,false);
 			expanders[1]->SetPortInput(0x82);
+			expanders[1]->SetChangeInterruptPins(0x9e,false);
 			expanders[2]->SetPortOutput();
 			expanders[3]->SetPortInput();
 			
@@ -191,6 +187,12 @@ uint8_t SingleFlapperValve_Class::SetVentilatePosition(void){
 uint8_t SingleFlapperValve_Class::ReadSetpoint(){
 	setpointPosition= expanders[2]->ReadGPIORegister();
 	return setpointPosition;
+}
+void  SingleFlapperValve_Class::ReadGPIOs(uint8_t *buf){
+	for (int i = 0; i < FLAPPER_VALVE_EXPANDERS; i++)
+	{
+		buf[i]=expanders[i]->ReadGPIORegister();
+	}
 }
 uint8_t SingleFlapperValve_Class::GetCurrentAngle(void){
 	return actualPosition;

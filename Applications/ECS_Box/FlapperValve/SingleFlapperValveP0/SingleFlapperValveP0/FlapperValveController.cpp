@@ -192,6 +192,10 @@ bool FlapperValveController::IsInvalidPosition(){
 	return result;
 }
 
+void FlapperValveController::ReadGPIOS(uint8_t *buffer){
+	singlefv->ReadGPIOs(buffer);
+}
+
 bool FlapperValveController::Control_NBC_StandAlone_Reset(void){
 	
 	if ((IsInvalidPosition()&(!flapperValveIsMoving)))
@@ -229,9 +233,9 @@ bool FlapperValveController::Control_NBC_StandAlone(void){
 			else
 			{
 				
-				if ((currentPosition>0xff-parameters.flapperValveStandAloneMinimumPosition))
+				if ((currentPosition>parameters.flapperValveStandAloneMinimumPosition[valve_ID]))
 				{
-					StartControlling(0xff-parameters.flapperValveStandAloneMinimumPosition);
+					StartControlling(parameters.flapperValveStandAloneMinimumPosition[valve_ID]);
 					standAloneReturning=true;
 									
 				}
@@ -239,7 +243,7 @@ bool FlapperValveController::Control_NBC_StandAlone(void){
 				{
 					
 				}
-				currentMaximum=0xff-parameters.flapperValveStandAloneMinimumPosition;
+				currentMaximum=parameters.flapperValveStandAloneMinimumPosition[valve_ID];
 				standAloneActivated=true;
 			}
 
@@ -298,7 +302,7 @@ void FlapperValveController::SetPartner(FlapperValveController *part){
 	partner=part;
 }
 bool FlapperValveController::CheckIsClosing(void){
-		if ((((setpoint<6)&(currentPosition<6))|((setpoint>250)&(currentPosition>245)))&((!closing)&(flapperValveIsMoving)))
+		if ((((setpoint<6)&(currentPosition<6))|((setpoint>250)&(currentPosition>245)))&((!closing)&(is_motor_on)))
 		{
 			if (valve_ID==0)
 			{
@@ -392,7 +396,7 @@ uint8_t FlapperValveController::ControlMovement(){
 					{
 						if (timeoutKeepControlling)
 						{
-							StopValveinBetween();
+							StopValveinBetween(false);
 						}
 						else
 						{
@@ -405,7 +409,17 @@ uint8_t FlapperValveController::ControlMovement(){
 				
 				if ((abs(currentPosition-setpoint)>tolerance))
 				{
-					gotSetpoint=false;
+					
+					if (timeoutFlapperValveController)
+					{
+						StopValveinBetween(false);
+						gotSetpoint=false;
+					}
+					else
+					{
+						//KeepControlling();
+					}
+					
 				} 
 				else
 				{
@@ -428,8 +442,15 @@ uint8_t FlapperValveController::ControlMovement(){
 				} 
 				else
 				{
-					StopValveinBetween();
-					gotSetpoint=true;
+					if (gotSetpoint)
+					{
+					} 
+					else
+					{
+						StopValveinBetween();
+						gotSetpoint=true;
+					}
+					
 					//isControlling=false;
 				}
 				
@@ -537,7 +558,7 @@ bool FlapperValveController::SetRemoteNBCMode(bool st){
 uint8_t	FlapperValveController::StopMotor(){
 	singlefv->SetEnable(false);
 	flapperValveIsMoving=false;
-	
+	is_motor_on=false;
 	return 0;
 }
 
@@ -592,13 +613,21 @@ void	FlapperValveController::StopValveAtLimit(void){
 		keepControlling=false;
 }
 
-void FlapperValveController::StopValveinBetween(void){
+void FlapperValveController::StopValveinBetween(bool gs){
 		StopMotor();
 		RemoveTimeoutTask();
 		timeoutFlapperValveController=false;
 		paused=false;
 		timeoutKeepControlling=false;
-		keepControlling=true;
+		keepControlling=gs;
+		if (gs)
+		{
+			
+		} 
+		else
+		{
+			StopControlling();
+		}
 }
 
 
@@ -622,6 +651,7 @@ uint8_t	FlapperValveController::StartMotor(){
 		
 	singlefv->SetEnable(true);
 	flapperValveIsMoving=true;
+	is_motor_on=flapperValveIsMoving;
 	return 0;
 }
 uint8_t FlapperValveController::StopControlling(void){
@@ -655,6 +685,7 @@ uint8_t	FlapperValveController::StartControlling(uint8_t sp){
 		isControlling=true;
 		StartMovingOnDirection();
 	//	while(!gotSetpoint&(!doPeriodicTask)){
+		gotSetpoint=false;
 			ControlMovement();
 	//	}	
 		if (doPeriodicTask)
@@ -674,7 +705,7 @@ uint8_t FlapperValveController::VerifySetpoint(uint8_t sp){
 	{
 		if (standAloneActivated)
 		{
-			standAlonePosition=0xff-parameters.flapperValveStandAloneMinimumPosition;
+			standAlonePosition=parameters.flapperValveStandAloneMinimumPosition[valve_ID];
 			if (sp>(standAlonePosition))
 			{
 				setpoint=standAlonePosition;
@@ -687,7 +718,7 @@ uint8_t FlapperValveController::VerifySetpoint(uint8_t sp){
 		}
 		else
 		{
-			maximumPosition=0xff-parameters.flapperValveMinimumPosition;
+			maximumPosition=parameters.flapperValveMinimumPosition[valve_ID];
 			if (sp>maximumPosition)
 			{
 				setpoint=maximumPosition;
@@ -735,18 +766,21 @@ void	FlapperValveController::UpdateFlapperValveData(void){
 	dataStruct.inputStatus=singlefv->ReadStatusInputs();
 	dataStruct.controlOutputs=singlefv->ReadControlStatus();
 	
-	dataStruct.controllerStatus.isMoving=flapperValveIsMoving;
+//	dataStruct.controllerStatus.isMoving=flapperValveIsMoving;
+	dataStruct.controllerStatus.isDriverON=is_motor_on;
 	dataStruct.controllerStatus.isControlling=isControlling;
 	dataStruct.controllerStatus.NBC_Mode=NBC_Activated;
 	dataStruct.controllerStatus.is_flapper_OK=isOK;
+	dataStruct.controllerStatus.is_stand_alone=IsStandAloneMode();
+	dataStruct.controllerStatus.got_setpoint=gotSetpoint;
 	
 	if (standAloneActivated)
 	{
-		currentMaximum=0xff-parameters.flapperValveStandAloneMinimumPosition;
+		currentMaximum=parameters.flapperValveStandAloneMinimumPosition[valve_ID];
 	} 
 	else
 	{
-		currentMaximum=0xff-parameters.flapperValveMinimumPosition;
+		currentMaximum=parameters.flapperValveMinimumPosition[valve_ID];
 	}
 	FillPositionsFIFO(currentPosition);
 }
@@ -786,31 +820,72 @@ bool	FlapperValveController::Selftest(void){
 			hvacTimer.Start_oneShot_task(FUNC_PTR(TimeoutFlapperValve2Controller),FLAPPER_VALVE_TIMEOUT);
 		}
 	
-	localPosition=singlefv->ReadActualPosition();			
-	if ((abs(localPosition-localSetpoint)<(12+1)))
-	{
-		if (valve_ID==0)
-		{
-			localSetpoint-=64;
-			must_be_tested=true;
-		} 
-		else
-		{
-			localSetpoint=localPosition;
-			must_be_tested=false;
-		}
+		localPosition=singlefv->ReadActualPosition();		if ((abs(localPosition-localSetpoint)<(12+1)))
+		{		#ifdef ATP_TEST
+	
 		
-	}else{
-		if (valve_ID==1)
-		{
-			localSetpoint=localPosition;
-			must_be_tested=false;
+			if (valve_ID==0)
+			{
+				localSetpoint-=64;
+				must_be_tested=true;
+			}else{
+				if ((abs(localPosition-ptrFlapperValveController[0]->GetCurrentPosition())<(6)))
+				{
+					localSetpoint=localPosition;
+					must_be_tested=false;
+				} 
+				else
+				{
+				}
+			}
+
+	
+#else
+	
+			if (valve_ID==0)
+			{
+				localSetpoint-=64;
+				must_be_tested=true;
+			}
+			else
+			{
+				localSetpoint=localPosition;
+				must_be_tested=false;
+			}
 			
-		} 
+			}else{
+			if (valve_ID==1)
+			{
+				localSetpoint=localPosition;
+				must_be_tested=false;
+				
+			}
+			else
+			{
+			}
+	
+#endif
+		}
 		else
 		{
+#ifdef ATP_TEST
+		
+			if (valve_ID==1)
+			{
+				if ((abs(localPosition-ptrFlapperValveController[0]->GetCurrentPosition())<(6)))
+				{
+					localSetpoint=localPosition;
+					must_be_tested=false;
+				}
+				else
+				{
+				}
+			}
+
+#endif
+			
 		}
-	}
+	
 	timeoutFlapperValveController=false;
 	if (must_be_tested)
 	{
@@ -834,9 +909,10 @@ bool	FlapperValveController::Selftest(void){
 	} 
 	else
 	{
+		gotSetpoint=true;
 	}
-	
-	return !timeoutFlapperValveController;
+	gotSetpoint=!timeoutFlapperValveController;
+	return gotSetpoint;
 }
 
 

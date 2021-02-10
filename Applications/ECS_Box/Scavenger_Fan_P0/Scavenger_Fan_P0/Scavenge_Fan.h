@@ -10,6 +10,7 @@
 #define __SCAVENGE_FAN_H__
 #include "MCP23008_Class.h"
 #define MCP23008_SCAVENGE_ADDRESS 0x24
+#define TACHO_SIGNAL_BUFFER_SIZE	0x10
 
 struct Scavenge_Data
 {
@@ -31,6 +32,7 @@ private:
 	MCP23008_Class* expander;
 	I2C_Sync_Class*	i2c;
 	bool bool_result;
+	bool low_speed;
 	
 
 
@@ -42,11 +44,13 @@ public:
 	uint8_t	ReadStatus(void);
 	uint8_t	SetEnable(bool state);
 	bool IsEnabled(void);
+	void FillLowSpeedFIFO(void);
 protected:
 private:
 	Scavenge_Fan( const Scavenge_Fan &c );
 	Scavenge_Fan& operator=( const Scavenge_Fan &c );
 	bool SelfTest();
+	bool IsLowSpeed(void);
 
 }; //Scavenge_Fan
 extern Scavenge_Fan scavenge;

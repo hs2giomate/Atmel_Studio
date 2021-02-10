@@ -55,6 +55,7 @@ int main(void)
 	gpio_set_pin_level(CPU_RUNNING,false);
 	bool gotNewTemperature=false;
 	atmel_start_init();
+	UserParameters parameters=defaultParameters;
 	
 	//StartLivePulse();
 	delay_ms(200);
@@ -66,11 +67,23 @@ int main(void)
 	if (memory.initiated)
 	{
 		memory.WriteDefaultParameters();
+		memory.SaveParameters(parameters);
 		logger.SaveEvent("Info:Memory Started");
+	
 	}
+	gpio_set_pin_level(LED0,true);
 	while(!heaters.Init()){
 		delay_ms(DELAY_ERROR);		gpio_toggle_pin_level(LED0);
 	}
+	gpio_set_pin_level(LED0,true);
+	while(!fans.Init()){
+		delay_ms(DELAY_ERROR);
+		gpio_toggle_pin_level(LED0);
+			
+	}
+	fans.condesator->SetEnable(false);
+	fans.evaporator[0]->SetEnable(false);
+	fans.evaporator[1]->SetEnable(false);
 	
 	bool isOK=temperatures.Init();
 	if (isOK)
@@ -83,14 +96,7 @@ int main(void)
 		delay_ms(DELAY_ERROR);
 		gpio_toggle_pin_level(LED0);
 	}
-	while(!fans.Init()){
-		delay_ms(DELAY_ERROR);
-		gpio_toggle_pin_level(LED0);
-		
-	}
-	fans.condesator->SetEnable(false);
-	fans.evaporator[0]->SetEnable(false);
-	fans.evaporator[1]->SetEnable(false);
+
 // 	
 	while(!scavenge.Init()){
 		delay_ms(DELAY_ERROR);
@@ -101,7 +107,7 @@ int main(void)
 		gpio_toggle_pin_level(LED0);
 	}
 	ccu.SetEnable(false);
-				usb.Init();	gpio_set_pin_level(USB_ID,true);			
+				usb.Init();	gpio_set_pin_level(USB_ID,false);			
 
 
 	hvacTimer.Start_periodic_task(FUNC_PTR(FirmwareIsAlive),1000);
@@ -163,6 +169,8 @@ int main(void)
 		
 		
 		ccu.Periodic_Task();
+		fans.CheckFansOperation();
+		scavenge.FillLowSpeedFIFO();
 		counter_running++;
 		if (counter_running==0)
 		{

@@ -36,7 +36,7 @@
         <documentation help="" />
         <offline-documentation help="" />
         <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.34.1" />
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
@@ -276,7 +276,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Classes\CAN\CANOpen_Class\CANOpen_Class\CANOpen_Class.cppproj">
       <Name>CANOpen_Class</Name>
-      <Project>{a19efdf3-f37a-49d6-8bc0-1774108432b7}</Project>
+      <Project>{78b568d0-23c7-4a53-9f94-7825e8446a3a}</Project>
       <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\ALU_Driver\ALU_Driver\ALU_Driver.cproj">

@@ -191,14 +191,14 @@ void Event_Logger_Class::SaveEventIndexEnable(char *text,uint8_t index, bool res
 	
 }
 void Event_Logger_Class::SaveEventGPIOValue(char *text,uint8_t *gpio_array,uint8_t size){
-	logger_number="0x12345678";
+	char temp_logger_number[]="0x123456789a";
 	for (uint8_t i = 0; i < size; i++)
 	{
-		utoa(gpio_array[i],&logger_number[2*(i+1)],16);
+		utoa(gpio_array[i],&temp_logger_number[2*(i+1)],16);
 		
 	}
 	strcpy(logger_text,text);
-	logger_module=strcat(logger_text,logger_number);
+	logger_module=strcat(logger_text,temp_logger_number);
 
 	SaveEvent(logger_module);
 	

@@ -35,6 +35,7 @@ private:
 	I2C_Sync_Class*	i2c;
 	MCP23008_Class* expanders[EVAPORATOR_AND_CONDESATOR_EXPANDERS];
 	MCP23008_Class* currentExpander;
+	uint8_t fault_value;
 
 //functions
 public:
@@ -47,6 +48,7 @@ public:
 	uint8_t	SetPWM(uint8_t pwm);
 	uint8_t	SetEnable(bool state);
 	bool	IsEnabled(void);
+	bool	IsExternFault(void);
 protected:
 private:
 	CondesatorFan_Class( const CondesatorFan_Class &c );

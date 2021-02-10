@@ -8,6 +8,7 @@
 
 #include "Scavenge_Fan.h"
 static MCP23008_Class local_expander;
+static bool low_speed_array[TACHO_SIGNAL_BUFFER_SIZE];
 
 // default constructor
 Scavenge_Fan::Scavenge_Fan()
@@ -50,6 +51,17 @@ uint8_t	Scavenge_Fan::ReadStatus(void){
 	scavengeData.tempFault=r&(0x01<<(7));
 	scavengeData.SPDFault=r&(0x01<<(6));
 	scavengeData.relayFault=r&(0x01<<(4));
+	r&=0xfe;
+	if (IsLowSpeed())
+	{
+		r|=0x01;
+	} 
+	else
+	{
+		
+	}
+	
+
 	return r;
 	
 }
@@ -57,6 +69,42 @@ uint8_t	Scavenge_Fan::SetEnable(bool state){
 
 	enabled=expander->WriteDigit(1,!state);
 	return uint8_t(enabled);
+}
+
+bool Scavenge_Fan::IsLowSpeed(void){
+	low_speed=false;
+	for (uint8_t i = 0; i < TACHO_SIGNAL_BUFFER_SIZE-1; i++)
+	{	
+		if (low_speed_array[i])
+		{
+			low_speed=true;
+			break;
+		} 
+		else
+		{
+			if (low_speed_array[i]==low_speed_array[i+1])
+			{
+				low_speed=false;
+			}
+			else
+			{
+				low_speed=true;
+				break;
+			}
+		}
+		
+		
+	}
+	return low_speed;
+}
+	
+void Scavenge_Fan::FillLowSpeedFIFO(void){
+	uint8_t r=expander->ReadGPIORegister();
+	for (uint8_t i = 0; i < TACHO_SIGNAL_BUFFER_SIZE-1; i++)
+	{
+		low_speed_array[TACHO_SIGNAL_BUFFER_SIZE-1-i]=low_speed_array[TACHO_SIGNAL_BUFFER_SIZE-2-i];
+	}
+	low_speed_array[0]=(!(r>>6))&0x01;
 }
 
 bool Scavenge_Fan::IsEnabled(void){

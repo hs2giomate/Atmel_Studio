@@ -33,6 +33,7 @@ public:
 	~EvaporatorAndCondesatorFans_Class();
 	bool	Init(void);
 	void GetGPIOSValues(uint8_t * gpios);
+	void CheckFansOperation(void);
 protected:
 private:
 	EvaporatorAndCondesatorFans_Class( const EvaporatorAndCondesatorFans_Class &c );

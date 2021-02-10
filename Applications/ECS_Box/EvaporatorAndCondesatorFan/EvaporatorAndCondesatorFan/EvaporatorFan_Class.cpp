@@ -95,6 +95,12 @@ uint8_t	EvaporatorFan_Class::ReadPWM(void){
 	return pwmValue;
 
 }
+bool EvaporatorFan_Class::IsExternFault(){
+	
+	fault_value=expanders[1]->ReadGPIORegister();
+	return ((!(fault_value>>(fanNumber*4)))&0x01)>0;
+	
+}
 bool EvaporatorFan_Class::IsEnabled(void){
 	uint8_t fanCorrrection=fanNumber==1?2:1;
 	uint8_t value=expanders[0]->ReadGPIORegister();

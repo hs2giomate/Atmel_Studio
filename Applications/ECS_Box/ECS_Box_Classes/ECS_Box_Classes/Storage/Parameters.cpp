@@ -23,8 +23,8 @@ const UserParameters	defaultParameters =
 	/************************************************************************/
 	/*                                                                      */
 	/************************************************************************/
-	.flapperValveMinimumPosition				=		0x20,
-	.flapperValveStandAloneMinimumPosition				=		0x40,
+	.flapperValveMinimumPosition				=	{0xdf,0xdf},
+	.flapperValveStandAloneMinimumPosition				= 	{0xbf,0xbf}
 // 	.slowSpeedCurrentLimitStow		=		750,			/**<	Current Limitation mAmp */
 // 	.fastSpeedCurrentLimitStow		=		700,			//	Current Limitation mAmp
 // 	.parkingSpeedCurrentLimitStow	=		2000,			//	Current Limitation mAmp

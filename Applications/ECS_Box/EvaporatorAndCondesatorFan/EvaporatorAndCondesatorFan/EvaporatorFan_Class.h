@@ -31,6 +31,7 @@ private:
 	MCP23008_Class* currentExpander;
 	uint8_t	fanNumber;
 	uint8_t	pwmValue;
+	uint8_t fault_value;
 
 //functions
 public:
@@ -44,6 +45,7 @@ public:
 	uint8_t	SetEnable(bool state);
 	uint8_t	ReadPWM(void);
 	bool IsEnabled(void);
+	bool IsExternFault();
 	
 protected:
 private:

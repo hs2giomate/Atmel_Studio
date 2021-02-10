@@ -7,6 +7,7 @@
 
 
 #include "EvaporatorAndCondesatorFans_Class.h"
+#include "Event_Logger_Class.h"
 static I2C_Sync_Class	i2cFansStatic(&I2C_FANS);
 static EvaporatorFan_Class	evaporatorFan[2];
 static CondesatorFan_Class	condesatorFan;
@@ -73,6 +74,41 @@ void EvaporatorAndCondesatorFans_Class::GetGPIOSValues(uint8_t * gpios){
 	}
 	
 
+}
+
+void EvaporatorAndCondesatorFans_Class::CheckFansOperation(void){
+	for (int i = 0; i < 2; i++)
+	{
+		if (evaporator[i]->IsEnabled())
+		{
+			if (evaporator[i]->IsExternFault())
+			{
+				evaporator[i]->SetEnable(false);
+				logger.SaveEventIndexEnable("Evaporator ",i,false);
+			} 
+			else
+			{
+			}
+		} 
+		else
+		{
+		}
+		
+	}
+	if (condesator->IsEnabled())
+	{
+		if (condesator->IsExternFault())
+		{
+			condesator->SetEnable(false);
+			logger.SaveEventIndexEnable("Condesator ",(uint8_t)0,false);
+		}
+		else
+		{
+		}
+	}
+	else
+	{
+	}
 }
 
 EvaporatorAndCondesatorFans_Class  fans;

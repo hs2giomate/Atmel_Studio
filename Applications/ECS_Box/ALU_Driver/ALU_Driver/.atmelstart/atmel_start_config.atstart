@@ -754,7 +754,7 @@ drivers:
       eic_arch_prescaler1: Divided by 2
       eic_arch_sense0: Both-edges detection
       eic_arch_sense1: Rising-edge detection
-      eic_arch_sense10: No detection
+      eic_arch_sense10: Rising-edge detection
       eic_arch_sense11: No detection
       eic_arch_sense12: No detection
       eic_arch_sense13: No detection
@@ -762,8 +762,8 @@ drivers:
       eic_arch_sense15: No detection
       eic_arch_sense2: No detection
       eic_arch_sense3: Rising-edge detection
-      eic_arch_sense4: Rising-edge detection
-      eic_arch_sense5: Rising-edge detection
+      eic_arch_sense4: Falling-edge detection
+      eic_arch_sense5: Falling-edge detection
       eic_arch_sense6: No detection
       eic_arch_sense7: Rising-edge detection
       eic_arch_sense8: Rising-edge detection

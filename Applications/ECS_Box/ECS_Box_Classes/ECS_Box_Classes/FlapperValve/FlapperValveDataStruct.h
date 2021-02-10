@@ -29,11 +29,13 @@ struct __attribute__((__packed__)) ControlStatus
 };
 struct __attribute__((__packed__)) FlapperValveControllerStatus
 {
-	bool	isMoving;
+	bool	isDriverON;				//received[22]
 	bool	isControlling;
 	bool	NBC_Mode;
 	uint8_t	minimunAir;
 	bool	is_flapper_OK;
+	bool	is_stand_alone;
+	bool	got_setpoint;
 //	uint8_t	position;
 
 };

@@ -25,6 +25,7 @@ private:
 	uint8_t		*usbMessageBuffer;
 	FullBufferMessage message64;
 	uint8_t	data_fans_array[3];
+	uint8_t minimum_air_values[2];
 	uint8_t	heater_data_array[HEATER_DATA_SIZE];
 	uint8_t	*compressor_data_array;
 	UserParameters	parameters;

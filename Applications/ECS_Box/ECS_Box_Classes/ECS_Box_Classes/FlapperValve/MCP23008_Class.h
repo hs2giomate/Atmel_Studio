@@ -84,6 +84,7 @@ public:
 		void	SetPortInput(uint8_t inputs);
 		void	SetPortOutput(uint8_t out);
 		void	SetChangeInterruptPins(uint8_t mask);
+		void	SetChangeInterruptPins(uint8_t mask,bool int_pol);
 protected:
 private:
 	MCP23008_Class( const MCP23008_Class &c );

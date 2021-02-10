@@ -174,6 +174,7 @@ bool  Commands_Handler::CommandSetFlapperValve(void){
 			} 
 			else
 			{
+				flapper.valve[i]->StopControlling();
 			}
 			
 		}
@@ -280,17 +281,19 @@ bool Commands_Handler::CommandReadParameters(){
 		is_stand_alone=flapper.IsStandAlone();
 		if (is_stand_alone)
 		{
-			usbMessageBuffer[n+sizeof(UserParameters)]=parameters.flapperValveStandAloneMinimumPosition;
+			memcpy(&usbMessageBuffer[n+sizeof(UserParameters)],parameters.flapperValveStandAloneMinimumPosition,2);
+			//usbMessageBuffer[n+sizeof(UserParameters)]=parameters.flapperValveStandAloneMinimumPosition;
 		}
 		else
 		{
-			usbMessageBuffer[n+sizeof(UserParameters)]=parameters.flapperValveMinimumPosition;
+			memcpy(&usbMessageBuffer[n+sizeof(UserParameters)],parameters.flapperValveMinimumPosition,2);
+			//usbMessageBuffer[n+sizeof(UserParameters)]=parameters.flapperValveMinimumPosition;
 		}
 		usb.write(usbMessageBuffer,MAINTENANCE_TOOL_BUFFER_SIZE);
 
 		
 		
-		}else{
+	}else{
 
 	}
 	

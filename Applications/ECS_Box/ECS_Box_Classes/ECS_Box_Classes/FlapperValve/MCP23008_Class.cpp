@@ -327,6 +327,18 @@ void MCP23008_Class::SetChangeInterruptPins(uint8_t mask){
 	}
 	setupConfigurationRegister(false,false,MCP23008_HIGH);
 }
+void MCP23008_Class::SetChangeInterruptPins(uint8_t mask,bool int_pol){
+	
+	for (uint8_t ii = 0; ii <MCP23008_NUMBER_PINS ; ii++)
+	{
+		if (mask&(0x01<<ii))
+		{
+			setupInterruptPin(ii,MCP23008_CHANGE);
+		}
+		
+	}
+	setupConfigurationRegister(false,false,int_pol);
+}
 
 uint8_t MCP23008_Class::getLastInterruptPin(){
 	uint8_t intf;

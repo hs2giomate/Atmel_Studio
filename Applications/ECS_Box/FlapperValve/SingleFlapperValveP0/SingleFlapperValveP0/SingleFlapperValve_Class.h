@@ -71,6 +71,7 @@ public:
 	uint8_t ClearMoveFault(bool b);
 	uint8_t SetDirection(bool b);
 	uint8_t SetInvalidPosition(bool b);
+	void  ReadGPIOs(uint8_t *buf);
 	
 protected:
 private:

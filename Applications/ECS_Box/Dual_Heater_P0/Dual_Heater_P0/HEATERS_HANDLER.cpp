@@ -16,12 +16,12 @@ static uint8_t local_gpios_buffer[NUMBER_OF_HEATERS];
 static void Heater_1_Has_Changed(void)
 {
 	heaters.module[0]->ReadGPIOs(local_gpios_buffer);
-	logger.SaveEventGPIOValue("Heater 1 , gpios : ",local_gpios_buffer,SINGLE_HEATER_EXPANDERS);
+	logger.SaveEventGPIOValue("Heater 1 , gpios =  ",local_gpios_buffer,SINGLE_HEATER_EXPANDERS);
 }
 static void Heater_2_Has_Changed(void)
 {
-	heaters.module[0]->ReadGPIOs(local_gpios_buffer);
-	logger.SaveEventGPIOValue("Heater 2 , gpios : ",local_gpios_buffer,SINGLE_HEATER_EXPANDERS);
+	heaters.module[1]->ReadGPIOs(local_gpios_buffer);
+	logger.SaveEventGPIOValue("Heater 2 , gpios = ",local_gpios_buffer,SINGLE_HEATER_EXPANDERS);
 }
 
 // default constructor
@@ -51,7 +51,7 @@ bool HEATERS_HANDLER::Init(void){
 		
 	}
 	ext_irq_register(PIN_PA03, Heater_1_Has_Changed);
-	ext_irq_register(PIN_PA03, Heater_2_Has_Changed);
+	ext_irq_register(PIN_PC10, Heater_2_Has_Changed);
 	
 	isOK=(module[0]->isOK)&(module[1]->isOK);
 	return	isOK;

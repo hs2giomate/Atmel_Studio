@@ -73,6 +73,12 @@ bool CondesatorFan_Class::IsEnabled(void){
 	enabled=(value&0x01);
 	return enabled;
 }
+bool CondesatorFan_Class::IsExternFault(void){
+	
+	fault_value=expanders[0]->ReadGPIORegister();
+	return ((!(fault_value>>4))&0x01)>0;
+	
+}
 
 
 uint8_t	CondesatorFan_Class::SetPWM(uint8_t pwm){

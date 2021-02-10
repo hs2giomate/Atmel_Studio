@@ -14,7 +14,7 @@
 #define  FLAPPER_VALVE_UNLOCK_TIMEOUT	500
 #define  FLAPPER_VALVE_CLOSING_TIMEOUT	200
 #define FLAPPER_VALVE_CONTROL_LIMIT	4
-#define FLAPPER_VALVE_POSITIONS_BUFFER 16
+#define FLAPPER_VALVE_POSITIONS_BUFFER 8
 
 
 
@@ -40,7 +40,7 @@ private:
 	uint8_t valve_ID;
 	uint8_t	*positions[FLAPPER_VALVE_QUANTITY];
 	FlapperValveController *partner;
-	bool bool_result;
+	bool bool_result,is_motor_on;
 	
 
 //functions
@@ -73,6 +73,7 @@ public:
 	bool	IsNBCMode(void);
 	bool	IsFlapperMoving(void);
 	bool	IsStandAloneMode(void);
+	void ReadGPIOS(uint8_t *buffer);
 
 	
 	
@@ -84,7 +85,7 @@ private:
 	uint8_t StartMovingOnDirection();
 	void	StopValveAtLimit(void);
 	uint8_t	CorrectTolerance(uint8_t sp);
-	void StopValveinBetween(void);
+	void StopValveinBetween(bool gs=true);
 	uint8_t CommandNBC_Mode(void);
 	
 	uint8_t	KeepControlling(uint8_t restart=0);
